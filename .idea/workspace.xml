@@ -1,0 +1,598 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/java-cup-11b-runtime.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/AbstractVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/AddOp$Visitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/AddOp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Ar.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Arg$Visitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Arg.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Ass.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/BStmt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Blk.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Block$Visitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Block.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Bool.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Cond.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/CondElse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Decl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Decr.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Div.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/EAdd.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/EAnd.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/EApp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ELitFalse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ELitInt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ELitTrue.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/EMul.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/EOr.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/EQU.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ERel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/EString.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/EVar.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Empty.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Expr$Visitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Expr.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/FnDef.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Fun.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/GE.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/GTH.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Incr.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Init.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Int.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Item$Visitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Item.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/LE.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/LTH.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ListArg.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ListExpr.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ListItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ListStmt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ListTopDef.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ListType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Minus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Mod.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/MulOp$Visitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/MulOp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/NE.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Neg.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/NoInit.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Not.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Plus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Prog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Program$Visitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Program.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/RelOp$Visitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/RelOp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Ret.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/SExp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Stmt$Visitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Stmt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Str.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Times.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/TopDef$Visitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/TopDef.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Type$Visitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Type.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/VRet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Void.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/While.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/AllVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/ComposVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/FoldVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/PrettyPrinter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/VisitSkel$AddOpVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/VisitSkel$ArgVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/VisitSkel$BlockVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/VisitSkel$ExprVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/VisitSkel$ItemVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/VisitSkel$MulOpVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/VisitSkel$ProgramVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/VisitSkel$RelOpVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/VisitSkel$StmtVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/VisitSkel$TopDefVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/VisitSkel$TypeVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/VisitSkel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Yylex.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/parser$CUP$parser$actions.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/parser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/sym.class" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/latte_lang/Test.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="28" column="14" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/latte_lang/Absyn/Program.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/latte_lang/Absyn/Prog.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="43" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/latte_lang/Absyn/AddOp.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/latte_lang/sym.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-455">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/latte_lang/PrettyPrinter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/latte_lang/parser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="6105">
+              <caret line="416" column="22" lean-forward="true" selection-start-line="416" selection-start-column="22" selection-end-line="416" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/java_cup/runtime/ComplexSymbolFactory.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret line="3" column="2" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/latte_lang/Absyn/Ar.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>locat</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/latte_lang/Absyn/Ar.java" />
+        <option value="$PROJECT_DIR$/latte_lang/Yylex.java" />
+        <option value="$PROJECT_DIR$/latte_lang/Test.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/compiler.iml" />
+        <option value="$PROJECT_DIR$/.idea/compiler.iml" />
+        <option value="$PROJECT_DIR$/.idea/misc.xml" />
+        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
+        <option value="$PROJECT_DIR$/.idea/modules.xml" />
+        <option value="$PROJECT_DIR$/.idea/compiler.iml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1948" />
+    <option name="y" value="29" />
+    <option name="width" value="1867" />
+    <option name="height" value="1020" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="compiler" type="b2602c69:ProjectViewProjectNode" />
+              <item name="compiler" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="compiler" type="b2602c69:ProjectViewProjectNode" />
+              <item name="compiler" type="462c0819:PsiDirectoryNode" />
+              <item name="latte_lang" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="compiler" type="b2602c69:ProjectViewProjectNode" />
+              <item name="compiler" type="462c0819:PsiDirectoryNode" />
+              <item name="latte_lang" type="462c0819:PsiDirectoryNode" />
+              <item name="Absyn" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/java-cup-11b-runtime.jar!/" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/java_cup" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="latte_lang.Absyn" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.Test">
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="latte_lang.Test" />
+      <module name="compiler" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="latte_lang.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="all" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="all" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.Test" />
+      <item itemvalue="Makefile.all" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Test" />
+        <item itemvalue="Makefile.all" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="" />
+      <created>1637830333890</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1637830333890</updated>
+      <workItem from="1637830335611" duration="231000" />
+      <workItem from="1637830773287" duration="2037000" />
+      <workItem from="1637832829968" duration="78000" />
+      <workItem from="1637832928026" duration="114000" />
+      <workItem from="1637833060925" duration="113000" />
+      <workItem from="1637833198189" duration="778000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="3351000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1948" y="29" width="1867" height="1020" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2597474" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32977587" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32824427" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="10" />
+      <window_info anchor="bottom" id="Database Changes" order="11" />
+      <window_info anchor="bottom" id="Version Control" order="12" weight="0.6019629" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="make" order="6" />
+      <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Theme Preview" order="9" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/latte_lang/_cup.cup">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-900" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/latte_lang/AllVisitor.class" />
+    <entry file="file://$PROJECT_DIR$/latte_lang/Yylex.class" />
+    <entry file="file://$PROJECT_DIR$/latte.iml" />
+    <entry file="file://$PROJECT_DIR$/latte_lang/Test.class" />
+    <entry file="file://$PROJECT_DIR$/Latte.cf">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LatteLang.cf">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Makefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="9" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/latte_lang/Yylex.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="31" column="80" selection-start-line="31" selection-start-column="80" selection-end-line="31" selection-end-column="80" />
+          <folding>
+            <element signature="e#0#24931#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java_cup/runtime/SyntaxTreeTransform.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/readme.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java_cup/runtime/ComplexSymbolFactory.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="3" column="2" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/latte_lang/Absyn/Ar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/latte_lang/Absyn/Program.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/latte_lang/Absyn/Prog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="43" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/latte_lang/Absyn/AddOp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/latte_lang/sym.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-455">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/latte_lang/PrettyPrinter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/latte_lang/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="14" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/java-cup-11b-runtime.jar!/java_cup/runtime/lr_parser.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="7" column="7" lean-forward="true" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/latte_lang/parser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6105">
+          <caret line="416" column="22" lean-forward="true" selection-start-line="416" selection-start-column="22" selection-end-line="416" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>compiler</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>java_cup</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
