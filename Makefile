@@ -23,9 +23,9 @@ absyn : latte_lang/Absyn/Program.java latte_lang/Absyn/Prog.java latte_lang/Absy
 latte_lang/Yylex.java : latte_lang/Yylex
 	${LEXER} ${LEXER_FLAGS} latte_lang/Yylex
 
-latte_lang/parser.java latte_lang/sym.java : latte_lang/_cup.cup
-	${PARSER} ${PARSER_FLAGS} latte_lang/_cup.cup
-	mv parser.java sym.java latte_lang/
+#latte_lang/parser.java latte_lang/sym.java : latte_lang/_cup.cup
+#	${PARSER} ${PARSER_FLAGS} latte_lang/_cup.cup
+#	mv parser.java sym.java latte_lang/
 
 latte_lang/Yylex.class : latte_lang/Yylex.java latte_lang/parser.java latte_lang/sym.java
 
