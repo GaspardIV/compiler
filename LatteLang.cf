@@ -2,15 +2,30 @@
 
 entrypoints Program ;
 
-Prog.   Program ::= [TopDef] ;
+Prog.       Program ::= [TopDef] ;
 
-FnDef.	   TopDef ::= Type Ident "(" [Arg] ")" Block ;
+FnDef.      TopDef ::= Type Ident "(" [Arg] ")" Block ;
+
+ClDef.      TopDef ::= "class" Ident ClBlock ;
+
+ClDefExt.   TopDef ::= "class" Ident "extends" Ident ClBlock ;
 
 separator nonempty TopDef "" ;
 
 Ar. 	   Arg ::= Type Ident;
 
 separator  Arg "," ;
+
+-- classes -------------------------------------------------
+
+ClBlk.      ClBlock ::= "{" [ClMember] "}";
+
+ClField.    ClMember ::= Type Ident ";" ;
+
+ClMethod.   ClMember ::= Type Ident "(" [Arg] ")" Block ;
+
+separator   ClMember "" ;
+
 
 -- statements ----------------------------------------------
 
@@ -32,6 +47,10 @@ separator nonempty Item "," ;
 
 Ass.       Stmt ::= Ident "=" Expr  ";" ;
 
+AssArray.  Stmt ::= Ident "[" Expr "]" "=" Expr  ";" ;
+
+AssField.  Stmt ::= Expr6 "." Ident "=" Expr  ";" ;
+
 Incr.      Stmt ::= Ident "++"  ";" ;
 
 Decr.      Stmt ::= Ident "--"  ";" ;
@@ -46,6 +65,9 @@ CondElse.  Stmt ::= "if" "(" Expr ")" Stmt "else" Stmt  ;
 
 While.     Stmt ::= "while" "(" Expr ")" Stmt ;
 
+For.       Stmt ::= "for" "(" Arg ":" Expr ")" Stmt ;
+=
+
 SExp.      Stmt ::= Expr  ";" ;
 
 -- Types ---------------------------------------------------
@@ -58,11 +80,32 @@ Bool.      Type ::= "boolean" ;
 
 Void.      Type ::= "void" ;
 
+ClassTy.     Type ::= Ident ;
+
+Array.     Type ::= Type "[]" ;
+
+
 internal   Fun. Type ::= Type "(" [Type] ")" ;
+
+Primitive.    Type ::= PrimitiveType ;
+
+Primitive.    Type ::= PrimitiveType ;
+
+Class.     Type ::= ClassType ;
 
 separator  Type "," ;
 
 -- Expressions ---------------------------------------------
+
+ENewArray.  Expr6 ::= "new" Type "[" Expr "]" ;
+
+EArrayElem. Expr6 ::= Ident "[" Expr "]";
+
+ENew.       Expr6 ::= "new" Ident ;
+
+EMethod.    Expr6 ::= Expr6 "." Ident "(" [Expr] ")" ;
+
+EField.     Expr6 ::= Expr6 "." Ident ;
 
 EVar.      Expr6 ::= Ident ;
 

@@ -1,6 +1,6 @@
 int main() {
 
-  int[] a = new int[10];
+  int a = new int[10];
   int j=0;
   while (j<a.length) {
      a[j] = j;
