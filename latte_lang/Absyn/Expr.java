@@ -5,6 +5,11 @@ package latte_lang.Absyn;
 public abstract class Expr implements java.io.Serializable {
   public abstract <R,A> R accept(Expr.Visitor<R,A> v, A arg);
   public interface Visitor <R,A> {
+    public R visit(latte_lang.Absyn.ENewArray p, A arg);
+    public R visit(latte_lang.Absyn.EArrayElem p, A arg);
+    public R visit(latte_lang.Absyn.ENew p, A arg);
+    public R visit(latte_lang.Absyn.EMethod p, A arg);
+    public R visit(latte_lang.Absyn.EField p, A arg);
     public R visit(latte_lang.Absyn.EVar p, A arg);
     public R visit(latte_lang.Absyn.ELitInt p, A arg);
     public R visit(latte_lang.Absyn.ELitTrue p, A arg);

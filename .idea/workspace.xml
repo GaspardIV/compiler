@@ -2,10 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latte_lang/Compiler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LatteLang.cf" beforeDir="false" afterPath="$PROJECT_DIR$/LatteLang.cf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/extensions/arrays1/array001.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/extensions/arrays1/array001.lat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/AbstractVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/AbstractVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Expr.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/Expr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Stmt.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/Stmt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/TopDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/TopDef.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/Type.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/AllVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/AllVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/ComposVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/ComposVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/FoldVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/FoldVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/PrettyPrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/PrettyPrinter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/VisitSkel.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/VisitSkel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Yylex.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Yylex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/parser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/sym.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/sym.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +134,7 @@
   </component>
   <component name="RunManager" selected="Application.Test core.lat">
     <configuration name="Test core001.lat" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="latte_lang.Test" />
+      <option name="MAIN_CLASS_NAME" value="latte_lang.Compiler" />
       <module name="compiler" />
       <option name="PROGRAM_PARAMETERS" value="$FileDir$/../lattests/good/core001.lat" />
       <extension name="coverage">
@@ -133,7 +148,7 @@
       </method>
     </configuration>
     <configuration name="Test core002.lat" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="latte_lang.Test" />
+      <option name="MAIN_CLASS_NAME" value="latte_lang.Compiler" />
       <module name="compiler" />
       <option name="PROGRAM_PARAMETERS" value="$FileDir$/../lattests/good/core002.lat" />
       <extension name="coverage">
@@ -147,7 +162,7 @@
       </method>
     </configuration>
     <configuration name="Test core.lat" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="latte_lang.Test" />
+      <option name="MAIN_CLASS_NAME" value="latte_lang.Compiler" />
       <module name="compiler" />
       <option name="PROGRAM_PARAMETERS" value="$FileDir$/../lattests/extensions/arrays1/array001.lat" />
       <extension name="coverage">
@@ -249,6 +264,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/latte_lang/_cup.cup">

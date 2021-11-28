@@ -34,6 +34,19 @@ public class VisitSkel
       p.block_.accept(new BlockVisitor<R,A>(), arg);
       return null;
     }
+    public R visit(latte_lang.Absyn.ClDef p, A arg)
+    { /* Code for ClDef goes here */
+      //p.ident_;
+      p.clblock_.accept(new ClBlockVisitor<R,A>(), arg);
+      return null;
+    }
+    public R visit(latte_lang.Absyn.ClDefExt p, A arg)
+    { /* Code for ClDefExt goes here */
+      //p.ident_1;
+      //p.ident_2;
+      p.clblock_.accept(new ClBlockVisitor<R,A>(), arg);
+      return null;
+    }
   }
   public class ArgVisitor<R,A> implements latte_lang.Absyn.Arg.Visitor<R,A>
   {
@@ -41,6 +54,35 @@ public class VisitSkel
     { /* Code for Ar goes here */
       p.type_.accept(new TypeVisitor<R,A>(), arg);
       //p.ident_;
+      return null;
+    }
+  }
+  public class ClBlockVisitor<R,A> implements latte_lang.Absyn.ClBlock.Visitor<R,A>
+  {
+    public R visit(latte_lang.Absyn.ClBlk p, A arg)
+    { /* Code for ClBlk goes here */
+      for (latte_lang.Absyn.ClMember x: p.listclmember_) {
+        x.accept(new ClMemberVisitor<R,A>(), arg);
+      }
+      return null;
+    }
+  }
+  public class ClMemberVisitor<R,A> implements latte_lang.Absyn.ClMember.Visitor<R,A>
+  {
+    public R visit(latte_lang.Absyn.ClField p, A arg)
+    { /* Code for ClField goes here */
+      p.type_.accept(new TypeVisitor<R,A>(), arg);
+      //p.ident_;
+      return null;
+    }
+    public R visit(latte_lang.Absyn.ClMethod p, A arg)
+    { /* Code for ClMethod goes here */
+      p.type_.accept(new TypeVisitor<R,A>(), arg);
+      //p.ident_;
+      for (latte_lang.Absyn.Arg x: p.listarg_) {
+        x.accept(new ArgVisitor<R,A>(), arg);
+      }
+      p.block_.accept(new BlockVisitor<R,A>(), arg);
       return null;
     }
   }
@@ -79,6 +121,20 @@ public class VisitSkel
       p.expr_.accept(new ExprVisitor<R,A>(), arg);
       return null;
     }
+    public R visit(latte_lang.Absyn.AssArray p, A arg)
+    { /* Code for AssArray goes here */
+      //p.ident_;
+      p.expr_1.accept(new ExprVisitor<R,A>(), arg);
+      p.expr_2.accept(new ExprVisitor<R,A>(), arg);
+      return null;
+    }
+    public R visit(latte_lang.Absyn.AssField p, A arg)
+    { /* Code for AssField goes here */
+      p.expr_1.accept(new ExprVisitor<R,A>(), arg);
+      //p.ident_;
+      p.expr_2.accept(new ExprVisitor<R,A>(), arg);
+      return null;
+    }
     public R visit(latte_lang.Absyn.Incr p, A arg)
     { /* Code for Incr goes here */
       //p.ident_;
@@ -113,6 +169,13 @@ public class VisitSkel
     }
     public R visit(latte_lang.Absyn.While p, A arg)
     { /* Code for While goes here */
+      p.expr_.accept(new ExprVisitor<R,A>(), arg);
+      p.stmt_.accept(new StmtVisitor<R,A>(), arg);
+      return null;
+    }
+    public R visit(latte_lang.Absyn.For p, A arg)
+    { /* Code for For goes here */
+      p.arg_.accept(new ArgVisitor<R,A>(), arg);
       p.expr_.accept(new ExprVisitor<R,A>(), arg);
       p.stmt_.accept(new StmtVisitor<R,A>(), arg);
       return null;
@@ -155,6 +218,16 @@ public class VisitSkel
     { /* Code for Void goes here */
       return null;
     }
+    public R visit(latte_lang.Absyn.Class p, A arg)
+    { /* Code for Class goes here */
+      //p.ident_;
+      return null;
+    }
+    public R visit(latte_lang.Absyn.Array p, A arg)
+    { /* Code for Array goes here */
+      p.type_.accept(new TypeVisitor<R,A>(), arg);
+      return null;
+    }
     public R visit(latte_lang.Absyn.Fun p, A arg)
     { /* Code for Fun goes here */
       p.type_.accept(new TypeVisitor<R,A>(), arg);
@@ -166,6 +239,38 @@ public class VisitSkel
   }
   public class ExprVisitor<R,A> implements latte_lang.Absyn.Expr.Visitor<R,A>
   {
+    public R visit(latte_lang.Absyn.ENewArray p, A arg)
+    { /* Code for ENewArray goes here */
+      p.type_.accept(new TypeVisitor<R,A>(), arg);
+      p.expr_.accept(new ExprVisitor<R,A>(), arg);
+      return null;
+    }
+    public R visit(latte_lang.Absyn.EArrayElem p, A arg)
+    { /* Code for EArrayElem goes here */
+      //p.ident_;
+      p.expr_.accept(new ExprVisitor<R,A>(), arg);
+      return null;
+    }
+    public R visit(latte_lang.Absyn.ENew p, A arg)
+    { /* Code for ENew goes here */
+      //p.ident_;
+      return null;
+    }
+    public R visit(latte_lang.Absyn.EMethod p, A arg)
+    { /* Code for EMethod goes here */
+      p.expr_.accept(new ExprVisitor<R,A>(), arg);
+      //p.ident_;
+      for (latte_lang.Absyn.Expr x: p.listexpr_) {
+        x.accept(new ExprVisitor<R,A>(), arg);
+      }
+      return null;
+    }
+    public R visit(latte_lang.Absyn.EField p, A arg)
+    { /* Code for EField goes here */
+      p.expr_.accept(new ExprVisitor<R,A>(), arg);
+      //p.ident_;
+      return null;
+    }
     public R visit(latte_lang.Absyn.EVar p, A arg)
     { /* Code for EVar goes here */
       //p.ident_;

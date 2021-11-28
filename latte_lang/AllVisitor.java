@@ -8,6 +8,8 @@ public interface AllVisitor<R,A> extends
   latte_lang.Absyn.Program.Visitor<R,A>,
   latte_lang.Absyn.TopDef.Visitor<R,A>,
   latte_lang.Absyn.Arg.Visitor<R,A>,
+  latte_lang.Absyn.ClBlock.Visitor<R,A>,
+  latte_lang.Absyn.ClMember.Visitor<R,A>,
   latte_lang.Absyn.Block.Visitor<R,A>,
   latte_lang.Absyn.Stmt.Visitor<R,A>,
   latte_lang.Absyn.Item.Visitor<R,A>,

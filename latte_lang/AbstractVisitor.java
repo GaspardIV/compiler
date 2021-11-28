@@ -12,12 +12,25 @@ public class AbstractVisitor<R,A> implements AllVisitor<R,A> {
     }
     /* TopDef */
     public R visit(latte_lang.Absyn.FnDef p, A arg) { return visitDefault(p, arg); }
+    public R visit(latte_lang.Absyn.ClDef p, A arg) { return visitDefault(p, arg); }
+    public R visit(latte_lang.Absyn.ClDefExt p, A arg) { return visitDefault(p, arg); }
     public R visitDefault(latte_lang.Absyn.TopDef p, A arg) {
       throw new IllegalArgumentException(this.getClass().getName() + ": " + p);
     }
     /* Arg */
     public R visit(latte_lang.Absyn.Ar p, A arg) { return visitDefault(p, arg); }
     public R visitDefault(latte_lang.Absyn.Arg p, A arg) {
+      throw new IllegalArgumentException(this.getClass().getName() + ": " + p);
+    }
+    /* ClBlock */
+    public R visit(latte_lang.Absyn.ClBlk p, A arg) { return visitDefault(p, arg); }
+    public R visitDefault(latte_lang.Absyn.ClBlock p, A arg) {
+      throw new IllegalArgumentException(this.getClass().getName() + ": " + p);
+    }
+    /* ClMember */
+    public R visit(latte_lang.Absyn.ClField p, A arg) { return visitDefault(p, arg); }
+    public R visit(latte_lang.Absyn.ClMethod p, A arg) { return visitDefault(p, arg); }
+    public R visitDefault(latte_lang.Absyn.ClMember p, A arg) {
       throw new IllegalArgumentException(this.getClass().getName() + ": " + p);
     }
     /* Block */
@@ -30,6 +43,8 @@ public class AbstractVisitor<R,A> implements AllVisitor<R,A> {
     public R visit(latte_lang.Absyn.BStmt p, A arg) { return visitDefault(p, arg); }
     public R visit(latte_lang.Absyn.Decl p, A arg) { return visitDefault(p, arg); }
     public R visit(latte_lang.Absyn.Ass p, A arg) { return visitDefault(p, arg); }
+    public R visit(latte_lang.Absyn.AssArray p, A arg) { return visitDefault(p, arg); }
+    public R visit(latte_lang.Absyn.AssField p, A arg) { return visitDefault(p, arg); }
     public R visit(latte_lang.Absyn.Incr p, A arg) { return visitDefault(p, arg); }
     public R visit(latte_lang.Absyn.Decr p, A arg) { return visitDefault(p, arg); }
     public R visit(latte_lang.Absyn.Ret p, A arg) { return visitDefault(p, arg); }
@@ -37,6 +52,7 @@ public class AbstractVisitor<R,A> implements AllVisitor<R,A> {
     public R visit(latte_lang.Absyn.Cond p, A arg) { return visitDefault(p, arg); }
     public R visit(latte_lang.Absyn.CondElse p, A arg) { return visitDefault(p, arg); }
     public R visit(latte_lang.Absyn.While p, A arg) { return visitDefault(p, arg); }
+    public R visit(latte_lang.Absyn.For p, A arg) { return visitDefault(p, arg); }
     public R visit(latte_lang.Absyn.SExp p, A arg) { return visitDefault(p, arg); }
     public R visitDefault(latte_lang.Absyn.Stmt p, A arg) {
       throw new IllegalArgumentException(this.getClass().getName() + ": " + p);
@@ -52,11 +68,18 @@ public class AbstractVisitor<R,A> implements AllVisitor<R,A> {
     public R visit(latte_lang.Absyn.Str p, A arg) { return visitDefault(p, arg); }
     public R visit(latte_lang.Absyn.Bool p, A arg) { return visitDefault(p, arg); }
     public R visit(latte_lang.Absyn.Void p, A arg) { return visitDefault(p, arg); }
+    public R visit(latte_lang.Absyn.Class p, A arg) { return visitDefault(p, arg); }
+    public R visit(latte_lang.Absyn.Array p, A arg) { return visitDefault(p, arg); }
     public R visit(latte_lang.Absyn.Fun p, A arg) { return visitDefault(p, arg); }
     public R visitDefault(latte_lang.Absyn.Type p, A arg) {
       throw new IllegalArgumentException(this.getClass().getName() + ": " + p);
     }
     /* Expr */
+    public R visit(latte_lang.Absyn.ENewArray p, A arg) { return visitDefault(p, arg); }
+    public R visit(latte_lang.Absyn.EArrayElem p, A arg) { return visitDefault(p, arg); }
+    public R visit(latte_lang.Absyn.ENew p, A arg) { return visitDefault(p, arg); }
+    public R visit(latte_lang.Absyn.EMethod p, A arg) { return visitDefault(p, arg); }
+    public R visit(latte_lang.Absyn.EField p, A arg) { return visitDefault(p, arg); }
     public R visit(latte_lang.Absyn.EVar p, A arg) { return visitDefault(p, arg); }
     public R visit(latte_lang.Absyn.ELitInt p, A arg) { return visitDefault(p, arg); }
     public R visit(latte_lang.Absyn.ELitTrue p, A arg) { return visitDefault(p, arg); }

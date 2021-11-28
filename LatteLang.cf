@@ -66,7 +66,6 @@ CondElse.  Stmt ::= "if" "(" Expr ")" Stmt "else" Stmt  ;
 While.     Stmt ::= "while" "(" Expr ")" Stmt ;
 
 For.       Stmt ::= "for" "(" Arg ":" Expr ")" Stmt ;
-=
 
 SExp.      Stmt ::= Expr  ";" ;
 
@@ -80,18 +79,11 @@ Bool.      Type ::= "boolean" ;
 
 Void.      Type ::= "void" ;
 
-ClassTy.     Type ::= Ident ;
+Class.     Type ::= Ident ;
 
 Array.     Type ::= Type "[]" ;
 
-
 internal   Fun. Type ::= Type "(" [Type] ")" ;
-
-Primitive.    Type ::= PrimitiveType ;
-
-Primitive.    Type ::= PrimitiveType ;
-
-Class.     Type ::= ClassType ;
 
 separator  Type "," ;
 

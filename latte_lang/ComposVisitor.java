@@ -8,6 +8,8 @@ public class ComposVisitor<A> implements
   latte_lang.Absyn.Program.Visitor<latte_lang.Absyn.Program,A>,
   latte_lang.Absyn.TopDef.Visitor<latte_lang.Absyn.TopDef,A>,
   latte_lang.Absyn.Arg.Visitor<latte_lang.Absyn.Arg,A>,
+  latte_lang.Absyn.ClBlock.Visitor<latte_lang.Absyn.ClBlock,A>,
+  latte_lang.Absyn.ClMember.Visitor<latte_lang.Absyn.ClMember,A>,
   latte_lang.Absyn.Block.Visitor<latte_lang.Absyn.Block,A>,
   latte_lang.Absyn.Stmt.Visitor<latte_lang.Absyn.Stmt,A>,
   latte_lang.Absyn.Item.Visitor<latte_lang.Absyn.Item,A>,
@@ -41,6 +43,19 @@ public class ComposVisitor<A> implements
       latte_lang.Absyn.Block block_ = p.block_.accept(this, arg);
       return new latte_lang.Absyn.FnDef(type_, ident_, listarg_, block_);
     }
+    public latte_lang.Absyn.TopDef visit(latte_lang.Absyn.ClDef p, A arg)
+    {
+      String ident_ = p.ident_;
+      latte_lang.Absyn.ClBlock clblock_ = p.clblock_.accept(this, arg);
+      return new latte_lang.Absyn.ClDef(ident_, clblock_);
+    }
+    public latte_lang.Absyn.TopDef visit(latte_lang.Absyn.ClDefExt p, A arg)
+    {
+      String ident_1 = p.ident_1;
+      String ident_2 = p.ident_2;
+      latte_lang.Absyn.ClBlock clblock_ = p.clblock_.accept(this, arg);
+      return new latte_lang.Absyn.ClDefExt(ident_1, ident_2, clblock_);
+    }
 
     /* Arg */
     public latte_lang.Absyn.Arg visit(latte_lang.Absyn.Ar p, A arg)
@@ -48,6 +63,37 @@ public class ComposVisitor<A> implements
       latte_lang.Absyn.Type type_ = p.type_.accept(this, arg);
       String ident_ = p.ident_;
       return new latte_lang.Absyn.Ar(type_, ident_);
+    }
+
+    /* ClBlock */
+    public latte_lang.Absyn.ClBlock visit(latte_lang.Absyn.ClBlk p, A arg)
+    {
+      latte_lang.Absyn.ListClMember listclmember_ = new latte_lang.Absyn.ListClMember();
+      for (latte_lang.Absyn.ClMember x : p.listclmember_)
+      {
+        listclmember_.add(x.accept(this,arg));
+      }
+      return new latte_lang.Absyn.ClBlk(listclmember_);
+    }
+
+    /* ClMember */
+    public latte_lang.Absyn.ClMember visit(latte_lang.Absyn.ClField p, A arg)
+    {
+      latte_lang.Absyn.Type type_ = p.type_.accept(this, arg);
+      String ident_ = p.ident_;
+      return new latte_lang.Absyn.ClField(type_, ident_);
+    }
+    public latte_lang.Absyn.ClMember visit(latte_lang.Absyn.ClMethod p, A arg)
+    {
+      latte_lang.Absyn.Type type_ = p.type_.accept(this, arg);
+      String ident_ = p.ident_;
+      latte_lang.Absyn.ListArg listarg_ = new latte_lang.Absyn.ListArg();
+      for (latte_lang.Absyn.Arg x : p.listarg_)
+      {
+        listarg_.add(x.accept(this,arg));
+      }
+      latte_lang.Absyn.Block block_ = p.block_.accept(this, arg);
+      return new latte_lang.Absyn.ClMethod(type_, ident_, listarg_, block_);
     }
 
     /* Block */
@@ -87,6 +133,20 @@ public class ComposVisitor<A> implements
       latte_lang.Absyn.Expr expr_ = p.expr_.accept(this, arg);
       return new latte_lang.Absyn.Ass(ident_, expr_);
     }
+    public latte_lang.Absyn.Stmt visit(latte_lang.Absyn.AssArray p, A arg)
+    {
+      String ident_ = p.ident_;
+      latte_lang.Absyn.Expr expr_1 = p.expr_1.accept(this, arg);
+      latte_lang.Absyn.Expr expr_2 = p.expr_2.accept(this, arg);
+      return new latte_lang.Absyn.AssArray(ident_, expr_1, expr_2);
+    }
+    public latte_lang.Absyn.Stmt visit(latte_lang.Absyn.AssField p, A arg)
+    {
+      latte_lang.Absyn.Expr expr_1 = p.expr_1.accept(this, arg);
+      String ident_ = p.ident_;
+      latte_lang.Absyn.Expr expr_2 = p.expr_2.accept(this, arg);
+      return new latte_lang.Absyn.AssField(expr_1, ident_, expr_2);
+    }
     public latte_lang.Absyn.Stmt visit(latte_lang.Absyn.Incr p, A arg)
     {
       String ident_ = p.ident_;
@@ -125,6 +185,13 @@ public class ComposVisitor<A> implements
       latte_lang.Absyn.Stmt stmt_ = p.stmt_.accept(this, arg);
       return new latte_lang.Absyn.While(expr_, stmt_);
     }
+    public latte_lang.Absyn.Stmt visit(latte_lang.Absyn.For p, A arg)
+    {
+      latte_lang.Absyn.Arg arg_ = p.arg_.accept(this, arg);
+      latte_lang.Absyn.Expr expr_ = p.expr_.accept(this, arg);
+      latte_lang.Absyn.Stmt stmt_ = p.stmt_.accept(this, arg);
+      return new latte_lang.Absyn.For(arg_, expr_, stmt_);
+    }
     public latte_lang.Absyn.Stmt visit(latte_lang.Absyn.SExp p, A arg)
     {
       latte_lang.Absyn.Expr expr_ = p.expr_.accept(this, arg);
@@ -161,6 +228,16 @@ public class ComposVisitor<A> implements
     {
       return new latte_lang.Absyn.Void();
     }
+    public latte_lang.Absyn.Type visit(latte_lang.Absyn.Class p, A arg)
+    {
+      String ident_ = p.ident_;
+      return new latte_lang.Absyn.Class(ident_);
+    }
+    public latte_lang.Absyn.Type visit(latte_lang.Absyn.Array p, A arg)
+    {
+      latte_lang.Absyn.Type type_ = p.type_.accept(this, arg);
+      return new latte_lang.Absyn.Array(type_);
+    }
     public latte_lang.Absyn.Type visit(latte_lang.Absyn.Fun p, A arg)
     {
       latte_lang.Absyn.Type type_ = p.type_.accept(this, arg);
@@ -173,6 +250,40 @@ public class ComposVisitor<A> implements
     }
 
     /* Expr */
+    public latte_lang.Absyn.Expr visit(latte_lang.Absyn.ENewArray p, A arg)
+    {
+      latte_lang.Absyn.Type type_ = p.type_.accept(this, arg);
+      latte_lang.Absyn.Expr expr_ = p.expr_.accept(this, arg);
+      return new latte_lang.Absyn.ENewArray(type_, expr_);
+    }
+    public latte_lang.Absyn.Expr visit(latte_lang.Absyn.EArrayElem p, A arg)
+    {
+      String ident_ = p.ident_;
+      latte_lang.Absyn.Expr expr_ = p.expr_.accept(this, arg);
+      return new latte_lang.Absyn.EArrayElem(ident_, expr_);
+    }
+    public latte_lang.Absyn.Expr visit(latte_lang.Absyn.ENew p, A arg)
+    {
+      String ident_ = p.ident_;
+      return new latte_lang.Absyn.ENew(ident_);
+    }
+    public latte_lang.Absyn.Expr visit(latte_lang.Absyn.EMethod p, A arg)
+    {
+      latte_lang.Absyn.Expr expr_ = p.expr_.accept(this, arg);
+      String ident_ = p.ident_;
+      latte_lang.Absyn.ListExpr listexpr_ = new latte_lang.Absyn.ListExpr();
+      for (latte_lang.Absyn.Expr x : p.listexpr_)
+      {
+        listexpr_.add(x.accept(this,arg));
+      }
+      return new latte_lang.Absyn.EMethod(expr_, ident_, listexpr_);
+    }
+    public latte_lang.Absyn.Expr visit(latte_lang.Absyn.EField p, A arg)
+    {
+      latte_lang.Absyn.Expr expr_ = p.expr_.accept(this, arg);
+      String ident_ = p.ident_;
+      return new latte_lang.Absyn.EField(expr_, ident_);
+    }
     public latte_lang.Absyn.Expr visit(latte_lang.Absyn.EVar p, A arg)
     {
       String ident_ = p.ident_;
