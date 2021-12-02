@@ -44,18 +44,21 @@ public class Compiler {
 
     public static void main(String args[]) throws Exception {
         Compiler t = new Compiler(args);
+        Program ast;
         try {
-            Program ast = t.parse();
-            SematicAnalyst analyst = new SematicAnalyst();
-            analyst.checkTypes(ast);
-//            analyst.checkReturn(ast);
-
-        } catch (SemanticError e) {
-            System.err.println("Semantic error at line " + e.getLineNum() + " :");
-            System.err.println("     " + e.getMessage());
-            System.exit(1);
+            ast = t.parse();
         } catch (Throwable e) {
             System.err.println("Parser error at line " + String.valueOf(t.l.line_num()) + ", near \"" + t.l.buff() + "\" :");
+            System.err.println("     " + e.getMessage());
+            System.exit(1);
+            return;
+        }
+
+        try {
+            SematicAnalyst analyst = new SematicAnalyst();
+            analyst.checkTypes(ast);
+        } catch (SemanticError e) {
+            System.err.println("Semantic error at line " + e.getLineNum() + " :");
             System.err.println("     " + e.getMessage());
             System.exit(1);
         }

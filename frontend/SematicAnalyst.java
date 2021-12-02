@@ -30,7 +30,9 @@ public class SematicAnalyst {
             fillClassesWithExtends(arg);
         }
 
-        private void fillClassesWithExtends(Enviroment arg) {
+        private void fillClassesWithExtends(Enviroment arg) throws SemanticError {
+            arg.initInheristance();
+//            arg.addFieldsAndMethods();
             // todo
 //            check if exist class not defined
 //            check loops inheritance loop detected
@@ -51,6 +53,20 @@ public class SematicAnalyst {
             return null;
         }
 
+        public Void visit(ClDef p, Enviroment arg) throws SemanticError { /* Code for ClDef goes here */
+            ClDefExt i = new ClDefExt(p.ident_, null, p.clblock_);
+            i.line_num = p.line_num;
+            checkIfCLassAlreadyDefined(i, arg);
+            addClassDef(i, arg);
+            return null;
+        }
+
+        public Void visit(ClDefExt p, Enviroment arg) throws SemanticError.ClassAlreadyDeclared { /* Code for ClDefExt goes here */
+            checkIfCLassAlreadyDefined(p, arg);
+            addClassDef(p, arg);
+            return null;
+        }
+
         private void addFunctionDef(FnDef p, Enviroment arg) {
 //            ListType listType = new ListType();
 //            for (latte_lang.Absyn.Arg x : p.listarg_) {
@@ -65,14 +81,6 @@ public class SematicAnalyst {
             }
         }
 
-        public Void visit(ClDef p, Enviroment arg) throws SemanticError { /* Code for ClDef goes here */
-            ClDefExt i = new ClDefExt(p.ident_, null, p.clblock_);
-            i.line_num = p.line_num;
-            checkIfCLassAlreadyDefined(i, arg);
-            addClassDef(i, arg);
-            return null;
-        }
-
         private void addClassDef(ClDefExt p, Enviroment arg) {
             arg.addClassDef(p.ident_1, p);
         }
@@ -81,12 +89,6 @@ public class SematicAnalyst {
             if (arg.getClassDef(p.ident_1) != null) {
                 throw new SemanticError.ClassAlreadyDeclared(p.line_num);
             }
-        }
-
-        public Void visit(ClDefExt p, Enviroment arg) throws SemanticError.ClassAlreadyDeclared { /* Code for ClDefExt goes here */
-            checkIfCLassAlreadyDefined(p, arg);
-            addClassDef(p, arg);
-            return null;
         }
     }
 

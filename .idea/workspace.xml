@@ -5,17 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lattests/mytests/test_already_defined" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/mytests/test_no_main" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Context.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/Enviroment.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Enviroment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/SemanticError.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/SemanticError.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/SematicAnalyst.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/SematicAnalyst.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ClDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/ClDef.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ClDefExt.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/ClDefExt.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/TopDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/TopDef.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/latte_lang/Compiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Compiler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/mytests/test" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/mytests/test" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/extensions/objects1/counter.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/extensions/objects1/counter.lat" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +145,7 @@
       <recent name="$PROJECT_DIR$/java_cup" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Test mytest">
+  <component name="RunManager" selected="Application.Test">
     <configuration name="Test core001.lat" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="latte_lang.Compiler" />
       <module name="compiler" />
@@ -177,10 +174,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test core.lat" type="Application" factoryName="Application">
+    <configuration name="Test mytest" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="latte_lang.Compiler" />
       <module name="compiler" />
-      <option name="PROGRAM_PARAMETERS" value="$FileDir$/../lattests/extensions/arrays1/array001.lat" />
+      <option name="PROGRAM_PARAMETERS" value="lattests/mytests/test" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="latte_lang.*" />
@@ -191,10 +188,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test mytest" type="Application" factoryName="Application">
+    <configuration name="Test" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="latte_lang.Compiler" />
       <module name="compiler" />
-      <option name="PROGRAM_PARAMETERS" value="lattests/mytests/test" />
+      <option name="PROGRAM_PARAMETERS" value="lattests/extensions/objects1/counter.lat" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="latte_lang.*" />
@@ -213,7 +210,7 @@
     </configuration>
     <list>
       <item itemvalue="Application.Test core002.lat" />
-      <item itemvalue="Application.Test core.lat" />
+      <item itemvalue="Application.Test" />
       <item itemvalue="Application.Test mytest" />
       <item itemvalue="Application.Test core001.lat" />
       <item itemvalue="Makefile Target.all" />
@@ -307,6 +304,22 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/Library/Java/JavaVirtualMachines/liberica-1.8.0_302/src.zip!/java/util/ArrayDeque.java</url>
+          <line>670</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/latte_lang/Absyn/ClDefExt.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/latte_lang/_cup.cup">

@@ -5,11 +5,11 @@ package latte_lang.Absyn;
 import frontend.SemanticError;
 
 public abstract class TopDef implements java.io.Serializable {
-  public abstract <R,A> R accept(TopDef.Visitor<R,A> v, A arg) throws SemanticError, SemanticError;
+  public abstract <R,A> R accept(TopDef.Visitor<R,A> v, A arg) throws SemanticError;
   public interface Visitor <R,A> {
     public R visit(latte_lang.Absyn.FnDef p, A arg) throws SemanticError;
     public R visit(latte_lang.Absyn.ClDef p, A arg) throws SemanticError;
-    public R visit(latte_lang.Absyn.ClDefExt p, A arg) throws SemanticError.ClassAlreadyDeclared;
+    public R visit(latte_lang.Absyn.ClDefExt p, A arg) throws SemanticError;
 
   }
 

@@ -3,9 +3,7 @@ package frontend;
 import latte_lang.Absyn.*;
 import latte_lang.Absyn.Void;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.Iterator;
+import java.util.*;
 
 public class Enviroment {
     //    private
@@ -50,7 +48,7 @@ public class Enviroment {
     public ClDefExt getClassDef(String ident_) {
         for (Iterator<Context> i = contexts.descendingIterator(); i.hasNext(); ) {
             Context context = i.next();
-            if (context.getFunctionDef(ident_) != null) {
+            if (context.getClassDef(ident_) != null) {
                 return context.getClassDef(ident_);
             }
         }
@@ -59,5 +57,18 @@ public class Enviroment {
 
     public void addClassDef(String ident_, ClDefExt p) {
         contexts.getLast().addClassDef(ident_, p);
+    }
+
+    public void initInheristance() throws SemanticError {
+        Enviroment avaibleClasses = new Enviroment();
+        for (Iterator<Context> i = contexts.iterator(); i.hasNext(); ) {
+            Context context = i.next();
+            avaibleClasses.addContext(context);
+            context.initInheristance(avaibleClasses);
+        }
+    }
+
+    private void addContext(Context context) {
+        this.contexts.push(context);
     }
 }

@@ -1,10 +1,11 @@
 package frontend;
 
 import latte_lang.Absyn.*;
-import latte_lang.Absyn.Class;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class Context {
     private Map<String, FnDef> funDefs;
@@ -29,5 +30,12 @@ public class Context {
 
     public void addClassDef(String ident_, ClDefExt p) {
         classdefs.put(ident_, p);
+    }
+
+    public void initInheristance(Enviroment avaibleClasses) throws SemanticError {
+        for (String classIdent:classdefs.keySet()) {
+            ClDefExt i = classdefs.get(classIdent);
+            i.initInheristance(avaibleClasses);
+        }
     }
 }
