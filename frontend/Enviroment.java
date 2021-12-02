@@ -5,6 +5,7 @@ import latte_lang.Absyn.Void;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.Iterator;
 
 public class Enviroment {
 //    private
@@ -19,16 +20,30 @@ public class Enviroment {
         Context buildIns = new Context();
         ListType args = new ListType();
         args.add(new Int());
-        buildIns.add("printInt", new Fun(new Void(), args));
+        buildIns.addFunction("printInt", new Fun(new Void(), args));
         args = new ListType();
         args.add(new Str());
-        buildIns.add("printString", new Fun(new Void(), args));
+        buildIns.addFunction("printString", new Fun(new Void(), args));
         args = new ListType();
-        buildIns.add("readString", new Fun(new Str(), args));
+        buildIns.addFunction("readString", new Fun(new Str(), args));
         args = new ListType();
-        buildIns.add("readInt", new Fun(new Int(), args));
+        buildIns.addFunction("readInt", new Fun(new Int(), args));
         args = new ListType();
-        buildIns.add("error", new Fun(new Void(), args));
+        buildIns.addFunction("error", new Fun(new Void(), args));
         contexts.add(buildIns);
+    }
+
+    public Fun getFunction(String ident_) {
+        for (Iterator<Context> i = contexts.descendingIterator(); i.hasNext();) {
+            Context context = i.next();
+            if (context.getFunction(ident_) != null){
+                return context.getFunction(ident_);
+            }
+        }
+        return null;
+    }
+
+    public void addFunction(String ident_, Fun p) {
+        contexts.getLast().addFunction(ident_, p);
     }
 }

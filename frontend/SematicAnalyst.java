@@ -1,17 +1,16 @@
 package frontend;
 
-import latte_lang.Absyn.Prog;
-import latte_lang.Absyn.Program;
+import latte_lang.Absyn.*;
 
 public class SematicAnalyst {
-    public void checkTypes(Program ast) {
+    public void checkTypes(Program ast) throws SemanticError {
         Enviroment enviroment = new Enviroment();
         ProgramCheckVisitor programVisitor = new ProgramCheckVisitor();
         ast.accept(programVisitor, enviroment);
     }
 
     public class ProgramCheckVisitor implements latte_lang.Absyn.Program.Visitor<Enviroment, Enviroment> {
-        public Enviroment visit(latte_lang.Absyn.Prog p, Enviroment arg) {
+        public Enviroment visit(latte_lang.Absyn.Prog p, Enviroment arg) throws SemanticError {
             // tutaj najpierw musze wszystkie zadeklarowac topdefy w srodowisku i jezeli wszystko ok z zadeklarowaniem to wtedy
             // sprawdzenie kazdego
             createGlobalContext(p, arg);
@@ -22,22 +21,38 @@ public class SematicAnalyst {
             return null;
         }
 
-        private void createGlobalContext(Prog p, Enviroment arg) {
+        private void createGlobalContext(Prog p, Enviroment arg) throws SemanticError {
             for (latte_lang.Absyn.TopDef x : p.listtopdef_) {
                 x.accept(new TopDefDeclareVisitor(), arg);
             }
+            checkMain(arg);
+        }
+
+        private void checkMain(Enviroment arg) {
+            // todo
         }
     }
 
     public class TopDefDeclareVisitor implements latte_lang.Absyn.TopDef.Visitor<Enviroment, Enviroment> {
-        public Enviroment visit(latte_lang.Absyn.FnDef p, Enviroment arg) { /* Code for FnDef goes here */
-            p.type_.accept(new TypeVisitor(), arg);
-            //p.ident_;
-            for (latte_lang.Absyn.Arg x : p.listarg_) {
-                x.accept(new ArgVisitor(), arg);
-            }
-            p.block_.accept(new BlockVisitor(), arg);
+        public Enviroment visit(latte_lang.Absyn.FnDef p, Enviroment arg) throws SemanticError { /* Code for FnDef goes here */
+            checkIfFunctionAlreadyDefined(p.ident_, arg, p.line_num);
+            addFunction(p, arg);
             return null;
+        }
+
+        private void addFunction(FnDef p, Enviroment arg) {
+            ListType listType = new ListType();
+            for (latte_lang.Absyn.Arg x : p.listarg_) {
+                listType.add(x.accept(new ArgGetTypeVisitor(), arg));
+            }
+            arg.addFunction(p.ident_, new Fun(p.type_, listType));
+
+        }
+
+        private void checkIfFunctionAlreadyDefined(String ident_, Enviroment arg, int line_num) throws SemanticError {
+            if (arg.getFunction(ident_) != null) {
+                throw new SemanticError.FunctionAlreadyDeclared(line_num);
+            }
         }
 
         public Enviroment visit(latte_lang.Absyn.ClDef p, Enviroment arg) { /* Code for ClDef goes here */
@@ -79,6 +94,13 @@ public class SematicAnalyst {
         }
     }
 
+    public class ArgGetTypeVisitor implements latte_lang.Absyn.Arg.Visitor<Type, Enviroment> {
+        public Type visit(latte_lang.Absyn.Ar p, Enviroment arg) { /* Code for Ar goes here */
+            p.type_.accept(new TypeVisitor(), arg);
+            //p.ident_;
+            return p.type_;
+        }
+    }
     public class ArgVisitor implements latte_lang.Absyn.Arg.Visitor<Enviroment, Enviroment> {
         public Enviroment visit(latte_lang.Absyn.Ar p, Enviroment arg) { /* Code for Ar goes here */
             p.type_.accept(new TypeVisitor(), arg);

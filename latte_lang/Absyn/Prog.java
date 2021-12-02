@@ -2,12 +2,14 @@
 
 package latte_lang.Absyn;
 
+import frontend.SemanticError;
+
 public class Prog  extends Program {
   public final ListTopDef listtopdef_;
   public int line_num, col_num, offset;
   public Prog(ListTopDef p1) { listtopdef_ = p1; }
 
-  public <R,A> R accept(latte_lang.Absyn.Program.Visitor<R,A> v, A arg) { return v.visit(this, arg); }
+  public <R,A> R accept(latte_lang.Absyn.Program.Visitor<R,A> v, A arg) throws SemanticError { return v.visit(this, arg); }
 
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

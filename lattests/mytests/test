@@ -1,0 +1,11 @@
+int a(int b, string b) {
+    return b;
+}
+
+int a() {
+    return 5;
+}
+
+int main() {
+    return 0;
+}

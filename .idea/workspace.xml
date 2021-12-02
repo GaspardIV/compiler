@@ -2,29 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/Context.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/Enviroment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/latte_lang/Absyn/Array.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/latte_lang/Absyn/AssArray.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/latte_lang/Absyn/AssField.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/latte_lang/Absyn/ClBlk.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/latte_lang/Absyn/ClBlock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/latte_lang/Absyn/ClDef.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/latte_lang/Absyn/ClDefExt.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/latte_lang/Absyn/ClField.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/latte_lang/Absyn/ClMember.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/latte_lang/Absyn/ClMethod.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/latte_lang/Absyn/Class.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/latte_lang/Absyn/EArrayElem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/latte_lang/Absyn/EField.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/latte_lang/Absyn/EMethod.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/latte_lang/Absyn/ENew.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/latte_lang/Absyn/ENewArray.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/latte_lang/Absyn/For.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/latte_lang/Absyn/ListClMember.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/SemanticError.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/mytests/test" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Latte.cf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Context.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Enviroment.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Enviroment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/SematicAnalyst.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/SematicAnalyst.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/AbstractVisitor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/FnDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/FnDef.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Prog.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/Prog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/Program.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/TopDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/TopDef.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/AllVisitor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Compiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Compiler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/ComposVisitor.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +147,7 @@
       <recent name="$PROJECT_DIR$/java_cup" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Test core.lat">
+  <component name="RunManager" selected="Application.Test mytest">
     <configuration name="Test core001.lat" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="latte_lang.Compiler" />
       <module name="compiler" />
@@ -198,6 +190,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test mytest" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="latte_lang.Compiler" />
+      <module name="compiler" />
+      <option name="PROGRAM_PARAMETERS" value="lattests/mytests/test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="latte_lang.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="all" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
       <makefile filename="$PROJECT_DIR$/Makefile" target="all" workingDirectory="" arguments="">
         <envs />
@@ -207,6 +213,7 @@
     <list>
       <item itemvalue="Application.Test core002.lat" />
       <item itemvalue="Application.Test core.lat" />
+      <item itemvalue="Application.Test mytest" />
       <item itemvalue="Application.Test core001.lat" />
       <item itemvalue="Makefile Target.all" />
     </list>

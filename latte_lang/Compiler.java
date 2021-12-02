@@ -4,6 +4,7 @@ package latte_lang;
 
 import java.io.*;
 
+import frontend.SemanticError;
 import frontend.SematicAnalyst;
 import latte_lang.Absyn.Program;
 
@@ -49,6 +50,10 @@ public class Compiler {
             analyst.checkTypes(ast);
 //            analyst.checkReturn(ast);
 
+        } catch (SemanticError e) {
+            System.err.println("At line " + e.getLineNum() + " :");
+            System.err.println("     " + e.getMessage());
+            System.exit(1);
         } catch (Throwable e) {
             System.err.println("At line " + String.valueOf(t.l.line_num()) + ", near \"" + t.l.buff() + "\" :");
             System.err.println("     " + e.getMessage());
