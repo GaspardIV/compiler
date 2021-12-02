@@ -12,14 +12,15 @@ public class SematicAnalyst {
 
     public class ProgramCheckVisitor implements latte_lang.Absyn.Program.Visitor<Void, Enviroment> {
         public Void visit(Prog p, Enviroment arg) throws SemanticError {
-            // tutaj najpierw musze wszystkie zadeklarowac topdefy w srodowisku i jezeli wszystko ok z zadeklarowaniem to wtedy
-            // sprawdzenie kazdego
             createGlobalContext(p, arg);
+            checkTopDefs(p, arg);
+            return null;
+        }
 
+        private void checkTopDefs(Prog p, Enviroment arg) throws SemanticError {
             for (latte_lang.Absyn.TopDef x : p.listtopdef_) {
                 x.accept(new TopDefCheckVisitor(), arg);
             }
-            return null;
         }
 
         private void createGlobalContext(Prog p, Enviroment arg) throws SemanticError {
@@ -32,11 +33,6 @@ public class SematicAnalyst {
 
         private void fillClassesWithExtends(Enviroment arg) throws SemanticError {
             arg.initInheristance();
-//            arg.addFieldsAndMethods();
-            // todo
-//            check if exist class not defined
-//            check loops inheritance loop detected
-//
         }
 
         private void checkMain(Enviroment arg, int line_num) throws SemanticError.NoMain {

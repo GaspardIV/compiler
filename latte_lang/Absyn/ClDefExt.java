@@ -63,8 +63,9 @@ public class ClDefExt extends TopDef {
             ClDefExt superClass = avaibleClasses.getClassDef(this.ident_2);
             superClass.initInheristance(avaibleClasses);
             ((ClBlk) this.clblock_).listclmember_.addAll(((ClBlk) superClass.clblock_).listclmember_);
+            // todo zmienic to usunac stad, te pola powinny byc chyba w kompilatorze sprawdzane...
+            // todo allow of duplications when overriding?
         }
-        // todo allow of duplications when overriding?
         this.inheritanceInitialized = true;
     }
 }

@@ -10,8 +10,6 @@
       <change beforePath="$PROJECT_DIR$/frontend/Enviroment.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Enviroment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/SematicAnalyst.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/SematicAnalyst.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ClDefExt.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/ClDefExt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/TopDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/TopDef.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Compiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Compiler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/extensions/objects1/counter.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/extensions/objects1/counter.lat" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -314,9 +312,9 @@
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/latte_lang/Absyn/ClDefExt.java</url>
-          <line>50</line>
-          <option name="timeStamp" value="4" />
+          <url>file://$PROJECT_DIR$/frontend/Enviroment.java</url>
+          <line>49</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

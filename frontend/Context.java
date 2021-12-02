@@ -8,10 +8,13 @@ import java.util.Map;
 import java.util.Set;
 
 public class Context {
+    private String contextName;
+    private Map<String, Type> varDefs;
     private Map<String, FnDef> funDefs;
     private Map<String, ClDefExt> classdefs;
 
-    public Context() {
+    public Context(String contextName) {
+        this.contextName = contextName;
         funDefs = new HashMap<>();
         classdefs = new HashMap<>();
     }

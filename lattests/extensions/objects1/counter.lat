@@ -9,7 +9,7 @@ int main () {
   return 0;
 }
 
-class Counter extends B {
+class Counter {
   int val;
 
   void incr () {val++; return;}

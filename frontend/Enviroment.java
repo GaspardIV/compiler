@@ -15,7 +15,7 @@ public class Enviroment {
     }
 
     private void initBuildIns() {
-        Context buildIns = new Context();
+        Context buildIns = new Context("global");
         ListArg args = new ListArg();
         args.add(new Ar(new Int(), "i"));
         buildIns.addFunctionDef("printInt", new FnDef(new Void(), "printInt", args, null));
@@ -68,6 +68,9 @@ public class Enviroment {
         }
     }
 
+    private void addNewContext(String contextName) {
+        addContext(new Context(contextName));
+    }
     private void addContext(Context context) {
         this.contexts.push(context);
     }
