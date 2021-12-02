@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/SemanticError.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/mytests/test" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/mytests/test_already_defined" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/mytests/test_no_main" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Context.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/Enviroment.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Enviroment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/SemanticError.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/SemanticError.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/SematicAnalyst.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/SematicAnalyst.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/AbstractVisitor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/FnDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/FnDef.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Prog.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/Prog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/Program.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ClDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/ClDef.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/TopDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/TopDef.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/AllVisitor.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/latte_lang/Compiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Compiler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/ComposVisitor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/mytests/test" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/mytests/test" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,12 +126,13 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/java-cup-11b-runtime.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lattests/mytests" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
@@ -141,6 +141,7 @@
       <recent name="latte_lang.Absyn" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lattests/mytests" />
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">

@@ -51,11 +51,11 @@ public class Compiler {
 //            analyst.checkReturn(ast);
 
         } catch (SemanticError e) {
-            System.err.println("At line " + e.getLineNum() + " :");
+            System.err.println("Semantic error at line " + e.getLineNum() + " :");
             System.err.println("     " + e.getMessage());
             System.exit(1);
         } catch (Throwable e) {
-            System.err.println("At line " + String.valueOf(t.l.line_num()) + ", near \"" + t.l.buff() + "\" :");
+            System.err.println("Parser error at line " + String.valueOf(t.l.line_num()) + ", near \"" + t.l.buff() + "\" :");
             System.err.println("     " + e.getMessage());
             System.exit(1);
         }

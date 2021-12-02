@@ -17,4 +17,16 @@ public class SemanticError extends Exception {
             super(line_num, "function already declared");
         }
     }
+
+    public static class NoMain extends SemanticError {
+        public NoMain(int line_num) {
+            super(line_num, "no main method");
+        }
+    }
+
+    public static class ClassAlreadyDeclared extends SemanticError {
+        public ClassAlreadyDeclared(int line_num) {
+            super(line_num, "class already declared");
+        }
+    }
 }

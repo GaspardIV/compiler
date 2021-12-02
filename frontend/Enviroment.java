@@ -8,7 +8,7 @@ import java.util.Deque;
 import java.util.Iterator;
 
 public class Enviroment {
-//    private
+    //    private
     private Deque<Context> contexts;
 
     public Enviroment() {
@@ -18,32 +18,46 @@ public class Enviroment {
 
     private void initBuildIns() {
         Context buildIns = new Context();
-        ListType args = new ListType();
-        args.add(new Int());
-        buildIns.addFunction("printInt", new Fun(new Void(), args));
-        args = new ListType();
-        args.add(new Str());
-        buildIns.addFunction("printString", new Fun(new Void(), args));
-        args = new ListType();
-        buildIns.addFunction("readString", new Fun(new Str(), args));
-        args = new ListType();
-        buildIns.addFunction("readInt", new Fun(new Int(), args));
-        args = new ListType();
-        buildIns.addFunction("error", new Fun(new Void(), args));
+        ListArg args = new ListArg();
+        args.add(new Ar(new Int(), "i"));
+        buildIns.addFunctionDef("printInt", new FnDef(new Void(), "printInt", args, null));
+        args = new ListArg();
+        args.add(new Ar(new Str(), "s"));
+        buildIns.addFunctionDef("printString", new FnDef(new Void(), "printString", args, null));
+        args = new ListArg();
+        buildIns.addFunctionDef("readString", new FnDef(new Str(), "readString", args, null));
+        args = new ListArg();
+        buildIns.addFunctionDef("readInt", new FnDef(new Int(), "readInt", args, null));
+        args = new ListArg();
+        buildIns.addFunctionDef("error", new FnDef(new Void(), "error", args, null));
         contexts.add(buildIns);
     }
 
-    public Fun getFunction(String ident_) {
-        for (Iterator<Context> i = contexts.descendingIterator(); i.hasNext();) {
+    public FnDef getFunction(String ident_) {
+        for (Iterator<Context> i = contexts.descendingIterator(); i.hasNext(); ) {
             Context context = i.next();
-            if (context.getFunction(ident_) != null){
-                return context.getFunction(ident_);
+            if (context.getFunctionDef(ident_) != null) {
+                return context.getFunctionDef(ident_);
             }
         }
         return null;
     }
 
-    public void addFunction(String ident_, Fun p) {
-        contexts.getLast().addFunction(ident_, p);
+    public void addFunction(String ident_, FnDef p) {
+        contexts.getLast().addFunctionDef(ident_, p);
+    }
+
+    public ClDefExt getClassDef(String ident_) {
+        for (Iterator<Context> i = contexts.descendingIterator(); i.hasNext(); ) {
+            Context context = i.next();
+            if (context.getFunctionDef(ident_) != null) {
+                return context.getClassDef(ident_);
+            }
+        }
+        return null;
+    }
+
+    public void addClassDef(String ident_, ClDefExt p) {
+        contexts.getLast().addClassDef(ident_, p);
     }
 }
