@@ -2,10 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/Context.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/Enviroment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latte_lang/Absyn/Array.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latte_lang/Absyn/AssArray.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latte_lang/Absyn/AssField.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latte_lang/Absyn/ClBlk.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latte_lang/Absyn/ClBlock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latte_lang/Absyn/ClDef.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latte_lang/Absyn/ClDefExt.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latte_lang/Absyn/ClField.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latte_lang/Absyn/ClMember.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latte_lang/Absyn/ClMethod.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latte_lang/Absyn/Class.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latte_lang/Absyn/EArrayElem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latte_lang/Absyn/EField.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latte_lang/Absyn/EMethod.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latte_lang/Absyn/ENew.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latte_lang/Absyn/ENewArray.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latte_lang/Absyn/For.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latte_lang/Absyn/ListClMember.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Latte.cf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/SematicAnalyst.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/SematicAnalyst.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/FoldVisitor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/VisitSkel.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +49,17 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="4c6ebd04-8d76-40d2-a8a3-473e2d3f35e9" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -114,14 +144,15 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/java_cup" />
-    </key>
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="frontend" />
       <recent name="latte_lang.Absyn" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/java_cup" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Test core.lat">
@@ -267,6 +298,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/latte_lang/_cup.cup">
