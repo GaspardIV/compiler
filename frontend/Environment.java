@@ -5,11 +5,11 @@ import latte_lang.Absyn.Void;
 
 import java.util.*;
 
-public class Enviroment {
+public class Environment {
     //    private
     private Deque<Context> contexts;
 
-    public Enviroment() {
+    public Environment() {
         contexts = new ArrayDeque<>();
         initBuildIns();
     }
@@ -60,7 +60,7 @@ public class Enviroment {
     }
 
     public void initInheristance() throws SemanticError {
-        Enviroment avaibleClasses = new Enviroment();
+        Environment avaibleClasses = new Environment();
         for (Iterator<Context> i = contexts.iterator(); i.hasNext(); ) {
             Context context = i.next();
             avaibleClasses.addContext(context);
@@ -95,6 +95,20 @@ public class Enviroment {
             }
         }
         return null;
+    }
+
+    public Type getExpectedReturnType() {
+        for (Iterator<Context> i = contexts.descendingIterator(); i.hasNext(); ) {
+            Context context = i.next();
+            if (context.getExpectedReturnType() != null) {
+                return context.getExpectedReturnType();
+            }
+        }
+        return null;
+    }
+
+    public void setExpectedReturnType(Type type_) {
+        contexts.getLast().setExpectedReturnType(type_);
     }
 
     // merge two contexts in one

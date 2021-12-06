@@ -2,27 +2,29 @@
 
 package latte_lang.Absyn;
 
+import frontend.SemanticError;
+
 public abstract class Expr implements java.io.Serializable {
-  public abstract <R,A> R accept(Expr.Visitor<R,A> v, A arg);
+  public abstract <R,A> R accept(Expr.Visitor<R,A> v, A arg) throws SemanticError;
   public interface Visitor <R,A> {
-    public R visit(latte_lang.Absyn.ENewArray p, A arg);
-    public R visit(latte_lang.Absyn.EArrayElem p, A arg);
-    public R visit(latte_lang.Absyn.ENew p, A arg);
-    public R visit(latte_lang.Absyn.EMethod p, A arg);
-    public R visit(latte_lang.Absyn.EField p, A arg);
-    public R visit(latte_lang.Absyn.EVar p, A arg);
+    public R visit(latte_lang.Absyn.ENewArray p, A arg) throws SemanticError;
+    public R visit(latte_lang.Absyn.EArrayElem p, A arg) throws SemanticError;
+    public R visit(latte_lang.Absyn.ENew p, A arg) throws SemanticError.VariableAlreadyDeclared, SemanticError;
+    public R visit(latte_lang.Absyn.EMethod p, A arg) throws SemanticError;
+    public R visit(latte_lang.Absyn.EField p, A arg) throws SemanticError;
+    public R visit(latte_lang.Absyn.EVar p, A arg) throws SemanticError.VariableNotDeclared, SemanticError;
     public R visit(latte_lang.Absyn.ELitInt p, A arg);
     public R visit(latte_lang.Absyn.ELitTrue p, A arg);
     public R visit(latte_lang.Absyn.ELitFalse p, A arg);
-    public R visit(latte_lang.Absyn.EApp p, A arg);
+    public R visit(latte_lang.Absyn.EApp p, A arg) throws SemanticError.FunctionNotDeclared, SemanticError;
     public R visit(latte_lang.Absyn.EString p, A arg);
-    public R visit(latte_lang.Absyn.Neg p, A arg);
-    public R visit(latte_lang.Absyn.Not p, A arg);
-    public R visit(latte_lang.Absyn.EMul p, A arg);
-    public R visit(latte_lang.Absyn.EAdd p, A arg);
-    public R visit(latte_lang.Absyn.ERel p, A arg);
-    public R visit(latte_lang.Absyn.EAnd p, A arg);
-    public R visit(latte_lang.Absyn.EOr p, A arg);
+    public R visit(latte_lang.Absyn.Neg p, A arg) throws SemanticError.TypesDeasNotMatch, SemanticError;
+    public R visit(latte_lang.Absyn.Not p, A arg) throws SemanticError;
+    public R visit(latte_lang.Absyn.EMul p, A arg) throws SemanticError.TypesDeasNotMatch, SemanticError;
+    public R visit(latte_lang.Absyn.EAdd p, A arg) throws SemanticError.TypesDeasNotMatch, SemanticError;
+    public R visit(latte_lang.Absyn.ERel p, A arg) throws SemanticError;
+    public R visit(latte_lang.Absyn.EAnd p, A arg) throws SemanticError.TypesDeasNotMatch, SemanticError;
+    public R visit(latte_lang.Absyn.EOr p, A arg) throws SemanticError.TypesDeasNotMatch, SemanticError;
 
   }
 

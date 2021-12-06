@@ -10,6 +10,7 @@ public class Context {
     private Map<String, Type> varDefs;
     private Map<String, FnDef> funDefs;
     private Map<String, ClDefExt> classdefs;
+    private Type expectedReturnType;
 
     public Context(String contextName) {
         this.contextName = contextName;
@@ -40,10 +41,18 @@ public class Context {
         return varDefs.get(ident_);
     }
 
-    public void initInheristance(Enviroment avaibleClasses) throws SemanticError {
+    public void initInheristance(Environment avaibleClasses) throws SemanticError {
         for (String classIdent:classdefs.keySet()) {
             ClDefExt i = classdefs.get(classIdent);
             i.initInheristance(avaibleClasses);
         }
+    }
+
+    public void setExpectedReturnType(Type type_) {
+        this.expectedReturnType = type_;
+    }
+
+    public Type getExpectedReturnType() {
+        return this.expectedReturnType;
     }
 }

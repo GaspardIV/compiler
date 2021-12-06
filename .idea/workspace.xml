@@ -7,28 +7,28 @@
     <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="aaaaaa">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Context.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/Enviroment.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Enviroment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Enviroment.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Environment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/SemanticError.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/SemanticError.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/SematicAnalyst.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/SematicAnalyst.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Ass.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/Ass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/AssArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/AssArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/BStmt.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/BStmt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Blk.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/Blk.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/Block.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ClBlk.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/ClBlk.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ClBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/ClBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ClMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/ClMember.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ClMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/ClMethod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Cond.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/Cond.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/CondElse.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/CondElse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Decl.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/Decl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/For.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/For.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Init.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/Init.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/NoInit.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/NoInit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/AssField.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/AssField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ClDefExt.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/ClDefExt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/EAdd.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/EAdd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/EAnd.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/EAnd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/EApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/EApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/EArrayElem.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/EArrayElem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/EMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/EMethod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/EMul.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/EMul.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/EOr.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/EOr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ERel.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/ERel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/EVar.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/EVar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Expr.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/Expr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ListClMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/ListClMember.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Neg.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/Neg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Not.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/Not.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Ret.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/Ret.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/SExp.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/SExp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Stmt.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/Stmt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/Type.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/While.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/While.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/mytests/test" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/mytests/test" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +161,7 @@
       <recent name="$PROJECT_DIR$/java_cup" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Test">
+  <component name="RunManager" selected="Application.Test mytest">
     <configuration name="Test core001.lat" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="latte_lang.Compiler" />
       <module name="compiler" />
@@ -342,7 +342,7 @@
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/frontend/Enviroment.java</url>
+          <url>file://$PROJECT_DIR$/frontend/Environment.java</url>
           <line>49</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
@@ -352,6 +352,11 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="frontend.Context" memberName="funDefs" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/latte_lang/_cup.cup">

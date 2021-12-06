@@ -54,4 +54,22 @@ public class SemanticError extends Exception {
 
         }
     }
+
+    public static class FunctionNotDeclared extends SemanticError {
+        public FunctionNotDeclared(int line_num) {
+            super(line_num, "Function not declared");
+        }
+    }
+
+    public static class WrongNumberOfArgument extends SemanticError {
+        public WrongNumberOfArgument(int line_num) {
+            super(line_num, "Wrong number of arguments");
+        }
+    }
+
+    public static class ClassDoesNotExist extends SemanticError {
+        public ClassDoesNotExist(int line_num) {
+            super(line_num, "class does not exist");
+        }
+    }
 }

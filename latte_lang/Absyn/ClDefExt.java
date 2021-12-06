@@ -2,7 +2,7 @@
 
 package latte_lang.Absyn;
 
-import frontend.Enviroment;
+import frontend.Environment;
 import frontend.SemanticError;
 
 import java.util.HashSet;
@@ -38,7 +38,7 @@ public class ClDefExt extends TopDef {
     }
 
 
-    public void initInheristance(Enviroment avaibleClasses) throws SemanticError {
+    public void initInheristance(Environment avaibleClasses) throws SemanticError {
         if (this.inheritanceInitialized) {
             return;
         }
