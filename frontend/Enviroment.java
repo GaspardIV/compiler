@@ -68,10 +68,35 @@ public class Enviroment {
         }
     }
 
-    private void addNewContext(String contextName) {
+    public void addNewContext(String contextName) {
         addContext(new Context(contextName));
     }
     private void addContext(Context context) {
         this.contexts.push(context);
     }
+
+    public void popContext() {
+        this.contexts.pop();
+    }
+
+    public void addVariable(String ident_, Type type_) {
+        contexts.getLast().addVarDef(ident_, type_);
+    }
+
+    public boolean actContextContainsVar(String ident_) {
+        return contexts.getLast().getVarType(ident_) != null;
+    }
+
+    public Type getVarType(String ident_) {
+        for (Iterator<Context> i = contexts.descendingIterator(); i.hasNext(); ) {
+            Context context = i.next();
+            if (context.getVarType(ident_) != null) {
+                return context.getVarType(ident_);
+            }
+        }
+        return null;
+    }
+
+    // merge two contexts in one
+//    private void mergeC
 }

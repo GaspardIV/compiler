@@ -12,7 +12,7 @@ public abstract class Type implements java.io.Serializable {
     public R visit(latte_lang.Absyn.Class p, A arg);
     public R visit(latte_lang.Absyn.Array p, A arg);
     public R visit(latte_lang.Absyn.Fun p, A arg);
-
   }
+
 
 }

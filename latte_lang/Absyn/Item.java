@@ -2,11 +2,13 @@
 
 package latte_lang.Absyn;
 
+import frontend.SemanticError;
+
 public abstract class Item implements java.io.Serializable {
-  public abstract <R,A> R accept(Item.Visitor<R,A> v, A arg);
+  public abstract <R,A> R accept(Item.Visitor<R,A> v, A arg) throws SemanticError.VariableAlreadyDeclared, SemanticError.TypesDeasNotMatch, SemanticError;
   public interface Visitor <R,A> {
-    public R visit(latte_lang.Absyn.NoInit p, A arg);
-    public R visit(latte_lang.Absyn.Init p, A arg);
+    public R visit(latte_lang.Absyn.NoInit p, A arg) throws SemanticError.VariableAlreadyDeclared, SemanticError;
+    public R visit(latte_lang.Absyn.Init p, A arg) throws SemanticError.VariableAlreadyDeclared, SemanticError.TypesDeasNotMatch, SemanticError;
 
   }
 

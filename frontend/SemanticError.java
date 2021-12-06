@@ -29,4 +29,29 @@ public class SemanticError extends Exception {
             super(line_num, "class already declared");
         }
     }
+
+    public static class VariableAlreadyDeclared extends SemanticError {
+        public VariableAlreadyDeclared(int line_num) {
+            super(line_num, "variable already declared");
+        }
+    }
+
+    public static class TypesDeasNotMatch extends SemanticError {
+        public TypesDeasNotMatch(int line_num) {
+            super(line_num, "type doesn't match");
+        }
+    }
+
+    public static class VariableNotDeclared extends SemanticError {
+        public VariableNotDeclared(int line_num) {
+            super(line_num, "variable not declared");
+        }
+    }
+
+    public static class ArrayIndexHasToBeInteger extends SemanticError {
+        public ArrayIndexHasToBeInteger(int line_num) {
+            super(line_num, "array index has to be an integer");
+
+        }
+    }
 }

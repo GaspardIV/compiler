@@ -2,23 +2,25 @@
 
 package latte_lang.Absyn;
 
+import frontend.SemanticError;
+
 public abstract class Stmt implements java.io.Serializable {
-  public abstract <R,A> R accept(Stmt.Visitor<R,A> v, A arg);
+  public abstract <R,A> R accept(Stmt.Visitor<R,A> v, A arg) throws SemanticError;
   public interface Visitor <R,A> {
     public R visit(latte_lang.Absyn.Empty p, A arg);
-    public R visit(latte_lang.Absyn.BStmt p, A arg);
-    public R visit(latte_lang.Absyn.Decl p, A arg);
-    public R visit(latte_lang.Absyn.Ass p, A arg);
-    public R visit(latte_lang.Absyn.AssArray p, A arg);
+    public R visit(latte_lang.Absyn.BStmt p, A arg) throws SemanticError.VariableNotDeclared, SemanticError.TypesDeasNotMatch, SemanticError.ArrayIndexHasToBeInteger, SemanticError;
+    public R visit(latte_lang.Absyn.Decl p, A arg) throws SemanticError.VariableAlreadyDeclared, SemanticError.TypesDeasNotMatch, SemanticError;
+    public R visit(latte_lang.Absyn.Ass p, A arg) throws SemanticError.VariableNotDeclared, SemanticError.TypesDeasNotMatch, SemanticError;
+    public R visit(latte_lang.Absyn.AssArray p, A arg) throws SemanticError.ArrayIndexHasToBeInteger, SemanticError;
     public R visit(latte_lang.Absyn.AssField p, A arg);
     public R visit(latte_lang.Absyn.Incr p, A arg);
     public R visit(latte_lang.Absyn.Decr p, A arg);
     public R visit(latte_lang.Absyn.Ret p, A arg);
     public R visit(latte_lang.Absyn.VRet p, A arg);
-    public R visit(latte_lang.Absyn.Cond p, A arg);
-    public R visit(latte_lang.Absyn.CondElse p, A arg);
-    public R visit(latte_lang.Absyn.While p, A arg);
-    public R visit(latte_lang.Absyn.For p, A arg);
+    public R visit(latte_lang.Absyn.Cond p, A arg) throws SemanticError;
+    public R visit(latte_lang.Absyn.CondElse p, A arg) throws SemanticError;
+    public R visit(latte_lang.Absyn.While p, A arg) throws SemanticError;
+    public R visit(latte_lang.Absyn.For p, A arg) throws SemanticError;
     public R visit(latte_lang.Absyn.SExp p, A arg);
 
   }

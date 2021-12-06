@@ -4,13 +4,31 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="">
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="aaaaaa">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Context.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/Enviroment.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Enviroment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/SemanticError.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/SemanticError.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/SematicAnalyst.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/SematicAnalyst.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ClDefExt.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/ClDefExt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/extensions/objects1/counter.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/extensions/objects1/counter.lat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Ass.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/Ass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/AssArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/AssArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/BStmt.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/BStmt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Blk.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/Blk.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/Block.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ClBlk.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/ClBlk.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ClBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/ClBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ClMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/ClMember.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ClMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/ClMethod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Cond.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/Cond.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/CondElse.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/CondElse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Decl.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/Decl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/For.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/For.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Init.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/Init.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/NoInit.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/NoInit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Stmt.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/Stmt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/Type.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/While.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/While.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -238,6 +256,14 @@
       <workItem from="1637833198189" duration="778000" />
       <workItem from="1637833998974" duration="3143000" />
     </task>
+    <task id="LOCAL-00001" summary="aaaaaa">
+      <created>1638444396764</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1638444396764</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -303,6 +329,10 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="aaaaaa" />
+    <option name="LAST_COMMIT_MESSAGE" value="aaaaaa" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -315,6 +345,10 @@
           <url>file://$PROJECT_DIR$/frontend/Enviroment.java</url>
           <line>49</line>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/latte_lang/Absyn/NoInit.java</url>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

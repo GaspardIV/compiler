@@ -2,13 +2,15 @@
 
 package latte_lang.Absyn;
 
+import frontend.SemanticError;
+
 public class CondElse  extends Stmt {
   public final Expr expr_;
   public final Stmt stmt_1, stmt_2;
   public int line_num, col_num, offset;
   public CondElse(Expr p1, Stmt p2, Stmt p3) { expr_ = p1; stmt_1 = p2; stmt_2 = p3; }
 
-  public <R,A> R accept(latte_lang.Absyn.Stmt.Visitor<R,A> v, A arg) { return v.visit(this, arg); }
+  public <R,A> R accept(latte_lang.Absyn.Stmt.Visitor<R,A> v, A arg) throws SemanticError { return v.visit(this, arg); }
 
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

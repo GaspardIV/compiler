@@ -3,9 +3,7 @@ package frontend;
 import latte_lang.Absyn.*;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
 public class Context {
     private String contextName;
@@ -17,6 +15,7 @@ public class Context {
         this.contextName = contextName;
         funDefs = new HashMap<>();
         classdefs = new HashMap<>();
+        varDefs = new HashMap<>();
     }
 
     public void addFunctionDef(String ident, FnDef fun) {
@@ -33,6 +32,12 @@ public class Context {
 
     public void addClassDef(String ident_, ClDefExt p) {
         classdefs.put(ident_, p);
+    }
+    public void addVarDef(String ident_, Type t) {
+        varDefs.put(ident_, t);
+    }
+    public Type getVarType(String ident_) {
+        return varDefs.get(ident_);
     }
 
     public void initInheristance(Enviroment avaibleClasses) throws SemanticError {
