@@ -3,11 +3,12 @@ package frontend;
 import latte_lang.Absyn.*;
 import latte_lang.Absyn.Void;
 
+import java.nio.charset.Charset;
 import java.util.*;
 
 public class Environment {
     //    private
-    private Deque<Context> contexts;
+    private final Deque<Context> contexts;
 
     public Environment() {
         contexts = new ArrayDeque<>();
@@ -29,6 +30,8 @@ public class Environment {
         args = new ListArg();
         buildIns.addFunctionDef("error", new FnDef(new Void(), "error", args, null));
         contexts.add(buildIns);
+
+        buildInArrayFields.put("length", new Int());
     }
 
     public FnDef getFunction(String ident_) {
@@ -72,11 +75,13 @@ public class Environment {
         addContext(new Context(contextName));
     }
     private void addContext(Context context) {
-        this.contexts.push(context);
+        this.contexts.addLast(context);
     }
+//    private void addContext(Context context) {this.contexts.push(context);
+//    }
 
     public void popContext() {
-        this.contexts.pop();
+        this.contexts.removeLast();
     }
 
     public void addVariable(String ident_, Type type_) {
@@ -111,6 +116,9 @@ public class Environment {
         contexts.getLast().setExpectedReturnType(type_);
     }
 
-    // merge two contexts in one
-//    private void mergeC
+    private static final HashMap<String, Type> buildInArrayFields = new HashMap<>();
+    public Map<String, Type> buildInArrayFields() {
+        return buildInArrayFields;
+    }
+
 }

@@ -17,6 +17,13 @@ public class Array  extends Type {
     }
     return false;
   }
+  public boolean equalsT(java.lang.Object o) {
+    if (this == o) return true;
+    if (o instanceof latte_lang.Absyn.Array) {
+      return true;
+    }
+    return false;
+  }
 
   public int hashCode() {
     return this.type_.hashCode();

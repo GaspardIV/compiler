@@ -72,4 +72,10 @@ public class SemanticError extends Exception {
             super(line_num, "class does not exist");
         }
     }
+
+    public static class FieldDoesNotExist extends SemanticError {
+        public FieldDoesNotExist(int line_num) {
+            super(line_num, "field does not exist");
+        }
+    }
 }

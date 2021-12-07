@@ -13,8 +13,8 @@ public abstract class Stmt implements java.io.Serializable {
     public R visit(latte_lang.Absyn.Ass p, A arg) throws SemanticError.VariableNotDeclared, SemanticError.TypesDeasNotMatch, SemanticError;
     public R visit(latte_lang.Absyn.AssArray p, A arg) throws SemanticError.ArrayIndexHasToBeInteger, SemanticError;
     public R visit(latte_lang.Absyn.AssField p, A arg) throws SemanticError;
-    public R visit(latte_lang.Absyn.Incr p, A arg);
-    public R visit(latte_lang.Absyn.Decr p, A arg);
+    public R visit(latte_lang.Absyn.Incr p, A arg) throws SemanticError.TypesDeasNotMatch, SemanticError;
+    public R visit(latte_lang.Absyn.Decr p, A arg) throws SemanticError;
     public R visit(latte_lang.Absyn.Ret p, A arg) throws SemanticError;
     public R visit(latte_lang.Absyn.VRet p, A arg);
     public R visit(latte_lang.Absyn.Cond p, A arg) throws SemanticError;

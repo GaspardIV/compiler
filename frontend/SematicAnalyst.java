@@ -207,45 +207,65 @@ public class SematicAnalyst {
             return null;
         }
 
-        public Void visit(latte_lang.Absyn.AssArray p, Environment arg) throws SemanticError { /* Code for AssArray goes here */
-            //p.ident_;
+
+        public Void visit(latte_lang.Absyn.AssArray p, Environment arg) throws SemanticError {
             Type iType = p.expr_1.accept(new ExprVisitor(), arg);
             if (!iType.equals(new Int())) {
                 throw new SemanticError.ArrayIndexHasToBeInteger(p.line_num);
             }
 
-            Type arrayType = arg.getVarType(p.ident_);
+            Array arrayType = (Array) arg.getVarType(p.ident_);
             Type exprType = p.expr_2.accept(new ExprVisitor(), arg);
 
-            if (!arrayType.equals(exprType)) {
+            if (!arrayType.type_.equals(exprType)) {
                 throw new SemanticError.TypesDeasNotMatch(p.line_num);
             }
             return null;
         }
 
-        public Void visit(latte_lang.Absyn.AssField p, Environment arg) throws SemanticError { /* Code for AssField goes here */
-            p.expr_1.accept(new ExprVisitor(), arg);
-            //p.ident_;
-            p.expr_2.accept(new ExprVisitor(), arg);
+        public Void visit(latte_lang.Absyn.AssField p, Environment arg) throws SemanticError {
+            Type assT = p.expr_2.accept(new ExprVisitor(), arg);
+            try {
+                Class classExprT = (Class) p.expr_1.accept(new ExprVisitor(), arg);
+                ClField field = ((ClBlk) arg.getClassDef(classExprT.ident_).clblock_).listclmember_.getField(p.ident_);
+                if (field == null) {
+                    throw new SemanticError.FieldDoesNotExist(p.line_num);
+                }
+                if (!field.type_.equals(assT)) {
+                    throw new SemanticError.TypesDeasNotMatch(p.line_num);
+                }
+            } catch (ClassCastException e) {
+                throw new SemanticError(p.line_num, "field can only be aplied to class object");
+            }
             return null;
         }
 
-        public Void visit(latte_lang.Absyn.Incr p, Environment arg) { /* Code for Incr goes here */
-            //p.ident_;
+        public Void visit(latte_lang.Absyn.Incr p, Environment arg) throws SemanticError {
+            if (!arg.getVarType(p.ident_).equals(new Int())) {
+                throw new SemanticError.TypesDeasNotMatch(p.line_num);
+            }
             return null;
         }
 
-        public Void visit(latte_lang.Absyn.Decr p, Environment arg) { /* Code for Decr goes here */
-            //p.ident_;
+        public Void visit(latte_lang.Absyn.Decr p, Environment arg) throws SemanticError {
+            if (!arg.getVarType(p.ident_).equals(new Int())) {
+                throw new SemanticError.TypesDeasNotMatch(p.line_num);
+            }
             return null;
         }
 
-        public Void visit(latte_lang.Absyn.Ret p, Environment arg) throws SemanticError { /* Code for Ret goes here */
-            p.expr_.accept(new ExprVisitor(), arg);
+        public Void visit(latte_lang.Absyn.Ret p, Environment arg) throws SemanticError {
+            Type retType = p.expr_.accept(new ExprVisitor(), arg);
+            if(!retType.equals(arg.getExpectedReturnType())) {
+                throw new SemanticError.WrongReturnType(p.line_num);
+            }
             return null;
         }
 
-        public Void visit(latte_lang.Absyn.VRet p, Environment arg) { /* Code for VRet goes here */
+        public Void visit(latte_lang.Absyn.VRet p, Environment arg) {
+            if(!(new latte_lang.Absyn.Void()).equals(arg.getExpectedReturnType())) {
+                throw new SemanticError.WrongReturnType(p.line_num);
+            }
             return null;
         }
 
@@ -320,7 +340,7 @@ public class SematicAnalyst {
             if (!size.equals(new Int())) {
                 throw new SemanticError(p.line_num, "Size has to be an Integer");
             }
-            return p.type_;
+            return new Array(p.type_);
         }
 
         public Type visit(EArrayElem p, Environment arg) throws SemanticError { /* Code for EArrayElem goes here */
@@ -343,9 +363,9 @@ public class SematicAnalyst {
             ClMethod method;
             try {
                 Class classExprT = (Class) p.expr_.accept(new ExprVisitor(), arg);
-                method = ((ClBlk)arg.getClassDef(classExprT.ident_).clblock_).listclmember_.getMethod(p.ident_);
+                method = ((ClBlk) arg.getClassDef(classExprT.ident_).clblock_).listclmember_.getMethod(p.ident_);
             } catch (Exception e) {
-                throw new SemanticError(p.line_num,"method can only be aplied to class object");
+                throw new SemanticError(p.line_num, "method can only be aplied to class object");
             }
 
             if (method == null) {
@@ -367,19 +387,28 @@ public class SematicAnalyst {
             return method.type_;
         }
 
-        public Type visit(EField p, Environment arg) throws SemanticError { /* Code for EField goes here */
+        public Type visit(EField p, Environment arg) throws SemanticError {
             ClField field;
-            try {
-                Class classExprT = (Class) p.expr_.accept(new ExprVisitor(), arg);
-                field = ((ClBlk)arg.getClassDef(classExprT.ident_).clblock_).listclmember_.getField(p.ident_);
-            } catch (Exception e) {
-                throw new SemanticError(p.line_num,"method can only be aplied to class object");
+
+            Type exprT = p.expr_.accept(new ExprVisitor(), arg);
+            if ((new Array(null)).equalsT(exprT) && arg.buildInArrayFields().containsKey(p.ident_)) {
+                return arg.buildInArrayFields().get(p.ident_);
+            } else {
+                try {
+                    Class classExprT = (Class) exprT;
+                    field = ((ClBlk) arg.getClassDef(classExprT.ident_).clblock_).listclmember_.getField(p.ident_);
+                    if (field == null) {
+                        throw new SemanticError.FieldDoesNotExist(p.line_num);
+                    }
+                } catch (ClassCastException e) {
+                    throw new SemanticError(p.line_num, "field can only be aplied to class object");
+                }
             }
             return field.type_;
         }
 
         public Type visit(EVar p, Environment arg) throws SemanticError {
-            if (!arg.actContextContainsVar(p.ident_)) {
+            if (arg.getVarType(p.ident_) == null) {
                 throw new SemanticError.VariableNotDeclared(p.line_num);
             }
             return arg.getVarType(p.ident_);
@@ -464,7 +493,7 @@ public class SematicAnalyst {
         public Type visit(ERel p, Environment arg) throws SemanticError { /* Code for ERel goes here */
             Type t1 = p.expr_1.accept(new ExprVisitor(), arg);
             Type t2 = p.expr_2.accept(new ExprVisitor(), arg);
-            if (!t1.equals(new Bool())) {
+            if (!t1.equals(new Int())) {
                 throw new SemanticError.TypesDeasNotMatch(p.line_num);
             }
             if (!t1.equals(t2)) {
