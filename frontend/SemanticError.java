@@ -78,4 +78,28 @@ public class SemanticError extends Exception {
             super(line_num, "field does not exist");
         }
     }
+
+    public static class WrongReturnType extends SemanticError {
+        public WrongReturnType(int line_num) {
+            super(line_num, "wrong return type");
+        }
+    }
+
+    public static class CondHasToBeBoolean extends SemanticError {
+        public CondHasToBeBoolean(int line_num) {
+            super(line_num, "cond has to be boolean");
+        }
+    }
+
+    public static class FunctionWithoutReturn extends SemanticError {
+        public FunctionWithoutReturn(int lineNum) {
+            super(lineNum, "function without return");
+        }
+    }
+
+    public static class ForEachCanBeAppliedToArraysOnly extends SemanticError {
+        public ForEachCanBeAppliedToArraysOnly(int line_num) {
+            super(line_num, "for each can be applied to arrays only");
+        }
+    }
 }

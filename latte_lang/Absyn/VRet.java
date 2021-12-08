@@ -2,11 +2,13 @@
 
 package latte_lang.Absyn;
 
+import frontend.SemanticError;
+
 public class VRet  extends Stmt {
   public int line_num, col_num, offset;
   public VRet() { }
 
-  public <R,A> R accept(latte_lang.Absyn.Stmt.Visitor<R,A> v, A arg) { return v.visit(this, arg); }
+  public <R,A> R accept(latte_lang.Absyn.Stmt.Visitor<R,A> v, A arg) throws SemanticError { return v.visit(this, arg); }
 
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

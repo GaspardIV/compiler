@@ -11,12 +11,14 @@ public class Context {
     private Map<String, FnDef> funDefs;
     private Map<String, ClDefExt> classdefs;
     private Type expectedReturnType;
+    private Boolean wasReturn;
 
     public Context(String contextName) {
         this.contextName = contextName;
         funDefs = new HashMap<>();
         classdefs = new HashMap<>();
         varDefs = new HashMap<>();
+        wasReturn = false;
     }
 
     public void addFunctionDef(String ident, FnDef fun) {
@@ -54,5 +56,13 @@ public class Context {
 
     public Type getExpectedReturnType() {
         return this.expectedReturnType;
+    }
+
+    public void setWasReturn(boolean wasReturn) {
+        this.wasReturn = wasReturn;
+    }
+
+    public Boolean wasReturn() {
+        return wasReturn;
     }
 }

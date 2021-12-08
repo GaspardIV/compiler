@@ -45,13 +45,13 @@ public class SematicAnalyst {
     }
 
     public class TopDefDeclareVisitor implements latte_lang.Absyn.TopDef.Visitor<Void, Environment> {
-        public Void visit(FnDef p, Environment arg) throws SemanticError { /* Code for FnDef goes here */
+        public Void visit(FnDef p, Environment arg) throws SemanticError {
             checkIfFunctionAlreadyDefined(p, arg);
             addFunctionDef(p, arg);
             return null;
         }
 
-        public Void visit(ClDef p, Environment arg) throws SemanticError { /* Code for ClDef goes here */
+        public Void visit(ClDef p, Environment arg) throws SemanticError {
             ClDefExt i = new ClDefExt(p.ident_, null, p.clblock_);
             i.line_num = p.line_num;
             checkIfCLassAlreadyDefined(i, arg);
@@ -59,7 +59,7 @@ public class SematicAnalyst {
             return null;
         }
 
-        public Void visit(ClDefExt p, Environment arg) throws SemanticError.ClassAlreadyDeclared { /* Code for ClDefExt goes here */
+        public Void visit(ClDefExt p, Environment arg) throws SemanticError.ClassAlreadyDeclared {
             checkIfCLassAlreadyDefined(p, arg);
             addClassDef(p, arg);
             return null;
@@ -95,6 +95,9 @@ public class SematicAnalyst {
             }
             environment.setExpectedReturnType(p.type_);
             p.block_.accept(new BlockVisitor(), environment);
+            if (!environment.wasReturn()) {
+                throw new SemanticError.FunctionWithoutReturn(p.line_num);
+            }
             environment.popContext();
             return null;
         }
@@ -118,7 +121,7 @@ public class SematicAnalyst {
     }
 
     public class ClBlockTypeCheckVisitor implements latte_lang.Absyn.ClBlock.Visitor<Void, Environment> {
-        public Void visit(ClBlk p, Environment arg) throws SemanticError { /* Code for ClBlk goes here */
+        public Void visit(ClBlk p, Environment arg) throws SemanticError {
             for (latte_lang.Absyn.ClMember x : p.listclmember_) {
                 x.accept(new ClMemberTypeCheckVisitor(), arg);
             }
@@ -127,7 +130,7 @@ public class SematicAnalyst {
     }
 
     public class ClBlockInitFieldsInEnvironmentVisitor implements latte_lang.Absyn.ClBlock.Visitor<Void, Environment> {
-        public Void visit(ClBlk p, Environment arg) throws SemanticError { /* Code for ClBlk goes here */
+        public Void visit(ClBlk p, Environment arg) throws SemanticError {
             for (latte_lang.Absyn.ClMember x : p.listclmember_) {
                 x.accept(new ClMemberInitFieldsInEnvironmentVisitor(), arg);
             }
@@ -141,7 +144,7 @@ public class SematicAnalyst {
             return null;
         }
 
-        public Void visit(ClMethod p, Environment arg) throws SemanticError { /* Code for ClMethod goes here */
+        public Void visit(ClMethod p, Environment arg) throws SemanticError {
             FnDef fnDef = new FnDef(p.type_, p.ident_, p.listarg_, p.block_);
             fnDef.line_num = p.line_num;
             arg.addFunction(p.ident_, fnDef);
@@ -162,6 +165,9 @@ public class SematicAnalyst {
             }
             environment.setExpectedReturnType(p.type_);
             p.block_.accept(new BlockVisitor(), environment);
+            if (!environment.wasReturn()) {
+                throw new SemanticError.FunctionWithoutReturn(p.line_num);
+            }
             environment.popContext();
             return null;
         }
@@ -184,7 +190,9 @@ public class SematicAnalyst {
         public Void visit(latte_lang.Absyn.BStmt p, Environment arg) throws SemanticError {
             arg.addNewContext("Block stmt");
             p.block_.accept(new BlockVisitor(), arg);
+            Boolean wasReturn = arg.wasReturn();
             arg.popContext();
+            if (wasReturn) arg.setWasReturn(true);
             return null;
         }
 
@@ -256,46 +264,74 @@ public class SematicAnalyst {
 
         public Void visit(latte_lang.Absyn.Ret p, Environment arg) throws SemanticError {
             Type retType = p.expr_.accept(new ExprVisitor(), arg);
-            if(!retType.equals(arg.getExpectedReturnType())) {
+            if (!retType.equals(arg.getExpectedReturnType())) {
                 throw new SemanticError.WrongReturnType(p.line_num);
             }
+            arg.setWasReturn(true);
             return null;
         }
 
-        public Void visit(latte_lang.Absyn.VRet p, Environment arg) {
-            if(!(new latte_lang.Absyn.Void()).equals(arg.getExpectedReturnType())) {
+        public Void visit(latte_lang.Absyn.VRet p, Environment arg) throws SemanticError {
+            if (!(new latte_lang.Absyn.Void()).equals(arg.getExpectedReturnType())) {
                 throw new SemanticError.WrongReturnType(p.line_num);
             }
+            arg.setWasReturn(true);
             return null;
         }
 
-        public Void visit(latte_lang.Absyn.Cond p, Environment arg) throws SemanticError { /* Code for Cond goes here */
-            p.expr_.accept(new ExprVisitor(), arg);
+        public Void visit(latte_lang.Absyn.Cond p, Environment arg) throws SemanticError {
+            Type exprType = p.expr_.accept(new ExprVisitor(), arg);
+            if (!exprType.equals(new Bool())) {
+                throw new SemanticError.CondHasToBeBoolean(p.line_num);
+            }
             p.stmt_.accept(new StmtVisitor(), arg);
             return null;
         }
 
-        public Void visit(latte_lang.Absyn.CondElse p, Environment arg) throws SemanticError { /* Code for CondElse goes here */
-            p.expr_.accept(new ExprVisitor(), arg);
+        public Void visit(latte_lang.Absyn.CondElse p, Environment arg) throws SemanticError {
+            Type exprType = p.expr_.accept(new ExprVisitor(), arg);
+            if (!exprType.equals(new Bool())) {
+                throw new SemanticError.CondHasToBeBoolean(p.line_num);
+            }
+            Boolean wasReturnBefore = arg.wasReturn();
+            arg.setWasReturn(false);
             p.stmt_1.accept(new StmtVisitor(), arg);
+            Boolean wasReturnStmt1 = arg.wasReturn();
+            arg.setWasReturn(false);
             p.stmt_2.accept(new StmtVisitor(), arg);
+            Boolean wasReturnStmt2 = arg.wasReturn();
+            arg.setWasReturn(wasReturnBefore || (wasReturnStmt1 && wasReturnStmt2));
             return null;
         }
 
-        public Void visit(latte_lang.Absyn.While p, Environment arg) throws SemanticError { /* Code for While goes here */
-            p.expr_.accept(new ExprVisitor(), arg);
+        public Void visit(latte_lang.Absyn.While p, Environment arg) throws SemanticError {
+            Type exprType = p.expr_.accept(new ExprVisitor(), arg);
+            if (!exprType.equals(new Bool())) {
+                throw new SemanticError.CondHasToBeBoolean(p.line_num);
+            }
             p.stmt_.accept(new StmtVisitor(), arg);
             return null;
         }
 
-        public Void visit(latte_lang.Absyn.For p, Environment arg) throws SemanticError { /* Code for For goes here */
-//            p.arg_.accept(new ArgVisitor(), arg);
-            p.expr_.accept(new ExprVisitor(), arg);
+        public Void visit(latte_lang.Absyn.For p, Environment arg) throws SemanticError {
+            arg.addNewContext("For");
+            Ar iterator = (Ar) p.arg_;
+            Type exprType = p.expr_.accept(new ExprVisitor(), arg);
+            if (!(new Array(null)).equalsT(exprType)) {
+                throw new SemanticError.ForEachCanBeAppliedToArraysOnly(p.line_num);
+            }
+
+            Array array = (Array) exprType;
+            if (!iterator.type_.equals(array.type_)) {
+                throw new SemanticError.TypesDeasNotMatch(p.line_num);
+            }
+            arg.addVariable(iterator.ident_, iterator.type_);
             p.stmt_.accept(new StmtVisitor(), arg);
+            arg.popContext();
             return null;
         }
 
-        public Void visit(latte_lang.Absyn.SExp p, Environment arg) throws SemanticError { /* Code for SExp goes here */
+        public Void visit(latte_lang.Absyn.SExp p, Environment arg) throws SemanticError {
             p.expr_.accept(new ExprVisitor(), arg);
             return null;
         }
@@ -324,9 +360,7 @@ public class SematicAnalyst {
 
             Type exprType = p.expr_.accept(new ExprVisitor(), arg);
 
-            if (exprType.equals(itemType)) {
-                System.out.println("ok typy init sie zhadzadja");
-            } else {
+            if (!exprType.equals(itemType)) {
                 throw new SemanticError.TypesDeasNotMatch(p.line_num);
             }
 
@@ -335,7 +369,7 @@ public class SematicAnalyst {
     }
 
     public class ExprVisitor implements latte_lang.Absyn.Expr.Visitor<Type, Environment> {
-        public Type visit(ENewArray p, Environment arg) throws SemanticError { /* Code for ENewArray goes here */
+        public Type visit(ENewArray p, Environment arg) throws SemanticError {
             Type size = p.expr_.accept(new ExprVisitor(), arg);
             if (!size.equals(new Int())) {
                 throw new SemanticError(p.line_num, "Size has to be an Integer");
@@ -343,7 +377,7 @@ public class SematicAnalyst {
             return new Array(p.type_);
         }
 
-        public Type visit(EArrayElem p, Environment arg) throws SemanticError { /* Code for EArrayElem goes here */
+        public Type visit(EArrayElem p, Environment arg) throws SemanticError {
             Type index = p.expr_.accept(new ExprVisitor(), arg);
             if (!index.equals(new Int())) {
                 throw new SemanticError(p.line_num, "Index has to be an Integer");
@@ -352,7 +386,7 @@ public class SematicAnalyst {
             return arrayType.type_;
         }
 
-        public Type visit(ENew p, Environment arg) throws SemanticError { /* Code for ENew goes here */
+        public Type visit(ENew p, Environment arg) throws SemanticError {
             if (arg.getClassDef(p.ident_) == null) {
                 throw new SemanticError.ClassDoesNotExist(p.line_num);
             }
@@ -490,7 +524,7 @@ public class SematicAnalyst {
             return t1;
         }
 
-        public Type visit(ERel p, Environment arg) throws SemanticError { /* Code for ERel goes here */
+        public Type visit(ERel p, Environment arg) throws SemanticError {
             Type t1 = p.expr_1.accept(new ExprVisitor(), arg);
             Type t2 = p.expr_2.accept(new ExprVisitor(), arg);
             if (!t1.equals(new Int())) {
@@ -502,7 +536,7 @@ public class SematicAnalyst {
             return t1;
         }
 
-        public Type visit(EAnd p, Environment arg) throws SemanticError { /* Code for EAnd goes here */
+        public Type visit(EAnd p, Environment arg) throws SemanticError {
             Type t1 = p.expr_1.accept(new ExprVisitor(), arg);
             Type t2 = p.expr_2.accept(new ExprVisitor(), arg);
             if (!t1.equals(new Bool())) {
@@ -514,7 +548,7 @@ public class SematicAnalyst {
             return t1;
         }
 
-        public Type visit(EOr p, Environment arg) throws SemanticError { /* Code for EOr goes here */
+        public Type visit(EOr p, Environment arg) throws SemanticError {
             Type t1 = p.expr_1.accept(new ExprVisitor(), arg);
             Type t2 = p.expr_2.accept(new ExprVisitor(), arg);
             if (!t1.equals(new Bool())) {

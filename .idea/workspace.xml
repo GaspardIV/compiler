@@ -4,17 +4,13 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="aaaaaa">
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="prawie dziala szkoda ze nie moja glowa :&lt;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Context.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Environment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/SemanticError.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/SemanticError.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/SematicAnalyst.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/SematicAnalyst.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Array.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/Array.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/EField.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/EField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ENew.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/ENew.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ENewArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/ENewArray.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Stmt.java" beforeDir="false" afterPath="$PROJECT_DIR$/latte_lang/Absyn/Stmt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/mytests/test" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/mytests/test" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -249,7 +245,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638444396764</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="prawie dziala szkoda ze nie moja glowa :&lt;">
+      <created>1638882864082</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1638882864082</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -317,7 +320,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="aaaaaa" />
-    <option name="LAST_COMMIT_MESSAGE" value="aaaaaa" />
+    <MESSAGE value="prawie dziala szkoda ze nie moja glowa :&lt;" />
+    <option name="LAST_COMMIT_MESSAGE" value="prawie dziala szkoda ze nie moja glowa :&lt;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -330,11 +334,6 @@
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/latte_lang/Absyn/NoInit.java</url>
           <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/frontend/SematicAnalyst.java</url>
-          <line>371</line>
-          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

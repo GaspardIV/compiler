@@ -121,4 +121,11 @@ public class Environment {
         return buildInArrayFields;
     }
 
+    public void setWasReturn(boolean wasReturn) {
+        contexts.getLast().setWasReturn(wasReturn);
+    }
+
+    public Boolean wasReturn() {
+        return contexts.getLast().wasReturn();
+    }
 }
