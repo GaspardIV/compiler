@@ -4,9 +4,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="make file">
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-    </list>
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="make file" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -143,7 +141,7 @@
       <recent name="$PROJECT_DIR$/java_cup" />
     </key>
   </component>
-  <component name="RunManager" selected="Makefile Target.clean">
+  <component name="RunManager" selected="Makefile Target.cleanBuild">
     <configuration name="Test core001.lat" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="latte.Compiler" />
       <module name="compiler" />
@@ -236,8 +234,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Makefile Target.clean" />
         <item itemvalue="Makefile Target.cleanBuild" />
+        <item itemvalue="Makefile Target.clean" />
         <item itemvalue="Makefile Target.all" />
         <item itemvalue="Application.Test core001.lat" />
         <item itemvalue="Makefile Target.build" />
@@ -284,7 +282,14 @@
       <option name="project" value="LOCAL" />
       <updated>1639150583238</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="make file">
+      <created>1639151189402</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1639151189402</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
