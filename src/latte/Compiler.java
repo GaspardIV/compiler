@@ -2,14 +2,16 @@
 
 package latte;
 
-import java.io.*;
-
+import latte.Absyn.Program;
 import latte.errors.SemanticError;
 import latte.frontend.SematicAnalyst;
-import latte.Absyn.Program;
-import latte.parser.PrettyPrinter;
 import latte.parser.Yylex;
 import latte.parser.parser;
+
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
 
 
 public class Compiler {
@@ -30,28 +32,18 @@ public class Compiler {
     }
 
     public latte.Absyn.Program parse() throws Exception {
-        /* The default parser is the first-defined entry point. */
-        latte.Absyn.Program ast = p.pProgram();
-        System.out.println();
-        System.out.println("Parse Succesful!");
-        System.out.println();
-        System.out.println("[Abstract Syntax]");
-        System.out.println();
-        System.out.println(PrettyPrinter.show(ast));
-        System.out.println();
-        System.out.println("[Linearized Tree]");
-        System.out.println();
-        System.out.println(PrettyPrinter.print(ast));
-        return ast;
+        return p.pProgram();
     }
 
-    public static void main(String args[]) throws Exception {
+    public static void main(String[] args) throws Exception {
         Compiler t = new Compiler(args);
+
         Program ast;
         try {
             ast = t.parse();
         } catch (Throwable e) {
-            System.err.println("Parser error at line " + String.valueOf(t.l.line_num()) + ", near \"" + t.l.buff() + "\" :");
+            System.err.println("ERROR");
+            System.err.println("Parser error at line " + t.l.line_num() + ", near \"" + t.l.buff() + "\" :");
             System.err.println("     " + e.getMessage());
             System.exit(1);
             return;
@@ -60,7 +52,9 @@ public class Compiler {
         try {
             SematicAnalyst analyst = new SematicAnalyst();
             analyst.checkTypes(ast);
+            System.err.println("OK\n");
         } catch (SemanticError e) {
+            System.err.println("ERROR\n");
             System.err.println("Semantic error at line " + e.getLineNum() + " :");
             System.err.println("     " + e.getMessage());
             System.exit(1);

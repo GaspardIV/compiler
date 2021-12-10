@@ -11,11 +11,9 @@ all :
 	cp ${JAVA_CUP_PATH} ${DST_DIR};
 	${JAVAC} src/latte/Compiler.java -sourcepath ${SOURCE_DIR} -cp ${JAVA_CUP_PATH} -d ${DST_DIR}
 	echo "Main-Class: latte.Compiler" > ${DST_DIR}/manifest.mf
-	cd ${DST_DIR} && jar xvf ${JAVA_CUP} java_cup && jar cfm compiler.jar manifest.mf latte java_cup && cd ..
-	#echo "#!/bin/bash" > compiler
+	cd ${DST_DIR} && jar xvf ${JAVA_CUP} java_cup > /dev/null && jar cfm compiler.jar manifest.mf latte java_cup && cd ..
 	echo "#!/usr/bin/java -jar" > compiler
 	cat build/compiler.jar >> compiler
-#	echo 'java -jar build/compiler.jar' >> compiler
 	chmod a+x compiler
 
 cleanBuild : clean all

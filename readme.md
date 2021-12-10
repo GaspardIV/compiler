@@ -1,54 +1,28 @@
-./bnfc-2.9.3-linux-x86_64.binary --java -l Latte.cf -m
+Kompilator na dzien dzisiejszy sklada sie jedynie z frontendu.
 
-java_cup 11b
+Kompliacja kompilatora za pomoca polecenia: ` make`
 
-jlex 1.2.6
+Uzycie: `./compiler nazwa_pliku.lat`
 
+Struktura:
 
+W katalogu `third_party` znajduje sie jar biblioteki java_cup, wykorzystywany przez parser. W katalogu `src` znajduja
+sie pliki zrodlowe z podzialem na paczki:
+- `latte` - Latte. Plik Compiler, to kompilator.
+  - `latte.Absyn` - Abstract syntax. Skladniki syntaktyczne jezyka latte. Wiecej o kazdym z nich mozna sie dowiedziec z
+  pliku gramatyki jezyka `LatteLang.cf`. Pliki wygenerowane przez bnfc, 
+  ale z drobnymi modyfikacjami wprowadzonymi przeze mnie.
+  - `latte.errors` - Bledy
+  - `latte.frontend` - zawiera klase SemanticAnalyst odpowiadajaca za sprawdzenie typow.
+      - `latte.frontend.environment` - opisuje srodowisko wykononia SemanticAnalyst'y.
+  - `parser` - Parser. Wszystkie pliki wygenerowane przez bnfc.
 
-```
-#+TITLE: Mjrp
+Do wygenerowania parsera uzylem bnfc 2.9.3:
 
+`    bnfc-2.9.3-linux-x86_64.binary --java -l LatteLang.cf -m`
 
-* Frontend <2021-11-30 wto>
-** do zrobienia
-- Analizator kontekstowy.
-  + Dobre robienie łapania błędów
-  + Można stracić za to, że nie raportujemy lokalizacji błędu.
-  + Trzeba wyłapać WSZYSTKIE błędy
-- to co jest trudne:
-  + trzeba wymyślić regóły:
-    to może zając trochę czasu
-- zmienić gramatykę aby uwzględniała (potencjalne) rozszerzenia
-- w testach nie będą sprawdzane rozszerzenia
-** pytania:
-- Co ma zwracać / czym jest frontend?
-  + ma robić analizę semantyczną :: sprawdzać semantykę i wypisywać jaki błąd
+Bnfc wykorzystuje bibloteki java_cup do parsera, i jlex jako lekser.
 
-* Generator kodu (backend)<2022-01-10 pon>
-** do zrobienia
-- 4 / 5 (może 3)
-  - trudne do zrobienia
-  - reprezentacja pośrednia programu:
-    - należy zrobić sobie reprezentację w postaci kodu 4-kowego a z niego na assemblera(?)
+`java_cup 11b`
+`jlex 1.2.6`
 
-- warto generować do assemblera i traktować go jako maszynę stosową
-  - szczyt stosu w którymś rejestrze(EAX) i za to jest *10
-
-* Rozszerzenia<2022-01-24 pon>
-- 1-4 są łatwe
-- 5. warto zrobić odśmiecanie jeżeli będzie brakowało pk.
-  - Odśmiecanie tylko dla napisów?
-  - reference counting
-- 6 *NIE ROBIĆ*
-
-
-quizy + programy / min 35
-* Strategie
-** łatwa x86 (26 pk)
-- rozszerzenia 1-4 od początku
-  - dodatnie ich do frontend
-- backend x86 w postaci maszyny stosowej (ten asembler)
-- rozszerzenia na siebie wpływają
-  - musi być możliwe robienie tablic obiektów itd.
-```
