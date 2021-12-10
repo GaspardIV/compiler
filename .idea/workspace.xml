@@ -5,185 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="prawie dziala szkoda ze nie moja glowa :&lt;">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JLex/CAccept.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JLex/CAcceptAnchor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JLex/CAlloc.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JLex/CBunch.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JLex/CDTrans.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JLex/CDfa.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JLex/CEmit.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JLex/CError.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JLex/CInput.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JLex/CLexGen.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JLex/CMakeNfa.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JLex/CMinimize.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JLex/CNfa.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JLex/CNfa2Dfa.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JLex/CNfaPair.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JLex/CSet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JLex/CSimplifyNfa.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JLex/CSpec.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JLex/CUtility.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JLex/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JLex/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JLex/SparseBitSet$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JLex/SparseBitSet$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JLex/SparseBitSet$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JLex/SparseBitSet$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JLex/SparseBitSet$BinOp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JLex/SparseBitSet.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bnfc-2.9.3-linux-x86_64.binary" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/environment/Context.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/environment/Environment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/SemanticError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/errors/SemanticError.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/SematicAnalyst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/SematicAnalyst.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java-cup-11b-runtime.jar" beforeDir="false" afterPath="$PROJECT_DIR$/third_party/java-cup-11b-runtime.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/CUP$parser$actions.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/ErrorManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/Lexer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/action_part.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/action_production.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/anttask/CUPTask.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/assoc.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/emit.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/internal_error.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/lalr_item.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/lalr_item_set.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/lalr_state.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/lalr_transition.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/lr_item_core.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/non_terminal.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/nonassoc_action.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/parse_action.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/parse_action_row.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/parse_action_table.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/parse_reduce_row.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/parse_reduce_table.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/parser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/production.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/production_part.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/reduce_action.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/runtime/ComplexSymbolFactory$ComplexSymbol.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/runtime/ComplexSymbolFactory$Location.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/runtime/ComplexSymbolFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/runtime/DefaultSymbolFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/runtime/Scanner.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/runtime/ScannerBuffer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/runtime/Symbol.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/runtime/SymbolFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/runtime/SyntaxTreeDFS$AbstractVisitor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/runtime/SyntaxTreeDFS$ElementHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/runtime/SyntaxTreeDFS$Visitor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/runtime/SyntaxTreeDFS.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/runtime/SyntaxTreeTransform$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/runtime/SyntaxTreeTransform$ChainRemover.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/runtime/SyntaxTreeTransform.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/runtime/SyntaxTreeXPath.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/runtime/XMLElement$Error.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/runtime/XMLElement$NonTerminal.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/runtime/XMLElement$Terminal.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/runtime/XMLElement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/runtime/lr_parser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/runtime/virtual_parse_stack.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/shift_action.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/sym.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/symbol.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/symbol_part.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/symbol_set.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/terminal.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/terminal_set.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_cup/version.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/AddOp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/AddOp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Ar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Ar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Arg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Arg.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Array.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Array.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Ass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Ass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/AssArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/AssArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/AssField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/AssField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/BStmt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/BStmt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Blk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Blk.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Block.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Bool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Bool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ClBlk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/ClBlk.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ClBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/ClBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ClDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/ClDef.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ClDefExt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/ClDefExt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ClField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/ClField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ClMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/ClMember.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ClMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/ClMethod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Class.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Class.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Cond.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Cond.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/CondElse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/CondElse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Decl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Decl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Decr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Decr.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Div.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Div.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/EAdd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/EAdd.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/EAnd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/EAnd.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/EApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/EApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/EArrayElem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/EArrayElem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/EField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/EField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ELitFalse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/ELitFalse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ELitInt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/ELitInt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ELitTrue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/ELitTrue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/EMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/EMethod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/EMul.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/EMul.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ENew.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/ENew.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ENewArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/ENewArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/EOr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/EOr.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/EQU.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/EQU.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ERel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/ERel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/EString.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/EString.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/EVar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/EVar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Empty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Empty.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Expr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Expr.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/FnDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/FnDef.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/For.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/For.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Fun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Fun.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/GE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/GE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/GTH.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/GTH.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Incr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Incr.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Init.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Init.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Int.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Int.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/LE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/LE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/LTH.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/LTH.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ListArg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/ListArg.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ListClMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/ListClMember.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ListExpr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/ListExpr.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ListItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/ListItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ListStmt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/ListStmt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ListTopDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/ListTopDef.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/ListType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/ListType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Minus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Minus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Mod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Mod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/MulOp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/MulOp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/NE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/NE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Neg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Neg.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/NoInit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/NoInit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Not.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Not.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Plus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Plus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Prog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Prog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Program.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/RelOp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/RelOp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Ret.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Ret.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/SExp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/SExp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Stmt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Stmt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Str.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Str.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Times.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Times.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/TopDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/TopDef.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Type.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/VRet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/VRet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/Void.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Void.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Absyn/While.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/While.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Compiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Compiler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/PrettyPrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/parser/PrettyPrinter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/Yylex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/parser/Yylex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/parser/parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latte_lang/sym.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/parser/sym.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -321,7 +144,7 @@
       <recent name="$PROJECT_DIR$/java_cup" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Test">
+  <component name="RunManager" selected="Makefile Target.cleanBuild">
     <configuration name="Test core001.lat" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="latte.Compiler" />
       <module name="compiler" />
@@ -414,9 +237,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Test core001.lat" />
         <item itemvalue="Makefile Target.cleanBuild" />
         <item itemvalue="Makefile Target.all" />
+        <item itemvalue="Application.Test core001.lat" />
         <item itemvalue="Makefile Target.build" />
         <item itemvalue="Makefile Target.clean" />
       </list>
@@ -540,8 +363,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/latte/frontend/SematicAnalyst.java</url>
-          <line>253</line>
-          <option name="timeStamp" value="7" />
+          <line>118</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/latte/frontend/SematicAnalyst.java</url>
+          <line>116</line>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
