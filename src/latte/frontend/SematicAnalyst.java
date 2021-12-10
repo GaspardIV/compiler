@@ -73,7 +73,7 @@ public class SematicAnalyst {
 
         private void checkIfFunctionAlreadyDefined(FnDef p, Environment arg) throws SemanticError {
             if (arg.getFunction(p.ident_) != null) {
-                throw new SemanticError.FunctionAlreadyDeclared(p.line_num);
+                throw new SemanticError.FunctionAlreadyDeclared(p.line_num, p.ident_);
             }
         }
 
@@ -83,7 +83,7 @@ public class SematicAnalyst {
 
         private void checkIfCLassAlreadyDefined(ClDefExt p, Environment arg) throws SemanticError.ClassAlreadyDeclared {
             if (arg.getClassDef(p.ident_1) != null) {
-                throw new SemanticError.ClassAlreadyDeclared(p.line_num);
+                throw new SemanticError.ClassAlreadyDeclared(p.line_num, p.ident_1);
             }
         }
     }
@@ -98,7 +98,7 @@ public class SematicAnalyst {
             environment.setExpectedReturnType(p.type_);
             p.block_.accept(new BlockVisitor(), environment);
             if (!environment.wasReturn()) {
-                throw new SemanticError.FunctionWithoutReturn(p.line_num);
+                throw new SemanticError.FunctionWithoutReturn(p.line_num, p.ident_);
             }
             environment.popContext();
             return null;
@@ -169,7 +169,7 @@ public class SematicAnalyst {
             environment.setExpectedReturnType(p.type_);
             p.block_.accept(new BlockVisitor(), environment);
             if (!environment.wasReturn()) {
-                throw new SemanticError.FunctionWithoutReturn(p.line_num);
+                throw new SemanticError.FunctionWithoutReturn(p.line_num, p.ident_);
             }
             environment.popContext();
             return null;
@@ -207,13 +207,13 @@ public class SematicAnalyst {
         }
 
         public Void visit(latte.Absyn.Ass p, Environment arg) throws SemanticError {
-            if (!arg.actContextContainsVar(p.ident_)) {
-                throw new SemanticError.VariableNotDeclared(p.line_num);
+            if (arg.getVarType(p.ident_) == null) {
+                throw new SemanticError.VariableNotDeclared(p.line_num, p.ident_);
             }
             Type exprType = p.expr_.accept(new ExprVisitor(), arg);
             Type varType = arg.getVarType(p.ident_);
             if (!exprType.equals(varType)) {
-                throw new SemanticError.TypesDeasNotMatch(p.line_num);
+                throw new SemanticError.TypesDoesNotMatch(p.line_num);
             }
             return null;
         }
@@ -229,7 +229,7 @@ public class SematicAnalyst {
             Type exprType = p.expr_2.accept(new ExprVisitor(), arg);
 
             if (!arrayType.type_.equals(exprType)) {
-                throw new SemanticError.TypesDeasNotMatch(p.line_num);
+                throw new SemanticError.TypesDoesNotMatch(p.line_num);
             }
             return null;
         }
@@ -243,24 +243,26 @@ public class SematicAnalyst {
                     throw new SemanticError.FieldDoesNotExist(p.line_num);
                 }
                 if (!field.type_.equals(assT)) {
-                    throw new SemanticError.TypesDeasNotMatch(p.line_num);
+                    throw new SemanticError.TypesDoesNotMatch(p.line_num);
                 }
             } catch (ClassCastException e) {
-                throw new SemanticError(p.line_num, "field can only be aplied to class object");
+                throw new SemanticError(p.line_num, "Field can only be applied to an object.");
             }
             return null;
         }
 
         public Void visit(latte.Absyn.Incr p, Environment arg) throws SemanticError {
-            if (!arg.getVarType(p.ident_).equals(new Int())) {
-                throw new SemanticError.TypesDeasNotMatch(p.line_num);
+            Type type = arg.getVarType(p.ident_);
+            if (!type.equals(new Int())) {
+                throw new SemanticError.OperatorCannotBeAppliedToType(p.line_num, "++", type);
             }
             return null;
         }
 
         public Void visit(latte.Absyn.Decr p, Environment arg) throws SemanticError {
-            if (!arg.getVarType(p.ident_).equals(new Int())) {
-                throw new SemanticError.TypesDeasNotMatch(p.line_num);
+            Type type = arg.getVarType(p.ident_);
+            if (!type.equals(new Int())) {
+                throw new SemanticError.OperatorCannotBeAppliedToType(p.line_num, "--", type);
             }
             return null;
         }
@@ -326,7 +328,7 @@ public class SematicAnalyst {
 
             Array array = (Array) exprType;
             if (!iterator.type_.equals(array.type_)) {
-                throw new SemanticError.TypesDeasNotMatch(p.line_num);
+                throw new SemanticError.TypesDoesNotMatch(p.line_num);
             }
             arg.addVariable(iterator.ident_, iterator.type_);
             p.stmt_.accept(new StmtVisitor(), arg);
@@ -349,7 +351,7 @@ public class SematicAnalyst {
 
         public String visit(latte.Absyn.NoInit p, Environment arg) throws SemanticError {
             if (arg.actContextContainsVar(p.ident_)) {
-                throw new SemanticError.VariableAlreadyDeclared(p.line_num);
+                throw new SemanticError.VariableAlreadyDeclared(p.line_num, p.ident_);
             } else {
                 arg.addVariable(p.ident_, itemType);
             }
@@ -364,7 +366,7 @@ public class SematicAnalyst {
             Type exprType = p.expr_.accept(new ExprVisitor(), arg);
 
             if (!exprType.equals(itemType)) {
-                throw new SemanticError.TypesDeasNotMatch(p.line_num);
+                throw new SemanticError.TypesDoesNotMatch(p.line_num);
             }
 
             return p.ident_;
@@ -375,7 +377,7 @@ public class SematicAnalyst {
         public Type visit(ENewArray p, Environment arg) throws SemanticError {
             Type size = p.expr_.accept(new ExprVisitor(), arg);
             if (!size.equals(new Int())) {
-                throw new SemanticError(p.line_num, "Size has to be an Integer");
+                throw new SemanticError(p.line_num, "Size has to be an Integer.");
             }
             return new Array(p.type_);
         }
@@ -383,7 +385,7 @@ public class SematicAnalyst {
         public Type visit(EArrayElem p, Environment arg) throws SemanticError {
             Type index = p.expr_.accept(new ExprVisitor(), arg);
             if (!index.equals(new Int())) {
-                throw new SemanticError(p.line_num, "Index has to be an Integer");
+                throw new SemanticError(p.line_num, "Index has to be an Integer.");
             }
             Array arrayType = (Array) arg.getVarType(p.ident_);
             return arrayType.type_;
@@ -402,11 +404,11 @@ public class SematicAnalyst {
                 Class classExprT = (Class) p.expr_.accept(new ExprVisitor(), arg);
                 method = ((ClBlk) arg.getClassDef(classExprT.ident_).clblock_).listclmember_.getMethod(p.ident_);
             } catch (Exception e) {
-                throw new SemanticError(p.line_num, "method can only be aplied to class object");
+                throw new SemanticError(p.line_num, "Method can only be applied to an object.");
             }
 
             if (method == null) {
-                throw new SemanticError.FunctionNotDeclared(p.line_num);
+                throw new SemanticError.FunctionNotDeclaredInThisScope(p.line_num, p.ident_);
             }
 
             ListArg argExpectedTypes = method.listarg_;
@@ -417,8 +419,9 @@ public class SematicAnalyst {
             int i = 0;
             for (latte.Absyn.Expr x : p.listexpr_) {
                 Type argT = x.accept(new ExprVisitor(), arg);
-                if (!argT.equals(((Ar) argExpectedTypes.get(i++)).type_)) {
-                    throw new SemanticError.TypesDeasNotMatch(p.line_num);
+                Type expected = ((Ar) argExpectedTypes.get(i++)).type_;
+                if (!argT.equals(expected)) {
+                    throw new SemanticError.ArgTypesDoesNotMatch(p.line_num, i, expected, argT);
                 }
             }
             return method.type_;
@@ -438,7 +441,7 @@ public class SematicAnalyst {
                         throw new SemanticError.FieldDoesNotExist(p.line_num);
                     }
                 } catch (ClassCastException e) {
-                    throw new SemanticError(p.line_num, "field can only be aplied to class object");
+                    throw new SemanticError(p.line_num, "Field operator can only be applied to an object.");
                 }
             }
             return field.type_;
@@ -446,7 +449,7 @@ public class SematicAnalyst {
 
         public Type visit(EVar p, Environment arg) throws SemanticError {
             if (arg.getVarType(p.ident_) == null) {
-                throw new SemanticError.VariableNotDeclared(p.line_num);
+                throw new SemanticError.VariableNotDeclared(p.line_num, p.ident_);
             }
             return arg.getVarType(p.ident_);
         }
@@ -466,7 +469,7 @@ public class SematicAnalyst {
         public Type visit(EApp p, Environment arg) throws SemanticError {
             FnDef fnDef = arg.getFunction(p.ident_);
             if (fnDef == null) {
-                throw new SemanticError.FunctionNotDeclared(p.line_num);
+                throw new SemanticError.FunctionNotDeclaredInThisScope(p.line_num, p.ident_);
             }
 
             ListArg argExpectedTypes = fnDef.listarg_;
@@ -475,10 +478,10 @@ public class SematicAnalyst {
             }
             int i = 0;
             for (latte.Absyn.Expr x : p.listexpr_) {
-
                 Type argT = x.accept(new ExprVisitor(), arg);
-                if (!argT.equals(((Ar) argExpectedTypes.get(i++)).type_)) {
-                    throw new SemanticError.TypesDeasNotMatch(p.line_num);
+                Type expected = ((Ar) argExpectedTypes.get(i++)).type_;
+                if (!argT.equals(expected)) {
+                    throw new SemanticError.ArgTypesDoesNotMatch(p.line_num, i, expected, argT);
                 }
             }
             return fnDef.type_;
@@ -489,15 +492,17 @@ public class SematicAnalyst {
         }
 
         public Type visit(Neg p, Environment arg) throws SemanticError {
-            if (!p.expr_.accept(new ExprVisitor(), arg).equals(new Int())) {
-                throw new SemanticError.TypesDeasNotMatch(p.line_num);
+            Type t = p.expr_.accept(new ExprVisitor(), arg);
+            if (!t.equals(new Int())) {
+                throw new SemanticError.OperatorCannotBeAppliedToType(p.line_num, "-", t);
             }
             return new Int();
         }
 
         public Type visit(Not p, Environment arg) throws SemanticError {
-            if (!p.expr_.accept(new ExprVisitor(), arg).equals(new Bool())) {
-                throw new SemanticError.TypesDeasNotMatch(p.line_num);
+            Type t = p.expr_.accept(new ExprVisitor(), arg);
+            if (!t.equals(new Bool())) {
+                throw new SemanticError.OperatorCannotBeAppliedToType(p.line_num, "!", t);
             }
             return new Bool();
         }
@@ -506,23 +511,22 @@ public class SematicAnalyst {
             Type t1 = p.expr_1.accept(new ExprVisitor(), arg);
             Type t2 = p.expr_2.accept(new ExprVisitor(), arg);
             if (!t1.equals(new Int())) {
-                throw new SemanticError.TypesDeasNotMatch(p.line_num);
+                throw new SemanticError.OperatorCannotBeAppliedToTypes(p.line_num, "*", t1, t2);
             }
             if (!t1.equals(t2)) {
-                throw new SemanticError.TypesDeasNotMatch(p.line_num);
+                throw new SemanticError.OperatorCannotBeAppliedToTypes(p.line_num, "*", t1, t2);
             }
             return t1;
         }
 
-
         public Type visit(EAdd p, Environment arg) throws SemanticError {
             Type t1 = p.expr_1.accept(new ExprVisitor(), arg);
             Type t2 = p.expr_2.accept(new ExprVisitor(), arg);
-            if (!t1.equals(new Int())) {
-                throw new SemanticError.TypesDeasNotMatch(p.line_num);
+            if (!(t1.equals(new Int())) && !(t1.equals(new Str()))) {
+                throw new SemanticError.OperatorCannotBeAppliedToTypes(p.line_num, "+", t1, t2);
             }
             if (!t1.equals(t2)) {
-                throw new SemanticError.TypesDeasNotMatch(p.line_num);
+                throw new SemanticError.OperatorCannotBeAppliedToTypes(p.line_num, "+", t1, t2);
             }
             return t1;
         }
@@ -531,36 +535,36 @@ public class SematicAnalyst {
             Type t1 = p.expr_1.accept(new ExprVisitor(), arg);
             Type t2 = p.expr_2.accept(new ExprVisitor(), arg);
             if (!t1.equals(new Int())) {
-                throw new SemanticError.TypesDeasNotMatch(p.line_num);
+                throw new SemanticError.RelOperatorCannotBeAppliedToTypes(p.line_num, t1, t2);
             }
             if (!t1.equals(t2)) {
-                throw new SemanticError.TypesDeasNotMatch(p.line_num);
+                throw new SemanticError.RelOperatorCannotBeAppliedToTypes(p.line_num, t1, t2);
             }
-            return t1;
+            return new Bool();
         }
 
         public Type visit(EAnd p, Environment arg) throws SemanticError {
             Type t1 = p.expr_1.accept(new ExprVisitor(), arg);
             Type t2 = p.expr_2.accept(new ExprVisitor(), arg);
             if (!t1.equals(new Bool())) {
-                throw new SemanticError.TypesDeasNotMatch(p.line_num);
+                throw new SemanticError.OperatorCannotBeAppliedToTypes(p.line_num, "&&", t1, t2);
             }
             if (!t1.equals(t2)) {
-                throw new SemanticError.TypesDeasNotMatch(p.line_num);
+                throw new SemanticError.OperatorCannotBeAppliedToTypes(p.line_num, "&&", t1, t2);
             }
-            return t1;
+            return new Bool();
         }
 
         public Type visit(EOr p, Environment arg) throws SemanticError {
             Type t1 = p.expr_1.accept(new ExprVisitor(), arg);
             Type t2 = p.expr_2.accept(new ExprVisitor(), arg);
             if (!t1.equals(new Bool())) {
-                throw new SemanticError.TypesDeasNotMatch(p.line_num);
+                throw new SemanticError.OperatorCannotBeAppliedToTypes(p.line_num, "||", t1, t2);
             }
             if (!t1.equals(t2)) {
-                throw new SemanticError.TypesDeasNotMatch(p.line_num);
+                throw new SemanticError.OperatorCannotBeAppliedToTypes(p.line_num, "||", t1, t2);
             }
-            return t1;
+            return new Bool();
         }
     }
 }

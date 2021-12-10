@@ -2,25 +2,35 @@
 
 package latte.Absyn;
 
-public class Class  extends Type {
-  public final String ident_;
-  public int line_num, col_num, offset;
-  public Class(String p1) { ident_ = p1; }
+public class Class extends Type {
+    public final String ident_;
+    public int line_num, col_num, offset;
 
-  public <R,A> R accept(latte.Absyn.Type.Visitor<R,A> v, A arg) { return v.visit(this, arg); }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o instanceof latte.Absyn.Class) {
-      latte.Absyn.Class x = (latte.Absyn.Class)o;
-      return this.ident_.equals(x.ident_);
+    public Class(String p1) {
+        ident_ = p1;
     }
-    return false;
-  }
 
-  public int hashCode() {
-    return this.ident_.hashCode();
-  }
+    public <R, A> R accept(latte.Absyn.Type.Visitor<R, A> v, A arg) {
+        return v.visit(this, arg);
+    }
+
+    public boolean equals(java.lang.Object o) {
+        if (this == o) return true;
+        if (o instanceof latte.Absyn.Class) {
+            latte.Absyn.Class x = (latte.Absyn.Class) o;
+            return this.ident_.equals(x.ident_);
+        }
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return ident_ + "class";
+    }
+
+    public int hashCode() {
+        return this.ident_.hashCode();
+    }
 
 
 }

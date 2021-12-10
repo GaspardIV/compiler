@@ -16,6 +16,11 @@ public class Bool  extends Type {
     return false;
   }
 
+  @Override
+  public String toString() {
+    return "Bool";
+  }
+
   public int hashCode() {
     return 37;
   }

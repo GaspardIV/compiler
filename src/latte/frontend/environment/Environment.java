@@ -77,8 +77,6 @@ public class Environment {
     private void addContext(Context context) {
         this.contexts.addLast(context);
     }
-//    private void addContext(Context context) {this.contexts.push(context);
-//    }
 
     public void popContext() {
         this.contexts.removeLast();

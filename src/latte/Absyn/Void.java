@@ -16,6 +16,11 @@ public class Void  extends Type {
     return false;
   }
 
+  @Override
+  public String toString() {
+    return "Void";
+  }
+
   public int hashCode() {
     return 37;
   }

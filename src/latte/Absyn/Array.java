@@ -29,5 +29,8 @@ public class Array  extends Type {
     return this.type_.hashCode();
   }
 
-
+  @Override
+  public String toString() {
+    return type_ + "array";
+  }
 }

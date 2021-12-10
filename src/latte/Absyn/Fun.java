@@ -19,6 +19,11 @@ public class Fun  extends Type {
     return false;
   }
 
+  @Override
+  public String toString() {
+    return "Fun";
+  }
+
   public int hashCode() {
     return 37*(this.type_.hashCode())+this.listtype_.hashCode();
   }

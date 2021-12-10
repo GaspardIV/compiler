@@ -16,6 +16,11 @@ public class Str  extends Type {
     return false;
   }
 
+  @Override
+  public String toString() {
+    return "Str";
+  }
+
   public int hashCode() {
     return 37;
   }

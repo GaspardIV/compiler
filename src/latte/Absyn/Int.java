@@ -16,6 +16,11 @@ public class Int  extends Type {
     return false;
   }
 
+  @Override
+  public String toString() {
+    return "Int";
+  }
+
   public int hashCode() {
     return 37;
   }
