@@ -1,6 +1,6 @@
 Kompilator na dzien dzisiejszy sklada sie jedynie z frontendu.
 
-Kompliacja kompilatora za pomoca polecenia: ` make`
+Kompliacja kompilatora za pomoca polecenia: `make`
 
 Uzycie: `./compiler nazwa_pliku.lat`
 
@@ -13,7 +13,8 @@ sie pliki zrodlowe z podzialem na paczki:
   pliku gramatyki jezyka `LatteLang.cf`. Pliki wygenerowane przez bnfc, 
   ale z drobnymi modyfikacjami wprowadzonymi przeze mnie.
   - `latte.errors` - Bledy
-  - `latte.frontend` - zawiera klase SemanticAnalyst odpowiadajaca za sprawdzenie typow.
+  - `latte.frontend` - zawiera klase SemanticAnalyst bedaca glownym plikiem frontendu.
+      - `latte.frontend.visitors` - implementacje visitor'ow.
       - `latte.frontend.environment` - opisuje srodowisko wykononia SemanticAnalyst'y.
   - `parser` - Parser. Wszystkie pliki wygenerowane przez bnfc.
 
