@@ -4,9 +4,15 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="test passes bad folder">
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Minus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Minus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Plus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Plus.java" afterDir="false" />
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="GOOD ALMOST PASSING">
+      <change afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/ProgramChecker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/StmtChecker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/TopDefsChecker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/VarDeclChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Bool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Bool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/errors/SemanticError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/errors/SemanticError.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/frontend/SematicAnalyst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/SematicAnalyst.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test_all.sh" beforeDir="false" afterPath="$PROJECT_DIR$/test_all.sh" afterDir="false" />
     </list>
@@ -338,7 +344,14 @@
       <option name="project" value="LOCAL" />
       <updated>1639180840104</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="GOOD ALMOST PASSING">
+      <created>1639182217194</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1639182217194</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -412,7 +425,8 @@
     <MESSAGE value="make file i takie tam" />
     <MESSAGE value="better messages" />
     <MESSAGE value="test passes bad folder" />
-    <option name="LAST_COMMIT_MESSAGE" value="test passes bad folder" />
+    <MESSAGE value="GOOD ALMOST PASSING" />
+    <option name="LAST_COMMIT_MESSAGE" value="GOOD ALMOST PASSING" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

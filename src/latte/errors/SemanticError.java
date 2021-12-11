@@ -58,8 +58,8 @@ public class SemanticError extends Exception {
     }
 
     public static class WrongNumberOfArgument extends SemanticError {
-        public WrongNumberOfArgument(int line_num) {
-            super(line_num, "Wrong number of arguments.");
+        public WrongNumberOfArgument(int line_num, int expected, int actual) {
+            super(line_num, "Wrong number of arguments. Got " + actual + ", and " + expected + " was expected.");
         }
     }
 
@@ -76,8 +76,8 @@ public class SemanticError extends Exception {
     }
 
     public static class WrongReturnType extends SemanticError {
-        public WrongReturnType(int line_num) {
-            super(line_num, "Wrong return type.");
+        public WrongReturnType(int line_num, Type expected, Type actual) {
+            super(line_num, "Wrong return type. Got '" + actual + "', but '" + expected + "' was expected.");
         }
     }
 
@@ -101,13 +101,13 @@ public class SemanticError extends Exception {
 
     public static class OperatorCannotBeAppliedToTypes extends SemanticError {
         public OperatorCannotBeAppliedToTypes(int line_num, String s, Type t1, Type t2) {
-            super(line_num, "operator '" + s + "' cannot be applied to types '" + t1 + "' and '" + t2 + "'.");
+            super(line_num, "Operator '" + s + "' cannot be applied to types '" + t1 + "' and '" + t2 + "'.");
         }
     }
 
     public static class OperatorCannotBeAppliedToType extends SemanticError {
         public OperatorCannotBeAppliedToType(int line_num, String s, Type t) {
-            super(line_num, "operator '" + s + "' cannot be applied to type '" + t + "'.");
+            super(line_num, "Operator '" + s + "' cannot be applied to type '" + t + "'.");
         }
     }
 
@@ -123,11 +123,6 @@ public class SemanticError extends Exception {
         }
     }
 
-//    public static class TypesDoesNotMatch extends SemanticError {
-//        public TypesDoesNotMatch(int line_num) {
-//            super(line_num, "Types does not match.");
-//        }
-//    }
     public static class AssingingWrongType extends SemanticError {
         public AssingingWrongType(int line_num, Type expected, Type actual) {
             super(line_num, "Assigning '" + actual + "' to '" + expected + "' variable.");

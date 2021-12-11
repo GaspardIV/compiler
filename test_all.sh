@@ -1,5 +1,5 @@
 make cleanBuild
-for f in lattests/good/*.lat; do
+for f in lattests/bad/*.lat; do
   echo "=========================================="
   echo "Processing $f file.."
   echo "    --------compiler output:--------"

@@ -4,6 +4,7 @@ package latte.Absyn;
 
 public class Bool  extends Type {
   public int line_num, col_num, offset;
+  public boolean isLitTrue = false, isLitFalse = false;
   public Bool() { }
 
   public <R,A> R accept(latte.Absyn.Type.Visitor<R,A> v, A arg) { return v.visit(this, arg); }
