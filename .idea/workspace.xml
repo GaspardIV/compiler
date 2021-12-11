@@ -4,12 +4,11 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="better messages">
-      <change afterPath="$PROJECT_DIR$/test_all.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/bad003.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/bad003.lat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/errors/SemanticError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/errors/SemanticError.java" afterDir="false" />
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="test passes bad folder">
+      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Minus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Minus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Plus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Plus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/frontend/SematicAnalyst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/SematicAnalyst.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_all.sh" beforeDir="false" afterPath="$PROJECT_DIR$/test_all.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -332,7 +331,14 @@
       <option name="project" value="LOCAL" />
       <updated>1639178566092</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="test passes bad folder">
+      <created>1639180840104</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1639180840104</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -405,7 +411,8 @@
     <MESSAGE value="dziala budowanie" />
     <MESSAGE value="make file i takie tam" />
     <MESSAGE value="better messages" />
-    <option name="LAST_COMMIT_MESSAGE" value="better messages" />
+    <MESSAGE value="test passes bad folder" />
+    <option name="LAST_COMMIT_MESSAGE" value="test passes bad folder" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

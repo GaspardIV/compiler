@@ -100,7 +100,7 @@ public class SematicAnalyst {
             }
             environment.setExpectedReturnType(p.type_);
             p.block_.accept(new BlockVisitor(), environment);
-            if (!environment.wasReturn()) {
+            if (!environment.wasReturn() && !p.type_.equals(new latte.Absyn.Void())) {
                 throw new SemanticError.FunctionWithoutReturn(p.line_num, p.ident_);
             }
             environment.popContext();
@@ -174,7 +174,7 @@ public class SematicAnalyst {
             }
             environment.setExpectedReturnType(p.type_);
             p.block_.accept(new BlockVisitor(), environment);
-            if (!environment.wasReturn()) {
+            if (!environment.wasReturn() && !p.type_.equals(new latte.Absyn.Void())) {
                 throw new SemanticError.FunctionWithoutReturn(p.line_num, p.ident_);
             }
             environment.popContext();
@@ -530,11 +530,13 @@ public class SematicAnalyst {
         public Type visit(EAdd p, Environment arg) throws SemanticError {
             Type t1 = p.expr_1.accept(new ExprVisitor(), arg);
             Type t2 = p.expr_2.accept(new ExprVisitor(), arg);
-            if (!(t1.equals(new Int())) && !(t1.equals(new Str()))) {
-                throw new SemanticError.OperatorCannotBeAppliedToTypes(p.line_num, "+", t1, t2);
+            if (!(t1.equals(new Int()))) {
+                   if (!p.addop_.equals(new Plus()) || !(t1.equals(new Str()))) {
+                       throw new SemanticError.OperatorCannotBeAppliedToTypes(p.line_num, p.addop_.toString(), t1, t2);
+                   }
             }
             if (!t1.equals(t2)) {
-                throw new SemanticError.OperatorCannotBeAppliedToTypes(p.line_num, "+", t1, t2);
+                throw new SemanticError.OperatorCannotBeAppliedToTypes(p.line_num, p.addop_.toString(), t1, t2);
             }
             return t1;
         }
@@ -542,7 +544,7 @@ public class SematicAnalyst {
         public Type visit(ERel p, Environment arg) throws SemanticError {
             Type t1 = p.expr_1.accept(new ExprVisitor(), arg);
             Type t2 = p.expr_2.accept(new ExprVisitor(), arg);
-            if (!t1.equals(new Int())) {
+            if (!t1.equals(new Int()) && !p.relop_.equals(new EQU())) {
                 throw new SemanticError.RelOperatorCannotBeAppliedToTypes(p.line_num, t1, t2);
             }
             if (!t1.equals(t2)) {

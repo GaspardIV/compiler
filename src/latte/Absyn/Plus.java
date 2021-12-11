@@ -16,6 +16,11 @@ public class Plus extends AddOp {
     return false;
   }
 
+  @Override
+  public String toString() {
+    return "+";
+  }
+
   public int hashCode() {
     return 37;
   }
