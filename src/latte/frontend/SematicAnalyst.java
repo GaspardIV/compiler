@@ -93,6 +93,9 @@ public class SematicAnalyst {
             environment.addNewContext(p.ident_);
             for (latte.Absyn.Arg x : p.listarg_) {
                 Ar arg = (Ar) x;
+                if (environment.actContextContainsVar(arg.ident_)) {
+                    throw new SemanticError.VariableAlreadyDeclared(p.line_num, arg.ident_);
+                }
                 environment.addVariable(arg.ident_, arg.type_);
             }
             environment.setExpectedReturnType(p.type_);
@@ -164,6 +167,9 @@ public class SematicAnalyst {
             environment.addNewContext(p.ident_);
             for (latte.Absyn.Arg x : p.listarg_) {
                 Ar arg = (Ar) x;
+                if (environment.actContextContainsVar(arg.ident_)) {
+                    throw new SemanticError.VariableAlreadyDeclared(p.line_num, arg.ident_);
+                }
                 environment.addVariable(arg.ident_, arg.type_);
             }
             environment.setExpectedReturnType(p.type_);
@@ -213,7 +219,7 @@ public class SematicAnalyst {
             Type exprType = p.expr_.accept(new ExprVisitor(), arg);
             Type varType = arg.getVarType(p.ident_);
             if (!exprType.equals(varType)) {
-                throw new SemanticError.TypesDoesNotMatch(p.line_num);
+                throw new SemanticError.AssingingWrongType(p.line_num, varType, exprType);
             }
             return null;
         }
@@ -229,7 +235,7 @@ public class SematicAnalyst {
             Type exprType = p.expr_2.accept(new ExprVisitor(), arg);
 
             if (!arrayType.type_.equals(exprType)) {
-                throw new SemanticError.TypesDoesNotMatch(p.line_num);
+                throw new SemanticError.AssingingWrongType(p.line_num, arrayType, exprType);
             }
             return null;
         }
@@ -243,7 +249,7 @@ public class SematicAnalyst {
                     throw new SemanticError.FieldDoesNotExist(p.line_num);
                 }
                 if (!field.type_.equals(assT)) {
-                    throw new SemanticError.TypesDoesNotMatch(p.line_num);
+                    throw new SemanticError.AssingingWrongType(p.line_num, field.type_, assT);
                 }
             } catch (ClassCastException e) {
                 throw new SemanticError(p.line_num, "Field can only be applied to an object.");
@@ -289,7 +295,9 @@ public class SematicAnalyst {
             if (!exprType.equals(new Bool())) {
                 throw new SemanticError.CondHasToBeBoolean(p.line_num);
             }
+            Boolean wasReturnBefore = arg.wasReturn();
             p.stmt_.accept(new StmtVisitor(), arg);
+            arg.setWasReturn(wasReturnBefore);
             return null;
         }
 
@@ -328,7 +336,7 @@ public class SematicAnalyst {
 
             Array array = (Array) exprType;
             if (!iterator.type_.equals(array.type_)) {
-                throw new SemanticError.TypesDoesNotMatch(p.line_num);
+                throw new SemanticError.AssingingWrongType(p.line_num, iterator.type_, array.type_);
             }
             arg.addVariable(iterator.ident_, iterator.type_);
             p.stmt_.accept(new StmtVisitor(), arg);
@@ -366,7 +374,7 @@ public class SematicAnalyst {
             Type exprType = p.expr_.accept(new ExprVisitor(), arg);
 
             if (!exprType.equals(itemType)) {
-                throw new SemanticError.TypesDoesNotMatch(p.line_num);
+                throw new SemanticError.AssingingWrongType(p.line_num, itemType, exprType);
             }
 
             return p.ident_;

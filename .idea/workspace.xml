@@ -4,22 +4,12 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="make file i takie tam">
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="better messages">
+      <change afterPath="$PROJECT_DIR$/test_all.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Array.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Array.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Bool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Bool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Class.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Class.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Expr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Expr.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Fun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Fun.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Int.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Int.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Plus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Plus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Stmt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Stmt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Str.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Str.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Void.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Void.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/bad003.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/bad003.lat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/errors/SemanticError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/errors/SemanticError.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/frontend/SematicAnalyst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/SematicAnalyst.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/frontend/environment/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/environment/Environment.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +147,7 @@
       <recent name="$PROJECT_DIR$/java_cup" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Test core001.lat">
+  <component name="RunManager" selected="Shell Script.Unnamed">
     <configuration name="Test core001.lat" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="latte.Compiler" />
       <module name="compiler" />
@@ -238,6 +228,21 @@
       </makefile>
       <method v="2" />
     </configuration>
+    <configuration name="Unnamed" type="ShConfigurationType" nameIsGenerated="true">
+      <option name="SCRIPT_TEXT" value="" />
+      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
+      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/test_all.sh" />
+      <option name="SCRIPT_OPTIONS" value="" />
+      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
+      <option name="INTERPRETER_PATH" value="/bin/zsh" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="EXECUTE_IN_TERMINAL" value="true" />
+      <option name="EXECUTE_SCRIPT_FILE" value="true" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Application.Test core002.lat" />
       <item itemvalue="Application.Test mytest" />
@@ -247,6 +252,7 @@
       <item itemvalue="Makefile Target.cleanBuild" />
       <item itemvalue="Makefile Target.build" />
       <item itemvalue="Makefile Target.clean" />
+      <item itemvalue="Shell Script.Unnamed" />
     </list>
     <recent_temporary>
       <list>
@@ -319,7 +325,14 @@
       <option name="project" value="LOCAL" />
       <updated>1639162433246</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="better messages">
+      <created>1639178566092</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1639178566092</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -391,7 +404,8 @@
     <MESSAGE value="make file" />
     <MESSAGE value="dziala budowanie" />
     <MESSAGE value="make file i takie tam" />
-    <option name="LAST_COMMIT_MESSAGE" value="make file i takie tam" />
+    <MESSAGE value="better messages" />
+    <option name="LAST_COMMIT_MESSAGE" value="better messages" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -404,21 +418,6 @@
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/latte/Absyn/NoInit.java</url>
           <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/latte/frontend/SematicAnalyst.java</url>
-          <line>210</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/latte/frontend/SematicAnalyst.java</url>
-          <line>215</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/latte/frontend/SematicAnalyst.java</url>
-          <line>231</line>
-          <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

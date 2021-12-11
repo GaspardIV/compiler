@@ -113,19 +113,24 @@ public class SemanticError extends Exception {
 
     public static class RelOperatorCannotBeAppliedToTypes extends SemanticError {
         public RelOperatorCannotBeAppliedToTypes(int line_num, Type t1, Type t2) {
-            super(line_num, "Rel operator cannot be applied to types '" + t1 + "' and '" + t2 + "'.");
+            super(line_num, "Cannot compare '" + t1 + "' and '" + t2 + "'.");
         }
     }
 
     public static class ArgTypesDoesNotMatch extends SemanticError {
         public ArgTypesDoesNotMatch(int line_num, int i, Type expected, Type argT) {
-            super(line_num, "" + i + " argument type does not match. Got'" + argT + "', but '" + expected + " was expected'.");
+            super(line_num, "" + i + " argument type does not match. Got '" + argT + "', but '" + expected + "' was expected.");
         }
     }
 
-    public static class TypesDoesNotMatch extends SemanticError {
-        public TypesDoesNotMatch(int line_num) {
-            super(line_num, "Types does not match.");
+//    public static class TypesDoesNotMatch extends SemanticError {
+//        public TypesDoesNotMatch(int line_num) {
+//            super(line_num, "Types does not match.");
+//        }
+//    }
+    public static class AssingingWrongType extends SemanticError {
+        public AssingingWrongType(int line_num, Type expected, Type actual) {
+            super(line_num, "Assigning '" + actual + "' to '" + expected + "' variable.");
         }
     }
 }
