@@ -468,7 +468,9 @@ public class parser extends java_cup.runtime.lr_parser {
 
 public void syntax_error(java_cup.runtime.Symbol cur_token)
 {
-  report_error("Syntax Error, trying to recover and continue parse...", cur_token);
+//  important!!
+//  changed by me
+//  report_error("Syntax Error, trying to recover and continue parse...", cur_token);
 }
 
 public void unrecovered_syntax_error(java_cup.runtime.Symbol cur_token) throws java.lang.Exception

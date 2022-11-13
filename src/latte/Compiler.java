@@ -35,7 +35,7 @@ public class Compiler {
         return p.pProgram();
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         Compiler t = new Compiler(args);
 
         Program ast;
@@ -43,7 +43,7 @@ public class Compiler {
             ast = t.parse();
         } catch (Throwable e) {
             System.err.println("ERROR");
-            System.err.println("Parser error at line " + t.l.line_num() + ", near \"" + t.l.buff() + "\" :");
+            System.err.println("Parser error at line: " + t.l.line_num() + ", at offset: "+ t.l.left_loc().getOffset() +".\nError with parsing \"" + t.l.buff() + "\":");
             System.err.println("     " + e.getMessage());
             System.exit(1);
             return;
