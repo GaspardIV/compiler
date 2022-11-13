@@ -1,283 +1,88 @@
-import com.github.stefanbirkner.systemlambda.SystemLambda;
-import latte.Compiler;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.PrintStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-class CompilerTest {
-
-    private final PrintStream standardOut = System.out;
-    private final PrintStream standardErr = System.err;
-    private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
-    private final ByteArrayOutputStream errStreamCaptor = new ByteArrayOutputStream();
-
-    @BeforeEach
-    void setUp() {
-        System.setOut(new PrintStream(outputStreamCaptor));
-        System.setErr(new PrintStream(errStreamCaptor));
-    }
-
-    @AfterEach
-    void tearDown() {
-        System.setOut(standardOut);
-        System.setErr(standardErr);
-    }
-
+class CompilerTest extends CompilerInputOutputErrTest {
+    
     @Test
     void testBad01() {
-        standardTestInputOutput("lattests/bad/bad001.lat", "", 1, "Syntax Error, trying to recover and continue parse... for input symbol \"EOF\" spanning from unknown:2/-1(3) to unknown:2/-1(3)\n" +
-                "ERROR\n" +
-                "Parser error at line 2, near \"*\" :\n" +
-                "     Unrecoverable Syntax Error");
+        testUtils.standardTestInputOutput("lattests/bad/bad001.lat", "", "lattests/bad/bad001.err", 1);
+    }
+    @Test void testBad02() {
+        testUtils.standardTestInputOutput("lattests/bad/bad002.lat", "", "lattests/bad/bad002.err", 1);
+    }
+    @Test void testBad03() {
+        testUtils.standardTestInputOutput("lattests/bad/bad003.lat", "", "lattests/bad/bad003.err", 1);
+    }
+    @Test void testBad04() {
+        testUtils.standardTestInputOutput("lattests/bad/bad004.lat", "", "lattests/bad/bad004.err", 1);
+    }
+    @Test void testBad05() {
+        testUtils.standardTestInputOutput("lattests/bad/bad005.lat", "", "lattests/bad/bad005.err", 1);
+    }
+    @Test void testBad06() {
+        testUtils.standardTestInputOutput("lattests/bad/bad006.lat", "", "lattests/bad/bad006.err", 1);
+    }
+    @Test void testBad07() {
+        testUtils.standardTestInputOutput("lattests/bad/bad007.lat", "", "lattests/bad/bad007.err", 1);
+    }
+    @Test void testBad08() {
+        testUtils.standardTestInputOutput("lattests/bad/bad008.lat", "", "lattests/bad/bad008.err", 1);
+    }
+    @Test void testBad09() {
+        testUtils.standardTestInputOutput("lattests/bad/bad009.lat", "", "lattests/bad/bad009.err", 1);
+    }
+    @Test void testBad10() {
+        testUtils.standardTestInputOutput("lattests/bad/bad010.lat", "", "lattests/bad/bad010.err", 1);
+    }
+    @Test void testBad11() {
+        testUtils.standardTestInputOutput("lattests/bad/bad011.lat", "", "lattests/bad/bad011.err", 1);
+    }
+    @Test void testBad12() {
+        testUtils.standardTestInputOutput("lattests/bad/bad012.lat", "", "lattests/bad/bad012.err", 1);
+    }
+    @Test void testBad13() {
+        testUtils.standardTestInputOutput("lattests/bad/bad013.lat", "", "lattests/bad/bad013.err", 1);
+    }
+    @Test void testBad14() {
+        testUtils.standardTestInputOutput("lattests/bad/bad014.lat", "", "lattests/bad/bad014.err", 1);
+    }
+    @Test void testBad15() {
+        testUtils.standardTestInputOutput("lattests/bad/bad015.lat", "", "lattests/bad/bad015.err", 1);
+    }
+    @Test void testBad16() {
+        testUtils.standardTestInputOutput("lattests/bad/bad016.lat", "", "lattests/bad/bad016.err", 1);
+    }
+    @Test void testBad17() {
+        testUtils.standardTestInputOutput("lattests/bad/bad017.lat", "", "lattests/bad/bad017.err", 1);
+    }
+    @Test void testBad18() {
+        testUtils.standardTestInputOutput("lattests/bad/bad018.lat", "", "lattests/bad/bad018.err", 1);
+    }
+    @Test void testBad19() {
+        testUtils.standardTestInputOutput("lattests/bad/bad019.lat", "", "lattests/bad/bad019.err", 1);
+    }
+    @Test void testBad20() {
+        testUtils.standardTestInputOutput("lattests/bad/bad020.lat", "", "lattests/bad/bad020.err", 1);
+    }
+    @Test void testBad21() {
+        testUtils.standardTestInputOutput("lattests/bad/bad021.lat", "", "lattests/bad/bad021.err", 1);
+    }
+    @Test void testBad22() {
+        testUtils.standardTestInputOutput("lattests/bad/bad022.lat", "", "lattests/bad/bad022.err", 1);
+    }
+    @Test void testBad23() {
+        testUtils.standardTestInputOutput("lattests/bad/bad023.lat", "", "lattests/bad/bad023.err", 1);
+    }
+    @Test void testBad24() {
+        testUtils.standardTestInputOutput("lattests/bad/bad024.lat", "", "lattests/bad/bad024.err", 1);
+    }
+    @Test void testBad25() {
+        testUtils.standardTestInputOutput("lattests/bad/bad025.lat", "", "lattests/bad/bad025.err", 1);
+    }
+    @Test void testBad26() {
+        testUtils.standardTestInputOutput("lattests/bad/bad026.lat", "", "lattests/bad/bad026.err", 1);
+    }
+    @Test void testBad27() {
+        testUtils.standardTestInputOutput("lattests/bad/bad027.lat", "", "lattests/bad/bad027.err", 1);
     }
 
-    @Test
-    void testBad02() {
-        standardTestInputOutput("lattests/bad/bad002.lat", "", 1, "Syntax Error, trying to recover and continue parse... for input symbol \"EOF\" spanning from unknown:2/-1(3) to unknown:2/-1(3)\n" +
-                "ERROR\n" +
-                "Parser error at line 2, near \"*\" :\n" +
-                "     Unrecoverable Syntax Error");
-    }
-
-    @Test
-    void testBad03() {
-        standardTestInputOutput("lattests/bad/bad003.lat", "", 1, "Syntax Error, trying to recover and continue parse... for input symbol \"EOF\" spanning from unknown:2/-1(3) to unknown:2/-1(3)\n" +
-                "ERROR\n" +
-                "Parser error at line 2, near \"*\" :\n" +
-                "     Unrecoverable Syntax Error");
-    }
-
-    @Test
-    void testBad04() {
-        standardTestInputOutput("lattests/bad/bad004.lat", "", 1, "Syntax Error, trying to recover and continue parse... for input symbol \"EOF\" spanning from unknown:2/-1(3) to unknown:2/-1(3)\n" +
-                "ERROR\n" +
-                "Parser error at line 2, near \"*\" :\n" +
-                "     Unrecoverable Syntax Error");
-    }
-
-    @Test
-    void testBad05() {
-        standardTestInputOutput("lattests/bad/bad005.lat", "", 1, "Syntax Error, trying to recover and continue parse... for input symbol \"EOF\" spanning from unknown:2/-1(3) to unknown:2/-1(3)\n" +
-                "ERROR\n" +
-                "Parser error at line 2, near \"*\" :\n" +
-                "     Unrecoverable Syntax Error");
-    }
-
-    @Test
-    void testBad06() {
-        standardTestInputOutput("lattests/bad/bad006.lat", "", 1, "Syntax Error, trying to recover and continue parse... for input symbol \"EOF\" spanning from unknown:2/-1(3) to unknown:2/-1(3)\n" +
-                "ERROR\n" +
-                "Parser error at line 2, near \"*\" :\n" +
-                "     Unrecoverable Syntax Error");
-    }
-
-    @Test
-    void testBad07() {
-        standardTestInputOutput("lattests/bad/bad007.lat", "", 1, "Syntax Error, trying to recover and continue parse... for input symbol \"EOF\" spanning from unknown:2/-1(3) to unknown:2/-1(3)\n" +
-                "ERROR\n" +
-                "Parser error at line 2, near \"*\" :\n" +
-                "     Unrecoverable Syntax Error");
-    }
-
-    @Test
-    void testBad08() {
-        standardTestInputOutput("lattests/bad/bad008.lat", "", 1, "Syntax Error, trying to recover and continue parse... for input symbol \"EOF\" spanning from unknown:2/-1(3) to unknown:2/-1(3)\n" +
-                "ERROR\n" +
-                "Parser error at line 2, near \"*\" :\n" +
-                "     Unrecoverable Syntax Error");
-    }
-
-    @Test
-    void testBad09() {
-        standardTestInputOutput("lattests/bad/bad009.lat", "", 1, "Syntax Error, trying to recover and continue parse... for input symbol \"EOF\" spanning from unknown:2/-1(3) to unknown:2/-1(3)\n" +
-                "ERROR\n" +
-                "Parser error at line 2, near \"*\" :\n" +
-                "     Unrecoverable Syntax Error");
-    }
-
-    @Test
-    void testBad10() {
-        standardTestInputOutput("lattests/bad/bad010.lat", "", 1, "Syntax Error, trying to recover and continue parse... for input symbol \"EOF\" spanning from unknown:2/-1(3) to unknown:2/-1(3)\n" +
-                "ERROR\n" +
-                "Parser error at line 2, near \"*\" :\n" +
-                "     Unrecoverable Syntax Error");
-    }
-
-    @Test
-    void testBad11() {
-        standardTestInputOutput("lattests/bad/bad011.lat", "", 1, "Syntax Error, trying to recover and continue parse... for input symbol \"EOF\" spanning from unknown:2/-1(3) to unknown:2/-1(3)\n" +
-                "ERROR\n" +
-                "Parser error at line 2, near \"*\" :\n" +
-                "     Unrecoverable Syntax Error");
-    }
-
-    @Test
-    void testBad12() {
-        standardTestInputOutput("lattests/bad/bad012.lat", "", 1, "Syntax Error, trying to recover and continue parse... for input symbol \"EOF\" spanning from unknown:2/-1(3) to unknown:2/-1(3)\n" +
-                "ERROR\n" +
-                "Parser error at line 2, near \"*\" :\n" +
-                "     Unrecoverable Syntax Error");
-    }
-
-    @Test
-    void testBad13() {
-        standardTestInputOutput("lattests/bad/bad013.lat", "", 1, "Syntax Error, trying to recover and continue parse... for input symbol \"EOF\" spanning from unknown:2/-1(3) to unknown:2/-1(3)\n" +
-                "ERROR\n" +
-                "Parser error at line 2, near \"*\" :\n" +
-                "     Unrecoverable Syntax Error");
-    }
-
-    @Test
-    void testBad14() {
-        standardTestInputOutput("lattests/bad/bad014.lat", "", 1, "Syntax Error, trying to recover and continue parse... for input symbol \"EOF\" spanning from unknown:2/-1(3) to unknown:2/-1(3)\n" +
-                "ERROR\n" +
-                "Parser error at line 2, near \"*\" :\n" +
-                "     Unrecoverable Syntax Error");
-    }
-
-    @Test
-    void testBad15() {
-        standardTestInputOutput("lattests/bad/bad015.lat", "", 1, "Syntax Error, trying to recover and continue parse... for input symbol \"EOF\" spanning from unknown:2/-1(3) to unknown:2/-1(3)\n" +
-                "ERROR\n" +
-                "Parser error at line 2, near \"*\" :\n" +
-                "     Unrecoverable Syntax Error");
-    }
-
-    @Test
-    void testBad16() {
-        standardTestInputOutput("lattests/bad/bad016.lat", "", 1, "Syntax Error, trying to recover and continue parse... for input symbol \"EOF\" spanning from unknown:2/-1(3) to unknown:2/-1(3)\n" +
-                "ERROR\n" +
-                "Parser error at line 2, near \"*\" :\n" +
-                "     Unrecoverable Syntax Error");
-    }
-
-    @Test
-    void testBad17() {
-        standardTestInputOutput("lattests/bad/bad017.lat", "", 1, "Syntax Error, trying to recover and continue parse... for input symbol \"EOF\" spanning from unknown:2/-1(3) to unknown:2/-1(3)\n" +
-                "ERROR\n" +
-                "Parser error at line 2, near \"*\" :\n" +
-                "     Unrecoverable Syntax Error");
-    }
-
-    @Test
-    void testBad18() {
-        standardTestInputOutput("lattests/bad/bad018.lat", "", 1, "Syntax Error, trying to recover and continue parse... for input symbol \"EOF\" spanning from unknown:2/-1(3) to unknown:2/-1(3)\n" +
-                "ERROR\n" +
-                "Parser error at line 2, near \"*\" :\n" +
-                "     Unrecoverable Syntax Error");
-    }
-
-    @Test
-    void testBad19() {
-        standardTestInputOutput("lattests/bad/bad019.lat", "", 1, "Syntax Error, trying to recover and continue parse... for input symbol \"EOF\" spanning from unknown:2/-1(3) to unknown:2/-1(3)\n" +
-                "ERROR\n" +
-                "Parser error at line 2, near \"*\" :\n" +
-                "     Unrecoverable Syntax Error");
-    }
-
-    @Test
-    void testBad20() {
-        standardTestInputOutput("lattests/bad/bad020.lat", "", 1, "Syntax Error, trying to recover and continue parse... for input symbol \"EOF\" spanning from unknown:2/-1(3) to unknown:2/-1(3)\n" +
-                "ERROR\n" +
-                "Parser error at line 2, near \"*\" :\n" +
-                "     Unrecoverable Syntax Error");
-    }
-
-    @Test
-    void testBad21() {
-        standardTestInputOutput("lattests/bad/bad021.lat", "", 1, "Syntax Error, trying to recover and continue parse... for input symbol \"EOF\" spanning from unknown:2/-1(3) to unknown:2/-1(3)\n" +
-                "ERROR\n" +
-                "Parser error at line 2, near \"*\" :\n" +
-                "     Unrecoverable Syntax Error");
-    }
-
-    @Test
-    void testBad22() {
-        standardTestInputOutput("lattests/bad/bad022.lat", "", 1, "Syntax Error, trying to recover and continue parse... for input symbol \"EOF\" spanning from unknown:2/-1(3) to unknown:2/-1(3)\n" +
-                "ERROR\n" +
-                "Parser error at line 2, near \"*\" :\n" +
-                "     Unrecoverable Syntax Error");
-    }
-
-    @Test
-    void testBad23() {
-        standardTestInputOutput("lattests/bad/bad023.lat", "", 1, "Syntax Error, trying to recover and continue parse... for input symbol \"EOF\" spanning from unknown:2/-1(3) to unknown:2/-1(3)\n" +
-                "ERROR\n" +
-                "Parser error at line 2, near \"*\" :\n" +
-                "     Unrecoverable Syntax Error");
-    }
-
-    @Test
-    void testBad24() {
-        standardTestInputOutput("lattests/bad/bad024.lat", "", 1, "Syntax Error, trying to recover and continue parse... for input symbol \"EOF\" spanning from unknown:2/-1(3) to unknown:2/-1(3)\n" +
-                "ERROR\n" +
-                "Parser error at line 2, near \"*\" :\n" +
-                "     Unrecoverable Syntax Error");
-    }
-
-    @Test
-    void testBad25() {
-        standardTestInputOutput("lattests/bad/bad025.lat", "", 1, "Syntax Error, trying to recover and continue parse... for input symbol \"EOF\" spanning from unknown:2/-1(3) to unknown:2/-1(3)\n" +
-                "ERROR\n" +
-                "Parser error at line 2, near \"*\" :\n" +
-                "     Unrecoverable Syntax Error");
-    }
-
-    @Test
-    void testBad26() {
-        standardTestInputOutput("lattests/bad/bad026.lat", "", 1, "Syntax Error, trying to recover and continue parse... for input symbol \"EOF\" spanning from unknown:2/-1(3) to unknown:2/-1(3)\n" +
-                "ERROR\n" +
-                "Parser error at line 2, near \"*\" :\n" +
-                "     Unrecoverable Syntax Error");
-    }
-
-    @Test
-    void testBad27() {
-        standardTestInputOutput("lattests/bad/bad027.lat", "", 1, "Syntax Error, trying to recover and continue parse... for input symbol \"EOF\" spanning from unknown:2/-1(3) to unknown:2/-1(3)\n" +
-                "ERROR\n" +
-                "Parser error at line 2, near \"*\" :\n" +
-                "     Unrecoverable Syntax Error");
-    }
-
-    void standardTestInputOutput(String inputFileName, String outputFileName, int exitCode, String err) {
-        String[] args = {inputFileName};
-        int status;
-        try {
-            status = SystemLambda.catchSystemExit(() -> {
-                Compiler.main(args);
-            });
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-        assertEquals(exitCode, status);
-        String expectedOutput;
-        if (outputFileName != null && outputFileName.length() > 0) {
-            expectedOutput = getFileContent(outputFileName);
-        } else {
-            expectedOutput = "";
-        }
-        assertEquals(err, errStreamCaptor.toString().trim());
-        assertEquals(expectedOutput, outputStreamCaptor.toString().trim());
-        standardOut.println("Test passed");
-    }
-
-    private String getFileContent(String fileName) {
-        Path path = Paths.get(fileName);
-        StringBuilder sb = new StringBuilder();
-        try {
-            Files.readAllLines(path).forEach(line -> sb.append(line).append(System.lineSeparator()));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        return sb.toString();
-    }
 }
