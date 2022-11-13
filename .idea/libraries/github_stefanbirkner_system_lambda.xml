@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="github.stefanbirkner.system.lambda" type="repository">
+    <properties maven-id="com.github.stefanbirkner:system-lambda:1.2.1" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/github/stefanbirkner/system-lambda/1.2.1/system-lambda-1.2.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

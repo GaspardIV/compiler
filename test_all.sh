@@ -3,7 +3,7 @@ for f in lattests/bad/*.lat; do
   echo "=========================================="
   echo "Processing $f file.."
   echo "    --------compiler output:--------"
-  ./compiler "$f"
+  ./latc "$f"
   echo "=========================================="
   echo
 done

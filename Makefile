@@ -12,13 +12,15 @@ all :
 	${JAVAC} src/latte/Compiler.java -sourcepath ${SOURCE_DIR} -cp ${JAVA_CUP_PATH} -d ${DST_DIR}
 	echo "Main-Class: latte.Compiler" > ${DST_DIR}/manifest.mf
 	cd ${DST_DIR} && jar xvf ${JAVA_CUP} java_cup > /dev/null && jar cfm compiler.jar manifest.mf latte java_cup && cd ..
-	echo "#!/usr/bin/java -jar" > compiler
-	cat build/compiler.jar >> compiler
-	chmod a+x compiler
+	echo "#!/usr/bin/java -jar" > latc
+	cat build/compiler.jar >> latc
+	chmod a+x latc
+	rm -r build > /dev/null 2>/dev/null || true;
+
+
 
 cleanBuild : clean all
 
 clean :
-	rm compiler > /dev/null 2>/dev/null || true;
-	rm compiler.jar > /dev/null 2>/dev/null || true;
+	rm latc > /dev/null 2>/dev/null || true;
 	rm -r build > /dev/null 2>/dev/null || true;
