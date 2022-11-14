@@ -4,27 +4,14 @@
     <option name="ANALYZE_TEST_SOURCES" value="false" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="Rearange tests">
-      <change afterPath="$PROJECT_DIR$/lattests/bad/my_tests/test.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/bad/my_tests/test_already_defined.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/bad/my_tests/test_no_main.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/bad/my_tests/test_return_in_if_not_in_else.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/test_return_in_if_and_in_else.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/test_return_in_if_and_in_else.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/GoodTestsMyTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/github_stefanbirkner_system_lambda.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/github_stefanbirkner_system_lambda.xml" afterDir="false" />
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="Tests passes.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/my_tests/test" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/my_tests/test.lat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/my_tests/test_already_defined" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/my_tests/test_already_defined.lat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/my_tests/test_no_main" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/my_tests/test_no_main.lat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/my_tests/test_return_in_if_not_in_else" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/my_tests/test_return_in_if_not_in_else.lat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test_return_in_if_and_in_else" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test_return_in_if_and_in_else.lat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test_return_in_if_and_in_error" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test_return_in_if_and_in_error.lat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/frontend/environment/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/environment/Environment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/TopDefsChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/TopDefsChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/BadTestsMyTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/BadTestsMyTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/classic/bad006.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/classic/bad006.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/classic/bad014.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/classic/bad014.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/Compiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Compiler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/errors/SemanticError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/errors/SemanticError.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/BadTestsSemanticTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/BadTestsSemanticTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/BadTestsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/BadTestsTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/TestUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/TestUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -191,7 +178,7 @@
       <recent name="bad" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GoodTestsMyTests.testMyTestsTestReturnInIfAndInError">
+  <component name="RunManager" selected="JUnit.All in compiler">
     <configuration name="Test core002.lat" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="latte.Compiler" />
       <module name="compiler" />
@@ -234,49 +221,49 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BadTestsMyTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="All in compiler" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="BadTestsMyTests" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BadTestsSemanticTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="compiler" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="BadTestsSemanticTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BadTestsMyTests.testMyTestTestReturnInIfNotInElse" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BadTestsSemanticTest,testSemanticWhileTrue and 1 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="compiler" />
+      <option name="TEST_OBJECT" value="pattern" />
+      <patterns>
+        <pattern testClass="BadTestsSemanticTest,testSemanticWhileTrue" />
+        <pattern testClass="BadTestsSemanticTest,testSemanticWhileTrue2" />
+      </patterns>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BadTestsTest.testBad06" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="BadTestsMyTests" />
-      <option name="METHOD_NAME" value="testMyTestTestReturnInIfNotInElse" />
+      <option name="MAIN_CLASS_NAME" value="BadTestsTest" />
+      <option name="METHOD_NAME" value="testBad06" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GoodTestsMyTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BadTestsTest.testBad14" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GoodTestsMyTests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GoodTestsMyTests.testMyTestsTestReturnInIfAndInElse" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="compiler" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GoodTestsMyTests" />
-      <option name="METHOD_NAME" value="testMyTestsTestReturnInIfAndInElse" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GoodTestsMyTests.testMyTestsTestReturnInIfAndInError" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="compiler" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GoodTestsMyTests" />
-      <option name="METHOD_NAME" value="testMyTestsTestReturnInIfAndInError" />
+      <option name="MAIN_CLASS_NAME" value="BadTestsTest" />
+      <option name="METHOD_NAME" value="testBad14" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -301,20 +288,20 @@
       <item itemvalue="Application.Test core002.lat" />
       <item itemvalue="Application.Test mytest" />
       <item itemvalue="Application.Test" />
-      <item itemvalue="JUnit.BadTestsMyTests" />
-      <item itemvalue="JUnit.BadTestsMyTests.testMyTestTestReturnInIfNotInElse" />
-      <item itemvalue="JUnit.GoodTestsMyTests" />
-      <item itemvalue="JUnit.GoodTestsMyTests.testMyTestsTestReturnInIfAndInElse" />
-      <item itemvalue="JUnit.GoodTestsMyTests.testMyTestsTestReturnInIfAndInError" />
+      <item itemvalue="JUnit.All in compiler" />
+      <item itemvalue="JUnit.BadTestsSemanticTest" />
+      <item itemvalue="JUnit.BadTestsSemanticTest,testSemanticWhileTrue and 1 more" />
+      <item itemvalue="JUnit.BadTestsTest.testBad06" />
+      <item itemvalue="JUnit.BadTestsTest.testBad14" />
       <item itemvalue="Shell Script.Unnamed" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.GoodTestsMyTests.testMyTestsTestReturnInIfAndInError" />
-        <item itemvalue="JUnit.GoodTestsMyTests" />
-        <item itemvalue="JUnit.GoodTestsMyTests.testMyTestsTestReturnInIfAndInElse" />
-        <item itemvalue="JUnit.BadTestsMyTests" />
-        <item itemvalue="JUnit.BadTestsMyTests.testMyTestTestReturnInIfNotInElse" />
+        <item itemvalue="JUnit.All in compiler" />
+        <item itemvalue="JUnit.BadTestsTest.testBad06" />
+        <item itemvalue="JUnit.BadTestsSemanticTest" />
+        <item itemvalue="JUnit.BadTestsSemanticTest,testSemanticWhileTrue and 1 more" />
+        <item itemvalue="JUnit.BadTestsTest.testBad14" />
       </list>
     </recent_temporary>
   </component>
@@ -339,7 +326,7 @@
       <workItem from="1668281575635" duration="1936000" />
       <workItem from="1668283525737" duration="6061000" />
       <workItem from="1668351902350" duration="464000" />
-      <workItem from="1668352647388" duration="35004000" />
+      <workItem from="1668352647388" duration="38317000" />
     </task>
     <task id="LOCAL-00001" summary="aaaaaa">
       <created>1638444396764</created>
@@ -446,7 +433,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668393889848</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Add error function handling + global functions cannot be overridden.">
+      <created>1668402845955</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1668402845955</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -525,7 +519,9 @@
     <MESSAGE value="Add tests and default err for certain tests." />
     <MESSAGE value="Nie ma pliku latc (a jedynie plik compiler). Tym razem nie obniżam,&#10;   ale proszę to poprawić zgodnie ze specyfikacją." />
     <MESSAGE value="Rearange tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rearange tests" />
+    <MESSAGE value="Add error function handling + global functions cannot be overridden." />
+    <MESSAGE value="Tests passes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Tests passes." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -25,7 +25,7 @@ public class Compiler {
             else input = new FileReader(args[0]);
             l = new Yylex(input);
         } catch (IOException e) {
-            System.err.println("Error: File not found: " + args[0]);
+            System.err.println("ERROR\nFile not found: " + args[0]);
             System.exit(1);
         }
         p = new parser(l, l.getSymbolFactory());

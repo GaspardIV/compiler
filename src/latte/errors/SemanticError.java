@@ -41,7 +41,7 @@ public class SemanticError extends Exception {
 
     public static class VariableNotDeclared extends SemanticError {
         public VariableNotDeclared(int line_num, String ident_) {
-            super(line_num, "Function '" + ident_ + "' not declared in this scope.");
+            super(line_num, "Variable '" + ident_ + "' not declared in this scope.");
         }
     }
 

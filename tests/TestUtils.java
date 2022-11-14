@@ -88,4 +88,8 @@ public class TestUtils {
         }
         return str;
     }
+
+    public void setShouldGenerateExpectedOutput(boolean b) {
+        shouldGenerateExpectedOutput = b;
+    }
 }
