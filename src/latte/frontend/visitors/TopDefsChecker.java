@@ -100,6 +100,9 @@ public abstract class TopDefsChecker {
         public Void visit(ClMethod p, Environment arg) throws SemanticError {
             FnDef fnDef = new FnDef(p.type_, p.ident_, p.listarg_, p.block_);
             fnDef.line_num = p.line_num;
+            if (arg.isFunctionGlobal(p.ident_)) {
+                throw new SemanticError.FunctionAlreadyDeclared(p.line_num, p.ident_);
+            }
             arg.addFunction(p.ident_, fnDef);
             return null;
         }

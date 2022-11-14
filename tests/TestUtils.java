@@ -29,21 +29,20 @@ public class TestUtils {
         standardTestInputOutput(inputFileName, outputFileName, errOutputFileName, exitCode);
         this.shouldGenerateExpectedOutput = temp;
     }
+
     void standardTestInputOutput(String inputFileName, String outputFileName, String errOutputFileName, int exitCode) {
         String[] args = {inputFileName};
 
-        if (exitCode != 0) {
-            int status;
-            try {
-                status = SystemLambda.catchSystemExit(() -> Compiler.main(args));
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-            assertEquals(exitCode, status);
-        } else {
-            Compiler.main(args);
+        int status;
+        try {
+            status = SystemLambda.catchSystemExit(() -> Compiler.main(args));
+        } catch (AssertionError e) {
+            status = 0;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
 
+        assertEquals(exitCode, status);
         String expectedOutput;
         if (outputFileName != null && outputFileName.length() > 0) {
             if (shouldGenerateExpectedOutput) {

@@ -34,6 +34,14 @@ public class Environment {
         buildInArrayFields.put("length", new Int());
     }
 
+    public boolean isFunctionGlobal(String ident) {
+        return contexts.getFirst().getFunctionDef(ident) != null;
+    }
+
+    public boolean isFunctionGlobalErrorFunction(String ident) {
+        return ident.equals("error");
+    }
+
     public FnDef getFunction(String ident_) {
         for (Iterator<Context> i = contexts.descendingIterator(); i.hasNext(); ) {
             Context context = i.next();

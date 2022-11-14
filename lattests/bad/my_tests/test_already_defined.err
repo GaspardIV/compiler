@@ -1,0 +1,4 @@
+ERROR
+
+Semantic error at line 5 :
+     Function 'a' already declared in this scope.

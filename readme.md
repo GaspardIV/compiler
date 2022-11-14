@@ -44,7 +44,8 @@ Bnfc wykorzystuje bibloteki java_cup do parsera, i jlex jako lekser.
 Zmienne inicjalizowane są na domyślne wartości - int -> 0, bool -> false, string -> "".
 (?) W szczegolnosci w przypadku stringow, nie mozna przypisac do nich null, poniewaz jest to typ prosty.
 W przypadku uzycia zmiennej niezainicjalizowanej przy jej inicializacji, zostanie ona zainicjalizowana na domyslne wartosci. -> jeszcze moze sie to zmienic, ale na razie tak jest.
-
+Metody nie moga miec takiej samej nazwy jak funkcje globalne, w szczegolnosci funkcje wbudowane w jezyk i main.
+funkcja error jest traktowana jako poprawne wyjście z funkcji (tez takiej zwracającej coś innego niż void).
 
 Z optymalizacji wykonalem:
 - Usnuniecie martwego kodu:
@@ -125,8 +126,8 @@ Uwagi do frontendu:
 
 [//]: # (0 Nie ma pliku latc &#40;a jedynie plik compiler&#41;. Tym razem nie obniżam,)
 [//]: # (ale proszę to poprawić zgodnie ze specyfikacją.)
-- Wywołanie error() nie jest traktowane jako poprawne wyjście z
-  funkcji zwracającej coś innego niż void.
+[//]: # (- Wywołanie error&#40;&#41; nie jest traktowane jako poprawne wyjście z)
+[//]: # (  funkcji zwracającej coś innego niż void.)
 - Nie da się porównywać (równość i nierówność) wyrażeń typu bool (i być
   może innych typów nienumerycznych).
 - Argumenty i typ wyniku funkcji main nie są sprawdzane.
@@ -143,6 +144,7 @@ Uwagi do frontendu:
 
 
 todo:
+- zaczac implementacje kompilatora od convertowania enivroment i ast do compilator environment i compilator ast(w szczegolnosci znacznik deadcode) ???
 - dodac offset do komunikatow o bledach
 - dodac buff do komunikatow o bledach
 - usunac testy z rzutowan -> to bedzie traktowane jako bledy

@@ -179,6 +179,9 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
         if (notDeclared) {
             throw new SemanticError.FunctionNotDeclaredInThisScope(line_num, ident_);
         }
+        if (arg.isFunctionGlobalErrorFunction(ident_)) {
+            arg.setWasReturn(true);
+        }
 
         ListArg argExpectedTypes = listarg_;
         if (argExpectedTypes.size() != listexpr_.size()) {
