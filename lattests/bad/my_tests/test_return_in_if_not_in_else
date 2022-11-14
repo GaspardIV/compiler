@@ -1,0 +1,13 @@
+int a() {
+    return 5;
+}
+
+int main() {
+    if (a() == 5) {
+        printInt(1);
+        return 0;
+    }
+    else {
+        printString("error");
+    }
+}

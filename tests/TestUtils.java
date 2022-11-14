@@ -9,9 +9,10 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class TestUtils {
-    private final boolean shouldGenerateExpectedOutput;
+    private boolean shouldGenerateExpectedOutput;
     protected final ByteArrayOutputStream outputStreamCaptor;
 
     public TestUtils(boolean shouldGenerateExpectedOutput, ByteArrayOutputStream outputStreamCaptor, ByteArrayOutputStream errStreamCaptor) {
@@ -22,18 +23,26 @@ public class TestUtils {
 
     protected final ByteArrayOutputStream errStreamCaptor;
 
+    void standardTestInputOutput(boolean shouldGenerateExpectedOutput, String inputFileName, String outputFileName, String errOutputFileName, int exitCode) {
+        boolean temp = this.shouldGenerateExpectedOutput;
+        this.shouldGenerateExpectedOutput = shouldGenerateExpectedOutput;
+        standardTestInputOutput(inputFileName, outputFileName, errOutputFileName, exitCode);
+        this.shouldGenerateExpectedOutput = temp;
+    }
     void standardTestInputOutput(String inputFileName, String outputFileName, String errOutputFileName, int exitCode) {
         String[] args = {inputFileName};
-        int status;
-        try {
-            status = SystemLambda.catchSystemExit(() -> {
-                Compiler.main(args);
-            });
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-        assertEquals(exitCode, status);
 
+        if (exitCode != 0) {
+            int status;
+            try {
+                status = SystemLambda.catchSystemExit(() -> Compiler.main(args));
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+            assertEquals(exitCode, status);
+        } else {
+            Compiler.main(args);
+        }
 
         String expectedOutput;
         if (outputFileName != null && outputFileName.length() > 0) {
@@ -57,6 +66,8 @@ public class TestUtils {
 
         assertEquals(expectedErrOutput, errStreamCaptor.toString());
         assertEquals(expectedOutput, outputStreamCaptor.toString());
+
+        assertFalse(shouldGenerateExpectedOutput, "This tests generates expected output. Please remove the flag.");
     }
 
     private void writeFileContent(String fileName, String content) {

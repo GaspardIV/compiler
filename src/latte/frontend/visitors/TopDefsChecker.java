@@ -51,21 +51,7 @@ public abstract class TopDefsChecker {
 
     public static class TopDefDefinitionCheckVisitor implements latte.Absyn.TopDef.Visitor<Void, Environment> {
         public Void visit(FnDef p, Environment environment) throws SemanticError {
-            environment.addNewContext(p.ident_);
-            for (latte.Absyn.Arg x : p.listarg_) {
-                Ar arg = (Ar) x;
-                if (environment.actContextContainsVar(arg.ident_)) {
-                    throw new SemanticError.VariableAlreadyDeclared(p.line_num, arg.ident_);
-                }
-                environment.addVariable(arg.ident_, arg.type_);
-            }
-            environment.setExpectedReturnType(p.type_);
-            p.block_.accept(new BlockVisitor(), environment);
-            if (!environment.wasReturn() && !p.type_.equals(new latte.Absyn.Void())) {
-                throw new SemanticError.FunctionWithoutReturn(p.line_num, p.ident_);
-            }
-            environment.popContext();
-            return null;
+            return visitFunctionLikeDefinition(environment, p.ident_, p.listarg_, p.line_num, p.type_, p.block_);
         }
 
         public Void visit(ClDef p, Environment environment) throws SemanticError {
@@ -125,21 +111,7 @@ public abstract class TopDefsChecker {
         }
 
         public Void visit(ClMethod p, Environment environment) throws SemanticError {
-            environment.addNewContext(p.ident_);
-            for (latte.Absyn.Arg x : p.listarg_) {
-                Ar arg = (Ar) x;
-                if (environment.actContextContainsVar(arg.ident_)) {
-                    throw new SemanticError.VariableAlreadyDeclared(p.line_num, arg.ident_);
-                }
-                environment.addVariable(arg.ident_, arg.type_);
-            }
-            environment.setExpectedReturnType(p.type_);
-            p.block_.accept(new BlockVisitor(), environment);
-            if (!environment.wasReturn() && !p.type_.equals(new latte.Absyn.Void())) {
-                throw new SemanticError.FunctionWithoutReturn(p.line_num, p.ident_);
-            }
-            environment.popContext();
-            return null;
+            return visitFunctionLikeDefinition(environment, p.ident_, p.listarg_, p.line_num, p.type_, p.block_);
         }
     }
 
@@ -150,5 +122,26 @@ public abstract class TopDefsChecker {
             }
             return null;
         }
+    }
+
+    /**
+     * Checks if function or method definition is correct
+     */
+    private static Void visitFunctionLikeDefinition(Environment environment, String ident_, ListArg listarg_, int line_num, Type type_, Block block_) throws SemanticError {
+        environment.addNewContext(ident_);
+        for (Arg x : listarg_) {
+            Ar arg = (Ar) x;
+            if (environment.actContextContainsVar(arg.ident_)) {
+                throw new SemanticError.VariableAlreadyDeclared(line_num, arg.ident_);
+            }
+            environment.addVariable(arg.ident_, arg.type_);
+        }
+        environment.setExpectedReturnType(type_);
+        block_.accept(new BlockVisitor(), environment);
+        if (!environment.wasReturn() && !type_.equals(new latte.Absyn.Void())) {
+            throw new SemanticError.FunctionWithoutReturn(line_num, ident_);
+        }
+        environment.popContext();
+        return null;
     }
 }

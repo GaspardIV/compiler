@@ -39,24 +39,7 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
             throw new SemanticError(p.line_num, "Method can only be applied to an object.");
         }
 
-        if (method == null) {
-            throw new SemanticError.FunctionNotDeclaredInThisScope(p.line_num, p.ident_);
-        }
-
-        ListArg argExpectedTypes = method.listarg_;
-        if (argExpectedTypes.size() != p.listexpr_.size()) {
-            throw new SemanticError.WrongNumberOfArgument(p.line_num, argExpectedTypes.size(), p.listexpr_.size());
-        }
-
-        int i = 0;
-        for (latte.Absyn.Expr x : p.listexpr_) {
-            Type argT = x.accept(new ExprChecker(), arg);
-            Type expected = ((Ar) argExpectedTypes.get(i++)).type_;
-            if (!argT.equals(expected)) {
-                throw new SemanticError.ArgTypesDoesNotMatch(p.line_num, i, expected, argT);
-            }
-        }
-        return method.type_;
+        return visitFunctionLikeCallExpression(arg, method == null, p.line_num, p.ident_, method.listarg_, p.listexpr_, method.type_);
     }
 
     public Type visit(EField p, Environment arg) throws SemanticError {
@@ -104,23 +87,7 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
 
     public Type visit(EApp p, Environment arg) throws SemanticError {
         FnDef fnDef = arg.getFunction(p.ident_);
-        if (fnDef == null) {
-            throw new SemanticError.FunctionNotDeclaredInThisScope(p.line_num, p.ident_);
-        }
-
-        ListArg argExpectedTypes = fnDef.listarg_;
-        if (argExpectedTypes.size() != p.listexpr_.size()) {
-            throw new SemanticError.WrongNumberOfArgument(p.line_num, argExpectedTypes.size(), p.listexpr_.size());
-        }
-        int i = 0;
-        for (latte.Absyn.Expr x : p.listexpr_) {
-            Type argT = x.accept(new ExprChecker(), arg);
-            Type expected = ((Ar) argExpectedTypes.get(i++)).type_;
-            if (!argT.equals(expected)) {
-                throw new SemanticError.ArgTypesDoesNotMatch(p.line_num, i, expected, argT);
-            }
-        }
-        return fnDef.type_;
+        return visitFunctionLikeCallExpression(arg, fnDef == null, p.line_num, p.ident_, fnDef.listarg_, p.listexpr_, fnDef.type_);
     }
 
     public Type visit(EString p, Environment arg) {
@@ -203,5 +170,29 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
             throw new SemanticError.OperatorCannotBeAppliedToTypes(p.line_num, "||", t1, t2);
         }
         return new Bool();
+    }
+
+    /**
+     * checks if function or method is correctly called
+     */
+    private Type visitFunctionLikeCallExpression(Environment arg, boolean notDeclared, int line_num, String ident_, ListArg listarg_, ListExpr listexpr_, Type type_) throws SemanticError {
+        if (notDeclared) {
+            throw new SemanticError.FunctionNotDeclaredInThisScope(line_num, ident_);
+        }
+
+        ListArg argExpectedTypes = listarg_;
+        if (argExpectedTypes.size() != listexpr_.size()) {
+            throw new SemanticError.WrongNumberOfArgument(line_num, argExpectedTypes.size(), listexpr_.size());
+        }
+
+        int i = 0;
+        for (Expr x : listexpr_) {
+            Type argT = x.accept(new ExprChecker(), arg);
+            Type expected = ((Ar) argExpectedTypes.get(i++)).type_;
+            if (!argT.equals(expected)) {
+                throw new SemanticError.ArgTypesDoesNotMatch(line_num, i, expected, argT);
+            }
+        }
+        return type_;
     }
 }
