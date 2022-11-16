@@ -8,6 +8,9 @@ public class ProgramChecker implements latte.Absyn.Program.Visitor<Void, Environ
     public Void visit(Prog p, Environment arg) throws SemanticError {
         createGlobalContext(p, arg);
         checkTopDefs(p, arg);
+
+//        todo: tutaj dobre miejsce na zwijanie stalych i usuwanie martwego kodu
+        // konflikty reduce reduce sa nieakceptowalne!!!
         return null;
     }
 

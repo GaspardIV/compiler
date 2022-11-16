@@ -147,7 +147,11 @@ Uwagi do frontendu:
 - wyrazenia stale: (wszystkich wyrazen bez zmiennych do literalow (int, true i false)).
 - 3 + 5 -> 8
 - !false = true
-  
+- null nie jest parsowany !!!
+- rzutowanie obiektow nie dziala!!!
+- todo koniecznie!!!! kompilacja od etapu pliku ze skladdnia!!!!!
+- poprawic gramatyke zeby moze tego varkoxa byla bo ona spoko ????
+- null i castowanie nie dziala i w sensie expr nie moze byc lewostronne (np. (new arr[10])[0] nie dziala) 
 - martwy kod:
    po returnie, if false, while false
 + Poza tym wdaje się działać.
