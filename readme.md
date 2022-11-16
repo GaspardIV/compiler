@@ -138,8 +138,18 @@ Uwagi do frontendu:
 - usunac dead code (if else -> return return -> then wyrzucenie reszty ast i komunikat o nieosiagalnosci kodu)
 - if true if false -> obslugiwac w semantic analyst
 - infinite loop -> obslugiwac w semantic analyst
-- 
-- zwijanie stalych
+- todo:
+  jezeli jest if(false){}else{return} to jest dobry program
+- w while jak jest return to nie wiemy czy jest return
+- w while false -> mozna wyjebac
+- w while true -> probujemy rozne rzeczy ale generalnie zakladamy ze w while nie chcemy sprawdzic ze while to taki blackbox.
+- zwijanie wyrazen stalych, usuwanie kodu martwego!!!
+- wyrazenia stale: (wszystkich wyrazen bez zmiennych do literalow (int, true i false)).
+- 3 + 5 -> 8
+- !false = true
+  
+- martwy kod:
+   po returnie, if false, while false
 + Poza tym wdaje się działać.
 
 
