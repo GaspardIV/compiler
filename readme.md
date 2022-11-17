@@ -120,7 +120,8 @@ Z optymalizacji wykonalem:
 TODO:
   Mapping high level constructs to llvm IR
 - https://github.com/prosyslab-classroom/llvm-primer
-- 
+- https://mapping-high-level-constructs-to-llvm-ir.readthedocs.io/en/latest/object-oriented-constructs/single-inheritance.html
+
 Uwagi do frontendu:
 
 
@@ -154,6 +155,8 @@ Uwagi do frontendu:
 - null i castowanie nie dziala i w sensie expr nie moze byc lewostronne (np. (new arr[10])[0] nie dziala) 
 - martwy kod:
    po returnie, if false, while false
+- https://mapping-high-level-constructs-to-llvm-ir.readthedocs.io/en/latest/object-oriented-constructs/single-inheritance.html
+- 
 + Poza tym wdaje się działać.
 
 
