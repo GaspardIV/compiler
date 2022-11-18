@@ -10,10 +10,7 @@ public class EQU  extends RelOp {
 
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;
-    if (o instanceof latte.Absyn.EQU) {
-      return true;
-    }
-    return false;
+      return o instanceof EQU;
   }
 
   public int hashCode() {

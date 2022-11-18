@@ -10,10 +10,7 @@ public class Times  extends MulOp {
 
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;
-    if (o instanceof latte.Absyn.Times) {
-      return true;
-    }
-    return false;
+      return o instanceof Times;
   }
 
   public int hashCode() {

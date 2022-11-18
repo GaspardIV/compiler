@@ -12,7 +12,7 @@ public class VarDeclChecker implements latte.Absyn.Item.Visitor<String, Environm
         this.itemType = itemType;
     }
 
-    public String visit(latte.Absyn.NoInit p, Environment arg) throws SemanticError {
+    public String visit(latte.Absyn.NoInit p, Environment arg) throws Exception{
         if (arg.actContextContainsVar(p.ident_)) {
             throw new SemanticError.VariableAlreadyDeclared(p.line_num, p.ident_);
         } else {
@@ -21,7 +21,7 @@ public class VarDeclChecker implements latte.Absyn.Item.Visitor<String, Environm
         return p.ident_;
     }
 
-    public String visit(latte.Absyn.Init p, Environment arg) throws SemanticError {
+    public String visit(latte.Absyn.Init p, Environment arg) throws Exception{
         NoInit itemNoInit = new NoInit(p.ident_);
         itemNoInit.line_num = p.line_num;
         this.visit(itemNoInit, arg);

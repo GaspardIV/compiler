@@ -1,7 +1,7 @@
 package latte.frontend.visitors;
 
-import latte.Absyn.*;
 import latte.Absyn.Class;
+import latte.Absyn.*;
 import latte.errors.SemanticError;
 import latte.frontend.environment.Environment;
 
@@ -12,7 +12,7 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
         return null;
     }
 
-    public Void visit(latte.Absyn.BStmt p, Environment arg) throws SemanticError {
+    public Void visit(latte.Absyn.BStmt p, Environment arg) throws Exception{
         arg.addNewContext("Block stmt");
         p.block_.accept(new TopDefsChecker.BlockVisitor(), arg);
         Boolean wasReturn = arg.wasReturn();
@@ -21,14 +21,14 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
         return null;
     }
 
-    public Void visit(latte.Absyn.Decl p, Environment arg) throws SemanticError {
+    public Void visit(latte.Absyn.Decl p, Environment arg) throws Exception{
         for (latte.Absyn.Item x : p.listitem_) {
             x.accept(new VarDeclChecker(p.type_), arg);
         }
         return null;
     }
 
-    public Void visit(latte.Absyn.Ass p, Environment arg) throws SemanticError {
+    public Void visit(latte.Absyn.Ass p, Environment arg) throws Exception{
         if (arg.getVarType(p.ident_) == null) {
             throw new SemanticError.VariableNotDeclared(p.line_num, p.ident_);
         }
@@ -41,7 +41,7 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
     }
 
 
-    public Void visit(latte.Absyn.AssArray p, Environment arg) throws SemanticError {
+    public Void visit(latte.Absyn.AssArray p, Environment arg) throws Exception{
         Type iType = p.expr_1.accept(new ExprChecker(), arg);
         if (!iType.equals(new Int())) {
             throw new SemanticError.ArrayIndexHasToBeInteger(p.line_num);
@@ -56,7 +56,7 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
         return null;
     }
 
-    public Void visit(latte.Absyn.AssField p, Environment arg) throws SemanticError {
+    public Void visit(latte.Absyn.AssField p, Environment arg) throws Exception{
         Type assT = p.expr_2.accept(new ExprChecker(), arg);
         try {
             Class classExprT = (Class) p.expr_1.accept(new ExprChecker(), arg);
@@ -73,7 +73,7 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
         return null;
     }
 
-    public Void visit(latte.Absyn.Incr p, Environment arg) throws SemanticError {
+    public Void visit(latte.Absyn.Incr p, Environment arg) throws Exception{
         Type type = arg.getVarType(p.ident_);
         if (!type.equals(new Int())) {
             throw new SemanticError.OperatorCannotBeAppliedToType(p.line_num, "++", type);
@@ -81,7 +81,7 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
         return null;
     }
 
-    public Void visit(latte.Absyn.Decr p, Environment arg) throws SemanticError {
+    public Void visit(latte.Absyn.Decr p, Environment arg) throws Exception{
         Type type = arg.getVarType(p.ident_);
         if (!type.equals(new Int())) {
             throw new SemanticError.OperatorCannotBeAppliedToType(p.line_num, "--", type);
@@ -89,7 +89,7 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
         return null;
     }
 
-    public Void visit(latte.Absyn.Ret p, Environment arg) throws SemanticError {
+    public Void visit(latte.Absyn.Ret p, Environment arg) throws Exception{
         Type retType = p.expr_.accept(new ExprChecker(), arg);
         if (!retType.equals(arg.getExpectedReturnType())) {
             throw new SemanticError.WrongReturnType(p.line_num, arg.getExpectedReturnType(), retType);
@@ -98,7 +98,7 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
         return null;
     }
 
-    public Void visit(latte.Absyn.VRet p, Environment arg) throws SemanticError {
+    public Void visit(latte.Absyn.VRet p, Environment arg) throws Exception{
         if (!(new latte.Absyn.Void()).equals(arg.getExpectedReturnType())) {
             throw new SemanticError.WrongReturnType(p.line_num, arg.getExpectedReturnType(), new latte.Absyn.Void());
         }
@@ -106,7 +106,7 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
         return null;
     }
 
-    public Void visit(latte.Absyn.Cond p, Environment arg) throws SemanticError {
+    public Void visit(latte.Absyn.Cond p, Environment arg) throws Exception{
         Type exprType = p.expr_.accept(new ExprChecker(), arg);
 
         if (!exprType.equals(new Bool())) {
@@ -124,7 +124,7 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
         return null;
     }
 
-    public Void visit(latte.Absyn.CondElse p, Environment arg) throws SemanticError {
+    public Void visit(latte.Absyn.CondElse p, Environment arg) throws Exception{
         Type exprType = p.expr_.accept(new ExprChecker(), arg);
         if (!exprType.equals(new Bool())) {
             throw new SemanticError.CondHasToBeBoolean(p.line_num);
@@ -147,7 +147,7 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
         return null;
     }
 
-    public Void visit(latte.Absyn.While p, Environment arg) throws SemanticError {
+    public Void visit(latte.Absyn.While p, Environment arg) throws Exception{
         Type exprType = p.expr_.accept(new ExprChecker(), arg);
         if (!exprType.equals(new Bool())) {
             throw new SemanticError.CondHasToBeBoolean(p.line_num);
@@ -156,7 +156,7 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
         return null;
     }
 
-    public Void visit(latte.Absyn.For p, Environment arg) throws SemanticError {
+    public Void visit(latte.Absyn.For p, Environment arg) throws Exception{
         arg.addNewContext("For");
         Ar iterator = (Ar) p.arg_;
         Type exprType = p.expr_.accept(new ExprChecker(), arg);
@@ -174,7 +174,7 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
         return null;
     }
 
-    public Void visit(latte.Absyn.SExp p, Environment arg) throws SemanticError {
+    public Void visit(latte.Absyn.SExp p, Environment arg) throws Exception{
         p.expr_.accept(new ExprChecker(), arg);
         return null;
     }

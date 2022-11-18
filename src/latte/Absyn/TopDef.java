@@ -2,14 +2,12 @@
 
 package latte.Absyn;
 
-import latte.errors.SemanticError;
-
 public abstract class TopDef implements java.io.Serializable {
-  public abstract <R,A> R accept(TopDef.Visitor<R,A> v, A arg) throws SemanticError;
+  public abstract <R,A> R accept(TopDef.Visitor<R,A> v, A arg) throws Exception;
   public interface Visitor <R,A> {
-    public R visit(latte.Absyn.FnDef p, A arg) throws SemanticError;
-    public R visit(latte.Absyn.ClDef p, A arg) throws SemanticError;
-    public R visit(latte.Absyn.ClDefExt p, A arg) throws SemanticError;
+    R visit(latte.Absyn.FnDef p, A arg) throws Exception;
+    R visit(latte.Absyn.ClDef p, A arg) throws Exception;
+    R visit(latte.Absyn.ClDefExt p, A arg) throws Exception;
 
   }
 

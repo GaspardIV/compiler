@@ -10,10 +10,7 @@ public class LTH  extends RelOp {
 
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;
-    if (o instanceof latte.Absyn.LTH) {
-      return true;
-    }
-    return false;
+      return o instanceof LTH;
   }
 
   public int hashCode() {

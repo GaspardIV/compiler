@@ -10,10 +10,7 @@ public class Empty  extends Stmt {
 
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;
-    if (o instanceof latte.Absyn.Empty) {
-      return true;
-    }
-    return false;
+      return o instanceof Empty;
   }
 
   public int hashCode() {

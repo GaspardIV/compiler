@@ -10,10 +10,7 @@ public class GE  extends RelOp {
 
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;
-    if (o instanceof latte.Absyn.GE) {
-      return true;
-    }
-    return false;
+      return o instanceof GE;
   }
 
   public int hashCode() {

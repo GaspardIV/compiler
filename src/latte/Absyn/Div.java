@@ -10,10 +10,7 @@ public class Div  extends MulOp {
 
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;
-    if (o instanceof latte.Absyn.Div) {
-      return true;
-    }
-    return false;
+      return o instanceof Div;
   }
 
   public int hashCode() {

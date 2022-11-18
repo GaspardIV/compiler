@@ -11,10 +11,7 @@ public class Bool  extends Type {
 
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;
-    if (o instanceof latte.Absyn.Bool) {
-      return true;
-    }
-    return false;
+      return o instanceof Bool;
   }
 
   @Override

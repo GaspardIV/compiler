@@ -1,16 +1,17 @@
 package latte.frontend.environment;
 
-import latte.Absyn.*;
-import latte.errors.SemanticError;
+import latte.Absyn.ClDefExt;
+import latte.Absyn.FnDef;
+import latte.Absyn.Type;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class Context {
-    private String contextName;
-    private Map<String, Type> varDefs;
-    private Map<String, FnDef> funDefs;
-    private Map<String, ClDefExt> classdefs;
+    private final String contextName;
+    private final Map<String, Type> varDefs;
+    private final Map<String, FnDef> funDefs;
+    private final Map<String, ClDefExt> classdefs;
     private Type expectedReturnType;
     private Boolean wasReturn;
 
@@ -44,7 +45,7 @@ public class Context {
         return varDefs.get(ident_);
     }
 
-    public void initInheristance(Environment avaibleClasses) throws SemanticError {
+    public void initInheristance(Environment avaibleClasses) throws Exception{
         for (String classIdent:classdefs.keySet()) {
             ClDefExt i = classdefs.get(classIdent);
             i.initInheristance(avaibleClasses);

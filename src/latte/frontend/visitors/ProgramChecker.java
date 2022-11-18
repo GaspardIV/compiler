@@ -5,7 +5,7 @@ import latte.errors.SemanticError;
 import latte.frontend.environment.Environment;
 
 public class ProgramChecker implements latte.Absyn.Program.Visitor<Void, Environment> {
-    public Void visit(Prog p, Environment arg) throws SemanticError {
+    public Void visit(Prog p, Environment arg) throws Exception{
         createGlobalContext(p, arg);
         checkTopDefs(p, arg);
 
@@ -14,7 +14,7 @@ public class ProgramChecker implements latte.Absyn.Program.Visitor<Void, Environ
         return null;
     }
 
-    private void createGlobalContext(Prog p, Environment arg) throws SemanticError {
+    private void createGlobalContext(Prog p, Environment arg) throws Exception{
         for (latte.Absyn.TopDef x : p.listtopdef_) {
             x.accept(new TopDefsChecker.TopDefDeclarationCheckVisitor(), arg);
         }
@@ -22,7 +22,7 @@ public class ProgramChecker implements latte.Absyn.Program.Visitor<Void, Environ
         fillClassesWithExtends(arg);
     }
 
-    private void checkTopDefs(Prog p, Environment arg) throws SemanticError {
+    private void checkTopDefs(Prog p, Environment arg) throws Exception{
         for (latte.Absyn.TopDef x : p.listtopdef_) {
             x.accept(new TopDefsChecker.TopDefDefinitionCheckVisitor(), arg);
         }
@@ -34,7 +34,7 @@ public class ProgramChecker implements latte.Absyn.Program.Visitor<Void, Environ
         }
     }
 
-    private void fillClassesWithExtends(Environment arg) throws SemanticError {
+    private void fillClassesWithExtends(Environment arg) throws Exception{
         arg.initInheristance();
     }
 }

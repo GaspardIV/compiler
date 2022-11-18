@@ -2,14 +2,12 @@
 
 package latte.Absyn;
 
-import latte.errors.SemanticError;
-
 public class EAnd  extends Expr {
   public final Expr expr_1, expr_2;
   public int line_num, col_num, offset;
   public EAnd(Expr p1, Expr p2) { expr_1 = p1; expr_2 = p2; }
 
-  public <R,A> R accept(latte.Absyn.Expr.Visitor<R,A> v, A arg) throws SemanticError { return v.visit(this, arg); }
+  public <R,A> R accept(latte.Absyn.Expr.Visitor<R,A> v, A arg) throws Exception { return v.visit(this, arg); }
 
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

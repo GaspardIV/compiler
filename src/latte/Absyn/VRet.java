@@ -2,20 +2,15 @@
 
 package latte.Absyn;
 
-import latte.errors.SemanticError;
-
 public class VRet  extends Stmt {
   public int line_num, col_num, offset;
   public VRet() { }
 
-  public <R,A> R accept(latte.Absyn.Stmt.Visitor<R,A> v, A arg) throws SemanticError { return v.visit(this, arg); }
+  public <R,A> R accept(latte.Absyn.Stmt.Visitor<R,A> v, A arg) throws Exception { return v.visit(this, arg); }
 
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;
-    if (o instanceof latte.Absyn.VRet) {
-      return true;
-    }
-    return false;
+    return o instanceof VRet;
   }
 
   public int hashCode() {

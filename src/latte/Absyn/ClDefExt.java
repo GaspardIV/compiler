@@ -2,8 +2,8 @@
 
 package latte.Absyn;
 
-import latte.frontend.environment.Environment;
 import latte.errors.SemanticError;
+import latte.frontend.environment.Environment;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -20,7 +20,7 @@ public class ClDefExt extends TopDef {
         clblock_ = p3;
     }
 
-    public <R, A> R accept(latte.Absyn.TopDef.Visitor<R, A> v, A arg) throws SemanticError {
+    public <R, A> R accept(latte.Absyn.TopDef.Visitor<R, A> v, A arg) throws Exception {
         return v.visit(this, arg);
     }
 
@@ -38,7 +38,7 @@ public class ClDefExt extends TopDef {
     }
 
 
-    public void initInheristance(Environment avaibleClasses) throws SemanticError {
+    public void initInheristance(Environment avaibleClasses) throws Exception {
         if (this.inheritanceInitialized) {
             return;
         }

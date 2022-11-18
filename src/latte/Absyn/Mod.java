@@ -10,10 +10,7 @@ public class Mod  extends MulOp {
 
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;
-    if (o instanceof latte.Absyn.Mod) {
-      return true;
-    }
-    return false;
+      return o instanceof Mod;
   }
 
   public int hashCode() {

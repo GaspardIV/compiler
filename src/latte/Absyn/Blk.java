@@ -2,14 +2,12 @@
 
 package latte.Absyn;
 
-import latte.errors.SemanticError;
-
 public class Blk  extends Block {
   public final ListStmt liststmt_;
   public int line_num, col_num, offset;
   public Blk(ListStmt p1) { liststmt_ = p1; }
 
-  public <R,A> R accept(latte.Absyn.Block.Visitor<R,A> v, A arg) throws SemanticError{ return v.visit(this, arg); }
+  public <R,A> R accept(latte.Absyn.Block.Visitor<R,A> v, A arg) throws Exception{ return v.visit(this, arg); }
 
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

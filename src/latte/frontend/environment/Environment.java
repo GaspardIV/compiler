@@ -1,8 +1,7 @@
 package latte.frontend.environment;
 
-import latte.Absyn.*;
 import latte.Absyn.Void;
-import latte.errors.SemanticError;
+import latte.Absyn.*;
 
 import java.util.*;
 
@@ -70,7 +69,7 @@ public class Environment {
         contexts.getLast().addClassDef(ident_, p);
     }
 
-    public void initInheristance() throws SemanticError {
+    public void initInheristance() throws Exception{
         Environment avaibleClasses = new Environment();
         for (Iterator<Context> i = contexts.iterator(); i.hasNext(); ) {
             Context context = i.next();

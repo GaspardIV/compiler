@@ -10,10 +10,7 @@ public class Int  extends Type {
 
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;
-    if (o instanceof latte.Absyn.Int) {
-      return true;
-    }
-    return false;
+      return o instanceof Int;
   }
 
   @Override

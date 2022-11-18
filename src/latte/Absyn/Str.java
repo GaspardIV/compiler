@@ -10,10 +10,7 @@ public class Str  extends Type {
 
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;
-    if (o instanceof latte.Absyn.Str) {
-      return true;
-    }
-    return false;
+      return o instanceof Str;
   }
 
   @Override

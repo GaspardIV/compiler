@@ -2,13 +2,11 @@
 
 package latte.Absyn;
 
-import latte.errors.SemanticError;
-
 public abstract class Item implements java.io.Serializable {
-  public abstract <R,A> R accept(Item.Visitor<R,A> v, A arg) throws SemanticError;
+  public abstract <R,A> R accept(Item.Visitor<R,A> v, A arg) throws Exception;
   public interface Visitor <R,A> {
-    public R visit(latte.Absyn.NoInit p, A arg) throws SemanticError;
-    public R visit(latte.Absyn.Init p, A arg) throws SemanticError;
+    R visit(latte.Absyn.NoInit p, A arg) throws Exception;
+    R visit(latte.Absyn.Init p, A arg) throws Exception;
   }
 
 }

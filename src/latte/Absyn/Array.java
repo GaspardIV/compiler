@@ -19,10 +19,7 @@ public class Array  extends Type {
   }
   public boolean equalsT(java.lang.Object o) {
     if (this == o) return true;
-    if (o instanceof latte.Absyn.Array) {
-      return true;
-    }
-    return false;
+    return o instanceof Array;
   }
 
   public int hashCode() {
