@@ -4,7 +4,13 @@
     <option name="ANALYZE_TEST_SOURCES" value="false" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="Tests passes - but not semantic yet." />
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="readme">
+      <change afterPath="$PROJECT_DIR$/third_party/JFlex.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/third_party/java-cup-11b.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LatteLang.cf" beforeDir="false" afterPath="$PROJECT_DIR$/Latte.cf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -152,11 +158,11 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/third_party" />
+      <recent name="$PROJECT_DIR$/bnfc/Java" />
       <recent name="$PROJECT_DIR$/lattests/good/classic" />
       <recent name="$PROJECT_DIR$/lattests/bad/classic" />
       <recent name="$PROJECT_DIR$/lattests/bad" />
-      <recent name="$PROJECT_DIR$/lattests/good" />
-      <recent name="$PROJECT_DIR$/lattests" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -169,7 +175,7 @@
       <recent name="bad" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in compiler">
+  <component name="RunManager" selected="Makefile Target.recompileBNFCJava">
     <configuration name="Test core002.lat" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="latte.Compiler" />
       <module name="compiler" />
@@ -220,26 +226,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BadTestsSemanticTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="compiler" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="BadTestsSemanticTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BadTestsSemanticTest,testSemanticWhileTrue and 1 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="compiler" />
-      <option name="TEST_OBJECT" value="pattern" />
-      <patterns>
-        <pattern testClass="BadTestsSemanticTest,testSemanticWhileTrue" />
-        <pattern testClass="BadTestsSemanticTest,testSemanticWhileTrue2" />
-      </patterns>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="BadTestsTest.testBad06" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
@@ -250,15 +236,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BadTestsTest.testBad14" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="compiler" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="BadTestsTest" />
-      <option name="METHOD_NAME" value="testBad14" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="all" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/bnfc/Makefile" target="all" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
+    <configuration name="distclean" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/bnfc/Makefile" target="distclean" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
+    <configuration name="recompileBNFCJava" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="recompileBNFCJava" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
     </configuration>
     <configuration name="Unnamed" type="ShConfigurationType" nameIsGenerated="true">
       <option name="SCRIPT_TEXT" value="" />
@@ -280,19 +274,19 @@
       <item itemvalue="Application.Test mytest" />
       <item itemvalue="Application.Test" />
       <item itemvalue="JUnit.All in compiler" />
-      <item itemvalue="JUnit.BadTestsSemanticTest" />
-      <item itemvalue="JUnit.BadTestsSemanticTest,testSemanticWhileTrue and 1 more" />
       <item itemvalue="JUnit.BadTestsTest.testBad06" />
-      <item itemvalue="JUnit.BadTestsTest.testBad14" />
+      <item itemvalue="Makefile Target.all" />
+      <item itemvalue="Makefile Target.distclean" />
+      <item itemvalue="Makefile Target.recompileBNFCJava" />
       <item itemvalue="Shell Script.Unnamed" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Makefile Target.recompileBNFCJava" />
+        <item itemvalue="Makefile Target.all" />
+        <item itemvalue="Makefile Target.distclean" />
         <item itemvalue="JUnit.All in compiler" />
         <item itemvalue="JUnit.BadTestsTest.testBad06" />
-        <item itemvalue="JUnit.BadTestsSemanticTest" />
-        <item itemvalue="JUnit.BadTestsSemanticTest,testSemanticWhileTrue and 1 more" />
-        <item itemvalue="JUnit.BadTestsTest.testBad14" />
       </list>
     </recent_temporary>
   </component>
@@ -318,6 +312,8 @@
       <workItem from="1668283525737" duration="6061000" />
       <workItem from="1668351902350" duration="464000" />
       <workItem from="1668352647388" duration="38396000" />
+      <workItem from="1668682586017" duration="69000" />
+      <workItem from="1668743880777" duration="12658000" />
     </task>
     <task id="LOCAL-00001" summary="aaaaaa">
       <created>1638444396764</created>
@@ -438,7 +434,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668405786811</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="readme">
+      <created>1668682647156</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1668682647156</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -520,7 +523,8 @@
     <MESSAGE value="Add error function handling + global functions cannot be overridden." />
     <MESSAGE value="Tests passes." />
     <MESSAGE value="Tests passes - but not semantic yet." />
-    <option name="LAST_COMMIT_MESSAGE" value="Tests passes - but not semantic yet." />
+    <MESSAGE value="readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="readme" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

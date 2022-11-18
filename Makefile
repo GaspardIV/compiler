@@ -17,7 +17,14 @@ all :
 	chmod a+x latc
 	rm -r build > /dev/null 2>/dev/null || true;
 
+recompileBNFCJava:
+	rm -r bnfc-java > /dev/null 2>/dev/null || true;
+	mkdir "bnfc-java" > /dev/null 2>/dev/null || true;
+	cd bnfc-java && bnfc -m --java --jflex -l ../Latte.cf && sed  "s/-sourcepath ./-sourcepath . -cp ..\/third_party\/java-cup-11b-runtime.jar/" Makefile | sed "s/java_cup.Main/-cp ..\/third_party\/java-cup-11b.jar java_cup.Main/" | sed "s/jflex/java -jar ..\/third_party\/JFlex.jar/" > Makefile2
+	cp bnfc-java/Makefile2 bnfc-java/Makefile && rm bnfc-java/Makefile2
+	cd bnfc-java && make
 
+	#bnfc --java -l -m ../Latte.cf
 
 cleanBuild : clean all
 
