@@ -4,10 +4,11 @@ JAVA_CUP_PATH=third_party/${JAVA_CUP}
 SOURCE_DIR=src
 DST_DIR=build
 JAVA=java
-JAVA_FLAGS=
 
-all :
-	mkdir ${DST_DIR};
+all: recompile_BNFC_java build_compiler
+
+build_compiler:
+	mkdir ${DST_DIR}  > /dev/null 2>/dev/null || true;
 	cp ${JAVA_CUP_PATH} ${DST_DIR};
 	${JAVAC} src/latte/Compiler.java -sourcepath ${SOURCE_DIR} -cp ${JAVA_CUP_PATH} -d ${DST_DIR}
 	echo "Main-Class: latte.Compiler" > ${DST_DIR}/manifest.mf
@@ -17,14 +18,18 @@ all :
 	chmod a+x latc
 	rm -r build > /dev/null 2>/dev/null || true;
 
-recompileBNFCJava:
-	rm -r bnfc-java > /dev/null 2>/dev/null || true;
-	mkdir "bnfc-java" > /dev/null 2>/dev/null || true;
-	cd bnfc-java && bnfc -m --java --jflex -l ../Latte.cf && sed  "s/-sourcepath ./-sourcepath . -cp ..\/third_party\/java-cup-11b-runtime.jar/" Makefile | sed "s/java_cup.Main/-cp ..\/third_party\/java-cup-11b.jar java_cup.Main/" | sed "s/jflex/java -jar ..\/third_party\/JFlex.jar/" > Makefile2
-	cp bnfc-java/Makefile2 bnfc-java/Makefile && rm bnfc-java/Makefile2
-	cd bnfc-java && make
-
-	#bnfc --java -l -m ../Latte.cf
+recompile_BNFC_java:
+	mkdir ${DST_DIR}  > /dev/null 2>/dev/null || true;
+	rm -r build/bnfc-java > /dev/null 2>/dev/null || true;
+	mkdir "build/bnfc-java" > /dev/null 2>/dev/null || true;
+	cd build/bnfc-java && bnfc -m --java --jflex -l ../../Latte.cf && sed  "s/-sourcepath ./-sourcepath . -cp ..\/..\/third_party\/java-cup-11b-runtime.jar/" Makefile | sed "s/java_cup.Main/-cp ..\/..\/third_party\/java-cup-11b.jar java_cup.Main/" | sed "s/jflex/java -jar ..\/..\/third_party\/JFlex.jar/" > Makefile2
+	cp build/bnfc-java/Makefile2 build/bnfc-java/Makefile && rm build/bnfc-java/Makefile2
+	cd build/bnfc-java && make
+	for f in ./build/bnfc-java/latte/Absyn/*.java; do [[ -f "./src/latte/Absyn/$$(basename $$f)" ]] || cp "$$f" "./src/latte/Absyn/$$(basename $$f)"; done
+	sed  "s/package latte;/package latte.parser;/" ./build/bnfc-java/latte/parser.java | sed  "s/report_error/\/\/report_error/" > ./src/latte/parser/parser.java
+	sed  "s/package latte;/package latte.parser;/" ./build/bnfc-java/latte/Yylex.java > ./src/latte/parser/Yylex.java
+	sed  "s/package latte;/package latte.parser;/" ./build/bnfc-java/latte/sym.java > ./src/latte/parser/sym.java
+	sed  "s/package latte;/package latte.parser;/" ./build/bnfc-java/latte/PrettyPrinter.java > ./src/latte/parser/PrettyPrinter.java
 
 cleanBuild : clean all
 

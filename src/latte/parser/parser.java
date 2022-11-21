@@ -6,6 +6,7 @@
 package latte.parser;
 
 import java_cup.runtime.ComplexSymbolFactory.Location;
+import java_cup.runtime.XMLElement;
 
 /** CUP v0.11b 20160615 (GIT 4ac7450) generated parser.
   */
@@ -468,9 +469,7 @@ public class parser extends java_cup.runtime.lr_parser {
 
 public void syntax_error(java_cup.runtime.Symbol cur_token)
 {
-//  important!!
-//  changed by me
-//  report_error("Syntax Error, trying to recover and continue parse...", cur_token);
+  //report_error("Syntax Error, trying to recover and continue parse...", cur_token);
 }
 
 public void unrecovered_syntax_error(java_cup.runtime.Symbol cur_token) throws java.lang.Exception
@@ -658,7 +657,7 @@ if (leftLoc != null) {
 		Location p_1xleft = ((java_cup.runtime.ComplexSymbolFactory.ComplexSymbol)CUP$parser$stack.peek()).xleft;
 		Location p_1xright = ((java_cup.runtime.ComplexSymbolFactory.ComplexSymbol)CUP$parser$stack.peek()).xright;
 		latte.Absyn.TopDef p_1 = (latte.Absyn.TopDef)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
-		 RESULT = new latte.Absyn.ListTopDef(); RESULT.addLast(p_1);
+		 RESULT = new latte.Absyn.ListTopDef(); RESULT.addLast(p_1); 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("ListTopDef",2, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -707,7 +706,7 @@ if (leftLoc != null) {
           case 8: // ListArg ::= 
             {
               latte.Absyn.ListArg RESULT =null;
-		 RESULT = new latte.Absyn.ListArg();
+		 RESULT = new latte.Absyn.ListArg(); 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("ListArg",4, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -719,7 +718,7 @@ if (leftLoc != null) {
 		Location p_1xleft = ((java_cup.runtime.ComplexSymbolFactory.ComplexSymbol)CUP$parser$stack.peek()).xleft;
 		Location p_1xright = ((java_cup.runtime.ComplexSymbolFactory.ComplexSymbol)CUP$parser$stack.peek()).xright;
 		latte.Absyn.Arg p_1 = (latte.Absyn.Arg)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
-		 RESULT = new latte.Absyn.ListArg(); RESULT.addLast(p_1);
+		 RESULT = new latte.Absyn.ListArg(); RESULT.addLast(p_1); 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("ListArg",4, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -839,7 +838,7 @@ if (leftLoc != null) {
           case 14: // ListClMember ::= 
             {
               latte.Absyn.ListClMember RESULT =null;
-		 RESULT = new latte.Absyn.ListClMember();
+		 RESULT = new latte.Absyn.ListClMember(); 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("ListClMember",7, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -891,7 +890,7 @@ if (leftLoc != null) {
           case 17: // ListStmt ::= 
             {
               latte.Absyn.ListStmt RESULT =null;
-		 RESULT = new latte.Absyn.ListStmt();
+		 RESULT = new latte.Absyn.ListStmt(); 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("ListStmt",9, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -921,7 +920,7 @@ if (leftLoc != null) {
 		 RESULT = new latte.Absyn.Empty();
 ((latte.Absyn.Empty)RESULT).line_num = -1;
 ((latte.Absyn.Empty)RESULT).col_num = -1;
-((latte.Absyn.Empty)RESULT).offset = -1;
+((latte.Absyn.Empty)RESULT).offset = -1; 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("Stmt",10, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -1181,7 +1180,7 @@ if (leftLoc != null) {
 		 RESULT = new latte.Absyn.VRet();
 ((latte.Absyn.VRet)RESULT).line_num = -1;
 ((latte.Absyn.VRet)RESULT).col_num = -1;
-((latte.Absyn.VRet)RESULT).offset = -1;
+((latte.Absyn.VRet)RESULT).offset = -1; 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("Stmt",10, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -1416,7 +1415,7 @@ if (leftLoc != null) {
 		Location p_1xleft = ((java_cup.runtime.ComplexSymbolFactory.ComplexSymbol)CUP$parser$stack.peek()).xleft;
 		Location p_1xright = ((java_cup.runtime.ComplexSymbolFactory.ComplexSymbol)CUP$parser$stack.peek()).xright;
 		latte.Absyn.Item p_1 = (latte.Absyn.Item)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
-		 RESULT = new latte.Absyn.ListItem(); RESULT.addLast(p_1);
+		 RESULT = new latte.Absyn.ListItem(); RESULT.addLast(p_1); 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("ListItem",12, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -1449,7 +1448,7 @@ if (leftLoc != null) {
 		 RESULT = new latte.Absyn.Int();
 ((latte.Absyn.Int)RESULT).line_num = -1;
 ((latte.Absyn.Int)RESULT).col_num = -1;
-((latte.Absyn.Int)RESULT).offset = -1;
+((latte.Absyn.Int)RESULT).offset = -1; 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("Type",13, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -1464,7 +1463,7 @@ if (leftLoc != null) {
 		 RESULT = new latte.Absyn.Str();
 ((latte.Absyn.Str)RESULT).line_num = -1;
 ((latte.Absyn.Str)RESULT).col_num = -1;
-((latte.Absyn.Str)RESULT).offset = -1;
+((latte.Absyn.Str)RESULT).offset = -1; 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("Type",13, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -1479,7 +1478,7 @@ if (leftLoc != null) {
 		 RESULT = new latte.Absyn.Bool();
 ((latte.Absyn.Bool)RESULT).line_num = -1;
 ((latte.Absyn.Bool)RESULT).col_num = -1;
-((latte.Absyn.Bool)RESULT).offset = -1;
+((latte.Absyn.Bool)RESULT).offset = -1; 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("Type",13, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -1494,7 +1493,7 @@ if (leftLoc != null) {
 		 RESULT = new latte.Absyn.Void();
 ((latte.Absyn.Void)RESULT).line_num = -1;
 ((latte.Absyn.Void)RESULT).col_num = -1;
-((latte.Absyn.Void)RESULT).offset = -1;
+((latte.Absyn.Void)RESULT).offset = -1; 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("Type",13, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -1550,7 +1549,7 @@ if (leftLoc != null) {
           case 44: // ListType ::= 
             {
               latte.Absyn.ListType RESULT =null;
-		 RESULT = new latte.Absyn.ListType();
+		 RESULT = new latte.Absyn.ListType(); 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("ListType",14, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -1562,7 +1561,7 @@ if (leftLoc != null) {
 		Location p_1xleft = ((java_cup.runtime.ComplexSymbolFactory.ComplexSymbol)CUP$parser$stack.peek()).xleft;
 		Location p_1xright = ((java_cup.runtime.ComplexSymbolFactory.ComplexSymbol)CUP$parser$stack.peek()).xright;
 		latte.Absyn.Type p_1 = (latte.Absyn.Type)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
-		 RESULT = new latte.Absyn.ListType(); RESULT.addLast(p_1);
+		 RESULT = new latte.Absyn.ListType(); RESULT.addLast(p_1); 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("ListType",14, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -1794,7 +1793,7 @@ if (leftLoc != null) {
 		 RESULT = new latte.Absyn.ELitTrue();
 ((latte.Absyn.ELitTrue)RESULT).line_num = -1;
 ((latte.Absyn.ELitTrue)RESULT).col_num = -1;
-((latte.Absyn.ELitTrue)RESULT).offset = -1;
+((latte.Absyn.ELitTrue)RESULT).offset = -1; 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("Expr6",15, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -1809,7 +1808,7 @@ if (leftLoc != null) {
 		 RESULT = new latte.Absyn.ELitFalse();
 ((latte.Absyn.ELitFalse)RESULT).line_num = -1;
 ((latte.Absyn.ELitFalse)RESULT).col_num = -1;
-((latte.Absyn.ELitFalse)RESULT).offset = -1;
+((latte.Absyn.ELitFalse)RESULT).offset = -1; 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("Expr6",15, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -2151,7 +2150,7 @@ if (leftLoc != null) {
           case 72: // ListExpr ::= 
             {
               latte.Absyn.ListExpr RESULT =null;
-		 RESULT = new latte.Absyn.ListExpr();
+		 RESULT = new latte.Absyn.ListExpr(); 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("ListExpr",22, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -2163,7 +2162,7 @@ if (leftLoc != null) {
 		Location p_1xleft = ((java_cup.runtime.ComplexSymbolFactory.ComplexSymbol)CUP$parser$stack.peek()).xleft;
 		Location p_1xright = ((java_cup.runtime.ComplexSymbolFactory.ComplexSymbol)CUP$parser$stack.peek()).xright;
 		latte.Absyn.Expr p_1 = (latte.Absyn.Expr)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
-		 RESULT = new latte.Absyn.ListExpr(); RESULT.addLast(p_1);
+		 RESULT = new latte.Absyn.ListExpr(); RESULT.addLast(p_1); 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("ListExpr",22, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -2196,7 +2195,7 @@ if (leftLoc != null) {
 		 RESULT = new latte.Absyn.Plus();
 ((latte.Absyn.Plus)RESULT).line_num = -1;
 ((latte.Absyn.Plus)RESULT).col_num = -1;
-((latte.Absyn.Plus)RESULT).offset = -1;
+((latte.Absyn.Plus)RESULT).offset = -1; 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("AddOp",23, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -2211,7 +2210,7 @@ if (leftLoc != null) {
 		 RESULT = new latte.Absyn.Minus();
 ((latte.Absyn.Minus)RESULT).line_num = -1;
 ((latte.Absyn.Minus)RESULT).col_num = -1;
-((latte.Absyn.Minus)RESULT).offset = -1;
+((latte.Absyn.Minus)RESULT).offset = -1; 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("AddOp",23, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -2226,7 +2225,7 @@ if (leftLoc != null) {
 		 RESULT = new latte.Absyn.Times();
 ((latte.Absyn.Times)RESULT).line_num = -1;
 ((latte.Absyn.Times)RESULT).col_num = -1;
-((latte.Absyn.Times)RESULT).offset = -1;
+((latte.Absyn.Times)RESULT).offset = -1; 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("MulOp",24, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -2241,7 +2240,7 @@ if (leftLoc != null) {
 		 RESULT = new latte.Absyn.Div();
 ((latte.Absyn.Div)RESULT).line_num = -1;
 ((latte.Absyn.Div)RESULT).col_num = -1;
-((latte.Absyn.Div)RESULT).offset = -1;
+((latte.Absyn.Div)RESULT).offset = -1; 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("MulOp",24, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -2256,7 +2255,7 @@ if (leftLoc != null) {
 		 RESULT = new latte.Absyn.Mod();
 ((latte.Absyn.Mod)RESULT).line_num = -1;
 ((latte.Absyn.Mod)RESULT).col_num = -1;
-((latte.Absyn.Mod)RESULT).offset = -1;
+((latte.Absyn.Mod)RESULT).offset = -1; 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("MulOp",24, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -2271,7 +2270,7 @@ if (leftLoc != null) {
 		 RESULT = new latte.Absyn.LTH();
 ((latte.Absyn.LTH)RESULT).line_num = -1;
 ((latte.Absyn.LTH)RESULT).col_num = -1;
-((latte.Absyn.LTH)RESULT).offset = -1;
+((latte.Absyn.LTH)RESULT).offset = -1; 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("RelOp",25, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -2286,7 +2285,7 @@ if (leftLoc != null) {
 		 RESULT = new latte.Absyn.LE();
 ((latte.Absyn.LE)RESULT).line_num = -1;
 ((latte.Absyn.LE)RESULT).col_num = -1;
-((latte.Absyn.LE)RESULT).offset = -1;
+((latte.Absyn.LE)RESULT).offset = -1; 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("RelOp",25, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -2301,7 +2300,7 @@ if (leftLoc != null) {
 		 RESULT = new latte.Absyn.GTH();
 ((latte.Absyn.GTH)RESULT).line_num = -1;
 ((latte.Absyn.GTH)RESULT).col_num = -1;
-((latte.Absyn.GTH)RESULT).offset = -1;
+((latte.Absyn.GTH)RESULT).offset = -1; 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("RelOp",25, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -2316,7 +2315,7 @@ if (leftLoc != null) {
 		 RESULT = new latte.Absyn.GE();
 ((latte.Absyn.GE)RESULT).line_num = -1;
 ((latte.Absyn.GE)RESULT).col_num = -1;
-((latte.Absyn.GE)RESULT).offset = -1;
+((latte.Absyn.GE)RESULT).offset = -1; 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("RelOp",25, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -2331,7 +2330,7 @@ if (leftLoc != null) {
 		 RESULT = new latte.Absyn.EQU();
 ((latte.Absyn.EQU)RESULT).line_num = -1;
 ((latte.Absyn.EQU)RESULT).col_num = -1;
-((latte.Absyn.EQU)RESULT).offset = -1;
+((latte.Absyn.EQU)RESULT).offset = -1; 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("RelOp",25, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -2346,7 +2345,7 @@ if (leftLoc != null) {
 		 RESULT = new latte.Absyn.NE();
 ((latte.Absyn.NE)RESULT).line_num = -1;
 ((latte.Absyn.NE)RESULT).col_num = -1;
-((latte.Absyn.NE)RESULT).offset = -1;
+((latte.Absyn.NE)RESULT).offset = -1; 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("RelOp",25, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;

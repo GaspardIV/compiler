@@ -29,7 +29,7 @@ Parser nie jest w make'u genererowany automatycznie z pliku z gramatyką język�
 Pozbyłem się również zbędnych plikow pośrednich generowanych przez bnfc.
 
 
-Do wygenerowania parsera uzylem bnfc 2.9.3:
+Do wygenerowania parsera uzylem bnfc 2.9.4:
 `    bnfc-2.9.3-linux-x86_64.binary --java -l LatteLang.cf -m`
 Opcja -l dla javy odpowiada za dodanie numeru linii do tokenow. Numer kolumny nie jest poprawnie generowany przez wykorzystywaną przez bnfc biblioteke java_cup, dlatego go nie wypisuje. 
 W przypadku niewystarczajacej ilosci informacji o lokalizacji błedu, moge sprobowac wykorzystać antlr4, zamiast java_cup i jlex w nastepnej iteracji projektu.
