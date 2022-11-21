@@ -179,6 +179,24 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
         return new Bool();
     }
 
+    @Override
+    public Type visit(ESelf p, Environment arg) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Type visit(ENull p, Environment arg) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Type visit(ECastNull p, Environment arg) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
     /**
      * checks if function or method is correctly called
      */

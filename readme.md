@@ -165,7 +165,7 @@ todo:
 - dodac offset do komunikatow o bledach
 - dodac buff do komunikatow o bledach
 - usunac testy z rzutowan -> to bedzie traktowane jako bledy
-
+- zadac pytanie o internal fun
 INFO: 
 -  pliki jlex i java_cup i makefile sa w commicie restructure fix cl member init bug
 

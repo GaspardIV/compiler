@@ -83,8 +83,6 @@ Class.     Type ::= Ident ;
 
 Array.     Type ::= Type "[]" ;
 
-internal   Fun. Type ::= Type "(" [Type] ")" ;
-
 separator  Type "," ;
 
 -- Expressions ---------------------------------------------
@@ -92,6 +90,12 @@ separator  Type "," ;
 ENewArray.  Expr6 ::= "new" Type "[" Expr "]" ;
 
 EArrayElem. Expr6 ::= Ident "[" Expr "]";
+
+ESelf.      Expr6 ::= "self" ;
+
+ENull.      Expr6 ::= "null" ;
+
+ECastNull.  Expr6 ::= "(" Expr ")" "null" ;
 
 ENew.       Expr6 ::= "new" Ident ;
 

@@ -6,8 +6,8 @@ import java.io.PrintStream;
 
 public class CompilerInputOutputErrTest {
     private static final boolean SHOULD_GENERATE_EXPECTED_OUTPUT = false;
-    private final PrintStream standardOut = System.out;
-    private final PrintStream standardErr = System.err;
+    public final PrintStream standardOut = System.out;
+    public final PrintStream standardErr = System.err;
     protected final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
     protected final ByteArrayOutputStream errStreamCaptor = new ByteArrayOutputStream();
 
@@ -21,6 +21,8 @@ public class CompilerInputOutputErrTest {
 
     @AfterEach
     void tearDown() {
+        standardOut.println(outputStreamCaptor.toString());
+        standardErr.println(errStreamCaptor.toString());
         System.setOut(standardOut);
         System.setErr(standardErr);
     }
