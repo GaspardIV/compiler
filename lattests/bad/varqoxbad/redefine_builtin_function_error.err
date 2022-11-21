@@ -1,0 +1,4 @@
+ERROR
+
+Semantic error at line 2 :
+     Function 'error' already declared in this scope.

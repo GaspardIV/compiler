@@ -1,0 +1,4 @@
+ERROR
+
+Semantic error at line 5 :
+     Cannot compare 'Yclass' and 'Intarray'.

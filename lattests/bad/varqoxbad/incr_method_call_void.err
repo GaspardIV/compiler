@@ -1,0 +1,6 @@
+ERROR
+Parser error at line: 7, at offset: 93.
+Error with parsing "++;
+}
+int":
+     Unrecoverable Syntax Error

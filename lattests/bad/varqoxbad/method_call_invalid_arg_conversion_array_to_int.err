@@ -1,0 +1,4 @@
+ERROR
+
+Semantic error at line 3 :
+     1 argument type does not match. Got 'Intarray', but 'Int' was expected.

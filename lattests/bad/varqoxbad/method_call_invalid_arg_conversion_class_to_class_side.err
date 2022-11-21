@@ -1,0 +1,4 @@
+ERROR
+
+Semantic error at line 7 :
+     1 argument type does not match. Got 'Zclass', but 'Yclass' was expected.

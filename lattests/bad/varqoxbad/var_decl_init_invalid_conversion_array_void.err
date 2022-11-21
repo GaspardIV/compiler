@@ -1,0 +1,4 @@
+ERROR
+
+Semantic error at line 4 :
+     Assigning 'Void' to 'Intarray' variable.

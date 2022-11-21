@@ -1,0 +1,4 @@
+ERROR
+
+Semantic error at line 8 :
+     Operator '-' cannot be applied to types 'Xclass' and 'Void'.

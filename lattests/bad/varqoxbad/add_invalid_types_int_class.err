@@ -1,0 +1,4 @@
+ERROR
+
+Semantic error at line 6 :
+     Operator '+' cannot be applied to types 'Int' and 'Xclass'.

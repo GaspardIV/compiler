@@ -1,0 +1,6 @@
+ERROR
+Parser error at line: 5, at offset: 78.
+Error with parsing "= 42;
+}
+in":
+     Unrecoverable Syntax Error

@@ -1,0 +1,4 @@
+ERROR
+Parser error at line: 3, at offset: 53.
+Error with parsing "i = 0) {":
+     Unrecoverable Syntax Error

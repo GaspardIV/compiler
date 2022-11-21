@@ -1,0 +1,5 @@
+ERROR
+Parser error at line: 9, at offset: 147.
+Error with parsing "= new Z;
+}":
+     Unrecoverable Syntax Error

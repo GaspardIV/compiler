@@ -1,0 +1,4 @@
+ERROR
+
+Semantic error at line 6 :
+     1 argument type does not match. Got 'Yclassarray', but 'Xclassarray' was expected.

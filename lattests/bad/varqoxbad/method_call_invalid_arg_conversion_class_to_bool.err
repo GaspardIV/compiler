@@ -1,0 +1,4 @@
+ERROR
+
+Semantic error at line 5 :
+     1 argument type does not match. Got 'Xclass', but 'Bool' was expected.

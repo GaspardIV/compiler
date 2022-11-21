@@ -1,0 +1,4 @@
+ERROR
+
+Semantic error at line 4 :
+     Operator '||' cannot be applied to types 'Intarray' and 'Void'.

@@ -1,0 +1,5 @@
+ERROR
+Parser error at line: 5, at offset: 79.
+Error with parsing "= null;
+}":
+     Unrecoverable Syntax Error

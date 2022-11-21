@@ -1,0 +1,6 @@
+ERROR
+Parser error at line: 4, at offset: 59.
+Error with parsing "= "";
+}
+in":
+     Unrecoverable Syntax Error

@@ -1,0 +1,4 @@
+ERROR
+Parser error at line: 3, at offset: 53.
+Error with parsing "string)nul":
+     Unrecoverable Syntax Error

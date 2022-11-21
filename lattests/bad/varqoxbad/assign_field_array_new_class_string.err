@@ -1,0 +1,4 @@
+ERROR
+
+Semantic error at line 7 :
+     Assigning 'Str' to 'Intarray' variable.

@@ -1,0 +1,4 @@
+ERROR
+
+Semantic error at line 3 :
+     Cannot compare 'Intarray' and 'Str'.

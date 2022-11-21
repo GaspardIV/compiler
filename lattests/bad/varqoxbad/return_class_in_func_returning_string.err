@@ -1,0 +1,4 @@
+ERROR
+
+Semantic error at line 4 :
+     Wrong return type. Got 'Yclass', but 'Str' was expected.

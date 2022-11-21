@@ -1,0 +1,5 @@
+ERROR
+Parser error at line: 8, at offset: 129.
+Error with parsing "= new Y;
+}":
+     Unrecoverable Syntax Error

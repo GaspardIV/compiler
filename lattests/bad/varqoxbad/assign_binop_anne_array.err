@@ -1,0 +1,4 @@
+ERROR
+Parser error at line: 5, at offset: 86.
+Error with parsing "= new int[":
+     Unrecoverable Syntax Error

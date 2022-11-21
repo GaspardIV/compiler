@@ -1,0 +1,4 @@
+ERROR
+
+Semantic error at line 6 :
+     Assigning 'Void' to 'Int' variable.

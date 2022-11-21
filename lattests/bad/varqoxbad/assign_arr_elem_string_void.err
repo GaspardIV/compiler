@@ -1,0 +1,4 @@
+ERROR
+Parser error at line: 5, at offset: 84.
+Error with parsing "[1] = vfun":
+     Unrecoverable Syntax Error

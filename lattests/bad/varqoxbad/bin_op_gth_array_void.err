@@ -1,0 +1,4 @@
+ERROR
+
+Semantic error at line 4 :
+     Cannot compare 'Intarray' and 'Void'.

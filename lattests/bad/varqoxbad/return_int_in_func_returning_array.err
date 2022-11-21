@@ -1,0 +1,4 @@
+ERROR
+
+Semantic error at line 2 :
+     Wrong return type. Got 'Int', but 'Intarray' was expected.

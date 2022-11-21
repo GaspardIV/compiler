@@ -1,0 +1,5 @@
+ERROR
+Parser error at line: 5, at offset: 69.
+Error with parsing "[42];
+	ret":
+     Unrecoverable Syntax Error

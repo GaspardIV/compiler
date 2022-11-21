@@ -1,0 +1,4 @@
+ERROR
+Parser error at line: 5, at offset: 78.
+Error with parsing ", y, abc;":
+     Unrecoverable Syntax Error

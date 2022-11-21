@@ -1,0 +1,4 @@
+ERROR
+Parser error at line: 9, at offset: 121.
+Error with parsing "[2].fld =":
+     Unrecoverable Syntax Error
