@@ -1,4 +1,6 @@
 ERROR
+Parser error at line: 6, at offset: 94.
+Error with parsing "null; }
 
-Semantic error at line 6 :
-     Variable 'null' not declared in this scope.
+v":
+     Unrecoverable Syntax Error

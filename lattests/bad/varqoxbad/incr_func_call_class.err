@@ -1,6 +1,6 @@
 ERROR
-Parser error at line: 7, at offset: 115.
-Error with parsing "++;
-}
-int":
+Parser error at line: 4, at offset: 84.
+Error with parsing "null; }
+
+v":
      Unrecoverable Syntax Error

@@ -1,4 +1,4 @@
 ERROR
 Parser error at line: 1, at offset: 8.
-Error with parsing "( {":
+Error with parsing ")( {":
      Unrecoverable Syntax Error

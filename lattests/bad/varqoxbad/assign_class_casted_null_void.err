@@ -1,4 +1,4 @@
 ERROR
-Parser error at line: 7, at offset: 104.
-Error with parsing "null = vfu":
+Parser error at line: 7, at offset: 109.
+Error with parsing "= vfunc();":
      Unrecoverable Syntax Error

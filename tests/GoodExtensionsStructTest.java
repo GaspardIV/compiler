@@ -11,5 +11,5 @@ class GoodExtensionsStructTest extends CompilerInputOutputErrTest {
 //        testUtils.setShouldGenerateExpectedOutput(false);
 //        super.tearDown();
 //    }
-@Test void testList() { testUtils.standardTestInputOutput("lattests/good/struct/Extensions/list.lat", "lattests/good/struct/Extensions/list.output", "lattests/good/struct/Extensions/list.err", 0);}
+@Test void testList() { testUtils.standardTestInputOutput("lattests/good/extensions/struct/list.lat", "lattests/good/extensions/struct/list.output", "lattests/good/extensions/struct/list.err", 0);}
 }

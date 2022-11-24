@@ -1,4 +1,6 @@
 ERROR
-Parser error at line: 6, at offset: 104.
-Error with parsing "= vfunc();":
+Parser error at line: 3, at offset: 72.
+Error with parsing "null; }
+
+v":
      Unrecoverable Syntax Error

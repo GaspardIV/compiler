@@ -1,5 +1,6 @@
 ERROR
-Parser error at line: 7, at offset: 116.
-Error with parsing "= new Y;
-}":
+Parser error at line: 4, at offset: 84.
+Error with parsing "null; }
+
+v":
      Unrecoverable Syntax Error

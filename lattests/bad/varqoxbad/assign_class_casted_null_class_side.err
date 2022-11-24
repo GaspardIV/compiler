@@ -1,4 +1,5 @@
 ERROR
-Parser error at line: 7, at offset: 109.
-Error with parsing "null = new":
+Parser error at line: 7, at offset: 114.
+Error with parsing "= new Z;
+}":
      Unrecoverable Syntax Error

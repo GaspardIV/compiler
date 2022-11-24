@@ -1,6 +1,4 @@
 ERROR
-Parser error at line: 4, at offset: 67.
-Error with parsing "++;
-}
-int":
+Parser error at line: 4, at offset: 54.
+Error with parsing "null != nu":
      Unrecoverable Syntax Error

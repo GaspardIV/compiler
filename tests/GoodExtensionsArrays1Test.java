@@ -11,6 +11,6 @@ class GoodExtensionsArrays1Test extends CompilerInputOutputErrTest {
 //        testUtils.setShouldGenerateExpectedOutput(false);
 //        super.tearDown();
 //    }
-@Test void testArray001() { testUtils.standardTestInputOutput("lattests/good/arrays1/Extensions/array001.lat", "lattests/good/arrays1/Extensions/array001.output", "lattests/good/arrays1/Extensions/array001.err", 0);}
-@Test void testArray002() { testUtils.standardTestInputOutput("lattests/good/arrays1/Extensions/array002.lat", "lattests/good/arrays1/Extensions/array002.output", "lattests/good/arrays1/Extensions/array002.err", 0);}
+@Test void testArray001() { testUtils.standardTestInputOutput("lattests/good/extensions/arrays1/array001.lat", "lattests/good/extensions/arrays1/array001.output", "lattests/good/extensions/arrays1/array001.err", 0);}
+@Test void testArray002() { testUtils.standardTestInputOutput("lattests/good/extensions/arrays1/array002.lat", "lattests/good/extensions/arrays1/array002.output", "lattests/good/extensions/arrays1/array002.err", 0);}
 }

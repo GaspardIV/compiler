@@ -11,5 +11,5 @@ class GoodExtensionsObjects2Test extends CompilerInputOutputErrTest {
 //        testUtils.setShouldGenerateExpectedOutput(false);
 //        super.tearDown();
 //    }
-@Test void testShapes() { testUtils.standardTestInputOutput("lattests/good/objects2/Extensions/shapes.lat", "lattests/good/objects2/Extensions/shapes.output", "lattests/good/objects2/Extensions/shapes.err", 0);}
+@Test void testShapes() { testUtils.standardTestInputOutput("lattests/good/extensions/objects2/shapes.lat", "lattests/good/extensions/objects2/shapes.output", "lattests/good/extensions/objects2/shapes.err", 0);}
 }

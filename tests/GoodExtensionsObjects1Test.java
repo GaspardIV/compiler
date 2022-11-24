@@ -11,8 +11,8 @@ class GoodExtensionsObjects1Test extends CompilerInputOutputErrTest {
 //        testUtils.setShouldGenerateExpectedOutput(false);
 //        super.tearDown();
 //    }
-@Test void testPoints() { testUtils.standardTestInputOutput("lattests/good/objects1/Extensions/points.lat", "lattests/good/objects1/Extensions/points.output", "lattests/good/objects1/Extensions/points.err", 0);}
-@Test void testLinked() { testUtils.standardTestInputOutput("lattests/good/objects1/Extensions/linked.lat", "lattests/good/objects1/Extensions/linked.output", "lattests/good/objects1/Extensions/linked.err", 0);}
-@Test void testQueue() { testUtils.standardTestInputOutput("lattests/good/objects1/Extensions/queue.lat", "lattests/good/objects1/Extensions/queue.output", "lattests/good/objects1/Extensions/queue.err", 0);}
-@Test void testCounter() { testUtils.standardTestInputOutput("lattests/good/objects1/Extensions/counter.lat", "lattests/good/objects1/Extensions/counter.output", "lattests/good/objects1/Extensions/counter.err", 0);}
+@Test void testPoints() { testUtils.standardTestInputOutput("lattests/good/extensions/objects1/points.lat", "lattests/good/extensions/objects1/points.output", "lattests/good/extensions/objects1/points.err", 0);}
+@Test void testLinked() { testUtils.standardTestInputOutput("lattests/good/extensions/objects1/linked.lat", "lattests/good/extensions/objects1/linked.output", "lattests/good/extensions/objects1/linked.err", 0);}
+@Test void testQueue() { testUtils.standardTestInputOutput("lattests/good/extensions/objects1/queue.lat", "lattests/good/extensions/objects1/queue.output", "lattests/good/extensions/objects1/queue.err", 0);}
+@Test void testCounter() { testUtils.standardTestInputOutput("lattests/good/extensions/objects1/counter.lat", "lattests/good/extensions/objects1/counter.output", "lattests/good/extensions/objects1/counter.err", 0);}
 }

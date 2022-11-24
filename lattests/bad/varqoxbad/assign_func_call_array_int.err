@@ -1,6 +1,6 @@
 ERROR
-Parser error at line: 5, at offset: 88.
-Error with parsing "= 42;
-}
-in":
+Parser error at line: 2, at offset: 56.
+Error with parsing "null; }
+
+v":
      Unrecoverable Syntax Error

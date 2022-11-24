@@ -1,4 +1,4 @@
 ERROR
-
-Semantic error at line 5 :
-     Variable 'null' not declared in this scope.
+Parser error at line: 5, at offset: 69.
+Error with parsing "null = vfu":
+     Unrecoverable Syntax Error

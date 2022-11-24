@@ -1,4 +1,4 @@
 ERROR
-
-Semantic error at line 3 :
-     Variable 'null' not declared in this scope.
+Parser error at line: 3, at offset: 49.
+Error with parsing "null >= tr":
+     Unrecoverable Syntax Error

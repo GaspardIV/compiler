@@ -15,7 +15,6 @@ public class sym {
   public static final int _SYMB_14 = 16;
   public static final int _SYMB_13 = 15;
   public static final int _SYMB_12 = 14;
-  public static final int _SYMB_43 = 45;
   public static final int _SYMB_11 = 13;
   public static final int _SYMB_9 = 11;
   public static final int _SYMB_42 = 44;
@@ -31,9 +30,9 @@ public class sym {
   public static final int _SYMB_2 = 4;
   public static final int _SYMB_1 = 3;
   public static final int _SYMB_0 = 2;
-  public static final int _IDENT_ = 48;
-  public static final int _INTEGER_ = 47;
-  public static final int _STRING_ = 46;
+  public static final int _IDENT_ = 47;
+  public static final int _INTEGER_ = 46;
+  public static final int _STRING_ = 45;
   public static final int _SYMB_39 = 41;
   public static final int _SYMB_38 = 40;
   public static final int _SYMB_37 = 39;
@@ -103,7 +102,6 @@ public class sym {
   "_SYMB_40",
   "_SYMB_41",
   "_SYMB_42",
-  "_SYMB_43",
   "_STRING_",
   "_INTEGER_",
   "_IDENT_"

@@ -1,6 +1,4 @@
 ERROR
-Parser error at line: 7, at offset: 109.
-Error with parsing "= "";
-}
-in":
+Parser error at line: 7, at offset: 104.
+Error with parsing "null = "";":
      Unrecoverable Syntax Error

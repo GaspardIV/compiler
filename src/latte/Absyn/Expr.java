@@ -23,9 +23,7 @@ public abstract class Expr implements java.io.Serializable {
     R visit(latte.Absyn.ERel p, A arg) throws Exception;
     R visit(latte.Absyn.EAnd p, A arg) throws Exception;
     R visit(latte.Absyn.EOr p, A arg) throws Exception;
-    R visit(latte.Absyn.ESelf p, A arg);
-    R visit(latte.Absyn.ENull p, A arg);
-    R visit(latte.Absyn.ECastNull p, A arg);
+    R visit(latte.Absyn.ENull p, A arg) throws Exception;
   }
 
 }

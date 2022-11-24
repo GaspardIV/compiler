@@ -1,4 +1,4 @@
 ERROR
-Parser error at line: 3, at offset: 58.
-Error with parsing "null == nu":
+Parser error at line: 3, at offset: 66.
+Error with parsing "null;":
      Unrecoverable Syntax Error

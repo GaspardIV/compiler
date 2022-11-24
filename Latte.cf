@@ -91,11 +91,7 @@ ENewArray.  Expr6 ::= "new" Type "[" Expr "]" ;
 
 EArrayElem. Expr6 ::= Ident "[" Expr "]";
 
-ESelf.      Expr6 ::= "self" ;
-
-ENull.      Expr6 ::= "null" ;
-
-ECastNull.  Expr6 ::= "(" Expr ")" "null" ;
+ENull.      Expr6 ::= "(" Ident ")" "null" ;
 
 ENew.       Expr6 ::= "new" Ident ;
 

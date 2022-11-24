@@ -1,4 +1,4 @@
 ERROR
-Parser error at line: 4, at offset: 66.
-Error with parsing "= new int[":
+Parser error at line: 4, at offset: 53.
+Error with parsing "null == nu":
      Unrecoverable Syntax Error

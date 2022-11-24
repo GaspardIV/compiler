@@ -19,7 +19,11 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
         if (!index.equals(new Int())) {
             throw new SemanticError(p.line_num, "Index has to be an Integer.");
         }
-        Array arrayType = (Array) arg.getVarType(p.ident_);
+        Type type = arg.getVarType(p.ident_);
+        if (!(type instanceof Array)) {
+            throw new SemanticError(p.line_num, "Variable is not an array.");
+        }
+        Array arrayType = (Array) type;
         return arrayType.type_;
     }
 
@@ -179,22 +183,13 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
         return new Bool();
     }
 
-    @Override
-    public Type visit(ESelf p, Environment arg) {
-        // TODO Auto-generated method stub
-        return null;
-    }
 
     @Override
-    public Type visit(ENull p, Environment arg) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public Type visit(ECastNull p, Environment arg) {
-        // TODO Auto-generated method stub
-        return null;
+    public Type visit(ENull p, Environment arg) throws Exception {
+        if (arg.getClassDef(p.ident_) == null) {
+            throw new SemanticError.ClassDoesNotExist(p.line_num); // todo add class name (ident_)
+        }
+        return new latte.Absyn.Class(p.ident_);
     }
 
     /**

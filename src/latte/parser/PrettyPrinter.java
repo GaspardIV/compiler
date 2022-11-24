@@ -847,26 +847,12 @@ public class PrettyPrinter
        render("]");
        if (_i_ > 6) render(_R_PAREN);
     }
-    else     if (foo instanceof latte.Absyn.ESelf)
-    {
-       latte.Absyn.ESelf _eself = (latte.Absyn.ESelf) foo;
-       if (_i_ > 6) render(_L_PAREN);
-       render("self");
-       if (_i_ > 6) render(_R_PAREN);
-    }
     else     if (foo instanceof latte.Absyn.ENull)
     {
        latte.Absyn.ENull _enull = (latte.Absyn.ENull) foo;
        if (_i_ > 6) render(_L_PAREN);
-       render("null");
-       if (_i_ > 6) render(_R_PAREN);
-    }
-    else     if (foo instanceof latte.Absyn.ECastNull)
-    {
-       latte.Absyn.ECastNull _ecastnull = (latte.Absyn.ECastNull) foo;
-       if (_i_ > 6) render(_L_PAREN);
        render("(");
-       pp(_ecastnull.expr_, 0);
+       pp(_enull.ident_, 0);
        render(")");
        render("null");
        if (_i_ > 6) render(_R_PAREN);
@@ -1514,22 +1500,12 @@ public class PrettyPrinter
        sh(_earrayelem.expr_);
        render(")");
     }
-    if (foo instanceof latte.Absyn.ESelf)
-    {
-       latte.Absyn.ESelf _eself = (latte.Absyn.ESelf) foo;
-       render("ESelf");
-    }
     if (foo instanceof latte.Absyn.ENull)
     {
        latte.Absyn.ENull _enull = (latte.Absyn.ENull) foo;
-       render("ENull");
-    }
-    if (foo instanceof latte.Absyn.ECastNull)
-    {
-       latte.Absyn.ECastNull _ecastnull = (latte.Absyn.ECastNull) foo;
        render("(");
-       render("ECastNull");
-       sh(_ecastnull.expr_);
+       render("ENull");
+       sh(_enull.ident_);
        render(")");
     }
     if (foo instanceof latte.Absyn.ENew)

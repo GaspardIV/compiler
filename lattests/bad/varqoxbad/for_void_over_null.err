@@ -1,4 +1,5 @@
 ERROR
-
-Semantic error at line 4 :
-     Variable 'null' not declared in this scope.
+Parser error at line: 4, at offset: 80.
+Error with parsing "null) {}
+}":
+     Unrecoverable Syntax Error
