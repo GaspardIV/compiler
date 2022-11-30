@@ -34,7 +34,7 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
         }
         Type exprType = p.expr_.accept(new ExprChecker(), arg);
         Type varType = arg.getVarType(p.ident_);
-        if (!exprType.equals(varType)) {
+        if (!arg.areTypesEqualRegardingInheritance(exprType, varType)) {
             throw new SemanticError.AssingingWrongType(p.line_num, varType, exprType);
         }
         return null;
@@ -50,7 +50,7 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
         Array arrayType = (Array) arg.getVarType(p.ident_);
         Type exprType = p.expr_2.accept(new ExprChecker(), arg);
 
-        if (!arrayType.type_.equals(exprType)) {
+        if (!arg.areTypesEqualRegardingInheritance(exprType, arrayType.type_)) {
             throw new SemanticError.AssingingWrongType(p.line_num, arrayType, exprType);
         }
         return null;
@@ -64,7 +64,7 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
             if (field == null) {
                 throw new SemanticError.FieldDoesNotExist(p.line_num);
             }
-            if (!field.type_.equals(assT)) {
+            if (!arg.areTypesEqualRegardingInheritance(assT, field.type_)) {
                 throw new SemanticError.AssingingWrongType(p.line_num, field.type_, assT);
             }
         } catch (ClassCastException e) {
@@ -91,7 +91,7 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
 
     public Void visit(latte.Absyn.Ret p, Environment arg) throws Exception{
         Type retType = p.expr_.accept(new ExprChecker(), arg);
-        if (!retType.equals(arg.getExpectedReturnType())) {
+        if (!arg.areTypesEqualRegardingInheritance(retType, arg.getExpectedReturnType())) {
             throw new SemanticError.WrongReturnType(p.line_num, arg.getExpectedReturnType(), retType);
         }
         arg.setWasReturn(true);
@@ -165,7 +165,7 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
         }
 
         Array array = (Array) exprType;
-        if (!iterator.type_.equals(array.type_)) {
+        if (!arg.areTypesEqualRegardingInheritance(array.type_, iterator.type_)) {
             throw new SemanticError.AssingingWrongType(p.line_num, iterator.type_, array.type_);
         }
         arg.addVariable(iterator.ident_, iterator.type_);

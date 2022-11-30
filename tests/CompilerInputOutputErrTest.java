@@ -17,7 +17,10 @@ public class CompilerInputOutputErrTest {
     void setUp() {
         System.setOut(new PrintStream(outputStreamCaptor));
         System.setErr(new PrintStream(errStreamCaptor));
-//                testUtils.setShouldGenerateExpectedOutput(true);
+        String overwrite = System.getenv("overwrite");
+        if (overwrite != null && overwrite.equals("1") ) {
+            testUtils.setShouldGenerateExpectedOutput(true);
+        }
     }
 
     @AfterEach
@@ -26,6 +29,6 @@ public class CompilerInputOutputErrTest {
         standardErr.println(errStreamCaptor.toString());
         System.setOut(standardOut);
         System.setErr(standardErr);
-//        testUtils.setShouldGenerateExpectedOutput(false);
+        testUtils.setShouldGenerateExpectedOutput(false);
     }
 }

@@ -1,6 +1,7 @@
 package latte.frontend.visitors;
 
 import latte.Absyn.*;
+import latte.Absyn.Class;
 import latte.errors.SemanticError;
 import latte.frontend.environment.Environment;
 
@@ -136,6 +137,12 @@ public abstract class TopDefsChecker {
             Ar arg = (Ar) x;
             if (environment.actContextContainsVar(arg.ident_)) {
                 throw new SemanticError.VariableAlreadyDeclared(line_num, arg.ident_);
+            }
+            if (arg.type_ instanceof latte.Absyn.Class) {
+                ClDefExt i = environment.getClassDef(((Class) arg.type_).ident_);
+                if (i == null) {
+                    throw new SemanticError.ClassNotDeclared(line_num, ((Class) arg.type_).ident_);
+                }
             }
             environment.addVariable(arg.ident_, arg.type_);
         }

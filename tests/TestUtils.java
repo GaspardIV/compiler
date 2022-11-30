@@ -32,6 +32,9 @@ public class TestUtils {
     }
 
     void standardTestInputOutput(String inputFileName, String outputFileName, String errOutputFileName, int exitCode) {
+        System.out.println("Testing (/Users/kacperkonecki/IdeaProjects/codingame/compiler/" + inputFileName + ":0)");
+        System.out.println("err (/Users/kacperkonecki/IdeaProjects/codingame/compiler/" + errOutputFileName + ":0)");
+        System.out.println("output (/Users/kacperkonecki/IdeaProjects/codingame/compiler/" + outputFileName + ":0)");
         String[] args = {inputFileName};
 
         int status;
@@ -43,7 +46,7 @@ public class TestUtils {
             throw new RuntimeException(e);
         }
 
-        assertEquals(exitCode, status);
+
         String expectedOutput;
         if (!skipCheckingOutput) {
             if (outputFileName != null && outputFileName.length() > 0) {
@@ -66,6 +69,7 @@ public class TestUtils {
             expectedErrOutput = "";
         }
 
+        assertEquals(exitCode, status);
         assertEquals(expectedErrOutput, errStreamCaptor.toString());
         if (!skipCheckingOutput) {
             assertEquals(expectedOutput, outputStreamCaptor.toString());

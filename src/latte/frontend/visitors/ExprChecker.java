@@ -2,6 +2,7 @@ package latte.frontend.visitors;
 
 import latte.Absyn.Class;
 import latte.Absyn.*;
+import latte.Absyn.Void;
 import latte.errors.SemanticError;
 import latte.frontend.environment.Environment;
 
@@ -150,7 +151,10 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
     public Type visit(ERel p, Environment arg) throws Exception {
         Type t1 = p.expr_1.accept(new ExprChecker(), arg);
         Type t2 = p.expr_2.accept(new ExprChecker(), arg);
-        if (!t1.equals(new Int()) && !p.relop_.equals(new EQU())) {
+        if (t1.equals(new Void()) || t2.equals(new Void())) {
+            throw new SemanticError.RelOperatorCannotBeAppliedToTypes(p.line_num, t1, t2);
+        }
+        if (!t1.equals(new Int()) && (!p.relop_.equals(new EQU()) && !p.relop_.equals(new NE()))) {
             throw new SemanticError.RelOperatorCannotBeAppliedToTypes(p.line_num, t1, t2);
         }
         if (!t1.equals(t2)) {
@@ -210,7 +214,7 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
         for (Expr x : listexpr_) {
             Type argT = x.accept(new ExprChecker(), arg);
             Type expected = ((Ar) argExpectedTypes.get(i++)).type_;
-            if (!argT.equals(expected)) {
+            if (!arg.areTypesEqualRegardingInheritance(argT, expected)) {
                 throw new SemanticError.ArgTypesDoesNotMatch(line_num, i, expected, argT);
             }
         }

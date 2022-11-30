@@ -166,6 +166,11 @@ todo:
 - dodac buff do komunikatow o bledach
 - usunac testy z rzutowan -> to bedzie traktowane jako bledy
 - zadac pytanie o internal fun
+- nie pozwalam na (new int[10])[0] = 10; -> to jest bledne
+- nie pozwalam ogolnie na (new int[10])
+- samo null nie jest parsowane, musi byc (Type)null
+- Nie pozwalam na liste Typ obiekt1, obiekt2, obiekt3; -> to jest bledne
+- 
 INFO: 
 -  pliki jlex i java_cup i makefile sa w commicie restructure fix cl member init bug
 

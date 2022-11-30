@@ -11,6 +11,7 @@ import java.util.Set;
 public class ClDefExt extends TopDef {
     public final String ident_1, ident_2;
     public final ClBlock clblock_;
+    public Set<String> inheritedClasses = new HashSet<>();
     public boolean inheritanceInitialized;
     public int line_num, col_num, offset;
 
@@ -49,21 +50,24 @@ public class ClDefExt extends TopDef {
             ClDefExt next = avaibleClasses.getClassDef(extendsCl);
             if (next == null) {
                 throw new SemanticError(line_num, "Class not found");
-            } else {
-                extendsCl = next.ident_2;
             }
-
             if (visited.contains(next.ident_1)) {
                 throw new SemanticError(line_num, "Inheritance loop");
-            } else {
-                visited.add(next.ident_1);
             }
+
+            extendsCl = next.ident_2;
+            visited.add(next.ident_1);
         }
+        this.inheritedClasses = visited;
         if (this.ident_2 != null) {
             ClDefExt superClass = avaibleClasses.getClassDef(this.ident_2);
             superClass.initInheristance(avaibleClasses);
             ((ClBlk) this.clblock_).listclmember_.addAll(((ClBlk) superClass.clblock_).listclmember_);
         }
         this.inheritanceInitialized = true;
+    }
+
+    public boolean doesExtends(String ident_) {
+        return inheritedClasses.contains(ident_);
     }
 }

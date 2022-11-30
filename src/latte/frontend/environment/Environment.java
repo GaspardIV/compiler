@@ -1,5 +1,6 @@
 package latte.frontend.environment;
 
+import latte.Absyn.Class;
 import latte.Absyn.Void;
 import latte.Absyn.*;
 
@@ -132,5 +133,22 @@ public class Environment {
 
     public Boolean wasReturn() {
         return contexts.getLast().wasReturn();
+    }
+
+    public boolean areTypesEqualRegardingInheritance(Type AMightExtendsB, Type B) {
+        if (AMightExtendsB instanceof Class && B instanceof Class) {
+            ClDefExt classA = getClassDef(((Class) AMightExtendsB).ident_);
+            ClDefExt classB = getClassDef(((Class) B).ident_);
+            if (classA == null || classB == null) {
+                return false;
+            }
+
+            if (AMightExtendsB.equals(B)) {
+                return true;
+            }
+
+            return classA.doesExtends(classB.ident_1);
+        }
+        return AMightExtendsB.equals(B);
     }
 }

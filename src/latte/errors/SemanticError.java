@@ -128,4 +128,10 @@ public class SemanticError extends Exception {
             super(line_num, "Assigning '" + actual + "' to '" + expected + "' variable.");
         }
     }
+
+    public static class ClassNotDeclared extends SemanticError {
+        public ClassNotDeclared(int line_num, String ident_) {
+            super(line_num, "Class '" + ident_ + "' not declared in this scope.");
+        }
+    }
 }

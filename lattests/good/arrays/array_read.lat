@@ -1,5 +1,6 @@
 // Author: Tomasz Wysocki 277696
 int main() {
-    (new int[1])[0];
+    int [] a = new int[1];
+    a[0];
     return 0;
 }
