@@ -1,0 +1,4 @@
+ERROR
+
+Semantic error at line 40 :
+     Assigning 'Point3class' to 'Point2class' variable.

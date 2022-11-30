@@ -1,0 +1,4 @@
+ERROR
+Parser error at line: 4, at offset: 69.
+Error with parsing "[1] = true":
+     Unrecoverable Syntax Error

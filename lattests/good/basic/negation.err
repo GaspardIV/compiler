@@ -1,0 +1,5 @@
+ERROR
+Parser error at line: 3, at offset: 61.
+Error with parsing "-1);
+    i":
+     Unrecoverable Syntax Error

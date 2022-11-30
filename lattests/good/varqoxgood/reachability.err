@@ -1,0 +1,4 @@
+ERROR
+
+Semantic error at line 21 :
+     Function test_while_true without return.

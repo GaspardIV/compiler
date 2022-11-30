@@ -1,0 +1,6 @@
+ERROR
+Parser error at line: 5, at offset: 74.
+Error with parsing "null; }
+
+v":
+     Unrecoverable Syntax Error

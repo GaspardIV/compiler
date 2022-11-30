@@ -1,0 +1,4 @@
+ERROR
+
+Semantic error at line 69 :
+     Assigning 'Rectangleclass' to 'Shapeclass' variable.
