@@ -13,7 +13,7 @@ public class VarDeclChecker implements latte.Absyn.Item.Visitor<String, Environm
     }
 
     public String visit(latte.Absyn.NoInit p, Environment arg) {
-        if (arg.actContextContainsVar(p.ident_)) {
+        if (arg.currentContextContainsVar(p.ident_)) {
             throw new SemanticError.VariableAlreadyDeclared(p.line_num, p.ident_);
         } else {
             arg.addVariable(p.ident_, itemType);

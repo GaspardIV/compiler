@@ -94,6 +94,9 @@ public abstract class TopDefsChecker {
 
     public static class ClMemberInitFieldsInEnvironmentVisitor implements latte.Absyn.ClMember.Visitor<Void, Environment> {
         public Void visit(ClField p, Environment arg) {
+            if (arg.currentContextContainsVar(p.ident_)) {
+                throw new SemanticError.FieldAlreadyDeclaredInCurrentContext(p.line_num, p.ident_);
+            }
             arg.addVariable(p.ident_, p.type_);
             return null;
         }
@@ -102,6 +105,9 @@ public abstract class TopDefsChecker {
         public Void visit(ClFields p, Environment arg) {
             for (ClFieldItem x : p.listclfielditem_) {
                 ClFieldItemNoInit i = (ClFieldItemNoInit) x;
+                if (arg.currentContextContainsVar(i.ident_)) {
+                    throw new SemanticError.FieldAlreadyDeclaredInCurrentContext(i.line_num, i.ident_);
+                }
                 arg.addVariable(((ClFieldItemNoInit) x).ident_, p.type_);
             }
             return null;
@@ -112,6 +118,9 @@ public abstract class TopDefsChecker {
             fnDef.line_num = p.line_num;
             if (arg.isFunctionGlobal(p.ident_)) {
                 throw new SemanticError.FunctionAlreadyDeclared(p.line_num, p.ident_);
+            }
+            if (arg.isFunctionInCurrentContext(p.ident_)) {
+                throw new SemanticError.MethodAlreadyDeclaredInCurrentContext(p.line_num, p.ident_);
             }
             arg.addFunction(p.ident_, fnDef);
             return null;
@@ -149,7 +158,7 @@ public abstract class TopDefsChecker {
         environment.addNewContext(ident_);
         for (Arg x : listarg_) {
             Ar arg = (Ar) x;
-            if (environment.actContextContainsVar(arg.ident_)) {
+            if (environment.currentContextContainsVar(arg.ident_)) {
                 throw new SemanticError.VariableAlreadyDeclared(line_num, arg.ident_);
             }
             if (arg.type_ instanceof latte.Absyn.Class) {
@@ -157,6 +166,9 @@ public abstract class TopDefsChecker {
                 if (i == null) {
                     throw new SemanticError.ClassNotDeclared(line_num, ((Class) arg.type_).ident_);
                 }
+            }
+            if (arg.type_ instanceof latte.Absyn.Void) {
+                throw new SemanticError.VoidArgument(line_num, arg.ident_);
             }
             environment.addVariable(arg.ident_, arg.type_);
         }

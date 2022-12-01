@@ -158,4 +158,22 @@ public class SemanticError extends RuntimeException {
             super(line_num, "Array of void is not allowed.");
         }
     }
+
+    public static class VoidArgument extends SemanticError {
+        public VoidArgument(int line_num, String ident_) {
+            super(line_num, "Void argument is not allowed (" + ident_ + ").");
+        }
+    }
+
+    public static class FieldAlreadyDeclaredInCurrentContext extends SemanticError {
+        public FieldAlreadyDeclaredInCurrentContext(int line_num, String ident_) {
+            super(line_num, "Field '" + ident_ + "' already declared in current context.");
+        }
+    }
+
+    public static class MethodAlreadyDeclaredInCurrentContext extends SemanticError {
+        public MethodAlreadyDeclaredInCurrentContext(int line_num, String ident_) {
+            super(line_num, "Method '" + ident_ + "' already declared in this scope.");
+        }
+    }
 }

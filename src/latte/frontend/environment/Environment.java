@@ -94,7 +94,7 @@ public class Environment {
         contexts.getLast().addVarDef(ident_, type_);
     }
 
-    public boolean actContextContainsVar(String ident_) {
+    public boolean currentContextContainsVar(String ident_) {
         return contexts.getLast().getVarType(ident_) != null;
     }
 
@@ -156,5 +156,9 @@ public class Environment {
             return classA.doesExtends(classB.ident_1);
         }
         return AMightExtendsB.equals(B);
+    }
+
+    public boolean isFunctionInCurrentContext(String ident_) {
+        return contexts.getLast().getFunctionDef(ident_) != null;
     }
 }
