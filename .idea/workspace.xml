@@ -5,9 +5,15 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="110 passes fix main args and returntype">
-      <change beforePath="$PROJECT_DIR$/src/latte/errors/SemanticError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/errors/SemanticError.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/StmtChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/StmtChecker.java" afterDir="false" />
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="108 passes return void not allowed">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/semantic/return_void_result.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/semantic/return_void_result.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/return_void_in_func_returning_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/return_void_in_func_returning_array.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/return_void_in_func_returning_bool.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/return_void_in_func_returning_bool.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/return_void_in_func_returning_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/return_void_in_func_returning_class.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/return_void_in_func_returning_int.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/return_void_in_func_returning_int.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/return_void_in_func_returning_string.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/return_void_in_func_returning_string.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/return_void_in_func_returning_void.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/return_void_in_func_returning_void.err" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -570,7 +576,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669871068487</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="108 passes return void not allowed">
+      <created>1669871926679</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1669871926679</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -636,7 +649,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="better messages" />
     <MESSAGE value="test passes bad folder" />
     <MESSAGE value="GOOD ALMOST PASSING" />
     <MESSAGE value="refactor" />
@@ -661,7 +673,8 @@
     <MESSAGE value="146 tests failed" />
     <MESSAGE value="113 tests failed added null" />
     <MESSAGE value="110 passes fix main args and returntype" />
-    <option name="LAST_COMMIT_MESSAGE" value="110 passes fix main args and returntype" />
+    <MESSAGE value="108 passes return void not allowed" />
+    <option name="LAST_COMMIT_MESSAGE" value="108 passes return void not allowed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

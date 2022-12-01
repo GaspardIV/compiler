@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 9 :
-     Returning void is not allowed, use 'return ;' instead.
+     Returning void is not allowed.
