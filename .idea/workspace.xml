@@ -5,22 +5,39 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="Void arguments in method/function/field definition + almost working variable already declared">
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="Method redefinition fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefines_base_class_field.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefines_base_class_field.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefinition.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefinition.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefinition_other_decl.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefinition_other_decl.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefinition_single_decl.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefinition_single_decl.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_method_redefinition.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_method_redefinition.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/field_shadowing.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/field_shadowing.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/method_defined_two_times.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/method_defined_two_times.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/extensions/objects2/shapes.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/extensions/objects2/shapes.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/gr5/calculator.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/gr5/calculator.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/class_overriding_method.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/class_overriding_method.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/for_iter_base_class_over_derived_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/for_iter_base_class_over_derived_class.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/virtual_methods.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/virtual_methods.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/virtual/polymorphism.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/virtual/polymorphism.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/TopDefsChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/TopDefsChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/semantic/declaration_in_if.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/semantic/declaration_in_if.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/semantic/declaration_in_while.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/semantic/declaration_in_while.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/semantic/while_true_bad_return_type.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/semantic/while_true_bad_return_type.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/if_context_01.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/if_context_01.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/if_context_02.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/if_context_02.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/if_else_context_01.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/if_else_context_01.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/if_else_context_03.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/if_else_context_03.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/if_else_context_04.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/if_else_context_04.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/if_else_context_05.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/if_else_context_05.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/if_else_context_06.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/if_else_context_06.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/if_else_context_07.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/if_else_context_07.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/if_else_context_10.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/if_else_context_10.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/if_else_context_11.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/if_else_context_11.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/shadowing_for_iter.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/shadowing_for_iter.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/shadowing_for_iter_block.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/shadowing_for_iter_block.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/arrays/heapsort.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/arrays/heapsort.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/basic/while_true2.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/while_true2.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core019.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core019.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/gr5/bfs.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/gr5/bfs.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/gr5/heapsort2.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/gr5/heapsort2.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/gr5/lista2Kierunkowa.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/gr5/lista2Kierunkowa.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/gr5/mergeSort.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/gr5/mergeSort.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/braid.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/braid.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/for_iter_shadowing.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/for_iter_shadowing.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/if_else_shadowing.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/if_else_shadowing.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/if_shadowing.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/if_shadowing.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/while_body_decl.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/while_body_decl.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/errors/SemanticError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/errors/SemanticError.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/frontend/environment/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/environment/Environment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/StmtChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/StmtChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/VarDeclChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/VarDeclChecker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -260,6 +277,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="BadTestsSemanticTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="compiler" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="BadTestsSemanticTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BadVarqoxTests.testfield_access_non_class_type_null" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
@@ -290,16 +317,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GoodVarqoxgoodTest.testAssign_Field_Class_Of_Field_Null" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="compiler" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GoodVarqoxgoodTest" />
-      <option name="METHOD_NAME" value="testAssign_Field_Class_Of_Field_Null" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Unnamed" type="ShConfigurationType" nameIsGenerated="true">
       <option name="SCRIPT_TEXT" value="" />
       <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
@@ -320,9 +337,9 @@
       <item itemvalue="Application.Test mytest" />
       <item itemvalue="Application.Test" />
       <item itemvalue="JUnit.All in compiler" />
+      <item itemvalue="JUnit.BadTestsSemanticTest" />
       <item itemvalue="JUnit.BadVarqoxTests.testfield_access_non_class_type_null" />
       <item itemvalue="JUnit.GoodGr5Test.testLista2Kierunkowa" />
-      <item itemvalue="JUnit.GoodVarqoxgoodTest.testAssign_Field_Class_Of_Field_Null" />
       <item itemvalue="JUnit.GoodGr5Test.testMergesort" />
       <item itemvalue="JUnit.All in compiler OVERWRITE" />
       <item itemvalue="Shell Script.Unnamed" />
@@ -330,10 +347,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in compiler OVERWRITE" />
+        <item itemvalue="JUnit.BadTestsSemanticTest" />
         <item itemvalue="JUnit.GoodGr5Test.testMergesort" />
         <item itemvalue="JUnit.BadVarqoxTests.testfield_access_non_class_type_null" />
         <item itemvalue="JUnit.GoodGr5Test.testLista2Kierunkowa" />
-        <item itemvalue="JUnit.GoodVarqoxgoodTest.testAssign_Field_Class_Of_Field_Null" />
       </list>
     </recent_temporary>
   </component>
@@ -618,7 +635,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669909721072</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Method redefinition fix">
+      <created>1669912218214</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1669912218214</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -684,8 +708,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add tests and default err for certain tests." />
-    <MESSAGE value="Nie ma pliku latc (a jedynie plik compiler). Tym razem nie obniżam,&#10;   ale proszę to poprawić zgodnie ze specyfikacją." />
     <MESSAGE value="Rearange tests" />
     <MESSAGE value="Add error function handling + global functions cannot be overridden." />
     <MESSAGE value="Tests passes." />
@@ -709,7 +731,9 @@
     <MESSAGE value="increment fix 98 failing" />
     <MESSAGE value="array of null not allowed 95 failing" />
     <MESSAGE value="Void arguments in method/function/field definition + almost working variable already declared" />
-    <option name="LAST_COMMIT_MESSAGE" value="Void arguments in method/function/field definition + almost working variable already declared" />
+    <MESSAGE value="Method redefinition" />
+    <MESSAGE value="Method redefinition fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Method redefinition fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -745,6 +769,7 @@
     <SUITE FILE_PATH="coverage/compiler$BadVarqoxTests_testbin_op_eq_void_void.ic" NAME="BadVarqoxTests.testbin_op_eq_void_void Coverage Results" MODIFIED="1669841331386" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/compiler$GoodVarqoxgoodTest_testAssign_Field_Class_Of_Field_Null.ic" NAME="GoodVarqoxgoodTest.testAssign_Field_Class_Of_Field_Null Coverage Results" MODIFIED="1669865189431" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/compiler$GoodGr5Test_testMergesort.ic" NAME="GoodGr5Test.testMergesort Coverage Results" MODIFIED="1669869518455" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/compiler$BadTestsSemanticTest.ic" NAME="BadTestsSemanticTest Coverage Results" MODIFIED="1669912501281" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/latte_lang/_cup.cup">

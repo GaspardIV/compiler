@@ -125,7 +125,10 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
         Bool cond = (Bool) exprType;
         if (!cond.isLitFalse) {
             Boolean wasReturnBefore = arg.wasReturn();
+            Boolean isAlllowVarDecl = arg.isAlllowVarDecl();
+            arg.setAlllowVarDecl(false);
             p.stmt_.accept(new StmtChecker(), arg);
+            arg.setAlllowVarDecl(isAlllowVarDecl);
             if (!cond.isLitTrue) {
                 arg.setWasReturn(wasReturnBefore);
             }
@@ -142,12 +145,18 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
         Boolean wasReturnBefore = arg.wasReturn();
         if (!cond.isLitFalse) {
             arg.setWasReturn(false);
+            Boolean isAlllowVarDecl = arg.isAlllowVarDecl();
+            arg.setAlllowVarDecl(false);
             p.stmt_1.accept(new StmtChecker(), arg);
+            arg.setAlllowVarDecl(isAlllowVarDecl);
         }
         Boolean wasReturnStmt1 = arg.wasReturn();
         if (!cond.isLitTrue) {
             arg.setWasReturn(false);
+            Boolean isAlllowVarDecl = arg.isAlllowVarDecl();
+            arg.setAlllowVarDecl(false);
             p.stmt_2.accept(new StmtChecker(), arg);
+            arg.setAlllowVarDecl(isAlllowVarDecl);
         }
         Boolean wasReturnStmt2 = arg.wasReturn();
         if (!cond.isLitFalse && !cond.isLitTrue) {
@@ -161,7 +170,10 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
         if (!exprType.equals(new Bool())) {
             throw new SemanticError.CondHasToBeBoolean(p.line_num);
         }
+        Boolean isAlllowVarDecl = arg.isAlllowVarDecl();
+        arg.setAlllowVarDecl(false);
         p.stmt_.accept(new StmtChecker(), arg);
+        arg.setAlllowVarDecl(isAlllowVarDecl);
         return null;
     }
 
@@ -178,7 +190,10 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
             throw new SemanticError.AssingingWrongType(p.line_num, iterator.type_, array.type_);
         }
         arg.addVariable(iterator.ident_, iterator.type_);
+        Boolean isAlllowVarDecl = arg.isAlllowVarDecl();
+        arg.setAlllowVarDecl(false);
         p.stmt_.accept(new StmtChecker(), arg);
+        arg.setAlllowVarDecl(isAlllowVarDecl);
         arg.popContext();
         return null;
     }

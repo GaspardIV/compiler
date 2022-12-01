@@ -1,4 +1,4 @@
 ERROR
 
-Semantic error at line 10 :
-     Variable 'y' not declared in this scope.
+Semantic error at line 5 :
+     Variable declaration not allowed inside of for(){}, while{}, if(){}, if() {} else {} blocks statements.

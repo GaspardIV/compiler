@@ -176,4 +176,10 @@ public class SemanticError extends RuntimeException {
             super(line_num, "Method '" + ident_ + "' already declared in this scope.");
         }
     }
+
+    public static class VariableDeclarationNotAllowedInLoopAndIf extends SemanticError {
+        public VariableDeclarationNotAllowedInLoopAndIf(int line_num, String ident_) {
+            super(line_num, "Variable declaration not allowed inside of for(){}, while{}, if(){}, if() {} else {} blocks statements.");
+        }
+    }
 }
