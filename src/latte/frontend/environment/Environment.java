@@ -9,11 +9,9 @@ import java.util.*;
 public class Environment {
     //    private
     private final Deque<Context> contexts;
-    private boolean alllowVarDecl;
 
     public Environment() {
         contexts = new ArrayDeque<>();
-        alllowVarDecl = true;
         initBuildIns();
     }
 
@@ -162,13 +160,5 @@ public class Environment {
 
     public boolean isFunctionInCurrentContext(String ident_) {
         return contexts.getLast().getFunctionDef(ident_) != null;
-    }
-
-    public Boolean isAlllowVarDecl() {
-        return alllowVarDecl;
-    }
-
-    public void setAlllowVarDecl(boolean alllowVarDecl) {
-        this.alllowVarDecl = alllowVarDecl;
     }
 }

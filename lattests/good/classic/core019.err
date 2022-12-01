@@ -1,4 +1,2 @@
-ERROR
+OK
 
-Semantic error at line 13 :
-     Variable declaration not allowed inside of for(){}, while{}, if(){}, if() {} else {} blocks statements.
