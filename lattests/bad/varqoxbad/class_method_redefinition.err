@@ -1,2 +1,4 @@
-OK
+ERROR
 
+Semantic error at line 2 :
+     Method 'abc' already declared in this scope.

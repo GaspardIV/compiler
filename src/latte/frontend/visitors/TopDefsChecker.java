@@ -6,6 +6,8 @@ import latte.errors.SemanticError;
 import latte.frontend.environment.Environment;
 
 import java.lang.Void;
+import java.util.HashSet;
+import java.util.Set;
 
 public abstract class TopDefsChecker {
     public static class TopDefDeclarationCheckVisitor implements latte.Absyn.TopDef.Visitor<Void, Environment> {
@@ -46,6 +48,20 @@ public abstract class TopDefsChecker {
         private void checkIfCLassAlreadyDefined(ClDefExt p, Environment arg) throws SemanticError.ClassAlreadyDeclared {
             if (arg.getClassDef(p.ident_1) != null) {
                 throw new SemanticError.ClassAlreadyDeclared(p.line_num, p.ident_1);
+            }
+
+            // check if no method redefinitions inside of class
+            ClBlk block = (ClBlk) p.clblock_;
+            ListClMember members = block.listclmember_;
+            HashSet<String> membersIdents = new HashSet<>();
+            for (ClMember member : members) {
+                if (member instanceof ClMethod) {
+                    ClMethod method = (ClMethod) member;
+                    if (membersIdents.contains(method.ident_)) {
+                        throw new SemanticError.MethodAlreadyDeclaredInCurrentContext(p.line_num, method.ident_);
+                    }
+                    membersIdents.add(method.ident_);
+                }
             }
         }
     }
@@ -118,9 +134,6 @@ public abstract class TopDefsChecker {
             fnDef.line_num = p.line_num;
             if (arg.isFunctionGlobal(p.ident_)) {
                 throw new SemanticError.FunctionAlreadyDeclared(p.line_num, p.ident_);
-            }
-            if (arg.isFunctionInCurrentContext(p.ident_)) {
-                throw new SemanticError.MethodAlreadyDeclaredInCurrentContext(p.line_num, p.ident_);
             }
             arg.addFunction(p.ident_, fnDef);
             return null;

@@ -5,15 +5,22 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="increment fix 98 failing">
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="Void arguments in method/function/field definition + almost working variable already declared">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_void_array_field.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_void_array_field.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/func_arg_of_type_void_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/func_arg_of_type_void_array.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/method_arg_of_type_void_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/method_arg_of_type_void_array.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/void_arr_return_type.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/void_arr_return_type.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Array.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Array.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/errors/SemanticError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/errors/SemanticError.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/StmtChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/StmtChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefines_base_class_field.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefines_base_class_field.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefinition.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefinition.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefinition_other_decl.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefinition_other_decl.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefinition_single_decl.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefinition_single_decl.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_method_redefinition.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_method_redefinition.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/field_shadowing.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/field_shadowing.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/method_defined_two_times.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/method_defined_two_times.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/extensions/objects2/shapes.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/extensions/objects2/shapes.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/gr5/calculator.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/gr5/calculator.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/class_overriding_method.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/class_overriding_method.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/for_iter_base_class_over_derived_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/for_iter_base_class_over_derived_class.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/virtual_methods.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/virtual_methods.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/virtual/polymorphism.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/virtual/polymorphism.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/TopDefsChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/TopDefsChecker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -597,7 +604,21 @@
       <option name="project" value="LOCAL" />
       <updated>1669903932627</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="array of null not allowed 95 failing">
+      <created>1669906719987</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1669906719987</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Void arguments in method/function/field definition + almost working variable already declared">
+      <created>1669909721072</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1669909721072</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -663,8 +684,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="refactor" />
-    <MESSAGE value="Poprawka mala readme i dodanie testow" />
     <MESSAGE value="Add tests and default err for certain tests." />
     <MESSAGE value="Nie ma pliku latc (a jedynie plik compiler). Tym razem nie obniżam,&#10;   ale proszę to poprawić zgodnie ze specyfikacją." />
     <MESSAGE value="Rearange tests" />
@@ -688,7 +707,9 @@
     <MESSAGE value="108 passes return void not allowed" />
     <MESSAGE value="Returning void is not allowed." />
     <MESSAGE value="increment fix 98 failing" />
-    <option name="LAST_COMMIT_MESSAGE" value="increment fix 98 failing" />
+    <MESSAGE value="array of null not allowed 95 failing" />
+    <MESSAGE value="Void arguments in method/function/field definition + almost working variable already declared" />
+    <option name="LAST_COMMIT_MESSAGE" value="Void arguments in method/function/field definition + almost working variable already declared" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
