@@ -45,7 +45,7 @@ public class Context {
         return varDefs.get(ident_);
     }
 
-    public void initInheristance(Environment avaibleClasses) throws Exception{
+    public void initInheristance(Environment avaibleClasses) {
         for (String classIdent:classdefs.keySet()) {
             ClDefExt i = classdefs.get(classIdent);
             i.initInheristance(avaibleClasses);

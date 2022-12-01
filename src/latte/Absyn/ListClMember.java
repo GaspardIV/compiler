@@ -25,6 +25,20 @@ public class ListClMember extends java.util.LinkedList<ClMember> {
                     return field;
                 }
             }
+            if (this.get(i).getClass() == ClFields.class) {
+                ClFields field = (ClFields) this.get(i);
+//                for (field in field.listclfielditem_)
+                for (int j = 0; j < field.listclfielditem_.size(); j++) {
+                    ClFieldItemNoInit fieldItem = (ClFieldItemNoInit) field.listclfielditem_.get(j);
+                    if (Objects.equals(fieldItem.ident_, ident_)) {
+                        ClField clField = new ClField(field.type_, fieldItem.ident_);
+                        clField.col_num = field.col_num;
+                        clField.line_num = field.line_num;
+                        clField.offset = field.offset;
+                        return clField;
+                    }
+                }
+            }
         }
         return null;
     }

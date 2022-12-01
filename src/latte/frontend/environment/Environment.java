@@ -70,7 +70,7 @@ public class Environment {
         contexts.getLast().addClassDef(ident_, p);
     }
 
-    public void initInheristance() throws Exception{
+    public void initInheristance() {
         Environment avaibleClasses = new Environment();
         for (Iterator<Context> i = contexts.iterator(); i.hasNext(); ) {
             Context context = i.next();

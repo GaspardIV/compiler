@@ -519,12 +519,12 @@ public class PrettyPrinter
 
   private static void pp(latte.Absyn.ClMember foo, int _i_)
   {
-    if (foo instanceof latte.Absyn.ClField)
+    if (foo instanceof latte.Absyn.ClFields)
     {
-       latte.Absyn.ClField _clfield = (latte.Absyn.ClField) foo;
+       latte.Absyn.ClFields _clfields = (latte.Absyn.ClFields) foo;
        if (_i_ > 0) render(_L_PAREN);
-       pp(_clfield.type_, 0);
-       pp(_clfield.listclfielditem_, 0);
+       pp(_clfields.type_, 0);
+       pp(_clfields.listclfielditem_, 0);
        render(";");
        if (_i_ > 0) render(_R_PAREN);
     }
@@ -1280,14 +1280,14 @@ public class PrettyPrinter
 
   private static void sh(latte.Absyn.ClMember foo)
   {
-    if (foo instanceof latte.Absyn.ClField)
+    if (foo instanceof latte.Absyn.ClFields)
     {
-       latte.Absyn.ClField _clfield = (latte.Absyn.ClField) foo;
+       latte.Absyn.ClFields _clfields = (latte.Absyn.ClFields) foo;
        render("(");
-       render("ClField");
-       sh(_clfield.type_);
+       render("ClFields");
+       sh(_clfields.type_);
        render("[");
-       sh(_clfield.listclfielditem_);
+       sh(_clfields.listclfielditem_);
        render("]");
        render(")");
     }

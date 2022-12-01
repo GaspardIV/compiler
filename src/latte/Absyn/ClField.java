@@ -4,9 +4,9 @@ package latte.Absyn;
 
 public class ClField  extends ClMember {
   public final Type type_;
-  public final ListClFieldItem listclfielditem_;
+  public final String ident_;
   public int line_num, col_num, offset;
-  public ClField(Type p1, ListClFieldItem p2) { type_ = p1; listclfielditem_ = p2; }
+  public ClField(Type p1, String p2) { type_ = p1; ident_ = p2; }
 
   public <R,A> R accept(latte.Absyn.ClMember.Visitor<R,A> v, A arg) { return v.visit(this, arg); }
 
@@ -14,13 +14,13 @@ public class ClField  extends ClMember {
     if (this == o) return true;
     if (o instanceof latte.Absyn.ClField) {
       latte.Absyn.ClField x = (latte.Absyn.ClField)o;
-      return this.type_.equals(x.type_) && this.listclfielditem_.equals(x.listclfielditem_);
+      return this.type_.equals(x.type_) && this.ident_.equals(x.ident_);
     }
     return false;
   }
 
   public int hashCode() {
-    return 37*(this.type_.hashCode())+this.listclfielditem_.hashCode();
+    return 37*(this.type_.hashCode())+this.ident_.hashCode();
   }
 
 

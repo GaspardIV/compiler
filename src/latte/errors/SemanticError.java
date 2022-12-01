@@ -2,7 +2,7 @@ package latte.errors;
 
 import latte.Absyn.Type;
 
-public class SemanticError extends Exception {
+public class SemanticError extends RuntimeException {
     private final int lineNum;
 
     public SemanticError(int lineNum, String error) {

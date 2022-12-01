@@ -9,13 +9,13 @@ import java.lang.Void;
 
 public abstract class TopDefsChecker {
     public static class TopDefDeclarationCheckVisitor implements latte.Absyn.TopDef.Visitor<Void, Environment> {
-        public Void visit(FnDef p, Environment arg) throws Exception{
+        public Void visit(FnDef p, Environment arg) {
             checkIfFunctionAlreadyDefined(p, arg);
             addFunctionDef(p, arg);
             return null;
         }
 
-        public Void visit(ClDef p, Environment arg) throws Exception{
+        public Void visit(ClDef p, Environment arg) {
             ClDefExt i = new ClDefExt(p.ident_, null, p.clblock_);
             i.line_num = p.line_num;
             checkIfCLassAlreadyDefined(i, arg);
@@ -33,7 +33,7 @@ public abstract class TopDefsChecker {
             arg.addFunction(p.ident_, p);
         }
 
-        private void checkIfFunctionAlreadyDefined(FnDef p, Environment arg) throws Exception{
+        private void checkIfFunctionAlreadyDefined(FnDef p, Environment arg) {
             if (arg.getFunction(p.ident_) != null) {
                 throw new SemanticError.FunctionAlreadyDeclared(p.line_num, p.ident_);
             }
@@ -51,11 +51,11 @@ public abstract class TopDefsChecker {
     }
 
     public static class TopDefDefinitionCheckVisitor implements latte.Absyn.TopDef.Visitor<Void, Environment> {
-        public Void visit(FnDef p, Environment environment) throws Exception{
+        public Void visit(FnDef p, Environment environment) {
             return visitFunctionLikeDefinition(environment, p.ident_, p.listarg_, p.line_num, p.type_, p.block_);
         }
 
-        public Void visit(ClDef p, Environment environment) throws Exception{
+        public Void visit(ClDef p, Environment environment) {
             environment.addNewContext("class_" + p.ident_);
             environment.addVariable("self", new latte.Absyn.Class(p.ident_));
             environment.getClassDef(p.ident_).clblock_.accept(new ClBlockInitFieldsInEnvironmentVisitor(), environment);
@@ -64,7 +64,7 @@ public abstract class TopDefsChecker {
             return null;
         }
 
-        public Void visit(ClDefExt p, Environment environment) throws Exception{
+        public Void visit(ClDefExt p, Environment environment) {
             environment.addNewContext("class_" + p.ident_1);
             environment.addVariable("self", new latte.Absyn.Class(p.ident_1));
             environment.getClassDef(p.ident_1).clblock_.accept(new ClBlockInitFieldsInEnvironmentVisitor(), environment);
@@ -75,7 +75,7 @@ public abstract class TopDefsChecker {
     }
 
     public static class ClBlockTypeCheckVisitor implements latte.Absyn.ClBlock.Visitor<Void, Environment> {
-        public Void visit(ClBlk p, Environment arg) throws Exception{
+        public Void visit(ClBlk p, Environment arg) {
             for (latte.Absyn.ClMember x : p.listclmember_) {
                 x.accept(new ClMemberTypeCheckVisitor(), arg);
             }
@@ -84,7 +84,7 @@ public abstract class TopDefsChecker {
     }
 
     public static class ClBlockInitFieldsInEnvironmentVisitor implements latte.Absyn.ClBlock.Visitor<Void, Environment> {
-        public Void visit(ClBlk p, Environment arg) throws Exception{
+        public Void visit(ClBlk p, Environment arg) {
             for (latte.Absyn.ClMember x : p.listclmember_) {
                 x.accept(new ClMemberInitFieldsInEnvironmentVisitor(), arg);
             }
@@ -98,7 +98,16 @@ public abstract class TopDefsChecker {
             return null;
         }
 
-        public Void visit(ClMethod p, Environment arg) throws Exception{
+        @Override
+        public Void visit(ClFields p, Environment arg) {
+            for (ClFieldItem x : p.listclfielditem_) {
+                ClFieldItemNoInit i = (ClFieldItemNoInit) x;
+                arg.addVariable(((ClFieldItemNoInit) x).ident_, p.type_);
+            }
+            return null;
+        }
+
+        public Void visit(ClMethod p, Environment arg) {
             FnDef fnDef = new FnDef(p.type_, p.ident_, p.listarg_, p.block_);
             fnDef.line_num = p.line_num;
             if (arg.isFunctionGlobal(p.ident_)) {
@@ -114,13 +123,18 @@ public abstract class TopDefsChecker {
             return null;
         }
 
-        public Void visit(ClMethod p, Environment environment) throws Exception{
+        @Override
+        public Void visit(ClFields p, Environment arg) {
+            return null;
+        }
+
+        public Void visit(ClMethod p, Environment environment) {
             return visitFunctionLikeDefinition(environment, p.ident_, p.listarg_, p.line_num, p.type_, p.block_);
         }
     }
 
     public static class BlockVisitor implements latte.Absyn.Block.Visitor<Void, Environment> {
-        public Void visit(Blk p, Environment arg) throws Exception{
+        public Void visit(Blk p, Environment arg) {
             for (latte.Absyn.Stmt x : p.liststmt_) {
                 x.accept(new StmtChecker(), arg);
             }
@@ -131,7 +145,7 @@ public abstract class TopDefsChecker {
     /**
      * Checks if function or method definition is correct
      */
-    private static Void visitFunctionLikeDefinition(Environment environment, String ident_, ListArg listarg_, int line_num, Type type_, Block block_) throws Exception{
+    private static Void visitFunctionLikeDefinition(Environment environment, String ident_, ListArg listarg_, int line_num, Type type_, Block block_) {
         environment.addNewContext(ident_);
         for (Arg x : listarg_) {
             Ar arg = (Ar) x;

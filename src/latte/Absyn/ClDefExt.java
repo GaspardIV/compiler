@@ -39,7 +39,7 @@ public class ClDefExt extends TopDef {
     }
 
 
-    public void initInheristance(Environment avaibleClasses) throws Exception {
+    public void initInheristance(Environment avaibleClasses)  {
         if (this.inheritanceInitialized) {
             return;
         }

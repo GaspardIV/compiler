@@ -5,7 +5,7 @@ import latte.frontend.environment.Environment;
 import latte.frontend.visitors.ProgramChecker;
 
 public class SematicAnalyst {
-    public void checkTypes(Program ast) throws Exception {
+    public void checkTypes(Program ast)  {
         Environment environment = new Environment();
         ProgramChecker programVisitor = new ProgramChecker();
         ast.accept(programVisitor, environment);

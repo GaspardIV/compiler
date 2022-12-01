@@ -498,8 +498,7 @@ public class parser extends java_cup.runtime.lr_parser {
 
 
 
-  public latte.Absyn.Program pProgram() throws Exception
-  {
+  public latte.Absyn.Program pProgram() throws Exception {
     java_cup.runtime.Symbol res = parse();
     return (latte.Absyn.Program) res.value;
   }
@@ -819,16 +818,16 @@ if (leftLoc != null) {
 		Location p_3xleft = ((java_cup.runtime.ComplexSymbolFactory.ComplexSymbol)CUP$parser$stack.peek()).xleft;
 		Location p_3xright = ((java_cup.runtime.ComplexSymbolFactory.ComplexSymbol)CUP$parser$stack.peek()).xright;
 		Object p_3 = (Object)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
-		 RESULT = new latte.Absyn.ClField(p_1,p_2);
+		 RESULT = new latte.Absyn.ClFields(p_1,p_2);
 java_cup.runtime.ComplexSymbolFactory.Location leftLoc = getLeftLocation(p_1xleft,p_2xleft);
 if (leftLoc != null) {
-  ((latte.Absyn.ClField)RESULT).line_num = leftLoc.getLine();
-  ((latte.Absyn.ClField)RESULT).col_num = leftLoc.getColumn();
-  ((latte.Absyn.ClField)RESULT).offset = leftLoc.getOffset();
+  ((latte.Absyn.ClFields)RESULT).line_num = leftLoc.getLine();
+  ((latte.Absyn.ClFields)RESULT).col_num = leftLoc.getColumn();
+  ((latte.Absyn.ClFields)RESULT).offset = leftLoc.getOffset();
 } else {
-  ((latte.Absyn.ClField)RESULT).line_num = -1;
-  ((latte.Absyn.ClField)RESULT).col_num = -1;
-  ((latte.Absyn.ClField)RESULT).offset = -1;
+  ((latte.Absyn.ClFields)RESULT).line_num = -1;
+  ((latte.Absyn.ClFields)RESULT).col_num = -1;
+  ((latte.Absyn.ClFields)RESULT).offset = -1;
 } 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("ClMember",6, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-2)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }

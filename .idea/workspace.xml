@@ -5,85 +5,22 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="add missing err files of not passing tests">
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="test_no_extends">
+      <change afterPath="$PROJECT_DIR$/src/latte/Absyn/ClFields.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Latte.cf" beforeDir="false" afterPath="$PROJECT_DIR$/Latte.cf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/extensions/arrays1/array001.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/extensions/arrays1/array001.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/extensions/arrays1/array001.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/extensions/arrays1/array001.lat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/gr5/bfs.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/gr5/bfs.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/gr5/bfs.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/gr5/bfs.lat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/gr5/lista2Kierunkowa.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/gr5/lista2Kierunkowa.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/gr5/lista2Kierunkowa.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/gr5/lista2Kierunkowa.lat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/gr5/mergeSort.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/gr5/mergeSort.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/gr5/mergeSort.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/gr5/mergeSort.lat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/AddOp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/AddOp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Arg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Arg.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Ass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Ass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/AssArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/AssArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/AssField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/AssField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/BStmt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/BStmt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Blk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Blk.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Block.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ClBlk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/ClBlk.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ClBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/ClBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ClDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/ClDef.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ClDefExt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/ClDefExt.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ClField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/ClField.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ClMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/ClMember.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ClMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/ClMethod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Class.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Class.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Cond.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Cond.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/CondElse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/CondElse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Decl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Decl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Decr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Decr.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Div.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Div.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/EAdd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/EAdd.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/EAnd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/EAnd.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/EApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/EApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/EArrayElem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/EArrayElem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/EField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/EField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ELitFalse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/ELitFalse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ELitTrue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/ELitTrue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/EMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/EMethod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/EMul.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/EMul.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ENew.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/ENew.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ENewArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/ENewArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ENull.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/ENull.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/EOr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/EOr.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/EQU.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/EQU.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ERel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/ERel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/EVar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/EVar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Empty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Empty.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Expr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Expr.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/FnDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/FnDef.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/For.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/For.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/GE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/GE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/GTH.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/GTH.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Incr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Incr.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Init.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Init.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/LE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/LE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/LTH.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/LTH.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Mod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Mod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/MulOp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/MulOp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/NE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/NE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Neg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Neg.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/NoInit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/NoInit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Not.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Not.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Plus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Plus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Prog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Prog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Program.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/RelOp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/RelOp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Ret.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Ret.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/SExp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/SExp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Stmt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Stmt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Str.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Str.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Times.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Times.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/TopDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/TopDef.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Type.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/VRet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/VRet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/While.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/While.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ListClMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/ListClMember.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/errors/SemanticError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/errors/SemanticError.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/frontend/SematicAnalyst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/SematicAnalyst.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/frontend/environment/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/environment/Context.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/frontend/environment/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/environment/Environment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/ProgramChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/ProgramChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/StmtChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/StmtChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/TopDefsChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/TopDefsChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/VarDeclChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/VarDeclChecker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/parser/PrettyPrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/parser/PrettyPrinter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/parser/Yylex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/parser/Yylex.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/parser/parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/parser/parser.java" afterDir="false" />
@@ -260,7 +197,7 @@
       <recent name="bad" />
     </key>
   </component>
-  <component name="RunManager" selected="Makefile Target.recompile_BNFC_java">
+  <component name="RunManager" selected="JUnit.GoodGr5Test.testLista2Kierunkowa">
     <configuration name="Test core002.lat" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="latte.Compiler" />
       <module name="compiler" />
@@ -326,21 +263,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BadVarqoxTests.testbin_op_eq_void_void" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GoodGr5Test.testLista2Kierunkowa" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="BadVarqoxTests" />
-      <option name="METHOD_NAME" value="testbin_op_eq_void_void" />
+      <option name="MAIN_CLASS_NAME" value="GoodGr5Test" />
+      <option name="METHOD_NAME" value="testLista2Kierunkowa" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GoodGr5Test.testMergesort" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GoodVarqoxgoodTest.testAssign_Field_Class_Of_Field_Null" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GoodGr5Test" />
-      <option name="METHOD_NAME" value="testMergesort" />
+      <option name="MAIN_CLASS_NAME" value="GoodVarqoxgoodTest" />
+      <option name="METHOD_NAME" value="testAssign_Field_Class_Of_Field_Null" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -382,20 +319,20 @@
       <item itemvalue="Application.Test mytest" />
       <item itemvalue="Application.Test" />
       <item itemvalue="JUnit.All in compiler" />
-      <item itemvalue="JUnit.GoodGr5Test.testMergesort" />
+      <item itemvalue="JUnit.GoodGr5Test.testLista2Kierunkowa" />
+      <item itemvalue="JUnit.GoodVarqoxgoodTest.testAssign_Field_Class_Of_Field_Null" />
       <item itemvalue="JUnit.GoodVirtualTest.testPolymorphism" />
-      <item itemvalue="JUnit.BadVarqoxTests.testbin_op_eq_void_void" />
       <item itemvalue="JUnit.All in compiler OVERWRITE" />
       <item itemvalue="Makefile Target.recompile_BNFC_java" />
       <item itemvalue="Shell Script.Unnamed" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.GoodGr5Test.testLista2Kierunkowa" />
+        <item itemvalue="JUnit.GoodVarqoxgoodTest.testAssign_Field_Class_Of_Field_Null" />
         <item itemvalue="Makefile Target.recompile_BNFC_java" />
         <item itemvalue="JUnit.All in compiler OVERWRITE" />
         <item itemvalue="JUnit.GoodVirtualTest.testPolymorphism" />
-        <item itemvalue="JUnit.GoodGr5Test.testMergesort" />
-        <item itemvalue="JUnit.BadVarqoxTests.testbin_op_eq_void_void" />
       </list>
     </recent_temporary>
   </component>
@@ -603,7 +540,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669851936340</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="test_no_extends">
+      <created>1669862491867</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1669862491867</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -693,7 +637,8 @@
     <MESSAGE value="160 tests not passed (fix array casting fix null fix self)" />
     <MESSAGE value="check method_arg_of_nonexistent_class + comparing void etc... + inheristance +" />
     <MESSAGE value="add missing err files of not passing tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="add missing err files of not passing tests" />
+    <MESSAGE value="test_no_extends" />
+    <option name="LAST_COMMIT_MESSAGE" value="test_no_extends" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -708,6 +653,16 @@
           <line>192</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/latte/frontend/visitors/StmtChecker.java</url>
+          <line>76</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/latte/frontend/visitors/StmtChecker.java</url>
+          <line>85</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -721,6 +676,7 @@
     <SUITE FILE_PATH="coverage/compiler$All_in_compiler.ic" NAME="All in compiler Coverage Results" MODIFIED="1669853478055" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/compiler$GoodVirtualTest_testPolymorphism.ic" NAME="GoodVirtualTest.testPolymorphism Coverage Results" MODIFIED="1669852159081" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/compiler$BadVarqoxTests_testbin_op_eq_void_void.ic" NAME="BadVarqoxTests.testbin_op_eq_void_void Coverage Results" MODIFIED="1669841331386" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/compiler$GoodVarqoxgoodTest_testAssign_Field_Class_Of_Field_Null.ic" NAME="GoodVarqoxgoodTest.testAssign_Field_Class_Of_Field_Null Coverage Results" MODIFIED="1669865189431" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/latte_lang/_cup.cup">
