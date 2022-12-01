@@ -1,4 +1,4 @@
 ERROR
-Parser error at line: 114, at offset: 2912.
-Error with parsing "null);":
-     Unrecoverable Syntax Error
+
+Semantic error at line 114 :
+     Cannot compare 'Listclass' and 'nullclass'.

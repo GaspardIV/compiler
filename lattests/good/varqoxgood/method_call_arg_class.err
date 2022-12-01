@@ -1,5 +1,4 @@
 ERROR
-Parser error at line: 10, at offset: 132.
-Error with parsing "null)
-			e":
-     Unrecoverable Syntax Error
+
+Semantic error at line 10 :
+     Cannot compare 'Xclass' and 'nullclass'.

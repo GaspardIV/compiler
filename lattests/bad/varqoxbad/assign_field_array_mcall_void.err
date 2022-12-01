@@ -1,5 +1,4 @@
 ERROR
-Parser error at line: 7, at offset: 103.
-Error with parsing "null; }
-}":
-     Unrecoverable Syntax Error
+
+Semantic error at line 7 :
+     Wrong return type. Got 'nullclass', but 'Cclass' was expected.

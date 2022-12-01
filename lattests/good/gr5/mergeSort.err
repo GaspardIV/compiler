@@ -1,5 +1,4 @@
 ERROR
-Parser error at line: 89, at offset: 1995.
-Error with parsing "null;
-		a.":
-     Unrecoverable Syntax Error
+
+Semantic error at line 89 :
+     Assigning 'nullclass' to 'Listaclass' variable.

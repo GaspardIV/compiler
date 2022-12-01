@@ -1,4 +1,4 @@
 ERROR
-Parser error at line: 3, at offset: 49.
-Error with parsing "null >= 42":
-     Unrecoverable Syntax Error
+
+Semantic error at line 3 :
+     Cannot compare 'nullclass' and 'Int'.

@@ -1,4 +1,2 @@
-ERROR
-Parser error at line: 3, at offset: 56.
-Error with parsing ", b, c, d,":
-     Unrecoverable Syntax Error
+OK
+

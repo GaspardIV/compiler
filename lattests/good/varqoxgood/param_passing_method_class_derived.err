@@ -1,5 +1,4 @@
 ERROR
-Parser error at line: 59, at offset: 1970.
-Error with parsing "null;
-		pr":
-     Unrecoverable Syntax Error
+
+Semantic error at line 59 :
+     Assigning 'nullclass' to 'Aclass' variable.

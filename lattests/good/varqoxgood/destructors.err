@@ -1,7 +1,5 @@
 ERROR
-Parser error at line: 15, at offset: 168.
-Error with parsing ", x;
-}
-
-vo":
+Parser error at line: 63, at offset: 797.
+Error with parsing "[32]++;
+	(":
      Unrecoverable Syntax Error

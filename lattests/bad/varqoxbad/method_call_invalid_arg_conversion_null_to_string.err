@@ -1,5 +1,4 @@
 ERROR
-Parser error at line: 3, at offset: 61.
-Error with parsing "null);
-	re":
-     Unrecoverable Syntax Error
+
+Semantic error at line 3 :
+     1 argument type does not match. Got 'nullclass', but 'Str' was expected.

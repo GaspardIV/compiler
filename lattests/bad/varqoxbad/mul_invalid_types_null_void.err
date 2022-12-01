@@ -1,4 +1,4 @@
 ERROR
-Parser error at line: 5, at offset: 64.
-Error with parsing "null * foo":
-     Unrecoverable Syntax Error
+
+Semantic error at line 5 :
+     Operator '*' cannot be applied to types 'nullclass' and 'Void'.

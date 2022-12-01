@@ -1,4 +1,4 @@
 ERROR
-Parser error at line: 4, at offset: 63.
-Error with parsing "null || fo":
-     Unrecoverable Syntax Error
+
+Semantic error at line 4 :
+     Operator '||' cannot be applied to types 'nullclass' and 'Void'.

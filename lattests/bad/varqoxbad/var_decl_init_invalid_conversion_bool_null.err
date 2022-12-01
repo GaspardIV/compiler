@@ -1,5 +1,4 @@
 ERROR
-Parser error at line: 3, at offset: 61.
-Error with parsing "null;
-	ret":
-     Unrecoverable Syntax Error
+
+Semantic error at line 3 :
+     Assigning 'nullclass' to 'Bool' variable.

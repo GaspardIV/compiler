@@ -1,6 +1,4 @@
 ERROR
-Parser error at line: 10, at offset: 109.
-Error with parsing "null;
-}
-in":
-     Unrecoverable Syntax Error
+
+Semantic error at line 10 :
+     Assigning 'nullclass' to 'Int' variable.

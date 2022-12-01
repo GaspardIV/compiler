@@ -1,4 +1,6 @@
 ERROR
-Parser error at line: 4, at offset: 53.
-Error with parsing "null = "";":
+Parser error at line: 4, at offset: 58.
+Error with parsing "= "";
+}
+in":
      Unrecoverable Syntax Error

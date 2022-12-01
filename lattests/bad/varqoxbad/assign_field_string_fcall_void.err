@@ -1,6 +1,4 @@
 ERROR
-Parser error at line: 6, at offset: 93.
-Error with parsing "null; }
 
-v":
-     Unrecoverable Syntax Error
+Semantic error at line 6 :
+     Wrong return type. Got 'nullclass', but 'Cclass' was expected.

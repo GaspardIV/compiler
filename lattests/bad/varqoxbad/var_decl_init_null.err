@@ -1,4 +1,4 @@
 ERROR
-Parser error at line: 3, at offset: 49.
-Error with parsing "null x = n":
+Parser error at line: 3, at offset: 54.
+Error with parsing "x = null;":
      Unrecoverable Syntax Error

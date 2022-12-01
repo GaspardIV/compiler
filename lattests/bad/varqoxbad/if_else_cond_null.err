@@ -1,4 +1,4 @@
 ERROR
-Parser error at line: 3, at offset: 54.
-Error with parsing "null) {} e":
-     Unrecoverable Syntax Error
+
+Semantic error at line 3 :
+     Condition has to be boolean

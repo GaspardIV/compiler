@@ -1,6 +1,2 @@
-ERROR
-Parser error at line: 7, at offset: 86.
-Error with parsing "--;
-}
-int":
-     Unrecoverable Syntax Error
+OK
+

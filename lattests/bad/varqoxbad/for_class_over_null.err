@@ -1,5 +1,4 @@
 ERROR
-Parser error at line: 5, at offset: 93.
-Error with parsing "null) {}
-}":
-     Unrecoverable Syntax Error
+
+Semantic error at line 5 :
+     For each loop can be applied to arrays only.

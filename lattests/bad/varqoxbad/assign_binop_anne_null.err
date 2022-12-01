@@ -1,4 +1,5 @@
 ERROR
-Parser error at line: 5, at offset: 81.
-Error with parsing "null = nul":
+Parser error at line: 5, at offset: 86.
+Error with parsing "= null;
+}":
      Unrecoverable Syntax Error

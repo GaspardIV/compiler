@@ -1,4 +1,5 @@
 ERROR
-Parser error at line: 3, at offset: 49.
-Error with parsing "null[42];":
+Parser error at line: 3, at offset: 53.
+Error with parsing "[42];
+	ret":
      Unrecoverable Syntax Error

@@ -1,4 +1,4 @@
 ERROR
-Parser error at line: 5, at offset: 81.
-Error with parsing "null || ne":
-     Unrecoverable Syntax Error
+
+Semantic error at line 5 :
+     Operator '||' cannot be applied to types 'nullclass' and 'Yclass'.

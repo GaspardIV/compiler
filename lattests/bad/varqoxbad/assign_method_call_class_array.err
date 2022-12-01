@@ -1,5 +1,4 @@
 ERROR
-Parser error at line: 5, at offset: 95.
-Error with parsing "null; }
-}":
+Parser error at line: 9, at offset: 137.
+Error with parsing "= new int[":
      Unrecoverable Syntax Error

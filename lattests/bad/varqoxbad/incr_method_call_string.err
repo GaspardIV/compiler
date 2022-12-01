@@ -1,6 +1,4 @@
 ERROR
-Parser error at line: 7, at offset: 107.
-Error with parsing "++;
-}
-int":
-     Unrecoverable Syntax Error
+
+Semantic error at line 7 :
+     Operator '++' cannot be applied to type 'Str'.

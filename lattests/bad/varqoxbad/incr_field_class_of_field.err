@@ -1,6 +1,4 @@
 ERROR
-Parser error at line: 12, at offset: 136.
-Error with parsing "++;
-}
-int":
-     Unrecoverable Syntax Error
+
+Semantic error at line 12 :
+     Operator '++' cannot be applied to type 'Yclass'.

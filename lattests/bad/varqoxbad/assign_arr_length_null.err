@@ -1,6 +1,4 @@
 ERROR
-Parser error at line: 4, at offset: 75.
-Error with parsing "null;
-}
-in":
-     Unrecoverable Syntax Error
+
+Semantic error at line 4 :
+     Field can only be applied to an object.

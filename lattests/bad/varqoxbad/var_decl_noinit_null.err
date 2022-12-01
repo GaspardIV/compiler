@@ -1,5 +1,5 @@
 ERROR
-Parser error at line: 3, at offset: 49.
-Error with parsing "null x;
-	r":
+Parser error at line: 3, at offset: 54.
+Error with parsing "x;
+	return":
      Unrecoverable Syntax Error
