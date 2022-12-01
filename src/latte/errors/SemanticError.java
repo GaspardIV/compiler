@@ -146,4 +146,10 @@ public class SemanticError extends RuntimeException {
             super(line_num, "Main function can't have arguments.");
         }
     }
+
+    public static class ReturningVoid extends SemanticError {
+        public ReturningVoid(int line_num) {
+            super(line_num, "Returning void is not allowed.");
+        }
+    }
 }

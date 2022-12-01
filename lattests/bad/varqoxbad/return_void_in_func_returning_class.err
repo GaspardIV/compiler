@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 5 :
-     Wrong return type. Got 'Void', but 'Yclass' was expected.
+     Returning void is not allowed, use 'return ;' instead.

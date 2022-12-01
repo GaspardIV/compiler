@@ -104,6 +104,9 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
 
     public Void visit(latte.Absyn.Ret p, Environment arg) {
         Type retType = p.expr_.accept(new ExprChecker(), arg);
+        if (retType.equals(new latte.Absyn.Void())) {
+            throw new SemanticError.ReturningVoid(p.line_num);
+        }
         if (!arg.areTypesEqualRegardingInheritance(retType, arg.getExpectedReturnType())) {
             throw new SemanticError.WrongReturnType(p.line_num, arg.getExpectedReturnType(), retType);
         }
