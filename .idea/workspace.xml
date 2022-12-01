@@ -5,25 +5,9 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="test_no_extends">
-      <change afterPath="$PROJECT_DIR$/src/latte/Absyn/ClFields.java" afterDir="false" />
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="powolutku">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ClDefExt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/ClDefExt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ClField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/ClField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ClMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/ClMember.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ListClMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/ListClMember.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/errors/SemanticError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/errors/SemanticError.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/frontend/SematicAnalyst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/SematicAnalyst.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/frontend/environment/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/environment/Context.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/frontend/environment/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/environment/Environment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/ProgramChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/ProgramChecker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/StmtChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/StmtChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/TopDefsChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/TopDefsChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/VarDeclChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/VarDeclChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/parser/PrettyPrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/parser/PrettyPrinter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/parser/Yylex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/parser/Yylex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/parser/parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/parser/parser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +181,7 @@
       <recent name="bad" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GoodGr5Test.testLista2Kierunkowa">
+  <component name="RunManager" selected="JUnit.All in compiler OVERWRITE">
     <configuration name="Test core002.lat" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="latte.Compiler" />
       <module name="compiler" />
@@ -547,7 +531,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669862491867</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="powolutku">
+      <created>1669865832552</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1669865832552</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -613,7 +604,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="aaaaaa" />
     <MESSAGE value="prawie dziala szkoda ze nie moja glowa :&lt;" />
     <MESSAGE value="make file" />
     <MESSAGE value="dziala budowanie" />
@@ -638,7 +628,8 @@
     <MESSAGE value="check method_arg_of_nonexistent_class + comparing void etc... + inheristance +" />
     <MESSAGE value="add missing err files of not passing tests" />
     <MESSAGE value="test_no_extends" />
-    <option name="LAST_COMMIT_MESSAGE" value="test_no_extends" />
+    <MESSAGE value="powolutku" />
+    <option name="LAST_COMMIT_MESSAGE" value="powolutku" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -655,12 +646,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/latte/frontend/visitors/StmtChecker.java</url>
-          <line>76</line>
+          <line>81</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/latte/frontend/visitors/StmtChecker.java</url>
-          <line>85</line>
+          <line>90</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
@@ -673,6 +664,7 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/compiler$BadTestsMyTests.ic" NAME="BadTestsMyTests Coverage Results" MODIFIED="1668394555823" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/compiler$GoodTestsMyTests_testMyTestsTestReturnInIfAndInError.ic" NAME="GoodTestsMyTests.testMyTestsTestReturnInIfAndInError Coverage Results" MODIFIED="1668395845151" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/compiler$GoodGr5Test_testLista2Kierunkowa.ic" NAME="GoodGr5Test.testLista2Kierunkowa Coverage Results" MODIFIED="1669865773531" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/compiler$All_in_compiler.ic" NAME="All in compiler Coverage Results" MODIFIED="1669853478055" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/compiler$GoodVirtualTest_testPolymorphism.ic" NAME="GoodVirtualTest.testPolymorphism Coverage Results" MODIFIED="1669852159081" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/compiler$BadVarqoxTests_testbin_op_eq_void_void.ic" NAME="BadVarqoxTests.testbin_op_eq_void_void Coverage Results" MODIFIED="1669841331386" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

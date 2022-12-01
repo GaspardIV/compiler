@@ -74,6 +74,11 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
     }
 
     public Void visit(latte.Absyn.Incr p, Environment arg) {
+        Type exprType = p.expr_.accept(new ExprChecker(), arg);
+        if (!exprType.equals(new Int())) {
+//            throw new SemanticError.IncrementHasToBeAppliedToInt(p.line_num);
+            throw new SemanticError.OperatorCannotBeAppliedToType(p.line_num, "++", exprType);
+        }
 //        Type type = arg.getVarType(p.ident_);
 //        System.out.println(type);
 //        if (!type.equals(new Int())) {
@@ -85,12 +90,15 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
     public Void visit(latte.Absyn.Decr p, Environment arg) {
         Type exprType = p.expr_.accept(new ExprChecker(), arg);
 //        exprType is variable
+//        if (exprType.equals())
 
-
-        Type type = arg.getVarType("p.ident_");
-        if (!type.equals(new Int())) {
-            throw new SemanticError.OperatorCannotBeAppliedToType(p.line_num, "--", type);
+        if (!exprType.equals(new Int())) {
+            throw new SemanticError.OperatorCannotBeAppliedToType(p.line_num, "--", exprType);
         }
+//        Type type = arg.getVarType("p.ident_");
+//        if (!type.equals(new Int())) {
+//            throw new SemanticError.OperatorCannotBeAppliedToType(p.line_num, "--", type);
+//        }
         return null;
     }
 
