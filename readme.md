@@ -191,7 +191,7 @@ string x;
 }
 
 - class nonexistent field!!
-- 
+- zmienic uzycie instanceof na new Void().equals(itemType)  
 INFO: 
 -  pliki jlex i java_cup i makefile sa w commicie restructure fix cl member init bug
 

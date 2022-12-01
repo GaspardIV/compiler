@@ -176,4 +176,10 @@ public class SemanticError extends RuntimeException {
             super(line_num, "Method '" + ident_ + "' already declared in this scope.");
         }
     }
+
+    public static class VariableWithVoidType extends SemanticError {
+        public VariableWithVoidType(int line_num, String ident_) {
+            super(line_num, "Variable '" + ident_ + "' has void type.");
+        }
+    }
 }

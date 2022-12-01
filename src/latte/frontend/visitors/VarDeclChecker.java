@@ -2,6 +2,7 @@ package latte.frontend.visitors;
 
 import latte.Absyn.NoInit;
 import latte.Absyn.Type;
+import latte.Absyn.Void;
 import latte.errors.SemanticError;
 import latte.frontend.environment.Environment;
 
@@ -16,6 +17,9 @@ public class VarDeclChecker implements latte.Absyn.Item.Visitor<String, Environm
         if (arg.currentContextContainsVar(p.ident_)) {
             throw new SemanticError.VariableAlreadyDeclared(p.line_num, p.ident_);
         } else {
+            if (new Void().equals(itemType)) {
+                throw new SemanticError.VariableWithVoidType(p.line_num, p.ident_);
+            }
             arg.addVariable(p.ident_, itemType);
         }
         return p.ident_;

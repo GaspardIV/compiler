@@ -6,21 +6,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="Void arguments in method/function/field definition + almost working variable already declared">
+      <change afterPath="$PROJECT_DIR$/tests/TestsIDontWantToPassTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefines_base_class_field.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefines_base_class_field.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefinition.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefinition.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefinition_other_decl.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefinition_other_decl.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefinition_single_decl.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefinition_single_decl.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_method_redefinition.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_method_redefinition.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/field_shadowing.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/field_shadowing.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/method_defined_two_times.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/method_defined_two_times.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/extensions/objects2/shapes.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/extensions/objects2/shapes.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/gr5/calculator.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/gr5/calculator.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/class_overriding_method.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/class_overriding_method.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/for_iter_base_class_over_derived_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/for_iter_base_class_over_derived_class.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/virtual_methods.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/virtual_methods.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/virtual/polymorphism.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/virtual/polymorphism.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/TopDefsChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/TopDefsChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/semantic/variable_with_void_type.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/semantic/variable_with_void_type.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/errors/SemanticError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/errors/SemanticError.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/VarDeclChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/VarDeclChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/BadTestsSemanticTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/BadTestsSemanticTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -260,21 +252,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BadVarqoxTests.testfield_access_non_class_type_null" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BadVarqoxTests.testif_else_context_04" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="BadVarqoxTests" />
-      <option name="METHOD_NAME" value="testfield_access_non_class_type_null" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GoodGr5Test.testLista2Kierunkowa" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="compiler" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GoodGr5Test" />
-      <option name="METHOD_NAME" value="testLista2Kierunkowa" />
+      <option name="METHOD_NAME" value="testif_else_context_04" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -290,11 +272,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GoodVarqoxgoodTest.testAssign_Field_Class_Of_Field_Null" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestsIDontWantToPassTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GoodVarqoxgoodTest" />
-      <option name="METHOD_NAME" value="testAssign_Field_Class_Of_Field_Null" />
+      <option name="MAIN_CLASS_NAME" value="TestsIDontWantToPassTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestsIDontWantToPassTest.testSemanticVariableWithVoidType" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="compiler" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestsIDontWantToPassTest" />
+      <option name="METHOD_NAME" value="testSemanticVariableWithVoidType" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -320,9 +311,9 @@
       <item itemvalue="Application.Test mytest" />
       <item itemvalue="Application.Test" />
       <item itemvalue="JUnit.All in compiler" />
-      <item itemvalue="JUnit.BadVarqoxTests.testfield_access_non_class_type_null" />
-      <item itemvalue="JUnit.GoodGr5Test.testLista2Kierunkowa" />
-      <item itemvalue="JUnit.GoodVarqoxgoodTest.testAssign_Field_Class_Of_Field_Null" />
+      <item itemvalue="JUnit.BadVarqoxTests.testif_else_context_04" />
+      <item itemvalue="JUnit.TestsIDontWantToPassTest" />
+      <item itemvalue="JUnit.TestsIDontWantToPassTest.testSemanticVariableWithVoidType" />
       <item itemvalue="JUnit.GoodGr5Test.testMergesort" />
       <item itemvalue="JUnit.All in compiler OVERWRITE" />
       <item itemvalue="Shell Script.Unnamed" />
@@ -330,10 +321,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in compiler OVERWRITE" />
+        <item itemvalue="JUnit.TestsIDontWantToPassTest.testSemanticVariableWithVoidType" />
+        <item itemvalue="JUnit.TestsIDontWantToPassTest" />
+        <item itemvalue="JUnit.BadVarqoxTests.testif_else_context_04" />
         <item itemvalue="JUnit.GoodGr5Test.testMergesort" />
-        <item itemvalue="JUnit.BadVarqoxTests.testfield_access_non_class_type_null" />
-        <item itemvalue="JUnit.GoodGr5Test.testLista2Kierunkowa" />
-        <item itemvalue="JUnit.GoodVarqoxgoodTest.testAssign_Field_Class_Of_Field_Null" />
       </list>
     </recent_temporary>
   </component>
@@ -737,6 +728,7 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/compiler$TestsIDontWantToPassTest_testSemanticVariableWithVoidType.ic" NAME="TestsIDontWantToPassTest.testSemanticVariableWithVoidType Coverage Results" MODIFIED="1669914776662" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/compiler$BadTestsMyTests.ic" NAME="BadTestsMyTests Coverage Results" MODIFIED="1668394555823" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/compiler$GoodTestsMyTests_testMyTestsTestReturnInIfAndInError.ic" NAME="GoodTestsMyTests.testMyTestsTestReturnInIfAndInError Coverage Results" MODIFIED="1668395845151" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/compiler$GoodGr5Test_testLista2Kierunkowa.ic" NAME="GoodGr5Test.testLista2Kierunkowa Coverage Results" MODIFIED="1669865773531" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
@@ -745,6 +737,7 @@
     <SUITE FILE_PATH="coverage/compiler$BadVarqoxTests_testbin_op_eq_void_void.ic" NAME="BadVarqoxTests.testbin_op_eq_void_void Coverage Results" MODIFIED="1669841331386" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/compiler$GoodVarqoxgoodTest_testAssign_Field_Class_Of_Field_Null.ic" NAME="GoodVarqoxgoodTest.testAssign_Field_Class_Of_Field_Null Coverage Results" MODIFIED="1669865189431" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/compiler$GoodGr5Test_testMergesort.ic" NAME="GoodGr5Test.testMergesort Coverage Results" MODIFIED="1669869518455" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/compiler$BadTestsSemanticTest.ic" NAME="BadTestsSemanticTest Coverage Results" MODIFIED="1669912501281" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/latte_lang/_cup.cup">

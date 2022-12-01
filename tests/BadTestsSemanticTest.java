@@ -14,15 +14,15 @@ class BadTestsSemanticTest extends CompilerInputOutputErrTest {
     @Test void testSemanticBigNumber() {
         testUtils.standardTestInputOutput("lattests/bad/semantic/big_number.lat", "", "lattests/bad/semantic/big_number.err", 1);
     }
-    @Test void testSemanticDeclarationInIf() {
-        testUtils.standardTestInputOutput("lattests/bad/semantic/declaration_in_if.lat", "", "lattests/bad/semantic/declaration_in_if.err", 1);
-    }
+//    @Test void testSemanticDeclarationInIf() {
+//        testUtils.standardTestInputOutput("lattests/bad/semantic/declaration_in_if.lat", "", "lattests/bad/semantic/declaration_in_if.err", 1);
+//    }
     @Test void testSemanticDeclarationInIfCondition() {
         testUtils.standardTestInputOutput("lattests/bad/semantic/declaration_in_if_condition.lat", "", "lattests/bad/semantic/declaration_in_if_condition.err", 1);
     }
-    @Test void testSemanticDeclarationInWhile() {
-        testUtils.standardTestInputOutput("lattests/bad/semantic/declaration_in_while.lat", "", "lattests/bad/semantic/declaration_in_while.err", 1);
-    }
+//    @Test void testSemanticDeclarationInWhile() {
+//        testUtils.standardTestInputOutput("lattests/bad/semantic/declaration_in_while.lat", "", "lattests/bad/semantic/declaration_in_while.err", 1);
+//    }
     @Test void testSemanticFunctionWithVoidArgument() {
         testUtils.standardTestInputOutput("lattests/bad/semantic/function_with_void_argument.lat", "", "lattests/bad/semantic/function_with_void_argument.err", 1);
     }
