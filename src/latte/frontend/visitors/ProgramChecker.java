@@ -1,5 +1,7 @@
 package latte.frontend.visitors;
 
+import latte.Absyn.FnDef;
+import latte.Absyn.Int;
 import latte.Absyn.Prog;
 import latte.errors.SemanticError;
 import latte.frontend.environment.Environment;
@@ -29,8 +31,15 @@ public class ProgramChecker implements latte.Absyn.Program.Visitor<Void, Environ
     }
 
     private void checkMain(Environment arg, int line_num) throws SemanticError.NoMain {
-        if (arg.getFunction("main") == null) {
+        FnDef main = arg.getFunction("main");
+        if (main == null) {
             throw new SemanticError.NoMain(line_num);
+        }
+        if (main.listarg_.size() != 0) {
+            throw new SemanticError.MainWithArgs(line_num);
+        }
+        if (!main.type_.equals(new Int())) {
+            throw new SemanticError.MainNotInt(line_num);
         }
     }
 

@@ -5,12 +5,14 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="146 tests failed">
-      <change afterPath="$PROJECT_DIR$/src/latte/Absyn/Null.java" afterDir="false" />
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="113 tests failed added null">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Type.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/frontend/environment/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/environment/Environment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/semantic/main_with_argument.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/semantic/main_with_argument.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/semantic/main_with_void_type.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/semantic/main_with_void_type.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/main_returning_void.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/main_returning_void.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/main_with_args.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/main_with_args.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/errors/SemanticError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/errors/SemanticError.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/ProgramChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/ProgramChecker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -559,7 +561,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669866917538</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="113 tests failed added null">
+      <created>1669870142160</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1669870142160</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -625,7 +634,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="dziala budowanie" />
     <MESSAGE value="make file i takie tam" />
     <MESSAGE value="better messages" />
     <MESSAGE value="test passes bad folder" />
@@ -650,7 +658,8 @@
     <MESSAGE value="powolutku" />
     <MESSAGE value="fix ++ --" />
     <MESSAGE value="146 tests failed" />
-    <option name="LAST_COMMIT_MESSAGE" value="146 tests failed" />
+    <MESSAGE value="113 tests failed added null" />
+    <option name="LAST_COMMIT_MESSAGE" value="113 tests failed added null" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

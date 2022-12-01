@@ -134,4 +134,16 @@ public class SemanticError extends RuntimeException {
             super(line_num, "Class '" + ident_ + "' not declared in this scope.");
         }
     }
+
+    public static class MainNotInt extends SemanticError {
+        public MainNotInt(int line_num) {
+            super(line_num, "Main function must return int.");
+        }
+    }
+
+    public static class MainWithArgs extends SemanticError {
+        public MainWithArgs(int line_num) {
+            super(line_num, "Main function can't have arguments.");
+        }
+    }
 }
