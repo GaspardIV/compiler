@@ -1,2 +1,4 @@
-OK
+ERROR
 
+Semantic error at line 7 :
+     Increment can only be applied to a variable or a field.

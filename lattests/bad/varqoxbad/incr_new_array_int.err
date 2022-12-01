@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 4 :
-     Operator '++' cannot be applied to type 'Intarray'.
+     Increment can only be applied to a variable or a field.

@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 5 :
-     Operator '++' cannot be applied to type 'Void'.
+     Increment can only be applied to a variable or a field.

@@ -75,30 +75,23 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
 
     public Void visit(latte.Absyn.Incr p, Environment arg) {
         Type exprType = p.expr_.accept(new ExprChecker(), arg);
+        if (!(p.expr_ instanceof EVar) && !(p.expr_ instanceof EField)) {
+            throw new SemanticError(p.line_num, "Increment can only be applied to a variable or a field.");
+        }
         if (!exprType.equals(new Int())) {
-//            throw new SemanticError.IncrementHasToBeAppliedToInt(p.line_num);
             throw new SemanticError.OperatorCannotBeAppliedToType(p.line_num, "++", exprType);
         }
-//        Type type = arg.getVarType(p.ident_);
-//        System.out.println(type);
-//        if (!type.equals(new Int())) {
-//            throw new SemanticError.OperatorCannotBeAppliedToType(p.line_num, "++", type);
-//        }
         return null;
     }
 
     public Void visit(latte.Absyn.Decr p, Environment arg) {
         Type exprType = p.expr_.accept(new ExprChecker(), arg);
-//        exprType is variable
-//        if (exprType.equals())
-
+        if (!(p.expr_ instanceof EVar) && !(p.expr_ instanceof EField)) {
+            throw new SemanticError(p.line_num, "Decrement can only be applied to a variable or a field.");
+        }
         if (!exprType.equals(new Int())) {
             throw new SemanticError.OperatorCannotBeAppliedToType(p.line_num, "--", exprType);
         }
-//        Type type = arg.getVarType("p.ident_");
-//        if (!type.equals(new Int())) {
-//            throw new SemanticError.OperatorCannotBeAppliedToType(p.line_num, "--", type);
-//        }
         return null;
     }
 

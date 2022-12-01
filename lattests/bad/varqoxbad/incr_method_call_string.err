@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 7 :
-     Operator '++' cannot be applied to type 'Str'.
+     Increment can only be applied to a variable or a field.
