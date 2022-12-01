@@ -28,7 +28,7 @@ public class VarDeclChecker implements latte.Absyn.Item.Visitor<String, Environm
 
         Type exprType = p.expr_.accept(new ExprChecker(), arg);
 
-        if (!exprType.equals(itemType)) {
+        if (!arg.areTypesEqualRegardingInheritance(exprType, itemType)) {
             throw new SemanticError.AssingingWrongType(p.line_num, itemType, exprType);
         }
 

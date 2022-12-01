@@ -1,4 +1,2 @@
-ERROR
+OK
 
-Semantic error at line 76 :
-     1 argument type does not match. Got 'Bclass', but 'Aclass' was expected.

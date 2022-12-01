@@ -5,29 +5,21 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="160 tests not passed (fix array casting fix null fix self)">
-      <change afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/bin_op_eq_void_void.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/func_arg_of_nonexistent_class.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/method_arg_of_nonexistent_class.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/extensions/objects1/queue.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/extensions/struct/list.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/bool_negation.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/read_string.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/self.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/tricky_string_copy.err" afterDir="false" />
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="add missing err files of not passing tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_self_self.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_self_self.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/arrays/array_read.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/arrays/array_read.lat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/gr5/mergeSort.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/gr5/mergeSort.lat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ClDefExt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/ClDefExt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/errors/SemanticError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/errors/SemanticError.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/frontend/environment/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/environment/Environment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/basic/negation.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/negation.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/basic/negation.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/negation.lat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/extensions/objects2/shapes.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/extensions/objects2/shapes.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_new_class_class_up.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_new_class_class_up.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_of_field_class_up.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_of_field_class_up.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_var_class_class_up.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_var_class_class_up.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/for_iter_base_class_over_derived_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/for_iter_base_class_over_derived_class.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/func_call_arg_conversion_class_to_class_up.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/func_call_arg_conversion_class_to_class_up.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/method_call_arg_conversion_class_to_class_up.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/method_call_arg_conversion_class_to_class_up.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/virtual_methods.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/virtual_methods.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/virtual/polymorphism.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/virtual/polymorphism.err" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/StmtChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/StmtChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/TopDefsChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/TopDefsChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/CompilerInputOutputErrTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/CompilerInputOutputErrTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/TestUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/TestUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/VarDeclChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/VarDeclChecker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -335,8 +327,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.GoodVirtualTest.testPolymorphism" />
         <item itemvalue="JUnit.All in compiler OVERWRITE" />
+        <item itemvalue="JUnit.GoodVirtualTest.testPolymorphism" />
         <item itemvalue="JUnit.GoodGr5Test.testMergesort" />
         <item itemvalue="JUnit.BadVarqoxTests.testbin_op_eq_void_void" />
         <item itemvalue="JUnit.GoodClassicTest" />
@@ -370,7 +362,7 @@
       <workItem from="1668963598760" duration="25383000" />
       <workItem from="1669245391948" duration="8746000" />
       <workItem from="1669586124515" duration="607000" />
-      <workItem from="1669832824674" duration="16032000" />
+      <workItem from="1669832824674" duration="16989000" />
     </task>
     <task id="LOCAL-00001" summary="aaaaaa">
       <created>1638444396764</created>
@@ -533,7 +525,21 @@
       <option name="project" value="LOCAL" />
       <updated>1669254339511</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="check method_arg_of_nonexistent_class + comparing void etc... + inheristance +">
+      <created>1669851824233</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1669851824233</updated>
+    </task>
+    <task id="LOCAL-00025" summary="add missing err files of not passing tests">
+      <created>1669851936340</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1669851936340</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -621,7 +627,9 @@
     <MESSAGE value="Building from grammar???" />
     <MESSAGE value="All tests generated" />
     <MESSAGE value="160 tests not passed (fix array casting fix null fix self)" />
-    <option name="LAST_COMMIT_MESSAGE" value="160 tests not passed (fix array casting fix null fix self)" />
+    <MESSAGE value="check method_arg_of_nonexistent_class + comparing void etc... + inheristance +" />
+    <MESSAGE value="add missing err files of not passing tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="add missing err files of not passing tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -647,7 +655,7 @@
     <SUITE FILE_PATH="coverage/compiler$BadTestsMyTests.ic" NAME="BadTestsMyTests Coverage Results" MODIFIED="1668394555823" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/compiler$GoodTestsMyTests_testMyTestsTestReturnInIfAndInError.ic" NAME="GoodTestsMyTests.testMyTestsTestReturnInIfAndInError Coverage Results" MODIFIED="1668395845151" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/compiler$All_in_compiler.ic" NAME="All in compiler Coverage Results" MODIFIED="1669249901542" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/compiler$GoodVirtualTest_testPolymorphism.ic" NAME="GoodVirtualTest.testPolymorphism Coverage Results" MODIFIED="1669846226147" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/compiler$GoodVirtualTest_testPolymorphism.ic" NAME="GoodVirtualTest.testPolymorphism Coverage Results" MODIFIED="1669852159081" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/compiler$BadVarqoxTests_testbin_op_eq_void_void.ic" NAME="BadVarqoxTests.testbin_op_eq_void_void Coverage Results" MODIFIED="1669841331386" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="editorHistoryManager">

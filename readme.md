@@ -170,7 +170,7 @@ todo:
 - nie pozwalam ogolnie na (new int[10])
 - samo null nie jest parsowane, musi byc (Type)null
 - Nie pozwalam na liste Typ obiekt1, obiekt2, obiekt3; -> to jest bledne
-- 
+-     printInt(- -1); -> to jest bledne
 INFO: 
 -  pliki jlex i java_cup i makefile sa w commicie restructure fix cl member init bug
 

@@ -157,7 +157,7 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
         if (!t1.equals(new Int()) && (!p.relop_.equals(new EQU()) && !p.relop_.equals(new NE()))) {
             throw new SemanticError.RelOperatorCannotBeAppliedToTypes(p.line_num, t1, t2);
         }
-        if (!t1.equals(t2)) {
+        if (!arg.areTypesEqualRegardingInheritance(t1, t2) && !arg.areTypesEqualRegardingInheritance(t2, t1)) {
             throw new SemanticError.RelOperatorCannotBeAppliedToTypes(p.line_num, t1, t2);
         }
         return new Bool();

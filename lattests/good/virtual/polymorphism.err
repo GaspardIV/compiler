@@ -1,4 +1,2 @@
-ERROR
+OK
 
-Semantic error at line 31 :
-     Wrong return type. Got 'Cclass', but 'Bclass' was expected.
