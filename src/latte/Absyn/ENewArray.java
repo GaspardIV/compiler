@@ -8,7 +8,7 @@ public class ENewArray  extends Expr {
   public int line_num, col_num, offset;
   public ENewArray(Type p1, Expr p2) { type_ = p1; expr_ = p2; }
 
-  public <R,A> R accept(latte.Absyn.Expr.Visitor<R,A> v, A arg) throws Exception { return v.visit(this, arg); }
+  public <R,A> R accept(latte.Absyn.Expr.Visitor<R,A> v, A arg) { return v.visit(this, arg); }
 
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

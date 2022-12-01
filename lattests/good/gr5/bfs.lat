@@ -25,7 +25,7 @@ class Node{
     void init(int val){
         visited = false;
         value = val;
-        neighbours = null;    
+        neighbours = (List)null;
     }
 
     boolean isVisited(){
@@ -45,7 +45,7 @@ class Node{
     }
 
     void addNeighbour(Node n){
-        if (neighbours == null){
+        if (neighbours == (List)null){
             neighbours = new List;
             neighbours.makeSingleton(n);
         }
@@ -63,7 +63,7 @@ class List{
 
     void makeSingleton(Node node){
         head = node;
-        tail = null;
+        tail = (List)null;
     }
 
     Node getHead(){
@@ -85,14 +85,14 @@ class Queue{
     List last;
 
     Node get(){
-        if (first == null)
-            return null;
+        if (first == (List)null)
+            return (Node)null;
 
         Node retEl = first.head;
 
         first = first.tail;
-        if (first == null)
-            last = null;
+        if (first == (List)null)
+            last = (List)null;
 
         return retEl;
     }
@@ -100,7 +100,7 @@ class Queue{
     void put(Node n){
         List newTail = new List;
         newTail.makeSingleton(n);
-        if (first == null){
+        if (first == (List)null){
             first = newTail;
             last = newTail;
         }

@@ -9,7 +9,7 @@ public class For  extends Stmt {
   public int line_num, col_num, offset;
   public For(Arg p1, Expr p2, Stmt p3) { arg_ = p1; expr_ = p2; stmt_ = p3; }
 
-  public <R,A> R accept(latte.Absyn.Stmt.Visitor<R,A> v, A arg) throws Exception { return v.visit(this, arg); }
+  public <R,A> R accept(latte.Absyn.Stmt.Visitor<R,A> v, A arg) { return v.visit(this, arg); }
 
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

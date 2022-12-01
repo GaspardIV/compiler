@@ -21,7 +21,7 @@ public class ClDefExt extends TopDef {
         clblock_ = p3;
     }
 
-    public <R, A> R accept(latte.Absyn.TopDef.Visitor<R, A> v, A arg) throws Exception {
+    public <R, A> R accept(latte.Absyn.TopDef.Visitor<R, A> v, A arg) {
         return v.visit(this, arg);
     }
 

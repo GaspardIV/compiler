@@ -8,7 +8,7 @@ public class CondElse  extends Stmt {
   public int line_num, col_num, offset;
   public CondElse(Expr p1, Stmt p2, Stmt p3) { expr_ = p1; stmt_1 = p2; stmt_2 = p3; }
 
-  public <R,A> R accept(latte.Absyn.Stmt.Visitor<R,A> v, A arg) throws Exception { return v.visit(this, arg); }
+  public <R,A> R accept(latte.Absyn.Stmt.Visitor<R,A> v, A arg) { return v.visit(this, arg); }
 
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

@@ -3,10 +3,11 @@
 package latte.Absyn;
 
 public abstract class Item implements java.io.Serializable {
-  public abstract <R,A> R accept(Item.Visitor<R,A> v, A arg) throws Exception;
+  public abstract <R,A> R accept(Item.Visitor<R,A> v, A arg);
   public interface Visitor <R,A> {
-    R visit(latte.Absyn.NoInit p, A arg) throws Exception;
-    R visit(latte.Absyn.Init p, A arg) throws Exception;
+    public R visit(latte.Absyn.NoInit p, A arg);
+    public R visit(latte.Absyn.Init p, A arg);
+
   }
 
 }

@@ -2,24 +2,22 @@
 
 package latte.Absyn;
 
-public class Neg  extends Expr {
-  public final Expr expr_;
+public class ENil  extends Expr {
   public int line_num, col_num, offset;
-  public Neg(Expr p1) { expr_ = p1; }
+  public ENil() { }
 
   public <R,A> R accept(latte.Absyn.Expr.Visitor<R,A> v, A arg) { return v.visit(this, arg); }
 
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;
-    if (o instanceof latte.Absyn.Neg) {
-      latte.Absyn.Neg x = (latte.Absyn.Neg)o;
-      return this.expr_.equals(x.expr_);
+    if (o instanceof latte.Absyn.ENil) {
+      return true;
     }
     return false;
   }
 
   public int hashCode() {
-    return this.expr_.hashCode();
+    return 37;
   }
 
 

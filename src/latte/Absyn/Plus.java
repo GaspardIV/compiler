@@ -2,7 +2,7 @@
 
 package latte.Absyn;
 
-public class Plus extends AddOp {
+public class Plus  extends AddOp {
   public int line_num, col_num, offset;
   public Plus() { }
 

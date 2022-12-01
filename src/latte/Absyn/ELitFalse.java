@@ -10,7 +10,10 @@ public class ELitFalse  extends Expr {
 
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;
-      return o instanceof ELitFalse;
+    if (o instanceof latte.Absyn.ELitFalse) {
+      return true;
+    }
+    return false;
   }
 
   public int hashCode() {

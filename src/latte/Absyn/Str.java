@@ -10,12 +10,10 @@ public class Str  extends Type {
 
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;
-      return o instanceof Str;
-  }
-
-  @Override
-  public String toString() {
-    return "Str";
+    if (o instanceof latte.Absyn.Str) {
+      return true;
+    }
+    return false;
   }
 
   public int hashCode() {

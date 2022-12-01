@@ -3,11 +3,11 @@
 package latte.Absyn;
 
 public abstract class TopDef implements java.io.Serializable {
-  public abstract <R,A> R accept(TopDef.Visitor<R,A> v, A arg) throws Exception;
+  public abstract <R,A> R accept(TopDef.Visitor<R,A> v, A arg);
   public interface Visitor <R,A> {
-    R visit(latte.Absyn.FnDef p, A arg) throws Exception;
-    R visit(latte.Absyn.ClDef p, A arg) throws Exception;
-    R visit(latte.Absyn.ClDefExt p, A arg) throws Exception;
+    public R visit(latte.Absyn.FnDef p, A arg);
+    public R visit(latte.Absyn.ClDef p, A arg);
+    public R visit(latte.Absyn.ClDefExt p, A arg);
 
   }
 

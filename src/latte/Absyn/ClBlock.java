@@ -3,9 +3,9 @@
 package latte.Absyn;
 
 public abstract class ClBlock implements java.io.Serializable {
-  public abstract <R,A> R accept(ClBlock.Visitor<R,A> v, A arg) throws Exception;
+  public abstract <R,A> R accept(ClBlock.Visitor<R,A> v, A arg);
   public interface Visitor <R,A> {
-    R visit(latte.Absyn.ClBlk p, A arg) throws Exception;
+    public R visit(latte.Absyn.ClBlk p, A arg);
 
   }
 

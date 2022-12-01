@@ -171,6 +171,27 @@ todo:
 - samo null nie jest parsowane, musi byc (Type)null
 - Nie pozwalam na liste Typ obiekt1, obiekt2, obiekt3; -> to jest bledne
 -     printInt(- -1); -> to jest bledne
+- null automatycznie jest rzutowany na typ obiektu (nie trzeba pisac (Type)null)
+- int overeflow przy zwijaniu wyrazen
+- if else context wspolny ?? {{	if (true) {
+  int y = x;
+  }
+  else {
+  y;
+  }}}}
+- shoadowing for iter block - dopuszczam szadowing
+- dopuszczam szadowing klasach - class X {
+  int x;
+  }
+- typ void, 
+ - div by 0 przy zwijaniu wyrazen
+ - redefiniacja metod o innych typach powinna byc niemozliwa (a tej samej nazwie)
+class Y extends X {
+string x;
+}
+
+- class nonexistent field!!
+- 
 INFO: 
 -  pliki jlex i java_cup i makefile sa w commicie restructure fix cl member init bug
 

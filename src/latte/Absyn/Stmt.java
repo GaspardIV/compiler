@@ -3,23 +3,23 @@
 package latte.Absyn;
 
 public abstract class Stmt implements java.io.Serializable {
-  public abstract <R,A> R accept(Stmt.Visitor<R,A> v, A arg) throws Exception;
+  public abstract <R,A> R accept(Stmt.Visitor<R,A> v, A arg);
   public interface Visitor <R,A> {
-    R visit(latte.Absyn.Empty p, A arg);
-    R visit(latte.Absyn.BStmt p, A arg) throws Exception;
-    R visit(latte.Absyn.Decl p, A arg) throws Exception;
-    R visit(latte.Absyn.Ass p, A arg) throws Exception;
-    R visit(latte.Absyn.AssArray p, A arg) throws Exception;
-    R visit(latte.Absyn.AssField p, A arg) throws Exception;
-    R visit(latte.Absyn.Incr p, A arg) throws Exception;
-    R visit(latte.Absyn.Decr p, A arg) throws Exception;
-    R visit(latte.Absyn.Ret p, A arg) throws Exception;
-    R visit(latte.Absyn.VRet p, A arg) throws Exception;
-    R visit(latte.Absyn.Cond p, A arg) throws Exception;
-    R visit(latte.Absyn.CondElse p, A arg) throws Exception;
-    R visit(latte.Absyn.While p, A arg) throws Exception;
-    R visit(latte.Absyn.For p, A arg) throws Exception;
-    R visit(latte.Absyn.SExp p, A arg) throws Exception;
+    public R visit(latte.Absyn.Empty p, A arg);
+    public R visit(latte.Absyn.BStmt p, A arg);
+    public R visit(latte.Absyn.Decl p, A arg);
+    public R visit(latte.Absyn.Ass p, A arg);
+    public R visit(latte.Absyn.AssArray p, A arg);
+    public R visit(latte.Absyn.AssField p, A arg);
+    public R visit(latte.Absyn.Incr p, A arg);
+    public R visit(latte.Absyn.Decr p, A arg);
+    public R visit(latte.Absyn.Ret p, A arg);
+    public R visit(latte.Absyn.VRet p, A arg);
+    public R visit(latte.Absyn.Cond p, A arg);
+    public R visit(latte.Absyn.CondElse p, A arg);
+    public R visit(latte.Absyn.While p, A arg);
+    public R visit(latte.Absyn.For p, A arg);
+    public R visit(latte.Absyn.SExp p, A arg);
 
   }
 

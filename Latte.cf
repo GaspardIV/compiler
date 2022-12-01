@@ -20,7 +20,11 @@ separator  Arg "," ;
 
 ClBlk.      ClBlock ::= "{" [ClMember] "}";
 
-ClField.    ClMember ::= Type Ident ";" ;
+ClFields.    ClMember ::= Type [ClFieldItem] ";" ;
+
+ClFieldItemNoInit. ClFieldItem ::= Ident ;
+
+separator nonempty ClFieldItem "," ;
 
 ClMethod.   ClMember ::= Type Ident "(" [Arg] ")" Block ;
 
@@ -51,9 +55,9 @@ AssArray.  Stmt ::= Ident "[" Expr "]" "=" Expr  ";" ;
 
 AssField.  Stmt ::= Expr6 "." Ident "=" Expr  ";" ;
 
-Incr.      Stmt ::= Ident "++"  ";" ;
+Incr.      Stmt ::= Expr "++"  ";" ;
 
-Decr.      Stmt ::= Ident "--"  ";" ;
+Decr.      Stmt ::= Expr "--"  ";" ;
 
 Ret.       Stmt ::= "return" Expr ";" ;
 
@@ -92,6 +96,8 @@ ENewArray.  Expr6 ::= "new" Type "[" Expr "]" ;
 EArrayElem. Expr6 ::= Ident "[" Expr "]";
 
 ENull.      Expr6 ::= "(" Ident ")" "null" ;
+
+ENil.       Expr6 ::= "null" ;
 
 ENew.       Expr6 ::= "new" Ident ;
 

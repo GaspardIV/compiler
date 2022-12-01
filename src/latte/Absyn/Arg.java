@@ -5,7 +5,7 @@ package latte.Absyn;
 public abstract class Arg implements java.io.Serializable {
   public abstract <R,A> R accept(Arg.Visitor<R,A> v, A arg);
   public interface Visitor <R,A> {
-    R visit(latte.Absyn.Ar p, A arg);
+    public R visit(latte.Absyn.Ar p, A arg);
 
   }
 

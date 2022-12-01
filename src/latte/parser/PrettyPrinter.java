@@ -170,6 +170,36 @@ public class PrettyPrinter
     buf_.delete(0,buf_.length());
     return temp;
   }
+  public static String print(latte.Absyn.ClFieldItem foo)
+  {
+    pp(foo, 0);
+    trim();
+    String temp = buf_.toString();
+    buf_.delete(0,buf_.length());
+    return temp;
+  }
+  public static String show(latte.Absyn.ClFieldItem foo)
+  {
+    sh(foo);
+    String temp = buf_.toString();
+    buf_.delete(0,buf_.length());
+    return temp;
+  }
+  public static String print(latte.Absyn.ListClFieldItem foo)
+  {
+    pp(foo, 0);
+    trim();
+    String temp = buf_.toString();
+    buf_.delete(0,buf_.length());
+    return temp;
+  }
+  public static String show(latte.Absyn.ListClFieldItem foo)
+  {
+    sh(foo);
+    String temp = buf_.toString();
+    buf_.delete(0,buf_.length());
+    return temp;
+  }
   public static String print(latte.Absyn.ListClMember foo)
   {
     pp(foo, 0);
@@ -494,7 +524,7 @@ public class PrettyPrinter
        latte.Absyn.ClField _clfield = (latte.Absyn.ClField) foo;
        if (_i_ > 0) render(_L_PAREN);
        pp(_clfield.type_, 0);
-       pp(_clfield.ident_, 0);
+       pp(_clfield.listclfielditem_, 0);
        render(";");
        if (_i_ > 0) render(_R_PAREN);
     }
@@ -512,6 +542,40 @@ public class PrettyPrinter
     }
 
   }
+
+  private static void pp(latte.Absyn.ClFieldItem foo, int _i_)
+  {
+    if (foo instanceof latte.Absyn.ClFieldItemNoInit)
+    {
+       latte.Absyn.ClFieldItemNoInit _clfielditemnoinit = (latte.Absyn.ClFieldItemNoInit) foo;
+       if (_i_ > 0) render(_L_PAREN);
+       pp(_clfielditemnoinit.ident_, 0);
+       if (_i_ > 0) render(_R_PAREN);
+    }
+
+  }
+
+  private static void pp(latte.Absyn.ListClFieldItem foo, int _i_)
+  {
+    ppListClFieldItem(foo.iterator(), _i_);
+  }
+
+  private static void ppListClFieldItem(java.util.Iterator<latte.Absyn.ClFieldItem> it, int _i_)
+  {
+    if (it.hasNext())
+    {
+      latte.Absyn.ClFieldItem el = it.next();
+      if (!it.hasNext())
+      { /* last */
+        pp(el, _i_);
+      }
+      else
+      { /* cons */
+        pp(el, _i_); render(","); ppListClFieldItem(it, _i_);
+      }
+    }
+  }
+
 
   private static void pp(latte.Absyn.ListClMember foo, int _i_)
   {
@@ -621,7 +685,7 @@ public class PrettyPrinter
     {
        latte.Absyn.Incr _incr = (latte.Absyn.Incr) foo;
        if (_i_ > 0) render(_L_PAREN);
-       pp(_incr.ident_, 0);
+       pp(_incr.expr_, 0);
        render("++");
        render(";");
        if (_i_ > 0) render(_R_PAREN);
@@ -630,7 +694,7 @@ public class PrettyPrinter
     {
        latte.Absyn.Decr _decr = (latte.Absyn.Decr) foo;
        if (_i_ > 0) render(_L_PAREN);
-       pp(_decr.ident_, 0);
+       pp(_decr.expr_, 0);
        render("--");
        render(";");
        if (_i_ > 0) render(_R_PAREN);
@@ -854,6 +918,13 @@ public class PrettyPrinter
        render("(");
        pp(_enull.ident_, 0);
        render(")");
+       render("null");
+       if (_i_ > 6) render(_R_PAREN);
+    }
+    else     if (foo instanceof latte.Absyn.ENil)
+    {
+       latte.Absyn.ENil _enil = (latte.Absyn.ENil) foo;
+       if (_i_ > 6) render(_L_PAREN);
        render("null");
        if (_i_ > 6) render(_R_PAREN);
     }
@@ -1215,7 +1286,9 @@ public class PrettyPrinter
        render("(");
        render("ClField");
        sh(_clfield.type_);
-       sh(_clfield.ident_);
+       render("[");
+       sh(_clfield.listclfielditem_);
+       render("]");
        render(")");
     }
     if (foo instanceof latte.Absyn.ClMethod)
@@ -1231,6 +1304,28 @@ public class PrettyPrinter
        sh(_clmethod.block_);
        render(")");
     }
+  }
+
+  private static void sh(latte.Absyn.ClFieldItem foo)
+  {
+    if (foo instanceof latte.Absyn.ClFieldItemNoInit)
+    {
+       latte.Absyn.ClFieldItemNoInit _clfielditemnoinit = (latte.Absyn.ClFieldItemNoInit) foo;
+       render("(");
+       render("ClFieldItemNoInit");
+       sh(_clfielditemnoinit.ident_);
+       render(")");
+    }
+  }
+
+  private static void sh(latte.Absyn.ListClFieldItem foo)
+  {
+     for (java.util.Iterator<latte.Absyn.ClFieldItem> it = foo.iterator(); it.hasNext();)
+     {
+       sh(it.next());
+       if (it.hasNext())
+         render(",");
+     }
   }
 
   private static void sh(latte.Absyn.ListClMember foo)
@@ -1327,7 +1422,7 @@ public class PrettyPrinter
        latte.Absyn.Incr _incr = (latte.Absyn.Incr) foo;
        render("(");
        render("Incr");
-       sh(_incr.ident_);
+       sh(_incr.expr_);
        render(")");
     }
     if (foo instanceof latte.Absyn.Decr)
@@ -1335,7 +1430,7 @@ public class PrettyPrinter
        latte.Absyn.Decr _decr = (latte.Absyn.Decr) foo;
        render("(");
        render("Decr");
-       sh(_decr.ident_);
+       sh(_decr.expr_);
        render(")");
     }
     if (foo instanceof latte.Absyn.Ret)
@@ -1507,6 +1602,11 @@ public class PrettyPrinter
        render("ENull");
        sh(_enull.ident_);
        render(")");
+    }
+    if (foo instanceof latte.Absyn.ENil)
+    {
+       latte.Absyn.ENil _enil = (latte.Absyn.ENil) foo;
+       render("ENil");
     }
     if (foo instanceof latte.Absyn.ENew)
     {
