@@ -1,4 +1,2 @@
-ERROR
+OK
 
-Semantic error at line 89 :
-     Assigning 'nullclass' to 'Listaclass' variable.

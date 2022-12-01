@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 4 :
-     Cannot compare 'nullclass' and 'Void'.
+     Cannot compare 'Null' and 'Void'.

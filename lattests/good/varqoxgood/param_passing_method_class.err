@@ -1,4 +1,2 @@
-ERROR
+OK
 
-Semantic error at line 45 :
-     Assigning 'nullclass' to 'Aclass' variable.

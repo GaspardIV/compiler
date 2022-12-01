@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 7 :
-     Assigning 'nullclass' to 'Str' variable.
+     Assigning 'Null' to 'Str' variable.

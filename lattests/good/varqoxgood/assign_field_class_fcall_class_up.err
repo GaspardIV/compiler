@@ -1,4 +1,2 @@
-ERROR
+OK
 
-Semantic error at line 7 :
-     Wrong return type. Got 'nullclass', but 'Cclass' was expected.

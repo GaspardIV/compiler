@@ -1,4 +1,4 @@
 ERROR
 
-Semantic error at line 5 :
-     Wrong return type. Got 'nullclass', but 'Yclass' was expected.
+Semantic error at line 9 :
+     Operator '++' cannot be applied to type 'Yclass'.

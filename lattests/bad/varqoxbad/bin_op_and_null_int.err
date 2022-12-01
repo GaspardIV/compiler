@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 3 :
-     Operator '&&' cannot be applied to types 'nullclass' and 'Int'.
+     Operator '&&' cannot be applied to types 'Null' and 'Int'.

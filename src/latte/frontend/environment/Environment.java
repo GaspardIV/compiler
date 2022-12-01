@@ -136,6 +136,12 @@ public class Environment {
     }
 
     public boolean areTypesEqualRegardingInheritance(Type AMightExtendsB, Type B) {
+        if (AMightExtendsB instanceof Null && B instanceof Class) {
+            return true;
+        }
+        if (B instanceof Null && AMightExtendsB instanceof Class) {
+            return true;
+        }
         if (AMightExtendsB instanceof Class && B instanceof Class) {
             ClDefExt classA = getClassDef(((Class) AMightExtendsB).ident_);
             ClDefExt classB = getClassDef(((Class) B).ident_);

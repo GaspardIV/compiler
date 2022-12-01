@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 10 :
-     Assigning 'nullclass' to 'Bool' variable.
+     Assigning 'Null' to 'Bool' variable.

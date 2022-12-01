@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 28 :
-     Cannot compare 'Intarrayarray' and 'nullclass'.
+     Cannot compare 'Intarrayarray' and 'Null'.

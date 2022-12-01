@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 5 :
-     Operator '||' cannot be applied to types 'Yclass' and 'nullclass'.
+     Operator '||' cannot be applied to types 'Yclass' and 'Null'.

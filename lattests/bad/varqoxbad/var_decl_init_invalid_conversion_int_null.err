@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 3 :
-     Assigning 'nullclass' to 'Int' variable.
+     Assigning 'Null' to 'Int' variable.

@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 5 :
-     Assigning 'nullclass' to 'Intarray' variable.
+     Assigning 'Null' to 'Intarray' variable.

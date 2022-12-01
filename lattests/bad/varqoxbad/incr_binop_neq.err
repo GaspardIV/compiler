@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 4 :
-     Cannot compare 'nullclass' and 'nullclass'.
+     Operator '++' cannot be applied to type 'Bool'.

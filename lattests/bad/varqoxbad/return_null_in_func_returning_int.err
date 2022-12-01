@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 2 :
-     Wrong return type. Got 'nullclass', but 'Int' was expected.
+     Wrong return type. Got 'Null', but 'Int' was expected.

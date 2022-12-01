@@ -64,7 +64,7 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
                 if (field == null) {
                     throw new SemanticError.FieldDoesNotExist(p.line_num);
                 }
-            } catch (ClassCastException e) {
+            } catch (NullPointerException | ClassCastException e) {
                 throw new SemanticError(p.line_num, "Field operator can only be applied to an object.");
             }
         }
@@ -198,7 +198,7 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
 
     @Override
     public Type visit(ENil p, Environment arg) {
-        return new latte.Absyn.Class("null");
+        return new Null();
     }
 
     /**

@@ -1,4 +1,4 @@
 ERROR
 
-Semantic error at line 6 :
-     Wrong return type. Got 'nullclass', but 'Cclass' was expected.
+Semantic error at line 9 :
+     Assigning 'Void' to 'Bool' variable.
