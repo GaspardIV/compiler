@@ -5,59 +5,14 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="Returning void is not allowed.">
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="increment fix 98 failing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_aeq.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_aeq.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_and.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_and.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_ane.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_ane.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_beq.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_beq.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_bne.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_bne.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_ceq.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_ceq.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_cne.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_cne.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_cneq.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_cneq.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_cnne.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_cnne.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_div.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_div.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_ge.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_ge.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_gth.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_gth.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_iadd.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_iadd.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_ieq.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_ieq.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_ine.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_ine.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_le.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_le.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_lth.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_lth.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_mod.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_mod.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_mul.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_mul.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_neq.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_neq.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_nne.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_nne.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_or.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_or.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_sadd.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_sadd.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_seq.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_seq.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_sne.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_sne.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_sub.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_binop_sub.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_class_casted_null.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_class_casted_null.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_func_call_bool.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_func_call_bool.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_func_call_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_func_call_class.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_func_call_int.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_func_call_int.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_func_call_string.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_func_call_string.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_func_call_void.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_func_call_void.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_literal_false.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_literal_false.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_literal_int.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_literal_int.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_literal_neg_int.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_literal_neg_int.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_literal_string.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_literal_string.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_literal_true.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_literal_true.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_method_call_bool.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_method_call_bool.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_method_call_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_method_call_class.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_method_call_int.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_method_call_int.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_method_call_string.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_method_call_string.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_method_call_void.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_method_call_void.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_new_array_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_new_array_array.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_new_array_bool.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_new_array_bool.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_new_array_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_new_array_class.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_new_array_int.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_new_array_int.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_new_array_string.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_new_array_string.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_new_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_new_class.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_null.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_null.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_uop_bneg.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_uop_bneg.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_uop_ineg.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_uop_ineg.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_void_array_field.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_void_array_field.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/func_arg_of_type_void_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/func_arg_of_type_void_array.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/method_arg_of_type_void_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/method_arg_of_type_void_array.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/void_arr_return_type.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/void_arr_return_type.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Array.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Array.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/errors/SemanticError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/errors/SemanticError.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/StmtChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/StmtChecker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -635,7 +590,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669894984662</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="increment fix 98 failing">
+      <created>1669903932627</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1669903932627</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -701,7 +663,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="GOOD ALMOST PASSING" />
     <MESSAGE value="refactor" />
     <MESSAGE value="Poprawka mala readme i dodanie testow" />
     <MESSAGE value="Add tests and default err for certain tests." />
@@ -726,7 +687,8 @@
     <MESSAGE value="110 passes fix main args and returntype" />
     <MESSAGE value="108 passes return void not allowed" />
     <MESSAGE value="Returning void is not allowed." />
-    <option name="LAST_COMMIT_MESSAGE" value="Returning void is not allowed." />
+    <MESSAGE value="increment fix 98 failing" />
+    <option name="LAST_COMMIT_MESSAGE" value="increment fix 98 failing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

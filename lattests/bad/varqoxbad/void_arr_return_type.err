@@ -1,4 +1,4 @@
 ERROR
-
-Semantic error at line 2 :
-     Function foo without return.
+Parser error at line: 2, at offset: 42.
+Error with parsing "foo() {}":
+     Array of void is not allowed.

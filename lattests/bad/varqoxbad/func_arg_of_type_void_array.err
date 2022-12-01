@@ -1,2 +1,6 @@
-OK
+ERROR
+Parser error at line: 2, at offset: 51.
+Error with parsing "x) {}
 
+int":
+     Array of void is not allowed.

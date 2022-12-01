@@ -75,7 +75,7 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
 
     public Void visit(latte.Absyn.Incr p, Environment arg) {
         Type exprType = p.expr_.accept(new ExprChecker(), arg);
-        if (!(p.expr_ instanceof EVar) && !(p.expr_ instanceof EField)) {
+        if (!(p.expr_ instanceof EVar) && !(p.expr_ instanceof EField) && !(p.expr_ instanceof EArrayElem)) {
             throw new SemanticError(p.line_num, "Increment can only be applied to a variable or a field.");
         }
         if (!exprType.equals(new Int())) {
@@ -86,7 +86,7 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
 
     public Void visit(latte.Absyn.Decr p, Environment arg) {
         Type exprType = p.expr_.accept(new ExprChecker(), arg);
-        if (!(p.expr_ instanceof EVar) && !(p.expr_ instanceof EField)) {
+        if (!(p.expr_ instanceof EVar) && !(p.expr_ instanceof EField) && !(p.expr_ instanceof EArrayElem)) {
             throw new SemanticError(p.line_num, "Decrement can only be applied to a variable or a field.");
         }
         if (!exprType.equals(new Int())) {

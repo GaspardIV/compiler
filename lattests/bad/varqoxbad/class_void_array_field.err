@@ -1,2 +1,7 @@
-OK
+ERROR
+Parser error at line: 3, at offset: 56.
+Error with parsing "foo;
+}
 
+in":
+     Array of void is not allowed.

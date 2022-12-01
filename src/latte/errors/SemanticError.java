@@ -152,4 +152,10 @@ public class SemanticError extends RuntimeException {
             super(line_num, "Returning void is not allowed.");
         }
     }
+
+    public static class ArrayOfVoid extends SemanticError {
+        public ArrayOfVoid(int line_num) {
+            super(line_num, "Array of void is not allowed.");
+        }
+    }
 }
