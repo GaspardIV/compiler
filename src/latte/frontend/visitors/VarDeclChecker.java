@@ -26,12 +26,11 @@ public class VarDeclChecker implements latte.Absyn.Item.Visitor<String, Environm
     }
 
     public String visit(latte.Absyn.Init p, Environment arg) {
+        Type exprType = p.expr_.accept(new ExprChecker(), arg);
         NoInit itemNoInit = new NoInit(p.ident_);
         itemNoInit.line_num = p.line_num;
+
         this.visit(itemNoInit, arg);
-
-        Type exprType = p.expr_.accept(new ExprChecker(), arg);
-
         if (!arg.areTypesEqualRegardingInheritance(exprType, itemType)) {
             throw new SemanticError.AssingingWrongType(p.line_num, itemType, exprType);
         }
