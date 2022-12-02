@@ -1,4 +1,2 @@
-ERROR
+OK
 
-Semantic error at line 4 :
-     Variable 'x' already declared in this scope.

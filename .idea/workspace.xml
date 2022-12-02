@@ -5,14 +5,16 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="Void arguments in method/function/field definition + almost working variable already declared">
-      <change afterPath="$PROJECT_DIR$/tests/TestsIDontWantToPassTest.java" afterDir="false" />
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="variable_with_void_type.err">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/semantic/variable_with_void_type.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/semantic/variable_with_void_type.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/errors/SemanticError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/errors/SemanticError.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/VarDeclChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/VarDeclChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/BadTestsSemanticTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/BadTestsSemanticTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/if_context_01.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/if_context_01.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/if_else_context_01.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/if_else_context_01.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/if_else_context_04.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/if_else_context_04.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/shadowing_for_iter.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/shadowing_for_iter.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/if_else_shadowing.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/if_else_shadowing.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/if_shadowing.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/if_shadowing.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/while_body_decl.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/while_body_decl.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/StmtChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/StmtChecker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -356,6 +358,7 @@
       <workItem from="1669245391948" duration="8746000" />
       <workItem from="1669586124515" duration="607000" />
       <workItem from="1669832824674" duration="16989000" />
+      <workItem from="1669983695128" duration="1736000" />
     </task>
     <task id="LOCAL-00001" summary="aaaaaa">
       <created>1638444396764</created>
@@ -609,7 +612,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669909721072</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="variable_with_void_type.err">
+      <created>1669915119733</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1669915119733</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -675,7 +685,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add tests and default err for certain tests." />
     <MESSAGE value="Nie ma pliku latc (a jedynie plik compiler). Tym razem nie obniżam,&#10;   ale proszę to poprawić zgodnie ze specyfikacją." />
     <MESSAGE value="Rearange tests" />
     <MESSAGE value="Add error function handling + global functions cannot be overridden." />
@@ -700,7 +709,8 @@
     <MESSAGE value="increment fix 98 failing" />
     <MESSAGE value="array of null not allowed 95 failing" />
     <MESSAGE value="Void arguments in method/function/field definition + almost working variable already declared" />
-    <option name="LAST_COMMIT_MESSAGE" value="Void arguments in method/function/field definition + almost working variable already declared" />
+    <MESSAGE value="variable_with_void_type.err" />
+    <option name="LAST_COMMIT_MESSAGE" value="variable_with_void_type.err" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

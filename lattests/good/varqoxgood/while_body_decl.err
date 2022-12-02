@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 14 :
-     Variable 'x' already declared in this scope.
+     1 argument type does not match. Got 'Int', but 'Xclass' was expected.

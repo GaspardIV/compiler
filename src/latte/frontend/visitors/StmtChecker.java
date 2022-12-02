@@ -125,7 +125,7 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
         Bool cond = (Bool) exprType;
         if (!cond.isLitFalse) {
             Boolean wasReturnBefore = arg.wasReturn();
-            p.stmt_.accept(new StmtChecker(), arg);
+            acceptStmtAddBlockIfNeeded(p.stmt_, arg, this);
             if (!cond.isLitTrue) {
                 arg.setWasReturn(wasReturnBefore);
             }
@@ -142,12 +142,12 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
         Boolean wasReturnBefore = arg.wasReturn();
         if (!cond.isLitFalse) {
             arg.setWasReturn(false);
-            p.stmt_1.accept(new StmtChecker(), arg);
+            acceptStmtAddBlockIfNeeded(p.stmt_1, arg, new StmtChecker());
         }
         Boolean wasReturnStmt1 = arg.wasReturn();
         if (!cond.isLitTrue) {
             arg.setWasReturn(false);
-            p.stmt_2.accept(new StmtChecker(), arg);
+            acceptStmtAddBlockIfNeeded(p.stmt_2, arg, new StmtChecker());
         }
         Boolean wasReturnStmt2 = arg.wasReturn();
         if (!cond.isLitFalse && !cond.isLitTrue) {
@@ -161,8 +161,19 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
         if (!exprType.equals(new Bool())) {
             throw new SemanticError.CondHasToBeBoolean(p.line_num);
         }
-        p.stmt_.accept(new StmtChecker(), arg);
+        acceptStmtAddBlockIfNeeded(p.stmt_, arg, new StmtChecker());
         return null;
+    }
+    public void acceptStmtAddBlockIfNeeded(Stmt stmt, Environment arg, StmtChecker stmtChecker) {
+        if (stmt instanceof BStmt) {
+            stmt.accept(stmtChecker, arg);
+        } else {
+            arg.addNewContext("single stmt block");
+            stmt.accept(stmtChecker, arg);
+            Boolean wasReturn = arg.wasReturn();
+            arg.popContext();
+            if (wasReturn) arg.setWasReturn(true);
+        }
     }
 
     public Void visit(latte.Absyn.For p, Environment arg) {
@@ -178,7 +189,7 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
             throw new SemanticError.AssingingWrongType(p.line_num, iterator.type_, array.type_);
         }
         arg.addVariable(iterator.ident_, iterator.type_);
-        p.stmt_.accept(new StmtChecker(), arg);
+        acceptStmtAddBlockIfNeeded(p.stmt_, arg, new StmtChecker());
         arg.popContext();
         return null;
     }
