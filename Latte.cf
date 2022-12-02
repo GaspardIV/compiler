@@ -49,11 +49,7 @@ Init.      Item ::= Ident "=" Expr ;
 
 separator nonempty Item "," ;
 
-Ass.       Stmt ::= Ident "=" Expr  ";" ;
-
-AssArray.  Stmt ::= Ident "[" Expr "]" "=" Expr  ";" ;
-
-AssField.  Stmt ::= Expr6 "." Ident "=" Expr  ";" ;
+Ass.       Stmt ::= Expr6 "=" Expr  ";" ;
 
 Incr.      Stmt ::= Expr "++"  ";" ;
 
@@ -93,7 +89,9 @@ separator  Type "," ;
 
 ENewArray.  Expr6 ::= "new" Type "[" Expr "]" ;
 
-EArrayElem. Expr6 ::= Ident "[" Expr "]";
+EArrayElem. Expr7 ::= Expr7 "[" Expr "]";
+
+EArrayElemR. Expr7 ::= Ident "[" Expr "]";
 
 ENull.      Expr6 ::= "(" Ident ")" "null" ;
 
@@ -101,9 +99,9 @@ ENil.       Expr6 ::= "null" ;
 
 ENew.       Expr6 ::= "new" Ident ;
 
-EMethod.    Expr6 ::= Expr6 "." Ident "(" [Expr] ")" ;
+EMethod.    Expr6 ::= Expr7 "." Ident "(" [Expr] ")" ;
 
-EField.     Expr6 ::= Expr6 "." Ident ;
+EField.     Expr6 ::= Expr7 "." Ident ;
 
 EVar.      Expr6 ::= Ident ;
 
@@ -131,7 +129,7 @@ EAnd.      Expr1 ::= Expr2 "&&" Expr1 ;
 
 EOr.       Expr ::= Expr1 "||" Expr ;
 
-coercions  Expr 6 ;
+coercions  Expr 7 ;
 
 separator  Expr "," ;
 

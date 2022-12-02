@@ -26,6 +26,7 @@ public abstract class Expr implements java.io.Serializable {
     public R visit(latte.Absyn.EAnd p, A arg);
     public R visit(latte.Absyn.EOr p, A arg);
 
+      R visit(EArrayElemR eArrayElemR, A arg);
   }
 
 }

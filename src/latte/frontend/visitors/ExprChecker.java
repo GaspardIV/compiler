@@ -16,11 +16,11 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
     }
 
     public Type visit(EArrayElem p, Environment arg)  {
-        Type index = p.expr_.accept(new ExprChecker(), arg);
+        Type index = p.expr_2.accept(new ExprChecker(), arg);
         if (!index.equals(new Int())) {
             throw new SemanticError(p.line_num, "Index has to be an Integer.");
         }
-        Type type = arg.getVarType(p.ident_);
+        Type type = p.expr_1.accept(new ExprChecker(), arg);
         if (!(type instanceof Array)) {
             throw new SemanticError(p.line_num, "Variable is not an array.");
         }
@@ -185,6 +185,20 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
             throw new SemanticError.OperatorCannotBeAppliedToTypes(p.line_num, "||", t1, t2);
         }
         return new Bool();
+    }
+
+    @Override
+    public Type visit(EArrayElemR p, Environment arg) {
+        Type index = p.expr_.accept(new ExprChecker(), arg);
+        if (!index.equals(new Int())) {
+            throw new SemanticError(p.line_num, "Index has to be an Integer.");
+        }
+        Type type = arg.getVarType(p.ident_);
+        if (!(type instanceof Array)) {
+            throw new SemanticError(p.line_num, "Variable is not an array.");
+        }
+        Array arrayType = (Array) type;
+        return arrayType.type_;
     }
 
 

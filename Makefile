@@ -26,6 +26,7 @@ recompile_BNFC_java:
 	cp build/bnfc-java/Makefile2 build/bnfc-java/Makefile && rm build/bnfc-java/Makefile2
 	cd build/bnfc-java && make
 	for f in ./build/bnfc-java/latte/Absyn/*.java; do [[ -f "./src/latte/Absyn/$$(basename $$f)" ]] || cp "$$f" "./src/latte/Absyn/$$(basename $$f)"; done
+	#for f in ./build/bnfc-java/latte/Absyn/*.java; do cp "$$f" "./src/latte/Absyn/$$(basename $$f)"; done
 	sed  "s/package latte;/package latte.parser;/" ./build/bnfc-java/latte/parser.java | sed  "s/report_error/\/\/report_error/" > ./src/latte/parser/parser.java
 	sed  "s/package latte;/package latte.parser;/" ./build/bnfc-java/latte/Yylex.java > ./src/latte/parser/Yylex.java
 	sed  "s/package latte;/package latte.parser;/" ./build/bnfc-java/latte/sym.java > ./src/latte/parser/sym.java

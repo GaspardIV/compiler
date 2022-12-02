@@ -650,34 +650,9 @@ public class PrettyPrinter
     {
        latte.Absyn.Ass _ass = (latte.Absyn.Ass) foo;
        if (_i_ > 0) render(_L_PAREN);
-       pp(_ass.ident_, 0);
+       pp(_ass.expr_1, 6);
        render("=");
-       pp(_ass.expr_, 0);
-       render(";");
-       if (_i_ > 0) render(_R_PAREN);
-    }
-    else     if (foo instanceof latte.Absyn.AssArray)
-    {
-       latte.Absyn.AssArray _assarray = (latte.Absyn.AssArray) foo;
-       if (_i_ > 0) render(_L_PAREN);
-       pp(_assarray.ident_, 0);
-       render("[");
-       pp(_assarray.expr_1, 0);
-       render("]");
-       render("=");
-       pp(_assarray.expr_2, 0);
-       render(";");
-       if (_i_ > 0) render(_R_PAREN);
-    }
-    else     if (foo instanceof latte.Absyn.AssField)
-    {
-       latte.Absyn.AssField _assfield = (latte.Absyn.AssField) foo;
-       if (_i_ > 0) render(_L_PAREN);
-       pp(_assfield.expr_1, 6);
-       render(".");
-       pp(_assfield.ident_, 0);
-       render("=");
-       pp(_assfield.expr_2, 0);
+       pp(_ass.expr_2, 0);
        render(";");
        if (_i_ > 0) render(_R_PAREN);
     }
@@ -901,16 +876,6 @@ public class PrettyPrinter
        render("]");
        if (_i_ > 6) render(_R_PAREN);
     }
-    else     if (foo instanceof latte.Absyn.EArrayElem)
-    {
-       latte.Absyn.EArrayElem _earrayelem = (latte.Absyn.EArrayElem) foo;
-       if (_i_ > 6) render(_L_PAREN);
-       pp(_earrayelem.ident_, 0);
-       render("[");
-       pp(_earrayelem.expr_, 0);
-       render("]");
-       if (_i_ > 6) render(_R_PAREN);
-    }
     else     if (foo instanceof latte.Absyn.ENull)
     {
        latte.Absyn.ENull _enull = (latte.Absyn.ENull) foo;
@@ -940,7 +905,7 @@ public class PrettyPrinter
     {
        latte.Absyn.EMethod _emethod = (latte.Absyn.EMethod) foo;
        if (_i_ > 6) render(_L_PAREN);
-       pp(_emethod.expr_, 6);
+       pp(_emethod.expr_, 7);
        render(".");
        pp(_emethod.ident_, 0);
        render("(");
@@ -952,7 +917,7 @@ public class PrettyPrinter
     {
        latte.Absyn.EField _efield = (latte.Absyn.EField) foo;
        if (_i_ > 6) render(_L_PAREN);
-       pp(_efield.expr_, 6);
+       pp(_efield.expr_, 7);
        render(".");
        pp(_efield.ident_, 0);
        if (_i_ > 6) render(_R_PAREN);
@@ -1001,6 +966,26 @@ public class PrettyPrinter
        if (_i_ > 6) render(_L_PAREN);
        printQuoted(_estring.string_);
        if (_i_ > 6) render(_R_PAREN);
+    }
+    else     if (foo instanceof latte.Absyn.EArrayElem)
+    {
+       latte.Absyn.EArrayElem _earrayelem = (latte.Absyn.EArrayElem) foo;
+       if (_i_ > 7) render(_L_PAREN);
+       pp(_earrayelem.expr_1, 7);
+       render("[");
+       pp(_earrayelem.expr_2, 0);
+       render("]");
+       if (_i_ > 7) render(_R_PAREN);
+    }
+    else     if (foo instanceof latte.Absyn.EArrayElemR)
+    {
+       latte.Absyn.EArrayElemR _earrayelemr = (latte.Absyn.EArrayElemR) foo;
+       if (_i_ > 7) render(_L_PAREN);
+       pp(_earrayelemr.ident_, 0);
+       render("[");
+       pp(_earrayelemr.expr_, 0);
+       render("]");
+       if (_i_ > 7) render(_R_PAREN);
     }
     else     if (foo instanceof latte.Absyn.Neg)
     {
@@ -1393,28 +1378,8 @@ public class PrettyPrinter
        latte.Absyn.Ass _ass = (latte.Absyn.Ass) foo;
        render("(");
        render("Ass");
-       sh(_ass.ident_);
-       sh(_ass.expr_);
-       render(")");
-    }
-    if (foo instanceof latte.Absyn.AssArray)
-    {
-       latte.Absyn.AssArray _assarray = (latte.Absyn.AssArray) foo;
-       render("(");
-       render("AssArray");
-       sh(_assarray.ident_);
-       sh(_assarray.expr_1);
-       sh(_assarray.expr_2);
-       render(")");
-    }
-    if (foo instanceof latte.Absyn.AssField)
-    {
-       latte.Absyn.AssField _assfield = (latte.Absyn.AssField) foo;
-       render("(");
-       render("AssField");
-       sh(_assfield.expr_1);
-       sh(_assfield.ident_);
-       sh(_assfield.expr_2);
+       sh(_ass.expr_1);
+       sh(_ass.expr_2);
        render(")");
     }
     if (foo instanceof latte.Absyn.Incr)
@@ -1586,15 +1551,6 @@ public class PrettyPrinter
        sh(_enewarray.expr_);
        render(")");
     }
-    if (foo instanceof latte.Absyn.EArrayElem)
-    {
-       latte.Absyn.EArrayElem _earrayelem = (latte.Absyn.EArrayElem) foo;
-       render("(");
-       render("EArrayElem");
-       sh(_earrayelem.ident_);
-       sh(_earrayelem.expr_);
-       render(")");
-    }
     if (foo instanceof latte.Absyn.ENull)
     {
        latte.Absyn.ENull _enull = (latte.Absyn.ENull) foo;
@@ -1680,6 +1636,24 @@ public class PrettyPrinter
        render("(");
        render("EString");
        sh(_estring.string_);
+       render(")");
+    }
+    if (foo instanceof latte.Absyn.EArrayElem)
+    {
+       latte.Absyn.EArrayElem _earrayelem = (latte.Absyn.EArrayElem) foo;
+       render("(");
+       render("EArrayElem");
+       sh(_earrayelem.expr_1);
+       sh(_earrayelem.expr_2);
+       render(")");
+    }
+    if (foo instanceof latte.Absyn.EArrayElemR)
+    {
+       latte.Absyn.EArrayElemR _earrayelemr = (latte.Absyn.EArrayElemR) foo;
+       render("(");
+       render("EArrayElemR");
+       sh(_earrayelemr.ident_);
+       sh(_earrayelemr.expr_);
        render(")");
     }
     if (foo instanceof latte.Absyn.Neg)

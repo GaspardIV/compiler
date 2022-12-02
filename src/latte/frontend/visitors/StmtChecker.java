@@ -28,47 +28,104 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
         return null;
     }
 
+    //
+//
+//    public Void visit(latte.Absyn.Ass p, Environment arg) {
+//        if (arg.getVarType(p.ident_) == null) {
+//            throw new SemanticError.VariableNotDeclared(p.line_num, p.ident_);
+//        }
+//        Type exprType = p.expr_.accept(new ExprChecker(), arg);
+//        Type varType = arg.getVarType(p.ident_);
+//        if (!arg.areTypesEqualRegardingInheritance(exprType, varType)) {
+//            throw new SemanticError.AssingingWrongType(p.line_num, varType, exprType);
+//        }
+//        return null;
+//    }
+//
+//
+//    public Void visit(latte.Absyn.AssArray p, Environment arg) {
+//        Type iType = p.expr_1.accept(new ExprChecker(), arg);
+//        if (!iType.equals(new Int())) {
+//            throw new SemanticError.ArrayIndexHasToBeInteger(p.line_num);
+//        }
+//
+//        Array arrayType = (Array) arg.getVarType(p.ident_);
+//        Type exprType = p.expr_2.accept(new ExprChecker(), arg);
+//
+//        if (!arg.areTypesEqualRegardingInheritance(exprType, arrayType.type_)) {
+//            throw new SemanticError.AssingingWrongType(p.line_num, arrayType, exprType);
+//        }
+//        return null;
+//    }
+//
+//    public Void visit(latte.Absyn.AssField p, Environment arg) {
+//        Type assT = p.expr_2.accept(new ExprChecker(), arg);
+//        try {
+//            Class classExprT = (Class) p.expr_1.accept(new ExprChecker(), arg);
+//            ClField field = ((ClBlk) arg.getClassDef(classExprT.ident_).clblock_).listclmember_.getField(p.ident_);
+//            if (field == null) {
+//                throw new SemanticError.FieldDoesNotExist(p.line_num);
+//            }
+//            if (!arg.areTypesEqualRegardingInheritance(assT, field.type_)) {
+//                throw new SemanticError.AssingingWrongType(p.line_num, field.type_, assT);
+//            }
+//        } catch (ClassCastException e) {
+//            throw new SemanticError(p.line_num, "Field can only be applied to an object.");
+//        }
+//        return null;
+//    }
     public Void visit(latte.Absyn.Ass p, Environment arg) {
-        if (arg.getVarType(p.ident_) == null) {
-            throw new SemanticError.VariableNotDeclared(p.line_num, p.ident_);
-        }
-        Type exprType = p.expr_.accept(new ExprChecker(), arg);
-        Type varType = arg.getVarType(p.ident_);
-        if (!arg.areTypesEqualRegardingInheritance(exprType, varType)) {
-            throw new SemanticError.AssingingWrongType(p.line_num, varType, exprType);
-        }
-        return null;
-    }
-
-
-    public Void visit(latte.Absyn.AssArray p, Environment arg) {
-        Type iType = p.expr_1.accept(new ExprChecker(), arg);
-        if (!iType.equals(new Int())) {
-            throw new SemanticError.ArrayIndexHasToBeInteger(p.line_num);
-        }
-
-        Array arrayType = (Array) arg.getVarType(p.ident_);
         Type exprType = p.expr_2.accept(new ExprChecker(), arg);
-
-        if (!arg.areTypesEqualRegardingInheritance(exprType, arrayType.type_)) {
-            throw new SemanticError.AssingingWrongType(p.line_num, arrayType, exprType);
-        }
-        return null;
-    }
-
-    public Void visit(latte.Absyn.AssField p, Environment arg) {
-        Type assT = p.expr_2.accept(new ExprChecker(), arg);
-        try {
-            Class classExprT = (Class) p.expr_1.accept(new ExprChecker(), arg);
-            ClField field = ((ClBlk) arg.getClassDef(classExprT.ident_).clblock_).listclmember_.getField(p.ident_);
-            if (field == null) {
-                throw new SemanticError.FieldDoesNotExist(p.line_num);
+        if (p.expr_1 instanceof EVar) {
+            EVar eVar = (EVar) p.expr_1;
+            if (arg.getVarType(eVar.ident_) == null) {
+                throw new SemanticError.VariableNotDeclared(p.line_num, eVar.ident_);
             }
-            if (!arg.areTypesEqualRegardingInheritance(assT, field.type_)) {
-                throw new SemanticError.AssingingWrongType(p.line_num, field.type_, assT);
+            Type varType = arg.getVarType(eVar.ident_);
+            if (!arg.areTypesEqualRegardingInheritance(exprType, varType)) {
+                throw new SemanticError.AssingingWrongType(p.line_num, varType, exprType);
             }
-        } catch (ClassCastException e) {
-            throw new SemanticError(p.line_num, "Field can only be applied to an object.");
+        } else if (p.expr_1 instanceof EField) {
+            EField eField = (EField) p.expr_1;
+            try {
+                Class classExprT = (Class) eField.expr_.accept(new ExprChecker(), arg);
+                ClField field = ((ClBlk) arg.getClassDef(classExprT.ident_).clblock_).listclmember_.getField(eField.ident_);
+                if (field == null) {
+                    throw new SemanticError.FieldDoesNotExist(p.line_num);
+                }
+                if (!arg.areTypesEqualRegardingInheritance(exprType, field.type_)) {
+                    throw new SemanticError.AssingingWrongType(p.line_num, field.type_, exprType);
+                }
+            } catch (ClassCastException e) {
+                throw new SemanticError(p.line_num, "Field can only be applied to an object.");
+            }
+        } else if (p.expr_1 instanceof EArrayElem || p.expr_1 instanceof EArrayElemR) {
+            if (p.expr_1 instanceof EArrayElem) {
+                EArrayElem eArrayElem = (EArrayElem) p.expr_1;
+                Type iType = eArrayElem.expr_2.accept(new ExprChecker(), arg);
+                if (!iType.equals(new Int())) {
+                    throw new SemanticError.ArrayIndexHasToBeInteger(p.line_num);
+                }
+                Type arrayType = eArrayElem.expr_1.accept(new ExprChecker(), arg);
+                Array arrayType1 = (Array) arrayType;
+                if (!arg.areTypesEqualRegardingInheritance(exprType, arrayType1.type_)) {
+                    throw new SemanticError.AssingingWrongType(p.line_num, arrayType1.type_, exprType);
+                }
+            } else {
+                EArrayElemR eArrayElemR = (EArrayElemR) p.expr_1;
+                Type iType = eArrayElemR.expr_.accept(new ExprChecker(), arg);
+                if (!iType.equals(new Int())) {
+                    throw new SemanticError.ArrayIndexHasToBeInteger(p.line_num);
+                }
+                Array arrayType = (Array) arg.getVarType(eArrayElemR.ident_);
+                if (!arg.areTypesEqualRegardingInheritance(exprType, arrayType.type_)) {
+                    throw new SemanticError.AssingingWrongType(p.line_num, arrayType.type_, exprType);
+                }
+            }
+
+            return null;
+        } else {
+            throw new SemanticError(p.line_num, "Invalid left side of assignment.");
         }
         return null;
     }
@@ -164,6 +221,7 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
         acceptStmtAddBlockIfNeeded(p.stmt_, arg, new StmtChecker());
         return null;
     }
+
     public void acceptStmtAddBlockIfNeeded(Stmt stmt, Environment arg, StmtChecker stmtChecker) {
         if (stmt instanceof BStmt) {
             stmt.accept(stmtChecker, arg);

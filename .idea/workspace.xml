@@ -5,10 +5,117 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="single if -&gt; block">
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="fix while_body_decl.err">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ListClMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/ListClMember.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/VarDeclChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/VarDeclChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Latte.cf" beforeDir="false" afterPath="$PROJECT_DIR$/Latte.cf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/array_subscript_invalid_type_bool.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/array_subscript_invalid_type_bool.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/array_subscript_invalid_type_int.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/array_subscript_invalid_type_int.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/array_subscript_invalid_type_null.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/array_subscript_invalid_type_null.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/array_subscript_invalid_type_string.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/array_subscript_invalid_type_string.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/array_subscript_invalid_type_void.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/array_subscript_invalid_type_void.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_array_bool.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_array_bool.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_array_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_array_class.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_array_int.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_array_int.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_array_string.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_array_string.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_array_void.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_array_void.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_bool_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_bool_array.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_bool_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_bool_class.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_bool_int.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_bool_int.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_bool_null.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_bool_null.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_bool_string.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_bool_string.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_bool_void.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_bool_void.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_class_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_class_array.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_class_bool.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_class_bool.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_class_class_down.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_class_class_down.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_class_class_side.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_class_class_side.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_class_int.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_class_int.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_class_string.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_class_string.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_class_void.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_class_void.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_int_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_int_array.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_int_bool.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_int_bool.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_int_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_int_class.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_int_null.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_int_null.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_int_string.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_int_string.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_int_void.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_int_void.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_string_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_string_array.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_string_bool.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_string_bool.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_string_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_string_class.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_string_int.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_string_int.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_string_null.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_string_null.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_string_void.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_arr_elem_string_void.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_array_arr_elem_bool.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_array_arr_elem_bool.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_array_arr_elem_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_array_arr_elem_class.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_array_arr_elem_int.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_array_arr_elem_int.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_array_arr_elem_string.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_array_arr_elem_string.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_array_arr_elem_void.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_array_arr_elem_void.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_bool_arr_elem_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_bool_arr_elem_array.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_bool_arr_elem_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_bool_arr_elem_class.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_bool_arr_elem_int.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_bool_arr_elem_int.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_bool_arr_elem_null.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_bool_arr_elem_null.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_bool_arr_elem_string.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_bool_arr_elem_string.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_bool_arr_elem_void.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_bool_arr_elem_void.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_class_arr_elem_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_class_arr_elem_array.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_class_arr_elem_bool.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_class_arr_elem_bool.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_class_arr_elem_class_down.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_class_arr_elem_class_down.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_class_arr_elem_class_side.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_class_arr_elem_class_side.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_class_arr_elem_int.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_class_arr_elem_int.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_class_arr_elem_string.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_class_arr_elem_string.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_class_arr_elem_void.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_class_arr_elem_void.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_int_arr_elem_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_int_arr_elem_array.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_int_arr_elem_bool.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_int_arr_elem_bool.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_int_arr_elem_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_int_arr_elem_class.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_int_arr_elem_null.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_int_arr_elem_null.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_int_arr_elem_string.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_int_arr_elem_string.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_int_arr_elem_void.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_int_arr_elem_void.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_string_arr_elem_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_string_arr_elem_array.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_string_arr_elem_bool.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_string_arr_elem_bool.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_string_arr_elem_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_string_arr_elem_class.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_string_arr_elem_int.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_string_arr_elem_int.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_string_arr_elem_null.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_string_arr_elem_null.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_string_arr_elem_void.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/assign_field_string_arr_elem_void.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_arr_elem_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_arr_elem_array.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_arr_elem_bool.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_arr_elem_bool.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_arr_elem_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_arr_elem_class.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_arr_elem_string.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_arr_elem_string.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_field_array_arr_elem.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_field_array_arr_elem.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_field_bool_arr_elem.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_field_bool_arr_elem.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_field_class_arr_elem.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_field_class_arr_elem.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_field_string_arr_elem.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/incr_field_string_arr_elem.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_array_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_array_array.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_array_null.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_array_null.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_bool_bool.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_bool_bool.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_class_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_class_class.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_class_class_up.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_class_class_up.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_class_null.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_class_null.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_int_int.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_int_int.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_string_string.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_string_string.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_arr_elem_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_arr_elem_array.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_arr_elem_null.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_arr_elem_null.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_bool_arr_elem_bool.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_bool_arr_elem_bool.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_arr_elem_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_arr_elem_class.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_arr_elem_class_up.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_arr_elem_class_up.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_arr_elem_null.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_arr_elem_null.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_int_arr_elem_int.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_int_arr_elem_int.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_string_arr_elem_string.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_string_arr_elem_string.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/decr_arr_elem_int.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/decr_arr_elem_int.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/decr_field_int_arr_elem.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/decr_field_int_arr_elem.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/destructors.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/destructors.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/incr_arr_elem_int.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/incr_arr_elem_int.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/incr_field_int_arr_elem.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/incr_field_int_arr_elem.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/new_array_subscript.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/new_array_subscript.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/new_array_subscript.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/new_array_subscript.lat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Ass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Ass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/AssArray.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/AssField.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/EArrayElem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/EArrayElem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Expr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Expr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Stmt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Stmt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/StmtChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/StmtChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/parser/PrettyPrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/parser/PrettyPrinter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/parser/Yylex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/parser/Yylex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/parser/parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/parser/parser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,8 +272,8 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/latte/parser" />
       <recent name="$PROJECT_DIR$/src/latte/Absyn" />
+      <recent name="$PROJECT_DIR$/src/latte/parser" />
       <recent name="$PROJECT_DIR$/third_party" />
       <recent name="$PROJECT_DIR$/bnfc/Java" />
       <recent name="$PROJECT_DIR$/lattests/good/classic" />
@@ -214,7 +321,7 @@
     <configuration name="Test" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="latte.Compiler" />
       <module name="compiler" />
-      <option name="PROGRAM_PARAMETERS" value="lattests/extensions/objects1/counter.lat" />
+      <option name="PROGRAM_PARAMETERS" value="lattests/good/arrays/array_read.lat" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="latte.parser.*" />
@@ -248,21 +355,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BadVarqoxTests.testif_else_context_04" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GoodVarqoxgoodTest.testNew_Array_Subscript" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="BadVarqoxTests" />
-      <option name="METHOD_NAME" value="testif_else_context_04" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GoodGr5Test.testMergesort" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="compiler" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GoodGr5Test" />
-      <option name="METHOD_NAME" value="testMergesort" />
+      <option name="MAIN_CLASS_NAME" value="GoodVarqoxgoodTest" />
+      <option name="METHOD_NAME" value="testNew_Array_Subscript" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -287,6 +384,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="recompile_BNFC_java" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="recompile_BNFC_java" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
     <configuration name="Unnamed" type="ShConfigurationType" nameIsGenerated="true">
       <option name="SCRIPT_TEXT" value="" />
       <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
@@ -307,20 +410,20 @@
       <item itemvalue="Application.Test mytest" />
       <item itemvalue="Application.Test" />
       <item itemvalue="JUnit.All in compiler" />
-      <item itemvalue="JUnit.BadVarqoxTests.testif_else_context_04" />
+      <item itemvalue="JUnit.GoodVarqoxgoodTest.testNew_Array_Subscript" />
       <item itemvalue="JUnit.TestsIDontWantToPassTest" />
       <item itemvalue="JUnit.TestsIDontWantToPassTest.testSemanticVariableWithVoidType" />
-      <item itemvalue="JUnit.GoodGr5Test.testMergesort" />
       <item itemvalue="JUnit.All in compiler OVERWRITE" />
+      <item itemvalue="Makefile Target.recompile_BNFC_java" />
       <item itemvalue="Shell Script.Unnamed" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in compiler OVERWRITE" />
+        <item itemvalue="Makefile Target.recompile_BNFC_java" />
+        <item itemvalue="JUnit.GoodVarqoxgoodTest.testNew_Array_Subscript" />
         <item itemvalue="JUnit.TestsIDontWantToPassTest.testSemanticVariableWithVoidType" />
         <item itemvalue="JUnit.TestsIDontWantToPassTest" />
-        <item itemvalue="JUnit.BadVarqoxTests.testif_else_context_04" />
-        <item itemvalue="JUnit.GoodGr5Test.testMergesort" />
       </list>
     </recent_temporary>
   </component>
@@ -352,7 +455,8 @@
       <workItem from="1669245391948" duration="8746000" />
       <workItem from="1669586124515" duration="607000" />
       <workItem from="1669832824674" duration="16989000" />
-      <workItem from="1669983695128" duration="2697000" />
+      <workItem from="1669983695128" duration="11211000" />
+      <workItem from="1670000305679" duration="13915000" />
     </task>
     <task id="LOCAL-00001" summary="aaaaaa">
       <created>1638444396764</created>
@@ -620,7 +724,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669986935324</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="fix while_body_decl.err">
+      <created>1669988453428</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1669988453428</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -686,7 +797,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Rearange tests" />
     <MESSAGE value="Add error function handling + global functions cannot be overridden." />
     <MESSAGE value="Tests passes." />
     <MESSAGE value="Tests passes - but not semantic yet." />
@@ -711,7 +821,8 @@
     <MESSAGE value="Void arguments in method/function/field definition + almost working variable already declared" />
     <MESSAGE value="variable_with_void_type.err" />
     <MESSAGE value="single if -&gt; block" />
-    <option name="LAST_COMMIT_MESSAGE" value="single if -&gt; block" />
+    <MESSAGE value="fix while_body_decl.err" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix while_body_decl.err" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -723,7 +834,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java</url>
-          <line>192</line>
+          <line>206</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
