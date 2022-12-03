@@ -30,6 +30,17 @@ public abstract class TopDefsChecker {
         }
 
         private void addFunctionDef(FnDef p, Environment arg) {
+            if (p.type_ instanceof Array && ((Array) p.type_).type_ instanceof latte.Absyn.Void) {
+                throw new SemanticError.ArrayOfVoid(p.line_num);
+            }
+
+            if (p.type_ instanceof Array && ((Array) p.type_).type_ instanceof latte.Absyn.Class) {
+                String className = ((latte.Absyn.Class) ((Array) p.type_).type_).ident_;
+                if (arg.getClassDef(className) == null) {
+                    throw new SemanticError.ClassNotDeclared(p.line_num, className);
+                }
+            }
+
             arg.addFunction(p.ident_, p);
         }
 

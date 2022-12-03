@@ -2,15 +2,10 @@
 
 package latte.Absyn;
 
-import latte.errors.SemanticError;
-
 public class Array  extends Type {
   public final Type type_;
   public int line_num, col_num, offset;
   public Array(Type p1) { type_ = p1;
-    if (type_ instanceof Void) {
-      throw new SemanticError.ArrayOfVoid(line_num);
-    }
   }
 
   public <R,A> R accept(latte.Absyn.Type.Visitor<R,A> v, A arg) { return v.visit(this, arg); }

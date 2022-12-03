@@ -22,6 +22,8 @@ public class Null extends Type {
 
     @Override
     public <R, A> R accept(Visitor<R, A> v, A arg) {
-        return v.visit(this, arg);
+//        return v.visit(this, arg);
+
+        return null;
     }
 }

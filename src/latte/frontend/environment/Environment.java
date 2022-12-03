@@ -105,12 +105,23 @@ public class Environment {
                 throw new SemanticError.ClassNotDeclared(line_num, typeClass.ident_);
             }
         }
-        contexts.getLast().addVarDef(ident_, type_);
-//        addVariable(ident_, type_);
+        if (type_ instanceof latte.Absyn.Array) {
+            latte.Absyn.Array typeArray = (latte.Absyn.Array) type_;
+            if (typeArray.type_ instanceof Void) {
+                throw new SemanticError.ArrayOfVoid(line_num);
+            }
+            if (typeArray.type_ instanceof Class) {
+                Class classType = (Class) typeArray.type_;
+                if (getClassDef(classType.ident_) == null) {
+                    throw new SemanticError(line_num, "Class " + classType.ident_ + " is not defined.");
+                }
+            }
+        }
+        addVariable(ident_, type_);
     }
-//    public void addVariable(String ident_, Type type_) {
-//        contexts.getLast().addVarDef(ident_, type_);
-//    }
+    private void addVariable(String ident_, Type type_) {
+        contexts.getLast().addVarDef(ident_, type_);
+    }
 
     public boolean currentContextContainsVar(String ident_) {
         return contexts.getLast().getVarType(ident_) != null;
@@ -176,7 +187,4 @@ public class Environment {
         return AMightExtendsB.equals(B);
     }
 
-    public boolean isFunctionInCurrentContext(String ident_) {
-        return contexts.getLast().getFunctionDef(ident_) != null;
-    }
 }

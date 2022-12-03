@@ -12,6 +12,13 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
         if (!size.equals(new Int())) {
             throw new SemanticError(p.line_num, "Size has to be an Integer.");
         }
+
+        if (p.type_ instanceof Class) {
+            Class classType = (Class) p.type_;
+            if (arg.getClassDef(classType.ident_) == null) {
+                throw new SemanticError(p.line_num, "Class " + classType.ident_ + " is not defined.");
+            }
+        }
         return new Array(p.type_);
     }
 

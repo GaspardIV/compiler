@@ -5,35 +5,38 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="60 tests failed only !!!">
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/test_tescik.lat" afterDir="false" />
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="57 faialed fixed last year issues.">
+      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/test_tescik.err" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/bad/classic/bad003.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/classic/bad003.err" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/bad/classic/bad007.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/classic/bad007.err" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/bad/my_tests/test.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/my_tests/test.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/semantic/function_with_void_argument.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/semantic/function_with_void_argument.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_with_nonexistent_class_type.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_with_nonexistent_class_type.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_void_field.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_void_field.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/func_arg_of_nonexistent_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/func_arg_of_nonexistent_class.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/func_arg_of_type_void.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/func_arg_of_type_void.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefines_base_class_field.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefines_base_class_field.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefinition.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefinition.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefinition_other_decl.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefinition_other_decl.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefinition_single_decl.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefinition_single_decl.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_with_nonexistent_class_array_type.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_with_nonexistent_class_array_type.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_void_array_field.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_void_array_field.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/field_shadowing.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/field_shadowing.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/func_arg_of_nonexistent_class_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/func_arg_of_nonexistent_class_array.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/func_arg_of_type_void_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/func_arg_of_type_void_array.err" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/func_args_same_name.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/func_args_same_name.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/method_arg_of_nonexistent_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/method_arg_of_nonexistent_class.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/method_arg_of_type_void.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/method_arg_of_type_void.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/func_return_type_of_nonexistent_class_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/func_return_type_of_nonexistent_class_array.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/method_arg_of_nonexistent_class_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/method_arg_of_nonexistent_class_array.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/method_arg_of_type_void_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/method_arg_of_type_void_array.err" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/method_args_same_name.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/method_args_same_name.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/undefined_class_decl.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/undefined_class_decl.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/new_array_undefined_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/new_array_undefined_class.err" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/var_decl_init_shadows_other_decl.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/var_decl_init_shadows_other_decl.err" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/var_decl_init_shadows_same_decl.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/var_decl_init_shadows_same_decl.err" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/var_decl_noinit_shadows_other_decl.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/var_decl_noinit_shadows_other_decl.err" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/var_decl_noinit_shadows_same_decl.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/var_decl_noinit_shadows_same_decl.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/method_shadows_builtin_function.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/method_shadows_builtin_function.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/method_shadows_global_function.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/method_shadows_global_function.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/errors/SemanticError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/errors/SemanticError.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/void_arr_return_type.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/void_arr_return_type.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Array.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Array.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Null.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Null.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Absyn/Type.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/frontend/environment/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/environment/Environment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/StmtChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/StmtChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/TopDefsChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/TopDefsChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/VarDeclChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/VarDeclChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/GoodMyTestsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/GoodMyTestsTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -273,11 +276,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="BadVarqoxTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="compiler" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="BadVarqoxTests" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BadVarqoxTests.testclass_field_with_nonexistent_class_type" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="BadVarqoxTests" />
       <option name="METHOD_NAME" value="testclass_field_with_nonexistent_class_type" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BadVarqoxTests.testfield_shadowing" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="compiler" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="BadVarqoxTests" />
+      <option name="METHOD_NAME" value="testfield_shadowing" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -292,22 +315,6 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
-    </configuration>
-    <configuration name="GoodMyTestsTest.testTest_Tescik" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="compiler" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GoodMyTestsTest" />
-      <option name="METHOD_NAME" value="testTest_Tescik" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="recompile_BNFC_java" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
-      <makefile filename="$PROJECT_DIR$/Makefile" target="recompile_BNFC_java" workingDirectory="" arguments="">
-        <envs />
-      </makefile>
-      <method v="2" />
     </configuration>
     <configuration name="Unnamed" type="ShConfigurationType" nameIsGenerated="true">
       <option name="SCRIPT_TEXT" value="" />
@@ -329,20 +336,20 @@
       <item itemvalue="Application.Test mytest" />
       <item itemvalue="Application.Test" />
       <item itemvalue="JUnit.All in compiler" />
+      <item itemvalue="JUnit.BadVarqoxTests" />
       <item itemvalue="JUnit.BadVarqoxTests.testclass_field_with_nonexistent_class_type" />
+      <item itemvalue="JUnit.BadVarqoxTests.testfield_shadowing" />
       <item itemvalue="JUnit.GoodMyTestsTest" />
-      <item itemvalue="JUnit.GoodMyTestsTest.testTest_Tescik" />
       <item itemvalue="JUnit.All in compiler OVERWRITE" />
-      <item itemvalue="Makefile Target.recompile_BNFC_java" />
       <item itemvalue="Shell Script.Unnamed" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.GoodMyTestsTest" />
         <item itemvalue="JUnit.All in compiler OVERWRITE" />
+        <item itemvalue="JUnit.BadVarqoxTests.testfield_shadowing" />
+        <item itemvalue="JUnit.BadVarqoxTests" />
+        <item itemvalue="JUnit.GoodMyTestsTest" />
         <item itemvalue="JUnit.BadVarqoxTests.testclass_field_with_nonexistent_class_type" />
-        <item itemvalue="JUnit.GoodMyTestsTest.testTest_Tescik" />
-        <item itemvalue="Makefile Target.recompile_BNFC_java" />
       </list>
     </recent_temporary>
   </component>
@@ -657,7 +664,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670026606217</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="57 faialed fixed last year issues.">
+      <created>1670041056774</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1670041056774</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -723,7 +737,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Tests passes." />
     <MESSAGE value="Tests passes - but not semantic yet." />
     <MESSAGE value="readme" />
     <MESSAGE value="budowanie z gramatyki cd" />
@@ -748,7 +761,8 @@
     <MESSAGE value="single if -&gt; block" />
     <MESSAGE value="fix while_body_decl.err" />
     <MESSAGE value="60 tests failed only !!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="60 tests failed only !!!" />
+    <MESSAGE value="57 faialed fixed last year issues." />
+    <option name="LAST_COMMIT_MESSAGE" value="57 faialed fixed last year issues." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -760,7 +774,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java</url>
-          <line>206</line>
+          <line>213</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>

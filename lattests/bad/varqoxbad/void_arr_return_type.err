@@ -1,4 +1,4 @@
 ERROR
-Parser error at line: 2, at offset: 42.
-Error with parsing "foo() {}":
+
+Semantic error at line 2 :
      Array of void is not allowed.

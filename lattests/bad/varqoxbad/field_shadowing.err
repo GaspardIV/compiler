@@ -1,4 +1,4 @@
 ERROR
 
-Semantic error at line 3 :
-     Field 'x' already declared in current context.
+Semantic error at line 11 :
+     Array of void is not allowed.

@@ -1,7 +1,4 @@
 ERROR
-Parser error at line: 3, at offset: 62.
-Error with parsing "x) {}
-}
 
-i":
+Semantic error at line 3 :
      Array of void is not allowed.
