@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 5 :
-     Operator '&&' cannot be applied to types 'latte.Absyn.Int@25array' and 'latte.Absyn.Class@59'.
+     Operator '&&' cannot be applied to types 'Array' and 'Y'.

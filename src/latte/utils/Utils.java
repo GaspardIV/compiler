@@ -2,6 +2,7 @@ package latte.utils;
 
 import latte.Absyn.Array;
 import latte.Absyn.Bool;
+import latte.Absyn.Type;
 
 public class Utils {
     //equalsT
@@ -11,42 +12,23 @@ public class Utils {
         return o1 instanceof Array && o2 instanceof Array;
     }
 
-    public static String toString(Array t) {
-        return t.type_ + "array";
+    public static String toString(Type actual) {
+        if (actual instanceof Array) {
+            return "Array";
+        } else if (actual instanceof Bool) {
+            return "Bool";
+        } else if (actual instanceof latte.Absyn.Int) {
+            return "Int";
+        } else if (actual instanceof latte.Absyn.Str) {
+            return "String";
+        } else if (actual instanceof latte.Absyn.Void) {
+            return "Void";
+        } else if (actual instanceof latte.Absyn.Class) {
+            return ((latte.Absyn.Class) actual).ident_;
+        } else if (actual instanceof latte.Absyn.Null) {
+            return "Null";
+        }
+
+        throw new RuntimeException("not implemented ????");
     }
-
-    public static String toString(Bool t) {
-        return "Bool";
-    }
-
-    public static String toString(latte.Absyn.Class t) {
-        return t.ident_ + "class";
-    }
-
-    //int to string
-    public static String toString(latte.Absyn.Int t) {
-        return "Int";
-    }
-    //string to string
-    public static String toString(latte.Absyn.Str t) {
-        return "String";
-    }
-    //void to string
-    public static String toString(latte.Absyn.Void t) {
-        return "Void";
-    }
-
-    // plus to string
-    public static String toString(latte.Absyn.Plus t) {
-        return "+";
-    }
-    // minus to string
-    public static String toString(latte.Absyn.Minus t) {
-        return "-";
-    }
-
-
-
-
-
 }

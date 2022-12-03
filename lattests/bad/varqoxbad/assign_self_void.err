@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 6 :
-     Assigning 'latte.Absyn.Void@25' to 'latte.Absyn.Class@273c92' variable.
+     Assigning 'Void' to 'TEST' variable.

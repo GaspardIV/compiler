@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 3 :
-     1 argument type does not match. Got 'latte.Absyn.Int@25array', but 'latte.Absyn.Class@58' was expected.
+     1 argument type does not match. Got 'Array', but 'X' was expected.

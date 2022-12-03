@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 5 :
-     Assigning 'latte.Absyn.Str@25' to 'latte.Absyn.Class@59' variable.
+     Assigning 'String' to 'Y' variable.

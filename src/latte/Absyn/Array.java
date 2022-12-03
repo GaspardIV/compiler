@@ -5,8 +5,7 @@ package latte.Absyn;
 public class Array  extends Type {
   public final Type type_;
   public int line_num, col_num, offset;
-  public Array(Type p1) { type_ = p1;
-  }
+  public Array(Type p1) { type_ = p1; }
 
   public <R,A> R accept(latte.Absyn.Type.Visitor<R,A> v, A arg) { return v.visit(this, arg); }
 
@@ -18,17 +17,10 @@ public class Array  extends Type {
     }
     return false;
   }
-  public boolean equalsT(java.lang.Object o) {
-    if (this == o) return true;
-    return o instanceof Array;
-  }
 
   public int hashCode() {
     return this.type_.hashCode();
   }
 
-  @Override
-  public String toString() {
-    return type_ + "array";
-  }
+
 }

@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 3 :
-     1 argument type does not match. Got 'latte.Absyn.Void@25', but 'latte.Absyn.Class@58' was expected.
+     1 argument type does not match. Got 'Void', but 'X' was expected.

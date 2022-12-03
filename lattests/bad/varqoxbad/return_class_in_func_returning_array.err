@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 4 :
-     Wrong return type. Got 'latte.Absyn.Class@59', but 'latte.Absyn.Int@25array' was expected.
+     Wrong return type. Got 'Y', but 'Array' was expected.

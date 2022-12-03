@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 4 :
-     Cannot compare 'latte.Absyn.Str@25' and 'latte.Absyn.Void@25'.
+     Cannot compare 'String' and 'Void'.

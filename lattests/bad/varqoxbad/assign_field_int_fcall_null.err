@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 8 :
-     Assigning 'Null' to 'latte.Absyn.Int@25' variable.
+     Assigning 'Null' to 'Int' variable.

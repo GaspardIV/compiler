@@ -1,6 +1,7 @@
 package latte.errors;
 
 import latte.Absyn.Type;
+import latte.utils.Utils;
 
 public class SemanticError extends RuntimeException {
     private final int lineNum;
@@ -70,7 +71,7 @@ public class SemanticError extends RuntimeException {
 
     public static class WrongReturnType extends SemanticError {
         public WrongReturnType(int line_num, Type expected, Type actual) {
-            super(line_num, "Wrong return type. Got '" + actual + "', but '" + expected + "' was expected.");
+            super(line_num, "Wrong return type. Got '" + Utils.toString(actual) + "', but '" + Utils.toString(expected) + "' was expected.");
         }
     }
 
@@ -94,31 +95,31 @@ public class SemanticError extends RuntimeException {
 
     public static class OperatorCannotBeAppliedToTypes extends SemanticError {
         public OperatorCannotBeAppliedToTypes(int line_num, String s, Type t1, Type t2) {
-            super(line_num, "Operator '" + s + "' cannot be applied to types '" + t1 + "' and '" + t2 + "'.");
+            super(line_num, "Operator '" + s + "' cannot be applied to types '" + Utils.toString(t1) + "' and '" + Utils.toString(t2) + "'.");
         }
     }
 
     public static class OperatorCannotBeAppliedToType extends SemanticError {
         public OperatorCannotBeAppliedToType(int line_num, String s, Type t) {
-            super(line_num, "Operator '" + s + "' cannot be applied to type '" + t + "'.");
+            super(line_num, "Operator '" + s + "' cannot be applied to type '" + Utils.toString(t) + "'.");
         }
     }
 
     public static class RelOperatorCannotBeAppliedToTypes extends SemanticError {
         public RelOperatorCannotBeAppliedToTypes(int line_num, Type t1, Type t2) {
-            super(line_num, "Cannot compare '" + t1 + "' and '" + t2 + "'.");
+            super(line_num, "Cannot compare '" + Utils.toString(t1) + "' and '" + Utils.toString(t2) + "'.");
         }
     }
 
     public static class ArgTypesDoesNotMatch extends SemanticError {
         public ArgTypesDoesNotMatch(int line_num, int i, Type expected, Type argT) {
-            super(line_num, "" + i + " argument type does not match. Got '" + argT + "', but '" + expected + "' was expected.");
+            super(line_num, "" + i + " argument type does not match. Got '" + Utils.toString(argT) + "', but '" + Utils.toString(expected) + "' was expected.");
         }
     }
 
     public static class AssingingWrongType extends SemanticError {
         public AssingingWrongType(int line_num, Type expected, Type actual) {
-            super(line_num, "Assigning '" + actual + "' to '" + expected + "' variable.");
+            super(line_num, "Assigning '" + Utils.toString(actual) + "' to '" + Utils.toString(expected) + "' variable.");
         }
     }
 

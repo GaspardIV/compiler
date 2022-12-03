@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 3 :
-     Operator '||' cannot be applied to types 'latte.Absyn.Bool@25' and 'latte.Absyn.Int@25array'.
+     Operator '||' cannot be applied to types 'Bool' and 'Array'.

@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 3 :
-     Wrong return type. Got 'latte.Absyn.Bool@25', but 'latte.Absyn.Void@25' was expected.
+     Wrong return type. Got 'Bool', but 'Void' was expected.

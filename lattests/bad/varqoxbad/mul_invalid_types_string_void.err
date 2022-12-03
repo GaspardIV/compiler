@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 5 :
-     Operator '*' cannot be applied to types 'latte.Absyn.Str@25' and 'latte.Absyn.Void@25'.
+     Operator '*' cannot be applied to types 'String' and 'Void'.

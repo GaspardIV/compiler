@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 2 :
-     Wrong return type. Got 'latte.Absyn.Str@25', but 'latte.Absyn.Int@25array' was expected.
+     Wrong return type. Got 'String', but 'Array' was expected.

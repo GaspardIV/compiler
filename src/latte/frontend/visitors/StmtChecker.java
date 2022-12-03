@@ -104,17 +104,9 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
             throw new SemanticError.DecrementingNonLValue(p.line_num);
         }
         if (!exprType.equals(new Int())) {
-            throw new SemanticError.OperatorCannotBeAppliedToType(p.line_num, toString(p), exprType);
+            throw new SemanticError.OperatorCannotBeAppliedToType(p.line_num, "--", exprType);
         }
         return null;
-    }
-
-    private String toString(Decr p) {
-        return "--";
-    }
-
-    private String toString(Incr p) {
-        return "++";
     }
 
 

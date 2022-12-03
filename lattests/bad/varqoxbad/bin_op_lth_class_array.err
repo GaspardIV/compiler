@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 5 :
-     Cannot compare 'latte.Absyn.Class@59' and 'latte.Absyn.Int@25array'.
+     Cannot compare 'Y' and 'Array'.

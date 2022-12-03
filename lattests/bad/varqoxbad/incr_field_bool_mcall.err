@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 10 :
-     Operator '++' cannot be applied to type 'latte.Absyn.Bool@25'.
+     Operator '++' cannot be applied to type 'Bool'.
