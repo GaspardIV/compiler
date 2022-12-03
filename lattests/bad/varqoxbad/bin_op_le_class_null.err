@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 5 :
-     Cannot compare 'Yclass' and 'Null'.
+     Cannot compare 'latte.Absyn.Class@59' and 'Null'.

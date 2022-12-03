@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 5 :
-     1 argument type does not match. Got 'Xclass', but 'Bool' was expected.
+     1 argument type does not match. Got 'latte.Absyn.Class@58', but 'latte.Absyn.Bool@25' was expected.

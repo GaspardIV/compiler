@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 3 :
-     Wrong return type. Got 'Intarray', but 'Void' was expected.
+     Wrong return type. Got 'latte.Absyn.Int@25array', but 'latte.Absyn.Void@25' was expected.

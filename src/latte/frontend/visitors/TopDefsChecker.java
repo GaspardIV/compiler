@@ -83,7 +83,7 @@ public abstract class TopDefsChecker {
         public Void visit(ClDef p, Environment environment) {
             environment.addNewContext("class_" + p.ident_);
             environment.addVariableWithErrorCheck("self", new latte.Absyn.Class(p.ident_), p.line_num);
-            environment.getClassDef(p.ident_).clblock_.accept(new ClBlockInitFieldsInEnvironmentVisitor(), environment);
+            environment.getClassDef(p.ident_).classDef.clblock_.accept(new ClBlockInitFieldsInEnvironmentVisitor(), environment);
             p.clblock_.accept(new ClBlockTypeCheckVisitor(), environment);
             environment.popContext();
             return null;
@@ -92,7 +92,7 @@ public abstract class TopDefsChecker {
         public Void visit(ClDefExt p, Environment environment) {
             environment.addNewContext("class_" + p.ident_1);
             environment.addVariableWithErrorCheck("self", new latte.Absyn.Class(p.ident_1), p.line_num);
-            environment.getClassDef(p.ident_1).clblock_.accept(new ClBlockInitFieldsInEnvironmentVisitor(), environment);
+            environment.getClassDef(p.ident_1).classDef.clblock_.accept(new ClBlockInitFieldsInEnvironmentVisitor(), environment);
             p.clblock_.accept(new ClBlockTypeCheckVisitor(), environment);
             environment.popContext();
             return null;

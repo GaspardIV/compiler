@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 6 :
-     Cannot compare 'Xclassarray' and 'Yclassarray'.
+     Cannot compare 'latte.Absyn.Class@58array' and 'latte.Absyn.Class@59array'.

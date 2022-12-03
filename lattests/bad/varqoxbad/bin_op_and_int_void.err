@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 4 :
-     Operator '&&' cannot be applied to types 'Int' and 'Void'.
+     Operator '&&' cannot be applied to types 'latte.Absyn.Int@25' and 'latte.Absyn.Void@25'.

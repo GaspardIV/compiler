@@ -7,6 +7,8 @@ public abstract class Expr implements java.io.Serializable {
   public interface Visitor <R,A> {
     public R visit(latte.Absyn.ENewArray p, A arg);
     public R visit(latte.Absyn.EArrayElem p, A arg);
+    public R visit(latte.Absyn.EArrayElemR p, A arg);
+    public R visit(latte.Absyn.ENullArr p, A arg);
     public R visit(latte.Absyn.ENull p, A arg);
     public R visit(latte.Absyn.ENil p, A arg);
     public R visit(latte.Absyn.ENew p, A arg);
@@ -26,9 +28,6 @@ public abstract class Expr implements java.io.Serializable {
     public R visit(latte.Absyn.EAnd p, A arg);
     public R visit(latte.Absyn.EOr p, A arg);
 
-      R visit(EArrayElemR eArrayElemR, A arg);
-
-      R visit(ENullArr eNullArr, A arg);
   }
 
 }

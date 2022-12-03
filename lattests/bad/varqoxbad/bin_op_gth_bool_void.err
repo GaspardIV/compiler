@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 4 :
-     Cannot compare 'Bool' and 'Void'.
+     Cannot compare 'latte.Absyn.Bool@25' and 'latte.Absyn.Void@25'.

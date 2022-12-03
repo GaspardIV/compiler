@@ -20,8 +20,5 @@ public class Str  extends Type {
     return 37;
   }
 
-  @Override
-  public String toString() {
-    return "Str";
-  }
+
 }

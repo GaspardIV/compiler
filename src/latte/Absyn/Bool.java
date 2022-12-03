@@ -4,19 +4,16 @@ package latte.Absyn;
 
 public class Bool  extends Type {
   public int line_num, col_num, offset;
-  public boolean isLitTrue = false, isLitFalse = false;
   public Bool() { }
 
   public <R,A> R accept(latte.Absyn.Type.Visitor<R,A> v, A arg) { return v.visit(this, arg); }
 
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;
-      return o instanceof Bool;
-  }
-
-  @Override
-  public String toString() {
-    return "Bool";
+    if (o instanceof latte.Absyn.Bool) {
+      return true;
+    }
+    return false;
   }
 
   public int hashCode() {

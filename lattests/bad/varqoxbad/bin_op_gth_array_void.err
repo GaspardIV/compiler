@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 4 :
-     Cannot compare 'Intarray' and 'Void'.
+     Cannot compare 'latte.Absyn.Int@25array' and 'latte.Absyn.Void@25'.

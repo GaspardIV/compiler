@@ -8,7 +8,6 @@ public abstract class ClMember implements java.io.Serializable {
     public R visit(latte.Absyn.ClFields p, A arg);
     public R visit(latte.Absyn.ClMethod p, A arg);
 
-    R visit(ClField clField, A arg);
   }
 
 }

@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 5 :
-     Operator '||' cannot be applied to types 'Null' and 'Yclass'.
+     Operator '||' cannot be applied to types 'Null' and 'latte.Absyn.Class@59'.

@@ -28,52 +28,6 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
         return null;
     }
 
-    //
-//
-//    public Void visit(latte.Absyn.Ass p, Environment arg) {
-//        if (arg.getVarType(p.ident_) == null) {
-//            throw new SemanticError.VariableNotDeclared(p.line_num, p.ident_);
-//        }
-//        Type exprType = p.expr_.accept(new ExprChecker(), arg);
-//        Type varType = arg.getVarType(p.ident_);
-//        if (!arg.areTypesEqualRegardingInheritance(exprType, varType)) {
-//            throw new SemanticError.AssingingWrongType(p.line_num, varType, exprType);
-//        }
-//        return null;
-//    }
-//
-//
-//    public Void visit(latte.Absyn.AssArray p, Environment arg) {
-//        Type iType = p.expr_1.accept(new ExprChecker(), arg);
-//        if (!iType.equals(new Int())) {
-//            throw new SemanticError.ArrayIndexHasToBeInteger(p.line_num);
-//        }
-//
-//        Array arrayType = (Array) arg.getVarType(p.ident_);
-//        Type exprType = p.expr_2.accept(new ExprChecker(), arg);
-//
-//        if (!arg.areTypesEqualRegardingInheritance(exprType, arrayType.type_)) {
-//            throw new SemanticError.AssingingWrongType(p.line_num, arrayType, exprType);
-//        }
-//        return null;
-//    }
-//
-//    public Void visit(latte.Absyn.AssField p, Environment arg) {
-//        Type assT = p.expr_2.accept(new ExprChecker(), arg);
-//        try {
-//            Class classExprT = (Class) p.expr_1.accept(new ExprChecker(), arg);
-//            ClField field = ((ClBlk) arg.getClassDef(classExprT.ident_).clblock_).listclmember_.getField(p.ident_);
-//            if (field == null) {
-//                throw new SemanticError.FieldDoesNotExist(p.line_num);
-//            }
-//            if (!arg.areTypesEqualRegardingInheritance(assT, field.type_)) {
-//                throw new SemanticError.AssingingWrongType(p.line_num, field.type_, assT);
-//            }
-//        } catch (ClassCastException e) {
-//            throw new SemanticError(p.line_num, "Field can only be applied to an object.");
-//        }
-//        return null;
-//    }
     public Void visit(latte.Absyn.Ass p, Environment arg) {
         Type exprType = p.expr_2.accept(new ExprChecker(), arg);
         if (p.expr_1 instanceof EVar) {
@@ -89,7 +43,8 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
             EField eField = (EField) p.expr_1;
             try {
                 Class classExprT = (Class) eField.expr_.accept(new ExprChecker(), arg);
-                ClField field = ((ClBlk) arg.getClassDef(classExprT.ident_).clblock_).listclmember_.getField(eField.ident_);
+                ClField field = arg.getClassDef(classExprT.ident_).getField(eField.ident_);
+
                 if (field == null) {
                     throw new SemanticError.FieldDoesNotExist(p.line_num);
                 }
@@ -97,7 +52,7 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
                     throw new SemanticError.AssingingWrongType(p.line_num, field.type_, exprType);
                 }
             } catch (ClassCastException e) {
-                throw new SemanticError(p.line_num, "Field can only be applied to an object.");
+                throw new SemanticError.FieldCalledOnNonClass(p.line_num);
             }
         } else if (p.expr_1 instanceof EArrayElem || p.expr_1 instanceof EArrayElemR) {
             if (p.expr_1 instanceof EArrayElem) {
@@ -125,15 +80,16 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
 
             return null;
         } else {
-            throw new SemanticError(p.line_num, "Invalid left side of assignment.");
+            throw new SemanticError.AssignmentToNonLValue(p.line_num);
         }
         return null;
     }
 
     public Void visit(latte.Absyn.Incr p, Environment arg) {
         Type exprType = p.expr_.accept(new ExprChecker(), arg);
-        if (!(p.expr_ instanceof EVar) && !(p.expr_ instanceof EField) && !(p.expr_ instanceof EArrayElem)) {
-            throw new SemanticError(p.line_num, "Increment can only be applied to a variable or a field.");
+        if (!(p.expr_ instanceof EVar) && !(p.expr_ instanceof EField) && !(p.expr_ instanceof EArrayElem) && !(p.expr_ instanceof EArrayElemR)) {
+            throw new SemanticError.IncrementingNonLValue(p.line_num);
+
         }
         if (!exprType.equals(new Int())) {
             throw new SemanticError.OperatorCannotBeAppliedToType(p.line_num, "++", exprType);
@@ -143,14 +99,23 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
 
     public Void visit(latte.Absyn.Decr p, Environment arg) {
         Type exprType = p.expr_.accept(new ExprChecker(), arg);
-        if (!(p.expr_ instanceof EVar) && !(p.expr_ instanceof EField) && !(p.expr_ instanceof EArrayElem)) {
-            throw new SemanticError(p.line_num, "Decrement can only be applied to a variable or a field.");
+        if (!(p.expr_ instanceof EVar) && !(p.expr_ instanceof EField) && !(p.expr_ instanceof EArrayElem) && !(p.expr_ instanceof EArrayElemR)) {
+            throw new SemanticError.DecrementingNonLValue(p.line_num);
         }
         if (!exprType.equals(new Int())) {
-            throw new SemanticError.OperatorCannotBeAppliedToType(p.line_num, "--", exprType);
+            throw new SemanticError.OperatorCannotBeAppliedToType(p.line_num, toString(p), exprType);
         }
         return null;
     }
+
+    private String toString(Decr p) {
+        return "--";
+    }
+
+    private String toString(Incr p) {
+        return "++";
+    }
+
 
     public Void visit(latte.Absyn.Ret p, Environment arg) {
         Type retType = p.expr_.accept(new ExprChecker(), arg);
@@ -174,16 +139,15 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
 
     public Void visit(latte.Absyn.Cond p, Environment arg) {
         Type exprType = p.expr_.accept(new ExprChecker(), arg);
-
+        boolean isLitTrue = p.expr_ instanceof ELitTrue;
+        boolean isLitFalse = p.expr_ instanceof ELitFalse;
         if (!exprType.equals(new Bool())) {
             throw new SemanticError.CondHasToBeBoolean(p.line_num);
         }
-
-        Bool cond = (Bool) exprType;
-        if (!cond.isLitFalse) {
+        if (!isLitFalse) {
             Boolean wasReturnBefore = arg.wasReturn();
             acceptStmtAddBlockIfNeeded(p.stmt_, arg, this);
-            if (!cond.isLitTrue) {
+            if (!isLitTrue) {
                 arg.setWasReturn(wasReturnBefore);
             }
         }
@@ -196,18 +160,20 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
             throw new SemanticError.CondHasToBeBoolean(p.line_num);
         }
         Bool cond = (Bool) exprType;
+        boolean isLitTrue = p.expr_ instanceof ELitTrue;
+        boolean isLitFalse = p.expr_ instanceof ELitFalse;
         Boolean wasReturnBefore = arg.wasReturn();
-        if (!cond.isLitFalse) {
+        if (!isLitFalse) {
             arg.setWasReturn(false);
             acceptStmtAddBlockIfNeeded(p.stmt_1, arg, new StmtChecker());
         }
         Boolean wasReturnStmt1 = arg.wasReturn();
-        if (!cond.isLitTrue) {
+        if (!isLitTrue) {
             arg.setWasReturn(false);
             acceptStmtAddBlockIfNeeded(p.stmt_2, arg, new StmtChecker());
         }
         Boolean wasReturnStmt2 = arg.wasReturn();
-        if (!cond.isLitFalse && !cond.isLitTrue) {
+        if (!isLitFalse && !isLitTrue) {
             arg.setWasReturn(wasReturnBefore || (wasReturnStmt1 && wasReturnStmt2));
         }
         return null;
@@ -238,7 +204,7 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
         arg.addNewContext("For");
         Ar iterator = (Ar) p.arg_;
         Type exprType = p.expr_.accept(new ExprChecker(), arg);
-        if (!(new Array(null)).equalsT(exprType)) {
+        if (!(exprType instanceof Array)) {
             throw new SemanticError.ForEachCanBeAppliedToArraysOnly(p.line_num);
         }
 

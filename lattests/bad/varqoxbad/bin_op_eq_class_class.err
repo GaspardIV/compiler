@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 6 :
-     Cannot compare 'Xclass' and 'Yclass'.
+     Cannot compare 'latte.Absyn.Class@58' and 'latte.Absyn.Class@59'.

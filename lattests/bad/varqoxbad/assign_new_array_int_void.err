@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 5 :
-     Invalid left side of assignment.
+     Invalid left side of assignment. Assignment to non-lvalue.

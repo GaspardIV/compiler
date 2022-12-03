@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 4 :
-     Wrong return type. Got 'Str', but 'Yclass' was expected.
+     Wrong return type. Got 'latte.Absyn.Str@25', but 'latte.Absyn.Class@59' was expected.

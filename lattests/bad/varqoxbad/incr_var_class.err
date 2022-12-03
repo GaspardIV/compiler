@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 7 :
-     Operator '++' cannot be applied to type 'Yclass'.
+     Operator '++' cannot be applied to type 'latte.Absyn.Class@59'.

@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 3 :
-     1 argument type does not match. Got 'Strarray', but 'Str' was expected.
+     1 argument type does not match. Got 'latte.Absyn.Str@25array', but 'latte.Absyn.Str@25' was expected.

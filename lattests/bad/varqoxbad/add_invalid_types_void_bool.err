@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 5 :
-     Operator '+' cannot be applied to types 'Void' and 'Bool'.
+     Operator 'latte.Absyn.Plus@25' cannot be applied to types 'latte.Absyn.Void@25' and 'latte.Absyn.Bool@25'.

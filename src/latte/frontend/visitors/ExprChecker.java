@@ -10,13 +10,13 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
     public Type visit(ENewArray p, Environment arg) {
         Type size = p.expr_.accept(new ExprChecker(), arg);
         if (!size.equals(new Int())) {
-            throw new SemanticError(p.line_num, "Size has to be an Integer.");
+            throw new SemanticError.SizeOfArrayMustBeInt(p.line_num);
         }
 
         if (p.type_ instanceof Class) {
             Class classType = (Class) p.type_;
             if (arg.getClassDef(classType.ident_) == null) {
-                throw new SemanticError(p.line_num, "Class " + classType.ident_ + " is not defined.");
+                throw new SemanticError.ClassNotDeclared(p.line_num, classType.ident_);
             }
         }
         return new Array(p.type_);
@@ -25,11 +25,12 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
     public Type visit(EArrayElem p, Environment arg) {
         Type index = p.expr_2.accept(new ExprChecker(), arg);
         if (!index.equals(new Int())) {
-            throw new SemanticError(p.line_num, "Index has to be an Integer.");
+            throw new SemanticError.ArrayIndexMustBeInt(p.line_num);
         }
         Type type = p.expr_1.accept(new ExprChecker(), arg);
         if (!(type instanceof Array)) {
-            throw new SemanticError(p.line_num, "Variable is not an array.");
+            throw new SemanticError.ArrayElementAccessedOnNonArray(p.line_num);
+
         }
         Array arrayType = (Array) type;
         return arrayType.type_;
@@ -46,9 +47,9 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
         ClMethod method;
         try {
             latte.Absyn.Class classExprT = (latte.Absyn.Class) p.expr_.accept(new ExprChecker(), arg);
-            method = ((ClBlk) arg.getClassDef(classExprT.ident_).clblock_).listclmember_.getMethod(p.ident_);
+            method = arg.getClassDef(classExprT.ident_).getMethod(p.ident_);
         } catch (Exception e) {
-            throw new SemanticError(p.line_num, "Method can only be applied to an object.");
+            throw new SemanticError.MethodCalledOnNonClass(p.line_num);
         }
 
         if (method == null) {
@@ -62,17 +63,18 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
         ClField field;
 
         Type exprT = p.expr_.accept(new ExprChecker(), arg);
-        if ((new Array(null)).equalsT(exprT) && arg.buildInArrayFields().containsKey(p.ident_)) {
+
+        if (exprT instanceof Array && arg.buildInArrayFields().containsKey(p.ident_)) {
             return arg.buildInArrayFields().get(p.ident_);
         } else {
             try {
                 latte.Absyn.Class classExprT = (Class) exprT;
-                field = ((ClBlk) arg.getClassDef(classExprT.ident_).clblock_).listclmember_.getField(p.ident_);
+                field = arg.getClassDef(classExprT.ident_).getField(p.ident_);
                 if (field == null) {
                     throw new SemanticError.FieldDoesNotExist(p.line_num);
                 }
             } catch (NullPointerException | ClassCastException e) {
-                throw new SemanticError(p.line_num, "Field operator can only be applied to an object.");
+                throw new SemanticError.FieldCalledOnNonClass(p.line_num);
             }
         }
         return field.type_;
@@ -91,13 +93,11 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
 
     public Type visit(ELitTrue p, Environment arg) {
         Bool res = new Bool();
-        res.isLitTrue = true;
         return res;
     }
 
     public Type visit(ELitFalse p, Environment arg) {
         Bool res = new Bool();
-        res.isLitFalse = true;
         return res;
     }
 
@@ -198,11 +198,11 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
     public Type visit(EArrayElemR p, Environment arg) {
         Type index = p.expr_.accept(new ExprChecker(), arg);
         if (!index.equals(new Int())) {
-            throw new SemanticError(p.line_num, "Index has to be an Integer.");
+            throw new SemanticError.ArrayIndexMustBeInt(p.line_num);
         }
         Type type = arg.getVarType(p.ident_);
         if (!(type instanceof Array)) {
-            throw new SemanticError(p.line_num, "Variable is not an array.");
+            throw new SemanticError.ArrayVariableExpected(p.line_num, p.ident_);
         }
         Array arrayType = (Array) type;
         return arrayType.type_;
@@ -222,7 +222,7 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
         if (type instanceof Class) {
             Class classType = (Class) type;
             if (arg.getClassDef(classType.ident_) == null) {
-                throw new SemanticError(((Class) type).line_num, "Class " + classType.ident_ + " is not defined.");
+                throw new SemanticError.ClassNotDeclared(((Class) type).line_num, classType.ident_);
             }
         }
         if (type instanceof latte.Absyn.Array) {
@@ -233,7 +233,7 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
 
 
     @Override
-    public Type visit(ENull p, Environment arg)  {
+    public Type visit(ENull p, Environment arg) {
         if (arg.getClassDef(p.ident_) == null) {
             throw new SemanticError.ClassDoesNotExist(p.line_num); // todo add class name (ident_)
         }
@@ -248,7 +248,7 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
     /**
      * checks if function or method is correctly called
      */
-    private Type visitFunctionLikeCallExpression(Environment arg, int line_num, String ident_, ListArg listarg_, ListExpr listexpr_, Type type_)  {
+    private Type visitFunctionLikeCallExpression(Environment arg, int line_num, String ident_, ListArg listarg_, ListExpr listexpr_, Type type_) {
 
         if (arg.isFunctionGlobalErrorFunction(ident_)) {
             arg.setWasReturn(true);

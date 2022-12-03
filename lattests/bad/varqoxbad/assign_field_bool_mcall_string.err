@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 10 :
-     Assigning 'Str' to 'Bool' variable.
+     Assigning 'latte.Absyn.Str@25' to 'latte.Absyn.Bool@25' variable.

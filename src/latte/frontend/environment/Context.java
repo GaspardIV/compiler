@@ -2,6 +2,7 @@ package latte.frontend.environment;
 
 import latte.Absyn.ClDefExt;
 import latte.Absyn.FnDef;
+import latte.Absyn.LatteClass;
 import latte.Absyn.Type;
 
 import java.util.HashMap;
@@ -11,7 +12,7 @@ public class Context {
     private final String contextName;
     private final Map<String, Type> varDefs;
     private final Map<String, FnDef> funDefs;
-    private final Map<String, ClDefExt> classdefs;
+    private final Map<String, LatteClass> classdefs;
     private Type expectedReturnType;
     private Boolean wasReturn;
 
@@ -31,12 +32,12 @@ public class Context {
         return funDefs.get(ident_);
     }
 
-    public ClDefExt getClassDef(String ident_) {
+    public LatteClass getClassDef(String ident_) {
         return classdefs.get(ident_);
     }
 
     public void addClassDef(String ident_, ClDefExt p) {
-        classdefs.put(ident_, p);
+        classdefs.put(ident_, new LatteClass(p));
     }
     public void addVarDef(String ident_, Type t) {
         varDefs.put(ident_, t);
@@ -47,7 +48,7 @@ public class Context {
 
     public void initInheristance(Environment avaibleClasses) {
         for (String classIdent:classdefs.keySet()) {
-            ClDefExt i = classdefs.get(classIdent);
+            LatteClass i = classdefs.get(classIdent);
             i.initInheristance(avaibleClasses);
         }
     }

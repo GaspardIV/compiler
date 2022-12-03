@@ -124,7 +124,7 @@ public class SemanticError extends RuntimeException {
 
     public static class ClassNotDeclared extends SemanticError {
         public ClassNotDeclared(int line_num, String ident_) {
-            super(line_num, "Using not declared class '" + ident_ + "'.");
+            super(line_num, "Class '" + ident_ + "' not declared.");
         }
     }
 
@@ -167,6 +167,66 @@ public class SemanticError extends RuntimeException {
     public static class VariableWithVoidType extends SemanticError {
         public VariableWithVoidType(int line_num, String ident_) {
             super(line_num, "Variable '" + ident_ + "' has void type.");
+        }
+    }
+
+    public static class SizeOfArrayMustBeInt extends SemanticError {
+        public SizeOfArrayMustBeInt(int line_num) {
+            super(line_num, "Size of array must be int.");
+        }
+    }
+
+    public static class ArrayIndexMustBeInt extends SemanticError {
+        public ArrayIndexMustBeInt(int line_num) {
+            super(line_num, "Array index must be int.");
+        }
+    }
+
+    public static class ArrayElementAccessedOnNonArray extends SemanticError {
+        public ArrayElementAccessedOnNonArray(int line_num) {
+            super(line_num, "Array element accessed on non-array.");
+        }
+    }
+
+    public static class InheritanceLoop extends SemanticError {
+        public InheritanceLoop(int line_num, String ident_) {
+            super(line_num, "Inheritance loop detected. Class '" + ident_ + "' inherits from itself.");
+        }
+    }
+
+    public static class MethodCalledOnNonClass extends SemanticError {
+        public MethodCalledOnNonClass(int line_num) {
+            super(line_num, "Method called on non-class.");
+        }
+    }
+
+    public static class FieldCalledOnNonClass extends SemanticError {
+        public FieldCalledOnNonClass(int line_num) {
+            super(line_num, "Field called on non-class.");
+        }
+    }
+
+    public static class ArrayVariableExpected extends SemanticError {
+        public ArrayVariableExpected(int line_num, String ident_) {
+            super(line_num, "Array variable expected. '" + ident_ + "' is not an array.");
+        }
+    }
+
+    public static class AssignmentToNonLValue extends SemanticError {
+        public AssignmentToNonLValue(int line_num) {
+            super(line_num, "Invalid left side of assignment. Assignment to non-lvalue.");
+        }
+    }
+
+    public static class IncrementingNonLValue extends SemanticError {
+        public IncrementingNonLValue(int line_num) {
+            super(line_num, "Invalid left side of increment. Incrementing non-lvalue.");
+        }
+    }
+
+    public static class DecrementingNonLValue extends SemanticError {
+        public DecrementingNonLValue(int line_num) {
+            super(line_num, "Invalid left side of decrement. Decrementing non-lvalue.");
         }
     }
 }

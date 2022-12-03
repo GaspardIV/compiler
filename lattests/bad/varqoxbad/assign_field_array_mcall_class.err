@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 12 :
-     Assigning 'Yclass' to 'Intarray' variable.
+     Assigning 'latte.Absyn.Class@59' to 'latte.Absyn.Int@25array' variable.

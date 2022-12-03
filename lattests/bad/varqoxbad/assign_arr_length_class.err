@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 6 :
-     Field can only be applied to an object.
+     Field called on non-class.

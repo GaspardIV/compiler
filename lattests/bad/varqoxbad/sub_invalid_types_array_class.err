@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 6 :
-     Operator '-' cannot be applied to types 'Intarray' and 'Xclass'.
+     Operator 'latte.Absyn.Minus@25' cannot be applied to types 'latte.Absyn.Int@25array' and 'latte.Absyn.Class@58'.

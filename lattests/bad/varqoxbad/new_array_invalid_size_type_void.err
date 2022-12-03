@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 4 :
-     Size has to be an Integer.
+     Size of array must be int.

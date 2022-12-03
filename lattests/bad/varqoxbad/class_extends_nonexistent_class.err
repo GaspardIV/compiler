@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 2 :
-     Class not found
+     Class 'B' not declared.

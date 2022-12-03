@@ -10,12 +10,10 @@ public class Minus  extends AddOp {
 
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;
-      return o instanceof Minus;
-  }
-
-  @Override
-  public String toString() {
-    return "-";
+    if (o instanceof latte.Absyn.Minus) {
+      return true;
+    }
+    return false;
   }
 
   public int hashCode() {

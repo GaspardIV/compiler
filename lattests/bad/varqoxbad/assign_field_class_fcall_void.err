@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 11 :
-     Assigning 'Void' to 'Yclass' variable.
+     Assigning 'latte.Absyn.Void@25' to 'latte.Absyn.Class@59' variable.

@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 4 :
-     Operator '||' cannot be applied to types 'Null' and 'Void'.
+     Operator '||' cannot be applied to types 'Null' and 'latte.Absyn.Void@25'.

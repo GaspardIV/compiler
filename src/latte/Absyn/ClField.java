@@ -8,7 +8,7 @@ public class ClField  extends ClMember {
   public int line_num, col_num, offset;
   public ClField(Type p1, String p2) { type_ = p1; ident_ = p2; }
 
-  public <R,A> R accept(latte.Absyn.ClMember.Visitor<R,A> v, A arg) { return v.visit(this, arg); }
+  public <R,A> R accept(latte.Absyn.ClMember.Visitor<R,A> v, A arg) { throw new RuntimeException("not implemented ????");}
 
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

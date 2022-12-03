@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 4 :
-     Cannot compare 'Void' and 'Null'.
+     Cannot compare 'latte.Absyn.Void@25' and 'Null'.

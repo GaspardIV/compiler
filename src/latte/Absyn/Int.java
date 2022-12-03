@@ -10,12 +10,10 @@ public class Int  extends Type {
 
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;
-      return o instanceof Int;
-  }
-
-  @Override
-  public String toString() {
-    return "Int";
+    if (o instanceof latte.Absyn.Int) {
+      return true;
+    }
+    return false;
   }
 
   public int hashCode() {

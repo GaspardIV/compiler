@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 4 :
-     Assigning 'Int' to 'Void' variable.
+     Assigning 'latte.Absyn.Int@25' to 'latte.Absyn.Void@25' variable.

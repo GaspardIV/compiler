@@ -18,14 +18,9 @@ public class Class  extends Type {
     return false;
   }
 
-    @Override
-    public String toString() {
-        return ident_ + "class";
-    }
-
-    public int hashCode() {
-        return this.ident_.hashCode();
-    }
+  public int hashCode() {
+    return this.ident_.hashCode();
+  }
 
 
 }

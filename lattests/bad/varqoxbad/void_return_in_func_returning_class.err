@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line -1 :
-     Wrong return type. Got 'Void', but 'Yclass' was expected.
+     Wrong return type. Got 'latte.Absyn.Void@25', but 'latte.Absyn.Class@59' was expected.

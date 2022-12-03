@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 3 :
-     1 argument type does not match. Got 'Str', but 'Bool' was expected.
+     1 argument type does not match. Got 'latte.Absyn.Str@25', but 'latte.Absyn.Bool@25' was expected.

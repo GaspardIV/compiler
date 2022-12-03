@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 2 :
-     Using not declared class 'list'.
+     Class 'list' not declared.

@@ -58,7 +58,7 @@ public class Environment {
         contexts.getLast().addFunctionDef(ident_, p);
     }
 
-    public ClDefExt getClassDef(String ident_) {
+    public LatteClass getClassDef(String ident_) {
         for (Iterator<Context> i = contexts.descendingIterator(); i.hasNext(); ) {
             Context context = i.next();
             if (context.getClassDef(ident_) != null) {
@@ -113,7 +113,7 @@ public class Environment {
             if (typeArray.type_ instanceof Class) {
                 Class classType = (Class) typeArray.type_;
                 if (getClassDef(classType.ident_) == null) {
-                    throw new SemanticError(line_num, "Class " + classType.ident_ + " is not defined.");
+                    throw new SemanticError.ClassNotDeclared(line_num, classType.ident_);
                 }
             }
         }
@@ -178,8 +178,8 @@ public class Environment {
             return true;
         }
         if (AMightExtendsB instanceof Class && B instanceof Class) {
-            ClDefExt classA = getClassDef(((Class) AMightExtendsB).ident_);
-            ClDefExt classB = getClassDef(((Class) B).ident_);
+            LatteClass classA = getClassDef(((Class) AMightExtendsB).ident_);
+            LatteClass classB = getClassDef(((Class) B).ident_);
             if (classA == null || classB == null) {
                 return false;
             }
@@ -188,7 +188,7 @@ public class Environment {
                 return true;
             }
 
-            return classA.doesExtends(classB.ident_1);
+            return classA.doesExtends(classB);
         }
         return AMightExtendsB.equals(B);
     }

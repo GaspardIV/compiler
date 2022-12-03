@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 5 :
-     Operator '-' cannot be applied to types 'Strarray' and 'Void'.
+     Operator 'latte.Absyn.Minus@25' cannot be applied to types 'latte.Absyn.Str@25array' and 'latte.Absyn.Void@25'.

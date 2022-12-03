@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 6 :
-     Variable is not an array.
+     Array variable expected. 'x' is not an array.
