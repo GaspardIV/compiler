@@ -1,4 +1,2 @@
-ERROR
-Parser error at line: 6, at offset: 95.
-Error with parsing "[1] = null":
-     Unrecoverable Syntax Error
+OK
+

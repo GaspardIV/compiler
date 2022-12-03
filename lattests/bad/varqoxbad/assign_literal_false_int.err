@@ -1,6 +1,4 @@
 ERROR
-Parser error at line: 4, at offset: 59.
-Error with parsing "= 42;
-}
-in":
-     Unrecoverable Syntax Error
+
+Semantic error at line 4 :
+     Invalid left side of assignment.

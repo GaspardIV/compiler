@@ -1,5 +1,4 @@
 ERROR
-Parser error at line: 9, at offset: 136.
-Error with parsing "= new Y;
-}":
-     Unrecoverable Syntax Error
+
+Semantic error at line 9 :
+     Invalid left side of assignment.

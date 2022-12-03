@@ -1,4 +1,4 @@
 ERROR
-Parser error at line: 4, at offset: 68.
-Error with parsing "[1] = null":
-     Unrecoverable Syntax Error
+
+Semantic error at line 4 :
+     Assigning 'Null' to 'Str' variable.

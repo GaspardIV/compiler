@@ -1,5 +1,4 @@
 ERROR
-Parser error at line: 6, at offset: 91.
-Error with parsing "= null;
-}":
-     Unrecoverable Syntax Error
+
+Semantic error at line 6 :
+     Invalid left side of assignment.

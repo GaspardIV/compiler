@@ -1,4 +1,2 @@
-ERROR
-Parser error at line: 4, at offset: 68.
-Error with parsing "[1] = "";":
-     Unrecoverable Syntax Error
+OK
+

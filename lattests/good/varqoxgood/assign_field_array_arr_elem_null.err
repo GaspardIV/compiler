@@ -1,4 +1,4 @@
 ERROR
-Parser error at line: 7, at offset: 87.
-Error with parsing "[2].fld =":
-     Unrecoverable Syntax Error
+
+Semantic error at line 7 :
+     Assigning 'Null' to 'Intarray' variable.

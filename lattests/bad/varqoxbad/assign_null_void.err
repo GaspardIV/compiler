@@ -1,4 +1,4 @@
 ERROR
-Parser error at line: 5, at offset: 74.
-Error with parsing "= vfunc();":
-     Unrecoverable Syntax Error
+
+Semantic error at line 5 :
+     Invalid left side of assignment.

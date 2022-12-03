@@ -1,5 +1,4 @@
 ERROR
-Parser error at line: 7, at offset: 120.
-Error with parsing "= new Y;
-}":
-     Unrecoverable Syntax Error
+
+Semantic error at line 4 :
+     Wrong return type. Got 'Null', but 'Intarray' was expected.

@@ -905,7 +905,7 @@ public class PrettyPrinter
     {
        latte.Absyn.EMethod _emethod = (latte.Absyn.EMethod) foo;
        if (_i_ > 6) render(_L_PAREN);
-       pp(_emethod.expr_, 7);
+       pp(_emethod.expr_, 6);
        render(".");
        pp(_emethod.ident_, 0);
        render("(");
@@ -917,7 +917,7 @@ public class PrettyPrinter
     {
        latte.Absyn.EField _efield = (latte.Absyn.EField) foo;
        if (_i_ > 6) render(_L_PAREN);
-       pp(_efield.expr_, 7);
+       pp(_efield.expr_, 6);
        render(".");
        pp(_efield.ident_, 0);
        if (_i_ > 6) render(_R_PAREN);
@@ -971,7 +971,7 @@ public class PrettyPrinter
     {
        latte.Absyn.EArrayElem _earrayelem = (latte.Absyn.EArrayElem) foo;
        if (_i_ > 7) render(_L_PAREN);
-       pp(_earrayelem.expr_1, 7);
+       pp(_earrayelem.expr_1, 6);
        render("[");
        pp(_earrayelem.expr_2, 0);
        render("]");

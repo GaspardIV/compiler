@@ -1,4 +1,2 @@
-ERROR
-Parser error at line: 6, at offset: 95.
-Error with parsing "[1] = new":
-     Unrecoverable Syntax Error
+OK
+

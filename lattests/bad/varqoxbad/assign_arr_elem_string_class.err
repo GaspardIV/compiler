@@ -1,4 +1,4 @@
 ERROR
-Parser error at line: 6, at offset: 100.
-Error with parsing "[1] = new":
-     Unrecoverable Syntax Error
+
+Semantic error at line 6 :
+     Assigning 'Yclass' to 'Str' variable.

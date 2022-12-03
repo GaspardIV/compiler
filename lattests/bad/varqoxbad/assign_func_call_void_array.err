@@ -1,4 +1,4 @@
 ERROR
-Parser error at line: 5, at offset: 73.
-Error with parsing "= new int[":
-     Unrecoverable Syntax Error
+
+Semantic error at line 5 :
+     Invalid left side of assignment.

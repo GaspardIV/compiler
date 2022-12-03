@@ -1,4 +1,4 @@
 ERROR
-Parser error at line: 10, at offset: 136.
-Error with parsing "[2].fld =":
-     Unrecoverable Syntax Error
+
+Semantic error at line 10 :
+     Assigning 'Zclass' to 'Yclass' variable.
