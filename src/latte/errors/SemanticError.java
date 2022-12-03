@@ -32,13 +32,6 @@ public class SemanticError extends RuntimeException {
         }
     }
 
-    public static class VariableAlreadyDeclared extends SemanticError {
-        public VariableAlreadyDeclared(int line_num, String ident_) {
-            super(line_num, "Variable '" + ident_ + "' already declared in this scope.");
-
-        }
-    }
-
     public static class VariableNotDeclared extends SemanticError {
         public VariableNotDeclared(int line_num, String ident_) {
             super(line_num, "Variable '" + ident_ + "' not declared in this scope.");
@@ -131,7 +124,7 @@ public class SemanticError extends RuntimeException {
 
     public static class ClassNotDeclared extends SemanticError {
         public ClassNotDeclared(int line_num, String ident_) {
-            super(line_num, "Class '" + ident_ + "' not declared in this scope.");
+            super(line_num, "Using not declared class '" + ident_ + "'.");
         }
     }
 
@@ -159,15 +152,9 @@ public class SemanticError extends RuntimeException {
         }
     }
 
-    public static class VoidArgument extends SemanticError {
-        public VoidArgument(int line_num, String ident_) {
-            super(line_num, "Void argument is not allowed (" + ident_ + ").");
-        }
-    }
-
     public static class FieldAlreadyDeclaredInCurrentContext extends SemanticError {
         public FieldAlreadyDeclaredInCurrentContext(int line_num, String ident_) {
-            super(line_num, "Field '" + ident_ + "' already declared in current context.");
+            super(line_num, "Field '" + ident_ + "' already declared in this scope.");
         }
     }
 

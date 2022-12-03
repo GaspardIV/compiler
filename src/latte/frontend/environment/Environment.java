@@ -3,6 +3,7 @@ package latte.frontend.environment;
 import latte.Absyn.Class;
 import latte.Absyn.Void;
 import latte.Absyn.*;
+import latte.errors.SemanticError;
 
 import java.util.*;
 
@@ -34,6 +35,7 @@ public class Environment {
         buildInArrayFields.put("length", new Int());
     }
 
+    // removed with 57 failed tests commit
     public boolean isFunctionGlobal(String ident) {
         return contexts.getFirst().getFunctionDef(ident) != null;
     }
@@ -90,9 +92,25 @@ public class Environment {
         this.contexts.removeLast();
     }
 
-    public void addVariable(String ident_, Type type_) {
+    public void addVariableWithErrorCheck(String ident_, Type type_, int line_num) {
+        if (this.currentContextContainsVar(ident_)) {
+            throw new SemanticError.FieldAlreadyDeclaredInCurrentContext(line_num, ident_);
+        }
+        if (new Void().equals(type_)) {
+            throw new SemanticError.VariableWithVoidType(line_num, ident_);
+        }
+        if (type_ instanceof latte.Absyn.Class) { // todo dac .equalsT(new Class(null))
+            latte.Absyn.Class typeClass = (latte.Absyn.Class) type_;
+            if (this.getClassDef(typeClass.ident_) == null) {
+                throw new SemanticError.ClassNotDeclared(line_num, typeClass.ident_);
+            }
+        }
         contexts.getLast().addVarDef(ident_, type_);
+//        addVariable(ident_, type_);
     }
+//    public void addVariable(String ident_, Type type_) {
+//        contexts.getLast().addVarDef(ident_, type_);
+//    }
 
     public boolean currentContextContainsVar(String ident_) {
         return contexts.getLast().getVarType(ident_) != null;

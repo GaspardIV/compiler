@@ -1,0 +1,79 @@
+int a() {
+    return 5;
+}
+class A {
+void x () {
+}
+void x () {
+}
+void y() {
+}
+    //list foo;
+}
+
+void hehe(){
+    error();
+}
+
+// int main3(void x) {
+int main3(int x) {
+    error(); // czy to jest błąd?
+    // bool x1;
+    // bool y;
+    boolean z;
+    boolean zz;
+    z == zz;
+    z = false;
+    zz = true;
+    //x1 == y;
+    true == false;
+    //false = true;
+     //true = false; // blad
+     //x1 = y;//blad
+     //x1 = x1;
+   //list x2; // blad
+    //list x3;
+    //list x4;
+    //x2 = null;
+    //x2  = null;
+    //x3 = x2;
+    //x1 = true;
+    //void a; ok
+    // x1 < y;
+    //z < zz;
+    z != zz;
+
+    (new arr[10])[0];
+    string a;
+    string b;
+    a = b;
+    a == b;
+    "a" == "b";
+    a != b;
+
+    // void == true;
+
+    int a1;
+    int b1;
+    5 == 5;
+
+    a1 = b1;
+    a1 == b1;
+    a1 != b1;
+    a1 < b1;
+    a1 > b1;
+    a1 <= b1;
+    a1 >= b1;
+    a1 + b1;
+}
+
+
+int main() {
+    if (a() == 5) {
+        printInt(1);
+        return 0;
+    }
+    else {
+        error();
+    }
+}

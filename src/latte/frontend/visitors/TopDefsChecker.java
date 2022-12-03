@@ -1,13 +1,11 @@
 package latte.frontend.visitors;
 
 import latte.Absyn.*;
-import latte.Absyn.Class;
 import latte.errors.SemanticError;
 import latte.frontend.environment.Environment;
 
 import java.lang.Void;
 import java.util.HashSet;
-import java.util.Set;
 
 public abstract class TopDefsChecker {
     public static class TopDefDeclarationCheckVisitor implements latte.Absyn.TopDef.Visitor<Void, Environment> {
@@ -73,7 +71,7 @@ public abstract class TopDefsChecker {
 
         public Void visit(ClDef p, Environment environment) {
             environment.addNewContext("class_" + p.ident_);
-            environment.addVariable("self", new latte.Absyn.Class(p.ident_));
+            environment.addVariableWithErrorCheck("self", new latte.Absyn.Class(p.ident_), p.line_num);
             environment.getClassDef(p.ident_).clblock_.accept(new ClBlockInitFieldsInEnvironmentVisitor(), environment);
             p.clblock_.accept(new ClBlockTypeCheckVisitor(), environment);
             environment.popContext();
@@ -82,7 +80,7 @@ public abstract class TopDefsChecker {
 
         public Void visit(ClDefExt p, Environment environment) {
             environment.addNewContext("class_" + p.ident_1);
-            environment.addVariable("self", new latte.Absyn.Class(p.ident_1));
+            environment.addVariableWithErrorCheck("self", new latte.Absyn.Class(p.ident_1), p.line_num);
             environment.getClassDef(p.ident_1).clblock_.accept(new ClBlockInitFieldsInEnvironmentVisitor(), environment);
             p.clblock_.accept(new ClBlockTypeCheckVisitor(), environment);
             environment.popContext();
@@ -113,18 +111,14 @@ public abstract class TopDefsChecker {
             if (arg.currentContextContainsVar(p.ident_)) {
                 throw new SemanticError.FieldAlreadyDeclaredInCurrentContext(p.line_num, p.ident_);
             }
-            arg.addVariable(p.ident_, p.type_);
+            arg.addVariableWithErrorCheck(p.ident_, p.type_, p.line_num);
             return null;
         }
 
         @Override
         public Void visit(ClFields p, Environment arg) {
             for (ClFieldItem x : p.listclfielditem_) {
-                ClFieldItemNoInit i = (ClFieldItemNoInit) x;
-                if (arg.currentContextContainsVar(i.ident_)) {
-                    throw new SemanticError.FieldAlreadyDeclaredInCurrentContext(i.line_num, i.ident_);
-                }
-                arg.addVariable(((ClFieldItemNoInit) x).ident_, p.type_);
+                arg.addVariableWithErrorCheck(((ClFieldItemNoInit) x).ident_, p.type_, p.line_num);
             }
             return null;
         }
@@ -132,9 +126,9 @@ public abstract class TopDefsChecker {
         public Void visit(ClMethod p, Environment arg) {
             FnDef fnDef = new FnDef(p.type_, p.ident_, p.listarg_, p.block_);
             fnDef.line_num = p.line_num;
-            if (arg.isFunctionGlobal(p.ident_)) {
-                throw new SemanticError.FunctionAlreadyDeclared(p.line_num, p.ident_);
-            }
+//            if (arg.isFunctionGlobal(p.ident_)) {
+//                throw new SemanticError.FunctionAlreadyDeclared(p.line_num, p.ident_);
+//            }
             arg.addFunction(p.ident_, fnDef);
             return null;
         }
@@ -171,19 +165,7 @@ public abstract class TopDefsChecker {
         environment.addNewContext(ident_);
         for (Arg x : listarg_) {
             Ar arg = (Ar) x;
-            if (environment.currentContextContainsVar(arg.ident_)) {
-                throw new SemanticError.VariableAlreadyDeclared(line_num, arg.ident_);
-            }
-            if (arg.type_ instanceof latte.Absyn.Class) {
-                ClDefExt i = environment.getClassDef(((Class) arg.type_).ident_);
-                if (i == null) {
-                    throw new SemanticError.ClassNotDeclared(line_num, ((Class) arg.type_).ident_);
-                }
-            }
-            if (arg.type_ instanceof latte.Absyn.Void) {
-                throw new SemanticError.VoidArgument(line_num, arg.ident_);
-            }
-            environment.addVariable(arg.ident_, arg.type_);
+            environment.addVariableWithErrorCheck(arg.ident_, arg.type_, arg.line_num);
         }
         environment.setExpectedReturnType(type_);
         block_.accept(new BlockVisitor(), environment);

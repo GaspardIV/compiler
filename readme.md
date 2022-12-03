@@ -129,13 +129,16 @@ Uwagi do frontendu:
 [//]: # (ale proszę to poprawić zgodnie ze specyfikacją.)
 [//]: # (- Wywołanie error&#40;&#41; nie jest traktowane jako poprawne wyjście z)
 [//]: # (  funkcji zwracającej coś innego niż void.)
-- Nie da się porównywać (równość i nierówność) wyrażeń typu bool (i być
-  może innych typów nienumerycznych).
-- Argumenty i typ wyniku funkcji main nie są sprawdzane.
-- Argument funkcji może być typu void a nie powinien.
-- Zmienna może być typu void a nie powinna.
-- W deklaracji zmiennej w wyrażeniu inicjalizującym dopuszczane
-  jest wykorzystanie jej wartości, nawet jeśli nie jest zdefiniowana.
+[//]: # (- Nie da się porównywać &#40;równość i nierówność&#41; wyrażeń typu bool &#40;i być)
+[//]: # (  może innych typów nienumerycznych&#41;.)
+[//]: # ()
+[//]: # (- Argumenty i typ wyniku funkcji main nie są sprawdzane.)
+[//]: # (- Argument funkcji może być typu void a nie powinien.)
+
+[//]: # (- Zmienna może być typu void a nie powinna.)
+
+[//]: # (- W deklaracji zmiennej w wyrażeniu inicjalizującym dopuszczane)
+[//]: # (  jest wykorzystanie jej wartości, nawet jeśli nie jest zdefiniowana.)
 - usunac dead code (if else -> return return -> then wyrzucenie reszty ast i komunikat o nieosiagalnosci kodu)
 - if true if false -> obslugiwac w semantic analyst
 - infinite loop -> obslugiwac w semantic analyst

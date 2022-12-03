@@ -246,7 +246,7 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
         if (!arg.areTypesEqualRegardingInheritance(array.type_, iterator.type_)) {
             throw new SemanticError.AssingingWrongType(p.line_num, iterator.type_, array.type_);
         }
-        arg.addVariable(iterator.ident_, iterator.type_);
+        arg.addVariableWithErrorCheck(iterator.ident_, iterator.type_, p.line_num);
         acceptStmtAddBlockIfNeeded(p.stmt_, arg, new StmtChecker());
         arg.popContext();
         return null;
