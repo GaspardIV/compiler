@@ -1,4 +1,2 @@
-ERROR
-Parser error at line: 8, at offset: 127.
-Error with parsing "int[])null":
-     Unrecoverable Syntax Error
+OK
+

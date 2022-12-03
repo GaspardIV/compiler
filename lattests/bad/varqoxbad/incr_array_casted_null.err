@@ -1,4 +1,4 @@
 ERROR
-Parser error at line: 4, at offset: 55.
-Error with parsing "int[])null":
-     Unrecoverable Syntax Error
+
+Semantic error at line 4 :
+     Increment can only be applied to a variable or a field.

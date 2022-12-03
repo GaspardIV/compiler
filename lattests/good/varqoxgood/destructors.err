@@ -1,4 +1,4 @@
 ERROR
-Parser error at line: 107, at offset: 1355.
-Error with parsing "[])null, l":
-     Unrecoverable Syntax Error
+
+Semantic error at line 248 :
+     Cannot compare 'Str' and 'Str'.

@@ -7,7 +7,7 @@ import latte.errors.SemanticError;
 import latte.frontend.environment.Environment;
 
 public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> {
-    public Type visit(ENewArray p, Environment arg)  {
+    public Type visit(ENewArray p, Environment arg) {
         Type size = p.expr_.accept(new ExprChecker(), arg);
         if (!size.equals(new Int())) {
             throw new SemanticError(p.line_num, "Size has to be an Integer.");
@@ -22,7 +22,7 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
         return new Array(p.type_);
     }
 
-    public Type visit(EArrayElem p, Environment arg)  {
+    public Type visit(EArrayElem p, Environment arg) {
         Type index = p.expr_2.accept(new ExprChecker(), arg);
         if (!index.equals(new Int())) {
             throw new SemanticError(p.line_num, "Index has to be an Integer.");
@@ -35,14 +35,14 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
         return arrayType.type_;
     }
 
-    public Type visit(ENew p, Environment arg)  {
+    public Type visit(ENew p, Environment arg) {
         if (arg.getClassDef(p.ident_) == null) {
             throw new SemanticError.ClassDoesNotExist(p.line_num);
         }
         return new latte.Absyn.Class(p.ident_);
     }
 
-    public Type visit(EMethod p, Environment arg)  {
+    public Type visit(EMethod p, Environment arg) {
         ClMethod method;
         try {
             latte.Absyn.Class classExprT = (latte.Absyn.Class) p.expr_.accept(new ExprChecker(), arg);
@@ -58,7 +58,7 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
         return visitFunctionLikeCallExpression(arg, p.line_num, p.ident_, method.listarg_, p.listexpr_, method.type_);
     }
 
-    public Type visit(EField p, Environment arg)  {
+    public Type visit(EField p, Environment arg) {
         ClField field;
 
         Type exprT = p.expr_.accept(new ExprChecker(), arg);
@@ -78,7 +78,7 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
         return field.type_;
     }
 
-    public Type visit(EVar p, Environment arg)  {
+    public Type visit(EVar p, Environment arg) {
         if (arg.getVarType(p.ident_) == null) {
             throw new SemanticError.VariableNotDeclared(p.line_num, p.ident_);
         }
@@ -101,7 +101,7 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
         return res;
     }
 
-    public Type visit(EApp p, Environment arg)  {
+    public Type visit(EApp p, Environment arg) {
         FnDef fnDef = arg.getFunction(p.ident_);
         if (fnDef == null) {
             throw new SemanticError.FunctionNotDeclaredInThisScope(p.line_num, p.ident_);
@@ -113,7 +113,7 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
         return new Str();
     }
 
-    public Type visit(Neg p, Environment arg)  {
+    public Type visit(Neg p, Environment arg) {
         Type t = p.expr_.accept(new ExprChecker(), arg);
         if (!t.equals(new Int())) {
             throw new SemanticError.OperatorCannotBeAppliedToType(p.line_num, "-", t);
@@ -121,7 +121,7 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
         return new Int();
     }
 
-    public Type visit(Not p, Environment arg)  {
+    public Type visit(Not p, Environment arg) {
         Type t = p.expr_.accept(new ExprChecker(), arg);
         if (!t.equals(new Bool())) {
             throw new SemanticError.OperatorCannotBeAppliedToType(p.line_num, "!", t);
@@ -129,7 +129,7 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
         return new Bool();
     }
 
-    public Type visit(EMul p, Environment arg)  {
+    public Type visit(EMul p, Environment arg) {
         Type t1 = p.expr_1.accept(new ExprChecker(), arg);
         Type t2 = p.expr_2.accept(new ExprChecker(), arg);
         if (!t1.equals(new Int())) {
@@ -141,7 +141,7 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
         return t1;
     }
 
-    public Type visit(EAdd p, Environment arg)  {
+    public Type visit(EAdd p, Environment arg) {
         Type t1 = p.expr_1.accept(new ExprChecker(), arg);
         Type t2 = p.expr_2.accept(new ExprChecker(), arg);
         if (!(t1.equals(new Int()))) {
@@ -155,7 +155,7 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
         return t1;
     }
 
-    public Type visit(ERel p, Environment arg)  {
+    public Type visit(ERel p, Environment arg) {
         Type t1 = p.expr_1.accept(new ExprChecker(), arg);
         Type t2 = p.expr_2.accept(new ExprChecker(), arg);
         if (t1.equals(new Void()) || t2.equals(new Void())) {
@@ -170,7 +170,7 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
         return new Bool();
     }
 
-    public Type visit(EAnd p, Environment arg)  {
+    public Type visit(EAnd p, Environment arg) {
         Type t1 = p.expr_1.accept(new ExprChecker(), arg);
         Type t2 = p.expr_2.accept(new ExprChecker(), arg);
         if (!t1.equals(new Bool())) {
@@ -182,7 +182,7 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
         return new Bool();
     }
 
-    public Type visit(EOr p, Environment arg)  {
+    public Type visit(EOr p, Environment arg) {
         Type t1 = p.expr_1.accept(new ExprChecker(), arg);
         Type t2 = p.expr_2.accept(new ExprChecker(), arg);
         if (!t1.equals(new Bool())) {
@@ -206,6 +206,29 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
         }
         Array arrayType = (Array) type;
         return arrayType.type_;
+    }
+
+    @Override
+    public Type visit(ENullArr eNullArr, Environment arg) {
+        // todo sprawdzac nie tylko plytko ale tez czy jezeil typearr.type.type.type.type jest dobra zmienna
+        checkArrTypeRecur(eNullArr.type_, arg);
+        return new Array(eNullArr.type_);
+    }
+
+    public void checkArrTypeRecur(Type type, Environment arg) {
+        if (type instanceof Void) {
+            throw new SemanticError.ArrayOfVoid(((Void) type).line_num);
+        }
+        if (type instanceof Class) {
+            Class classType = (Class) type;
+            if (arg.getClassDef(classType.ident_) == null) {
+                throw new SemanticError(((Class) type).line_num, "Class " + classType.ident_ + " is not defined.");
+            }
+        }
+        if (type instanceof latte.Absyn.Array) {
+            latte.Absyn.Array typeArray = (latte.Absyn.Array) type;
+            checkArrTypeRecur(typeArray.type_, arg);
+        }
     }
 
 

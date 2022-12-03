@@ -1,4 +1,4 @@
 ERROR
 
-Semantic error at line 3 :
-     Wrong return type. Got 'Null', but 'Intarray' was expected.
+Semantic error at line 7 :
+     Invalid left side of assignment.

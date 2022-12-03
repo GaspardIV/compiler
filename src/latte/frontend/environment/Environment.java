@@ -165,6 +165,12 @@ public class Environment {
     }
 
     public boolean areTypesEqualRegardingInheritance(Type AMightExtendsB, Type B) {
+        if (AMightExtendsB instanceof Null && B instanceof Array) {
+            return true;
+        }
+        if (B instanceof Null && AMightExtendsB instanceof Array) {
+            return true;
+        }
         if (AMightExtendsB instanceof Null && B instanceof Class) {
             return true;
         }

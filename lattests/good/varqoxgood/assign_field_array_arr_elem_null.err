@@ -1,4 +1,2 @@
-ERROR
+OK
 
-Semantic error at line 7 :
-     Assigning 'Null' to 'Intarray' variable.

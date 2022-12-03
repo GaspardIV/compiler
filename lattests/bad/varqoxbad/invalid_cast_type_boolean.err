@@ -1,4 +1,4 @@
 ERROR
-Parser error at line: 3, at offset: 53.
-Error with parsing "boolean)nu":
+Parser error at line: 3, at offset: 60.
+Error with parsing ")null == n":
      Unrecoverable Syntax Error

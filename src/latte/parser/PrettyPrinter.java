@@ -876,6 +876,17 @@ public class PrettyPrinter
        render("]");
        if (_i_ > 6) render(_R_PAREN);
     }
+    else     if (foo instanceof latte.Absyn.ENullArr)
+    {
+       latte.Absyn.ENullArr _enullarr = (latte.Absyn.ENullArr) foo;
+       if (_i_ > 6) render(_L_PAREN);
+       render("(");
+       pp(_enullarr.type_, 0);
+       render("[]");
+       render(")");
+       render("null");
+       if (_i_ > 6) render(_R_PAREN);
+    }
     else     if (foo instanceof latte.Absyn.ENull)
     {
        latte.Absyn.ENull _enull = (latte.Absyn.ENull) foo;
@@ -992,7 +1003,7 @@ public class PrettyPrinter
        latte.Absyn.Neg _neg = (latte.Absyn.Neg) foo;
        if (_i_ > 5) render(_L_PAREN);
        render("-");
-       pp(_neg.expr_, 6);
+       pp(_neg.expr_, 5);
        if (_i_ > 5) render(_R_PAREN);
     }
     else     if (foo instanceof latte.Absyn.Not)
@@ -1000,7 +1011,7 @@ public class PrettyPrinter
        latte.Absyn.Not _not = (latte.Absyn.Not) foo;
        if (_i_ > 5) render(_L_PAREN);
        render("!");
-       pp(_not.expr_, 6);
+       pp(_not.expr_, 5);
        if (_i_ > 5) render(_R_PAREN);
     }
     else     if (foo instanceof latte.Absyn.EMul)
@@ -1549,6 +1560,14 @@ public class PrettyPrinter
        render("ENewArray");
        sh(_enewarray.type_);
        sh(_enewarray.expr_);
+       render(")");
+    }
+    if (foo instanceof latte.Absyn.ENullArr)
+    {
+       latte.Absyn.ENullArr _enullarr = (latte.Absyn.ENullArr) foo;
+       render("(");
+       render("ENullArr");
+       sh(_enullarr.type_);
        render(")");
     }
     if (foo instanceof latte.Absyn.ENull)

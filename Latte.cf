@@ -93,6 +93,8 @@ EArrayElem. Expr7 ::= Expr6 "[" Expr "]";
 
 EArrayElemR. Expr7 ::= Ident "[" Expr "]";
 
+ENullArr.      Expr6 ::= "(" Type "[]" ")" "null" ;
+
 ENull.      Expr6 ::= "(" Ident ")" "null" ;
 
 ENil.       Expr6 ::= "null" ;
@@ -115,9 +117,9 @@ EApp.      Expr6 ::= Ident "(" [Expr] ")" ;
 
 EString.   Expr6 ::= String ;
 
-Neg.       Expr5 ::= "-" Expr6 ;
+Neg.       Expr5 ::= "-" Expr5 ;
 
-Not.       Expr5 ::= "!" Expr6 ;
+Not.       Expr5 ::= "!" Expr5 ;
 
 EMul.      Expr4 ::= Expr4 MulOp Expr5 ;
 

@@ -1,4 +1,4 @@
 ERROR
-Parser error at line: 4, at offset: 54.
-Error with parsing "int[])null":
-     Unrecoverable Syntax Error
+
+Semantic error at line 4 :
+     Invalid left side of assignment.
