@@ -2,7 +2,7 @@ package latte.frontend.environment;
 
 import latte.Absyn.ClDefExt;
 import latte.Absyn.FnDef;
-import latte.Absyn.LatteClass;
+import latte.Internal.LatteClass;
 import latte.Absyn.Type;
 
 import java.util.HashMap;

@@ -1,5 +1,6 @@
-package latte.Absyn;
+package latte.Internal;
 
+import latte.Absyn.*;
 import latte.errors.SemanticError;
 import latte.frontend.environment.Environment;
 

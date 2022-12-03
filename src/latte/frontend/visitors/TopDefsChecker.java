@@ -1,6 +1,7 @@
 package latte.frontend.visitors;
 
 import latte.Absyn.*;
+import latte.Internal.ClField;
 import latte.errors.SemanticError;
 import latte.frontend.environment.Environment;
 

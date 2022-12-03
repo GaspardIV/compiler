@@ -3,6 +3,7 @@ package latte.frontend.environment;
 import latte.Absyn.Class;
 import latte.Absyn.Void;
 import latte.Absyn.*;
+import latte.Internal.LatteClass;
 import latte.errors.SemanticError;
 
 import java.util.*;
