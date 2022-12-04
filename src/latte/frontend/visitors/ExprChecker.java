@@ -4,6 +4,7 @@ import latte.Absyn.Class;
 import latte.Absyn.*;
 import latte.Absyn.Void;
 import latte.Internal.ClField;
+import latte.Internal.Null;
 import latte.errors.SemanticError;
 import latte.frontend.environment.Environment;
 
@@ -93,13 +94,11 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
     }
 
     public Type visit(ELitTrue p, Environment arg) {
-        Bool res = new Bool();
-        return res;
+        return new Bool();
     }
 
     public Type visit(ELitFalse p, Environment arg) {
-        Bool res = new Bool();
-        return res;
+        return new Bool();
     }
 
     public Type visit(EApp p, Environment arg) {

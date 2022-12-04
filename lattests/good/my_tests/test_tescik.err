@@ -1,4 +1,4 @@
 ERROR
 
-Semantic error at line 4 :
-     Method 'x' already declared in this scope.
+Semantic error at line 46 :
+     Class 'list' not declared.

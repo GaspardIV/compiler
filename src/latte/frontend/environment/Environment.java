@@ -4,6 +4,7 @@ import latte.Absyn.Class;
 import latte.Absyn.Void;
 import latte.Absyn.*;
 import latte.Internal.LatteClass;
+import latte.Internal.Null;
 import latte.errors.SemanticError;
 
 import java.util.*;
@@ -36,7 +37,6 @@ public class Environment {
         buildInArrayFields.put("length", new Int());
     }
 
-    // removed with 57 failed tests commit
     public boolean isFunctionGlobal(String ident) {
         return contexts.getFirst().getFunctionDef(ident) != null;
     }

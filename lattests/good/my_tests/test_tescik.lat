@@ -4,8 +4,7 @@ int a() {
 class A {
 void x () {
 }
-void x () {
-}
+
 void y() {
 }
     //list foo;
@@ -43,7 +42,8 @@ int main3(int x) {
     //z < zz;
     z != zz;
 
-    (new arr[10])[0];
+    (new int[10])[0];
+    list [] x1;
     string a;
     string b;
     a = b;
