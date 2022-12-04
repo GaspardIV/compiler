@@ -5,11 +5,16 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="lekki refactor">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="zip">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_all.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_void_array_field.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_void_array_field.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/func_arg_of_type_void_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/func_arg_of_type_void_array.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/method_arg_of_type_void_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/method_arg_of_type_void_array.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/Internal/Null.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Internal/Null.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/frontend/environment/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/environment/Environment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/ProgramChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/ProgramChecker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +189,7 @@
       <recent name="bad" />
     </key>
   </component>
-  <component name="RunManager" selected="Makefile Target.zip">
+  <component name="RunManager" selected="JUnit.All in compiler">
     <configuration name="Test core002.lat" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="latte.Compiler" />
       <module name="compiler" />
@@ -303,10 +308,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in compiler OVERWRITE" />
+        <item itemvalue="Makefile Target.all" />
         <item itemvalue="Makefile Target.zip" />
         <item itemvalue="Makefile Target.clean" />
-        <item itemvalue="Makefile Target.all" />
-        <item itemvalue="JUnit.All in compiler OVERWRITE" />
         <item itemvalue="Makefile Target.recompile_BNFC_java" />
       </list>
     </recent_temporary>
@@ -341,7 +346,7 @@
       <workItem from="1669832824674" duration="16989000" />
       <workItem from="1669983695128" duration="11211000" />
       <workItem from="1670000305679" duration="13915000" />
-      <workItem from="1670164684326" duration="3182000" />
+      <workItem from="1670164684326" duration="4701000" />
     </task>
     <task id="LOCAL-00001" summary="aaaaaa">
       <created>1638444396764</created>
@@ -665,7 +670,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670166001982</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="zip">
+      <created>1670168114785</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1670168114785</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -731,7 +743,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="throws exception?" />
     <MESSAGE value="Building from grammar???" />
     <MESSAGE value="All tests generated" />
     <MESSAGE value="160 tests not passed (fix array casting fix null fix self)" />
@@ -756,7 +767,8 @@
     <MESSAGE value="cast null array" />
     <MESSAGE value="building from zero :)" />
     <MESSAGE value="lekki refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="lekki refactor" />
+    <MESSAGE value="zip" />
+    <option name="LAST_COMMIT_MESSAGE" value="zip" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -768,7 +780,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java</url>
-          <line>236</line>
+          <line>215</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

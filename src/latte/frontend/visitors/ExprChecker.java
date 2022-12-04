@@ -15,12 +15,7 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
             throw new SemanticError.SizeOfArrayMustBeInt(p.line_num);
         }
 
-        if (p.type_ instanceof Class) {
-            Class classType = (Class) p.type_;
-            if (arg.getClassDef(classType.ident_) == null) {
-                throw new SemanticError.ClassNotDeclared(p.line_num, classType.ident_);
-            }
-        }
+        arg.checkArrayType(p.type_, p.line_num);
         return new Array(p.type_);
     }
 
@@ -210,26 +205,10 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
 
     @Override
     public Type visit(ENullArr eNullArr, Environment arg) {
-        // todo sprawdzac nie tylko plytko ale tez czy jezeil typearr.type.type.type.type jest dobra zmienna
-        checkArrTypeRecur(eNullArr.type_, arg);
+        arg.checkArrayType(eNullArr.type_, eNullArr.line_num);
         return new Array(eNullArr.type_);
     }
 
-    public void checkArrTypeRecur(Type type, Environment arg) {
-        if (type instanceof Void) {
-            throw new SemanticError.ArrayOfVoid(((Void) type).line_num);
-        }
-        if (type instanceof Class) {
-            Class classType = (Class) type;
-            if (arg.getClassDef(classType.ident_) == null) {
-                throw new SemanticError.ClassNotDeclared(((Class) type).line_num, classType.ident_);
-            }
-        }
-        if (type instanceof latte.Absyn.Array) {
-            latte.Absyn.Array typeArray = (latte.Absyn.Array) type;
-            checkArrTypeRecur(typeArray.type_, arg);
-        }
-    }
 
 
     @Override

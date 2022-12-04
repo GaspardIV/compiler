@@ -10,7 +10,6 @@ import latte.errors.SemanticError;
 import java.util.*;
 
 public class Environment {
-    //    private
     private final Deque<Context> contexts;
 
     public Environment() {
@@ -85,6 +84,7 @@ public class Environment {
     public void addNewContext(String contextName) {
         addContext(new Context(contextName));
     }
+
     private void addContext(Context context) {
         this.contexts.addLast(context);
     }
@@ -108,18 +108,11 @@ public class Environment {
         }
         if (type_ instanceof latte.Absyn.Array) {
             latte.Absyn.Array typeArray = (latte.Absyn.Array) type_;
-            if (typeArray.type_ instanceof Void) {
-                throw new SemanticError.ArrayOfVoid(line_num);
-            }
-            if (typeArray.type_ instanceof Class) {
-                Class classType = (Class) typeArray.type_;
-                if (getClassDef(classType.ident_) == null) {
-                    throw new SemanticError.ClassNotDeclared(line_num, classType.ident_);
-                }
-            }
+            this.checkArrayType(typeArray.type_, line_num);
         }
         addVariable(ident_, type_);
     }
+
     private void addVariable(String ident_, Type type_) {
         contexts.getLast().addVarDef(ident_, type_);
     }
@@ -153,6 +146,7 @@ public class Environment {
     }
 
     private static final HashMap<String, Type> buildInArrayFields = new HashMap<>();
+
     public Map<String, Type> buildInArrayFields() {
         return buildInArrayFields;
     }
@@ -194,4 +188,19 @@ public class Environment {
         return AMightExtendsB.equals(B);
     }
 
+    public void checkArrayType(Type type, int line_num) {
+        if (type instanceof Void) {
+            throw new SemanticError.ArrayOfVoid(line_num);
+        }
+        if (type instanceof Class) {
+            Class classType = (Class) type;
+            if (this.getClassDef(classType.ident_) == null) {
+                throw new SemanticError.ClassNotDeclared(line_num, classType.ident_);
+            }
+        }
+        if (type instanceof latte.Absyn.Array) {
+            latte.Absyn.Array typeArray = (latte.Absyn.Array) type;
+            checkArrayType(typeArray.type_, line_num);
+        }
+    }
 }

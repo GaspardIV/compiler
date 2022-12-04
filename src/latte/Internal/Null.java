@@ -12,7 +12,7 @@ public class Null extends Type {
 
     @Override
     public <R, A> R accept(Visitor<R, A> v, A arg) {
-        return null;
+        throw new RuntimeException("not implemented");
     }
 }
 
