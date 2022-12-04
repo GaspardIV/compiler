@@ -16,13 +16,13 @@ build_compiler:
 	echo "#!/usr/bin/java -jar" > latc
 	cat build/compiler.jar >> latc
 	chmod a+x latc
-	rm -r build > /dev/null 2>/dev/null || true;
+	#rm -r build > /dev/null 2>/dev/null || true;
 
 recompile_BNFC_java:
 	mkdir ${DST_DIR}  > /dev/null 2>/dev/null || true;
 	rm -r build/bnfc-java > /dev/null 2>/dev/null || true;
 	mkdir "build/bnfc-java" > /dev/null 2>/dev/null || true;
-	cd build/bnfc-java && bnfc -m --java --jflex -l ../../Latte.cf && sed  "s/-sourcepath ./-sourcepath . -cp ..\/..\/third_party\/java-cup-11b-runtime.jar/" Makefile | sed "s/java_cup.Main/-cp ..\/..\/third_party\/java-cup-11b.jar java_cup.Main/" | sed "s/jflex/java -jar ..\/..\/third_party\/JFlex.jar/" > Makefile2
+	cd build/bnfc-java && /home/students/inf/PUBLIC/MRJP/bin/bnfc -m --java --jflex -l ../../Latte.cf && sed  "s/-sourcepath ./-sourcepath . -cp ..\/..\/third_party\/java-cup-11b-runtime.jar/" Makefile | sed "s/java_cup.Main/-cp ..\/..\/third_party\/java-cup-11b.jar java_cup.Main/" | sed "s/jflex/java -jar ..\/..\/third_party\/JFlex.jar/" > Makefile2
 	cp build/bnfc-java/Makefile2 build/bnfc-java/Makefile && rm build/bnfc-java/Makefile2
 	cd build/bnfc-java && make
 	#for f in ./build/bnfc-java/latte/Absyn/*.java; do [[ -f "./src/latte/Absyn/$$(basename $$f)" ]] || cp "$$f" "./src/latte/Absyn/$$(basename $$f)"; done
@@ -37,3 +37,9 @@ cleanBuild : clean all
 clean :
 	rm latc > /dev/null 2>/dev/null || true;
 	rm -r build > /dev/null 2>/dev/null || true;
+	rm -r src/latte/Absyn/*.java > /dev/null 2>/dev/null || true;
+	rm -r src/latte/parser/*.java > /dev/null 2>/dev/null || true;
+	rm latte_kk385785.tgz > /dev/null 2>/dev/null || true;
+
+zip : clean
+	tar -czf latte_kk385785.tgz src/ Makefile Latte.cf readme.md third_party/

@@ -5,106 +5,11 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="building from zero :)">
-      <change afterPath="$PROJECT_DIR$/src/latte/Internal/Null.java" afterDir="false" />
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="lekki refactor">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test_tescik.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test_tescik.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test_tescik.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test_tescik.lat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/AddOp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Ar.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Arg.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Array.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Ass.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/BStmt.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Blk.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Block.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Bool.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ClBlk.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ClBlock.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ClDef.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ClDefExt.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ClFieldItem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ClFieldItemNoInit.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ClFields.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ClMember.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ClMethod.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Class.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Cond.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/CondElse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Decl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Decr.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Div.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/EAdd.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/EAnd.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/EApp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/EArrayElem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/EArrayElemR.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/EField.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ELitFalse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ELitInt.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ELitTrue.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/EMethod.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/EMul.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ENew.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ENewArray.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ENil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ENull.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ENullArr.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/EOr.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/EQU.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ERel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/EString.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/EVar.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Empty.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Expr.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/FnDef.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/For.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/GE.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/GTH.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Incr.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Init.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Int.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Item.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/LE.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/LTH.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ListArg.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ListClFieldItem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ListClMember.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ListExpr.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ListItem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ListStmt.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ListTopDef.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/ListType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Minus.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Mod.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/MulOp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/NE.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Neg.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/NoInit.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Not.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Null.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Plus.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Prog.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Program.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/RelOp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Ret.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/SExp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Stmt.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Str.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Times.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/TopDef.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Type.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/VRet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/Void.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Absyn/While.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/frontend/environment/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/environment/Environment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/TypeChecker.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/parser/PrettyPrinter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/parser/Yylex.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/parser/parser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/parser/sym.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/utils/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_all.sh" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,6 +92,7 @@
     <option name="height" value="1020" />
   </component>
   <component name="ProjectId" id="21VQu59zHbxHF5rsyTpufLE9QRw" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -278,7 +184,7 @@
       <recent name="bad" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in compiler">
+  <component name="RunManager" selected="Makefile Target.zip">
     <configuration name="Test core002.lat" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="latte.Compiler" />
       <module name="compiler" />
@@ -344,38 +250,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BadVarqoxTests.testfield_shadowing" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="compiler" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="BadVarqoxTests" />
-      <option name="METHOD_NAME" value="testfield_shadowing" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="all" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="all" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
     </configuration>
-    <configuration name="BadVarqoxTests.testvoid_return_in_func_returning_bool" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="compiler" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="BadVarqoxTests" />
-      <option name="METHOD_NAME" value="testvoid_return_in_func_returning_bool" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GoodMyTestsTest.testTest_Tescik" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="compiler" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GoodMyTestsTest" />
-      <option name="METHOD_NAME" value="testTest_Tescik" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="clean" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="clean" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
     </configuration>
     <configuration name="recompile_BNFC_java" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
       <makefile filename="$PROJECT_DIR$/Makefile" target="recompile_BNFC_java" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
+    <configuration name="zip" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="zip" workingDirectory="" arguments="">
         <envs />
       </makefile>
       <method v="2" />
@@ -400,20 +294,20 @@
       <item itemvalue="Application.Test mytest" />
       <item itemvalue="Application.Test" />
       <item itemvalue="JUnit.All in compiler" />
-      <item itemvalue="JUnit.GoodMyTestsTest.testTest_Tescik" />
-      <item itemvalue="JUnit.BadVarqoxTests.testvoid_return_in_func_returning_bool" />
-      <item itemvalue="JUnit.BadVarqoxTests.testfield_shadowing" />
       <item itemvalue="JUnit.All in compiler OVERWRITE" />
+      <item itemvalue="Makefile Target.all" />
+      <item itemvalue="Makefile Target.clean" />
+      <item itemvalue="Makefile Target.zip" />
       <item itemvalue="Makefile Target.recompile_BNFC_java" />
       <item itemvalue="Shell Script.Unnamed" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Makefile Target.zip" />
+        <item itemvalue="Makefile Target.clean" />
+        <item itemvalue="Makefile Target.all" />
         <item itemvalue="JUnit.All in compiler OVERWRITE" />
         <item itemvalue="Makefile Target.recompile_BNFC_java" />
-        <item itemvalue="JUnit.GoodMyTestsTest.testTest_Tescik" />
-        <item itemvalue="JUnit.BadVarqoxTests.testvoid_return_in_func_returning_bool" />
-        <item itemvalue="JUnit.BadVarqoxTests.testfield_shadowing" />
       </list>
     </recent_temporary>
   </component>
@@ -447,7 +341,7 @@
       <workItem from="1669832824674" duration="16989000" />
       <workItem from="1669983695128" duration="11211000" />
       <workItem from="1670000305679" duration="13915000" />
-      <workItem from="1670164684326" duration="1114000" />
+      <workItem from="1670164684326" duration="3182000" />
     </task>
     <task id="LOCAL-00001" summary="aaaaaa">
       <created>1638444396764</created>
@@ -764,7 +658,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670095831529</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="lekki refactor">
+      <created>1670166001982</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1670166001982</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -830,7 +731,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="budowanie z gramatyki cd" />
     <MESSAGE value="throws exception?" />
     <MESSAGE value="Building from grammar???" />
     <MESSAGE value="All tests generated" />
@@ -855,7 +755,8 @@
     <MESSAGE value="57 faialed fixed last year issues." />
     <MESSAGE value="cast null array" />
     <MESSAGE value="building from zero :)" />
-    <option name="LAST_COMMIT_MESSAGE" value="building from zero :)" />
+    <MESSAGE value="lekki refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="lekki refactor" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -867,7 +768,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java</url>
-          <line>238</line>
+          <line>236</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
