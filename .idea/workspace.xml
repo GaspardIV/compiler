@@ -5,9 +5,9 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="fix array of arrays type">
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="readme">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +182,7 @@
       <recent name="bad" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in compiler">
+  <component name="RunManager" selected="Makefile Target.recompile_BNFC_java">
     <configuration name="Test core002.lat" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="latte.Compiler" />
       <module name="compiler" />
@@ -225,19 +225,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in compiler OVERWRITE" type="JUnit" factoryName="JUnit" temporary="true">
-      <module name="compiler" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <envs>
-        <env name="overwrite" value="1" />
-      </envs>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="All in compiler" type="JUnit" factoryName="JUnit">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
@@ -248,14 +235,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="all" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
-      <makefile filename="$PROJECT_DIR$/Makefile" target="all" workingDirectory="" arguments="">
+    <configuration name="clean" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="clean" workingDirectory="" arguments="">
         <envs />
       </makefile>
       <method v="2" />
     </configuration>
-    <configuration name="clean" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
-      <makefile filename="$PROJECT_DIR$/Makefile" target="clean" workingDirectory="" arguments="">
+    <configuration name="cleanBuild" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="cleanBuild" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
+    <configuration name="printBNFC" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="printBNFC" workingDirectory="" arguments="">
         <envs />
       </makefile>
       <method v="2" />
@@ -292,8 +285,8 @@
       <item itemvalue="Application.Test mytest" />
       <item itemvalue="Application.Test" />
       <item itemvalue="JUnit.All in compiler" />
-      <item itemvalue="JUnit.All in compiler OVERWRITE" />
-      <item itemvalue="Makefile Target.all" />
+      <item itemvalue="Makefile Target.cleanBuild" />
+      <item itemvalue="Makefile Target.printBNFC" />
       <item itemvalue="Makefile Target.clean" />
       <item itemvalue="Makefile Target.zip" />
       <item itemvalue="Makefile Target.recompile_BNFC_java" />
@@ -301,11 +294,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in compiler OVERWRITE" />
-        <item itemvalue="Makefile Target.all" />
-        <item itemvalue="Makefile Target.zip" />
-        <item itemvalue="Makefile Target.clean" />
         <item itemvalue="Makefile Target.recompile_BNFC_java" />
+        <item itemvalue="Makefile Target.printBNFC" />
+        <item itemvalue="Makefile Target.cleanBuild" />
+        <item itemvalue="Makefile Target.clean" />
+        <item itemvalue="Makefile Target.zip" />
       </list>
     </recent_temporary>
   </component>
@@ -339,7 +332,8 @@
       <workItem from="1669832824674" duration="16989000" />
       <workItem from="1669983695128" duration="11211000" />
       <workItem from="1670000305679" duration="13915000" />
-      <workItem from="1670164684326" duration="6087000" />
+      <workItem from="1670164684326" duration="9998000" />
+      <workItem from="1670539371686" duration="3414000" />
     </task>
     <task id="LOCAL-00001" summary="aaaaaa">
       <created>1638444396764</created>
@@ -677,7 +671,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670169507642</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="readme">
+      <created>1670170909241</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1670170909241</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -743,7 +744,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="All tests generated" />
     <MESSAGE value="160 tests not passed (fix array casting fix null fix self)" />
     <MESSAGE value="check method_arg_of_nonexistent_class + comparing void etc... + inheristance +" />
     <MESSAGE value="add missing err files of not passing tests" />
@@ -768,7 +768,8 @@
     <MESSAGE value="lekki refactor" />
     <MESSAGE value="zip" />
     <MESSAGE value="fix array of arrays type" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix array of arrays type" />
+    <MESSAGE value="readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="readme" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

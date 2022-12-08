@@ -4,6 +4,8 @@ JAVA_CUP_PATH=third_party/${JAVA_CUP}
 SOURCE_DIR=src
 DST_DIR=build
 JAVA=java
+BNFC_HOME=bnfc
+BNFC_STUDENTS=/home/students/inf/PUBLIC/MRJP/bin/bnfc
 
 all: recompile_BNFC_java build_compiler
 
@@ -22,10 +24,12 @@ recompile_BNFC_java:
 	mkdir ${DST_DIR}  > /dev/null 2>/dev/null || true;
 	rm -r build/bnfc-java > /dev/null 2>/dev/null || true;
 	mkdir "build/bnfc-java" > /dev/null 2>/dev/null || true;
-	cd build/bnfc-java && /home/students/inf/PUBLIC/MRJP/bin/bnfc -m --java --jflex -l ../../Latte.cf && sed  "s/-sourcepath ./-sourcepath . -cp ..\/..\/third_party\/java-cup-11b-runtime.jar/" Makefile | sed "s/java_cup.Main/-cp ..\/..\/third_party\/java-cup-11b.jar java_cup.Main/" | sed "s/jflex/java -jar ..\/..\/third_party\/JFlex.jar/" > Makefile2
+	# bnfc = bnfc_home if exists, bnfc_students otherwise
+	bnfc_working=$$(${BNFC_HOME} --version > /dev/null 2>/dev/null && echo ${BNFC_HOME} || echo ${BNFC_STUDENTS}) ;\
+	echo "Using $$bnfc_working" ;\
+	cd build/bnfc-java && $${bnfc_working} -m --java --jflex -l ../../Latte.cf && sed  "s/-sourcepath ./-sourcepath . -cp ..\/..\/third_party\/java-cup-11b-runtime.jar/" Makefile | sed "s/java_cup.Main/-cp ..\/..\/third_party\/java-cup-11b.jar java_cup.Main/" | sed "s/jflex/java -jar ..\/..\/third_party\/JFlex.jar/" > Makefile2
 	cp build/bnfc-java/Makefile2 build/bnfc-java/Makefile && rm build/bnfc-java/Makefile2
 	cd build/bnfc-java && make
-	#for f in ./build/bnfc-java/latte/Absyn/*.java; do [[ -f "./src/latte/Absyn/$$(basename $$f)" ]] || cp "$$f" "./src/latte/Absyn/$$(basename $$f)"; done
 	for f in ./build/bnfc-java/latte/Absyn/*.java; do cp "$$f" "./src/latte/Absyn/$$(basename $$f)"; done
 	sed  "s/package latte;/package latte.parser;/" ./build/bnfc-java/latte/parser.java | sed  "s/report_error/\/\/report_error/" > ./src/latte/parser/parser.java
 	sed  "s/package latte;/package latte.parser;/" ./build/bnfc-java/latte/Yylex.java > ./src/latte/parser/Yylex.java
