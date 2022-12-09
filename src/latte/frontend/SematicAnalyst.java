@@ -5,9 +5,9 @@ import latte.frontend.environment.Environment;
 import latte.frontend.visitors.ProgramChecker;
 
 public class SematicAnalyst {
-    public void checkTypes(Program ast)  {
+    public latte.backend.program.Program checkTypes(Program ast)  {
         Environment environment = new Environment();
         ProgramChecker programVisitor = new ProgramChecker();
-        ast.accept(programVisitor, environment);
+        return ast.accept(programVisitor, environment);
     }
 }

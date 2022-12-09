@@ -14,7 +14,7 @@ build_compiler:
 	cp ${JAVA_CUP_PATH} ${DST_DIR};
 	${JAVAC} src/latte/Compiler.java -sourcepath ${SOURCE_DIR} -cp ${JAVA_CUP_PATH} -d ${DST_DIR}
 	echo "Main-Class: latte.Compiler" > ${DST_DIR}/manifest.mf
-	cd ${DST_DIR} && jar xvf ${JAVA_CUP} java_cup > /dev/null && jar cfm compiler.jar manifest.mf latte java_cup && cd ..
+	cd ${DST_DIR} && jar xvf ${JAVA_CUP} java_cup > /dev/null && jar cfm compiler.jar manifest.mf llvm.template latte java_cup && cd ..
 	echo "#!/usr/bin/java -jar" > latc
 	cat build/compiler.jar >> latc
 	chmod a+x latc

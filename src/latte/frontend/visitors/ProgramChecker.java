@@ -3,14 +3,29 @@ package latte.frontend.visitors;
 import latte.Absyn.FnDef;
 import latte.Absyn.Int;
 import latte.Absyn.Prog;
+import latte.backend.program.Program;
+import latte.backend.program.global.Global;
 import latte.errors.SemanticError;
 import latte.frontend.environment.Environment;
+import latte.frontend.visitors.programvisitors.ProgramVisitor;
 
-public class ProgramChecker implements latte.Absyn.Program.Visitor<Void, Environment> {
-    public Void visit(Prog p, Environment arg) {
+import java.util.ArrayList;
+import java.util.List;
+
+public class ProgramChecker implements latte.Absyn.Program.Visitor<Program, Environment> {
+    public Program visit(Prog p, Environment arg) {
         createGlobalContext(p, arg);
         checkTopDefs(p, arg);
-        return null;
+        return createProgram(p, arg);
+    }
+
+    private Program createProgram(Prog p, Environment arg) {
+        Program program = new Program();
+        ProgramVisitor programVisitor = new ProgramVisitor(arg);
+        for (latte.Absyn.TopDef x : p.listtopdef_) {
+            x.accept(programVisitor, program);
+        }
+        return program;
     }
 
     private void createGlobalContext(Prog p, Environment arg) {

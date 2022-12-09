@@ -28,4 +28,11 @@ Frontend uwzglednia rozszerzenia: tablice, klasy + dziedziczenie + wirtualne met
 Nie zdążyłem zaimplementować  sugerowanych przez Panią Doktor następujących optymalizacji, wykonam je w kolejnej wersji kompilatora:
 - Usnuniecie martwego kodu
 - zwijanie stalych i wyrazen logicznych
+
+Zaporzyczenia:
+Niektóre funkcje runtime (readInt, printInt, printString) są wzięte z pliku `runtime.ll` z katalogu `/home/students/inf/PUBLIC/MRJP/Llvm`.
 ````
+
+
+todo:
+- choice w template - jak nie korzystamy z danej builtin to usuwamy z template

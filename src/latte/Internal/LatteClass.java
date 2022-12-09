@@ -4,9 +4,7 @@ import latte.Absyn.*;
 import latte.errors.SemanticError;
 import latte.frontend.environment.Environment;
 
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 public class LatteClass {
     public ClDefExt classDef;
