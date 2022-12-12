@@ -19,16 +19,32 @@ public class Program {
     public void addFunction(String name, Type type, ListArg arguments, ListStmt statements) {
         List<Variable> variablesFromArguments = arguments.stream().map(arg -> new Variable(((Ar)arg).ident_, ((Ar)arg).type_, global)).collect(Collectors.toList());
         List<Block> blocksFromStatements = new ArrayList<>();
+        Function function = new Function(name, type, variablesFromArguments, blocksFromStatements, global);
+        global.add(function);
+        Block block = new Block("entry", function);
         for(latte.Absyn.Stmt stmt : statements) {
-            if (stmt instanceof Cond) {
-//                blocksFromStatements.add(new Block(((ifStmt)stmt).expr_, ((ifStmt)stmt).stmt_));
+            if (shouldCreateNewBlock(stmt)) {
+                // moge tez dla kazdego statementa najpierw zobic blok po prrostu xd a pozniej kazde dwa obok siebie probuje mergowac zachlannie
+//                w kazdym bloku mozna trzymac tez pierwotnie zmienne nie w postai ssa , ale ppzniej przeksztaltcic je do SSA podczas mergownaia
+                blocksFromStatements.add(block);
+                block = new Block("block" + blocksFromStatements.size(), block);
             }
+            block.addStatement(stmt);
+        }
+        blocksFromStatements.add(block);
+        function.setStatements(blocksFromStatements);
+//        global.add(new Function(name, type, variablesFromArguments, blocksFromStatements, global));
+
+//            if (stmt instanceof Cond) {
+//                blocksFromStatements.add(new Block(((ifStmt)stmt).expr_, ((ifStmt)stmt).stmt_));
+//            }
 //            blocksFromStatements.add(new Block(stmt));
         }
-//        statements.stream().map(stmt -> new Block(stmt, global)).collect(Collectors.toList());
-//       // todo merge statements to blocks (create graph of blocks)
-        global.add(new Function(name, type, variablesFromArguments, blocksFromStatements, global));
+
+    private boolean shouldCreateNewBlock(Stmt stmt) {
+        return stmt instanceof Cond || stmt instanceof While || stmt instanceof For || stmt instanceof SExp || stmt instanceof Ret || stmt instanceof VRet || stmt instanceof CondElse;
     }
+//        statements.stream().map(stmt -> new Block(stmt, global)).collect(Collectors.toList());
 
     public Global getGlobal() {
         return global;

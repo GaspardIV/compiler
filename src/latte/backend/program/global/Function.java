@@ -12,6 +12,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Function extends Scope {
+    public void setStatements(List<Block> statements) {
+        this.statements = statements;
+    }
+
     List<Block> statements = new ArrayList<>();
     List<Variable> arguments;
     Type type;
@@ -28,7 +32,7 @@ public class Function extends Scope {
 
     @Override
     public String toString() {
-        String body = statements.toString();
+        String body = statements.stream().map(Block::toString).collect(Collectors.joining("\n"));
         String argsStr = String.join("", arguments.stream().map((Variable v) -> (Utils.toLLVMString(v.type) + " %" + v.contextName)).collect(Collectors.toList()));
         return MessageFormat.format("\ndefine {0} @{1}({2}) '{' \n{3}\n'}'\n", Utils.toLLVMString(type), this.contextName, argsStr, body);
     }

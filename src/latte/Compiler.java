@@ -31,6 +31,10 @@ public class Compiler {
         }
         p = new parser(l, l.getSymbolFactory());
     }
+    public Compiler(String input) {
+        l = new Yylex(new java.io.StringReader(input));
+        p = new parser(l, l.getSymbolFactory());
+    }
 
     public latte.Absyn.Program parse() throws Exception {
         return p.pProgram();
@@ -41,7 +45,7 @@ public class Compiler {
         t.compile();
     }
 
-    private void compile() {
+    public void compile() {
         Program ast;
         try {
             ast = this.parse();
