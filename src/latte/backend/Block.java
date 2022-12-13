@@ -2,6 +2,8 @@ package latte.backend;
 
 import latte.Absyn.Stmt;
 import latte.backend.program.global.Scope;
+import latte.frontend.environment.Environment;
+import latte.frontend.visitors.programvisitors.StatementVisitor;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -12,18 +14,25 @@ public class Block extends Scope {
     List<Block> successors;
     List<Stmt> statements;
 
+//    Environment environment;
+
+//    public Block(String contextName, Scope parent, Environment environment) {
     public Block(String contextName, Scope parent) {
         super(contextName, parent);
         successors= new ArrayList<>();
         predecessors = new ArrayList<>();
         statements = new ArrayList<>();
+//        this.environment = environment;
     }
 
     @Override
     public String toString() {
-        return MessageFormat.format("{0}: ; {1} {2} \n\n" +
+        StatementVisitor statementVisitor = new StatementVisitor(/*environment*/);
+        StringBuilder stringBuilder = new StringBuilder();
+        statements.forEach(stmt -> stringBuilder.append(stmt.accept(statementVisitor, this)));
+        return MessageFormat.format("{0}: ; {1} {2} \n\n {3}" +
                         "\n\n\n",this.getName(), ":"+ "predecessors=" + predecessors ,
-                ", successors=" + successors );
+                ", successors=" + successors, stringBuilder.toString());
     }
 
     public void addStatement(Stmt stmt) {

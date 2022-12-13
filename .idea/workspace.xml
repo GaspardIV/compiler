@@ -5,27 +5,20 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="mmakefile right bnfc">
-      <change afterPath="$PROJECT_DIR$/src/latte/backend/Block.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/latte/backend/program/Program.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/latte/backend/program/global/Classs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/latte/backend/program/global/Function.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/latte/backend/program/global/Global.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/latte/backend/program/global/Scope.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/latte/backend/program/global/Variable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/programvisitors/ProgramVisitor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/llvm.template" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.iml" afterDir="false" />
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="Block">
+      <change afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Register.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Value.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/programvisitors/RegisterExprVisitor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/programvisitors/StatementVisitor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/MyTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Compiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Compiler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Internal/LatteClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Internal/LatteClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/errors/SemanticError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/errors/SemanticError.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/frontend/SematicAnalyst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/SematicAnalyst.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/frontend/environment/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/environment/Environment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/Block.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/Scope.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/Scope.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/ProgramChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/ProgramChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/programvisitors/ProgramVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/programvisitors/ProgramVisitor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/utils/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/TestUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/TestUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,16 +161,16 @@
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.tabs&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="latte.frontend.visitors.programvisitors" />
       <recent name="latte.backend.program.global.function" />
       <recent name="latte.backend.program.global" />
       <recent name="latte.frontend.visitors" />
       <recent name="latte.backend.environment" />
-      <recent name="latte.backend.program.globaldef" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/latte/backend" />
@@ -196,6 +189,9 @@
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="" />
     </key>
@@ -204,7 +200,7 @@
       <recent name="bad" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in compiler">
+  <component name="RunManager" selected="JUnit.GoodBasicTest and 1 more">
     <configuration name="Test core002.lat" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="latte.Compiler" />
       <module name="compiler" />
@@ -257,32 +253,53 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GoodBasicTest and 1 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="compiler" />
+      <option name="TEST_OBJECT" value="pattern" />
+      <patterns>
+        <pattern testClass="GoodBasicTest" />
+        <pattern testClass="GoodClassicTest" />
+      </patterns>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GoodBasicTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="compiler" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GoodBasicTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GoodClassicTest.testCore015" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="compiler" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GoodClassicTest" />
+      <option name="METHOD_NAME" value="testCore015" />
+      <option name="TEST_OBJECT" value="method" />
+      <patterns>
+        <pattern testClass="GoodBasicTest" />
+        <pattern testClass="GoodClassicTest" />
+      </patterns>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyTest.testBadInfiniteWhile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="compiler" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MyTest" />
+      <option name="METHOD_NAME" value="testBadInfiniteWhile" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="build_compiler" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
       <makefile filename="$PROJECT_DIR$/Makefile" target="build_compiler" workingDirectory="" arguments="">
-        <envs />
-      </makefile>
-      <method v="2" />
-    </configuration>
-    <configuration name="clean" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
-      <makefile filename="$PROJECT_DIR$/Makefile" target="clean" workingDirectory="" arguments="">
-        <envs />
-      </makefile>
-      <method v="2" />
-    </configuration>
-    <configuration name="cleanBuild" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
-      <makefile filename="$PROJECT_DIR$/Makefile" target="cleanBuild" workingDirectory="" arguments="">
-        <envs />
-      </makefile>
-      <method v="2" />
-    </configuration>
-    <configuration name="printBNFC" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
-      <makefile filename="$PROJECT_DIR$/Makefile" target="printBNFC" workingDirectory="" arguments="">
-        <envs />
-      </makefile>
-      <method v="2" />
-    </configuration>
-    <configuration name="recompile_BNFC_java" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
-      <makefile filename="$PROJECT_DIR$/Makefile" target="recompile_BNFC_java" workingDirectory="" arguments="">
         <envs />
       </makefile>
       <method v="2" />
@@ -307,20 +324,20 @@
       <item itemvalue="Application.Test mytest" />
       <item itemvalue="Application.Test" />
       <item itemvalue="JUnit.All in compiler" />
+      <item itemvalue="JUnit.GoodBasicTest" />
+      <item itemvalue="JUnit.GoodBasicTest and 1 more" />
+      <item itemvalue="JUnit.GoodClassicTest.testCore015" />
+      <item itemvalue="JUnit.MyTest.testBadInfiniteWhile" />
       <item itemvalue="Makefile Target.build_compiler" />
-      <item itemvalue="Makefile Target.cleanBuild" />
-      <item itemvalue="Makefile Target.printBNFC" />
-      <item itemvalue="Makefile Target.clean" />
-      <item itemvalue="Makefile Target.recompile_BNFC_java" />
       <item itemvalue="Shell Script.Unnamed" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.GoodBasicTest and 1 more" />
+        <item itemvalue="JUnit.GoodClassicTest.testCore015" />
+        <item itemvalue="JUnit.GoodBasicTest" />
+        <item itemvalue="JUnit.MyTest.testBadInfiniteWhile" />
         <item itemvalue="Makefile Target.build_compiler" />
-        <item itemvalue="Makefile Target.recompile_BNFC_java" />
-        <item itemvalue="Makefile Target.printBNFC" />
-        <item itemvalue="Makefile Target.cleanBuild" />
-        <item itemvalue="Makefile Target.clean" />
       </list>
     </recent_temporary>
   </component>
@@ -356,21 +373,10 @@
       <workItem from="1670000305679" duration="13915000" />
       <workItem from="1670164684326" duration="9998000" />
       <workItem from="1670539371686" duration="33911000" />
-      <workItem from="1670575932132" duration="130000" />
-    </task>
-    <task id="LOCAL-00002" summary="prawie dziala szkoda ze nie moja glowa :&lt;">
-      <created>1638882864082</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1638882864082</updated>
-    </task>
-    <task id="LOCAL-00003" summary="make file">
-      <created>1639150583238</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1639150583238</updated>
+      <workItem from="1670575932132" duration="454000" />
+      <workItem from="1670640296817" duration="9905000" />
+      <workItem from="1670806622938" duration="7364000" />
+      <workItem from="1670891574833" duration="7516000" />
     </task>
     <task id="LOCAL-00004" summary="make file">
       <created>1639151189402</created>
@@ -701,7 +707,21 @@
       <option name="project" value="LOCAL" />
       <updated>1670542941496</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="zaczety backend">
+      <created>1670576306249</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1670576306250</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Block">
+      <created>1670806965260</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1670806965260</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -767,8 +787,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="check method_arg_of_nonexistent_class + comparing void etc... + inheristance +" />
-    <MESSAGE value="add missing err files of not passing tests" />
     <MESSAGE value="test_no_extends" />
     <MESSAGE value="powolutku" />
     <MESSAGE value="fix ++ --" />
@@ -792,7 +810,9 @@
     <MESSAGE value="fix array of arrays type" />
     <MESSAGE value="readme" />
     <MESSAGE value="mmakefile right bnfc" />
-    <option name="LAST_COMMIT_MESSAGE" value="mmakefile right bnfc" />
+    <MESSAGE value="zaczety backend" />
+    <MESSAGE value="Block" />
+    <option name="LAST_COMMIT_MESSAGE" value="Block" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -814,7 +834,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/latte/frontend/visitors/programvisitors/ProgramVisitor.java</url>
-          <line>53</line>
+          <line>51</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>

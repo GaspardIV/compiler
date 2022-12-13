@@ -1,5 +1,7 @@
 package latte.backend.program.global;
 
+import latte.frontend.environment.Environment;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,16 +11,22 @@ public class Scope {
     final Map<String, Function> functions;
     final Map<String, Classs> classes;
 
+    final Map<String, Integer> registers;
+
+//    Environment environment;
+
     public Scope (String contextName, Scope parent) {
         this.contextName = contextName;
         this.variables = new HashMap<String, Variable>();
         this.functions = new HashMap<String, Function>();
         this.classes = new HashMap<String, Classs>();
+        this.registers = new HashMap<String, Integer>();
         // copy parent's variables, functions, and classes
         if (parent != null) {
             this.variables.putAll(parent.variables);
             this.functions.putAll(parent.functions);
             this.classes.putAll(parent.classes);
+//            this.environment = parent.environment;
         }
     }
 
@@ -36,5 +44,15 @@ public class Scope {
 
     public String getName() {
         return contextName;
+    }
+
+    public String getRegisterNumber(String ident_) {
+        if (registers.containsKey(ident_)) {
+            registers.put(ident_, registers.get(ident_) + 1);
+            return registers.get(ident_).toString();
+        } else {
+            registers.put(ident_, 1);
+            return "";
+        }
     }
 }

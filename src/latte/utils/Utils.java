@@ -36,7 +36,7 @@ public class Utils {
         if (actual instanceof Array) {
             return "";
         } else if (actual instanceof Bool) {
-            return "Bool";
+            return "i1";
         } else if (actual instanceof latte.Absyn.Int) {
             return "i32";
         } else if (actual instanceof latte.Absyn.Str) {

@@ -21,9 +21,9 @@ public class ProgramChecker implements latte.Absyn.Program.Visitor<Program, Envi
 
     private Program createProgram(Prog p, Environment arg) {
         Program program = new Program();
-        ProgramVisitor programVisitor = new ProgramVisitor(arg);
+        ProgramVisitor programVisitor = new ProgramVisitor(arg, program);
         for (latte.Absyn.TopDef x : p.listtopdef_) {
-            x.accept(programVisitor, program);
+            x.accept(programVisitor, null);
         }
         return program;
     }

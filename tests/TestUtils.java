@@ -35,6 +35,8 @@ public class TestUtils {
         System.out.println("Testing (/Users/kacperkonecki/IdeaProjects/codingame/compiler/" + inputFileName + ":0)");
         System.out.println("err (/Users/kacperkonecki/IdeaProjects/codingame/compiler/" + errOutputFileName + ":0)");
         System.out.println("output (/Users/kacperkonecki/IdeaProjects/codingame/compiler/" + outputFileName + ":0)");
+        System.out.println("output (/Users/kacperkonecki/IdeaProjects/codingame/compiler/" + outputFileName.replace(".output", ".ll") + ":0)");
+
         String[] args = {inputFileName};
 
         int status;
