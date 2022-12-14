@@ -6,15 +6,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="refactor">
-      <change afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/DeclVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/github_stefanbirkner_system_lambda.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/github_stefanbirkner_system_lambda.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/Block.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/QuadrupleArg.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Register.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Value.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Value.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +56,6 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="jar://$USER_HOME$/.ideaLibSources/system-lambda-1.2.1-sources.jar!/com/github/stefanbirkner/systemlambda/SystemLambda.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="jar://$PROJECT_DIR$/third_party/java-cup-11b-runtime.jar!/META-INF/MANIFEST.MF" root0="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
@@ -861,19 +855,25 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/compiler$BadTestsMyTests.ic" NAME="BadTestsMyTests Coverage Results" MODIFIED="1668394555823" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/compiler$Test_core002_lat.ic" NAME="Test core002.lat Coverage Results" MODIFIED="1667994416811" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>latte.parser.*</FILTER>
+      <FILTER>latte.Absyn.*</FILTER>
+      <FILTER>latte.errors.*</FILTER>
+      <FILTER>latte.frontend.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/compiler$GoodTestsMyTests_testMyTestsTestReturnInIfAndInError.ic" NAME="GoodTestsMyTests.testMyTestsTestReturnInIfAndInError Coverage Results" MODIFIED="1668395845151" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/compiler$GoodMyTestsTest.ic" NAME="GoodMyTestsTest Coverage Results" MODIFIED="1670036739432" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/compiler$GoodGr5Test_testLista2Kierunkowa.ic" NAME="GoodGr5Test.testLista2Kierunkowa Coverage Results" MODIFIED="1669865773531" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/compiler$GoodBasicTest_and_1_more.ic" NAME="GoodBasicTest and 1 more Coverage Results" MODIFIED="1670980833888" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/compiler$All_in_compiler.ic" NAME="All in compiler Coverage Results" MODIFIED="1669853478055" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/compiler$GoodVirtualTest_testPolymorphism.ic" NAME="GoodVirtualTest.testPolymorphism Coverage Results" MODIFIED="1669852159081" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/compiler$GoodVarqoxgoodTest_testAssign_Field_Class_Of_Field_Null.ic" NAME="GoodVarqoxgoodTest.testAssign_Field_Class_Of_Field_Null Coverage Results" MODIFIED="1669865189431" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/compiler$BadTestsMyTests.ic" NAME="BadTestsMyTests Coverage Results" MODIFIED="1668394555823" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/compiler$GoodGr5Test_testLista2Kierunkowa.ic" NAME="GoodGr5Test.testLista2Kierunkowa Coverage Results" MODIFIED="1669865773531" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/compiler$All_in_compiler.ic" NAME="All in compiler Coverage Results" MODIFIED="1669006553199" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/compiler$GoodVirtualTest_testPolymorphism.ic" NAME="GoodVirtualTest.testPolymorphism Coverage Results" MODIFIED="1669852159081" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/compiler$GoodBasicTest_and_1_more.ic" NAME="GoodBasicTest and 1 more Coverage Results" MODIFIED="1670980833888" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/compiler$GoodGr5Test_testMergesort.ic" NAME="GoodGr5Test.testMergesort Coverage Results" MODIFIED="1669869518455" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/compiler$BadVarqoxTests_testclass_field_with_nonexistent_class_type.ic" NAME="BadVarqoxTests.testclass_field_with_nonexistent_class_type Coverage Results" MODIFIED="1670028869451" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/compiler$BadTestsSemanticTest.ic" NAME="BadTestsSemanticTest Coverage Results" MODIFIED="1669912501281" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/compiler$TestsIDontWantToPassTest_testSemanticVariableWithVoidType.ic" NAME="TestsIDontWantToPassTest.testSemanticVariableWithVoidType Coverage Results" MODIFIED="1669914776662" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/compiler$BadVarqoxTests_testclass_field_with_nonexistent_class_type.ic" NAME="BadVarqoxTests.testclass_field_with_nonexistent_class_type Coverage Results" MODIFIED="1670028869451" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/compiler$BadVarqoxTests_testbin_op_eq_void_void.ic" NAME="BadVarqoxTests.testbin_op_eq_void_void Coverage Results" MODIFIED="1669841331386" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/compiler$GoodGr5Test_testMergesort.ic" NAME="GoodGr5Test.testMergesort Coverage Results" MODIFIED="1669869518455" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/latte_lang/_cup.cup">
