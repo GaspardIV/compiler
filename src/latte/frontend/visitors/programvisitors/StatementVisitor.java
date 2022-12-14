@@ -1,12 +1,15 @@
 package latte.frontend.visitors.programvisitors;
 
 //import latte.Absyn
+
 import latte.Absyn.*;
 import latte.backend.program.global.Scope;
+import latte.backend.quadruple.Quadruple;
 import latte.frontend.environment.Environment;
 import latte.frontend.visitors.ExprChecker;
 
 import java.text.MessageFormat;
+import java.util.List;
 
 import static latte.utils.Utils.toLLVMString;
 
@@ -15,7 +18,7 @@ public class StatementVisitor implements Stmt.Visitor<String, Scope> {
 //        this.environment = environment;
     }
 
-//    private final Environment environment;
+    //    private final Environment environment;
     // todo arg zamiast Scope to m oze byc env, albo function, albo scope xd? -> zeby miec np return type, wiec mozliwe ze FUN najlepiej xd.
     @Override
     public String visit(Empty p, Scope arg) {
@@ -25,7 +28,7 @@ public class StatementVisitor implements Stmt.Visitor<String, Scope> {
     @Override
     public String visit(BStmt p, Scope arg) {
         StringBuilder stringBuilder = new StringBuilder();
-        ((Blk)p.block_).liststmt_.forEach(stmt -> stringBuilder.append(stmt.accept(this, arg)));
+        ((Blk) p.block_).liststmt_.forEach(stmt -> stringBuilder.append(stmt.accept(this, arg)));
         return stringBuilder.toString();
     }
 
@@ -55,16 +58,17 @@ public class StatementVisitor implements Stmt.Visitor<String, Scope> {
 
     @Override
     public String visit(Ret p, Scope arg) {
-        Type type = p.expr_.accept(new ExprChecker(), new Environment()); // todo tu moze byc new environemt prawdopodobnie jezeli niepotrzebne
-//        Register register = p.expr_.accept(new ExprVisitor(), arg);
         RegisterExprVisitor registerExprVisitor = new RegisterExprVisitor(/*environment*/);
-        return MessageFormat.format("ret {0} {1}", toLLVMString(type), p.expr_.accept(registerExprVisitor, arg));
+        List<Quadruple> quadruples = p.expr_.accept(registerExprVisitor, arg);
+        StringBuilder stringBuilder = new StringBuilder();
+        quadruples.forEach(quadruple -> stringBuilder.append(quadruple.toString()).append("\n"));
+        stringBuilder.append(MessageFormat.format("ret {0} {1}", toLLVMString(arg.getType()), quadruples.get(quadruples.size() - 1).getRegister().name)).append("\n");
+        return stringBuilder.toString();
     }
 
     @Override
     public String visit(VRet p, Scope arg) {
         return "ret void";
-//        return null;
     }
 
     @Override
@@ -93,6 +97,9 @@ public class StatementVisitor implements Stmt.Visitor<String, Scope> {
 
     @Override
     public String visit(SExp p, Scope arg) {
-        return " ; SEXP";
+        List<Quadruple> i = p.expr_.accept(new RegisterExprVisitor(), arg);
+        StringBuilder stringBuilder = new StringBuilder();
+        i.forEach(quadruple -> stringBuilder.append(quadruple.toString()).append("\n"));
+        return stringBuilder.toString();
     }
 }

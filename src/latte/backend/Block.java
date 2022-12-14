@@ -2,7 +2,6 @@ package latte.backend;
 
 import latte.Absyn.Stmt;
 import latte.backend.program.global.Scope;
-import latte.frontend.environment.Environment;
 import latte.frontend.visitors.programvisitors.StatementVisitor;
 
 import java.text.MessageFormat;
@@ -30,12 +29,15 @@ public class Block extends Scope {
         StatementVisitor statementVisitor = new StatementVisitor(/*environment*/);
         StringBuilder stringBuilder = new StringBuilder();
         statements.forEach(stmt -> stringBuilder.append(stmt.accept(statementVisitor, this)));
-        return MessageFormat.format("{0}: ; {1} {2} \n\n {3}" +
-                        "\n\n\n",this.getName(), ":"+ "predecessors=" + predecessors ,
+        return MessageFormat.format("{0}: ; {1} {2} \n {3}",this.getName(), ":"+ "predecessors=" + predecessors ,
                 ", successors=" + successors, stringBuilder.toString());
     }
 
     public void addStatement(Stmt stmt) {
         this.statements.add(stmt);
+    }
+
+    public boolean isEmpty() {
+        return statements.isEmpty();
     }
 }

@@ -1,7 +1,5 @@
 package latte.backend.program.global;
 
-import java.text.MessageFormat;
-
 public class Global extends Scope{
 
     public Global(String contextName, Scope parent) {
@@ -13,7 +11,9 @@ public class Global extends Scope{
         StringBuilder stringBuilder = new StringBuilder();
         for (String name : this.functions.keySet()) {
             Function function = this.functions.get(name);
-            stringBuilder.append(function.toString());
+            if (function.hasParent()) {
+                stringBuilder.append(function.toString());
+            }
         }
         return stringBuilder.toString();
     }

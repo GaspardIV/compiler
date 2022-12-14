@@ -1,36 +1,60 @@
 package latte.backend.quadruple;
 
 public class Quadruple {
-//    private String op;
-//    private String arg1;
-//    private String arg2;
-//    private String result;
-//
-//    public Quadruple(String op, String arg1, String arg2, String result) {
-//        this.op = op;
-//        this.arg1 = arg1;
-//        this.arg2 = arg2;
-//        this.result = result;
+    public Register result;
+    public String op;
+    public QuadrupleArg arg1;
+    public QuadrupleArg arg2;
+
+    public Quadruple( Register result) {
+        this.result = result;
+        this.op = null;
+        this.arg1 = null;
+        this.arg2 = null;
+    }
+    public Quadruple( Register result, QuadrupleArg arg1) {
+        this.result = result;
+        this.op = null;
+        this.arg1 = arg1;
+        this.arg2 = null;
+    }
+    public Quadruple( Register result, String op, QuadrupleArg arg1) {
+        this.result = result;
+        this.op = op;
+        this.arg1 = arg1;
+        this.arg2 = null;
+    }
+    public Quadruple( Register result, String op, QuadrupleArg arg1, QuadrupleArg arg2) {
+        this.result = result;
+        this.op = op;
+        this.arg1 = arg1;
+        this.arg2 = arg2;
+    }
+
+    public String toString() {
+        if (op == null) {
+            if (arg1 == null) {
+                return "";
+            } else {
+                return result.toString() + " = " + arg1.toString();
+            }
+        } else if (arg2 == null) {
+            return result.toString() + " = " + op + " " + arg1.toString();
+        } else {
+            return result.toString() + " = " + arg1.toString() + " " + op + " " + arg2.toString();
+        }
+    }
+//        if (op == null) {
+//            return result.toString();
+//        } else if (arg2 == null) {
+//            return result.toString() + " = " + op + " " + arg1.toString();
+//        } else {
+//            return result.toString() + " = " + arg1.toString() + " " + op + " " + arg2.toString();
+//        }
+//        return result + " = " + arg1 + " " + op + " " + arg2;
 //    }
-//
-//    public String getOp() {
-//        return op;
-//    }
-//
-//    public String getArg1() {
-//        return arg1;
-//    }
-//
-//    public String getArg2() {
-//        return arg2;
-//    }
-//
-//    public String getResult() {
-//        return result;
-//    }
-//
-//    @Override
-//    public String toString() {
-//        return op + " " + arg1 + " " + arg2 + " " + result;
-//    }
+
+    public Register getRegister() {
+        return result;
+    }
 }
