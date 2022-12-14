@@ -13,15 +13,11 @@ public class Block extends Scope {
     List<Block> successors;
     List<Stmt> statements;
 
-//    Environment environment;
-
-//    public Block(String contextName, Scope parent, Environment environment) {
     public Block(String contextName, Scope parent) {
         super(contextName, parent);
-        successors= new ArrayList<>();
+        successors = new ArrayList<>();
         predecessors = new ArrayList<>();
         statements = new ArrayList<>();
-//        this.environment = environment;
     }
 
     @Override
@@ -29,8 +25,8 @@ public class Block extends Scope {
         StatementVisitor statementVisitor = new StatementVisitor(/*environment*/);
         StringBuilder stringBuilder = new StringBuilder();
         statements.forEach(stmt -> stringBuilder.append(stmt.accept(statementVisitor, this)));
-        return MessageFormat.format("{0}: ; {1} {2} \n {3}",this.getName(), ":"+ "predecessors=" + predecessors ,
-                ", successors=" + successors, stringBuilder.toString());
+        return MessageFormat.format("{0}: \n{3}", this.getName(), " ; predecessors=" + predecessors,
+                " ; successors=" + successors, stringBuilder.toString());
     }
 
     public void addStatement(Stmt stmt) {

@@ -7,20 +7,15 @@ import latte.backend.program.global.Scope;
 import latte.backend.quadruple.Quadruple;
 
 import java.text.MessageFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 import static latte.utils.Utils.toLLVMString;
 
 public class StatementVisitor implements Stmt.Visitor<String, Scope> {
-    public StatementVisitor(/*Environment environment*/) {
-//        this.environment = environment;
-    }
-
-    //    private final Environment environment;
-    // todo arg zamiast Scope to m oze byc env, albo function, albo scope xd? -> zeby miec np return type, wiec mozliwe ze FUN najlepiej xd.
     @Override
     public String visit(Empty p, Scope arg) {
-        return " ; empty statement";
+        return "";
     }
 
     @Override
@@ -32,26 +27,34 @@ public class StatementVisitor implements Stmt.Visitor<String, Scope> {
 
     @Override
     public String visit(Decl p, Scope arg) {
-        return " ; declaration";
-//        return null;
+        StringBuilder stringBuilder = new StringBuilder();
+        p.listitem_.forEach(item -> stringBuilder.append(item.accept(new DeclVisitor(p.type_), arg)));
+        return stringBuilder.toString();
     }
 
     @Override
     public String visit(Ass p, Scope arg) {
-        return " ; assignment";
-//        return null;
+        List<Quadruple> res = new ArrayList<>();
+        List<Quadruple> left =  p.expr_1.accept(new RegisterExprVisitor(), arg);
+        List<Quadruple> right = p.expr_2.accept(new RegisterExprVisitor(), arg);
+res.addAll(left);
+        res.addAll(right);
+        res.add(new Quadruple(left.get(left.size() - 1).getRegister(), new Quadruple.LLVMOperation.ASSIGN(right.get(right.size() - 1).getRegister())));
+        StringBuilder stringBuilder = new StringBuilder();
+        res.forEach(quadruple -> stringBuilder.append(quadruple.toString()));
+        return stringBuilder.toString();
     }
 
     @Override
     public String visit(Incr p, Scope arg) {
-        return " ; increment";
-//        return null;
+        // todo w wyrazeniu np x= y[i++]; jest zle!!!!
+        return new Ass(p.expr_, new EAdd(p.expr_, new Plus(), new ELitInt(1))).accept(this, arg);
     }
 
     @Override
     public String visit(Decr p, Scope arg) {
-        return " ; decrement";
-//        return null;
+        // todo w wyrazeniu np x= y--; jest zle!!!!
+        return new Ass(p.expr_, new EAdd(p.expr_, new Minus(), new ELitInt(1))).accept(this, arg);
     }
 
     @Override
@@ -59,8 +62,8 @@ public class StatementVisitor implements Stmt.Visitor<String, Scope> {
         RegisterExprVisitor registerExprVisitor = new RegisterExprVisitor(/*environment*/);
         List<Quadruple> quadruples = p.expr_.accept(registerExprVisitor, arg);
         StringBuilder stringBuilder = new StringBuilder();
-        quadruples.forEach(quadruple -> stringBuilder.append(quadruple.toString()).append("\n"));
-        stringBuilder.append(MessageFormat.format("ret {0} {1}", toLLVMString(arg.getType()), quadruples.get(quadruples.size() - 1).getRegister().name)).append("\n");
+        quadruples.forEach(quadruple -> stringBuilder.append(quadruple.toString()));
+        stringBuilder.append(MessageFormat.format("ret {0} {1}", toLLVMString(arg.getType()), quadruples.get(quadruples.size() - 1).getRegister().name));
         return stringBuilder.toString();
     }
 
@@ -97,7 +100,7 @@ public class StatementVisitor implements Stmt.Visitor<String, Scope> {
     public String visit(SExp p, Scope arg) {
         List<Quadruple> i = p.expr_.accept(new RegisterExprVisitor(), arg);
         StringBuilder stringBuilder = new StringBuilder();
-        i.forEach(quadruple -> stringBuilder.append(quadruple.toString()).append("\n"));
+        i.forEach(quadruple -> stringBuilder.append(quadruple.toString()));
         return stringBuilder.toString();
     }
 }
