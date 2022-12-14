@@ -1,12 +1,10 @@
-package latte.frontend.visitors.programvisitors;
+package latte.backend.programvisitors;
 
 //import latte.Absyn
 
 import latte.Absyn.*;
 import latte.backend.program.global.Scope;
 import latte.backend.quadruple.Quadruple;
-import latte.frontend.environment.Environment;
-import latte.frontend.visitors.ExprChecker;
 
 import java.text.MessageFormat;
 import java.util.List;

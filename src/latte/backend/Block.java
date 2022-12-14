@@ -2,7 +2,7 @@ package latte.backend;
 
 import latte.Absyn.Stmt;
 import latte.backend.program.global.Scope;
-import latte.frontend.visitors.programvisitors.StatementVisitor;
+import latte.backend.programvisitors.StatementVisitor;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;

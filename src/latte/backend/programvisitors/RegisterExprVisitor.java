@@ -1,4 +1,4 @@
-package latte.frontend.visitors.programvisitors;
+package latte.backend.programvisitors;
 
 import latte.Absyn.*;
 import latte.backend.program.global.Function;
