@@ -6,7 +6,7 @@
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$USER_HOME$/.ideaLibSources/system-lambda-1.2.1-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/github/stefanbirkner/system-lambda/1.2.1/system-lambda-1.2.1-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
