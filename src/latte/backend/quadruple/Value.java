@@ -1,6 +1,5 @@
 package latte.backend.quadruple;
 
-import latte.Absyn.EString;
 import latte.Absyn.Int;
 import latte.Absyn.Str;
 import latte.Absyn.Type;
@@ -30,7 +29,7 @@ public class Value{
     @Override
     public String toString() {
         if (type instanceof Str) {
-            return "\"" + value.replace("\\", "\\\\").replace("\"", "\\\"").replace("\n", "\\n").replace("\t", "\\t").replace("\r", "\\r").replace("\b", "\\b").replace("\f", "\\f") + "\"";
+            return value + "xdddd";
         }
         return value;
     }

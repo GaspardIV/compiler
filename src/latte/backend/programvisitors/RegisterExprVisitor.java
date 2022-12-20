@@ -90,12 +90,12 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Scope>
     @Override
     public List<Quadruple> visit(ELitTrue p, Scope arg) {
 
-        return Collections.singletonList(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp")), new Quadruple.LLVMOperation.VALUE(new Value(1))));
+        return Collections.singletonList(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp")), new Quadruple.LLVMOperation.VALUE(new Value(true))));
     }
 
     @Override
     public List<Quadruple> visit(ELitFalse p, Scope arg) {
-        return Collections.singletonList(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp")), new Quadruple.LLVMOperation.VALUE(new Value(0))));
+        return Collections.singletonList(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp")), new Quadruple.LLVMOperation.VALUE(new Value(false))));
     }
 
     @Override
@@ -114,7 +114,8 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Scope>
 
     @Override
     public List<Quadruple> visit(EString p, Scope arg) {
-        return Collections.singletonList(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp")), new Quadruple.LLVMOperation.VALUE(new Value(p.string_))));
+        String regIdent = arg.addStringGlobalRegister(p.string_);
+        return Collections.singletonList(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp")), new Quadruple.LLVMOperation.VALUE(new Value(regIdent))));
     }
 
     @Override

@@ -14,6 +14,8 @@ public class Scope {
 
     final Map<String, Integer> registers;
 
+    final Map<String, String> stringGlobals;
+
     private final Type type;
 
     public Type getType() {
@@ -34,6 +36,7 @@ public class Scope {
         this.registers = new HashMap<String, Integer>();
         this.type = null;
         this.parent = parent;
+        this.stringGlobals = new HashMap<String, String>();
         // copy parent's variables, functions, and classes
 //        if (parent != null) {
 //            this.variables.putAll(parent.variables);
@@ -48,7 +51,7 @@ public class Scope {
         this.functions = new HashMap<String, Function>();
         this.classes = new HashMap<String, Classs>();
         this.registers = new HashMap<String, Integer>();
-        // copy parent's variables, functions, and classes
+        this.stringGlobals = new HashMap<String, String>();
         this.parent = parent;
 //        if (parent != null) {
 //            this.variables.putAll(parent.variables);
@@ -96,5 +99,28 @@ public class Scope {
 
     protected boolean hasParent() {
         return parent != null;
+    }
+
+    public String  addStringGlobalRegister(String string) {
+        if (parent != null) {
+            parent.addStringGlobalRegister(string);
+        } else {
+            if (!stringGlobals.containsKey(string)) {
+                stringGlobals.put(string, "str" + stringGlobals.size());
+            }
+        }
+        return getStringGlobalRegister(string);
+    }
+
+    private String getStringGlobalRegister(String string) {
+        if (parent != null) {
+            return parent.getStringGlobalRegister(string);
+        } else {
+           if (stringGlobals.containsKey(string)) {
+               return stringGlobals.get(string);
+           } else {
+               return addStringGlobalRegister(string);
+           }
+        }
     }
 }
