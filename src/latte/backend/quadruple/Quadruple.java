@@ -90,7 +90,15 @@ public class Quadruple {
             }
 
             public String toString() {
-                return "mul " + register1.getLLVMType() + " " + register1.toString() + ", " + register2.toString();
+                if (op instanceof Times) {
+                    return "mul i32 " + register1.toString() + ", " + register2.toString();
+                } else if (op instanceof Div) {
+                    return "sdiv i32 " + register1.toString() + ", " + register2.toString();
+                } else if (op instanceof Mod) {
+                    return "srem i32 " + register1.toString() + ", " + register2.toString();
+                } else {
+                    throw new RuntimeException("Unknown MulOp");
+                }
             }
         }
 

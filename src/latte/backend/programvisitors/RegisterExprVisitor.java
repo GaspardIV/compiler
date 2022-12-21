@@ -124,14 +124,16 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Scope>
 
     @Override
     public List<Quadruple> visit(Neg p, Scope arg) {
-        List<Quadruple> quadruples = p.expr_.accept(this, arg);
+        List<Quadruple> right = p.expr_.accept(this, arg);
+        List<Quadruple> quadruples = new ArrayList<>(right);
         quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), new Int()), new Quadruple.LLVMOperation.NEG(quadruples.get(quadruples.size() - 1).getRegister())));
         return quadruples;
     }
 
     @Override
     public List<Quadruple> visit(Not p, Scope arg) {
-        List<Quadruple> quadruples = p.expr_.accept(this, arg);
+        List<Quadruple> right = p.expr_.accept(this, arg);
+        List<Quadruple> quadruples = new ArrayList<>(right);
         quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), new Bool()), new Quadruple.LLVMOperation.NOT(quadruples.get(quadruples.size() - 1).getRegister())));
         return quadruples;
     }

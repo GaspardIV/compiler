@@ -5,8 +5,11 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment=" 10/50">
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="17/50">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/basic/negation.output" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/negation.output" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -277,6 +280,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GoodBasicTest.testMod" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="compiler" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GoodBasicTest" />
+      <option name="METHOD_NAME" value="testMod" />
+      <option name="TEST_OBJECT" value="method" />
+      <patterns>
+        <pattern testClass="GoodBasicTest" />
+        <pattern testClass="GoodClassicTest" />
+      </patterns>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="GoodClassicTest.testCore015" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
@@ -287,16 +304,6 @@
         <pattern testClass="GoodBasicTest" />
         <pattern testClass="GoodClassicTest" />
       </patterns>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MyTest.testBadInfiniteWhile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="compiler" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MyTest" />
-      <option name="METHOD_NAME" value="testBadInfiniteWhile" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -321,20 +328,20 @@
       <item itemvalue="Application.Test mytest" />
       <item itemvalue="Application.Test" />
       <item itemvalue="JUnit.All in compiler" />
+      <item itemvalue="JUnit.GoodBasicTest.testMod" />
       <item itemvalue="JUnit.GoodBasicTest.testEscaped_String" />
       <item itemvalue="JUnit.GoodBasicTest" />
       <item itemvalue="JUnit.GoodBasicTest and 1 more" />
       <item itemvalue="JUnit.GoodClassicTest.testCore015" />
-      <item itemvalue="JUnit.MyTest.testBadInfiniteWhile" />
       <item itemvalue="Shell Script.Unnamed" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.GoodBasicTest and 1 more" />
+        <item itemvalue="JUnit.GoodBasicTest.testMod" />
         <item itemvalue="JUnit.GoodBasicTest.testEscaped_String" />
         <item itemvalue="JUnit.GoodClassicTest.testCore015" />
         <item itemvalue="JUnit.GoodBasicTest" />
-        <item itemvalue="JUnit.MyTest.testBadInfiniteWhile" />
       </list>
     </recent_temporary>
   </component>
@@ -376,14 +383,7 @@
       <workItem from="1670891574833" duration="8926000" />
       <workItem from="1670974557692" duration="3457000" />
       <workItem from="1670978039448" duration="20124000" />
-      <workItem from="1671487238053" duration="49186000" />
-    </task>
-    <task id="LOCAL-00012" summary="Add tests and default err for certain tests.">
-      <created>1668370826083</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1668370826083</updated>
+      <workItem from="1671487238053" duration="52506000" />
     </task>
     <task id="LOCAL-00013" summary="Nie ma pliku latc (a jedynie plik compiler). Tym razem nie obniżam,&#10;   ale proszę to poprawić zgodnie ze specyfikacją.">
       <created>1668371637502</created>
@@ -721,7 +721,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671602183206</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="teraz mozna zaczac dopiero sie bawic (no moze refakttor?)">
+      <created>1671602714945</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1671602714946</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -787,8 +794,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="increment fix 98 failing" />
-    <MESSAGE value="array of null not allowed 95 failing" />
     <MESSAGE value="Void arguments in method/function/field definition + almost working variable already declared" />
     <MESSAGE value="variable_with_void_type.err" />
     <MESSAGE value="single if -&gt; block" />
@@ -812,7 +817,9 @@
     <MESSAGE value="sporo zmian zwijanie stalych" />
     <MESSAGE value="zaczyna sie uruchamiac" />
     <MESSAGE value=" 10/50" />
-    <option name="LAST_COMMIT_MESSAGE" value=" 10/50" />
+    <MESSAGE value="teraz mozna zaczac dopiero sie bawic (no moze refakttor?)" />
+    <MESSAGE value="17/50" />
+    <option name="LAST_COMMIT_MESSAGE" value="17/50" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -852,6 +859,11 @@
           <line>53</line>
           <option name="timeStamp" value="38" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java</url>
+          <line>126</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
         <breakpoint type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="16" />
@@ -875,6 +887,7 @@
     <SUITE FILE_PATH="coverage/compiler$GoodGr5Test_testLista2Kierunkowa.ic" NAME="GoodGr5Test.testLista2Kierunkowa Coverage Results" MODIFIED="1669865773531" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/compiler$GoodBasicTest_and_1_more.ic" NAME="GoodBasicTest and 1 more Coverage Results" MODIFIED="1670980833888" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/compiler$All_in_compiler.ic" NAME="All in compiler Coverage Results" MODIFIED="1669853478055" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/compiler$GoodBasicTest_testMod.ic" NAME="GoodBasicTest.testMod Coverage Results" MODIFIED="1671623854766" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/compiler$GoodVirtualTest_testPolymorphism.ic" NAME="GoodVirtualTest.testPolymorphism Coverage Results" MODIFIED="1669852159081" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/compiler$GoodVarqoxgoodTest_testAssign_Field_Class_Of_Field_Null.ic" NAME="GoodVarqoxgoodTest.testAssign_Field_Class_Of_Field_Null Coverage Results" MODIFIED="1669865189431" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/compiler$BadTestsSemanticTest.ic" NAME="BadTestsSemanticTest Coverage Results" MODIFIED="1669912501281" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
