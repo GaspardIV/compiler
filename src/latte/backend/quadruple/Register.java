@@ -1,5 +1,6 @@
 package latte.backend.quadruple;
 
+import jdk.jfr.consumer.RecordedObject;
 import latte.Absyn.Type;
 import latte.utils.Utils;
 
@@ -26,6 +27,9 @@ public class Register  {
         return Utils.getLLVMType(type);
     }
 
+    public boolean isConst() {
+        return constValue != null;
+    }
     @Override
     public String toString() {
         if (constValue != null) {
@@ -36,4 +40,7 @@ public class Register  {
     }
 
 
+    public ConstValue getConstValue() {
+        return constValue;
+    }
 }

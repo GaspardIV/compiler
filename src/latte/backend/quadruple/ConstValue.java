@@ -30,4 +30,12 @@ public class ConstValue {
     public String toString() {
         return value;
     }
+
+    public int getInt() {
+        return Integer.parseInt(value);
+    }
+
+    public boolean getBool() {
+        return Boolean.parseBoolean(value);
+    }
 }

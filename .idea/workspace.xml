@@ -6,10 +6,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="17/50">
+      <change afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/ConstValueVisitor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/basic/negation.output" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/negation.output" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/ConstValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/ConstValue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Register.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,8 +158,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
-      <recent name="latte.backend.quadruple" />
       <recent name="latte.backend.programvisitors" />
+      <recent name="latte.backend.quadruple" />
       <recent name="latte.frontend.visitors.programvisitors" />
       <recent name="latte.backend.program.global.function" />
       <recent name="latte.backend.program.global" />
@@ -383,14 +384,7 @@
       <workItem from="1670891574833" duration="8926000" />
       <workItem from="1670974557692" duration="3457000" />
       <workItem from="1670978039448" duration="20124000" />
-      <workItem from="1671487238053" duration="52506000" />
-    </task>
-    <task id="LOCAL-00013" summary="Nie ma pliku latc (a jedynie plik compiler). Tym razem nie obniżam,&#10;   ale proszę to poprawić zgodnie ze specyfikacją.">
-      <created>1668371637502</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1668371637502</updated>
+      <workItem from="1671487238053" duration="56200000" />
     </task>
     <task id="LOCAL-00014" summary="Rearange tests">
       <created>1668393876105</created>
@@ -728,7 +722,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671602714946</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="17/50">
+      <created>1671625197517</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1671625197517</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
