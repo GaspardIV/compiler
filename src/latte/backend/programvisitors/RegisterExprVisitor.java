@@ -3,9 +3,10 @@ package latte.backend.programvisitors;
 import latte.Absyn.*;
 import latte.backend.program.global.Function;
 import latte.backend.program.global.Scope;
+import latte.backend.quadruple.ConstValue;
 import latte.backend.quadruple.Quadruple;
 import latte.backend.quadruple.Register;
-import latte.backend.quadruple.Value;
+import latte.utils.Utils;
 
 import java.util.*;
 
@@ -73,29 +74,25 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Scope>
     @Override
     public List<Quadruple> visit(EVar p, Scope arg) {
         ArrayList<Quadruple> quadruples = new ArrayList<>();
-        quadruples.add(new Quadruple(new Register(p.ident_ + arg.getRegisterNumber(p.ident_))));
-//        quadruples.add(new Register(p.ident_+arg.getRegisterNumber(p.ident_)));
+        Register last = arg.getVariable(p.ident_).getLastRegister();
+        quadruples.add(new Quadruple(last));
         return quadruples;
-//        return new Arrays.fromArray(new Quadruple[] {
-//                new Quadruple(Quadruple.Opcode.LOAD, p.ident_, null, null)
-//        });
-//        return returp.ident_+arg.getRegisterNumber(p.ident_);
     }
 
     @Override
     public List<Quadruple> visit(ELitInt p, Scope arg) {
-        return Collections.singletonList(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp")), new Quadruple.LLVMOperation.VALUE(new Value(p.integer_))));
+        return Collections.singletonList(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), new Int(), new ConstValue(p.integer_))));
     }
 
     @Override
     public List<Quadruple> visit(ELitTrue p, Scope arg) {
 
-        return Collections.singletonList(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp")), new Quadruple.LLVMOperation.VALUE(new Value(true))));
+        return Collections.singletonList(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), new Bool(), new ConstValue(true))));
     }
 
     @Override
     public List<Quadruple> visit(ELitFalse p, Scope arg) {
-        return Collections.singletonList(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp")), new Quadruple.LLVMOperation.VALUE(new Value(false))));
+        return Collections.singletonList(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), new Bool(), new ConstValue(false))));
     }
 
     @Override
@@ -108,27 +105,29 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Scope>
             quadruples.addAll(exprQuadruples);
             registers.add(exprQuadruples.get(exprQuadruples.size() - 1).getRegister());
         }
-        quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp")), new Quadruple.LLVMOperation.CALL(function.getName(), registers)));
+        quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), function.getType()), new Quadruple.LLVMOperation.CALL(function.getType(), function.getName(), registers)));
         return quadruples;
     }
 
     @Override
     public List<Quadruple> visit(EString p, Scope arg) {
         String regIdent = arg.addStringGlobalRegister(p.string_);
-        return Collections.singletonList(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp")), new Quadruple.LLVMOperation.VALUE(new Value(regIdent))));
+        String escaped = Utils.getEscapedString(p.string_);
+        int escapedLength = Utils.getLLVMEscapedStringLength(escaped);
+        return Collections.singletonList(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), new Str()), new Quadruple.LLVMOperation.GETELEMENTPTRSTR(escapedLength, regIdent, 0, 0)));
     }
 
     @Override
     public List<Quadruple> visit(Neg p, Scope arg) {
         List<Quadruple> quadruples = p.expr_.accept(this, arg);
-        quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp")), new Quadruple.LLVMOperation.NEG(quadruples.get(quadruples.size() - 1).getRegister())));
+        quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), new Int()), new Quadruple.LLVMOperation.NEG(quadruples.get(quadruples.size() - 1).getRegister())));
         return quadruples;
     }
 
     @Override
     public List<Quadruple> visit(Not p, Scope arg) {
         List<Quadruple> quadruples = p.expr_.accept(this, arg);
-        quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp")), new Quadruple.LLVMOperation.NOT(quadruples.get(quadruples.size() - 1).getRegister())));
+        quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), new Bool()), new Quadruple.LLVMOperation.NOT(quadruples.get(quadruples.size() - 1).getRegister())));
         return quadruples;
     }
 
@@ -139,7 +138,7 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Scope>
         List<Quadruple> right = p.expr_2.accept(this, arg);
         quadruples.addAll(left);
         quadruples.addAll(right);
-        quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp")), new Quadruple.LLVMOperation.MUL(p.mulop_, left.get(left.size() - 1).getRegister(), right.get(right.size() - 1).getRegister())));
+        quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), new Int()), new Quadruple.LLVMOperation.MUL(p.mulop_, left.get(left.size() - 1).getRegister(), right.get(right.size() - 1).getRegister())));
         return quadruples;
     }
 
@@ -150,7 +149,7 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Scope>
         List<Quadruple> right = p.expr_2.accept(this, arg);
         quadruples.addAll(left);
         quadruples.addAll(right);
-        quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp")), new Quadruple.LLVMOperation.ADD(p.addop_, left.get(left.size() - 1).getRegister(), right.get(right.size() - 1).getRegister())));
+        quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), left.get(left.size() - 1).getRegister().type), new Quadruple.LLVMOperation.ADD(p.addop_, left.get(left.size() - 1).getRegister(), right.get(right.size() - 1).getRegister())));
         return quadruples;
 
     }
@@ -162,7 +161,7 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Scope>
         List<Quadruple> right = p.expr_2.accept(this, arg);
         quadruples.addAll(left);
         quadruples.addAll(right);
-        quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp")), new Quadruple.LLVMOperation.REL(p.relop_, left.get(left.size() - 1).getRegister(), right.get(right.size() - 1).getRegister())));
+        quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), new Bool()), new Quadruple.LLVMOperation.REL(p.relop_, left.get(left.size() - 1).getRegister(), right.get(right.size() - 1).getRegister())));
         return quadruples;
     }
 
@@ -173,7 +172,7 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Scope>
         List<Quadruple> right = p.expr_2.accept(this, arg);
         quadruples.addAll(left);
         quadruples.addAll(right);
-        quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp")), new Quadruple.LLVMOperation.AND(left.get(left.size() - 1).getRegister(), right.get(right.size() - 1).getRegister())));
+        quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), new Bool()), new Quadruple.LLVMOperation.AND(left.get(left.size() - 1).getRegister(), right.get(right.size() - 1).getRegister())));
         return quadruples;
 
     }
@@ -185,7 +184,7 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Scope>
         List<Quadruple> right = p.expr_2.accept(this, arg);
         quadruples.addAll(left);
         quadruples.addAll(right);
-        quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp")), new Quadruple.LLVMOperation.OR(left.get(left.size() - 1).getRegister(), right.get(right.size() - 1).getRegister())));
+        quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), new Bool()), new Quadruple.LLVMOperation.OR(left.get(left.size() - 1).getRegister(), right.get(right.size() - 1).getRegister())));
         return quadruples;
     }
 }

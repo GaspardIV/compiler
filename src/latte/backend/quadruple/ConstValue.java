@@ -1,36 +1,33 @@
 package latte.backend.quadruple;
 
 import latte.Absyn.Int;
-import latte.Absyn.Str;
 import latte.Absyn.Type;
 
-public class Value{
+public class ConstValue {
     Type type;
     String value;
-    public Value(String name_) {
-        value = name_;
-        type = new Str();
-    }
 
+//    Register register;
     // int value
-    public Value(int value) {
+    public ConstValue(int value) {
 //        super(Integer.toString(value));
         type = new Int();
         this.value = Integer.toString(value);
     }
 
     // bool value
-    public Value(boolean value) {
-
+    public ConstValue(boolean value) {
         type = new latte.Absyn.Bool();
         this.value = Boolean.toString(value);
     }
 
+    public ConstValue(Register register) {
+        this.type = register.type;
+        this.value = register.toString();
+    }
+
     @Override
     public String toString() {
-        if (type instanceof Str) {
-            return value + "xdddd";
-        }
         return value;
     }
 }

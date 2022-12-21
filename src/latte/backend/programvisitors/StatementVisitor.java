@@ -5,12 +5,13 @@ package latte.backend.programvisitors;
 import latte.Absyn.*;
 import latte.backend.program.global.Scope;
 import latte.backend.quadruple.Quadruple;
+import latte.backend.quadruple.Register;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import static latte.utils.Utils.toLLVMString;
+import static latte.utils.Utils.getLLVMType;
 
 public class StatementVisitor implements Stmt.Visitor<String, Scope> {
     @Override
@@ -36,10 +37,18 @@ public class StatementVisitor implements Stmt.Visitor<String, Scope> {
     public String visit(Ass p, Scope arg) {
         List<Quadruple> res = new ArrayList<>();
         List<Quadruple> left =  p.expr_1.accept(new RegisterExprVisitor(), arg);
+        if (left.size()== 1 && left.get(0).op == null) {
+//            res.addAll(left);
+            left.get(0).result = arg.getVariable(left.get(0).result).getNewRegister();
+        } else {
+//            res.add(new Register());
+//            res.addAll(left);
+        }
         List<Quadruple> right = p.expr_2.accept(new RegisterExprVisitor(), arg);
 res.addAll(left);
         res.addAll(right);
         res.add(new Quadruple(left.get(left.size() - 1).getRegister(), new Quadruple.LLVMOperation.ASSIGN(right.get(right.size() - 1).getRegister())));
+
         StringBuilder stringBuilder = new StringBuilder();
         res.forEach(quadruple -> stringBuilder.append(quadruple.toString()));
         return stringBuilder.toString();
@@ -63,7 +72,7 @@ res.addAll(left);
         List<Quadruple> quadruples = p.expr_.accept(registerExprVisitor, arg);
         StringBuilder stringBuilder = new StringBuilder();
         quadruples.forEach(quadruple -> stringBuilder.append(quadruple.toString()));
-        stringBuilder.append(MessageFormat.format("ret {0} {1}", toLLVMString(arg.getType()), quadruples.get(quadruples.size() - 1).getRegister().name));
+        stringBuilder.append(MessageFormat.format("ret {0} {1}", getLLVMType(arg.getType()), quadruples.get(quadruples.size() - 1).getRegister().name));
         return stringBuilder.toString();
     }
 

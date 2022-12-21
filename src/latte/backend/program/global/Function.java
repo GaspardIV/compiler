@@ -30,7 +30,7 @@ public class Function extends Scope {
     @Override
     public String toString() {
         String body = statements.stream().map(Block::toString).collect(Collectors.joining("\n"));
-        String argsStr = String.join("", arguments.stream().map((Variable v) -> (Utils.toLLVMString(v.getType()) + " %" + v.contextName)).collect(Collectors.toList()));
-        return MessageFormat.format("\ndefine {0} @{1}({2}) '{' \n{3}\n'}'\n", Utils.toLLVMString(this.getType()), this.contextName, argsStr, body);
+        String argsStr = String.join("", arguments.stream().map((Variable v) -> (Utils.getLLVMType(v.getType()) + " %" + v.contextName)).collect(Collectors.toList()));
+        return MessageFormat.format("\ndefine {0} @{1}({2}) '{' \n{3}\n'}'\n", Utils.getLLVMType(this.getType()), this.contextName, argsStr, body);
     }
 }

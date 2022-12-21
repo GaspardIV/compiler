@@ -1,6 +1,8 @@
 package latte.backend.program.global;
 
 import latte.Absyn.Type;
+import latte.backend.quadruple.Register;
+import latte.utils.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -122,5 +124,19 @@ public class Scope {
                return addStringGlobalRegister(string);
            }
         }
+    }
+
+    public Variable getVariable(String ident_) {
+        if (variables.containsKey(ident_)) {
+            return variables.get(ident_);
+        } else if (parent != null) {
+            return parent.getVariable(ident_);
+        } else {
+            return null;
+        }
+    }
+
+    public Variable getVariable(Register result) {
+        return getVariable(Utils.removeNumber(result.name));
     }
 }

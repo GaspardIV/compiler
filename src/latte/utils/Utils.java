@@ -7,6 +7,7 @@ import latte.Internal.Null;
 
 import java.io.*;
 import java.text.MessageFormat;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class Utils {
@@ -32,9 +33,9 @@ public class Utils {
         throw new RuntimeException("not implemented ????");
     }
 
-    public static String toLLVMString(Type actual) {
+    public static String getLLVMType(Type actual) {
         if (actual instanceof Array) {
-            return "";
+            return "todo yo mama";
         } else if (actual instanceof Bool) {
             return "i1";
         } else if (actual instanceof latte.Absyn.Int) {
@@ -46,7 +47,7 @@ public class Utils {
         } else if (actual instanceof latte.Absyn.Class) {
             return ((latte.Absyn.Class) actual).ident_;
         } else if (actual instanceof Null) {
-            return "Null";
+            return "null";
         }
 
         throw new RuntimeException("not implemented ????");
@@ -129,5 +130,24 @@ public class Utils {
             System.out.println("An error occurred while generating bytecode.");
             e.printStackTrace();
         }
+    }
+
+    public static String getEscapedString(String str) {
+        return str.replace("\\", "\\\\").replace("\"", "\\22").replace("\n", "\\0A").replace("\t", "\\09").replace("\r", "\\0D").replace("\b", "\\08").replace("\f", "\\0C");
+    }
+    public
+    static int getLLVMEscapedStringLength(String str) {
+        int count = (( str.split( Pattern.quote("\\22" ), -1).length) - 1)*2;
+        count += (( str.split( Pattern.quote("\\0A" ), -1).length) - 1) * 2;
+        count += (( str.split( Pattern.quote("\\09" ), -1).length) - 1) * 2;
+        count += (( str.split( Pattern.quote("\\0D" ), -1).length) - 1) * 2;
+        count += (( str.split( Pattern.quote("\\08" ), -1).length) - 1) * 2;
+        count += (( str.split( Pattern.quote("\\0C" ), -1).length) - 1) * 2;
+        return str.length() - count + 1;
+    }
+
+    public static String removeNumber(String name) {
+        //remove number from end of string
+        return name.replaceAll("[0-9]+$", "");
     }
 }

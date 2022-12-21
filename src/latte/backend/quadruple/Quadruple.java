@@ -1,8 +1,7 @@
 package latte.backend.quadruple;
 
-import latte.Absyn.AddOp;
-import latte.Absyn.MulOp;
-import latte.Absyn.RelOp;
+import latte.Absyn.*;
+import latte.utils.Utils;
 
 import java.util.List;
 
@@ -32,11 +31,24 @@ public class Quadruple {
     public static class LLVMOperation {
 
         public static class CALL extends LLVMOperation {
+            private final Type type;
             public String name;
             public List<Register> args;
-            public CALL(String name, List<Register> registers) {
+            public CALL(Type type, String name, List<Register> registers) {
                 this.name = name;
                 this.args = registers;
+                this.type = type;
+            }
+            public String toString() {
+                StringBuilder argsString = new StringBuilder();
+//                join args with comma as a separator without trailing comma
+                for (int i = 0; i < args.size(); i++) {
+                    argsString.append(args.get(i).getLLVMType()).append(" ").append(args.get(i).toString());
+                    if (i != args.size() - 1) {
+                        argsString.append(", ");
+                    }
+                }
+                return "call " + Utils.getLLVMType(type) + " " + name + "(" + argsString + ")";
             }
         }
 
@@ -45,12 +57,20 @@ public class Quadruple {
             public NEG(Register register) {
                 this.register = register;
             }
+
+            public String toString() {
+                return "sub i32 0, " + register.toString();
+            }
         }
 
         public static class NOT extends LLVMOperation {
             public Register register;
             public NOT(Register register) {
                 this.register = register;
+            }
+
+            public String toString() {
+                return "xor i1 1, " + register.toString();
             }
         }
 
@@ -64,6 +84,10 @@ public class Quadruple {
                 this.register1 = register1;
                 this.register2 = register2;
             }
+
+            public String toString() {
+                return "mul " + register1.getLLVMType() + " " + register1.toString() + ", " + register2.toString();
+            }
         }
 
         public static class ADD extends LLVMOperation {
@@ -71,8 +95,22 @@ public class Quadruple {
             public Register register1;
             public Register register2;
             public ADD(AddOp addop_, Register register1, Register register2) {
-                super();
+                this.op = addop_;
+                this.register1 = register1;
+                this.register2 = register2;
             }
+
+            public String toString() {
+                if (op instanceof Plus) {
+                    if (register1.type instanceof Str) {
+                        return "call i8* @concat(i8* " + register1.toString() + ", i8* " + register2.toString() + ")";
+                    }
+                    return "add " + register1.getLLVMType() + " " + register1.toString() + ", " + register2.toString();
+                } else {
+                    return "sub " + register1.getLLVMType() + " " + register1.toString() + ", " + register2.toString();
+                }
+            }
+
         }
 
         public static class REL extends LLVMOperation {
@@ -84,6 +122,23 @@ public class Quadruple {
                 this.register1 = register1;
                 this.register2 = register2;
             }
+
+            public String toString() {
+                if (op instanceof EQU) {
+                    return "icmp eq " + register1.getLLVMType() + " " + register1.toString() + ", " + register2.toString();
+                } else if (op instanceof NE) {
+                    return "icmp ne " + register1.getLLVMType() + " " + register1.toString() + ", " + register2.toString();
+                } else if (op instanceof LTH) {
+                    return "icmp slt " + register1.getLLVMType() + " " + register1.toString() + ", " + register2.toString();
+                } else if (op instanceof LE) {
+                    return "icmp sle " + register1.getLLVMType() + " " + register1.toString() + ", " + register2.toString();
+                } else if (op instanceof GTH) {
+                    return "icmp sgt " + register1.getLLVMType() + " " + register1.toString() + ", " + register2.toString();
+                } else if (op instanceof GE) {
+                    return "icmp sge " + register1.getLLVMType() + " " + register1.toString() + ", " + register2.toString();
+                }
+                return null;
+            }
         }
 
         public static class AND extends LLVMOperation {
@@ -92,6 +147,10 @@ public class Quadruple {
             public AND(Register register1, Register register2) {
                 this.register1 = register1;
                 this.register2 = register2;
+            }
+
+            public String toString() {
+                return "and i1 " + register1.toString() + ", " + register2.toString();
             }
         }
 
@@ -102,6 +161,10 @@ public class Quadruple {
                 this.register1 = register1;
                 this.register2 = register2;
             }
+
+            public String toString() {
+                return "or i1 " + register1.toString() + ", " + register2.toString();
+            }
         }
 
         public static class ASSIGN extends LLVMOperation {
@@ -109,11 +172,45 @@ public class Quadruple {
             public ASSIGN(Register register) {
                 this.register = register;
             }
+
+            public String toString() {
+                return register.toString();
+            }
         }
 
-        public static class VALUE extends LLVMOperation {
-            public VALUE(Value value) {
-                super();
+//        public static class VALUE extends LLVMOperation {
+//            private final ConstValue value;
+//
+//            public VALUE(ConstValue value) {
+//                this.value = value;
+//            }
+//
+//            public String toString() {
+//                return value.toString();
+//            }
+//        }
+
+        public static class GETELEMENTPTRSTR extends LLVMOperation {
+            private final int length;
+            private final Type type;
+            private final String ident;
+            private final int i;
+            private final int j;
+
+
+            public GETELEMENTPTRSTR(int length, String ident, int i, int i1) {
+                this.length = length;
+                this.type = new Str(); // bo to jest [length x i8], czyli tablica stringow
+                this.ident = "@.str." + ident;
+                this.i = i;
+                this.j = i1;
+            }
+
+            @Override
+            public String toString() {
+                String type1 = Utils.getLLVMType(type).replace("*", "");
+                return "getelementptr [" + length + " x " + type1 + "] " + ident + ", i32 " + i + ", i32 " + j;
+//                return "getelementptr " + Utils.toLLVMString(type) + ", " + type.toString() + "* " + ident + ", i32 " + i + ", i32 " + j + ")";
             }
         }
     }
