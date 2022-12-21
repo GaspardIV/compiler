@@ -37,18 +37,29 @@ public class StatementVisitor implements Stmt.Visitor<String, Scope> {
     public String visit(Ass p, Scope arg) {
         List<Quadruple> res = new ArrayList<>();
         List<Quadruple> left =  p.expr_1.accept(new RegisterExprVisitor(), arg);
-        if (left.size()== 1 && left.get(0).op == null) {
-//            res.addAll(left);
-            left.get(0).result = arg.getVariable(left.get(0).result).getNewRegister();
-        } else {
-//            res.add(new Register());
-//            res.addAll(left);
-        }
         List<Quadruple> right = p.expr_2.accept(new RegisterExprVisitor(), arg);
-res.addAll(left);
-        res.addAll(right);
-        res.add(new Quadruple(left.get(left.size() - 1).getRegister(), new Quadruple.LLVMOperation.ASSIGN(right.get(right.size() - 1).getRegister())));
+//        System.out.println("left.get(0).result = " + left.get(0).result);
+//        System.out.println("right.get(0).result = " + right.get(0).result);
 
+        res.addAll(left);
+        res.addAll(right);
+        if (left.size()== 1 && left.get(0).op == null) {
+//            if (right.size() == 1 && right.get(0).op == null) {
+//            } else {
+//                left.get(0).result = arg.getVariable(left.get(0).result).getNewRegister();
+//            System.out.println("left.get(0).result = " + left.get(0).result);
+//            System.out.println("right.get(0).result = " + right.get(right.size()-1).result);
+
+//            System.out.println("arg.getVariable(left.get(0).result).getLastRegister() = " + arg.getVariable(left.get(0).result).getLastRegister());
+            arg.getVariable(left.get(0).result).setLastRegister(right.get(right.size()-1).result);
+//            System.out.println("arg.getVariable(left.get(0).result).getLastRegister() = " + arg.getVariable(left.get(0).result).getLastRegister());
+//            left.get(0).result = right.get(right.size()-1).result;
+//            return "hahahah";
+//            }
+        } else {
+            res.add(new Quadruple(left.get(left.size() - 1).getRegister(), new Quadruple.LLVMOperation.ASSIGN(right.get(right.size() - 1).getRegister())));
+
+        }
         StringBuilder stringBuilder = new StringBuilder();
         res.forEach(quadruple -> stringBuilder.append(quadruple.toString()));
         return stringBuilder.toString();
@@ -72,7 +83,7 @@ res.addAll(left);
         List<Quadruple> quadruples = p.expr_.accept(registerExprVisitor, arg);
         StringBuilder stringBuilder = new StringBuilder();
         quadruples.forEach(quadruple -> stringBuilder.append(quadruple.toString()));
-        stringBuilder.append(MessageFormat.format("ret {0} {1}", getLLVMType(arg.getType()), quadruples.get(quadruples.size() - 1).getRegister().name));
+        stringBuilder.append(MessageFormat.format("ret {0} {1}", getLLVMType(arg.getType()), quadruples.get(quadruples.size() - 1).getRegister()));
         return stringBuilder.toString();
     }
 

@@ -35,7 +35,11 @@ public class Scope {
         this.variables = new HashMap<String, Variable>();
         this.functions = new HashMap<String, Function>();
         this.classes = new HashMap<String, Classs>();
-        this.registers = new HashMap<String, Integer>();
+        if (parent != null) {
+            this.registers = parent.registers;
+        }else {
+            this.registers = new HashMap<String, Integer>();
+        }
         this.type = null;
         this.parent = parent;
         this.stringGlobals = new HashMap<String, String>();
@@ -52,7 +56,12 @@ public class Scope {
         this.variables = new HashMap<String, Variable>();
         this.functions = new HashMap<String, Function>();
         this.classes = new HashMap<String, Classs>();
-        this.registers = new HashMap<String, Integer>();
+        if (parent != null) {
+            this.registers = parent.registers;
+        }else {
+            this.registers = new HashMap<String, Integer>();
+        }
+
         this.stringGlobals = new HashMap<String, String>();
         this.parent = parent;
 //        if (parent != null) {
@@ -82,11 +91,11 @@ public class Scope {
     public String getRegisterNumber(String ident_) {
         if (registers.containsKey(ident_)) {
             registers.put(ident_, registers.get(ident_) + 1);
-            return registers.get(ident_).toString();
+
         } else {
             registers.put(ident_, 1);
-            return "";
         }
+        return registers.get(ident_).toString();
     }
 
     public Function getFunction(String ident_) {
@@ -127,6 +136,7 @@ public class Scope {
     }
 
     public Variable getVariable(String ident_) {
+        System.out.println("getVariable " + ident_);
         if (variables.containsKey(ident_)) {
             return variables.get(ident_);
         } else if (parent != null) {
@@ -137,6 +147,7 @@ public class Scope {
     }
 
     public Variable getVariable(Register result) {
+
         return getVariable(Utils.removeNumber(result.name));
     }
 }

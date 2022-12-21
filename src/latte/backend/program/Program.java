@@ -29,7 +29,9 @@ public class Program {
                 // moge tez dla kazdego statementa najpierw zobic blok po prrostu xd a pozniej kazde dwa obok siebie probuje mergowac zachlannie
 //                w kazdym bloku mozna trzymac tez pierwotnie zmienne nie w postai ssa , ale ppzniej przeksztaltcic je do SSA podczas mergownaia
                 blocksFromStatements.add(block);
-                block = new Block("block" + blocksFromStatements.size(), block);
+                Block newBlock = new Block("block" + blocksFromStatements.size(), block);
+                block.addSuccessor(newBlock);
+                block = newBlock;
             }
             block.addStatement(stmt);
         }

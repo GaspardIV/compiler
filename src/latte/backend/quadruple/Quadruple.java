@@ -1,6 +1,7 @@
 package latte.backend.quadruple;
 
 import latte.Absyn.*;
+import latte.Absyn.Void;
 import latte.utils.Utils;
 
 import java.util.List;
@@ -20,6 +21,9 @@ public class Quadruple {
     public String toString() {
         if (op == null) {
             return " ; " + result.toString() +"\n";
+        }
+        if (result.type.equals(new Void())) {
+            return op.toString() + "\n";
         }
         return result.toString() + " = " + op.toString() + "\n";
     }
@@ -48,7 +52,7 @@ public class Quadruple {
                         argsString.append(", ");
                     }
                 }
-                return "call " + Utils.getLLVMType(type) + " " + name + "(" + argsString + ")";
+                return "call " + Utils.getLLVMType(type) + " @" + name + "(" + argsString + ")";
             }
         }
 
@@ -209,7 +213,7 @@ public class Quadruple {
             @Override
             public String toString() {
                 String type1 = Utils.getLLVMType(type).replace("*", "");
-                return "getelementptr [" + length + " x " + type1 + "] " + ident + ", i32 " + i + ", i32 " + j;
+                return "getelementptr [" + length + " x " + type1 + "], [" + length + " x "+ type1 + "]* " + ident + ", i32 " + i + ", i32 " + j;
 //                return "getelementptr " + Utils.toLLVMString(type) + ", " + type.toString() + "* " + ident + ", i32 " + i + ", i32 " + j + ")";
             }
         }

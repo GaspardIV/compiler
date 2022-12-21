@@ -105,7 +105,12 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Scope>
             quadruples.addAll(exprQuadruples);
             registers.add(exprQuadruples.get(exprQuadruples.size() - 1).getRegister());
         }
-        quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), function.getType()), new Quadruple.LLVMOperation.CALL(function.getType(), function.getName(), registers)));
+        Quadruple.LLVMOperation.CALL quadruple = new Quadruple.LLVMOperation.CALL(function.getType(), function.getName(), registers);
+//        if (new Void().equals(function.getType())){
+//            quadruples.add(new Quadruple(null, quadruple));
+//        }else{
+            quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), function.getType()), quadruple));
+//        }
         return quadruples;
     }
 

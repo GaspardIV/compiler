@@ -7,28 +7,31 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Variable extends Scope{
-//    TODO LOC?????
-//    OR EXPR?????
     public Variable(String contextName, Type type_, Scope parent) {
         super(contextName, parent, type_);
     }
 
     int count = 0;
 
+    Register lastRegister = null;
+
 
     public Register getLastRegister() {
-        return new Register(this.contextName + (count == 0 ? "" : count), this.getType());
+        if (lastRegister == null) {
+            return new Register(this.contextName + (count == 0 ? "" : count), this.getType());
+        } else {
+            return lastRegister;
+        }
     }
 
     public Register getNewRegister() {
-        if (count == 0) {
+//        todo zmienne z nazwami konczacymi sie na liczbe beda bledne (np. x1)
             count++;
-            return new Register(this.contextName, this.getType());
-        } else {
-            count++;
-            return new Register(this.contextName + count, this.getType());
-        }
-//        count++;
-//        return new Register(this.contextName + count, this.getType());
+            lastRegister = new Register(this.contextName + count, this.getType());
+            return lastRegister;
+    }
+
+    public void setLastRegister(Register result) {
+        lastRegister = result;
     }
 }
