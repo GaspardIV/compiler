@@ -136,7 +136,7 @@ public class Scope {
     }
 
     public Variable getVariable(String ident_) {
-        System.out.println("getVariable " + ident_);
+//        System.out.println("getVariable " + ident_);
         if (variables.containsKey(ident_)) {
             return variables.get(ident_);
         } else if (parent != null) {

@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class TestUtils {
     private boolean shouldGenerateExpectedOutput;
-    private final boolean skipCheckingOutput = true;
+    private final boolean skipCheckingOutput = false;
     protected final ByteArrayOutputStream outputStreamCaptor;
 
     public TestUtils(boolean shouldGenerateExpectedOutput, ByteArrayOutputStream outputStreamCaptor, ByteArrayOutputStream errStreamCaptor) {
@@ -32,10 +32,12 @@ public class TestUtils {
     }
 
     void standardTestInputOutput(String inputFileName, String outputFileName, String errOutputFileName, int exitCode) {
-        System.out.println("Testing (/Users/kacperkonecki/IdeaProjects/codingame/compiler/" + inputFileName + ":0)");
-        System.out.println("err (/Users/kacperkonecki/IdeaProjects/codingame/compiler/" + errOutputFileName + ":0)");
-        System.out.println("output (/Users/kacperkonecki/IdeaProjects/codingame/compiler/" + outputFileName + ":0)");
-        System.out.println("output (/Users/kacperkonecki/IdeaProjects/codingame/compiler/" + outputFileName.replace(".output", ".ll") + ":0)");
+        if (skipCheckingOutput) {
+            System.out.println("Testing (/Users/kacperkonecki/IdeaProjects/codingame/compiler/" + inputFileName + ":0)");
+            System.out.println("err (/Users/kacperkonecki/IdeaProjects/codingame/compiler/" + errOutputFileName + ":0)");
+            System.out.println("output (/Users/kacperkonecki/IdeaProjects/codingame/compiler/" + outputFileName + ":0)");
+            System.out.println("output (/Users/kacperkonecki/IdeaProjects/codingame/compiler/" + outputFileName.replace(".output", ".ll") + ":0)");
+        }
 
         String[] args = {inputFileName};
 
