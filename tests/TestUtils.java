@@ -32,54 +32,60 @@ public class TestUtils {
     }
 
     void standardTestInputOutput(String inputFileName, String outputFileName, String errOutputFileName, int exitCode) {
-        if (skipCheckingOutput) {
+        try {
+
+
+            String[] args = {inputFileName};
+
+            int status;
+            try {
+                status = SystemLambda.catchSystemExit(() -> Compiler.main(args));
+            } catch (AssertionError e) {
+                status = 0;
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+
+
+            String expectedOutput;
+            if (!skipCheckingOutput) {
+                if (outputFileName != null && outputFileName.length() > 0) {
+//                if (shouldGenerateExpectedOutput) {
+//                    writeFileContent(outputFileName, outputStreamCaptor.toString());
+//                }
+                    expectedOutput = getFileContent(outputFileName);
+                } else {
+                    expectedOutput = "";
+                }
+            }
+
+            String expectedErrOutput;
+            if (errOutputFileName != null && errOutputFileName.length() > 0) {
+                if (shouldGenerateExpectedOutput) {
+                    writeFileContent(errOutputFileName, errStreamCaptor.toString());
+                }
+                expectedErrOutput = getFileContent(errOutputFileName);
+            } else {
+                expectedErrOutput = "";
+            }
+
+            assertEquals(exitCode, status);
+            assertEquals(expectedErrOutput, errStreamCaptor.toString());
+            if (!skipCheckingOutput) {
+                assertEquals(expectedOutput, outputStreamCaptor.toString());
+            }
+
+            assertFalse(shouldGenerateExpectedOutput, "This tests generates expected output. Please remove the flag.");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        } finally {
+//    if (skipCheckingOutput) {
             System.out.println("Testing (/Users/kacperkonecki/IdeaProjects/codingame/compiler/" + inputFileName + ":0)");
             System.out.println("err (/Users/kacperkonecki/IdeaProjects/codingame/compiler/" + errOutputFileName + ":0)");
             System.out.println("output (/Users/kacperkonecki/IdeaProjects/codingame/compiler/" + outputFileName + ":0)");
             System.out.println("output (/Users/kacperkonecki/IdeaProjects/codingame/compiler/" + outputFileName.replace(".output", ".ll") + ":0)");
+//        }
         }
-
-        String[] args = {inputFileName};
-
-        int status;
-        try {
-            status = SystemLambda.catchSystemExit(() -> Compiler.main(args));
-        } catch (AssertionError e) {
-            status = 0;
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-
-
-        String expectedOutput;
-        if (!skipCheckingOutput) {
-            if (outputFileName != null && outputFileName.length() > 0) {
-//                if (shouldGenerateExpectedOutput) {
-//                    writeFileContent(outputFileName, outputStreamCaptor.toString());
-//                }
-                expectedOutput = getFileContent(outputFileName);
-            } else {
-                expectedOutput = "";
-            }
-        }
-
-        String expectedErrOutput;
-        if (errOutputFileName != null && errOutputFileName.length() > 0) {
-            if (shouldGenerateExpectedOutput) {
-                writeFileContent(errOutputFileName, errStreamCaptor.toString());
-            }
-            expectedErrOutput = getFileContent(errOutputFileName);
-        } else {
-            expectedErrOutput = "";
-        }
-
-        assertEquals(exitCode, status);
-        assertEquals(expectedErrOutput, errStreamCaptor.toString());
-        if (!skipCheckingOutput) {
-            assertEquals(expectedOutput, outputStreamCaptor.toString());
-        }
-
-        assertFalse(shouldGenerateExpectedOutput, "This tests generates expected output. Please remove the flag.");
     }
 
     private void writeFileContent(String fileName, String content) {

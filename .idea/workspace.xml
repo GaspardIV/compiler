@@ -5,10 +5,8 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="zaczyna sie uruchamiac">
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment=" 10/50">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/Scope.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/Scope.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/TestUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/TestUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,7 +189,7 @@
       <recent name="bad" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in compiler">
+  <component name="RunManager" selected="JUnit.GoodBasicTest and 1 more">
     <configuration name="Test core002.lat" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="latte.Compiler" />
       <module name="compiler" />
@@ -378,14 +376,7 @@
       <workItem from="1670891574833" duration="8926000" />
       <workItem from="1670974557692" duration="3457000" />
       <workItem from="1670978039448" duration="20124000" />
-      <workItem from="1671487238053" duration="48778000" />
-    </task>
-    <task id="LOCAL-00011" summary="Poprawka mala readme i dodanie testow">
-      <created>1668364752710</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1668364752710</updated>
+      <workItem from="1671487238053" duration="49186000" />
     </task>
     <task id="LOCAL-00012" summary="Add tests and default err for certain tests.">
       <created>1668370826083</created>
@@ -723,7 +714,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671599885633</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary=" 10/50">
+      <created>1671602183205</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1671602183206</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -789,7 +787,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Returning void is not allowed." />
     <MESSAGE value="increment fix 98 failing" />
     <MESSAGE value="array of null not allowed 95 failing" />
     <MESSAGE value="Void arguments in method/function/field definition + almost working variable already declared" />
@@ -814,7 +811,8 @@
     <MESSAGE value="string" />
     <MESSAGE value="sporo zmian zwijanie stalych" />
     <MESSAGE value="zaczyna sie uruchamiac" />
-    <option name="LAST_COMMIT_MESSAGE" value="zaczyna sie uruchamiac" />
+    <MESSAGE value=" 10/50" />
+    <option name="LAST_COMMIT_MESSAGE" value=" 10/50" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
