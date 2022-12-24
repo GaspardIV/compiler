@@ -11,6 +11,7 @@ import latte.utils.Utils;
 import java.util.*;
 
 public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Scope> {
+    private static final String TMP = "tmp____";
 //    private final Environment environment;
 //
 //    public RegisterExprVisitor(Environment environment) {
@@ -81,18 +82,18 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Scope>
 
     @Override
     public List<Quadruple> visit(ELitInt p, Scope arg) {
-        return Collections.singletonList(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), new Int(), new ConstValue(p.integer_))));
+        return Collections.singletonList(new Quadruple(new Register(TMP + arg.getRegisterNumber(TMP), new Int(), new ConstValue(p.integer_))));
     }
 
     @Override
     public List<Quadruple> visit(ELitTrue p, Scope arg) {
 
-        return Collections.singletonList(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), new Bool(), new ConstValue(true))));
+        return Collections.singletonList(new Quadruple(new Register(TMP + arg.getRegisterNumber(TMP), new Bool(), new ConstValue(true))));
     }
 
     @Override
     public List<Quadruple> visit(ELitFalse p, Scope arg) {
-        return Collections.singletonList(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), new Bool(), new ConstValue(false))));
+        return Collections.singletonList(new Quadruple(new Register(TMP + arg.getRegisterNumber(TMP), new Bool(), new ConstValue(false))));
     }
 
     @Override
@@ -109,7 +110,7 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Scope>
 //        if (new Void().equals(function.getType())){
 //            quadruples.add(new Quadruple(null, quadruple));
 //        }else{
-            quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), function.getType()), quadruple));
+            quadruples.add(new Quadruple(new Register(TMP + arg.getRegisterNumber(TMP), function.getType()), quadruple));
 //        }
         return quadruples;
     }
@@ -119,7 +120,7 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Scope>
         String regIdent = arg.addStringGlobalRegister(p.string_);
         String escaped = Utils.getEscapedString(p.string_);
         int escapedLength = Utils.getLLVMEscapedStringLength(escaped);
-        return Collections.singletonList(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), new Str()), new Quadruple.LLVMOperation.GETELEMENTPTRSTR(escapedLength, regIdent, 0, 0)));
+        return Collections.singletonList(new Quadruple(new Register(TMP + arg.getRegisterNumber(TMP), new Str()), new Quadruple.LLVMOperation.GETELEMENTPTRSTR(escapedLength, regIdent, 0, 0)));
     }
 
     @Override
@@ -127,9 +128,9 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Scope>
         List<Quadruple> right = p.expr_.accept(this, arg);
         List<Quadruple> quadruples = new ArrayList<>(right);
         if (right.get(right.size() - 1).getRegister().isConst()) {
-            quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), new Int(), new ConstValue(-right.get(right.size() - 1).getRegister().getConstValue().getInt()))));
+            quadruples.add(new Quadruple(new Register(TMP + arg.getRegisterNumber(TMP), new Int(), new ConstValue(-right.get(right.size() - 1).getRegister().getConstValue().getInt()))));
         } else {
-            quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), new Int()), new Quadruple.LLVMOperation.NEG(quadruples.get(quadruples.size() - 1).getRegister())));
+            quadruples.add(new Quadruple(new Register(TMP + arg.getRegisterNumber(TMP), new Int()), new Quadruple.LLVMOperation.NEG(quadruples.get(quadruples.size() - 1).getRegister())));
         }
         return quadruples;
     }
@@ -139,9 +140,9 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Scope>
         List<Quadruple> right = p.expr_.accept(this, arg);
         List<Quadruple> quadruples = new ArrayList<>(right);
         if (right.get(right.size() - 1).getRegister().isConst()) {
-            quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"),new Bool(), new ConstValue(!right.get(right.size() - 1).getRegister().getConstValue().getBool()))));
+            quadruples.add(new Quadruple(new Register(TMP + arg.getRegisterNumber(TMP),new Bool(), new ConstValue(!right.get(right.size() - 1).getRegister().getConstValue().getBool()))));
         } else {
-            quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), new Bool()), new Quadruple.LLVMOperation.NOT(quadruples.get(quadruples.size() - 1).getRegister())));
+            quadruples.add(new Quadruple(new Register(TMP + arg.getRegisterNumber(TMP), new Bool()), new Quadruple.LLVMOperation.NOT(quadruples.get(quadruples.size() - 1).getRegister())));
         }
         return quadruples;
     }
@@ -157,14 +158,14 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Scope>
         Register rightRegister = right.get(right.size() - 1).getRegister();
         if (leftRegister.isConst() && rightRegister.isConst()) {
             if (p.mulop_ instanceof Times) {
-                quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), new Int(), new ConstValue(leftRegister.getConstValue().getInt() * rightRegister.getConstValue().getInt()))));
+                quadruples.add(new Quadruple(new Register(TMP + arg.getRegisterNumber(TMP), new Int(), new ConstValue(leftRegister.getConstValue().getInt() * rightRegister.getConstValue().getInt()))));
             } else if (p.mulop_ instanceof Div) {
-                quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), new Int(), new ConstValue(leftRegister.getConstValue().getInt() / rightRegister.getConstValue().getInt()))));
+                quadruples.add(new Quadruple(new Register(TMP + arg.getRegisterNumber(TMP), new Int(), new ConstValue(leftRegister.getConstValue().getInt() / rightRegister.getConstValue().getInt()))));
             } else if (p.mulop_ instanceof Mod) {
-                quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), new Int(), new ConstValue(leftRegister.getConstValue().getInt() % rightRegister.getConstValue().getInt()))));
+                quadruples.add(new Quadruple(new Register(TMP + arg.getRegisterNumber(TMP), new Int(), new ConstValue(leftRegister.getConstValue().getInt() % rightRegister.getConstValue().getInt()))));
             }
         } else {
-            quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), new Int()), new Quadruple.LLVMOperation.MUL(p.mulop_, left.get(left.size() - 1).getRegister(), right.get(right.size() - 1).getRegister())));
+            quadruples.add(new Quadruple(new Register(TMP + arg.getRegisterNumber(TMP), new Int()), new Quadruple.LLVMOperation.MUL(p.mulop_, left.get(left.size() - 1).getRegister(), right.get(right.size() - 1).getRegister())));
         }
         return quadruples;
     }
@@ -180,12 +181,12 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Scope>
         Register rightRegister = right.get(right.size() - 1).getRegister();
         if (leftRegister.isConst() && rightRegister.isConst()) {
             if (p.addop_ instanceof Plus) {
-                quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), new Int(), new ConstValue(leftRegister.getConstValue().getInt() + rightRegister.getConstValue().getInt()))));
+                quadruples.add(new Quadruple(new Register(TMP + arg.getRegisterNumber(TMP), new Int(), new ConstValue(leftRegister.getConstValue().getInt() + rightRegister.getConstValue().getInt()))));
             } else if (p.addop_ instanceof Minus) {
-                quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), new Int(), new ConstValue(leftRegister.getConstValue().getInt() - rightRegister.getConstValue().getInt()))));
+                quadruples.add(new Quadruple(new Register(TMP + arg.getRegisterNumber(TMP), new Int(), new ConstValue(leftRegister.getConstValue().getInt() - rightRegister.getConstValue().getInt()))));
             }
         } else {
-            quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), new Int()), new Quadruple.LLVMOperation.ADD(p.addop_, left.get(left.size() - 1).getRegister(), right.get(right.size() - 1).getRegister())));
+            quadruples.add(new Quadruple(new Register(TMP + arg.getRegisterNumber(TMP), new Int()), new Quadruple.LLVMOperation.ADD(p.addop_, left.get(left.size() - 1).getRegister(), right.get(right.size() - 1).getRegister())));
         }
         return quadruples;
 
@@ -202,22 +203,22 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Scope>
         Register rightRegister = right.get(right.size() - 1).getRegister();
         if (leftRegister.isConst() && rightRegister.isConst()) {
             if (p.relop_ instanceof LTH) {
-                quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), new Bool(), new ConstValue(leftRegister.getConstValue().getInt() < rightRegister.getConstValue().getInt()))));
+                quadruples.add(new Quadruple(new Register(TMP + arg.getRegisterNumber(TMP), new Bool(), new ConstValue(leftRegister.getConstValue().getInt() < rightRegister.getConstValue().getInt()))));
             } else if (p.relop_ instanceof LE) {
-                quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), new Bool(), new ConstValue(leftRegister.getConstValue().getInt() <= rightRegister.getConstValue().getInt()))));
+                quadruples.add(new Quadruple(new Register(TMP + arg.getRegisterNumber(TMP), new Bool(), new ConstValue(leftRegister.getConstValue().getInt() <= rightRegister.getConstValue().getInt()))));
             } else if (p.relop_ instanceof GTH) {
-                quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), new Bool(), new ConstValue(leftRegister.getConstValue().getInt() > rightRegister.getConstValue().getInt()))));
+                quadruples.add(new Quadruple(new Register(TMP + arg.getRegisterNumber(TMP), new Bool(), new ConstValue(leftRegister.getConstValue().getInt() > rightRegister.getConstValue().getInt()))));
             } else if (p.relop_ instanceof GE) {
-                quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), new Bool(), new ConstValue(leftRegister.getConstValue().getInt() >= rightRegister.getConstValue().getInt()))));
+                quadruples.add(new Quadruple(new Register(TMP + arg.getRegisterNumber(TMP), new Bool(), new ConstValue(leftRegister.getConstValue().getInt() >= rightRegister.getConstValue().getInt()))));
             } else if (p.relop_ instanceof EQU) {
-                quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), new Bool(), new ConstValue(leftRegister.getConstValue().getInt() == rightRegister.getConstValue().getInt()))));
+                quadruples.add(new Quadruple(new Register(TMP + arg.getRegisterNumber(TMP), new Bool(), new ConstValue(leftRegister.getConstValue().getInt() == rightRegister.getConstValue().getInt()))));
             } else if (p.relop_ instanceof NE) {
-                quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), new Bool(), new ConstValue(leftRegister.getConstValue().getInt() != rightRegister.getConstValue().getInt()))));
+                quadruples.add(new Quadruple(new Register(TMP + arg.getRegisterNumber(TMP), new Bool(), new ConstValue(leftRegister.getConstValue().getInt() != rightRegister.getConstValue().getInt()))));
             }
         } else {
-            quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), new Bool()), new Quadruple.LLVMOperation.REL(p.relop_, left.get(left.size() - 1).getRegister(), right.get(right.size() - 1).getRegister())));
+            quadruples.add(new Quadruple(new Register(TMP + arg.getRegisterNumber(TMP), new Bool()), new Quadruple.LLVMOperation.REL(p.relop_, left.get(left.size() - 1).getRegister(), right.get(right.size() - 1).getRegister())));
         }
-//        quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), new Bool()), new Quadruple.LLVMOperation.REL(p.relop_, left.get(left.size() - 1).getRegister(), right.get(right.size() - 1).getRegister())));
+//        quadruples.add(new Quadruple(new Register(TMP + arg.getRegisterNumber(TMP), new Bool()), new Quadruple.LLVMOperation.REL(p.relop_, left.get(left.size() - 1).getRegister(), right.get(right.size() - 1).getRegister())));
         return quadruples;
     }
 
@@ -231,11 +232,11 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Scope>
         Register leftRegister = left.get(left.size() - 1).getRegister();
         Register rightRegister = right.get(right.size() - 1).getRegister();
         if (leftRegister.isConst() && rightRegister.isConst()) {
-            quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), new Bool(), new ConstValue(leftRegister.getConstValue().getBool() && rightRegister.getConstValue().getBool()))));
+            quadruples.add(new Quadruple(new Register(TMP + arg.getRegisterNumber(TMP), new Bool(), new ConstValue(leftRegister.getConstValue().getBool() && rightRegister.getConstValue().getBool()))));
         } else {
-            quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), new Bool()), new Quadruple.LLVMOperation.AND(left.get(left.size() - 1).getRegister(), right.get(right.size() - 1).getRegister())));
+            quadruples.add(new Quadruple(new Register(TMP + arg.getRegisterNumber(TMP), new Bool()), new Quadruple.LLVMOperation.AND(left.get(left.size() - 1).getRegister(), right.get(right.size() - 1).getRegister())));
         }
-//        quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), new Bool()), new Quadruple.LLVMOperation.AND(left.get(left.size() - 1).getRegister(), right.get(right.size() - 1).getRegister())));
+//        quadruples.add(new Quadruple(new Register(TMP + arg.getRegisterNumber(TMP), new Bool()), new Quadruple.LLVMOperation.AND(left.get(left.size() - 1).getRegister(), right.get(right.size() - 1).getRegister())));
         return quadruples;
 
     }
@@ -250,11 +251,11 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Scope>
         Register leftRegister = left.get(left.size() - 1).getRegister();
         Register rightRegister = right.get(right.size() - 1).getRegister();
         if (leftRegister.isConst() && rightRegister.isConst()) {
-            quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), new Bool(), new ConstValue(leftRegister.getConstValue().getBool() || rightRegister.getConstValue().getBool()))));
+            quadruples.add(new Quadruple(new Register(TMP + arg.getRegisterNumber(TMP), new Bool(), new ConstValue(leftRegister.getConstValue().getBool() || rightRegister.getConstValue().getBool()))));
         } else {
-            quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), new Bool()), new Quadruple.LLVMOperation.OR(left.get(left.size() - 1).getRegister(), right.get(right.size() - 1).getRegister())));
+            quadruples.add(new Quadruple(new Register(TMP + arg.getRegisterNumber(TMP), new Bool()), new Quadruple.LLVMOperation.OR(left.get(left.size() - 1).getRegister(), right.get(right.size() - 1).getRegister())));
         }
-//        quadruples.add(new Quadruple(new Register("tmp" + arg.getRegisterNumber("tmp"), new Bool()), new Quadruple.LLVMOperation.OR(left.get(left.size() - 1).getRegister(), right.get(right.size() - 1).getRegister())));
+//        quadruples.add(new Quadruple(new Register(TMP + arg.getRegisterNumber(TMP), new Bool()), new Quadruple.LLVMOperation.OR(left.get(left.size() - 1).getRegister(), right.get(right.size() - 1).getRegister())));
         return quadruples;
     }
 }

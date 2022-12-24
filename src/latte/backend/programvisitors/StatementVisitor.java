@@ -3,9 +3,9 @@ package latte.backend.programvisitors;
 //import latte.Absyn
 
 import latte.Absyn.*;
+import latte.backend.Block;
 import latte.backend.program.global.Scope;
 import latte.backend.quadruple.Quadruple;
-import latte.backend.quadruple.Register;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -83,32 +83,100 @@ public class StatementVisitor implements Stmt.Visitor<String, Scope> {
         List<Quadruple> quadruples = p.expr_.accept(registerExprVisitor, arg);
         StringBuilder stringBuilder = new StringBuilder();
         quadruples.forEach(quadruple -> stringBuilder.append(quadruple.toString()));
-        stringBuilder.append(MessageFormat.format("ret {0} {1}", getLLVMType(arg.getType()), quadruples.get(quadruples.size() - 1).getRegister()));
+        stringBuilder.append(MessageFormat.format("ret {0} {1}\n", getLLVMType(arg.getType()), quadruples.get(quadruples.size() - 1).getRegister()));
         return stringBuilder.toString();
     }
 
     @Override
     public String visit(VRet p, Scope arg) {
-        return "ret void";
+        return "ret void\n";
+    }
+
+    @Override
+    public String visit(While p, Scope arg) {
+//        goto L2
+//L1: body
+//L2: condition code, result in t
+//if t goto L1
+
+        List<Quadruple> quadruples1 = new ArrayList<>();
+        Block block1 = new Block(arg.nextBlockName(), arg);
+        Block block2 = new Block(arg.nextBlockName(), arg);
+
+        StringBuilder stringBuilder = new StringBuilder();
+        quadruples1.add(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(block2.getName())));
+        quadruples1.add(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(block1.getName())));
+        quadruples1.forEach(quadruple -> stringBuilder.append(quadruple.toString()));
+        stringBuilder.append(p.stmt_.accept(this, block1));
+        List<Quadruple> quadruples2 = new ArrayList<>();
+        quadruples2.add(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(block2.getName())));
+        quadruples2.addAll(p.expr_.accept(new RegisterExprVisitor(), arg));
+        quadruples2.add(new Quadruple(null, new Quadruple.LLVMOperation.IF(quadruples2.get(quadruples2.size() - 1).getRegister(), block1.getName(), block2.getName())));
+        quadruples2.forEach(quadruple -> stringBuilder.append(quadruple.toString()));
+        return stringBuilder.toString();
+    }
+
+    @Override
+    public String visit(CondElse p, Scope arg) {
+// condition code, result in t
+//if t goto Ltrue
+//Lfalse: statement_2 code
+//goto Lend
+//Ltrue: statement_1 code
+//Lend: ...
+        List<Quadruple> quadruples1 = new ArrayList<>();
+        Block ltrue = new Block(arg.nextBlockName(), arg);
+        Block lfalse = new Block(arg.nextBlockName(), arg);
+        Block lend = new Block(arg.nextBlockName(), arg);
+
+        StringBuilder stringBuilder = new StringBuilder();
+        quadruples1.addAll(p.expr_.accept(new RegisterExprVisitor(), arg));
+
+        quadruples1.add(new Quadruple(null, new Quadruple.LLVMOperation.IF(quadruples1.get(quadruples1.size() - 1).getRegister(), ltrue.getName(), lfalse.getName())));
+        quadruples1.add(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(lfalse.getName())));
+        quadruples1.forEach(quadruple -> stringBuilder.append(quadruple.toString()));
+        stringBuilder.append(p.stmt_1.accept(this, lfalse));
+        List<Quadruple> quadruples2 = new ArrayList<>();
+        quadruples2.add(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(lend.getName())));
+        quadruples2.add(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(ltrue.getName())));
+        quadruples2.forEach(quadruple -> stringBuilder.append(quadruple.toString()));
+        stringBuilder.append(p.stmt_2.accept(this, ltrue));
+        List<Quadruple> quadruples3 = new ArrayList<>();
+        quadruples3.add(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(lend.getName())));
+        quadruples3.forEach(quadruple -> stringBuilder.append(quadruple.toString()));
+        return stringBuilder.toString();
     }
 
     @Override
     public String visit(Cond p, Scope arg) {
         // conditional
-        return " ; conditional";
+        // condition code, result in t
+        // if t goto Ltrue
+        // goto Lfalse
+        // Ltrue: ...
+        // Lfalse: ...
+        List<Quadruple> quadruples = new ArrayList<>();
+        Block ltrue = new Block(arg.nextBlockName(), arg);
+        Block lfalse = new Block(arg.nextBlockName(), arg);
+        StringBuilder stringBuilder = new StringBuilder();
+        quadruples.addAll(p.expr_.accept(new RegisterExprVisitor(), arg));
+        quadruples.add(new Quadruple(null, new Quadruple.LLVMOperation.IF(quadruples.get(quadruples.size() - 1).getRegister(), ltrue.getName(), lfalse.getName())));
+        quadruples.add(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(lfalse.getName())));
+        quadruples.add(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(ltrue.getName())));
+        quadruples.forEach(quadruple -> stringBuilder.append(quadruple.toString()));
+        stringBuilder.append(p.stmt_.accept(this, ltrue));
+        List<Quadruple> quadruples2 = new ArrayList<>();
+        quadruples2.add(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(lfalse.getName())));
+        quadruples2.forEach(quadruple -> stringBuilder.append(quadruple.toString()));
+        return stringBuilder.toString();
     }
 
-    @Override
-    public String visit(CondElse p, Scope arg) {
-        return " ; conditional else";
-//        return null;
-    }
 
-    @Override
-    public String visit(While p, Scope arg) {
-        return " ; while";
+
+
+//        return " ; conditional else";
 //        return null;
-    }
+//    }
 
     @Override
     public String visit(For p, Scope arg) {

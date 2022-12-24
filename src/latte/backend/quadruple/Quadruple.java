@@ -22,6 +22,9 @@ public class Quadruple {
         if (op == null) {
             return " ; " + result.toString() +"\n";
         }
+        if (result == null) {
+            return  op.toString() +"\n";
+        }
         if (result.type.equals(new Void())) {
             return op.toString() + "\n";
         }
@@ -38,11 +41,13 @@ public class Quadruple {
             private final Type type;
             public String name;
             public List<Register> args;
+
             public CALL(Type type, String name, List<Register> registers) {
                 this.name = name;
                 this.args = registers;
                 this.type = type;
             }
+
             public String toString() {
                 StringBuilder argsString = new StringBuilder();
 //                join args with comma as a separator without trailing comma
@@ -58,6 +63,7 @@ public class Quadruple {
 
         public static class NEG extends LLVMOperation {
             public Register register;
+
             public NEG(Register register) {
                 this.register = register;
             }
@@ -69,6 +75,7 @@ public class Quadruple {
 
         public static class NOT extends LLVMOperation {
             public Register register;
+
             public NOT(Register register) {
                 this.register = register;
             }
@@ -83,6 +90,7 @@ public class Quadruple {
             public MulOp op;
             public Register register1;
             public Register register2;
+
             public MUL(MulOp mulop_, Register register1, Register register2) {
                 this.op = mulop_;
                 this.register1 = register1;
@@ -106,6 +114,7 @@ public class Quadruple {
             public AddOp op;
             public Register register1;
             public Register register2;
+
             public ADD(AddOp addop_, Register register1, Register register2) {
                 this.op = addop_;
                 this.register1 = register1;
@@ -129,6 +138,7 @@ public class Quadruple {
             public RelOp op;
             public Register register1;
             public Register register2;
+
             public REL(RelOp relop_, Register register1, Register register2) {
                 op = relop_;
                 this.register1 = register1;
@@ -156,6 +166,7 @@ public class Quadruple {
         public static class AND extends LLVMOperation {
             public Register register1;
             public Register register2;
+
             public AND(Register register1, Register register2) {
                 this.register1 = register1;
                 this.register2 = register2;
@@ -169,6 +180,7 @@ public class Quadruple {
         public static class OR extends LLVMOperation {
             public Register register1;
             public Register register2;
+
             public OR(Register register1, Register register2) {
                 this.register1 = register1;
                 this.register2 = register2;
@@ -181,6 +193,7 @@ public class Quadruple {
 
         public static class ASSIGN extends LLVMOperation {
             public Register register;
+
             public ASSIGN(Register register) {
                 this.register = register;
             }
@@ -221,9 +234,53 @@ public class Quadruple {
             @Override
             public String toString() {
                 String type1 = Utils.getLLVMType(type).replace("*", "");
-                return "getelementptr [" + length + " x " + type1 + "], [" + length + " x "+ type1 + "]* " + ident + ", i32 " + i + ", i32 " + j;
+                return "getelementptr [" + length + " x " + type1 + "], [" + length + " x " + type1 + "]* " + ident + ", i32 " + i + ", i32 " + j;
 //                return "getelementptr " + Utils.toLLVMString(type) + ", " + type.toString() + "* " + ident + ", i32 " + i + ", i32 " + j + ")";
             }
         }
+
+        public static class GOTO extends LLVMOperation {
+            private final String label;
+
+            public GOTO(String label) {
+                this.label = label;
+            }
+
+            @Override
+            public String toString() {
+                return "br label %" + label;
+            }
+        }
+
+        public static class IF extends LLVMOperation {
+            private final Register register;
+            private final String label;
+            private final String label2;
+
+            public IF(Register register, String label, String labal2) {
+                this.register = register;
+                this.label = label;
+                this.label2 = labal2;
+            }
+
+            @Override
+            public String toString() {
+                return "br i1 " + register.toString() + ", label %" + label + ", label %" + label2;
+            }
+        }
+
+        public static class LABEL extends LLVMOperation {
+            private final String label;
+
+            public LABEL(String label) {
+                this.label = label;
+            }
+
+            @Override
+            public String toString() {
+                return label + ":";
+            }
+        }
+
     }
 }

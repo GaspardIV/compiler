@@ -150,4 +150,8 @@ public class Scope {
 
         return getVariable(Utils.removeNumber(result.name));
     }
+
+    public String nextBlockName() {
+        return contextName + "_" + getRegisterNumber(contextName);
+    }
 }
