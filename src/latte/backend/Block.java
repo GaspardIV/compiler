@@ -2,6 +2,7 @@ package latte.backend;
 
 import latte.backend.program.global.Scope;
 import latte.backend.quadruple.Quadruple;
+import latte.backend.quadruple.Register;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ public class Block extends Scope {
     List<Quadruple> statements;
 
     Block nextBlock;
+    public boolean markPhiVariables = false;
 
     public Block(String contextName, Scope parent) {
         super(contextName, parent);
@@ -56,5 +58,39 @@ public class Block extends Scope {
             quadruples.addAll(nextBlock.getQuadruplesFromAllBlocks());
         }
         return quadruples;
+    }
+
+    public Block getLastBlock() {
+        if (nextBlock != null) {
+            return nextBlock.getLastBlock();
+        } else {
+            return this;
+        }
+    }
+
+    public void addLastBlock(Block next) {
+        if (nextBlock != null) {
+            nextBlock.addLastBlock(next);
+        } else {
+            nextBlock = next;
+        }
+    }
+
+    public void setMarkPhiVariables(boolean markPhiVariables) {
+        this.markPhiVariables = markPhiVariables;
+    }
+
+    public List<Quadruple> getPhiVariables(Block entry, Block btrue) {
+        List<Quadruple> phiVariables = new ArrayList<>();
+        for (Quadruple quadruple : statements) {
+            if (quadruple.isPhi()) {
+                // tod
+
+                Register oldsRegister = quadruple.getRegister().phiRegister;
+                Register register = quadruple.getRegister();
+                phiVariables.add(new Quadruple(getVariable(quadruple.result).getNewRegister(), new Quadruple.LLVMOperation.PHI(oldsRegister,entry, register, btrue)));
+            }
+        }
+        return phiVariables;
     }
 }

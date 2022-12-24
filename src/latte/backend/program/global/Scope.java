@@ -1,6 +1,7 @@
 package latte.backend.program.global;
 
 import latte.Absyn.Type;
+import latte.backend.Block;
 import latte.backend.quadruple.Register;
 import latte.utils.Utils;
 
@@ -153,5 +154,15 @@ public class Scope {
 
     public String nextBlockName() {
         return contextName + "_" + getRegisterNumber(contextName);
+    }
+
+    public Block getCurrentBlock() {
+        if (this instanceof Block) {
+            return ((Block) this).getLastBlock();
+        } else if (parent != null) {
+            return parent.getCurrentBlock();
+        } else {
+            return null;
+        }
     }
 }

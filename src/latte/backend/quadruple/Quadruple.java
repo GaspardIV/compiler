@@ -2,6 +2,7 @@ package latte.backend.quadruple;
 
 import latte.Absyn.*;
 import latte.Absyn.Void;
+import latte.backend.Block;
 import latte.utils.Utils;
 
 import java.util.List;
@@ -33,6 +34,13 @@ public class Quadruple {
 
     public Register getRegister() {
         return result;
+    }
+
+    public boolean isPhi() {
+        if (result == null) {
+            return false;
+        }
+        return result.phiRegister != null;
     }
 
     public static class LLVMOperation {
@@ -285,6 +293,25 @@ public class Quadruple {
                     return "ret void";
                 }
                 return "ret " + register.getLLVMType() + " " + register.toString();
+            }
+        }
+
+        public static class PHI extends LLVMOperation {
+            private final Block btrue;
+            private final Register register;
+            private final Block entry;
+            private final Register oldsRegister;
+
+            public PHI(Register oldsRegister, Block entry, Register register, Block btrue) {
+                this.oldsRegister = oldsRegister;
+                this.entry = entry;
+                this.register = register;
+                this.btrue = btrue;
+            }
+
+            @Override
+            public String toString() {
+                return "phi " + register.getLLVMType() + " [" + oldsRegister.toString() + ", %" + entry.getName() + "], [" + register.toString() + ", %" + btrue.getName() + "]";
             }
         }
     }

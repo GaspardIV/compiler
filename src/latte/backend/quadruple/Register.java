@@ -7,6 +7,7 @@ import latte.utils.Utils;
 public class Register  {
     public String name;
     public Type type;
+    public Register phiRegister = null;
     private ConstValue constValue = null;
     public Register(String name_, Type type_) {
         name = name_;
