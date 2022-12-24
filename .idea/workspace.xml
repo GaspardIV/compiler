@@ -5,12 +5,17 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="17/50">
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="19/50">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/Scope.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/Scope.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/Block.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/Program.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/Function.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/Function.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/Global.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/Global.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/DeclVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/DeclVisitor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/ProgramChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/ProgramChecker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -257,6 +262,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GoodBasicTest.testBool_Overoptymization" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="compiler" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GoodBasicTest" />
+      <option name="METHOD_NAME" value="testBool_Overoptymization" />
+      <option name="TEST_OBJECT" value="method" />
+      <patterns>
+        <pattern testClass="GoodBasicTest" />
+        <pattern testClass="GoodClassicTest" />
+      </patterns>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="GoodBasicTest.testEscaped_String" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
@@ -299,20 +318,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GoodClassicTest.testCore015" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="compiler" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GoodClassicTest" />
-      <option name="METHOD_NAME" value="testCore015" />
-      <option name="TEST_OBJECT" value="method" />
-      <patterns>
-        <pattern testClass="GoodBasicTest" />
-        <pattern testClass="GoodClassicTest" />
-      </patterns>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Unnamed" type="ShConfigurationType" nameIsGenerated="true">
       <option name="SCRIPT_TEXT" value="" />
       <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
@@ -333,20 +338,20 @@
       <item itemvalue="Application.Test mytest" />
       <item itemvalue="Application.Test" />
       <item itemvalue="JUnit.All in compiler" />
+      <item itemvalue="JUnit.GoodBasicTest.testBool_Overoptymization" />
       <item itemvalue="JUnit.GoodBasicTest.testFibonacci" />
       <item itemvalue="JUnit.GoodBasicTest.testMod" />
       <item itemvalue="JUnit.GoodBasicTest.testEscaped_String" />
       <item itemvalue="JUnit.GoodBasicTest and 1 more" />
-      <item itemvalue="JUnit.GoodClassicTest.testCore015" />
       <item itemvalue="Shell Script.Unnamed" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.GoodBasicTest and 1 more" />
+        <item itemvalue="JUnit.GoodBasicTest.testBool_Overoptymization" />
         <item itemvalue="JUnit.GoodBasicTest.testFibonacci" />
         <item itemvalue="JUnit.GoodBasicTest.testMod" />
         <item itemvalue="JUnit.GoodBasicTest.testEscaped_String" />
-        <item itemvalue="JUnit.GoodClassicTest.testCore015" />
       </list>
     </recent_temporary>
   </component>
@@ -390,14 +395,7 @@
       <workItem from="1670978039448" duration="20124000" />
       <workItem from="1671487238053" duration="57476000" />
       <workItem from="1671756292922" duration="6345000" />
-      <workItem from="1671834541084" duration="7545000" />
-    </task>
-    <task id="LOCAL-00015" summary="Rearange tests">
-      <created>1668393889848</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1668393889848</updated>
+      <workItem from="1671834541084" duration="14970000" />
     </task>
     <task id="LOCAL-00016" summary="Add error function handling + global functions cannot be overridden.">
       <created>1668402845955</created>
@@ -735,7 +733,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671634814513</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="18/50 - bloki do przebudowania">
+      <created>1671843721025</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1671843721026</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -801,8 +806,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Void arguments in method/function/field definition + almost working variable already declared" />
-    <MESSAGE value="variable_with_void_type.err" />
     <MESSAGE value="single if -&gt; block" />
     <MESSAGE value="fix while_body_decl.err" />
     <MESSAGE value="60 tests failed only !!!" />
@@ -826,7 +829,9 @@
     <MESSAGE value=" 10/50" />
     <MESSAGE value="teraz mozna zaczac dopiero sie bawic (no moze refakttor?)" />
     <MESSAGE value="17/50" />
-    <option name="LAST_COMMIT_MESSAGE" value="17/50" />
+    <MESSAGE value="18/50 - bloki do przebudowania" />
+    <MESSAGE value="19/50" />
+    <option name="LAST_COMMIT_MESSAGE" value="19/50" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

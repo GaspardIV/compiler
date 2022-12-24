@@ -9,7 +9,7 @@ import java.util.List;
 public class Quadruple {
     public Register result;
     public LLVMOperation op;
-    public Quadruple( Register result) {
+    public Quadruple(Register result) {
         this.result = result;
         this.op = null;
     }
@@ -203,18 +203,6 @@ public class Quadruple {
             }
         }
 
-//        public static class VALUE extends LLVMOperation {
-//            private final ConstValue value;
-//
-//            public VALUE(ConstValue value) {
-//                this.value = value;
-//            }
-//
-//            public String toString() {
-//                return value.toString();
-//            }
-//        }
-
         public static class GETELEMENTPTRSTR extends LLVMOperation {
             private final int length;
             private final Type type;
@@ -235,7 +223,6 @@ public class Quadruple {
             public String toString() {
                 String type1 = Utils.getLLVMType(type).replace("*", "");
                 return "getelementptr [" + length + " x " + type1 + "], [" + length + " x " + type1 + "]* " + ident + ", i32 " + i + ", i32 " + j;
-//                return "getelementptr " + Utils.toLLVMString(type) + ", " + type.toString() + "* " + ident + ", i32 " + i + ", i32 " + j + ")";
             }
         }
 
@@ -282,5 +269,23 @@ public class Quadruple {
             }
         }
 
+        public static class VRET extends LLVMOperation {
+            private final Register register;
+
+            public VRET() {
+                this.register = null;
+            }
+            public VRET(Register register) {
+                this.register = register;
+            }
+
+            @Override
+            public String toString() {
+                if (register == null) {
+                    return "ret void";
+                }
+                return "ret " + register.getLLVMType() + " " + register.toString();
+            }
+        }
     }
 }

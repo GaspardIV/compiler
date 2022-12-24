@@ -21,6 +21,7 @@ public class ProgramChecker implements latte.Absyn.Program.Visitor<Program, Envi
         for (latte.Absyn.TopDef x : p.listtopdef_) {
             x.accept(programVisitor, null);
         }
+        program.convertToQuadruples();
         return program;
     }
 

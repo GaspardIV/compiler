@@ -1,7 +1,10 @@
 package latte.backend.program.global;
 
+import latte.Absyn.ListStmt;
 import latte.Absyn.Type;
 import latte.backend.Block;
+import latte.backend.programvisitors.StatementVisitor;
+import latte.backend.quadruple.Quadruple;
 import latte.utils.Utils;
 
 import java.text.MessageFormat;
@@ -10,16 +13,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Function extends Scope {
-    public void setBlocks(List<Block> statements) {
-        this.statements = statements;
-    }
 
-    List<Block> statements = new ArrayList<>();
+    ListStmt statements;
+
+    List<Quadruple> quadruples = new ArrayList<>();
     List<Variable> arguments;
 
-    public Function(String name, Type type, List<Variable> arguments, List<Block> statements, Scope scope) {
+    public Function(String name, Type type, List<Variable> arguments, ListStmt statements, Scope scope) {
         super(name, scope, type);
-//        this.type = type;
         for (Variable variable : arguments) {
             this.variables.put(variable.getName(), variable);
         }
@@ -27,10 +28,21 @@ public class Function extends Scope {
         this.statements = statements;
     }
 
+    public void convertToQuadruples() {
+        Block firstBlock = new Block(this.nextBlockName(), this);
+        for (latte.Absyn.Stmt stmt : statements) {
+            List<Quadruple> quadruples = stmt.accept(new StatementVisitor(), firstBlock);
+//            this.quadruples.addAll(quadruples);
+            firstBlock.addQuadruplesToLastBlock(quadruples);
+        }
+
+        this.quadruples.addAll(firstBlock.getQuadruplesFromAllBlocks());
+    }
+
     @Override
     public String toString() {
-        String body = statements.stream().map(Block::toString).collect(Collectors.joining("\n"));
-        String argsStr = String.join("", arguments.stream().map((Variable v) -> (Utils.getLLVMType(v.getType()) + " %" + v.contextName)).collect(Collectors.toList()));
+        String body = quadruples.stream().map(Quadruple::toString).collect(Collectors.joining("\n"));
+        String argsStr = arguments.stream().map((Variable v) -> (Utils.getLLVMType(v.getType()) + " %" + v.contextName)).collect(Collectors.joining(""));
         return MessageFormat.format("\ndefine {0} @{1}({2}) '{' \n{3}\n'}'\n", Utils.getLLVMType(this.getType()), this.contextName, argsStr, body);
     }
 }

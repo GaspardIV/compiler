@@ -1,5 +1,6 @@
 TODO:
 WAZNE W LLVM NIE DA SIE PRZYPISAC NA REJESTR STALA!!!!! - ALE CHYBA SIE DA PO RPSUT NP % = add 5 0xd
+- wszystkie nazwy z kropkami np %r.1, %r.2, itp..
 - usuwanie martwego kodu - jak jest t1 = ..... to pozniej jak nie ma go nigdzie po prawej stronie np. x = t1 to znaczy ze mozna go wywalic
 - zwijanie stalych (3 + 5)
 - propagacja stalych !!!! (x = 1; y = x + x; ) + (usuwanie martwego kodu)
