@@ -105,6 +105,7 @@ public class StatementVisitor implements Stmt.Visitor<List<Quadruple>, Scope> {
         btrue.setMarkPhiVariables(true);
         btrue.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(btrue.getName()))));
         List<Quadruple> stmts = p.stmt_.accept(this, btrue);
+        btrue.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(bend.getName()))));
 //        quadruples.addAll(stmts);
         btrue.addQuadruplesToLastBlock(stmts);
         btrue.addLastBlock(bend);

@@ -48,3 +48,23 @@ Niektóre funkcje runtime (readInt, printInt, printString) są wzięte z pliku `
 
 todo:
 - choice w template - jak nie korzystamy z danej builtin to usuwamy z template
+- template - strcat 
+``zastnowanie sie nad tyym To concatenate two string variables in LLVM, you can use the strcat function. Here is an example of how to do it:
+
+Copy code
+%result = call i8* @strcat(i8* %str1, i8* %str2)
+This will concatenate the two string variables %str1 and %str2, and store the result in the %result variable.
+
+Note that strcat requires the two strings to be null-terminated, so make sure that both %str1 and %str2 are properly terminated.
+
+If you want to concatenate two string literals instead of variables, you can use the getelementptr and store instructions to create a new string that combines the two literals. Here is an example:
+
+Copy code
+%str1 = constant [4 x i8] c"abc\00"
+%str2 = constant [4 x i8] c"def\00"
+%result_str = getelementptr [8 x i8], [8 x i8]* null, i32 0, i32 0
+%result_str = call i8* @llvm.memcpy.p0i8.p0i8.i64(i8* %result_str, i8* %str1, i64 4, i32 4, i1 false)
+%result_str = call i8* @llvm.memcpy.p0i8.p0i8.i64(i8* %result_str, i8* %str2, i64 4, i32 4, i1 false)
+This will create a new string that combines the two string literals "abc" and "def", and store the result in the %result_str variable.
+
+I hope this helps! Let me know if you have any questions.```

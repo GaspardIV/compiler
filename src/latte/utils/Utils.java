@@ -92,12 +92,17 @@ public class Utils {
     public static void generateBytecode(String fileName) {
         String llFileName = Utils.withExtension(fileName, "ll");
         String outputFileName = Utils.withExtension(fileName, "bc");
+        String inputFileName = Utils.withExtension(fileName, "input");
+
         String command = "llvm-as -o " + outputFileName + " " + llFileName;
         execSystemCommand(command, false);
 
-//            todo remove
-        String lliCommand = "lli " + outputFileName;
-        execSystemCommand(lliCommand, true);
+//            todo remove lines under !!!!!
+        String lliCommand = "lli " + outputFileName + " < " + inputFileName;
+        if (!new File(inputFileName).exists()) {
+//            execSystemCommand(lliCommand, true, inputFileName);
+            execSystemCommand(lliCommand, true);
+        }
     }
 
     private static void execSystemCommand(String command, boolean printOutput) {
@@ -143,6 +148,7 @@ public class Utils {
         count += (( str.split( Pattern.quote("\\0D" ), -1).length) - 1) * 2;
         count += (( str.split( Pattern.quote("\\08" ), -1).length) - 1) * 2;
         count += (( str.split( Pattern.quote("\\0C" ), -1).length) - 1) * 2;
+        count += (( str.split( Pattern.quote("\\\\" ), -1).length) - 1) ;
         return str.length() - count + 1;
     }
 

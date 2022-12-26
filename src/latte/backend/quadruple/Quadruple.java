@@ -24,7 +24,7 @@ public class Quadruple {
             return " ; " + result.toString() +"\n";
         }
         if (result == null) {
-            return  op.toString() +"\n";
+            return  op +"\n";
         }
         if (result.type.equals(new Void())) {
             return op.toString() + "\n";
@@ -132,7 +132,7 @@ public class Quadruple {
             public String toString() {
                 if (op instanceof Plus) {
                     if (register1.type instanceof Str) {
-                        return "call i8* @concat(i8* " + register1.toString() + ", i8* " + register2.toString() + ")";
+                        return "call i8* @strcat(i8* " + register1 + ", i8* " + register2.toString() + ")";
                     }
                     return "add " + register1.getLLVMType() + " " + register1.toString() + ", " + register2.toString();
                 } else {
@@ -292,7 +292,7 @@ public class Quadruple {
                 if (register == null) {
                     return "ret void";
                 }
-                return "ret " + register.getLLVMType() + " " + register.toString();
+                return "ret " + register.getLLVMType() + " " + register;
             }
         }
 
@@ -311,7 +311,7 @@ public class Quadruple {
 
             @Override
             public String toString() {
-                return "phi " + register.getLLVMType() + " [" + oldsRegister.toString() + ", %" + entry.getName() + "], [" + register.toString() + ", %" + btrue.getName() + "]";
+                return "phi " + register.getLLVMType() + " [" + oldsRegister.toString() + ", %" + entry.getName() + "], [" + register + ", %" + btrue.getName() + "]";
             }
         }
     }
