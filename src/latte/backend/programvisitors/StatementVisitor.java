@@ -78,13 +78,13 @@ public class StatementVisitor implements Stmt.Visitor<List<Quadruple>, Scope> {
         RegisterExprVisitor registerExprVisitor = new RegisterExprVisitor(/*environment*/);
         List<Quadruple> expr = p.expr_.accept(registerExprVisitor, arg);
         List<Quadruple> quadruples = new ArrayList<>(expr);
-        quadruples.add(new Quadruple(null, new Quadruple.LLVMOperation.VRET(quadruples.get(quadruples.size() - 1).getRegister())));
+        quadruples.add(new Quadruple(null, new Quadruple.LLVMOperation.RET(quadruples.get(quadruples.size() - 1).getRegister())));
         return quadruples;
     }
 
     @Override
     public List<Quadruple> visit(VRet p, Scope arg) {
-        Quadruple quadruple = new Quadruple(null, new Quadruple.LLVMOperation.VRET());
+        Quadruple quadruple = new Quadruple(null, new Quadruple.LLVMOperation.RET());
         return Collections.singletonList(quadruple);
     }
 
@@ -105,9 +105,9 @@ public class StatementVisitor implements Stmt.Visitor<List<Quadruple>, Scope> {
         btrue.setMarkPhiVariables(true);
         btrue.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(btrue.getName()))));
         List<Quadruple> stmts = p.stmt_.accept(this, btrue);
+        btrue.addQuadruplesToLastBlock(stmts);
         btrue.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(bend.getName()))));
 //        quadruples.addAll(stmts);
-        btrue.addQuadruplesToLastBlock(stmts);
         btrue.addLastBlock(bend);
         bend.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(bend.getName()))));
         bend.addQuadruplesToLastBlock(btrue.getPhiVariables(entry, btrue));
@@ -149,11 +149,46 @@ public class StatementVisitor implements Stmt.Visitor<List<Quadruple>, Scope> {
 
     @Override
     public List<Quadruple> visit(CondElse p, Scope arg) {
+        List<Quadruple> quadruples = new ArrayList<>();
+        Block entry = arg.getCurrentBlock();
+        Block btrue = new Block(arg.nextBlockName(), arg);
+        Block bfalse = new Block(arg.nextBlockName(), arg);
+        Block bend = new Block(arg.nextBlockName(), arg);
+
+        List<Quadruple> expr = p.expr_.accept(new RegisterExprVisitor(), arg);
+        quadruples.addAll(expr);
+        quadruples.add(new Quadruple(null, new Quadruple.LLVMOperation.IF(expr.get(expr.size() - 1).getRegister(), btrue.getName(), bfalse.getName())));
+        entry.addQuadruplesToLastBlock(quadruples);
+        entry.addLastBlock(btrue);
+
+        btrue.setMarkPhiVariables(true);
+        btrue.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(btrue.getName()))));
+        List<Quadruple> stmts = p.stmt_1.accept(this, btrue);
+        btrue.addQuadruplesToLastBlock(stmts);
+        btrue.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(bend.getName()))));
+//        quadruples.addAll(stmts);
+        btrue.addLastBlock(bend);
+
+        bfalse.setMarkPhiVariables(true);
+        bfalse.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(bfalse.getName()))));
+        stmts = p.stmt_2.accept(this, bfalse);
+        bfalse.addQuadruplesToLastBlock(stmts);
+        // todo jezeli tutaj nie ma w stamt returna zadengo
+        bfalse.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(bend.getName()))));
+//        quadruples.addAll(stmts);
+        bfalse.addLastBlock(bend);
+
+        bend.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(bend.getName()))));
+        List<Quadruple> phi1 = bfalse.getPhiVariables(btrue, bfalse);
+
+        bend.addQuadruplesToLastBlock(phi1);
+
         return new ArrayList<>();
     }
 
     @Override
     public List<Quadruple> visit(While p, Scope arg) {
+
         return new ArrayList<>();
     }
 

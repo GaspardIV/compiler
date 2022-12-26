@@ -277,13 +277,13 @@ public class Quadruple {
             }
         }
 
-        public static class VRET extends LLVMOperation {
+        public static class RET extends LLVMOperation {
             private final Register register;
 
-            public VRET() {
+            public RET() {
                 this.register = null;
             }
-            public VRET(Register register) {
+            public RET(Register register) {
                 this.register = register;
             }
 

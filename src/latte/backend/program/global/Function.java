@@ -2,6 +2,7 @@ package latte.backend.program.global;
 
 import latte.Absyn.ListStmt;
 import latte.Absyn.Type;
+import latte.Absyn.Void;
 import latte.backend.Block;
 import latte.backend.programvisitors.StatementVisitor;
 import latte.backend.quadruple.Quadruple;
@@ -9,6 +10,7 @@ import latte.utils.Utils;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -35,6 +37,15 @@ public class Function extends Scope {
 //            this.quadruples.addAll(quadruples);
             firstBlock.addQuadruplesToLastBlock(quadruples);
         }
+
+        if (getType().equals(new Void())) {
+            boolean  s = statements.stream().anyMatch(stmt -> stmt instanceof latte.Absyn.VRet);
+            if (!s) {
+                firstBlock.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.RET())));
+            }
+        }
+
+//        firstBlock.removeEmptyBlocks();
 
         this.quadruples.addAll(firstBlock.getQuadruplesFromAllBlocks());
     }

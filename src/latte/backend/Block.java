@@ -27,9 +27,9 @@ public class Block extends Scope {
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         statements.forEach(stmt -> stringBuilder.append(stmt.toString()));
-        if (successors.size() != 0) {
-            stringBuilder.append("br label %").append(successors.get(0).getName()).append("\n");
-        }
+//        if (successors.size() != 0) {
+//            stringBuilder.append("br label %").append(successors.get(0).getName()).append("\n");
+//        }
         return MessageFormat.format("{0}: \n{3}", this.getName(), " ; predecessors=" + predecessors,
                 " ; successors=" + successors, stringBuilder.toString());
     }
@@ -92,5 +92,14 @@ public class Block extends Scope {
             }
         }
         return phiVariables;
+    }
+
+    public void removeEmptyBlocks() {
+        if (nextBlock != null) {
+            nextBlock.removeEmptyBlocks();
+        }
+        if (statements.size() == 1 && statements.get(0).op instanceof Quadruple.LLVMOperation.LABEL) {
+            statements = new ArrayList<>();
+        }
     }
 }
