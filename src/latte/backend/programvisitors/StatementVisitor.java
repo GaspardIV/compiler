@@ -34,30 +34,30 @@ public class StatementVisitor implements Stmt.Visitor<List<Quadruple>, Scope> {
     @Override
     public List<Quadruple> visit(Ass p, Scope arg) {
         List<Quadruple> res = new ArrayList<>();
-        List<Quadruple> left = p.expr_1.accept(new RegisterExprVisitor(), arg);
+        List<Quadruple> left = p.expr_1.accept(new RegisterLeftSideExprVisitor(), arg);
         List<Quadruple> right = p.expr_2.accept(new RegisterExprVisitor(), arg);
-        res.addAll(left);
+//        res.addAll(left);
         res.addAll(right);
-        Variable variable = arg.getVariable(left.get(0).result);
-        Register lastRegister = right.get(right.size() - 1).result;
-        if (left.size() == 1 && left.get(0).op == null) {
+        Register leftLastRegister = left.get(left.size() - 1).result;
+        Variable variable = leftLastRegister.getVariable();
+        Variable variable = p.expr_1.accept(new RegisterLeftSideExprVisitor(),arg);
+        Register rightLastRegister = right.get(right.size() - 1).result;
+//        if (false && left.size() == 1 && left.get(0).op == null) {
 //            todo check if left is lvalue
 //            todo tu dzieje sie cos podejrzanego
 
             if (arg.getCurrentBlock().markPhiVariables) {
-                lastRegister.phiRegister = variable.getLastRegister();
+                rightLastRegister.phiRegister = variable.getLastRegister();
             }
-            variable.setLastRegister(lastRegister);
-
-        } else {
-//            Register lastRegister = right.get(right.size() - 1).result;
-            Register leftRegister = left.get(left.size() - 1).result;
-            if (arg.getCurrentBlock().markPhiVariables) {
-                leftRegister.phiRegister = variable.getLastRegister();
-            }
-            variable.setLastRegister(leftRegister);
-            res.add(new Quadruple(leftRegister, new Quadruple.LLVMOperation.ASSIGN(lastRegister)));
-        }
+//            if ()
+            variable.setLastRegister(rightLastRegister);
+//        } else {
+//            if (arg.getCurrentBlock().markPhiVariables) {
+//                leftLastRegister.phiRegister = variable.getLastRegister();
+//            }
+//            variable.setLastRegister(leftLastRegister);
+//            res.add(new Quadruple(leftLastRegister, new Quadruple.LLVMOperation.ASSIGN(rightLastRegister)));
+//        }
         return res;
     }
 

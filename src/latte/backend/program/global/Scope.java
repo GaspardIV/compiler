@@ -143,12 +143,12 @@ public class Scope {
         } else if (parent != null) {
             return parent.getVariable(ident_);
         } else {
+
             return null;
         }
     }
 
     public Variable getVariable(Register result) {
-
         return getVariable(Utils.removeNumber(result.name));
     }
 

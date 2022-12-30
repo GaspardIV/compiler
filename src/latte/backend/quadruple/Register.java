@@ -2,6 +2,7 @@ package latte.backend.quadruple;
 
 import jdk.jfr.consumer.RecordedObject;
 import latte.Absyn.Type;
+import latte.backend.program.global.Variable;
 import latte.utils.Utils;
 
 public class Register  {
@@ -9,6 +10,8 @@ public class Register  {
     public Type type;
     public Register phiRegister = null;
     private ConstValue constValue = null;
+
+    private Variable variable = null;
     public Register(String name_, Type type_) {
         name = name_;
         type = type_;
@@ -40,6 +43,9 @@ public class Register  {
         return "%" + name;
     }
 
+    public Variable getVariable() {
+        return variable;
+    }
 
     public ConstValue getConstValue() {
         return constValue;

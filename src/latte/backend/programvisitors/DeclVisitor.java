@@ -7,6 +7,7 @@ import latte.backend.quadruple.Quadruple;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class DeclVisitor implements Item.Visitor<List<Quadruple>, Scope> {
     private final Type type;
@@ -18,7 +19,9 @@ public class DeclVisitor implements Item.Visitor<List<Quadruple>, Scope> {
     @Override
     public List<Quadruple> visit(NoInit p, Scope arg) {
         arg.add(new Variable(p.ident_, type, arg));
-        return new ArrayList<>();
+        Expr defaultValue = type.equals(new Int()) ?  new ELitInt(0) : type.equals(new Bool()) ? new ELitFalse() : new EString("");
+
+        return new  Ass(new EVar(p.ident_), defaultValue).accept(new StatementVisitor(), arg);
     }
 
     @Override
