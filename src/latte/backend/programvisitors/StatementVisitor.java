@@ -34,13 +34,12 @@ public class StatementVisitor implements Stmt.Visitor<List<Quadruple>, Scope> {
     @Override
     public List<Quadruple> visit(Ass p, Scope arg) {
         List<Quadruple> res = new ArrayList<>();
-        List<Quadruple> left = p.expr_1.accept(new RegisterLeftSideExprVisitor(), arg);
+        List<Quadruple> left = p.expr_1.accept(new RegisterExprVisitor(), arg);
         List<Quadruple> right = p.expr_2.accept(new RegisterExprVisitor(), arg);
 //        res.addAll(left);
         res.addAll(right);
         Register leftLastRegister = left.get(left.size() - 1).result;
         Variable variable = leftLastRegister.getVariable();
-        Variable variable = p.expr_1.accept(new RegisterLeftSideExprVisitor(),arg);
         Register rightLastRegister = right.get(right.size() - 1).result;
 //        if (false && left.size() == 1 && left.get(0).op == null) {
 //            todo check if left is lvalue
@@ -50,7 +49,8 @@ public class StatementVisitor implements Stmt.Visitor<List<Quadruple>, Scope> {
                 rightLastRegister.phiRegister = variable.getLastRegister();
             }
 //            if ()
-            variable.setLastRegister(rightLastRegister);
+        rightLastRegister.setVariable(variable);
+        variable.setLastRegister(rightLastRegister);
 //        } else {
 //            if (arg.getCurrentBlock().markPhiVariables) {
 //                leftLastRegister.phiRegister = variable.getLastRegister();

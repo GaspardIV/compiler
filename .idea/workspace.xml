@@ -5,13 +5,12 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="30/50">
-      <change afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterLeftSideExprVisitor.java" afterDir="false" />
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="32">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core001.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core001.lat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/Scope.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/Scope.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/DeclVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/DeclVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/Block.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Register.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/TestUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/TestUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -195,7 +194,7 @@
       <recent name="bad" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GoodClassicTest.testCore005">
+  <component name="RunManager" selected="JUnit.GoodBasicTest and 1 more">
     <configuration name="Test core002.lat" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="latte.Compiler" />
       <module name="compiler" />
@@ -344,8 +343,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.GoodClassicTest.testCore005" />
         <item itemvalue="JUnit.GoodBasicTest and 1 more" />
+        <item itemvalue="JUnit.GoodClassicTest.testCore005" />
         <item itemvalue="JUnit.GoodClassicTest.testCore001" />
         <item itemvalue="JUnit.GoodBasicTest.testEscaped_String" />
         <item itemvalue="JUnit.GoodClassicTest.testCore018" />
@@ -394,14 +393,7 @@
       <workItem from="1671756292922" duration="6345000" />
       <workItem from="1671834541084" duration="25732000" />
       <workItem from="1672021537180" duration="12222000" />
-      <workItem from="1672365550394" duration="12900000" />
-    </task>
-    <task id="LOCAL-00021" summary="Building from grammar???">
-      <created>1668997442402</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1668997442403</updated>
+      <workItem from="1672365550394" duration="13957000" />
     </task>
     <task id="LOCAL-00022" summary="All tests generated">
       <created>1669003662556</created>
@@ -739,7 +731,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672371410646</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="32">
+      <created>1672379255202</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1672379255202</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -805,7 +804,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="cast null array" />
     <MESSAGE value="building from zero :)" />
     <MESSAGE value="lekki refactor" />
     <MESSAGE value="zip" />
@@ -830,7 +828,8 @@
     <MESSAGE value="21/50 pierwsze ify zaczynaja wyciongac rogi" />
     <MESSAGE value="25" />
     <MESSAGE value="30/50" />
-    <option name="LAST_COMMIT_MESSAGE" value="30/50" />
+    <MESSAGE value="32" />
+    <option name="LAST_COMMIT_MESSAGE" value="32" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

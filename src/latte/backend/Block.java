@@ -95,7 +95,7 @@ public class Block extends Scope {
 
                 Register oldsRegister = quadruple.getRegister().phiRegister;
                 Register register = quadruple.getRegister();
-                phiVariables.add(new Quadruple(getVariable(quadruple.result).getNewRegister(), new Quadruple.LLVMOperation.PHI(oldsRegister, entry, register, btrue)));
+                phiVariables.add(new Quadruple(quadruple.result.getVariable().getNewRegister(), new Quadruple.LLVMOperation.PHI(oldsRegister, entry, register, btrue)));
             }
         }
         return phiVariables;

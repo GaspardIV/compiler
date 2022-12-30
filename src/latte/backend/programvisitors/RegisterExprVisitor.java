@@ -76,6 +76,7 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Scope>
     public List<Quadruple> visit(EVar p, Scope arg) {
         ArrayList<Quadruple> quadruples = new ArrayList<>();
         Register last = arg.getVariable(p.ident_).getLastRegister();
+        last.setVariable(arg.getVariable(p.ident_));
         quadruples.add(new Quadruple(last));
         return quadruples;
     }

@@ -1,6 +1,5 @@
 package latte.backend.quadruple;
 
-import jdk.jfr.consumer.RecordedObject;
 import latte.Absyn.Type;
 import latte.backend.program.global.Variable;
 import latte.utils.Utils;
@@ -49,5 +48,9 @@ public class Register  {
 
     public ConstValue getConstValue() {
         return constValue;
+    }
+
+    public void setVariable(Variable variable) {
+        this.variable = variable;
     }
 }
