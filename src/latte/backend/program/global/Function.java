@@ -44,8 +44,7 @@ public class Function extends Scope {
                 firstBlock.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.RET())));
             }
         }
-
-//        firstBlock.removeEmptyBlocks();
+        firstBlock.removeDeadCode();
 
         this.quadruples.addAll(firstBlock.getQuadruplesFromAllBlocks());
     }
@@ -53,7 +52,7 @@ public class Function extends Scope {
     @Override
     public String toString() {
         String body = quadruples.stream().map(Quadruple::toString).collect(Collectors.joining("\n"));
-        String argsStr = arguments.stream().map((Variable v) -> (Utils.getLLVMType(v.getType()) + " %" + v.contextName)).collect(Collectors.joining(""));
+        String argsStr = arguments.stream().map((Variable v) -> (Utils.getLLVMType(v.getType()) + " %" + v.contextName)).collect(Collectors.joining(", "));
         return MessageFormat.format("\ndefine {0} @{1}({2}) '{' \n{3}\n'}'\n", Utils.getLLVMType(this.getType()), this.contextName, argsStr, body);
     }
 }

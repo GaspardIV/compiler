@@ -5,8 +5,7 @@ import latte.backend.quadruple.Quadruple;
 import latte.backend.quadruple.Register;
 
 import java.text.MessageFormat;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Block extends Scope {
     List<Block> predecessors;
@@ -15,6 +14,8 @@ public class Block extends Scope {
 
     Block nextBlock;
     public boolean markPhiVariables = false;
+
+    boolean wasReturn = false;
 
     public Block(String contextName, Scope parent) {
         super(contextName, parent);
@@ -36,6 +37,12 @@ public class Block extends Scope {
 
     public boolean isEmpty() {
         return statements.isEmpty();
+    }
+
+    public void addPredecessors(Block newBlock) {
+        if (!predecessors.contains(newBlock)) {
+            predecessors.add(newBlock);
+        }
     }
 
     public void addSuccessor(Block newBlock) {
@@ -88,18 +95,49 @@ public class Block extends Scope {
 
                 Register oldsRegister = quadruple.getRegister().phiRegister;
                 Register register = quadruple.getRegister();
-                phiVariables.add(new Quadruple(getVariable(quadruple.result).getNewRegister(), new Quadruple.LLVMOperation.PHI(oldsRegister,entry, register, btrue)));
+                phiVariables.add(new Quadruple(getVariable(quadruple.result).getNewRegister(), new Quadruple.LLVMOperation.PHI(oldsRegister, entry, register, btrue)));
             }
         }
         return phiVariables;
     }
 
-    public void removeEmptyBlocks() {
+    public void removeDeadCode() {
+        removeAfterReturn();
+        removeEmptyBlocks();
+    }
+
+    private void removeEmptyBlocks() {
         if (nextBlock != null) {
             nextBlock.removeEmptyBlocks();
         }
         if (statements.size() == 1 && statements.get(0).op instanceof Quadruple.LLVMOperation.LABEL) {
             statements = new ArrayList<>();
+        }
+    }
+
+    private void removeAfterReturn() {
+        LinkedList<Block> queue = new LinkedList<>();
+        Set<Block> visited = new HashSet<>();
+        queue.add(this);
+        while (!queue.isEmpty()) {
+            Block current = queue.poll();
+            visited.add(current);
+            List<Quadruple> newStatements = new ArrayList<>();
+            current.wasReturn = current.predecessors.size() > 0 && current.predecessors.stream().allMatch(block -> block.wasReturn);
+            for (int i = 0; i < current.statements.size(); i++) {
+                if (!current.wasReturn) {
+                    if (current.statements.get(i).op instanceof Quadruple.LLVMOperation.RET) {
+                        current.wasReturn = true;
+                    }
+                    newStatements.add(current.statements.get(i));
+                }
+            }
+            current.statements = newStatements;
+            for (Block succ : current.successors) {
+                if (!visited.contains(succ)) {
+                    queue.add(succ);
+                }
+            }
         }
     }
 }
