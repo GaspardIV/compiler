@@ -132,7 +132,7 @@ public class Quadruple {
             public String toString() {
                 if (op instanceof Plus) {
                     if (register1.type instanceof Str) {
-                        return "call i8* @strcat(i8* " + register1 + ", i8* " + register2.toString() + ")";
+                        return "call i8* @._concat(i8* " + register1 + ", i8* " + register2.toString() + ")";
                     }
                     return "add " + register1.getLLVMType() + " " + register1.toString() + ", " + register2.toString();
                 } else {
