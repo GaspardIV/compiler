@@ -74,7 +74,7 @@ public class Utils {
     public static void generateOutput(String fileName, String global) {
         String outputFileName = Utils.withExtension(fileName, "ll");
         String template = Utils.loadTemplate(LLVM_TEMPLATE_RESOURCE);
-        String output = MessageFormat.format(template, global.toString());
+        String output = MessageFormat.format(template, global);
         Utils.writeToFile(output, outputFileName);
     }
 
@@ -98,20 +98,22 @@ public class Utils {
         execSystemCommand(command, false);
 
 //            todo remove lines under !!!!!
-        String lliCommand = "lli " + outputFileName + " < " + inputFileName;
-        if (!new File(inputFileName).exists()) {
-//            execSystemCommand(lliCommand, true, inputFileName);
+        if (new File(inputFileName).exists()) {
+            String lliCommand = "lli " + outputFileName + " < " + inputFileName;
+            execSystemCommand(lliCommand, true);
+        } else {
+            String lliCommand = "lli " + outputFileName ;
             execSystemCommand(lliCommand, true);
         }
     }
 
     private static void execSystemCommand(String command, boolean printOutput) {
         try {
-            Process process = Runtime.getRuntime().exec(command);
+            Process process = Runtime.getRuntime().exec(new String[] { "bash", "-c", command});
             BufferedReader stdError = new BufferedReader(new
                     InputStreamReader(process.getErrorStream()));
-
-
+//
+//
             String s;
             if (printOutput) {
                 BufferedReader stdInput = new BufferedReader(new
@@ -120,7 +122,7 @@ public class Utils {
                     System.out.println(s);
                 }
             }
-
+////
             StringBuilder error = new StringBuilder();
             while ((s = stdError.readLine()) != null) {
                 error.append(s);
@@ -131,9 +133,11 @@ public class Utils {
                 throw new RuntimeException(command + " failed with error: \n" + error);
             }
 
-        } catch (IOException | InterruptedException e) {
+        } catch (IOException e) {
             System.out.println("An error occurred while generating bytecode.");
             e.printStackTrace();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 
