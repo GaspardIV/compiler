@@ -3,6 +3,8 @@ package latte.backend.quadruple;
 import latte.Absyn.*;
 import latte.Absyn.Void;
 import latte.backend.Block;
+import latte.backend.program.global.Function;
+import latte.backend.program.global.Global;
 import latte.utils.Utils;
 
 import java.util.List;
@@ -65,7 +67,7 @@ public class Quadruple {
                         argsString.append(", ");
                     }
                 }
-                return "call " + Utils.getLLVMType(type) + " @" + name + "(" + argsString + ")";
+                return "call " + Utils.getLLVMType(type) + " @" + Function.nameFromLabel(name) + "(" + argsString + ")";
             }
         }
 
@@ -132,6 +134,7 @@ public class Quadruple {
             public String toString() {
                 if (op instanceof Plus) {
                     if (register1.type instanceof Str) {
+                        Global.getInstance().useConcat = 1;
                         return "call i8* @._concat(i8* " + register1 + ", i8* " + register2.toString() + ")";
                     }
                     return "add " + register1.getLLVMType() + " " + register1.toString() + ", " + register2.toString();

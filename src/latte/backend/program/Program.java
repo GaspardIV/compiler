@@ -7,7 +7,6 @@ import latte.backend.program.global.Function;
 import latte.backend.program.global.Global;
 import latte.backend.program.global.Variable;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -33,7 +32,7 @@ public class Program {
     }
 
     public Program() {
-        this.global = new Global("global", null);
+        this.global = Global.reset();
         this.global.add(new Function("printInt", new Void(), Collections.singletonList(new Variable("i", new Int(), null)), new ListStmt(), null));
         this.global.add(new Function("printString", new Void(), Collections.singletonList(new Variable("s", new Str(), null)), new ListStmt(), null));
         this.global.add(new Function("error", new Void(), Collections.emptyList(), new ListStmt(), null));

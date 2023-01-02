@@ -50,7 +50,10 @@ todo:
 - choice w template - jak nie korzystamy z danej builtin to usuwamy z template
 - template - strcat 
 ``zastnowanie sie nad tyym To concatenate two string variables in LLVM, you can use the strcat function. Here is an example of how to do it:
-
+- przez to ze templatew anie runtime to musze  robic choise i funkcje c pewnie nie bede mogl zadeklarowac takich-  wiec moze lepiej zrobic tego linka do runtime
+- a mozme jednak niepotrzzebne - w runtime chociaz tak czy siak bym musial dodac jakos widocznosc funkcji z zewnatrz, czyli i tak bym musial dodac te nazwy funkcji (no chyba ze jak mateusz zrobil)
+moze latwiej zaznaczyc w kodzie je po prostu z przedrostkiem kazda fukcje z kodu. - asama function to string wystraczy - albo getname
+- dodatek taki ze nie trzeba korzystac z folderu runtime - pojedynczy plik
 Copy code
 %result = call i8* @strcat(i8* %str1, i8* %str2)
 This will concatenate the two string variables %str1 and %str2, and store the result in the %result variable.

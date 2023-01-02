@@ -100,6 +100,7 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Scope>
     @Override
     public List<Quadruple> visit(EApp p, Scope arg) {
         Function function = arg.getFunction(p.ident_);
+        function.markAsUsed();
         List<Quadruple> quadruples = new ArrayList<>();
         List<Register> registers = new ArrayList<>();
         for (int i = 0; i < p.listexpr_.size(); i++) {

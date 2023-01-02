@@ -1,12 +1,12 @@
 /* void expression as statement */
 
 int main() {
-  foo();
+  printf();
   return 0 ;
 
 }
 
-void foo() {
+void printf() {
    printString("foo");
    return;
 }

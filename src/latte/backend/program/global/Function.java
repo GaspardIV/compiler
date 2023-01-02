@@ -20,6 +20,7 @@ public class Function extends Scope {
 
     List<Quadruple> quadruples = new ArrayList<>();
     List<Variable> arguments;
+    private boolean isUsed = false;
 
     public Function(String name, Type type, List<Variable> arguments, ListStmt statements, Scope scope) {
         super(name, scope, type);
@@ -28,6 +29,22 @@ public class Function extends Scope {
         }
         this.arguments = arguments;
         this.statements = statements;
+        if (name.equals("main")) {
+            isUsed = true;
+        }
+    }
+    private void markIfruntimeFunction(String name) {
+        if (name.equals("printInt")) {
+            Global.getInstance().usePrintInt = 1;
+        } else if (name.equals("printString")) {
+            Global.getInstance().usePrintString = 1;
+        } else if (name.equals("error")) {
+            Global.getInstance().useError = 1;
+        } else if (name.equals("readInt")) {
+            Global.getInstance().useReadInt = 1;
+        } else if (name.equals("readString")) {
+            Global.getInstance().useReadString = 1;
+        }
     }
 
     public void convertToQuadruples() {
@@ -53,6 +70,26 @@ public class Function extends Scope {
     public String toString() {
         String body = quadruples.stream().map(Quadruple::toString).collect(Collectors.joining("\n"));
         String argsStr = arguments.stream().map((Variable v) -> (Utils.getLLVMType(v.getType()) + " %" + v.contextName)).collect(Collectors.joining(", "));
-        return MessageFormat.format("\ndefine {0} @{1}({2}) '{' \n{3}\n'}'\n", Utils.getLLVMType(this.getType()), this.contextName, argsStr, body);
+        if (isUsed) {
+            return MessageFormat.format("\ndefine {0} @{1}({2}) '{' \n{3}\n'}'\n", Utils.getLLVMType(this.getType()), nameFromLabel(this.contextName), argsStr, body);
+        } else {
+            return "";
+        }
+    }
+
+    public static String nameFromLabel(String label) {
+        if (isLibraryFunction(label)) {
+            return label+".user";
+        } else {
+            return label;
+        }
+    }
+    public static boolean isLibraryFunction(String name) {
+        return name.equals("printf") || name.equals("scanf") || name.equals("strcat") || name.equals("strcpy") || name.equals("malloc") || name.equals("strlen") || name.equals("puts") || name.equals("gets") || name.equals("exit") || name.equals("strcmp");
+    }
+
+    public void markAsUsed() {
+        markIfruntimeFunction(this.contextName);
+        this.isUsed = true;
     }
 }

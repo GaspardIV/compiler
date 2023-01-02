@@ -4,14 +4,12 @@ import latte.Absyn.Array;
 import latte.Absyn.Bool;
 import latte.Absyn.Type;
 import latte.Internal.Null;
+import latte.backend.program.global.Global;
 
 import java.io.*;
-import java.text.MessageFormat;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
 public class Utils {
-    private static final String LLVM_TEMPLATE_RESOURCE = "llvm.template";
 
     public static String toString(Type actual) {
         if (actual instanceof Array) {
@@ -64,18 +62,87 @@ public class Utils {
         }
     }
 
-    public static String loadTemplate(String templateResourceName) {
-        InputStream stream = Utils.class.getClassLoader().getResourceAsStream(templateResourceName);
-        BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
-        String template = reader.lines().collect(Collectors.joining("\n"));
-        return template;
-    }
-
-    public static void generateOutput(String fileName, String global) {
+    public static void generateOutput(String fileName, Global global) {
         String outputFileName = Utils.withExtension(fileName, "ll");
-        String template = Utils.loadTemplate(LLVM_TEMPLATE_RESOURCE);
-        String output = MessageFormat.format(template, global);
-        Utils.writeToFile(output, outputFileName);
+        StringBuilder output = new StringBuilder();
+        output.append(global);
+        output.append("\n");
+
+        if (global.usePrintInt == 1) {
+            output.append("@._dnl = internal constant [4 x i8] c\"%d\\0A\\00\"\n" +
+                    "declare i32 @printf(i8*, ...)\n" +
+                    "define void @printInt(i32 %x) {\n" +
+                    "       %t0 = getelementptr [4 x i8], [4 x i8]* @._dnl, i32 0, i32 0\n" +
+                    "       call i32 (i8*, ...) @printf(i8* %t0, i32 %x)\n" +
+                    "       ret void\n" +
+                    "}\n");
+        }
+        if (global.usePrintString == 1) {
+            output.append("declare i32 @puts(i8*)\n" +
+                    "define void @printString(i8* %s) {\n" +
+                    "entry:  call i32 @puts(i8* %s)\n" +
+                    "\tret void\n" +
+                    "}\n");
+        }
+        if (global.useError == 1) {
+            output.append("declare void @exit(i32)\n" +
+                    "define void @error() {\n" +
+                    "entry:  call void @exit(i32 1)\n" +
+                    "\tret void\n" +
+                    "}\n");
+        }
+        if (global.useConcat == 1 || global.useReadString == 1) {
+            output.append("declare i8* @malloc(i32)\n");
+        }
+        if (global.useConcat == 1) {
+            output.append("\n" +
+                    "declare i8* @strcat(i8*, i8*)\n" +
+                    "declare i8* @strcpy(i8*, i8*)\n" +
+                    "declare i32 @strlen(i8*)\n" +
+                    "define i8* @._concat(i8* %s1, i8* %s2) {\n" +
+                    "%1 = call i32 @strlen(i8* %s1)\n" +
+                    "%2 = call i32 @strlen(i8* %s2)\n" +
+                    "%3 = add i32 %1, %2\n" +
+                    "%4 = add i32 %3, 1\n" +
+                    "%5 = call i8* @malloc(i32 %4)\n" +
+                    "%6 = call i8* @strcpy(i8* %5, i8* %s1)\n" +
+                    "%7 = call i8* @strcat(i8* %5, i8* %s2)\n" +
+                    "ret i8* %7\n" +
+                    "}\n");
+        }
+        if (global.useReadInt == 1) {
+
+            output.append("@._dnl2 = internal constant [4 x i8] c\"%d\\0A\\00\"\n" +
+                    "declare i32 @scanf(i8*, ...)\n" +
+                    "define i32 @readInt() {\n" +
+                    "entry:\t%res = alloca i32\n" +
+                    "        %t1 = getelementptr [4 x i8], [4 x i8]* @._dnl2, i32 0, i32 0\n" +
+                    "\tcall i32 (i8*, ...) @scanf(i8* %t1, i32* %res)\n" +
+                    "\t%t2 = load i32, i32* %res\n" +
+                    "\tret i32 %t2\n" +
+                    "}\n");
+        }
+
+        if (global.useReadString == 1) {
+            output.append("\n" +
+                    "declare i8* @gets(i8*)\n" +
+                    "define i8* @readString() {\n" +
+                    "entry:\n" +
+                    "    %t1 = call i8* @malloc(i32 4096)\n" +
+                    "    %t2 = call i8* @gets(i8* %t1)\n" +
+                    "    ret i8* %t1\n" +
+                    "}\n");
+        }
+
+        if (global.useCompareString == 1) {
+            output.append("declare i32 @strcmp(i8*, i8*)\n" +
+                    "define i32 @compare(i8* %str1, i8* %str2) {\n" +
+                    "       %t0 = call i32 @strcmp(i8* %str1, i8* %str2)\n" +
+                    "       ret i32 %t0\n" +
+                    "}\n");
+        }
+
+        Utils.writeToFile(output.toString(), outputFileName);
     }
 
 
@@ -109,7 +176,7 @@ public class Utils {
 
     private static void execSystemCommand(String command, boolean printOutput) {
         try {
-            Process process = Runtime.getRuntime().exec(new String[] { "bash", "-c", command});
+            Process process = Runtime.getRuntime().exec(new String[] { "bash", "-c", command}); // todo remove bash !!!
             BufferedReader stdError = new BufferedReader(new
                     InputStreamReader(process.getErrorStream()));
 //

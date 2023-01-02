@@ -61,7 +61,7 @@ public class Compiler {
             SematicAnalyst analyst = new SematicAnalyst();
             latte.backend.program.Program program = analyst.checkTypes(ast);
             System.err.println("OK\n");
-            Utils.generateOutput(fileName, program.getGlobal().toString());
+            Utils.generateOutput(fileName, program.getGlobal());
             Utils.generateBytecode(fileName);
         } catch (SemanticError e) {
             System.err.println("ERROR\n");

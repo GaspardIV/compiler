@@ -5,13 +5,18 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="32">
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="35/50 - testowanie z inputem">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/Block.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core002.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core002.lat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/Compiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Compiler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/Program.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/Function.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/Function.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/Global.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/Global.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Register.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/TestUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/TestUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/utils/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/llvm.template" beforeDir="false" afterPath="$PROJECT_DIR$/templates/llvm.template" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +159,7 @@
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.tabs&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -258,6 +263,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GoodBasicTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="compiler" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GoodBasicTest" />
+      <option name="METHOD_NAME" value="testEscaped_String" />
+      <option name="TEST_OBJECT" value="class" />
+      <patterns>
+        <pattern testClass="GoodBasicTest" />
+        <pattern testClass="GoodClassicTest" />
+      </patterns>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="GoodBasicTest.testEscaped_String" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
@@ -272,11 +291,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GoodClassicTest.testCore001" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GoodClassicTest.testCore002" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="GoodClassicTest" />
-      <option name="METHOD_NAME" value="testCore001" />
+      <option name="METHOD_NAME" value="testCore002" />
       <option name="TEST_OBJECT" value="method" />
       <patterns>
         <pattern testClass="GoodBasicTest" />
@@ -286,30 +305,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GoodClassicTest.testCore005" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GoodVarqoxgoodTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GoodClassicTest" />
-      <option name="METHOD_NAME" value="testCore005" />
-      <option name="TEST_OBJECT" value="method" />
-      <patterns>
-        <pattern testClass="GoodBasicTest" />
-        <pattern testClass="GoodClassicTest" />
-      </patterns>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GoodClassicTest.testCore018" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="compiler" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GoodClassicTest" />
-      <option name="METHOD_NAME" value="testCore018" />
-      <option name="TEST_OBJECT" value="method" />
-      <patterns>
-        <pattern testClass="GoodBasicTest" />
-        <pattern testClass="GoodClassicTest" />
-      </patterns>
+      <option name="MAIN_CLASS_NAME" value="GoodVarqoxgoodTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -334,20 +335,20 @@
       <item itemvalue="Application.Test mytest" />
       <item itemvalue="Application.Test" />
       <item itemvalue="JUnit.All in compiler" />
+      <item itemvalue="JUnit.GoodBasicTest" />
+      <item itemvalue="JUnit.GoodClassicTest.testCore002" />
+      <item itemvalue="JUnit.GoodVarqoxgoodTest" />
       <item itemvalue="JUnit.GoodBasicTest.testEscaped_String" />
-      <item itemvalue="JUnit.GoodClassicTest.testCore001" />
-      <item itemvalue="JUnit.GoodClassicTest.testCore005" />
-      <item itemvalue="JUnit.GoodClassicTest.testCore018" />
       <item itemvalue="JUnit.GoodBasicTest and 1 more" />
       <item itemvalue="Shell Script.Unnamed" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.GoodBasicTest and 1 more" />
-        <item itemvalue="JUnit.GoodClassicTest.testCore005" />
-        <item itemvalue="JUnit.GoodClassicTest.testCore001" />
+        <item itemvalue="JUnit.GoodBasicTest" />
         <item itemvalue="JUnit.GoodBasicTest.testEscaped_String" />
-        <item itemvalue="JUnit.GoodClassicTest.testCore018" />
+        <item itemvalue="JUnit.GoodClassicTest.testCore002" />
+        <item itemvalue="JUnit.GoodVarqoxgoodTest" />
       </list>
     </recent_temporary>
   </component>
@@ -393,42 +394,10 @@
       <workItem from="1671756292922" duration="6345000" />
       <workItem from="1671834541084" duration="25732000" />
       <workItem from="1672021537180" duration="12222000" />
-      <workItem from="1672365550394" duration="13957000" />
-    </task>
-    <task id="LOCAL-00022" summary="All tests generated">
-      <created>1669003662556</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1669003662556</updated>
-    </task>
-    <task id="LOCAL-00023" summary="160 tests not passed (fix array casting fix null fix self)">
-      <created>1669254339511</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1669254339511</updated>
-    </task>
-    <task id="LOCAL-00024" summary="check method_arg_of_nonexistent_class + comparing void etc... + inheristance +">
-      <created>1669851824233</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1669851824233</updated>
-    </task>
-    <task id="LOCAL-00025" summary="add missing err files of not passing tests">
-      <created>1669851936340</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1669851936340</updated>
-    </task>
-    <task id="LOCAL-00026" summary="test_no_extends">
-      <created>1669862491867</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1669862491867</updated>
+      <workItem from="1672365550394" duration="15365000" />
+      <workItem from="1672446383987" duration="17758000" />
+      <workItem from="1672468091125" duration="7730000" />
+      <workItem from="1672606631232" duration="8593000" />
     </task>
     <task id="LOCAL-00027" summary="powolutku">
       <created>1669865832552</created>
@@ -738,7 +707,42 @@
       <option name="project" value="LOCAL" />
       <updated>1672379255202</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="33">
+      <created>1672380131921</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1672380131921</updated>
+    </task>
+    <task id="LOCAL-00072" summary="template dziala - mozliwe ze lepiej by bylo z gets">
+      <created>1672461729394</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1672461729395</updated>
+    </task>
+    <task id="LOCAL-00073" summary="teoretycznie template z getline, ale zaraz zamieniam na gets z powrotem, a najlepiej chyba do pliku .c, dac funkcje">
+      <created>1672463284067</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1672463284067</updated>
+    </task>
+    <task id="LOCAL-00074" summary="34/50">
+      <created>1672464929580</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1672464929580</updated>
+    </task>
+    <task id="LOCAL-00075" summary="35/50 - testowanie z inputem">
+      <created>1672466138374</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1672466138374</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -804,11 +808,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="building from zero :)" />
-    <MESSAGE value="lekki refactor" />
-    <MESSAGE value="zip" />
-    <MESSAGE value="fix array of arrays type" />
-    <MESSAGE value="readme" />
     <MESSAGE value="mmakefile right bnfc" />
     <MESSAGE value="zaczety backend" />
     <MESSAGE value="Block" />
@@ -829,7 +828,12 @@
     <MESSAGE value="25" />
     <MESSAGE value="30/50" />
     <MESSAGE value="32" />
-    <option name="LAST_COMMIT_MESSAGE" value="32" />
+    <MESSAGE value="33" />
+    <MESSAGE value="template dziala - mozliwe ze lepiej by bylo z gets" />
+    <MESSAGE value="teoretycznie template z getline, ale zaraz zamieniam na gets z powrotem, a najlepiej chyba do pliku .c, dac funkcje" />
+    <MESSAGE value="34/50" />
+    <MESSAGE value="35/50 - testowanie z inputem" />
+    <option name="LAST_COMMIT_MESSAGE" value="35/50 - testowanie z inputem" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -867,17 +871,17 @@
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/tests/TestUtils.java</url>
           <line>45</line>
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/tests/TestUtils.java</url>
-          <line>58</line>
           <option name="timeStamp" value="34" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/tests/TestUtils.java</url>
-          <line>50</line>
-          <option name="timeStamp" value="35" />
+          <url>file://$PROJECT_DIR$/src/latte/utils/Utils.java</url>
+          <line>81</line>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/latte/backend/program/global/Function.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="45" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />
