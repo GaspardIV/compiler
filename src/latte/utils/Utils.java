@@ -66,7 +66,9 @@ public class Utils {
         String outputFileName = Utils.withExtension(fileName, "ll");
         StringBuilder output = new StringBuilder();
         output.append(global);
-        output.append("\n");
+        output.append("\n\n; ====================================================\n");
+        output.append("; ====================================================\n");
+        output.append("; ====================================================\n\n");
 
         if (global.usePrintInt == 1) {
             output.append("@._dnl = internal constant [4 x i8] c\"%d\\0A\\00\"\n" +
@@ -76,6 +78,7 @@ public class Utils {
                     "       call i32 (i8*, ...) @printf(i8* %t0, i32 %x)\n" +
                     "       ret void\n" +
                     "}\n");
+            output.append("\n");
         }
         if (global.usePrintString == 1) {
             output.append("declare i32 @puts(i8*)\n" +
@@ -83,6 +86,7 @@ public class Utils {
                     "entry:  call i32 @puts(i8* %s)\n" +
                     "\tret void\n" +
                     "}\n");
+            output.append("\n");
         }
         if (global.useError == 1) {
             output.append("declare void @exit(i32)\n" +
@@ -90,6 +94,7 @@ public class Utils {
                     "entry:  call void @exit(i32 1)\n" +
                     "\tret void\n" +
                     "}\n");
+            output.append("\n");
         }
         if (global.useConcat == 1 || global.useReadString == 1) {
             output.append("declare i8* @malloc(i32)\n");
@@ -109,6 +114,7 @@ public class Utils {
                     "%7 = call i8* @strcat(i8* %5, i8* %s2)\n" +
                     "ret i8* %7\n" +
                     "}\n");
+            output.append("\n");
         }
         if (global.useReadInt == 1) {
 
@@ -121,6 +127,7 @@ public class Utils {
                     "\t%t2 = load i32, i32* %res\n" +
                     "\tret i32 %t2\n" +
                     "}\n");
+            output.append("\n");
         }
 
         if (global.useReadString == 1) {
@@ -132,6 +139,7 @@ public class Utils {
                     "    %t2 = call i8* @gets(i8* %t1)\n" +
                     "    ret i8* %t1\n" +
                     "}\n");
+            output.append("\n");
         }
 
         if (global.useCompareString == 1) {
@@ -140,6 +148,7 @@ public class Utils {
                     "       %t0 = call i32 @strcmp(i8* %str1, i8* %str2)\n" +
                     "       ret i32 %t0\n" +
                     "}\n");
+            output.append("\n");
         }
 
         Utils.writeToFile(output.toString(), outputFileName);

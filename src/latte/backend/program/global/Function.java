@@ -22,6 +22,12 @@ public class Function extends Scope {
     List<Variable> arguments;
     private boolean isUsed = false;
 
+    public Block getFirstBlock() {
+        return firstBlock;
+    }
+
+    private Block firstBlock;
+
     public Function(String name, Type type, List<Variable> arguments, ListStmt statements, Scope scope) {
         super(name, scope, type);
         for (Variable variable : arguments) {
@@ -49,8 +55,10 @@ public class Function extends Scope {
 
     public void convertToQuadruples() {
         Block firstBlock = new Block(this.nextBlockName(), this);
+        this.firstBlock = firstBlock;
+        quadruples.add(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(firstBlock.getName())));
         for (latte.Absyn.Stmt stmt : statements) {
-            List<Quadruple> quadruples = stmt.accept(new StatementVisitor(), firstBlock);
+            List<Quadruple> quadruples = stmt.accept(new StatementVisitor(), this);
 //            this.quadruples.addAll(quadruples);
             firstBlock.addQuadruplesToLastBlock(quadruples);
         }

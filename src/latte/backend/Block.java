@@ -1,5 +1,6 @@
 package latte.backend;
 
+import latte.Absyn.Int;
 import latte.backend.program.global.Scope;
 import latte.backend.quadruple.Quadruple;
 import latte.backend.quadruple.Register;
@@ -8,20 +9,35 @@ import java.text.MessageFormat;
 import java.util.*;
 
 public class Block extends Scope {
+    private final String identifier;
     List<Block> predecessors;
     List<Block> successors;
     List<Quadruple> statements;
 
     Block nextBlock;
+    Block previousBlock;
     public boolean markPhiVariables = false;
 
     boolean wasReturn = false;
+    private HashMap<String, Register> phiRegisterOfVariable;
+    private HashMap<String, Register> lastRegisterOfVariable;
 
     public Block(String contextName, Scope parent) {
+        this(contextName, parent, "null");
+    }
+
+    public Block(String contextName, Scope parent, String identifier) {
         super(contextName, parent);
         successors = new ArrayList<>();
         predecessors = new ArrayList<>();
         statements = new ArrayList<>();
+        lastRegisterOfVariable = new HashMap<>();
+        phiRegisterOfVariable = new HashMap<>();
+        this.identifier = identifier;
+    }
+
+    public String getIdentifier() {
+        return this.getName() + "_" + identifier;
     }
 
     @Override
@@ -80,6 +96,7 @@ public class Block extends Scope {
             nextBlock.addLastBlock(next);
         } else {
             nextBlock = next;
+            next.previousBlock = this;
         }
     }
 
@@ -87,18 +104,41 @@ public class Block extends Scope {
         this.markPhiVariables = markPhiVariables;
     }
 
-    public List<Quadruple> getPhiVariables(Block entry, Block btrue) {
-        List<Quadruple> phiVariables = new ArrayList<>();
-        for (Quadruple quadruple : statements) {
-            if (quadruple.isPhi()) {
-                // tod
 
-                Register oldsRegister = quadruple.getRegister().phiRegister;
-                Register register = quadruple.getRegister();
-                phiVariables.add(new Quadruple(quadruple.result.getVariable().getNewRegister(), new Quadruple.LLVMOperation.PHI(oldsRegister, entry, register, btrue)));
-            }
+    public static List<Quadruple> createPhiVariables(List<String> phiVariablesNames, Block entry, Block btrue) {
+        List<Quadruple> phiVariables = new ArrayList<>();
+        for (String variableName : phiVariablesNames) {
+            Register register = btrue.lastRegisterOfVariable.get(variableName);
+            Register oldsRegister = entry.lastRegisterOfVariable.get(variableName);
+            phiVariables.add(new Quadruple(entry.getVariable(variableName).getNewRegister(), new Quadruple.LLVMOperation.PHI(oldsRegister, entry, register, btrue)));
         }
         return phiVariables;
+    }
+
+    public List<Quadruple> getPhiVariables(List<String> variableNames, Block oldblock, Block newblock) {
+        List<Quadruple> phiVariables = new ArrayList<>();
+        for (String variableName : variableNames) {
+            Register phiRegister = phiRegisterOfVariable.get(variableName);
+            if (phiRegister == null && newblock.phiRegisterOfVariable.get(variableName) != null) {
+                phiRegister = newblock.phiRegisterOfVariable.get(variableName);
+            }
+            Register register = newblock.lastRegisterOfVariable.get(variableName);
+            Register oldsRegister = oldblock.lastRegisterOfVariable.get(variableName);
+            if (oldsRegister == null) {
+                oldsRegister = oldblock.getlastRegisterOfVariable(variableName);
+
+            }
+            phiVariables.add(new Quadruple(phiRegister, new Quadruple.LLVMOperation.PHI(oldsRegister, oldblock, register, newblock)));
+        }
+        return phiVariables;
+    }
+
+    private Register getlastRegisterOfVariable(String variableName) {
+        if (lastRegisterOfVariable.get(variableName) != null) {
+            return lastRegisterOfVariable.get(variableName);
+        } else {
+            return previousBlock.getlastRegisterOfVariable(variableName);
+        }
     }
 
     public void removeDeadCode() {
@@ -139,5 +179,36 @@ public class Block extends Scope {
                 }
             }
         }
+    }
+
+    public void setLastRegisterOfVariable(String ident_, Register last) {
+        this.lastRegisterOfVariable.put(ident_, last);
+
+    }
+
+    public boolean setPhiRegisterOfVariable(String ident_, Register first) {
+        if (!this.phiRegisterOfVariable.containsKey(ident_)) {
+            this.phiRegisterOfVariable.put(ident_, first);
+            return true;
+        }
+        return false;
+    }
+
+    public void addQuadruplesAtTheBeginning(List<Quadruple> phi1) {
+        statements.addAll(0, phi1);
+    }
+
+    public List<String> getRedefinedVariables() {
+        return new ArrayList<>(lastRegisterOfVariable.keySet());
+    }
+
+    public void resetLastUseOfVariables() {
+        for (Map.Entry<String, Register> entry : lastRegisterOfVariable.entrySet()) {
+            getVariable(entry.getKey()).setLastRegister(entry.getValue());
+        }
+    }
+
+    public boolean hasPhiRegisterOfVariable(String ident_) {
+        return phiRegisterOfVariable.containsKey(ident_);
     }
 }

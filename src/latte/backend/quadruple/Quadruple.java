@@ -23,15 +23,16 @@ public class Quadruple {
 
     public String toString() {
         if (op == null) {
-            return " ; " + result.toString() +"\n";
+//            return " ; " + result.toString() +"\n";
+            return "";
         }
         if (result == null) {
-            return  op +"\n";
+            return  op +"";
         }
         if (result.type.equals(new Void())) {
-            return op.toString() + "\n";
+            return op.toString();
         }
-        return result.toString() + " = " + op.toString() + "\n";
+        return result.toString() + " = " + op.toString();
     }
 
     public Register getRegister() {
@@ -314,7 +315,7 @@ public class Quadruple {
 
             @Override
             public String toString() {
-                return "phi " + register.getLLVMType() + " [" + oldsRegister.toString() + ", %" + entry.getName() + "], [" + register + ", %" + btrue.getName() + "]";
+                return "phi " + register.getLLVMType() + " [" + oldsRegister.toString() + ", %" + entry.getIdentifier() + "], [" + register + ", %" + btrue.getIdentifier() + "]";
             }
         }
     }

@@ -157,8 +157,13 @@ public class Scope {
     }
 
     public Block getCurrentBlock() {
+        if (this instanceof Function) {
+            return ((Function) this).getFirstBlock();
+        } else if (this instanceof Classs) {
+            return ((Classs) this).getCurrentBlock();
+        } else
         if (this instanceof Block) {
-            return ((Block) this).getLastBlock();
+            return ((Block) this);
         } else if (parent != null) {
             return parent.getCurrentBlock();
         } else {

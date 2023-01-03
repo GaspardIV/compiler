@@ -3,6 +3,7 @@ package latte.backend.programvisitors;
 import latte.Absyn.*;
 import latte.backend.program.global.Function;
 import latte.backend.program.global.Scope;
+import latte.backend.program.global.Variable;
 import latte.backend.quadruple.ConstValue;
 import latte.backend.quadruple.Quadruple;
 import latte.backend.quadruple.Register;
@@ -75,8 +76,14 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Scope>
     @Override
     public List<Quadruple> visit(EVar p, Scope arg) {
         ArrayList<Quadruple> quadruples = new ArrayList<>();
-        Register last = arg.getVariable(p.ident_).getLastRegister();
-        last.setVariable(arg.getVariable(p.ident_));
+        Variable variable = arg.getVariable(p.ident_);
+        Register last = variable.getLastRegister();
+        if (arg.getCurrentBlock().markPhiVariables && !arg.getCurrentBlock().hasPhiRegisterOfVariable(p.ident_)) {
+            Register phiRegister =variable.getNewRegister();
+            arg.getCurrentBlock().setPhiRegisterOfVariable(p.ident_, phiRegister);
+            last = phiRegister;
+        }
+        last.setVariable(variable);
         quadruples.add(new Quadruple(last));
         return quadruples;
     }
