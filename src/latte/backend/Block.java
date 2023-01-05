@@ -122,11 +122,13 @@ public class Block extends Scope {
             if (phiRegister == null && newblock.phiRegisterOfVariable.get(variableName) != null) {
                 phiRegister = newblock.phiRegisterOfVariable.get(variableName);
             }
-            Register register = newblock.lastRegisterOfVariable.get(variableName);
-            Register oldsRegister = oldblock.lastRegisterOfVariable.get(variableName);
-            if (oldsRegister == null) {
-                oldsRegister = oldblock.getlastRegisterOfVariable(variableName);
+            Register register = newblock.getlastRegisterOfVariable(variableName);
+            Register oldsRegister = oldblock.getlastRegisterOfVariable(variableName);
 
+
+            if (lastRegisterOfVariable.get(variableName) == null) {
+                lastRegisterOfVariable.put(variableName, register);
+                getVariable(variableName).setLastRegister(phiRegister);
             }
             phiVariables.add(new Quadruple(phiRegister, new Quadruple.LLVMOperation.PHI(oldsRegister, oldblock, register, newblock)));
         }
@@ -186,12 +188,10 @@ public class Block extends Scope {
 
     }
 
-    public boolean setPhiRegisterOfVariable(String ident_, Register first) {
+    public void setPhiRegisterOfVariable(String ident_, Register first) {
         if (!this.phiRegisterOfVariable.containsKey(ident_)) {
             this.phiRegisterOfVariable.put(ident_, first);
-            return true;
         }
-        return false;
     }
 
     public void addQuadruplesAtTheBeginning(List<Quadruple> phi1) {
@@ -210,5 +210,17 @@ public class Block extends Scope {
 
     public boolean hasPhiRegisterOfVariable(String ident_) {
         return phiRegisterOfVariable.containsKey(ident_);
+    }
+
+    public void pastePhiVariables(Block cond) {
+        for (Map.Entry<String, Register> entry : cond.phiRegisterOfVariable.entrySet()) {
+            if (!phiRegisterOfVariable.containsKey(entry.getKey())) {
+                phiRegisterOfVariable.put(entry.getKey(), entry.getValue());
+            }
+        }
+    }
+
+    public Collection<String> getUsedVariables() {
+        return phiRegisterOfVariable.keySet();
     }
 }

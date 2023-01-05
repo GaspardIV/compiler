@@ -54,9 +54,12 @@ public class Function extends Scope {
     }
 
     public void convertToQuadruples() {
-        Block firstBlock = new Block(this.nextBlockName(), this);
+        Block firstBlock = new Block(this.nextBlockName(), this, "entry");
         this.firstBlock = firstBlock;
-        quadruples.add(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(firstBlock.getName())));
+        for (Variable variable : arguments) {
+            firstBlock.setLastRegisterOfVariable(variable.getName(), variable.getLastRegister());
+        }
+        quadruples.add(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(firstBlock.getIdentifier())));
         for (latte.Absyn.Stmt stmt : statements) {
             List<Quadruple> quadruples = stmt.accept(new StatementVisitor(), this);
 //            this.quadruples.addAll(quadruples);

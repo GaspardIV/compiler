@@ -9,6 +9,7 @@ import latte.backend.quadruple.Register;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 
 public class StatementVisitor implements Stmt.Visitor<List<Quadruple>, Scope> {
@@ -235,6 +236,7 @@ public class StatementVisitor implements Stmt.Visitor<List<Quadruple>, Scope> {
         cond.addSuccessor(body);
         body.addPredecessors(cond);
 
+        body.pastePhiVariables(cond);
         body.setMarkPhiVariables(true);
         body.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(body.getIdentifier()))));
         List<Quadruple> stmts = p.stmt_.accept(this, body);
@@ -244,12 +246,13 @@ public class StatementVisitor implements Stmt.Visitor<List<Quadruple>, Scope> {
         body.addSuccessor(cond);
         cond.addPredecessors(body);
 
-        cond.resetLastUseOfVariables();
+        cond.resetLastUseOfVariables(); // so it uses variables from cond at the end
 //        Listcond.getRedefinedVariables().addAll(body.getRedefinedVariables());
-        List<String> variableNames = body.getRedefinedVariables();
+        HashSet<String> variableNames = new HashSet<>(body.getRedefinedVariables());
         variableNames.addAll(cond.getRedefinedVariables());
-        List<Quadruple> phi1 = cond.getPhiVariables(variableNames, entry, body);
-//        List<Quadruple> phi1 = cond.getPhiVariables(entry, body);
+        variableNames.addAll(cond.getUsedVariables());
+        variableNames.addAll(body.getUsedVariables());
+        List<Quadruple> phi1 = cond.getPhiVariables(new ArrayList<>(variableNames), entry, body);
         cond.addQuadruplesAtTheBeginning(phi1);
         cond.addQuadruplesAtTheBeginning(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(cond.getIdentifier()))));
 
