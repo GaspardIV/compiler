@@ -5,11 +5,12 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="41/50 dziala while">
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="41/50 refactor">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/Block.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/Function.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/Function.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Block.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +193,7 @@
       <recent name="bad" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in compiler">
+  <component name="RunManager" selected="JUnit.GoodBasicTest and 1 more">
     <configuration name="Test core002.lat" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="latte.Compiler" />
       <module name="compiler" />
@@ -256,20 +257,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GoodBasicTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="compiler" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GoodBasicTest" />
-      <option name="METHOD_NAME" value="testEscaped_String" />
-      <option name="TEST_OBJECT" value="class" />
-      <patterns>
-        <pattern testClass="GoodBasicTest" />
-        <pattern testClass="GoodClassicTest" />
-      </patterns>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="GoodBasicTest.testEscaped_String" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
@@ -312,6 +299,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GoodClassicTest.testCore019" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="compiler" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GoodClassicTest" />
+      <option name="METHOD_NAME" value="testCore019" />
+      <option name="TEST_OBJECT" value="method" />
+      <patterns>
+        <pattern testClass="GoodBasicTest" />
+        <pattern testClass="GoodClassicTest" />
+      </patterns>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Unnamed" type="ShConfigurationType" nameIsGenerated="true">
       <option name="SCRIPT_TEXT" value="" />
       <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
@@ -332,7 +333,7 @@
       <item itemvalue="Application.Test mytest" />
       <item itemvalue="Application.Test" />
       <item itemvalue="JUnit.All in compiler" />
-      <item itemvalue="JUnit.GoodBasicTest" />
+      <item itemvalue="JUnit.GoodClassicTest.testCore019" />
       <item itemvalue="JUnit.GoodBasicTest.testFibonacci" />
       <item itemvalue="JUnit.GoodBasicTest.testWhile_True" />
       <item itemvalue="JUnit.GoodBasicTest.testEscaped_String" />
@@ -343,9 +344,9 @@
       <list>
         <item itemvalue="JUnit.GoodBasicTest and 1 more" />
         <item itemvalue="JUnit.GoodBasicTest.testFibonacci" />
-        <item itemvalue="JUnit.GoodBasicTest.testWhile_True" />
-        <item itemvalue="JUnit.GoodBasicTest" />
         <item itemvalue="JUnit.GoodBasicTest.testEscaped_String" />
+        <item itemvalue="JUnit.GoodClassicTest.testCore019" />
+        <item itemvalue="JUnit.GoodBasicTest.testWhile_True" />
       </list>
     </recent_temporary>
   </component>
@@ -395,21 +396,9 @@
       <workItem from="1672446383987" duration="17758000" />
       <workItem from="1672468091125" duration="7730000" />
       <workItem from="1672606631232" duration="50477000" />
-      <workItem from="1672891914755" duration="11765000" />
-    </task>
-    <task id="LOCAL-00029" summary="146 tests failed">
-      <created>1669866917538</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1669866917538</updated>
-    </task>
-    <task id="LOCAL-00030" summary="113 tests failed added null">
-      <created>1669870142160</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1669870142160</updated>
+      <workItem from="1672891914755" duration="11798000" />
+      <workItem from="1673029528322" duration="16294000" />
+      <workItem from="1673091017320" duration="2339000" />
     </task>
     <task id="LOCAL-00031" summary="110 passes fix main args and returntype">
       <created>1669871068487</created>
@@ -740,7 +729,21 @@
       <option name="project" value="LOCAL" />
       <updated>1672741791012</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="41/50 dziala while">
+      <created>1672941887719</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1672941887720</updated>
+    </task>
+    <task id="LOCAL-00079" summary="41/50 refactor">
+      <created>1673054175858</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1673054175859</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -806,7 +809,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="refactor" />
     <MESSAGE value="Jas nie wiem co z tego bedzie xd" />
     <MESSAGE value="string" />
     <MESSAGE value="sporo zmian zwijanie stalych" />
@@ -831,7 +833,8 @@
     <MESSAGE value="cos nie do konca tak" />
     <MESSAGE value="cos nie do konca tak ale lepiej while" />
     <MESSAGE value="41/50 dziala while" />
-    <option name="LAST_COMMIT_MESSAGE" value="41/50 dziala while" />
+    <MESSAGE value="41/50 refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="41/50 refactor" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -862,33 +865,18 @@
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/latte/backend/program/global/Scope.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/tests/TestUtils.java</url>
           <line>45</line>
           <option name="timeStamp" value="34" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/latte/utils/Utils.java</url>
-          <line>72</line>
-          <option name="timeStamp" value="44" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java</url>
-          <line>48</line>
-          <option name="timeStamp" value="47" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java</url>
-          <line>317</line>
-          <option name="timeStamp" value="49" />
+          <line>208</line>
+          <option name="timeStamp" value="51" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />
-          <option name="timeStamp" value="42" />
+          <option name="timeStamp" value="50" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -901,6 +889,7 @@
       <configuration name="JUnit">
         <watch expression="parent" language="JAVA" />
         <watch expression="((Block)arg).parent" custom="latte.backend.Block" />
+        <watch expression="oldsRegister" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>

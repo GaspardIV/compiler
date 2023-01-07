@@ -87,6 +87,18 @@ public class StatementVisitor implements Stmt.Visitor<List<Quadruple>, Block> {
         Block bend = new Block(function.nextBlockName(),scope, "if.end");
 
         List<Quadruple> expr = p.expr_.accept(new RegisterExprVisitor(), block);
+
+        Register lastRegister = expr.get(expr.size() - 1).result;
+        if (lastRegister.isConst()) {
+            if (lastRegister.getConstValue().getBool()) {
+                entry.addQuadruplesToLastBlock(p.stmt_.accept(this, entry));
+                return new ArrayList<>();
+            } else {
+                return new ArrayList<>();
+            }
+        }
+
+
         quadruples.addAll(expr);
         quadruples.add(new Quadruple(null, new Quadruple.LLVMOperation.IF(expr.get(expr.size() - 1).getRegister(), btrue.getIdentifier(), bend.getIdentifier())));
         entry.addQuadruplesToLastBlock(quadruples);
@@ -124,6 +136,21 @@ public class StatementVisitor implements Stmt.Visitor<List<Quadruple>, Block> {
         Block bend = new Block(function.nextBlockName(), scope, "if.end");
 
         List<Quadruple> expr = p.expr_.accept(new RegisterExprVisitor(), block);
+
+//        if is const then we can optimize it to block that points to true or false
+        Register lastRegister = expr.get(expr.size() - 1).getRegister();
+        if (lastRegister.isConst()) {
+            if (lastRegister.getConstValue().getBool()) {
+                List<Quadruple> stmts = p.stmt_1.accept(this, block);
+                block.addQuadruplesToLastBlock(stmts);
+                return new ArrayList<>();
+            } else {
+                List<Quadruple> stmts = p.stmt_2.accept(this, block);
+                block.addQuadruplesToLastBlock(stmts);
+                return new ArrayList<>();
+            }
+        }
+
         quadruples.addAll(expr);
         quadruples.add(new Quadruple(null, new Quadruple.LLVMOperation.IF(expr.get(expr.size() - 1).getRegister(), btrue.getIdentifier(), bfalse.getIdentifier())));
         entry.addQuadruplesToLastBlock(quadruples);
@@ -161,34 +188,40 @@ public class StatementVisitor implements Stmt.Visitor<List<Quadruple>, Block> {
 
     @Override
     public List<Quadruple> visit(While p, Block block) {
-//goto L2
-//        L1: body
-//        L2: condition code, result in t
-//        if t goto L1
         Scope scope = block.getScope();
         Function function = scope.getCurrentFunction();
         Block entry = block;
-        List<Quadruple> quadruples = new ArrayList<>();
-//        Block entry = block.getGlobal().getLastBlock();
         Scope condScope = new Scope("while.cond", scope);
         Block cond = new Block(function.nextBlockName(), condScope, "while.cond");
-        Block body = new Block(function.nextBlockName(), new Scope("while.body",condScope), "while.body");
+        Block body = new Block(function.nextBlockName(), new Scope("while.body", condScope), "while.body");
         Block bend = new Block(function.nextBlockName(), scope, "while.end");
-        quadruples.add(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(cond.getIdentifier())));
-        entry.addQuadruplesToLastBlock(quadruples);
+
+
         entry.addLastBlock(cond);
         entry.addSuccessor(cond);
         cond.addPredecessors(entry);
-
-
-        // add empty phi variables to cond
         cond.setMarkPhiVariables(true);
-//        cond.set
-//        cond.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(cond.getIdentifier()))));
         List<Quadruple> exprs = p.expr_.accept(new RegisterExprVisitor(), cond);
+
+
+        Register lastRegister = exprs.get(exprs.size() - 1).getRegister();
+        if (lastRegister.isConst()) {
+            if (lastRegister.getConstValue().getBool()) {
+                entry.addQuadruple(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(body.getIdentifier())));
+                cond.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(body.getIdentifier()))));
+                List<Quadruple> stmts = p.stmt_.accept(this, cond);
+                cond.addQuadruplesToLastBlock(stmts);
+                cond.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(body.getIdentifier()))));
+            }
+            return new ArrayList<>();
+        }
+
+
+
+        entry.addQuadruple(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(cond.getIdentifier())));
+
         cond.addQuadruplesToLastBlock(exprs);
         cond.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.IF(exprs.get(exprs.size() - 1).getRegister(), body.getIdentifier(), bend.getIdentifier()))));
-//        cond.addQuadruplesToLastBlock(stmts);
         cond.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(bend.getIdentifier()))));
         cond.addLastBlock(body);
         bend.addPredecessors(cond);

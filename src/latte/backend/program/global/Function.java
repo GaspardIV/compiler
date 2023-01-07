@@ -94,7 +94,9 @@ public class Function extends Scope {
 
     @Override
     public String toString() {
-        String body = quadruples.stream().map(Quadruple::toString).collect(Collectors.joining("\n"));
+        //remove empty lines
+
+        String body = quadruples.stream().map(Quadruple::toString).filter(s -> !s.isEmpty()).collect(Collectors.joining("\n"));
         String argsStr = arguments.stream().map((Variable v) -> (Utils.getLLVMType(v.getType()) + " %" + v.contextName)).collect(Collectors.joining(", "));
         if (isUsed) {
             return MessageFormat.format("\ndefine {0} @{1}({2}) '{' \n{3}\n'}'\n", Utils.getLLVMType(this.getType()), nameFromLabel(this.contextName), argsStr, body);

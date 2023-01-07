@@ -56,6 +56,13 @@ public class Block {
         }
     }
 
+    public void addQuadruples(List<Quadruple> quadruples) {
+        statements.addAll(quadruples);
+    }
+    public void addStatement(Quadruple statement) {
+        statements.add(statement);
+    }
+
     public void addQuadruplesToLastBlock(List<Quadruple> quadruples) {
         if (nextBlock != null) {
             nextBlock.addQuadruplesToLastBlock(quadruples);
@@ -224,5 +231,14 @@ public class Block {
 
     public String getRegisterNumber(String tmp) {
         return scope.getCurrentFunction().getRegisterNumber(tmp);
+    }
+
+    public void setNextBlock(Block body) {
+        this.nextBlock = body;
+        body.previousBlock = this;
+    }
+
+    public void addQuadruple(Quadruple quadruple) {
+        statements.add(quadruple);
     }
 }

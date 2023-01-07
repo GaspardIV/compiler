@@ -28,9 +28,9 @@ public class Quadruple {
             return  op +"";
         }
         if (result.type.equals(new Void())) {
-            return op.toString();
+            return "\t"+op.toString();
         }
-        return result.toString() + " = " + op.toString();
+        return "\t"+result.toString() + " = " + op.toString();
     }
 
     public Register getRegister() {
@@ -226,7 +226,7 @@ public class Quadruple {
 
             @Override
             public String toString() {
-                return "br label %" + label;
+                return "\tbr label %" + label;
             }
         }
 
@@ -243,7 +243,7 @@ public class Quadruple {
 
             @Override
             public String toString() {
-                return "br i1 " + register.toString() + ", label %" + label + ", label %" + label2;
+                return "\tbr i1 " + register.toString() + ", label %" + label + ", label %" + label2;
             }
         }
 
@@ -273,9 +273,9 @@ public class Quadruple {
             @Override
             public String toString() {
                 if (register == null) {
-                    return "ret void";
+                    return "\tret void";
                 }
-                return "ret " + register.getLLVMType() + " " + register;
+                return "\tret " + register.getLLVMType() + " " + register;
             }
         }
 
