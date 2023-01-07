@@ -1,14 +1,11 @@
-package latte.backend;
+package latte.backend.quadruple;
 
-import latte.Absyn.Int;
 import latte.backend.program.global.Scope;
-import latte.backend.quadruple.Quadruple;
-import latte.backend.quadruple.Register;
+import latte.backend.program.global.Variable;
 
-import java.text.MessageFormat;
 import java.util.*;
 
-public class Block extends Scope {
+public class Block {
     private final String identifier;
     List<Block> predecessors;
     List<Block> successors;
@@ -19,15 +16,19 @@ public class Block extends Scope {
     public boolean markPhiVariables = false;
 
     boolean wasReturn = false;
-    private HashMap<String, Register> phiRegisterOfVariable;
-    private HashMap<String, Register> lastRegisterOfVariable;
+    private final HashMap<String, Register> phiRegisterOfVariable;
+    private final HashMap<String, Register> lastRegisterOfVariable;
 
-    public Block(String contextName, Scope parent) {
-        this(contextName, parent, "null");
+    private final Scope scope;
+
+    private final String name;
+    public Block(String contextName, Scope scope) {
+        this(contextName, scope, "null");
     }
 
-    public Block(String contextName, Scope parent, String identifier) {
-        super(contextName, parent);
+    public Block(String contextName, Scope scope, String identifier) {
+        this.name = contextName;
+        this.scope = scope;
         successors = new ArrayList<>();
         predecessors = new ArrayList<>();
         statements = new ArrayList<>();
@@ -37,20 +38,8 @@ public class Block extends Scope {
     }
 
     public String getIdentifier() {
-        return this.getName() + "_" + identifier;
+        return this.name + "_" + identifier;
     }
-
-    @Override
-    public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
-        statements.forEach(stmt -> stringBuilder.append(stmt.toString()));
-//        if (successors.size() != 0) {
-//            stringBuilder.append("br label %").append(successors.get(0).getName()).append("\n");
-//        }
-        return MessageFormat.format("{0}: \n{3}", this.getName(), " ; predecessors=" + predecessors,
-                " ; successors=" + successors, stringBuilder.toString());
-    }
-
     public boolean isEmpty() {
         return statements.isEmpty();
     }
@@ -108,9 +97,10 @@ public class Block extends Scope {
     public static List<Quadruple> createPhiVariables(List<String> phiVariablesNames, Block entry, Block btrue) {
         List<Quadruple> phiVariables = new ArrayList<>();
         for (String variableName : phiVariablesNames) {
-            Register register = btrue.lastRegisterOfVariable.get(variableName);
-            Register oldsRegister = entry.lastRegisterOfVariable.get(variableName);
-            phiVariables.add(new Quadruple(entry.getVariable(variableName).getNewRegister(), new Quadruple.LLVMOperation.PHI(oldsRegister, entry, register, btrue)));
+            Register register = btrue.getlastRegisterOfVariable(variableName);
+            Register oldsRegister = entry.getlastRegisterOfVariable(variableName);
+            // todo tutaj getNewRegister zwraca i1, a nie i2
+            phiVariables.add(new Quadruple(entry.scope.getVariable(variableName).getNewRegister(), new Quadruple.LLVMOperation.PHI(oldsRegister, entry, register, btrue)));
         }
         return phiVariables;
     }
@@ -128,7 +118,7 @@ public class Block extends Scope {
 
             if (lastRegisterOfVariable.get(variableName) == null) {
                 lastRegisterOfVariable.put(variableName, register);
-                getVariable(variableName).setLastRegister(phiRegister);
+                scope.getVariable(variableName).setLastRegister(phiRegister);
             }
             phiVariables.add(new Quadruple(phiRegister, new Quadruple.LLVMOperation.PHI(oldsRegister, oldblock, register, newblock)));
         }
@@ -204,7 +194,7 @@ public class Block extends Scope {
 
     public void resetLastUseOfVariables() {
         for (Map.Entry<String, Register> entry : lastRegisterOfVariable.entrySet()) {
-            getVariable(entry.getKey()).setLastRegister(entry.getValue());
+            scope.getVariable(entry.getKey()).setLastRegister(entry.getValue());
         }
     }
 
@@ -222,5 +212,17 @@ public class Block extends Scope {
 
     public Collection<String> getUsedVariables() {
         return phiRegisterOfVariable.keySet();
+    }
+
+    public Scope getScope() {
+        return scope;
+    }
+
+    public Variable getVariable(String ident_) {
+        return scope.getVariable(ident_);
+    }
+
+    public String getRegisterNumber(String tmp) {
+        return scope.getCurrentFunction().getRegisterNumber(tmp);
     }
 }

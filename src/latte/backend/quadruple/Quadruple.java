@@ -2,7 +2,6 @@ package latte.backend.quadruple;
 
 import latte.Absyn.*;
 import latte.Absyn.Void;
-import latte.backend.Block;
 import latte.backend.program.global.Function;
 import latte.backend.program.global.Global;
 import latte.utils.Utils;
@@ -23,7 +22,6 @@ public class Quadruple {
 
     public String toString() {
         if (op == null) {
-//            return " ; " + result.toString() +"\n";
             return "";
         }
         if (result == null) {
@@ -37,13 +35,6 @@ public class Quadruple {
 
     public Register getRegister() {
         return result;
-    }
-
-    public boolean isPhi() {
-        if (result == null) {
-            return false;
-        }
-        return result.phiRegister != null;
     }
 
     public static class LLVMOperation {
@@ -200,18 +191,6 @@ public class Quadruple {
 
             public String toString() {
                 return "or i1 " + register1.toString() + ", " + register2.toString();
-            }
-        }
-
-        public static class ASSIGN extends LLVMOperation {
-            public Register register;
-
-            public ASSIGN(Register register) {
-                this.register = register;
-            }
-
-            public String toString() {
-                return register.toString();
             }
         }
 

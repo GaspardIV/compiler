@@ -7,9 +7,7 @@ import latte.utils.Utils;
 public class Register  {
     public String name;
     public Type type;
-    public Register phiRegister = null;
     private ConstValue constValue = null;
-
     private Variable variable = null;
     public Register(String name_, Type type_) {
         name = name_;
@@ -36,7 +34,6 @@ public class Register  {
     @Override
     public String toString() {
         if (constValue != null) {
-//            if ()
             return constValue.toString();
         }
         return "%" + name;

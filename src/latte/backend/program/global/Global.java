@@ -2,18 +2,25 @@ package latte.backend.program.global;
 
 import latte.utils.Utils;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Global extends Scope {
 
     public Global(String contextName, Scope parent) {
         super(contextName, parent);
+        stringGlobals = new HashMap<>();
         if (instance != null) {
             throw new RuntimeException("Global already initialized");
         }
     }
 
-    public int usePrintInt = 0,  usePrintString = 0,  useError = 0,  useConcat = 0,  useReadInt = 0,  useReadString = 0, useCompareString = 0;
+    public int usePrintInt = 0, usePrintString = 0, useError = 0, useConcat = 0, useReadInt = 0, useReadString = 0, useCompareString = 0;
 
     private static Global instance = null;
+    final Map<String, String> stringGlobals;
+
+
     public static Global getInstance() {
         if (instance == null) {
             instance = new Global("global", null);
@@ -25,7 +32,6 @@ public class Global extends Scope {
         instance = null;
         return getInstance();
     }
-
 
 
     @Override
@@ -57,4 +63,25 @@ public class Global extends Scope {
             }
         }
     }
+
+    public String addStringGlobalRegister(String string) {
+        if (!stringGlobals.containsKey(string)) {
+            stringGlobals.put(string, "str" + stringGlobals.size());
+        }
+        return getStringGlobalRegister(string);
+    }
+
+    private String getStringGlobalRegister(String string) {
+        if (stringGlobals.containsKey(string)) {
+            return stringGlobals.get(string);
+        } else {
+            return addStringGlobalRegister(string);
+        }
+    }
+
+
+    public Function getFunction(String ident_) {
+        return functions.getOrDefault(ident_, null);
+    }
+
 }

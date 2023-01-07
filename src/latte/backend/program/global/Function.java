@@ -3,27 +3,36 @@ package latte.backend.program.global;
 import latte.Absyn.ListStmt;
 import latte.Absyn.Type;
 import latte.Absyn.Void;
-import latte.backend.Block;
+import latte.backend.quadruple.Block;
 import latte.backend.programvisitors.StatementVisitor;
 import latte.backend.quadruple.Quadruple;
 import latte.utils.Utils;
 
 import java.text.MessageFormat;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Function extends Scope {
 
     ListStmt statements;
 
+    final Map<String, Integer> registers;
+    public String getRegisterNumber(String ident_) {
+        if (registers.containsKey(ident_)) {
+            registers.put(ident_, registers.get(ident_) + 1);
+        } else {
+            registers.put(ident_, 1);
+        }
+        return registers.get(ident_).toString();
+    }
+
+
     List<Quadruple> quadruples = new ArrayList<>();
     List<Variable> arguments;
     private boolean isUsed = false;
 
-    public Block getFirstBlock() {
-        return firstBlock;
+    public Block getLastBlock() {
+        return firstBlock.getLastBlock();
     }
 
     private Block firstBlock;
@@ -35,21 +44,28 @@ public class Function extends Scope {
         }
         this.arguments = arguments;
         this.statements = statements;
+        registers = new HashMap<>();
         if (name.equals("main")) {
             isUsed = true;
         }
     }
-    private void markIfruntimeFunction(String name) {
-        if (name.equals("printInt")) {
-            Global.getInstance().usePrintInt = 1;
-        } else if (name.equals("printString")) {
-            Global.getInstance().usePrintString = 1;
-        } else if (name.equals("error")) {
-            Global.getInstance().useError = 1;
-        } else if (name.equals("readInt")) {
-            Global.getInstance().useReadInt = 1;
-        } else if (name.equals("readString")) {
-            Global.getInstance().useReadString = 1;
+    private void markIfRuntimeFunction(String name) {
+        switch (name) {
+            case "printInt":
+                Global.getInstance().usePrintInt = 1;
+                break;
+            case "printString":
+                Global.getInstance().usePrintString = 1;
+                break;
+            case "error":
+                Global.getInstance().useError = 1;
+                break;
+            case "readInt":
+                Global.getInstance().useReadInt = 1;
+                break;
+            case "readString":
+                Global.getInstance().useReadString = 1;
+                break;
         }
     }
 
@@ -61,9 +77,8 @@ public class Function extends Scope {
         }
         quadruples.add(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(firstBlock.getIdentifier())));
         for (latte.Absyn.Stmt stmt : statements) {
-            List<Quadruple> quadruples = stmt.accept(new StatementVisitor(), this);
-//            this.quadruples.addAll(quadruples);
-            firstBlock.addQuadruplesToLastBlock(quadruples);
+            List<Quadruple> quadruples = stmt.accept(new StatementVisitor(), getLastBlock());
+            firstBlock.addQuadruplesToLastBlock(quadruples); // todo mozna to robic w visitorze!
         }
 
         if (getType().equals(new Void())) {
@@ -100,7 +115,11 @@ public class Function extends Scope {
     }
 
     public void markAsUsed() {
-        markIfruntimeFunction(this.contextName);
+        markIfRuntimeFunction(this.contextName);
         this.isUsed = true;
+    }
+
+    public String nextBlockName() {
+        return contextName + "." + getRegisterNumber(contextName);
     }
 }
