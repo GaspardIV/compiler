@@ -16,14 +16,19 @@ public class Function extends Scope {
 
     ListStmt statements;
 
-    final Map<String, Integer> registers;
-    public String getRegisterNumber(String ident_) {
-        if (registers.containsKey(ident_)) {
-            registers.put(ident_, registers.get(ident_) + 1);
+    final Map<String, Integer> identsLastUseNumber;
+    public String getNewIdentUseNumber(String ident_) {
+        if (identsLastUseNumber.containsKey(ident_)) {
+            identsLastUseNumber.put(ident_, identsLastUseNumber.get(ident_) + 1);
         } else {
-            registers.put(ident_, 1);
+            identsLastUseNumber.put(ident_, 0);
         }
-        return registers.get(ident_).toString();
+
+        if (identsLastUseNumber.get(ident_) == 0) {
+            return ident_;
+        } else {
+            return ident_ + "." + identsLastUseNumber.get(ident_);
+        }
     }
 
 
@@ -40,11 +45,11 @@ public class Function extends Scope {
     public Function(String name, Type type, List<Variable> arguments, ListStmt statements, Scope scope) {
         super(name, scope, type);
         for (Variable variable : arguments) {
-            this.variables.put(variable.getName(), variable);
+            this.addVariable(variable);
         }
         this.arguments = arguments;
         this.statements = statements;
-        registers = new HashMap<>();
+        identsLastUseNumber = new HashMap<>();
         if (name.equals("main")) {
             isUsed = true;
         }
@@ -73,12 +78,12 @@ public class Function extends Scope {
         Block firstBlock = new Block(this.nextBlockName(), this, "entry");
         this.firstBlock = firstBlock;
         for (Variable variable : arguments) {
-            firstBlock.setLastRegisterOfVariable(variable.getName(), variable.getLastRegister());
+            firstBlock.setLastRegisterOfVariable(variable.getName(), this.getLastVariableRegister(variable));
         }
         quadruples.add(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(firstBlock.getIdentifier())));
         for (latte.Absyn.Stmt stmt : statements) {
-            List<Quadruple> quadruples = stmt.accept(new StatementVisitor(), getLastBlock());
-            firstBlock.addQuadruplesToLastBlock(quadruples); // todo mozna to robic w visitorze!
+            stmt.accept(new StatementVisitor(), getLastBlock());
+//            firstBlock.addQuadruplesToLastBlock(quadruples); // todo mozna to robic w visitorze!
         }
 
         if (getType().equals(new Void())) {
@@ -122,6 +127,6 @@ public class Function extends Scope {
     }
 
     public String nextBlockName() {
-        return contextName + "." + getRegisterNumber(contextName);
+        return getNewIdentUseNumber(contextName);
     }
 }

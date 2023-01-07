@@ -2,34 +2,14 @@ package latte.backend.programvisitors;
 
 import latte.Absyn.*;
 import latte.backend.program.Program;
-import latte.backend.program.global.Classs;
-import latte.backend.program.global.Scope;
-import latte.frontend.environment.Environment;
 
 import java.lang.Void;
-import java.util.HashMap;
-import java.util.Map;
 
 //
 public class ProgramVisitor implements TopDef.Visitor<Void, Void> {
     private final Program program;
-    private final Environment env;
-    Map<String, Classs> classesMap = new HashMap<String, Classs>();
-//    Map<String, Function> functionsMap = new HashMap<String, Function>();
 
-    private Classs getOrCreateClass(String name, Scope parent) {
-        if (classesMap.containsKey(name)) {
-            return classesMap.get(name);
-        } else {
-            Classs classs = new Classs(name, parent);
-            classesMap.put(name, classs);
-            return classs;
-        }
-    }
-
-
-    public ProgramVisitor(Environment environment, Program program) {
-        this.env = environment;
+    public ProgramVisitor(Program program) {
         this.program = program;
     }
 

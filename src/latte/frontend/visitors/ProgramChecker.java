@@ -12,12 +12,17 @@ public class ProgramChecker implements latte.Absyn.Program.Visitor<Program, Envi
     public Program visit(Prog p, Environment arg) {
         createGlobalContext(p, arg);
         checkTopDefs(p, arg);
-        return createProgram(p, arg);
+        preprocessProgram(p);
+        return createProgram(p);
     }
 
-    private Program createProgram(Prog p, Environment arg) {
+    private void preprocessProgram(Prog p) {
+        p.listtopdef_.forEach(topDef -> topDef.accept(new Preprocessor(), null));
+    }
+
+    private Program createProgram(Prog p) {
         Program program = new Program();
-        ProgramVisitor programVisitor = new ProgramVisitor(arg, program);
+        ProgramVisitor programVisitor = new ProgramVisitor(program);
         for (latte.Absyn.TopDef x : p.listtopdef_) {
             x.accept(programVisitor, null);
         }

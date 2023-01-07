@@ -1,6 +1,8 @@
 package latte.backend.programvisitors;
 
 import latte.Absyn.*;
+//import latte.Internal.Block;
+import latte.Internal.InternalBlock;
 import latte.backend.program.global.Function;
 import latte.backend.quadruple.Block;
 import latte.backend.program.global.Scope;
@@ -13,28 +15,35 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
-public class StatementVisitor implements Stmt.Visitor<List<Quadruple>, Block> {
+public class StatementVisitor implements Stmt.Visitor<Block, Block> {
     @Override
-    public List<Quadruple> visit(Empty p, Block block) {
-        return new ArrayList<>();
+    public Block visit(Empty p, Block block) {
+        return null;
     }
 
     @Override
-    public List<Quadruple> visit(BStmt p, Block block) {
-        ArrayList<Quadruple> quadruples = new ArrayList<>();
-        ((Blk) p.block_).liststmt_.forEach(item -> quadruples.addAll(item.accept(this, block)));
-        return quadruples;
+    public Block visit(BStmt p, Block block) {
+        if (((Blk)p.block_).liststmt_.size() == 1 && ((Blk)p.block_).liststmt_.get(0) instanceof InternalBlock) {
+            InternalBlock internalBlock = (InternalBlock) ((Blk)p.block_).liststmt_.get(0);
+            Scope oldscope = block.getScope();
+            block.setScope(new Scope("block", oldscope));
+            internalBlock.bStmt_.accept(this, block);
+            block.setScope(oldscope);
+
+        } else {
+            ((Blk) p.block_).liststmt_.forEach(item -> item.accept(this, block.getLastBlock()));
+        }
+        return null;
     }
 
     @Override
-    public List<Quadruple> visit(Decl p, Block block) {
-        ArrayList<Quadruple> quadruples = new ArrayList<>();
-        p.listitem_.forEach(item -> quadruples.addAll(item.accept(new DeclVisitor(p.type_), block)));
-        return quadruples;
+    public Block visit(Decl p, Block block) {
+        p.listitem_.forEach(item -> item.accept(new DeclVisitor(p.type_), block));
+        return null;
     }
 
     @Override
-    public List<Quadruple> visit(Ass p, Block block) {
+    public Block visit(Ass p, Block block) {
         List<Quadruple> res = new ArrayList<>();
         List<Quadruple> left = p.expr_1.accept(new RegisterExprVisitor(), block);
         List<Quadruple> right = p.expr_2.accept(new RegisterExprVisitor(), block);
@@ -43,58 +52,62 @@ public class StatementVisitor implements Stmt.Visitor<List<Quadruple>, Block> {
         Variable variable = leftLastRegister.getVariable();
         Register rightLastRegister = right.get(right.size() - 1).result;
         rightLastRegister.setVariable(variable);
-        variable.setLastRegister(rightLastRegister);
+        block.getScope().setLastVariableRegister(variable, rightLastRegister);
         block.setLastRegisterOfVariable(variable.getName(), rightLastRegister);
-        return res;
+        block.addQuadruples(res);
+        return null;
     }
 
     @Override
-    public List<Quadruple> visit(Incr p, Block block) {
+    public Block visit(Incr p, Block block) {
         // todo w wyrazeniu np x= y[i++]; jest zle!!!!
         return new Ass(p.expr_, new EAdd(p.expr_, new Plus(), new ELitInt(1))).accept(this, block);
     }
 
     @Override
-    public List<Quadruple> visit(Decr p, Block block) {
+    public Block visit(Decr p, Block block) {
         // todo w wyrazeniu np x= y--; jest zle!!!!
         return new Ass(p.expr_, new EAdd(p.expr_, new Minus(), new ELitInt(1))).accept(this, block);
     }
 
     @Override
-    public List<Quadruple> visit(Ret p, Block block) {
+    public Block visit(Ret p, Block block) {
         RegisterExprVisitor registerExprVisitor = new RegisterExprVisitor(/*environment*/);
         List<Quadruple> expr = p.expr_.accept(registerExprVisitor, block);
         List<Quadruple> quadruples = new ArrayList<>(expr);
         quadruples.add(new Quadruple(null, new Quadruple.LLVMOperation.RET(quadruples.get(quadruples.size() - 1).getRegister())));
-        return quadruples;
+        block.addQuadruples(quadruples);
+        return null;
     }
 
     @Override
-    public List<Quadruple> visit(VRet p, Block block) {
+    public Block visit(VRet p, Block block) {
         Quadruple quadruple = new Quadruple(null, new Quadruple.LLVMOperation.RET());
-        return Collections.singletonList(quadruple);
+        block.addQuadruples(Collections.singletonList(quadruple));
+        return null;
     }
 
     @Override
-    public List<Quadruple> visit(Cond p, Block block) {
-
+    public Block visit(Cond p, Block block) {
         List<Quadruple> quadruples = new ArrayList<>();
         Scope scope = block.getScope();
         Function function = scope.getCurrentFunction();
         Block entry = block;
 
-        Block btrue = new Block(function.nextBlockName(), new Scope("if.true",scope), "if.true");
-        Block bend = new Block(function.nextBlockName(),scope, "if.end");
+        Block btrue = new Block(function.nextBlockName(), new Scope("if.true", scope), "if.true");
+        btrue.setPreviousBlock(entry);
+        Block bend = new Block(function.nextBlockName(), scope, "if.end");
 
         List<Quadruple> expr = p.expr_.accept(new RegisterExprVisitor(), block);
 
         Register lastRegister = expr.get(expr.size() - 1).result;
         if (lastRegister.isConst()) {
             if (lastRegister.getConstValue().getBool()) {
-                entry.addQuadruplesToLastBlock(p.stmt_.accept(this, entry));
-                return new ArrayList<>();
+                p.stmt_.accept(this, btrue);
+                block.addQuadruples(btrue.getQuadruplesFromAllBlocks());
+                return null;
             } else {
-                return new ArrayList<>();
+                return null;
             }
         }
 
@@ -109,8 +122,7 @@ public class StatementVisitor implements Stmt.Visitor<List<Quadruple>, Block> {
 
 //        btrue.setMarkPhiVariables(true);
         btrue.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(btrue.getIdentifier()))));
-        List<Quadruple> stmts = p.stmt_.accept(this, btrue);
-        btrue.addQuadruplesToLastBlock(stmts);
+        p.stmt_.accept(this, btrue);
         btrue.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(bend.getIdentifier()))));
 //        quadruples.addAll(stmts);
         btrue.addLastBlock(bend);
@@ -121,18 +133,18 @@ public class StatementVisitor implements Stmt.Visitor<List<Quadruple>, Block> {
         bend.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(bend.getIdentifier()))));
         List<String> variableNames = btrue.getRedefinedVariables();
         bend.addQuadruplesToLastBlock(Block.createPhiVariables(variableNames, entry, btrue));
-        return new ArrayList<>();
+        return null;
     }
 
     @Override
-    public List<Quadruple> visit(CondElse p, Block block) {
+    public Block visit(CondElse p, Block block) {
         List<Quadruple> quadruples = new ArrayList<>();
         Scope scope = block.getScope();
         Function function = scope.getCurrentFunction();
         Block entry = block;
 
-        Block btrue = new Block(function.nextBlockName(), new Scope("if.true",scope), "if.true");
-        Block bfalse = new Block(function.nextBlockName(), new Scope("if.false",scope), "if.false");
+        Block btrue = new Block(function.nextBlockName(), new Scope("if.true", scope), "if.true");
+        Block bfalse = new Block(function.nextBlockName(), new Scope("if.false", scope), "if.false");
         Block bend = new Block(function.nextBlockName(), scope, "if.end");
 
         List<Quadruple> expr = p.expr_.accept(new RegisterExprVisitor(), block);
@@ -141,13 +153,13 @@ public class StatementVisitor implements Stmt.Visitor<List<Quadruple>, Block> {
         Register lastRegister = expr.get(expr.size() - 1).getRegister();
         if (lastRegister.isConst()) {
             if (lastRegister.getConstValue().getBool()) {
-                List<Quadruple> stmts = p.stmt_1.accept(this, block);
-                block.addQuadruplesToLastBlock(stmts);
-                return new ArrayList<>();
+                p.stmt_1.accept(this, btrue);
+                block.addQuadruples(btrue.getQuadruplesFromAllBlocks());
+                return null;
             } else {
-                List<Quadruple> stmts = p.stmt_2.accept(this, block);
-                block.addQuadruplesToLastBlock(stmts);
-                return new ArrayList<>();
+                p.stmt_2.accept(this, bfalse);
+                block.addQuadruples(bfalse.getQuadruplesFromAllBlocks());
+                return null;
             }
         }
 
@@ -161,16 +173,14 @@ public class StatementVisitor implements Stmt.Visitor<List<Quadruple>, Block> {
         bfalse.addPredecessors(entry);
 
         btrue.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(btrue.getIdentifier()))));
-        List<Quadruple> stmts = p.stmt_1.accept(this, btrue);
-        btrue.addQuadruplesToLastBlock(stmts);
+        p.stmt_1.accept(this, btrue);
         btrue.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(bend.getIdentifier()))));
         btrue.addLastBlock(bfalse);
         btrue.addSuccessor(bend);
         bend.addPredecessors(btrue);
 
         bfalse.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(bfalse.getIdentifier()))));
-        stmts = p.stmt_2.accept(this, bfalse);
-        bfalse.addQuadruplesToLastBlock(stmts);
+        p.stmt_2.accept(this, bfalse);
         bfalse.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(bend.getIdentifier()))));
         bfalse.addLastBlock(bend);
         bend.addPredecessors(bfalse);
@@ -183,11 +193,11 @@ public class StatementVisitor implements Stmt.Visitor<List<Quadruple>, Block> {
 
         bend.addQuadruplesToLastBlock(phi1);
 
-        return new ArrayList<>();
+        return null;
     }
 
     @Override
-    public List<Quadruple> visit(While p, Block block) {
+    public Block visit(While p, Block block) {
         Scope scope = block.getScope();
         Function function = scope.getCurrentFunction();
         Block entry = block;
@@ -209,20 +219,19 @@ public class StatementVisitor implements Stmt.Visitor<List<Quadruple>, Block> {
             if (lastRegister.getConstValue().getBool()) {
                 entry.addQuadruple(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(body.getIdentifier())));
                 cond.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(body.getIdentifier()))));
-                List<Quadruple> stmts = p.stmt_.accept(this, cond);
-                cond.addQuadruplesToLastBlock(stmts);
+                p.stmt_.accept(this, cond);
                 cond.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(body.getIdentifier()))));
+//                entry.addQuadruples(cond.getQuadruples());
             }
-            return new ArrayList<>();
+            return null;
         }
-
 
 
         entry.addQuadruple(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(cond.getIdentifier())));
 
         cond.addQuadruplesToLastBlock(exprs);
         cond.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.IF(exprs.get(exprs.size() - 1).getRegister(), body.getIdentifier(), bend.getIdentifier()))));
-        cond.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(bend.getIdentifier()))));
+//        cond.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(bend.getIdentifier()))));
         cond.addLastBlock(body);
         bend.addPredecessors(cond);
         cond.addSuccessor(bend);
@@ -232,8 +241,7 @@ public class StatementVisitor implements Stmt.Visitor<List<Quadruple>, Block> {
         body.pastePhiVariables(cond);
         body.setMarkPhiVariables(true);
         body.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(body.getIdentifier()))));
-        List<Quadruple> stmts = p.stmt_.accept(this, body);
-        body.addQuadruplesToLastBlock(stmts);
+        p.stmt_.accept(this, body);
         body.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(cond.getIdentifier()))));
         body.addLastBlock(bend);
         body.addSuccessor(cond);
@@ -251,18 +259,17 @@ public class StatementVisitor implements Stmt.Visitor<List<Quadruple>, Block> {
 
 
         bend.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(bend.getIdentifier()))));
-//        List<Quadruple> phi2 = body.getPhiVariables(body, cond);
-//        bend.addQuadruplesToLastBlock(phi2);
-        return new ArrayList<>();
+        return null;
     }
 
     @Override
-    public List<Quadruple> visit(For p, Block block) {
-        return new ArrayList<>();
+    public Block visit(For p, Block block) {
+        return null;
     }
 
     @Override
-    public List<Quadruple> visit(SExp p, Block block) {
-        return p.expr_.accept(new RegisterExprVisitor(), block);
+    public Block visit(SExp p, Block block) {
+        block.addQuadruples(p.expr_.accept(new RegisterExprVisitor(), block));
+        return null;
     }
 }

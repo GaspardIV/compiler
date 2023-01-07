@@ -5,12 +5,20 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="41/50 refactor">
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="43/50 ladniejszy kod">
+      <change afterPath="$PROJECT_DIR$/src/latte/Internal/InternalBlock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/Preprocessor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/Function.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/Function.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/Global.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/Global.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/Scope.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/Scope.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/Variable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/Variable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/DeclVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/DeclVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/ProgramVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/ProgramVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Block.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/ProgramChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/ProgramChecker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,35 +142,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path&quot;: &quot;/Users/kacperkonecki/IdeaProjects/codingame/compiler/third_party&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/kacperkonecki/IdeaProjects/codingame/compiler/src/latte/backend&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path": "/Users/kacperkonecki/IdeaProjects/codingame/compiler/third_party",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "extract.method.default.visibility": "private",
+    "last_opened_file_path": "/Users/kacperkonecki/IdeaProjects/codingame/compiler/src/latte/backend",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
+  },
+  "keyToStringList": {
+    "ChangesTree.GroupingKeys": [
+    ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="latte.frontend.visitors" />
       <recent name="latte.backend.programvisitors" />
       <recent name="latte.backend.quadruple" />
       <recent name="latte.frontend.visitors.programvisitors" />
       <recent name="latte.backend.program.global.function" />
-      <recent name="latte.backend.program.global" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/latte/backend" />
@@ -257,12 +269,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GoodBasicTest.testEscaped_String" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GoodBasicTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="GoodBasicTest" />
-      <option name="METHOD_NAME" value="testEscaped_String" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="METHOD_NAME" value="testVoid_Return" />
+      <option name="TEST_OBJECT" value="class" />
       <patterns>
         <pattern testClass="GoodBasicTest" />
         <pattern testClass="GoodClassicTest" />
@@ -285,11 +297,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GoodBasicTest.testWhile_True" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GoodBasicTest.testVoid_Return" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="GoodBasicTest" />
-      <option name="METHOD_NAME" value="testWhile_True" />
+      <option name="METHOD_NAME" value="testVoid_Return" />
       <option name="TEST_OBJECT" value="method" />
       <patterns>
         <pattern testClass="GoodBasicTest" />
@@ -299,11 +311,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GoodClassicTest.testCore019" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GoodClassicTest.testCore001" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="GoodClassicTest" />
-      <option name="METHOD_NAME" value="testCore019" />
+      <option name="METHOD_NAME" value="testCore001" />
       <option name="TEST_OBJECT" value="method" />
       <patterns>
         <pattern testClass="GoodBasicTest" />
@@ -333,20 +345,20 @@
       <item itemvalue="Application.Test mytest" />
       <item itemvalue="Application.Test" />
       <item itemvalue="JUnit.All in compiler" />
-      <item itemvalue="JUnit.GoodClassicTest.testCore019" />
+      <item itemvalue="JUnit.GoodBasicTest" />
+      <item itemvalue="JUnit.GoodBasicTest.testVoid_Return" />
+      <item itemvalue="JUnit.GoodClassicTest.testCore001" />
       <item itemvalue="JUnit.GoodBasicTest.testFibonacci" />
-      <item itemvalue="JUnit.GoodBasicTest.testWhile_True" />
-      <item itemvalue="JUnit.GoodBasicTest.testEscaped_String" />
       <item itemvalue="JUnit.GoodBasicTest and 1 more" />
       <item itemvalue="Shell Script.Unnamed" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.GoodBasicTest and 1 more" />
+        <item itemvalue="JUnit.GoodClassicTest.testCore001" />
+        <item itemvalue="JUnit.GoodBasicTest.testVoid_Return" />
+        <item itemvalue="JUnit.GoodBasicTest" />
         <item itemvalue="JUnit.GoodBasicTest.testFibonacci" />
-        <item itemvalue="JUnit.GoodBasicTest.testEscaped_String" />
-        <item itemvalue="JUnit.GoodClassicTest.testCore019" />
-        <item itemvalue="JUnit.GoodBasicTest.testWhile_True" />
       </list>
     </recent_temporary>
   </component>
@@ -398,14 +410,7 @@
       <workItem from="1672606631232" duration="50477000" />
       <workItem from="1672891914755" duration="11798000" />
       <workItem from="1673029528322" duration="16294000" />
-      <workItem from="1673091017320" duration="2339000" />
-    </task>
-    <task id="LOCAL-00031" summary="110 passes fix main args and returntype">
-      <created>1669871068487</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1669871068487</updated>
+      <workItem from="1673091017320" duration="31485000" />
     </task>
     <task id="LOCAL-00032" summary="108 passes return void not allowed">
       <created>1669871926679</created>
@@ -743,7 +748,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673054175859</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="43/50 ladniejszy kod">
+      <created>1673093405353</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1673093405354</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -809,7 +821,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Jas nie wiem co z tego bedzie xd" />
     <MESSAGE value="string" />
     <MESSAGE value="sporo zmian zwijanie stalych" />
     <MESSAGE value="zaczyna sie uruchamiac" />
@@ -834,7 +845,8 @@
     <MESSAGE value="cos nie do konca tak ale lepiej while" />
     <MESSAGE value="41/50 dziala while" />
     <MESSAGE value="41/50 refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="41/50 refactor" />
+    <MESSAGE value="43/50 ladniejszy kod" />
+    <option name="LAST_COMMIT_MESSAGE" value="43/50 ladniejszy kod" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -856,7 +868,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/latte/backend/programvisitors/ProgramVisitor.java</url>
-          <line>51</line>
+          <line>49</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -869,14 +881,17 @@
           <line>45</line>
           <option name="timeStamp" value="34" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java</url>
-          <line>208</line>
-          <option name="timeStamp" value="51" />
-        </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="50" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.RuntimeException" package="java.lang" />
+          <option name="timeStamp" value="53" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.StackOverflowError" package="java.lang" />
+          <option name="timeStamp" value="55" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>

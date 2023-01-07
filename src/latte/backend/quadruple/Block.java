@@ -19,7 +19,7 @@ public class Block {
     private final HashMap<String, Register> phiRegisterOfVariable;
     private final HashMap<String, Register> lastRegisterOfVariable;
 
-    private final Scope scope;
+    private Scope scope;
 
     private final String name;
     public Block(String contextName, Scope scope) {
@@ -107,7 +107,8 @@ public class Block {
             Register register = btrue.getlastRegisterOfVariable(variableName);
             Register oldsRegister = entry.getlastRegisterOfVariable(variableName);
             // todo tutaj getNewRegister zwraca i1, a nie i2
-            phiVariables.add(new Quadruple(entry.scope.getVariable(variableName).getNewRegister(), new Quadruple.LLVMOperation.PHI(oldsRegister, entry, register, btrue)));
+            Register newRegister = entry.scope.getNewVariableRegister(entry.scope.getVariable(variableName));
+            phiVariables.add(new Quadruple(newRegister, new Quadruple.LLVMOperation.PHI(oldsRegister, entry, register, btrue)));
         }
         return phiVariables;
     }
@@ -125,7 +126,7 @@ public class Block {
 
             if (lastRegisterOfVariable.get(variableName) == null) {
                 lastRegisterOfVariable.put(variableName, register);
-                scope.getVariable(variableName).setLastRegister(phiRegister);
+                scope.setLastVariableRegister(scope.getVariable(variableName), phiRegister);
             }
             phiVariables.add(new Quadruple(phiRegister, new Quadruple.LLVMOperation.PHI(oldsRegister, oldblock, register, newblock)));
         }
@@ -201,7 +202,7 @@ public class Block {
 
     public void resetLastUseOfVariables() {
         for (Map.Entry<String, Register> entry : lastRegisterOfVariable.entrySet()) {
-            scope.getVariable(entry.getKey()).setLastRegister(entry.getValue());
+            scope.setLastVariableRegister(scope.getVariable(entry.getKey()), entry.getValue());
         }
     }
 
@@ -230,7 +231,7 @@ public class Block {
     }
 
     public String getRegisterNumber(String tmp) {
-        return scope.getCurrentFunction().getRegisterNumber(tmp);
+        return scope.getCurrentFunction().getNewIdentUseNumber(tmp);
     }
 
     public void setNextBlock(Block body) {
@@ -240,5 +241,17 @@ public class Block {
 
     public void addQuadruple(Quadruple quadruple) {
         statements.add(quadruple);
+    }
+
+    public void setScope(Scope scope) {
+        this.scope = scope;
+    }
+
+    public void setPreviousBlock(Block entry) {
+        this.previousBlock = entry;
+    }
+
+    public List<Quadruple> getQuadruples() {
+        return statements;
     }
 }

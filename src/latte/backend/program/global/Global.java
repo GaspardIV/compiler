@@ -13,12 +13,17 @@ public class Global extends Scope {
         if (instance != null) {
             throw new RuntimeException("Global already initialized");
         }
+        functions = new HashMap<>();
+        classes = new HashMap<>();
     }
 
     public int usePrintInt = 0, usePrintString = 0, useError = 0, useConcat = 0, useReadInt = 0, useReadString = 0, useCompareString = 0;
 
     private static Global instance = null;
     final Map<String, String> stringGlobals;
+
+    final Map<String, Function> functions;
+    final Map<String, Classs> classes;
 
 
     public static Global getInstance() {
@@ -84,4 +89,11 @@ public class Global extends Scope {
         return functions.getOrDefault(ident_, null);
     }
 
+    public void add(Function function) {
+        functions.put(function.getName(), function);
+    }
+
+    public void add(Classs classs) {
+        classes.put(classs.getName(), classs);
+    }
 }
