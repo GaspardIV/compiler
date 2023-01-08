@@ -5,12 +5,15 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="revertisexprbool pajacerka">
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="45 xd">
+      <change afterPath="$PROJECT_DIR$/src/latte/backend/program/IsExprBoolTypeManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/JumpingCodeGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/IsExprBoolTypeManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/Function.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/Function.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/DeclVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/DeclVisitor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/ProgramChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/ProgramChecker.java" afterDir="false" />
     </list>
@@ -406,6 +409,13 @@
       <workItem from="1673029528322" duration="16294000" />
       <workItem from="1673091017320" duration="31485000" />
     </task>
+    <task id="LOCAL-00034" summary="increment fix 98 failing">
+      <created>1669903932627</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1669903932627</updated>
+    </task>
     <task id="LOCAL-00035" summary="array of null not allowed 95 failing">
       <created>1669906719987</created>
       <option name="number" value="00035" />
@@ -742,14 +752,7 @@
       <option name="project" value="LOCAL" />
       <updated>1673147052925</updated>
     </task>
-    <task id="LOCAL-00083" summary="46 ale troche trzeba cofnac - generate exprcode tylko dla ora i and'a">
-      <created>1673162799183</created>
-      <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL-00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1673162799183</updated>
-    </task>
-    <option name="localTasksCounter" value="84" />
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -815,6 +818,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="sporo zmian zwijanie stalych" />
     <MESSAGE value="zaczyna sie uruchamiac" />
     <MESSAGE value=" 10/50" />
     <MESSAGE value="teraz mozna zaczac dopiero sie bawic (no moze refakttor?)" />
@@ -839,8 +843,7 @@
     <MESSAGE value="41/50 refactor" />
     <MESSAGE value="43/50 ladniejszy kod" />
     <MESSAGE value="45 xd" />
-    <MESSAGE value="46 ale troche trzeba cofnac - generate exprcode tylko dla ora i and'a" />
-    <option name="LAST_COMMIT_MESSAGE" value="46 ale troche trzeba cofnac - generate exprcode tylko dla ora i and'a" />
+    <option name="LAST_COMMIT_MESSAGE" value="45 xd" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -852,7 +855,7 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java</url>
-          <line>215</line>
+          <line>243</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
@@ -887,7 +890,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java</url>
-          <line>163</line>
+          <line>162</line>
           <option name="timeStamp" value="69" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">

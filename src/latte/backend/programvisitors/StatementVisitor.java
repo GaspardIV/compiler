@@ -45,8 +45,8 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
     @Override
     public Block visit(Ass p, Block block) {
         List<Quadruple> res = new ArrayList<>();
-        List<Quadruple> left = p.expr_1.accept(new RegisterExprVisitor(), block);
-        List<Quadruple> right = p.expr_2.accept(new RegisterExprVisitor(), block);
+        List<Quadruple> left = p.expr_1.accept(new RegisterExprVisitor(), block); //new RegisterExprVisitor().generateExprCode(p.expr_1, block); // todo moze sie rozpedzilem?
+        List<Quadruple> right = new RegisterExprVisitor().generateExprCode(p.expr_2, block);
         res.addAll(right);
         Register leftLastRegister = left.get(left.size() - 1).result;
         Variable variable = leftLastRegister.getVariable();
@@ -72,8 +72,7 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
 
     @Override
     public Block visit(Ret p, Block block) {
-        RegisterExprVisitor registerExprVisitor = new RegisterExprVisitor(/*environment*/);
-        List<Quadruple> expr = p.expr_.accept(registerExprVisitor, block);
+        List<Quadruple> expr = new RegisterExprVisitor().generateExprCode(p.expr_, block);
         List<Quadruple> quadruples = new ArrayList<>(expr);
         quadruples.add(new Quadruple(null, new Quadruple.LLVMOperation.RET(quadruples.get(quadruples.size() - 1).getRegister())));
         block.addQuadruples(quadruples);
@@ -268,7 +267,8 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
 
     @Override
     public Block visit(SExp p, Block block) {
-        block.addQuadruples(p.expr_.accept(new RegisterExprVisitor(), block));
+//        block.addQuadruples(p.expr_.accept(new RegisterExprVisitor(), block));
+        block.addQuadruples(new RegisterExprVisitor().generateExprCode(p.expr_, block));
         return null;
     }
 }
