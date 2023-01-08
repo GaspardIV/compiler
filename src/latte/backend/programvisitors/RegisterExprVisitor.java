@@ -1,7 +1,6 @@
 package latte.backend.programvisitors;
 
 import latte.Absyn.*;
-import latte.backend.program.IsExprBoolTypeManager;
 import latte.backend.program.global.Function;
 import latte.backend.program.global.Global;
 import latte.backend.program.global.Scope;
@@ -18,7 +17,7 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block>
     protected static final String TMP = "tmp.";
 
     public List<Quadruple> generateExprCode(Expr expr, Block block) {
-        if (IsExprBoolTypeManager.getInstance().isBool(expr)) {
+//        if (IsExprBoolTypeManager.getInstance().isBool(expr)) {
 ////            quadruples.add(new Quadruple(new Register(block.getRegisterNumber(TMP), new Int()), new Quadruple.LLVMOperation.NEG(quadruples.get(quadruples.size() - 1).getRegister())));
 //            Quadruple quadruple = new Quadruple(new Register(block.getRegisterNumber(TMP), new Bool()), new Quadruple.LLVMOperation.NEG(expr.accept(this, block).get(0).getRegister()));
 //            return new CondElse(expr, new Ass(p.expr_1, new ELitTrue()), new Ass(p.expr_1, new ELitFalse())).accept(this, block);
@@ -50,9 +49,9 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block>
             Quadruple phi = new Quadruple(new Register(block.getRegisterNumber(TMP), new Bool()), new Quadruple.LLVMOperation.BOOL_PHI( btrue.getIdentifier(),  bfalse.getIdentifier()));
             bend.addQuadruplesToLastBlock(Collections.singletonList(phi));
             return resultBlock.getQuadruplesFromAllBlocks();
-        } else {
-            return expr.accept(this, block);
-        }
+//        } else {
+//            return expr.accept(this, block);
+//        }
     }
 
     @Override

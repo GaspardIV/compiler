@@ -26,7 +26,7 @@ public class DeclVisitor implements Item.Visitor<List<Quadruple>, Block> {
     @Override
     public List<Quadruple> visit(Init p, Block block) {
         List<Quadruple> res = new ArrayList<>();
-        List<Quadruple> right = new RegisterExprVisitor().generateExprCode(p.expr_, block);
+        List<Quadruple> right = p.expr_.accept(new RegisterExprVisitor(), block);
         res.addAll(right);
         Variable variable = new Variable(p.ident_, type, block.getScope());
         Register rightLastRegister = right.get(right.size() - 1).result;
