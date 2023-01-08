@@ -56,9 +56,6 @@ public class Block {
     public void addQuadruples(List<Quadruple> quadruples) {
         statements.addAll(quadruples);
     }
-    public void addStatement(Quadruple statement) {
-        statements.add(statement);
-    }
 
     public void addQuadruplesToLastBlock(List<Quadruple> quadruples) {
         if (nextBlock != null) {
@@ -117,12 +114,13 @@ public class Block {
             if (phiRegister == null && newblock.getScope().getPhiRegisterOfVariable(variableName) != null) {
                 phiRegister = newblock.getScope().getPhiRegisterOfVariable(variableName);
             }
-            Register register = newblock.getScope().getLastRegisterOfVariable(variableName);
-            Register oldsRegister = oldblock.getScope().getLastRegisterOfVariable(variableName);
+            Register register = newblock.getScope().getLastRegisterOfVariable(scope.getVariable(variableName));
+            Register oldsRegister = oldblock.getScope().getLastRegisterOfVariable(scope.getVariable(variableName));
 
 
-            if (scope.getLastRegisterOfVariable(variableName) == null) {
+            if (scope.lastRegisterOfVariable.get(scope.getVariable(variableName)) == null) {
 //                lastRegisterOfVariable.put(variableName, register);
+                scope.setLastRegisterOfVariable(variableName, phiRegister);
                 scope.setLastVariableRegister(scope.getVariable(variableName), phiRegister);
             }
             phiVariables.add(new Quadruple(phiRegister, new Quadruple.LLVMOperation.PHI(oldsRegister, oldblock, register, newblock)));
@@ -221,11 +219,6 @@ public class Block {
         return scope.getCurrentFunction().getNewIdentUseNumber(tmp);
     }
 
-    public void setNextBlock(Block body) {
-        this.nextBlock = body;
-        body.previousBlock = this;
-    }
-
     public void addQuadruple(Quadruple quadruple) {
         statements.add(quadruple);
     }
@@ -238,11 +231,11 @@ public class Block {
         this.previousBlock = entry;
     }
 
-    public List<Quadruple> getQuadruples() {
-        return statements;
-    }
-
     public void resetLastUseOfVariables(Scope condScope) {
         scope.resetLastUseOfVariables(condScope);
+    }
+
+    public void setLastRegisterOfVariable(String name, Register rightLastRegister) {
+        scope.setLastRegisterOfVariable(name, rightLastRegister);
     }
 }

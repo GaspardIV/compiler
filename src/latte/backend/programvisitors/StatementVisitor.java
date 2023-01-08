@@ -53,7 +53,7 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         Register rightLastRegister = right.get(right.size() - 1).result;
         rightLastRegister.setVariable(variable);
         block.getScope().setLastVariableRegister(variable, rightLastRegister);
-//        block.setLastRegisterOfVariable(variable.getName(), rightLastRegister);
+        block.setLastRegisterOfVariable(variable.getName(), rightLastRegister);
         block.addQuadruples(res);
         return null;
     }
@@ -241,15 +241,16 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         body.pastePhiVariables(cond);
         body.setMarkPhiVariables(true);
         body.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(body.getIdentifier()))));
-        p.stmt_.accept(this, body);
+        p.stmt_.accept(this, body);  // juz tutaj ma zly scope i = i.1
         body.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(cond.getIdentifier()))));
         body.addLastBlock(bend);
         body.addSuccessor(cond);
         cond.addPredecessors(body);
 
-        bend.resetLastUseOfVariables(condScope);
 //        cond.resetLastUseOfVariables(); // so it uses variables from cond at the end
 //        Listcond.getRedefinedVariables().addAll(body.getRedefinedVariables());
+        bend.resetLastUseOfVariables(condScope);
+
         HashSet<String> variableNames = new HashSet<>(body.getRedefinedVariables());
         variableNames.addAll(cond.getRedefinedVariables());
         variableNames.addAll(cond.getUsedVariables());
@@ -258,6 +259,7 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         cond.addQuadruplesAtTheBeginning(phi1);
         cond.addQuadruplesAtTheBeginning(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(cond.getIdentifier()))));
 
+        bend.resetLastUseOfVariables(condScope);
 
         bend.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(bend.getIdentifier()))));
         return null;
