@@ -5,11 +5,12 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="str cmp">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="dziala na studnets">
+      <change beforePath="$PROJECT_DIR$/Latte.cf" beforeDir="false" afterPath="$PROJECT_DIR$/Latte.cf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/decr_arr_elem_int.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/decr_arr_elem_int.lat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/utils/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/StmtChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/StmtChecker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,7 +197,7 @@
       <recent name="bad" />
     </key>
   </component>
-  <component name="RunManager" selected="Makefile Target.zip">
+  <component name="RunManager" selected="Makefile Target.all">
     <configuration name="Test core002.lat" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="latte.Compiler" />
       <module name="compiler" />
@@ -331,8 +332,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Makefile Target.zip" />
         <item itemvalue="Makefile Target.all" />
+        <item itemvalue="Makefile Target.zip" />
         <item itemvalue="JUnit.GoodBasicTest and 1 more" />
         <item itemvalue="JUnit.GoodVarqoxgoodTest.testDecr_Arr_Elem_Int" />
         <item itemvalue="JUnit.GoodExtensionsArrays1Test and 7 more" />
@@ -388,13 +389,6 @@
       <workItem from="1672891914755" duration="11798000" />
       <workItem from="1673029528322" duration="16294000" />
       <workItem from="1673091017320" duration="31485000" />
-    </task>
-    <task id="LOCAL-00036" summary="Void arguments in method/function/field definition + almost working variable already declared">
-      <created>1669909721072</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1669909721072</updated>
     </task>
     <task id="LOCAL-00037" summary="variable_with_void_type.err">
       <created>1669915119733</created>
@@ -732,7 +726,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673192956411</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="dziala na studnets">
+      <created>1673193983848</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1673193983848</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -798,7 +799,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value=" 10/50" />
     <MESSAGE value="teraz mozna zaczac dopiero sie bawic (no moze refakttor?)" />
     <MESSAGE value="17/50" />
     <MESSAGE value="18/50 - bloki do przebudowania" />
@@ -823,7 +823,8 @@
     <MESSAGE value="45 xd" />
     <MESSAGE value="49/50 ..." />
     <MESSAGE value="str cmp" />
-    <option name="LAST_COMMIT_MESSAGE" value="str cmp" />
+    <MESSAGE value="dziala na studnets" />
+    <option name="LAST_COMMIT_MESSAGE" value="dziala na studnets" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

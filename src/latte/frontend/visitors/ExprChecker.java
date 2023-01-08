@@ -20,19 +20,19 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
         return new Array(p.type_);
     }
 
-    public Type visit(EArrayElem p, Environment arg) {
-        Type index = p.expr_2.accept(new ExprChecker(), arg);
-        if (!index.equals(new Int())) {
-            throw new SemanticError.ArrayIndexMustBeInt(p.line_num);
-        }
-        Type type = p.expr_1.accept(new ExprChecker(), arg);
-        if (!(type instanceof Array)) {
-            throw new SemanticError.ArrayElementAccessedOnNonArray(p.line_num);
-
-        }
-        Array arrayType = (Array) type;
-        return arrayType.type_;
-    }
+//    public Type visit(EArrayElem p, Environment arg) {
+//        Type index = p.expr_2.accept(new ExprChecker(), arg);
+//        if (!index.equals(new Int())) {
+//            throw new SemanticError.ArrayIndexMustBeInt(p.line_num);
+//        }
+//        Type type = p.expr_1.accept(new ExprChecker(), arg);
+//        if (!(type instanceof Array)) {
+//            throw new SemanticError.ArrayElementAccessedOnNonArray(p.line_num);
+//
+//        }
+//        Array arrayType = (Array) type;
+//        return arrayType.type_;
+//    }
 
     public Type visit(ENew p, Environment arg) {
         if (arg.getClassDef(p.ident_) == null) {

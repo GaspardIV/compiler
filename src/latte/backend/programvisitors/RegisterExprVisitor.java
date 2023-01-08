@@ -56,11 +56,11 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block>
         return null;
     }
 
-    @Override
-    public List<Quadruple> visit(EArrayElem p, Block block) {
-        // todo
-        return null;
-    }
+//    @Override
+//    public List<Quadruple> visit(EArrayElem p, Block block) {
+//        // todo
+//        return null;
+//    }
 
     @Override
     public List<Quadruple> visit(EArrayElemR p, Block block) {
