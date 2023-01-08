@@ -83,7 +83,6 @@ public class Function extends Scope {
         quadruples.add(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(firstBlock.getIdentifier())));
         for (latte.Absyn.Stmt stmt : statements) {
             stmt.accept(new StatementVisitor(), getLastBlock());
-//            firstBlock.addQuadruplesToLastBlock(quadruples); // todo mozna to robic w visitorze!
         }
 
         if (getType().equals(new Void())) {
@@ -99,7 +98,6 @@ public class Function extends Scope {
 
     @Override
     public String toString() {
-        //remove empty lines
 
         String body = quadruples.stream().map(Quadruple::toString).filter(s -> !s.isEmpty()).collect(Collectors.joining("\n"));
         String argsStr = arguments.stream().map((Variable v) -> (Utils.getLLVMType(v.getType()) + " %" + v.contextName)).collect(Collectors.joining(", "));

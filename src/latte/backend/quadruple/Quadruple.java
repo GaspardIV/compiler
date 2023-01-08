@@ -297,5 +297,21 @@ public class Quadruple {
                 return "phi " + register.getLLVMType() + " [" + oldsRegister.toString() + ", %" + entry.getIdentifier() + "], [" + register + ", %" + btrue.getIdentifier() + "]";
             }
         }
+
+        public static class BOOL_PHI extends LLVMOperation {
+            private final String btrue;
+            private final String bfalse;
+
+            public BOOL_PHI(String identifier, String identifier1)
+            {
+                this.btrue = identifier;
+                this.bfalse = identifier1;
+            }
+
+            @Override
+            public String toString() {
+                return "phi i1 [true, %" + btrue + "], [false, %" + bfalse + "]";
+            }
+        }
     }
 }

@@ -45,8 +45,8 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
     @Override
     public Block visit(Ass p, Block block) {
         List<Quadruple> res = new ArrayList<>();
-        List<Quadruple> left = p.expr_1.accept(new RegisterExprVisitor(), block);
-        List<Quadruple> right = p.expr_2.accept(new RegisterExprVisitor(), block);
+        List<Quadruple> left = p.expr_1.accept(new RegisterExprVisitor(), block); //new RegisterExprVisitor().generateExprCode(p.expr_1, block); // todo moze sie rozpedzilem?
+        List<Quadruple> right = new RegisterExprVisitor().generateExprCode(p.expr_2, block);
         res.addAll(right);
         Register leftLastRegister = left.get(left.size() - 1).result;
         Variable variable = leftLastRegister.getVariable();
@@ -72,8 +72,7 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
 
     @Override
     public Block visit(Ret p, Block block) {
-        RegisterExprVisitor registerExprVisitor = new RegisterExprVisitor(/*environment*/);
-        List<Quadruple> expr = p.expr_.accept(registerExprVisitor, block);
+        List<Quadruple> expr = new RegisterExprVisitor().generateExprCode(p.expr_, block);
         List<Quadruple> quadruples = new ArrayList<>(expr);
         quadruples.add(new Quadruple(null, new Quadruple.LLVMOperation.RET(quadruples.get(quadruples.size() - 1).getRegister())));
         block.addQuadruples(quadruples);
@@ -112,8 +111,7 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         }
 
 
-        quadruples.addAll(expr);
-        quadruples.add(new Quadruple(null, new Quadruple.LLVMOperation.IF(expr.get(expr.size() - 1).getRegister(), btrue.getIdentifier(), bend.getIdentifier())));
+        quadruples.addAll(p.expr_.accept(new JumpingCodeGenerator(btrue, bend), block));
         entry.addQuadruplesToLastBlock(quadruples);
         entry.addLastBlock(btrue);
         entry.addSuccessor(btrue);
@@ -162,9 +160,8 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
                 return null;
             }
         }
+        quadruples.addAll(p.expr_.accept(new JumpingCodeGenerator(btrue, bfalse), block));
 
-        quadruples.addAll(expr);
-        quadruples.add(new Quadruple(null, new Quadruple.LLVMOperation.IF(expr.get(expr.size() - 1).getRegister(), btrue.getIdentifier(), bfalse.getIdentifier())));
         entry.addQuadruplesToLastBlock(quadruples);
         entry.addLastBlock(btrue);
         entry.addSuccessor(btrue);
@@ -229,8 +226,9 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
 
         entry.addQuadruple(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(cond.getIdentifier())));
 
+        exprs = p.expr_.accept(new JumpingCodeGenerator(body, bend), block);
         cond.addQuadruplesToLastBlock(exprs);
-        cond.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.IF(exprs.get(exprs.size() - 1).getRegister(), body.getIdentifier(), bend.getIdentifier()))));
+//        cond.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.IF(exprs.get(exprs.size() - 1).getRegister(), body.getIdentifier(), bend.getIdentifier()))));
 //        cond.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(bend.getIdentifier()))));
         cond.addLastBlock(body);
         bend.addPredecessors(cond);
@@ -241,15 +239,12 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         body.pastePhiVariables(cond);
         body.setMarkPhiVariables(true);
         body.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(body.getIdentifier()))));
-        p.stmt_.accept(this, body);  // juz tutaj ma zly scope i = i.1
+        p.stmt_.accept(this, body);
         body.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(cond.getIdentifier()))));
         body.addLastBlock(bend);
         body.addSuccessor(cond);
         cond.addPredecessors(body);
 
-//        cond.resetLastUseOfVariables(); // so it uses variables from cond at the end
-//        Listcond.getRedefinedVariables().addAll(body.getRedefinedVariables());
-        bend.resetLastUseOfVariables(condScope);
 
         HashSet<String> variableNames = new HashSet<>(body.getRedefinedVariables());
         variableNames.addAll(cond.getRedefinedVariables());
@@ -272,7 +267,8 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
 
     @Override
     public Block visit(SExp p, Block block) {
-        block.addQuadruples(p.expr_.accept(new RegisterExprVisitor(), block));
+//        block.addQuadruples(p.expr_.accept(new RegisterExprVisitor(), block));
+        block.addQuadruples(new RegisterExprVisitor().generateExprCode(p.expr_, block));
         return null;
     }
 }

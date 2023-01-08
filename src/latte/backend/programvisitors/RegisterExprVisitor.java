@@ -1,6 +1,7 @@
 package latte.backend.programvisitors;
 
 import latte.Absyn.*;
+import latte.backend.program.IsExprBoolTypeManager;
 import latte.backend.program.global.Function;
 import latte.backend.program.global.Global;
 import latte.backend.program.global.Scope;
@@ -14,7 +15,45 @@ import latte.utils.Utils;
 import java.util.*;
 
 public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block> {
-    private static final String TMP = "tmp.";
+    protected static final String TMP = "tmp.";
+
+    public List<Quadruple> generateExprCode(Expr expr, Block block) {
+        if (IsExprBoolTypeManager.getInstance().isBool(expr)) {
+////            quadruples.add(new Quadruple(new Register(block.getRegisterNumber(TMP), new Int()), new Quadruple.LLVMOperation.NEG(quadruples.get(quadruples.size() - 1).getRegister())));
+//            Quadruple quadruple = new Quadruple(new Register(block.getRegisterNumber(TMP), new Bool()), new Quadruple.LLVMOperation.NEG(expr.accept(this, block).get(0).getRegister()));
+//            return new CondElse(expr, new Ass(p.expr_1, new ELitTrue()), new Ass(p.expr_1, new ELitFalse())).accept(this, block);
+////            return expr.accept(new JumpingCodeGenerator(block.getTrueBlock(), block.getFalseBlock()), block);
+//            return Collections.singletonList(quadruple);
+            Block resultBlock = new Block("result", block.getScope());
+
+            List<Quadruple> quadruples = new ArrayList<>();
+            Scope scope = resultBlock.getScope();
+            Function function = scope.getCurrentFunction();
+
+            Block btrue = new Block(function.nextBlockName(), new Scope("expr.true", scope), "expr.true");
+            Block bfalse = new Block(function.nextBlockName(), new Scope("expr.false", scope), "expr.false");
+            Block bend = new Block(function.nextBlockName(), scope, "expr.end");
+
+            quadruples.addAll(expr.accept(new JumpingCodeGenerator(btrue, bfalse), resultBlock));
+            resultBlock.addQuadruplesToLastBlock(quadruples);
+            resultBlock.addLastBlock(btrue);
+
+            btrue.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(btrue.getIdentifier()))));
+            btrue.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(bend.getIdentifier()))));
+            btrue.addLastBlock(bfalse);
+
+            bfalse.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(bfalse.getIdentifier()))));
+            bfalse.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(bend.getIdentifier()))));
+            bfalse.addLastBlock(bend);
+
+            bend.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(bend.getIdentifier()))));
+            Quadruple phi = new Quadruple(new Register(block.getRegisterNumber(TMP), new Bool()), new Quadruple.LLVMOperation.BOOL_PHI( btrue.getIdentifier(),  bfalse.getIdentifier()));
+            bend.addQuadruplesToLastBlock(Collections.singletonList(phi));
+            return resultBlock.getQuadruplesFromAllBlocks();
+        } else {
+            return expr.accept(this, block);
+        }
+    }
 
     @Override
     public List<Quadruple> visit(ENewArray p, Block block) {

@@ -18,21 +18,15 @@ public class DeclVisitor implements Item.Visitor<List<Quadruple>, Block> {
 
     @Override
     public List<Quadruple> visit(NoInit p, Block block) {
-//        block.getScope().addVariable(p.ident_, type);
         Expr defaultValue = type.equals(new Int()) ?  new ELitInt(0) : type.equals(new Bool()) ? new ELitFalse() : new EString("");
-//        new Ass(new EVar(p.ident_), defaultValue).accept(new StatementVisitor(), block);
-        // call visit with init
-//        ListItem item = new ListItem();
-//        item.add(
-                return new Init(p.ident_, defaultValue).accept(this, block);
-//        return new Decl(type, item).accept(this, block);
-//        return null;
+        return new Init(p.ident_, defaultValue).accept(this, block);
+
     }
 
     @Override
     public List<Quadruple> visit(Init p, Block block) {
         List<Quadruple> res = new ArrayList<>();
-        List<Quadruple> right = p.expr_.accept(new RegisterExprVisitor(), block);
+        List<Quadruple> right = new RegisterExprVisitor().generateExprCode(p.expr_, block);
         res.addAll(right);
         Variable variable = new Variable(p.ident_, type, block.getScope());
         Register rightLastRegister = right.get(right.size() - 1).result;
