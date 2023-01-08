@@ -217,10 +217,10 @@ public class Quadruple {
             }
         }
 
-        public static class BR extends LLVMOperation {
+        public static class GOTO extends LLVMOperation {
             private final String label;
 
-            public BR(String label) {
+            public GOTO(String label) {
                 this.label = label;
             }
 

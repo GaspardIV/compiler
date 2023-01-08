@@ -112,7 +112,7 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         }
 
 
-        quadruples.addAll(p.expr_.accept(new RegisterExprVisitor(btrue, bend), block));
+        quadruples.addAll(p.expr_.accept(new JumpingCodeGenerator(btrue, bend), block));
         entry.addQuadruplesToLastBlock(quadruples);
         entry.addLastBlock(btrue);
         entry.addSuccessor(btrue);
@@ -122,7 +122,7 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
 //        btrue.setMarkPhiVariables(true);
         btrue.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(btrue.getIdentifier()))));
         p.stmt_.accept(this, btrue);
-        btrue.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.BR(bend.getIdentifier()))));
+        btrue.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(bend.getIdentifier()))));
 //        quadruples.addAll(stmts);
         btrue.addLastBlock(bend);
         btrue.addSuccessor(bend);
@@ -161,7 +161,7 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
                 return null;
             }
         }
-        quadruples.addAll(p.expr_.accept(new RegisterExprVisitor(btrue, bfalse), block));
+        quadruples.addAll(p.expr_.accept(new JumpingCodeGenerator(btrue, bfalse), block));
 
         entry.addQuadruplesToLastBlock(quadruples);
         entry.addLastBlock(btrue);
@@ -172,14 +172,14 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
 
         btrue.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(btrue.getIdentifier()))));
         p.stmt_1.accept(this, btrue);
-        btrue.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.BR(bend.getIdentifier()))));
+        btrue.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(bend.getIdentifier()))));
         btrue.addLastBlock(bfalse);
         btrue.addSuccessor(bend);
         bend.addPredecessors(btrue);
 
         bfalse.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(bfalse.getIdentifier()))));
         p.stmt_2.accept(this, bfalse);
-        bfalse.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.BR(bend.getIdentifier()))));
+        bfalse.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(bend.getIdentifier()))));
         bfalse.addLastBlock(bend);
         bend.addPredecessors(bfalse);
         bfalse.addSuccessor(bend);
@@ -215,22 +215,22 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         Register lastRegister = exprs.get(exprs.size() - 1).getRegister();
         if (lastRegister.isConst()) {
             if (lastRegister.getConstValue().getBool()) {
-                entry.addQuadruple(new Quadruple(null, new Quadruple.LLVMOperation.BR(body.getIdentifier())));
+                entry.addQuadruple(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(body.getIdentifier())));
                 cond.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(body.getIdentifier()))));
                 p.stmt_.accept(this, cond);
-                cond.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.BR(body.getIdentifier()))));
+                cond.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(body.getIdentifier()))));
 //                entry.addQuadruples(cond.getQuadruples());
             }
             return null;
         }
 
 
-        entry.addQuadruple(new Quadruple(null, new Quadruple.LLVMOperation.BR(cond.getIdentifier())));
+        entry.addQuadruple(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(cond.getIdentifier())));
 
-        exprs = p.expr_.accept(new RegisterExprVisitor(body, bend), block);
+        exprs = p.expr_.accept(new JumpingCodeGenerator(body, bend), block);
         cond.addQuadruplesToLastBlock(exprs);
 //        cond.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.IF(exprs.get(exprs.size() - 1).getRegister(), body.getIdentifier(), bend.getIdentifier()))));
-//        cond.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.BR(bend.getIdentifier()))));
+//        cond.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(bend.getIdentifier()))));
         cond.addLastBlock(body);
         bend.addPredecessors(cond);
         cond.addSuccessor(bend);
@@ -241,7 +241,7 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         body.setMarkPhiVariables(true);
         body.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(body.getIdentifier()))));
         p.stmt_.accept(this, body);
-        body.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.BR(cond.getIdentifier()))));
+        body.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(cond.getIdentifier()))));
         body.addLastBlock(bend);
         body.addSuccessor(cond);
         cond.addPredecessors(body);
