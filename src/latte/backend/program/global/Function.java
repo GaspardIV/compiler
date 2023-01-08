@@ -78,7 +78,7 @@ public class Function extends Scope {
         Block firstBlock = new Block(this.nextBlockName(), this, "entry");
         this.firstBlock = firstBlock;
         for (Variable variable : arguments) {
-            firstBlock.setLastRegisterOfVariable(variable.getName(), this.getLastVariableRegister(variable));
+            firstBlock.getScope().setLastVariableRegister(variable, this.getNewVariableRegister(variable));
         }
         quadruples.add(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(firstBlock.getIdentifier())));
         for (latte.Absyn.Stmt stmt : statements) {

@@ -78,7 +78,7 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block>
         Register last = scope.getLastVariableRegister(variable);
         if (block.markPhiVariables && !block.hasPhiRegisterOfVariable(p.ident_)) {
             Register phiRegister =scope.getNewVariableRegister(variable);
-            block.setPhiRegisterOfVariable(p.ident_, phiRegister);
+            block.getScope().setPhiRegisterOfVariable(p.ident_, phiRegister);
             last = phiRegister;
         }
         last.setVariable(variable);

@@ -16,8 +16,6 @@ public class Block {
     public boolean markPhiVariables = false;
 
     boolean wasReturn = false;
-    private final HashMap<String, Register> phiRegisterOfVariable;
-    private final HashMap<String, Register> lastRegisterOfVariable;
 
     private Scope scope;
 
@@ -32,8 +30,7 @@ public class Block {
         successors = new ArrayList<>();
         predecessors = new ArrayList<>();
         statements = new ArrayList<>();
-        lastRegisterOfVariable = new HashMap<>();
-        phiRegisterOfVariable = new HashMap<>();
+
         this.identifier = identifier;
     }
 
@@ -104,8 +101,8 @@ public class Block {
     public static List<Quadruple> createPhiVariables(List<String> phiVariablesNames, Block entry, Block btrue) {
         List<Quadruple> phiVariables = new ArrayList<>();
         for (String variableName : phiVariablesNames) {
-            Register register = btrue.getlastRegisterOfVariable(variableName);
-            Register oldsRegister = entry.getlastRegisterOfVariable(variableName);
+            Register register = btrue.getScope().getLastRegisterOfVariable(variableName);
+            Register oldsRegister = entry.getScope().getLastRegisterOfVariable(variableName);
             // todo tutaj getNewRegister zwraca i1, a nie i2
             Register newRegister = entry.scope.getNewVariableRegister(entry.scope.getVariable(variableName));
             phiVariables.add(new Quadruple(newRegister, new Quadruple.LLVMOperation.PHI(oldsRegister, entry, register, btrue)));
@@ -116,16 +113,16 @@ public class Block {
     public List<Quadruple> getPhiVariables(List<String> variableNames, Block oldblock, Block newblock) {
         List<Quadruple> phiVariables = new ArrayList<>();
         for (String variableName : variableNames) {
-            Register phiRegister = phiRegisterOfVariable.get(variableName);
-            if (phiRegister == null && newblock.phiRegisterOfVariable.get(variableName) != null) {
-                phiRegister = newblock.phiRegisterOfVariable.get(variableName);
+            Register phiRegister = scope.getPhiRegisterOfVariable(variableName);
+            if (phiRegister == null && newblock.getScope().getPhiRegisterOfVariable(variableName) != null) {
+                phiRegister = newblock.getScope().getPhiRegisterOfVariable(variableName);
             }
-            Register register = newblock.getlastRegisterOfVariable(variableName);
-            Register oldsRegister = oldblock.getlastRegisterOfVariable(variableName);
+            Register register = newblock.getScope().getLastRegisterOfVariable(variableName);
+            Register oldsRegister = oldblock.getScope().getLastRegisterOfVariable(variableName);
 
 
-            if (lastRegisterOfVariable.get(variableName) == null) {
-                lastRegisterOfVariable.put(variableName, register);
+            if (scope.getLastRegisterOfVariable(variableName) == null) {
+//                lastRegisterOfVariable.put(variableName, register);
                 scope.setLastVariableRegister(scope.getVariable(variableName), phiRegister);
             }
             phiVariables.add(new Quadruple(phiRegister, new Quadruple.LLVMOperation.PHI(oldsRegister, oldblock, register, newblock)));
@@ -133,13 +130,13 @@ public class Block {
         return phiVariables;
     }
 
-    private Register getlastRegisterOfVariable(String variableName) {
-        if (lastRegisterOfVariable.get(variableName) != null) {
-            return lastRegisterOfVariable.get(variableName);
-        } else {
-            return previousBlock.getlastRegisterOfVariable(variableName);
-        }
-    }
+//    private Register getlastRegisterOfVariable(String variableName) {
+//        if (lastRegisterOfVariable.get(variableName) != null) {
+//            return lastRegisterOfVariable.get(variableName);
+//        } else {
+//            return previousBlock.getlastRegisterOfVariable(variableName);
+//        }
+//    }
 
     public void removeDeadCode() {
         removeAfterReturn();
@@ -181,45 +178,35 @@ public class Block {
         }
     }
 
-    public void setLastRegisterOfVariable(String ident_, Register last) {
-        this.lastRegisterOfVariable.put(ident_, last);
+//    public void setLastRegisterOfVariable(String ident_, Register last) {
+//        this.lastRegisterOfVariable.put(ident_, last);
+//    }
 
-    }
-
-    public void setPhiRegisterOfVariable(String ident_, Register first) {
-        if (!this.phiRegisterOfVariable.containsKey(ident_)) {
-            this.phiRegisterOfVariable.put(ident_, first);
-        }
-    }
+//    public void setPhiRegisterOfVariable(String ident_, Register first) {
+//        if (!this.phiRegisterOfVariable.containsKey(ident_)) {
+//            this.phiRegisterOfVariable.put(ident_, first);
+//        }
+//    }
 
     public void addQuadruplesAtTheBeginning(List<Quadruple> phi1) {
         statements.addAll(0, phi1);
     }
 
     public List<String> getRedefinedVariables() {
-        return new ArrayList<>(lastRegisterOfVariable.keySet());
+        return scope.getRedefinedVariables();
     }
 
-    public void resetLastUseOfVariables() {
-        for (Map.Entry<String, Register> entry : lastRegisterOfVariable.entrySet()) {
-            scope.setLastVariableRegister(scope.getVariable(entry.getKey()), entry.getValue());
-        }
-    }
 
     public boolean hasPhiRegisterOfVariable(String ident_) {
-        return phiRegisterOfVariable.containsKey(ident_);
+        return scope.hasPhiRegisterOfVariable(ident_);
     }
 
     public void pastePhiVariables(Block cond) {
-        for (Map.Entry<String, Register> entry : cond.phiRegisterOfVariable.entrySet()) {
-            if (!phiRegisterOfVariable.containsKey(entry.getKey())) {
-                phiRegisterOfVariable.put(entry.getKey(), entry.getValue());
-            }
-        }
+        scope.pastePhiVariables(cond.scope);
     }
 
     public Collection<String> getUsedVariables() {
-        return phiRegisterOfVariable.keySet();
+        return scope.getUsedVariables();
     }
 
     public Scope getScope() {
@@ -253,5 +240,9 @@ public class Block {
 
     public List<Quadruple> getQuadruples() {
         return statements;
+    }
+
+    public void resetLastUseOfVariables(Scope condScope) {
+        scope.resetLastUseOfVariables(condScope);
     }
 }

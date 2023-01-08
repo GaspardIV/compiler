@@ -53,7 +53,7 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         Register rightLastRegister = right.get(right.size() - 1).result;
         rightLastRegister.setVariable(variable);
         block.getScope().setLastVariableRegister(variable, rightLastRegister);
-        block.setLastRegisterOfVariable(variable.getName(), rightLastRegister);
+//        block.setLastRegisterOfVariable(variable.getName(), rightLastRegister);
         block.addQuadruples(res);
         return null;
     }
@@ -204,7 +204,7 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         Scope condScope = new Scope("while.cond", scope);
         Block cond = new Block(function.nextBlockName(), condScope, "while.cond");
         Block body = new Block(function.nextBlockName(), new Scope("while.body", condScope), "while.body");
-        Block bend = new Block(function.nextBlockName(), scope, "while.end");
+        Block bend = new Block(function.nextBlockName(), condScope, "while.end");
 
 
         entry.addLastBlock(cond);
@@ -247,7 +247,8 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         body.addSuccessor(cond);
         cond.addPredecessors(body);
 
-        cond.resetLastUseOfVariables(); // so it uses variables from cond at the end
+        bend.resetLastUseOfVariables(condScope);
+//        cond.resetLastUseOfVariables(); // so it uses variables from cond at the end
 //        Listcond.getRedefinedVariables().addAll(body.getRedefinedVariables());
         HashSet<String> variableNames = new HashSet<>(body.getRedefinedVariables());
         variableNames.addAll(cond.getRedefinedVariables());
