@@ -8,6 +8,7 @@ import latte.Internal.Null;
 import latte.backend.program.IsExprBoolTypeManager;
 import latte.errors.SemanticError;
 import latte.frontend.environment.Environment;
+import latte.utils.Utils;
 
 public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> {
     public Type visit(ENewArray p, Environment arg) {
@@ -129,10 +130,10 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
         Type t1 = p.expr_1.accept(new ExprChecker(), arg);
         Type t2 = p.expr_2.accept(new ExprChecker(), arg);
         if (!t1.equals(new Int())) {
-            throw new SemanticError.OperatorCannotBeAppliedToTypes(p.line_num, "*", t1, t2);
+            throw new SemanticError.OperatorCannotBeAppliedToTypes(p.line_num, Utils.toString(p.mulop_), t1, t2);
         }
         if (!t1.equals(t2)) {
-            throw new SemanticError.OperatorCannotBeAppliedToTypes(p.line_num, "*", t1, t2);
+            throw new SemanticError.OperatorCannotBeAppliedToTypes(p.line_num, Utils.toString(p.mulop_), t1, t2);
         }
         return t1;
     }
@@ -142,11 +143,11 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
         Type t2 = p.expr_2.accept(new ExprChecker(), arg);
         if (!(t1.equals(new Int()))) {
             if (!p.addop_.equals(new Plus()) || !(t1.equals(new Str()))) {
-                throw new SemanticError.OperatorCannotBeAppliedToTypes(p.line_num, "+", t1, t2);
+                throw new SemanticError.OperatorCannotBeAppliedToTypes(p.line_num, Utils.toString(p.addop_), t1, t2);
             }
         }
         if (!t1.equals(t2)) {
-            throw new SemanticError.OperatorCannotBeAppliedToTypes(p.line_num, "+", t1, t2);
+            throw new SemanticError.OperatorCannotBeAppliedToTypes(p.line_num, Utils.toString(p.addop_), t1, t2);
         }
         return t1;
     }

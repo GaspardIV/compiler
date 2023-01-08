@@ -230,4 +230,10 @@ public class SemanticError extends RuntimeException {
             super(line_num, "Invalid left side of decrement. Decrementing non-lvalue.");
         }
     }
+
+    public static class VariableAlreadyDeclaredInCurrentContext extends SemanticError {
+        public VariableAlreadyDeclaredInCurrentContext(int line_num, String ident_) {
+            super(line_num, "Variable '" + ident_ + "' already declared in this scope.");
+        }
+    }
 }

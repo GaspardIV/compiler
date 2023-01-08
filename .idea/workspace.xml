@@ -5,12 +5,14 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="dziala na studnets">
-      <change beforePath="$PROJECT_DIR$/Latte.cf" beforeDir="false" afterPath="$PROJECT_DIR$/Latte.cf" afterDir="false" />
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="gramatyka - tymczasowy fix.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/decr_arr_elem_int.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/decr_arr_elem_int.lat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/errors/SemanticError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/errors/SemanticError.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/frontend/environment/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/environment/Environment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/StmtChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/StmtChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/utils/Utils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -390,13 +392,6 @@
       <workItem from="1673029528322" duration="16294000" />
       <workItem from="1673091017320" duration="31485000" />
     </task>
-    <task id="LOCAL-00037" summary="variable_with_void_type.err">
-      <created>1669915119733</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1669915119733</updated>
-    </task>
     <task id="LOCAL-00038" summary="single if -&gt; block">
       <created>1669986935324</created>
       <option name="number" value="00038" />
@@ -733,7 +728,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673193983848</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="gramatyka - tymczasowy fix.">
+      <created>1673194722484</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1673194722484</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -799,7 +801,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="teraz mozna zaczac dopiero sie bawic (no moze refakttor?)" />
     <MESSAGE value="17/50" />
     <MESSAGE value="18/50 - bloki do przebudowania" />
     <MESSAGE value="19/50" />
@@ -824,7 +825,8 @@
     <MESSAGE value="49/50 ..." />
     <MESSAGE value="str cmp" />
     <MESSAGE value="dziala na studnets" />
-    <option name="LAST_COMMIT_MESSAGE" value="dziala na studnets" />
+    <MESSAGE value="gramatyka - tymczasowy fix." />
+    <option name="LAST_COMMIT_MESSAGE" value="gramatyka - tymczasowy fix." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -836,7 +838,7 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java</url>
-          <line>218</line>
+          <line>219</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
@@ -868,11 +870,6 @@
           <url>file://$PROJECT_DIR$/src/latte/backend/quadruple/Block.java</url>
           <line>214</line>
           <option name="timeStamp" value="68" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="72" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />

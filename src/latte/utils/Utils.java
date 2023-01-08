@@ -1,8 +1,6 @@
 package latte.utils;
 
-import latte.Absyn.Array;
-import latte.Absyn.Bool;
-import latte.Absyn.Type;
+import latte.Absyn.*;
 import latte.Internal.Null;
 import latte.backend.program.global.Global;
 
@@ -186,11 +184,10 @@ public class Utils {
 
     private static void execSystemCommand(String command, boolean printOutput) {
         try {
-            Process process = Runtime.getRuntime().exec(new String[] { "bash", "-c", command}); // todo remove bash !!!
+            Process process = Runtime.getRuntime().exec(new String[]{"bash", "-c", command});
             BufferedReader stdError = new BufferedReader(new
                     InputStreamReader(process.getErrorStream()));
-//
-//
+
             String s;
             if (printOutput) {
                 BufferedReader stdInput = new BufferedReader(new
@@ -199,7 +196,7 @@ public class Utils {
                     System.out.println(s);
                 }
             }
-////
+
             StringBuilder error = new StringBuilder();
             while ((s = stdError.readLine()) != null) {
                 error.append(s);
@@ -221,16 +218,38 @@ public class Utils {
     public static String getEscapedString(String str) {
         return str.replace("\\", "\\\\").replace("\"", "\\22").replace("\n", "\\0A").replace("\t", "\\09").replace("\r", "\\0D").replace("\b", "\\08").replace("\f", "\\0C");
     }
+
     public
     static int getLLVMEscapedStringLength(String str) {
-        int count = (( str.split( Pattern.quote("\\22" ), -1).length) - 1)*2;
-        count += (( str.split( Pattern.quote("\\0A" ), -1).length) - 1) * 2;
-        count += (( str.split( Pattern.quote("\\09" ), -1).length) - 1) * 2;
-        count += (( str.split( Pattern.quote("\\0D" ), -1).length) - 1) * 2;
-        count += (( str.split( Pattern.quote("\\08" ), -1).length) - 1) * 2;
-        count += (( str.split( Pattern.quote("\\0C" ), -1).length) - 1) * 2;
-        count += (( str.split( Pattern.quote("\\\\" ), -1).length) - 1) ;
+        int count = ((str.split(Pattern.quote("\\22"), -1).length) - 1) * 2;
+        count += ((str.split(Pattern.quote("\\0A"), -1).length) - 1) * 2;
+        count += ((str.split(Pattern.quote("\\09"), -1).length) - 1) * 2;
+        count += ((str.split(Pattern.quote("\\0D"), -1).length) - 1) * 2;
+        count += ((str.split(Pattern.quote("\\08"), -1).length) - 1) * 2;
+        count += ((str.split(Pattern.quote("\\0C"), -1).length) - 1) * 2;
+        count += ((str.split(Pattern.quote("\\\\"), -1).length) - 1);
         return str.length() - count + 1;
     }
 
+    public static String toString(AddOp addop_) {
+        if (addop_ instanceof Plus) {
+            return "+";
+        } else if (addop_ instanceof Minus) {
+            return "-";
+        } else {
+            return "";
+        }
+    }
+
+    public static String toString(MulOp mulop_) {
+        if (mulop_ instanceof Times) {
+            return "*";
+        } else if (mulop_ instanceof Div) {
+            return "/";
+        } else if (mulop_ instanceof Mod) {
+            return "%";
+        } else {
+            return "";
+        }
+    }
 }

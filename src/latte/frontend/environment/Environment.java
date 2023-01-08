@@ -95,7 +95,7 @@ public class Environment {
 
     public void addVariableWithErrorCheck(String ident_, Type type_, int line_num) {
         if (this.currentContextContainsVar(ident_)) {
-            throw new SemanticError.FieldAlreadyDeclaredInCurrentContext(line_num, ident_);
+            throw new SemanticError.VariableAlreadyDeclaredInCurrentContext(line_num, ident_);
         }
         if (new Void().equals(type_)) {
             throw new SemanticError.VariableWithVoidType(line_num, ident_);
