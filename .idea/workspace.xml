@@ -5,14 +5,11 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="49/50 ...">
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="str cmp">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/decr_arr_elem_int.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/decr_arr_elem_int.lat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Block.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/llvm.template" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/utils/Utils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,7 +196,7 @@
       <recent name="bad" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GoodVarqoxgoodTest.testDecr_Arr_Elem_Int">
+  <component name="RunManager" selected="Makefile Target.zip">
     <configuration name="Test core002.lat" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="latte.Compiler" />
       <module name="compiler" />
@@ -263,20 +260,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GoodBasicTest.testBool_Operations" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="compiler" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GoodBasicTest" />
-      <option name="METHOD_NAME" value="testBool_Operations" />
-      <option name="TEST_OBJECT" value="method" />
-      <patterns>
-        <pattern testClass="GoodBasicTest" />
-        <pattern testClass="GoodClassicTest" />
-      </patterns>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="GoodExtensionsArrays1Test and 7 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
@@ -297,16 +280,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GoodVarqoxgoodTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="compiler" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GoodVarqoxgoodTest" />
-      <option name="METHOD_NAME" value="testDecr_Arr_Elem_Int" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="GoodVarqoxgoodTest.testDecr_Arr_Elem_Int" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
@@ -316,6 +289,18 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="all" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="all" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
+    <configuration name="zip" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="zip" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
     </configuration>
     <configuration name="Unnamed" type="ShConfigurationType" nameIsGenerated="true">
       <option name="SCRIPT_TEXT" value="" />
@@ -338,19 +323,19 @@
       <item itemvalue="Application.Test" />
       <item itemvalue="JUnit.All in compiler" />
       <item itemvalue="JUnit.GoodExtensionsArrays1Test and 7 more" />
-      <item itemvalue="JUnit.GoodVarqoxgoodTest" />
       <item itemvalue="JUnit.GoodVarqoxgoodTest.testDecr_Arr_Elem_Int" />
-      <item itemvalue="JUnit.GoodBasicTest.testBool_Operations" />
       <item itemvalue="JUnit.GoodBasicTest and 1 more" />
+      <item itemvalue="Makefile Target.all" />
+      <item itemvalue="Makefile Target.zip" />
       <item itemvalue="Shell Script.Unnamed" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Makefile Target.zip" />
+        <item itemvalue="Makefile Target.all" />
+        <item itemvalue="JUnit.GoodBasicTest and 1 more" />
         <item itemvalue="JUnit.GoodVarqoxgoodTest.testDecr_Arr_Elem_Int" />
         <item itemvalue="JUnit.GoodExtensionsArrays1Test and 7 more" />
-        <item itemvalue="JUnit.GoodVarqoxgoodTest" />
-        <item itemvalue="JUnit.GoodBasicTest and 1 more" />
-        <item itemvalue="JUnit.GoodBasicTest.testBool_Operations" />
       </list>
     </recent_temporary>
   </component>
@@ -403,13 +388,6 @@
       <workItem from="1672891914755" duration="11798000" />
       <workItem from="1673029528322" duration="16294000" />
       <workItem from="1673091017320" duration="31485000" />
-    </task>
-    <task id="LOCAL-00035" summary="array of null not allowed 95 failing">
-      <created>1669906719987</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1669906719987</updated>
     </task>
     <task id="LOCAL-00036" summary="Void arguments in method/function/field definition + almost working variable already declared">
       <created>1669909721072</created>
@@ -747,7 +725,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673189857656</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="str cmp">
+      <created>1673192956411</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1673192956411</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -813,7 +798,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="zaczyna sie uruchamiac" />
     <MESSAGE value=" 10/50" />
     <MESSAGE value="teraz mozna zaczac dopiero sie bawic (no moze refakttor?)" />
     <MESSAGE value="17/50" />
@@ -838,7 +822,8 @@
     <MESSAGE value="43/50 ladniejszy kod" />
     <MESSAGE value="45 xd" />
     <MESSAGE value="49/50 ..." />
-    <option name="LAST_COMMIT_MESSAGE" value="49/50 ..." />
+    <MESSAGE value="str cmp" />
+    <option name="LAST_COMMIT_MESSAGE" value="str cmp" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
