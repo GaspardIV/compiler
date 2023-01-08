@@ -5,17 +5,11 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="45 xd">
-      <change afterPath="$PROJECT_DIR$/src/latte/backend/program/IsExprBoolTypeManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/JumpingCodeGenerator.java" afterDir="false" />
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="49/50 ...">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/Function.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/Function.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/DeclVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/DeclVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/JumpingCodeGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/JumpingCodeGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/ProgramChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/ProgramChecker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -818,7 +812,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="sporo zmian zwijanie stalych" />
     <MESSAGE value="zaczyna sie uruchamiac" />
     <MESSAGE value=" 10/50" />
     <MESSAGE value="teraz mozna zaczac dopiero sie bawic (no moze refakttor?)" />
@@ -843,7 +836,8 @@
     <MESSAGE value="41/50 refactor" />
     <MESSAGE value="43/50 ladniejszy kod" />
     <MESSAGE value="45 xd" />
-    <option name="LAST_COMMIT_MESSAGE" value="45 xd" />
+    <MESSAGE value="49/50 ..." />
+    <option name="LAST_COMMIT_MESSAGE" value="49/50 ..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -892,6 +886,11 @@
           <url>file://$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java</url>
           <line>162</line>
           <option name="timeStamp" value="69" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="72" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />

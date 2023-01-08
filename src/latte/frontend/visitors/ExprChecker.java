@@ -55,20 +55,13 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
         }
 
 
-        Type exprT = visitFunctionLikeCallExpression(arg, p.line_num, p.ident_, method.listarg_, p.listexpr_, method.type_);
-        if (exprT.equals(new Bool())) {
-            IsExprBoolTypeManager.getInstance().add(p);
-        }
-        return exprT;
+        return visitFunctionLikeCallExpression(arg, p.line_num, p.ident_, method.listarg_, p.listexpr_, method.type_);
     }
 
     public Type visit(EField p, Environment arg) {
         ClField field;
 
         Type exprT = p.expr_.accept(new ExprChecker(), arg);
-        if (exprT.equals(new Bool())) {
-            IsExprBoolTypeManager.getInstance().add(p);
-        }
         if (exprT instanceof Array && arg.buildInArrayFields().containsKey(p.ident_)) {
             return arg.buildInArrayFields().get(p.ident_);
         } else {
@@ -82,18 +75,12 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
                 throw new SemanticError.FieldCalledOnNonClass(p.line_num);
             }
         }
-        if (field.type_.equals(new Bool())) {
-            IsExprBoolTypeManager.getInstance().add(p);
-        }
         return field.type_;
     }
 
     public Type visit(EVar p, Environment arg) {
         if (arg.getVarType(p.ident_) == null) {
             throw new SemanticError.VariableNotDeclared(p.line_num, p.ident_);
-        }
-        if (arg.getVarType(p.ident_).equals(new Bool())) {
-            IsExprBoolTypeManager.getInstance().add(p);
         }
         return arg.getVarType(p.ident_);
     }
@@ -103,12 +90,10 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
     }
 
     public Type visit(ELitTrue p, Environment arg) {
-        IsExprBoolTypeManager.getInstance().add(p);
         return new Bool();
     }
 
     public Type visit(ELitFalse p, Environment arg) {
-        IsExprBoolTypeManager.getInstance().add(p);
         return new Bool();
     }
 
@@ -117,11 +102,7 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
         if (fnDef == null) {
             throw new SemanticError.FunctionNotDeclaredInThisScope(p.line_num, p.ident_);
         }
-        Type exprT = visitFunctionLikeCallExpression(arg, p.line_num, p.ident_, fnDef.listarg_, p.listexpr_, fnDef.type_);
-        if (exprT.equals(new Bool())) {
-            IsExprBoolTypeManager.getInstance().add(p);
-        }
-        return exprT;
+        return visitFunctionLikeCallExpression(arg, p.line_num, p.ident_, fnDef.listarg_, p.listexpr_, fnDef.type_);
     }
 
     public Type visit(EString p, Environment arg) {
@@ -141,7 +122,6 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
         if (!t.equals(new Bool())) {
             throw new SemanticError.OperatorCannotBeAppliedToType(p.line_num, "!", t);
         }
-        IsExprBoolTypeManager.getInstance().add(p);
         return new Bool();
     }
 
@@ -183,7 +163,6 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
         if (!arg.areTypesEqualRegardingInheritance(t1, t2) && !arg.areTypesEqualRegardingInheritance(t2, t1)) {
             throw new SemanticError.RelOperatorCannotBeAppliedToTypes(p.line_num, t1, t2);
         }
-        IsExprBoolTypeManager.getInstance().add(p);
         return new Bool();
     }
 
@@ -224,10 +203,6 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
             throw new SemanticError.ArrayVariableExpected(p.line_num, p.ident_);
         }
         Array arrayType = (Array) type;
-
-        if (arrayType.type_.equals(new Bool())) {
-            IsExprBoolTypeManager.getInstance().add(p);
-        }
         return arrayType.type_;
     }
 

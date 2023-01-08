@@ -2,18 +2,16 @@ package latte.backend.programvisitors;
 
 import latte.Absyn.*;
 import latte.backend.quadruple.Block;
-import latte.backend.quadruple.ConstValue;
 import latte.backend.quadruple.Quadruple;
 import latte.backend.quadruple.Register;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class JumpingCodeGenerator extends RegisterExprVisitor {
 
-    private final Block jumpBlockTrue;
-    private final Block jumpBlockFalse;
+    private Block jumpBlockTrue;
+    private Block jumpBlockFalse;
 
     public JumpingCodeGenerator(Block jumpBlockTrue, Block jumpBlockFalse) {
         this.jumpBlockTrue = jumpBlockTrue;
@@ -45,8 +43,7 @@ public class JumpingCodeGenerator extends RegisterExprVisitor {
 
     @Override
     public List<Quadruple> visit(EApp p, Block block) {
-        List<Quadruple> quadruples = new ArrayList<>();
-        quadruples = p.accept(new RegisterExprVisitor(), block);
+        List<Quadruple> quadruples = new ArrayList<>(p.accept(new RegisterExprVisitor(), block));
         Register tmp = quadruples.get(quadruples.size() - 1).getRegister();
         quadruples.add(new Quadruple(null, new Quadruple.LLVMOperation.IF(tmp, jumpBlockTrue.getIdentifier(), jumpBlockFalse.getIdentifier())));
         return quadruples;
@@ -54,10 +51,14 @@ public class JumpingCodeGenerator extends RegisterExprVisitor {
 
     @Override
     public List<Quadruple> visit(Not p, Block block) {
-        List<Quadruple> quadruples = new ArrayList<>();
-        quadruples = p.accept(new RegisterExprVisitor(), block);
-        Register tmp = quadruples.get(quadruples.size() - 1).getRegister();
-        quadruples.add(new Quadruple(null, new Quadruple.LLVMOperation.IF(tmp, jumpBlockTrue.getIdentifier(), jumpBlockFalse.getIdentifier())));
+        List<Quadruple> quadruples;
+        Block tmpT = jumpBlockTrue;
+        Block tmpF = jumpBlockFalse;
+        jumpBlockTrue = tmpF;
+        jumpBlockFalse = tmpT;
+        quadruples = p.expr_.accept(this, block);
+        jumpBlockFalse = tmpF;
+        jumpBlockTrue = tmpT;
         return quadruples;
     }
 
@@ -70,7 +71,6 @@ public class JumpingCodeGenerator extends RegisterExprVisitor {
         res.add(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(blockMiddle.getIdentifier())));
         List<Quadruple> right = p.expr_2.accept(new JumpingCodeGenerator(jumpBlockTrue, jumpBlockFalse), condBlock);
         res.addAll(right);
-//        condBlock.addQuadruples(right);
         return res;
     }
 
