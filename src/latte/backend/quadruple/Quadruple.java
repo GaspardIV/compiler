@@ -11,11 +11,13 @@ import java.util.List;
 public class Quadruple {
     public Register result;
     public LLVMOperation op;
+
     public Quadruple(Register result) {
         this.result = result;
         this.op = null;
     }
-    public Quadruple( Register result, LLVMOperation op) {
+
+    public Quadruple(Register result, LLVMOperation op) {
         this.result = result;
         this.op = op;
     }
@@ -25,12 +27,12 @@ public class Quadruple {
             return "";
         }
         if (result == null) {
-            return  op +"";
+            return op + "";
         }
         if (result.type.equals(new Void())) {
-            return "\t"+op.toString();
+            return "\t" + op.toString();
         }
-        return "\t"+result.toString() + " = " + op.toString();
+        return "\t" + result.toString() + " = " + op.toString();
     }
 
     public Register getRegister() {
@@ -52,7 +54,6 @@ public class Quadruple {
 
             public String toString() {
                 StringBuilder argsString = new StringBuilder();
-//                join args with comma as a separator without trailing comma
                 for (int i = 0; i < args.size(); i++) {
                     argsString.append(args.get(i).getLLVMType()).append(" ").append(args.get(i).toString());
                     if (i != args.size() - 1) {
@@ -266,6 +267,7 @@ public class Quadruple {
             public RET() {
                 this.register = null;
             }
+
             public RET(Register register) {
                 this.register = register;
             }
@@ -302,8 +304,7 @@ public class Quadruple {
             private final String btrue;
             private final String bfalse;
 
-            public BOOL_PHI(String identifier, String identifier1)
-            {
+            public BOOL_PHI(String identifier, String identifier1) {
                 this.btrue = identifier;
                 this.bfalse = identifier1;
             }
@@ -311,6 +312,22 @@ public class Quadruple {
             @Override
             public String toString() {
                 return "phi i1 [true, %" + btrue + "], [false, %" + bfalse + "]";
+            }
+        }
+
+        public static class CMP extends LLVMOperation {
+            private final Register register1;
+            private final Register register2;
+
+            public CMP(Register register1, Register register2) {
+                this.register1 = register1;
+                this.register2 = register2;
+            }
+
+            @Override
+            public String toString() {
+                Global.getInstance().useCompareString = 1;
+                return "call i32 @._strcmp(i8* " + register1 + ", i8* " + register2.toString() + ")";
             }
         }
     }

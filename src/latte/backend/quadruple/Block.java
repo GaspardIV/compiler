@@ -100,7 +100,6 @@ public class Block {
         for (String variableName : phiVariablesNames) {
             Register register = btrue.getScope().getLastRegisterOfVariable(variableName);
             Register oldsRegister = entry.getScope().getLastRegisterOfVariable(variableName);
-            // todo tutaj getNewRegister zwraca i1, a nie i2
             Register newRegister = entry.scope.getNewVariableRegister(entry.scope.getVariable(variableName));
             phiVariables.add(new Quadruple(newRegister, new Quadruple.LLVMOperation.PHI(oldsRegister, entry, register, btrue)));
         }
@@ -119,7 +118,6 @@ public class Block {
 
 
             if (scope.lastRegisterOfVariable.get(scope.getVariable(variableName)) == null) {
-//                lastRegisterOfVariable.put(variableName, register);
                 scope.setLastRegisterOfVariable(variableName, phiRegister);
                 scope.setLastVariableRegister(scope.getVariable(variableName), phiRegister);
             }
@@ -127,14 +125,6 @@ public class Block {
         }
         return phiVariables;
     }
-
-//    private Register getlastRegisterOfVariable(String variableName) {
-//        if (lastRegisterOfVariable.get(variableName) != null) {
-//            return lastRegisterOfVariable.get(variableName);
-//        } else {
-//            return previousBlock.getlastRegisterOfVariable(variableName);
-//        }
-//    }
 
     public void removeDeadCode() {
         removeAfterReturn();
@@ -175,16 +165,6 @@ public class Block {
             }
         }
     }
-
-//    public void setLastRegisterOfVariable(String ident_, Register last) {
-//        this.lastRegisterOfVariable.put(ident_, last);
-//    }
-
-//    public void setPhiRegisterOfVariable(String ident_, Register first) {
-//        if (!this.phiRegisterOfVariable.containsKey(ident_)) {
-//            this.phiRegisterOfVariable.put(ident_, first);
-//        }
-//    }
 
     public void addQuadruplesAtTheBeginning(List<Quadruple> phi1) {
         statements.addAll(0, phi1);
@@ -237,5 +217,10 @@ public class Block {
 
     public void setLastRegisterOfVariable(String name, Register rightLastRegister) {
         scope.setLastRegisterOfVariable(name, rightLastRegister);
+    }
+
+    public void setNextBlock(Block cond) {
+        this.nextBlock = cond;
+        cond.previousBlock = this;
     }
 }

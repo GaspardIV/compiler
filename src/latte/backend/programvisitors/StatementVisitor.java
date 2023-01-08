@@ -1,7 +1,6 @@
 package latte.backend.programvisitors;
 
 import latte.Absyn.*;
-//import latte.Internal.Block;
 import latte.Internal.InternalBlock;
 import latte.backend.program.global.Function;
 import latte.backend.quadruple.Block;
@@ -23,8 +22,8 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
 
     @Override
     public Block visit(BStmt p, Block block) {
-        if (((Blk)p.block_).liststmt_.size() == 1 && ((Blk)p.block_).liststmt_.get(0) instanceof InternalBlock) {
-            InternalBlock internalBlock = (InternalBlock) ((Blk)p.block_).liststmt_.get(0);
+        if (((Blk) p.block_).liststmt_.size() == 1 && ((Blk) p.block_).liststmt_.get(0) instanceof InternalBlock) {
+            InternalBlock internalBlock = (InternalBlock) ((Blk) p.block_).liststmt_.get(0);
             Scope oldscope = block.getScope();
             block.setScope(new Scope("block", oldscope));
             internalBlock.bStmt_.accept(this, block);
@@ -45,7 +44,7 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
     @Override
     public Block visit(Ass p, Block block) {
         List<Quadruple> res = new ArrayList<>();
-        List<Quadruple> left = p.expr_1.accept(new RegisterExprVisitor(), block); //new RegisterExprVisitor().generateExprCode(p.expr_1, block); // todo moze sie rozpedzilem?
+        List<Quadruple> left = p.expr_1.accept(new RegisterExprVisitor(), block);
         List<Quadruple> right = new RegisterExprVisitor().generateExprCode(p.expr_2, block);
         res.addAll(right);
         Register leftLastRegister = left.get(left.size() - 1).result;
@@ -60,14 +59,18 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
 
     @Override
     public Block visit(Incr p, Block block) {
-        // todo w wyrazeniu np x= y[i++]; jest zle!!!!
-        return new Ass(p.expr_, new EAdd(p.expr_, new Plus(), new ELitInt(1))).accept(this, block);
+        List<Quadruple> left = p.expr_.accept(new RegisterExprVisitor(), block);
+        new Ass(p.expr_, new EAdd(p.expr_, new Plus(), new ELitInt(1))).accept(this, block);
+        block.addQuadruples(left);
+        return null;
     }
 
     @Override
     public Block visit(Decr p, Block block) {
-        // todo w wyrazeniu np x= y--; jest zle!!!!
-        return new Ass(p.expr_, new EAdd(p.expr_, new Minus(), new ELitInt(1))).accept(this, block);
+        List<Quadruple> left = p.expr_.accept(new RegisterExprVisitor(), block);
+        new Ass(p.expr_, new EAdd(p.expr_, new Minus(), new ELitInt(1))).accept(this, block);
+        block.addQuadruples(left);
+        return null;
     }
 
     @Override
@@ -118,11 +121,9 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         entry.addSuccessor(bend);
         btrue.addPredecessors(entry);
 
-//        btrue.setMarkPhiVariables(true);
         btrue.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(btrue.getIdentifier()))));
         p.stmt_.accept(this, btrue);
         btrue.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(bend.getIdentifier()))));
-//        quadruples.addAll(stmts);
         btrue.addLastBlock(bend);
         btrue.addSuccessor(bend);
         bend.addPredecessors(btrue);
@@ -147,7 +148,6 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
 
         List<Quadruple> expr = p.expr_.accept(new RegisterExprVisitor(), block);
 
-//        if is const then we can optimize it to block that points to true or false
         Register lastRegister = expr.get(expr.size() - 1).getRegister();
         if (lastRegister.isConst()) {
             if (lastRegister.getConstValue().getBool()) {
@@ -218,7 +218,6 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
                 cond.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(body.getIdentifier()))));
                 p.stmt_.accept(this, cond);
                 cond.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(body.getIdentifier()))));
-//                entry.addQuadruples(cond.getQuadruples());
             }
             return null;
         }
@@ -228,8 +227,6 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
 
         exprs = p.expr_.accept(new JumpingCodeGenerator(body, bend), block);
         cond.addQuadruplesToLastBlock(exprs);
-//        cond.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.IF(exprs.get(exprs.size() - 1).getRegister(), body.getIdentifier(), bend.getIdentifier()))));
-//        cond.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(bend.getIdentifier()))));
         cond.addLastBlock(body);
         bend.addPredecessors(cond);
         cond.addSuccessor(bend);
@@ -245,6 +242,9 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         body.addSuccessor(cond);
         cond.addPredecessors(body);
 
+        entry.setNextBlock(body);
+        body.setNextBlock(cond);
+        cond.setNextBlock(bend);
 
         HashSet<String> variableNames = new HashSet<>(body.getRedefinedVariables());
         variableNames.addAll(cond.getRedefinedVariables());
@@ -255,7 +255,6 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         cond.addQuadruplesAtTheBeginning(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(cond.getIdentifier()))));
 
         bend.resetLastUseOfVariables(condScope);
-
         bend.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(bend.getIdentifier()))));
         return null;
     }
@@ -267,7 +266,6 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
 
     @Override
     public Block visit(SExp p, Block block) {
-//        block.addQuadruples(p.expr_.accept(new RegisterExprVisitor(), block));
         block.addQuadruples(new RegisterExprVisitor().generateExprCode(p.expr_, block));
         return null;
     }

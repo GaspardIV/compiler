@@ -10,6 +10,7 @@ import latte.backend.quadruple.Block;
 import latte.backend.quadruple.ConstValue;
 import latte.backend.quadruple.Quadruple;
 import latte.backend.quadruple.Register;
+import latte.errors.SemanticError;
 import latte.utils.Utils;
 
 import java.util.*;
@@ -192,6 +193,13 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block>
         quadruples.addAll(right);
         Register leftRegister = left.get(left.size() - 1).getRegister();
         Register rightRegister = right.get(right.size() - 1).getRegister();
+        if (rightRegister.isConst() && rightRegister.getConstValue().getInt() == 0) {
+            if (p.mulop_ instanceof Div) {
+                throw new SemanticError(p.line_num, "Division by zero");
+            } else if (p.mulop_ instanceof Mod) {
+                throw new SemanticError(p.line_num, "Modulo by zero");
+            }
+        }
         if (leftRegister.isConst() && rightRegister.isConst()) {
             if (p.mulop_ instanceof Times) {
                 quadruples.add(new Quadruple(new Register(block.getRegisterNumber(TMP), new Int(), new ConstValue(leftRegister.getConstValue().getInt() * rightRegister.getConstValue().getInt()))));
@@ -252,7 +260,16 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block>
                 quadruples.add(new Quadruple(new Register(block.getRegisterNumber(TMP), new Bool(), new ConstValue(!leftRegister.getConstValue().equals(rightRegister.getConstValue())))));
             }
         } else {
-            quadruples.add(new Quadruple(new Register(block.getRegisterNumber(TMP), new Bool()), new Quadruple.LLVMOperation.REL(p.relop_, left.get(left.size() - 1).getRegister(), right.get(right.size() - 1).getRegister())));
+            if (leftRegister.type instanceof Str) {
+                quadruples.add(new Quadruple(new Register(block.getRegisterNumber(TMP), new Int()), new Quadruple.LLVMOperation.CMP(left.get(left.size() - 1).getRegister(), right.get(right.size() - 1).getRegister())));
+                if (p.relop_ instanceof EQU) {
+                    quadruples.add(new Quadruple(new Register(block.getRegisterNumber(TMP), new Bool()), new Quadruple.LLVMOperation.REL(p.relop_, quadruples.get(quadruples.size()-1).getRegister(), new Register(block.getRegisterNumber(TMP), new Bool(), new ConstValue(0)))));
+                } else if (p.relop_ instanceof NE) {
+                    quadruples.add(new Quadruple(new Register(block.getRegisterNumber(TMP), new Bool()), new Quadruple.LLVMOperation.REL(p.relop_,  quadruples.get(quadruples.size()-1).getRegister(), new Register(block.getRegisterNumber(TMP), new Bool(), new ConstValue(0)))));
+                }
+            } else {
+                quadruples.add(new Quadruple(new Register(block.getRegisterNumber(TMP), new Bool()), new Quadruple.LLVMOperation.REL(p.relop_, left.get(left.size() - 1).getRegister(), right.get(right.size() - 1).getRegister())));
+            }
         }
         return quadruples;
     }

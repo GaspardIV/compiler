@@ -7,9 +7,12 @@
   <component name="ChangeListManager">
     <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="49/50 ...">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/JumpingCodeGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/JumpingCodeGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/decr_arr_elem_int.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/decr_arr_elem_int.lat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Block.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/llvm.template" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,7 +199,7 @@
       <recent name="bad" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GoodBasicTest and 1 more">
+  <component name="RunManager" selected="JUnit.GoodVarqoxgoodTest.testDecr_Arr_Elem_Int">
     <configuration name="Test core002.lat" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="latte.Compiler" />
       <module name="compiler" />
@@ -274,44 +277,42 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GoodBasicTest.testFibonacci" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GoodExtensionsArrays1Test and 7 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GoodBasicTest" />
-      <option name="METHOD_NAME" value="testFibonacci" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="pattern" />
       <patterns>
-        <pattern testClass="GoodBasicTest" />
+        <pattern testClass="GoodExtensionsArrays1Test" />
+        <pattern testClass="GoodExtensionsObjects1Test" />
+        <pattern testClass="GoodMyTestsTest" />
+        <pattern testClass="BadTestsInfiniteLoopTest" />
         <pattern testClass="GoodClassicTest" />
+        <pattern testClass="GoodHardcoreTest" />
+        <pattern testClass="GoodVarqoxwarningsTest" />
+        <pattern testClass="BadTestsRuntimeTest" />
       </patterns>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GoodClassicTest.testCore001" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GoodVarqoxgoodTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GoodClassicTest" />
-      <option name="METHOD_NAME" value="testCore001" />
-      <option name="TEST_OBJECT" value="method" />
-      <patterns>
-        <pattern testClass="GoodBasicTest" />
-        <pattern testClass="GoodClassicTest" />
-      </patterns>
+      <option name="MAIN_CLASS_NAME" value="GoodVarqoxgoodTest" />
+      <option name="METHOD_NAME" value="testDecr_Arr_Elem_Int" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GoodClassicTest.testCore019" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GoodVarqoxgoodTest.testDecr_Arr_Elem_Int" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GoodClassicTest" />
-      <option name="METHOD_NAME" value="testCore019" />
+      <option name="MAIN_CLASS_NAME" value="GoodVarqoxgoodTest" />
+      <option name="METHOD_NAME" value="testDecr_Arr_Elem_Int" />
       <option name="TEST_OBJECT" value="method" />
-      <patterns>
-        <pattern testClass="GoodBasicTest" />
-        <pattern testClass="GoodClassicTest" />
-      </patterns>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -336,20 +337,20 @@
       <item itemvalue="Application.Test mytest" />
       <item itemvalue="Application.Test" />
       <item itemvalue="JUnit.All in compiler" />
+      <item itemvalue="JUnit.GoodExtensionsArrays1Test and 7 more" />
+      <item itemvalue="JUnit.GoodVarqoxgoodTest" />
+      <item itemvalue="JUnit.GoodVarqoxgoodTest.testDecr_Arr_Elem_Int" />
       <item itemvalue="JUnit.GoodBasicTest.testBool_Operations" />
-      <item itemvalue="JUnit.GoodClassicTest.testCore019" />
-      <item itemvalue="JUnit.GoodClassicTest.testCore001" />
-      <item itemvalue="JUnit.GoodBasicTest.testFibonacci" />
       <item itemvalue="JUnit.GoodBasicTest and 1 more" />
       <item itemvalue="Shell Script.Unnamed" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.GoodVarqoxgoodTest.testDecr_Arr_Elem_Int" />
+        <item itemvalue="JUnit.GoodExtensionsArrays1Test and 7 more" />
+        <item itemvalue="JUnit.GoodVarqoxgoodTest" />
         <item itemvalue="JUnit.GoodBasicTest and 1 more" />
         <item itemvalue="JUnit.GoodBasicTest.testBool_Operations" />
-        <item itemvalue="JUnit.GoodClassicTest.testCore019" />
-        <item itemvalue="JUnit.GoodBasicTest.testFibonacci" />
-        <item itemvalue="JUnit.GoodClassicTest.testCore001" />
       </list>
     </recent_temporary>
   </component>
@@ -402,13 +403,6 @@
       <workItem from="1672891914755" duration="11798000" />
       <workItem from="1673029528322" duration="16294000" />
       <workItem from="1673091017320" duration="31485000" />
-    </task>
-    <task id="LOCAL-00034" summary="increment fix 98 failing">
-      <created>1669903932627</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1669903932627</updated>
     </task>
     <task id="LOCAL-00035" summary="array of null not allowed 95 failing">
       <created>1669906719987</created>
@@ -746,7 +740,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673147052925</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="49/50 ...">
+      <created>1673189857656</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1673189857656</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -849,7 +850,7 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java</url>
-          <line>243</line>
+          <line>218</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
@@ -879,17 +880,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/latte/backend/quadruple/Block.java</url>
-          <line>234</line>
+          <line>214</line>
           <option name="timeStamp" value="68" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java</url>
-          <line>162</line>
-          <option name="timeStamp" value="69" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java</url>
-          <line>21</line>
+          <line>22</line>
           <option name="timeStamp" value="72" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">

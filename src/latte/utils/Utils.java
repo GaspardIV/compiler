@@ -143,8 +143,9 @@ public class Utils {
         }
 
         if (global.useCompareString == 1) {
+
             output.append("declare i32 @strcmp(i8*, i8*)\n" +
-                    "define i32 @compare(i8* %str1, i8* %str2) {\n" +
+                    "define i32 @._strcmp(i8* %str1, i8* %str2) {\n" +
                     "       %t0 = call i32 @strcmp(i8* %str1, i8* %str2)\n" +
                     "       ret i32 %t0\n" +
                     "}\n");
@@ -232,8 +233,4 @@ public class Utils {
         return str.length() - count + 1;
     }
 
-    public static String removeNumber(String name) {
-        //remove number from end of string
-        return name.replaceAll("[0-9]+$", "");
-    }
 }
