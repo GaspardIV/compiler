@@ -152,8 +152,8 @@ public class Scope {
         return new ArrayList<>(phiRegisterOfVariable.keySet());
     }
 
-    public List<String> getRedefinedVariables() {
-        return memoryLocations.keySet().stream().map(Variable::getName).collect(Collectors.toList());
+    public Set<String> getRedefinedVariables() {
+        return lastRegisterOfVariable.keySet().stream().map(Variable::getName).collect(Collectors.toSet());
     }
 
     public boolean hasPhiRegisterOfVariable(String ident_) {

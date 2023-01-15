@@ -9,10 +9,7 @@ import latte.backend.program.global.Variable;
 import latte.backend.quadruple.Quadruple;
 import latte.backend.quadruple.Register;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 public class StatementVisitor implements Stmt.Visitor<Block, Block> {
     @Override
@@ -130,7 +127,7 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         bend.addPredecessors(entry);
 
         bend.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(bend.getIdentifier()))));
-        List<String> variableNames = btrue.getRedefinedVariables();
+        Set<String> variableNames = btrue.getRedefinedVariables();
         bend.addQuadruplesToLastBlock(Block.createPhiVariables(variableNames, entry, btrue));
         return null;
     }
@@ -184,7 +181,7 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         bfalse.addSuccessor(bend);
 
         bend.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(bend.getIdentifier()))));
-        List<String> variableNames = bfalse.getRedefinedVariables();
+        Set<String> variableNames = bfalse.getRedefinedVariables();
         variableNames.addAll(btrue.getRedefinedVariables());
         List<Quadruple> phi1 = Block.createPhiVariables(variableNames, btrue, bfalse);
 
@@ -238,19 +235,15 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         body.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(body.getIdentifier()))));
         p.stmt_.accept(this, body);
         body.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(cond.getIdentifier()))));
-        body.addLastBlock(bend);
-        body.addSuccessor(cond);
-        cond.addPredecessors(body);
-
-        entry.setNextBlock(body);
-        body.setNextBlock(cond);
-        cond.setNextBlock(bend);
 
         HashSet<String> variableNames = new HashSet<>(body.getRedefinedVariables());
         variableNames.addAll(cond.getRedefinedVariables());
         variableNames.addAll(cond.getUsedVariables());
         variableNames.addAll(body.getUsedVariables());
-        List<Quadruple> phi1 = cond.getPhiVariables(new ArrayList<>(variableNames), entry, body);
+        List<Quadruple> phi1 = cond.getPhiVariables(new ArrayList<>(variableNames), entry, body.getLastBlock());
+        body.addLastBlock(bend);
+        body.addSuccessor(cond);
+        cond.addPredecessors(body);
         cond.addQuadruplesAtTheBeginning(phi1);
         cond.addQuadruplesAtTheBeginning(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(cond.getIdentifier()))));
 

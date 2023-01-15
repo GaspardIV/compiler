@@ -1,0 +1,11 @@
+int main() {
+    int a = readInt();
+    int b;
+    if (a < 0) {
+        b = 0;
+    } else {
+        b = 1;
+    }
+    printInt(b);
+    return 0;
+}

@@ -1,0 +1,16 @@
+void funkcja(int x) {
+  if (x > 5555) {
+    x = 7777;
+    printInt(x);
+  } else {
+    x = 1111;
+    int x = 8888;
+    printInt(x);
+  }
+  printInt(x);
+}
+
+int main() {
+  funkcja(3333);
+    return 0;
+}

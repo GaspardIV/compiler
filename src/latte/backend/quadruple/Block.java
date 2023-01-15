@@ -95,7 +95,7 @@ public class Block {
     }
 
 
-    public static List<Quadruple> createPhiVariables(List<String> phiVariablesNames, Block entry, Block btrue) {
+    public static List<Quadruple> createPhiVariables(Set<String> phiVariablesNames, Block entry, Block btrue) {
         List<Quadruple> phiVariables = new ArrayList<>();
         for (String variableName : phiVariablesNames) {
             Register register = btrue.getScope().getLastRegisterOfVariable(variableName);
@@ -170,7 +170,7 @@ public class Block {
         statements.addAll(0, phi1);
     }
 
-    public List<String> getRedefinedVariables() {
+    public Set<String> getRedefinedVariables() {
         return scope.getRedefinedVariables();
     }
 
