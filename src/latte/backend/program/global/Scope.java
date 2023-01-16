@@ -159,7 +159,7 @@ public class Scope {
     }
 
     public boolean hasPhiRegisterOfVariable(String ident_) {
-        return phiRegisterOfVariable.containsKey(ident_);
+        return phiRegisterOfVariable.containsKey(ident_) || variables.containsKey(ident_);
     }
 
     public void pastePhiVariables(Scope scope) {

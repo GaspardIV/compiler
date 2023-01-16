@@ -111,8 +111,11 @@ public class Block {
         List<Quadruple> phiVariables = new ArrayList<>();
         for (String variableName : variableNames) {
             Register phiRegister = scope.getPhiRegisterOfVariable(variableName);
-            if (phiRegister == null && newblock.getScope().getPhiRegisterOfVariable(variableName) != null) {
+            if (phiRegister == null ) {
                 phiRegister = newblock.getScope().getPhiRegisterOfVariable(variableName);
+            }
+            if (phiRegister == null) {
+                continue;
             }
             Register register = newblock.getScope().getLastRegisterOfVariable(scope.getVariable(variableName));
             Register oldsRegister = oldblock.getScope().getLastRegisterOfVariable(scope.getVariable(variableName));
