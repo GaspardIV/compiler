@@ -128,6 +128,8 @@ public class Scope {
             return null;
         }
     }
+
+//  todo usunac te funkcje!
     public Register getLastRegisterOfVariable(String variableName) {
         if (lastRegisterOfVariable.containsKey(getVariable(variableName))) {
             return lastRegisterOfVariable.get(getVariable(variableName));

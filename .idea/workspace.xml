@@ -5,14 +5,30 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="gramatyka - tymczasowy fix.">
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="ok oddaje">
+      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/test22.err" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/test22.lat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/test22.ll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/test22.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/test223.err" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/test223.lat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/test223.output" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/decr_arr_elem_int.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/decr_arr_elem_int.lat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/errors/SemanticError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/errors/SemanticError.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/frontend/environment/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/environment/Environment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test1.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test1.lat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test1.output" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test1.output" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test2.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test2.lat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test2.output" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test2.output" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test3.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test3.lat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test3.output" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test3.output" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test4.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test4.lat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test4.output" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test4.output" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test5.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test5.lat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test5.output" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test5.output" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/Scope.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/Scope.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Block.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/utils/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/GoodMyTestsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/GoodMyTestsTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,32 +152,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path&quot;: &quot;/Users/kacperkonecki/IdeaProjects/codingame/compiler/third_party&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/kacperkonecki/IdeaProjects/codingame/compiler/src/latte/backend&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path": "/Users/kacperkonecki/IdeaProjects/codingame/compiler/third_party",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "extract.method.default.visibility": "private",
+    "last_opened_file_path": "/Users/kacperkonecki/IdeaProjects/codingame/compiler/lattests/good/my_tests",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;ChangesTree.GroupingKeys&quot;: [
+  "keyToStringList": {
+    "ChangesTree.GroupingKeys": [
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="latte.frontend.visitors" />
@@ -171,18 +187,18 @@
       <recent name="latte.backend.program.global.function" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/latte/backend" />
       <recent name="$PROJECT_DIR$/lattests/good/my_tests" />
+      <recent name="$PROJECT_DIR$/src/latte/backend" />
       <recent name="$PROJECT_DIR$/tests" />
       <recent name="$PROJECT_DIR$/lattests/mytests" />
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lattests/good/my_tests" />
       <recent name="$PROJECT_DIR$/src/latte/Absyn" />
       <recent name="$PROJECT_DIR$/src/latte/parser" />
       <recent name="$PROJECT_DIR$/third_party" />
       <recent name="$PROJECT_DIR$/bnfc/Java" />
-      <recent name="$PROJECT_DIR$/lattests/good/classic" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -199,7 +215,7 @@
       <recent name="bad" />
     </key>
   </component>
-  <component name="RunManager" selected="Makefile Target.all">
+  <component name="RunManager" selected="JUnit.GoodClassicTest and 2 more">
     <configuration name="Test core002.lat" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="latte.Compiler" />
       <module name="compiler" />
@@ -231,7 +247,7 @@
     <configuration name="Test" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="latte.Compiler" />
       <module name="compiler" />
-      <option name="PROGRAM_PARAMETERS" value="lattests/good/arrays/array_read.lat" />
+      <option name="PROGRAM_PARAMETERS" value="lattests/good/varqoxgood/decr_arr_elem_int.lat" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="latte.parser.*" />
@@ -263,21 +279,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GoodExtensionsArrays1Test and 7 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GoodBasicTest.testBool_Overoptymization" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GoodBasicTest" />
+      <option name="METHOD_NAME" value="testBool_Overoptymization" />
+      <option name="TEST_OBJECT" value="method" />
+      <patterns>
+        <pattern testClass="GoodBasicTest" />
+        <pattern testClass="GoodClassicTest" />
+      </patterns>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GoodClassicTest and 2 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="compiler" />
       <option name="TEST_OBJECT" value="pattern" />
       <patterns>
-        <pattern testClass="GoodExtensionsArrays1Test" />
-        <pattern testClass="GoodExtensionsObjects1Test" />
-        <pattern testClass="GoodMyTestsTest" />
-        <pattern testClass="BadTestsInfiniteLoopTest" />
         <pattern testClass="GoodClassicTest" />
-        <pattern testClass="GoodHardcoreTest" />
-        <pattern testClass="GoodVarqoxwarningsTest" />
-        <pattern testClass="BadTestsRuntimeTest" />
+        <pattern testClass="GoodBasicTest" />
+        <pattern testClass="GoodMyTestsTest" />
       </patterns>
       <method v="2">
         <option name="Make" enabled="true" />
@@ -295,12 +317,6 @@
     </configuration>
     <configuration name="all" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
       <makefile filename="$PROJECT_DIR$/Makefile" target="all" workingDirectory="" arguments="">
-        <envs />
-      </makefile>
-      <method v="2" />
-    </configuration>
-    <configuration name="zip" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
-      <makefile filename="$PROJECT_DIR$/Makefile" target="zip" workingDirectory="" arguments="">
         <envs />
       </makefile>
       <method v="2" />
@@ -325,20 +341,20 @@
       <item itemvalue="Application.Test mytest" />
       <item itemvalue="Application.Test" />
       <item itemvalue="JUnit.All in compiler" />
-      <item itemvalue="JUnit.GoodExtensionsArrays1Test and 7 more" />
+      <item itemvalue="JUnit.GoodClassicTest and 2 more" />
+      <item itemvalue="JUnit.GoodBasicTest.testBool_Overoptymization" />
       <item itemvalue="JUnit.GoodVarqoxgoodTest.testDecr_Arr_Elem_Int" />
       <item itemvalue="JUnit.GoodBasicTest and 1 more" />
       <item itemvalue="Makefile Target.all" />
-      <item itemvalue="Makefile Target.zip" />
       <item itemvalue="Shell Script.Unnamed" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Makefile Target.all" />
-        <item itemvalue="Makefile Target.zip" />
+        <item itemvalue="JUnit.GoodClassicTest and 2 more" />
         <item itemvalue="JUnit.GoodBasicTest and 1 more" />
         <item itemvalue="JUnit.GoodVarqoxgoodTest.testDecr_Arr_Elem_Int" />
-        <item itemvalue="JUnit.GoodExtensionsArrays1Test and 7 more" />
+        <item itemvalue="JUnit.GoodBasicTest.testBool_Overoptymization" />
+        <item itemvalue="Makefile Target.all" />
       </list>
     </recent_temporary>
   </component>
@@ -391,13 +407,9 @@
       <workItem from="1672891914755" duration="11798000" />
       <workItem from="1673029528322" duration="16294000" />
       <workItem from="1673091017320" duration="31485000" />
-    </task>
-    <task id="LOCAL-00038" summary="single if -&gt; block">
-      <created>1669986935324</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1669986935324</updated>
+      <workItem from="1673637821687" duration="5840000" />
+      <workItem from="1673661380438" duration="2084000" />
+      <workItem from="1673827042172" duration="14082000" />
     </task>
     <task id="LOCAL-00039" summary="fix while_body_decl.err">
       <created>1669988453428</created>
@@ -735,7 +747,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673194722484</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="ok oddaje">
+      <created>1673197086422</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1673197086422</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -801,7 +820,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="17/50" />
     <MESSAGE value="18/50 - bloki do przebudowania" />
     <MESSAGE value="19/50" />
     <MESSAGE value="tak sobie if" />
@@ -826,7 +844,8 @@
     <MESSAGE value="str cmp" />
     <MESSAGE value="dziala na studnets" />
     <MESSAGE value="gramatyka - tymczasowy fix." />
-    <option name="LAST_COMMIT_MESSAGE" value="gramatyka - tymczasowy fix." />
+    <MESSAGE value="ok oddaje" />
+    <option name="LAST_COMMIT_MESSAGE" value="ok oddaje" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -863,13 +882,18 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/latte/backend/program/global/Scope.java</url>
-          <line>183</line>
+          <line>185</line>
           <option name="timeStamp" value="59" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/latte/backend/quadruple/Block.java</url>
-          <line>214</line>
+          <line>215</line>
           <option name="timeStamp" value="68" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java</url>
+          <line>90</line>
+          <option name="timeStamp" value="69" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />

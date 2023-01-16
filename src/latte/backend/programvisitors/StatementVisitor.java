@@ -128,7 +128,7 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
 
         bend.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(bend.getIdentifier()))));
         Set<String> variableNames = btrue.getRedefinedVariables();
-        bend.addQuadruplesToLastBlock(Block.createPhiVariables(variableNames, entry, btrue));
+        bend.addQuadruplesToLastBlock(entry.createPhiVariables(variableNames, entry, btrue));
         return null;
     }
 
@@ -183,7 +183,7 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         bend.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(bend.getIdentifier()))));
         Set<String> variableNames = bfalse.getRedefinedVariables();
         variableNames.addAll(btrue.getRedefinedVariables());
-        List<Quadruple> phi1 = Block.createPhiVariables(variableNames, btrue, bfalse);
+        List<Quadruple> phi1 = entry.createPhiVariables(variableNames, btrue, bfalse);
 
         bend.addQuadruplesToLastBlock(phi1);
 

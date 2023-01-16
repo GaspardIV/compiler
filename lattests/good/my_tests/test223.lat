@@ -1,5 +1,6 @@
 void funkcja(int x) {
   if (x > 5555) {
+    x = 1111;
     int x = 7777;
     printInt(x);
   } else {
@@ -12,5 +13,5 @@ void funkcja(int x) {
 int main() {
   funkcja(3333);
   funkcja(9999);
-  return 0;
+    return 0;
 }

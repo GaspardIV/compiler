@@ -13,5 +13,6 @@ void funkcja(int x) {
 
 int main() {
   funkcja(3333);
+  funkcja(9999);
     return 0;
 }

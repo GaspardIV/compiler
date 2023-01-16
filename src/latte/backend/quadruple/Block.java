@@ -95,12 +95,13 @@ public class Block {
     }
 
 
-    public static List<Quadruple> createPhiVariables(Set<String> phiVariablesNames, Block entry, Block btrue) {
+    public List<Quadruple> createPhiVariables(Set<String> phiVariablesNames, Block entry, Block btrue) {
         List<Quadruple> phiVariables = new ArrayList<>();
         for (String variableName : phiVariablesNames) {
-            Register register = btrue.getScope().getLastRegisterOfVariable(variableName);
-            Register oldsRegister = entry.getScope().getLastRegisterOfVariable(variableName);
-            Register newRegister = entry.scope.getNewVariableRegister(entry.scope.getVariable(variableName));
+            Variable variable = scope.getVariable(variableName);
+            Register register = btrue.getScope().getLastRegisterOfVariable(variable);
+            Register oldsRegister = entry.getScope().getLastRegisterOfVariable(variable);
+            Register newRegister = scope.getNewVariableRegister(variable);
             phiVariables.add(new Quadruple(newRegister, new Quadruple.LLVMOperation.PHI(oldsRegister, entry, register, btrue)));
         }
         return phiVariables;
