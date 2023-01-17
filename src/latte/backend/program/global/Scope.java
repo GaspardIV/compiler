@@ -10,10 +10,7 @@ public class Scope {
     private final Scope parent;
     String contextName;
     Map<String, Variable> variables;
-
     Map<Variable, Deque<Register>> memoryLocations;
-
-    private final HashMap<String, Register> phiRegisterOfVariable;
     public HashMap<Variable, Register> lastRegisterOfVariable;
 
     private final Type type;
@@ -37,7 +34,6 @@ public class Scope {
         this.type = type;
         this.memoryLocations = new HashMap<>();
         lastRegisterOfVariable = new HashMap<>();
-        phiRegisterOfVariable = new HashMap<>();
     }
 
     public String getName() {
@@ -90,6 +86,7 @@ public class Scope {
         memoryLocations.put(variable, memory);
         return memory;
     }
+
     public Register getLastVariableRegister(Variable variable) {
         Deque<Register> registerList = getMemoryLocation(variable);
         if (registerList.isEmpty()) {
@@ -105,13 +102,6 @@ public class Scope {
         registerList.add(register);
         return register;
     }
-
-//    public void createVariable(Variable variable) {
-//        Deque<Register> registerList = getMemoryLocation(variable);
-//        Register register = new Register(getCurrentFunction().getNewIdentUseNumber(variable.getName()), variable.getType());
-//        lastRegisterOfVariable.put(variable, register);
-//        registerList.add(register);
-//    }
 
     public void setLastVariableRegister(Variable variable, Register register) {
         Deque<Register> registerList = getMemoryLocation(variable);
@@ -129,86 +119,23 @@ public class Scope {
         }
     }
 
-//  todo usunac te funkcje!
-    public Register getLastRegisterOfVariable(String variableName) {
-        if (lastRegisterOfVariable.containsKey(getVariable(variableName))) {
-            return lastRegisterOfVariable.get(getVariable(variableName));
-        } else if (parent != null) {
-            return parent.getLastRegisterOfVariable(variableName);
-        } else {
-            return null;
-        }
-    }
-
-    public Register getPhiRegisterOfVariable(String variableName) {
-        if (phiRegisterOfVariable.containsKey(variableName)) {
-            return phiRegisterOfVariable.get(variableName);
-        } else if (parent != null) {
-            return parent.getPhiRegisterOfVariable(variableName);
-        } else {
-            return null;
-        }
-    }
-
-    public Collection<String> getUsedVariables() {
-        return new ArrayList<>(phiRegisterOfVariable.keySet());
-    }
-
     public Set<String> getRedefinedVariables() {
         return lastRegisterOfVariable.keySet().stream().map(Variable::getName).collect(Collectors.toSet());
     }
 
     public boolean hasPhiRegisterOfVariable(String ident_) {
-        return phiRegisterOfVariable.containsKey(ident_) || variables.containsKey(ident_);
-    }
-
-    public void pastePhiVariables(Scope scope) {
-        for (Map.Entry<String, Register> entry : scope.phiRegisterOfVariable.entrySet()) {
-            if (!phiRegisterOfVariable.containsKey(entry.getKey())) {
-                phiRegisterOfVariable.put(entry.getKey(), entry.getValue());
-            }
-        }
-//        for (Variable variable : scope.phiRegisterOfVariable.keySet()) {
-//            if (!phiRegisterOfVariable.containsKey(variable)) {
-//                phiRegisterOfVariable.put(variable, scope.phiRegisterOfVariable.get(variable));
-//            }
-////            phiRegisterOfVariable.put(variable, scope.phiRegisterOfVariable.get(variable));
-//        }
-    }
-
-    public  void setPhiRegisterOfVariable(String variableName, Register register) {
-        if (!phiRegisterOfVariable.containsKey(variableName)) {
-            phiRegisterOfVariable.put(variableName, register);
-        }
+        return variables.containsKey(ident_);
     }
 
     public void resetLastUseOfVariables(Scope condScope) {
-//        this.variables = condScope.variables;
         this.lastRegisterOfVariable = condScope.lastRegisterOfVariable;
-//        for condScope.lastRegisterOfVariable
         for (Map.Entry<Variable, Register> entry : condScope.lastRegisterOfVariable.entrySet()) {
             this.setLastVariableRegister(entry.getKey(), entry.getValue());
         }
-//        this.memoryLocations = condScope.memoryLocations;
-//        for (Map.Entry<Variable, Deque<Register>> entry : condScope.memoryLocations.entrySet()) {
-//            setLastVariableRegister(entry.getKey(), entry.getValue().getLast());
-//        }
-
     }
 
     public void setLastRegisterOfVariable(String name, Register rightLastRegister) {
         lastRegisterOfVariable.put(getVariable(name), rightLastRegister);
     }
-
-//    public Set<Variable> getRedefinedVariables() {
-//        return memoryLocations.keySet();
-//    }
-
-//    public void resetLastUseOfVariables() {
-//        for (Map.Entry<Variable, Deque<Register>> entry : memoryLocations.entrySet()) {
-//            setLastVariableRegister(entry.getKey(), entry.getValue().getLast());
-//        }
-////        scope.setLastVariableRegister(scope.getVariable(entry.getKey()), entry.getValue());
-//    }
 }
 

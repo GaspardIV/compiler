@@ -6,20 +6,21 @@ import latte.backend.program.global.Variable;
 import java.util.*;
 
 public class Block {
-    private final String identifier;
+    private String identifier;
     List<Block> predecessors;
     List<Block> successors;
     List<Quadruple> statements;
 
     Block nextBlock;
     Block previousBlock;
-    public boolean markPhiVariables = false;
+    public static boolean markPhiVariables = false;
+    public static HashMap<String, Register> phiRegisterOfVariable = new HashMap<>();
 
     boolean wasReturn = false;
 
     private Scope scope;
 
-    private final String name;
+    private String name;
     public Block(String contextName, Scope scope) {
         this(contextName, scope, "null");
     }
@@ -32,6 +33,11 @@ public class Block {
         statements = new ArrayList<>();
 
         this.identifier = identifier;
+    }
+
+    public static void reset() {
+        markPhiVariables = false;
+        phiRegisterOfVariable = new HashMap<>();
     }
 
     public String getIdentifier() {
@@ -90,11 +96,6 @@ public class Block {
         }
     }
 
-    public void setMarkPhiVariables(boolean markPhiVariables) {
-        this.markPhiVariables = markPhiVariables;
-    }
-
-
     public List<Quadruple> createPhiVariables(Set<String> phiVariablesNames, Block entry, Block btrue) {
         List<Quadruple> phiVariables = new ArrayList<>();
         for (String variableName : phiVariablesNames) {
@@ -102,6 +103,7 @@ public class Block {
             Register register = btrue.getScope().getLastRegisterOfVariable(variable);
             Register oldsRegister = entry.getScope().getLastRegisterOfVariable(variable);
             Register newRegister = scope.getNewVariableRegister(variable);
+            newRegister.setVariable(variable);
             phiVariables.add(new Quadruple(newRegister, new Quadruple.LLVMOperation.PHI(oldsRegister, entry, register, btrue)));
         }
         return phiVariables;
@@ -110,10 +112,7 @@ public class Block {
     public List<Quadruple> getPhiVariables(List<String> variableNames, Block oldblock, Block newblock) {
         List<Quadruple> phiVariables = new ArrayList<>();
         for (String variableName : variableNames) {
-            Register phiRegister = scope.getPhiRegisterOfVariable(variableName);
-            if (phiRegister == null ) {
-                phiRegister = newblock.getScope().getPhiRegisterOfVariable(variableName);
-            }
+            Register phiRegister = phiRegisterOfVariable.get(variableName);
             if (phiRegister == null) {
                 continue;
             }
@@ -155,9 +154,10 @@ public class Block {
             current.wasReturn = current.predecessors.size() > 0 && current.predecessors.stream().allMatch(block -> block.wasReturn);
             for (int i = 0; i < current.statements.size(); i++) {
                 if (!current.wasReturn) {
-                    if (current.statements.get(i).op instanceof Quadruple.LLVMOperation.RET) {
+                    if (current.statements.get(i).op instanceof Quadruple.LLVMOperation.RET ) {
                         current.wasReturn = true;
                     }
+//  todo || (current.statements.get(i).op instanceof Quadruple.LLVMOperation.CALL && ((Quadruple.LLVMOperation.CALL) current.statements.get(i).op).name.equals("error"))
                     newStatements.add(current.statements.get(i));
                 }
             }
@@ -180,15 +180,11 @@ public class Block {
 
 
     public boolean hasPhiRegisterOfVariable(String ident_) {
-        return scope.hasPhiRegisterOfVariable(ident_);
+        return phiRegisterOfVariable.containsKey(ident_) || scope.hasPhiRegisterOfVariable(ident_);
     }
 
-    public void pastePhiVariables(Block cond) {
-        scope.pastePhiVariables(cond.scope);
-    }
-
-    public Collection<String> getUsedVariables() {
-        return scope.getUsedVariables();
+    public Set<String> getUsedVariables() {
+        return phiRegisterOfVariable.keySet();
     }
 
     public Scope getScope() {
@@ -211,10 +207,6 @@ public class Block {
         this.scope = scope;
     }
 
-    public void setPreviousBlock(Block entry) {
-        this.previousBlock = entry;
-    }
-
     public void resetLastUseOfVariables(Scope condScope) {
         scope.resetLastUseOfVariables(condScope);
     }
@@ -223,8 +215,8 @@ public class Block {
         scope.setLastRegisterOfVariable(name, rightLastRegister);
     }
 
-    public void setNextBlock(Block cond) {
-        this.nextBlock = cond;
-        cond.previousBlock = this;
+    public void setIdentifier(Block identifier) {
+        this.name = identifier.name;
+        this.identifier = identifier.identifier;
     }
 }

@@ -5,7 +5,6 @@ import latte.Absyn.*;
 import latte.Absyn.Void;
 import latte.Internal.ClField;
 import latte.Internal.Null;
-import latte.backend.program.IsExprBoolTypeManager;
 import latte.errors.SemanticError;
 import latte.frontend.environment.Environment;
 import latte.utils.Utils;
@@ -176,7 +175,6 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
         if (!t1.equals(t2)) {
             throw new SemanticError.OperatorCannotBeAppliedToTypes(p.line_num, "&&", t1, t2);
         }
-        IsExprBoolTypeManager.getInstance().add(p);
         return new Bool();
     }
 
@@ -189,7 +187,6 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
         if (!t1.equals(t2)) {
             throw new SemanticError.OperatorCannotBeAppliedToTypes(p.line_num, "||", t1, t2);
         }
-        IsExprBoolTypeManager.getInstance().add(p);
         return new Bool();
     }
 

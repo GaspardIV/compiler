@@ -1,7 +1,6 @@
 package latte.backend.programvisitors;
 
 import latte.Absyn.*;
-import latte.backend.program.IsExprBoolTypeManager;
 import latte.backend.program.global.Function;
 import latte.backend.program.global.Global;
 import latte.backend.program.global.Scope;
@@ -19,7 +18,7 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block>
     protected static final String TMP = "tmp.";
 
     public List<Quadruple> generateExprCode(Expr expr, Block block) {
-        if (IsExprBoolTypeManager.getInstance().isBool(expr)) {
+        if (expr instanceof EOr || expr instanceof EAnd) {
             Block resultBlock = new Block("result", block.getScope());
 
             Scope scope = resultBlock.getScope();
@@ -110,9 +109,9 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block>
         Variable variable = block.getVariable(p.ident_);
         Scope scope = block.getScope();
         Register last = scope.getLastVariableRegister(variable);
-        if (block.markPhiVariables && !block.hasPhiRegisterOfVariable(p.ident_)) {
+        if (Block.markPhiVariables && !block.hasPhiRegisterOfVariable(p.ident_)) {
             Register phiRegister = scope.getNewVariableRegister(variable);
-            block.getScope().setPhiRegisterOfVariable(p.ident_, phiRegister);
+            Block.phiRegisterOfVariable.put(p.ident_, phiRegister);
             last = phiRegister;
         }
         last.setVariable(variable);

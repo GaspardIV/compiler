@@ -1,16 +1,87 @@
-void funkcja(int x) {
-  if (x > 5555) {
-    int x = 7777;
-    printInt(x);
-  } else {
-    int x = 8888;
-    printInt(x);
-  }
-  printInt(x);
+void funkcja3(int j) {
+        j++;
+        int b = 10;
+        if (j % 2 != 0) {
+            b=b-1;
+            printInt(j);
+            printInt(b);
+        }
+        printInt(b);
 }
 
+void funkcja2() {
+int a = 0, b = 10, i = 0, j = 0;
+while (i < 5) {
+    i++;
+    if (i % 2 == 0) {
+    a = a + 1;
+    while (j < 5) {
+        j++;
+        if (j < 5) {
+            b=b-1;
+            printInt(j);
+            printInt(b);
+        }
+        printInt(b);
+    }
+    printInt(a);
+    printInt(b);
+    }
+}
+printInt(a);
+        printInt(b);
+//        printString("a = b");
+}
+void funkcja4() {
+int a = 0, b = 10, i = 0, j = 0;
+//while (i < 5) {
+//    i++;
+    if (i % 2 == 0) {
+    a = a + 1;
+    while (j < 5) {
+        j++;
+        if (j < 5) {
+            b=b-1;
+            printInt(j);
+            printInt(b);
+        }
+        printInt(b);
+    }
+    printInt(a);
+    printInt(b);
+    }
+//}
+printInt(a);
+        printInt(b);
+//        printString("a = b");
+}
+void funkcja5() {
+int a = 0, b = 10, i = 0, j = 0;
+//while (i < 5) {
+//    i++;
+    if (i % 2 == 0) {
+    a = a + 1;
+    while (j %2 != 0) {
+        j++;
+        if (j < 5) {
+            b=b-1;
+            printInt(j);
+            printInt(b);
+        }
+        printInt(b);
+    }
+    printInt(a);
+    printInt(b);
+    }
+//}
+printInt(a);
+        printInt(b);
+//        printString("a = b");
+}
 int main() {
-  funkcja(3333);
-  funkcja(9999);
+    //funkcja2();
+    funkcja3(0);
+    funkcja4();
+    funkcja5();
   return 0;
 }

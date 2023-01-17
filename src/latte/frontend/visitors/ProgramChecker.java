@@ -3,8 +3,8 @@ package latte.frontend.visitors;
 import latte.Absyn.FnDef;
 import latte.Absyn.Int;
 import latte.Absyn.Prog;
-import latte.backend.program.IsExprBoolTypeManager;
 import latte.backend.program.Program;
+import latte.backend.quadruple.Block;
 import latte.errors.SemanticError;
 import latte.frontend.environment.Environment;
 import latte.backend.programvisitors.ProgramVisitor;
@@ -12,7 +12,7 @@ import latte.backend.programvisitors.ProgramVisitor;
 public class ProgramChecker implements latte.Absyn.Program.Visitor<Program, Environment> {
     public Program visit(Prog p, Environment arg) {
         createGlobalContext(p, arg);
-        IsExprBoolTypeManager.reset();
+        Block.reset();
         checkTopDefs(p, arg);
         preprocessProgram(p);
         return createProgram(p);

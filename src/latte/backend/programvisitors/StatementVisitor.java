@@ -11,6 +11,9 @@ import latte.backend.quadruple.Register;
 
 import java.util.*;
 
+import static latte.backend.quadruple.Block.markPhiVariables;
+import static latte.backend.quadruple.Block.phiRegisterOfVariable;
+
 public class StatementVisitor implements Stmt.Visitor<Block, Block> {
     @Override
     public Block visit(Empty p, Block block) {
@@ -94,7 +97,6 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         Block entry = block;
 
         Block btrue = new Block(function.nextBlockName(), new Scope("if.true", scope), "if.true");
-        btrue.setPreviousBlock(entry);
         Block bend = new Block(function.nextBlockName(), scope, "if.end");
 
         List<Quadruple> expr = p.expr_.accept(new RegisterExprVisitor(), block);
@@ -102,6 +104,7 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         Register lastRegister = expr.get(expr.size() - 1).result;
         if (lastRegister.isConst()) {
             if (lastRegister.getConstValue().getBool()) {
+                btrue.setIdentifier(block);
                 p.stmt_.accept(this, btrue);
                 block.addQuadruples(btrue.getQuadruplesFromAllBlocks());
                 return null;
@@ -148,10 +151,12 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         Register lastRegister = expr.get(expr.size() - 1).getRegister();
         if (lastRegister.isConst()) {
             if (lastRegister.getConstValue().getBool()) {
+                btrue.setIdentifier(block);
                 p.stmt_1.accept(this, btrue);
                 block.addQuadruples(btrue.getQuadruplesFromAllBlocks());
                 return null;
             } else {
+                bfalse.setIdentifier(block);
                 p.stmt_2.accept(this, bfalse);
                 block.addQuadruples(bfalse.getQuadruplesFromAllBlocks());
                 return null;
@@ -204,7 +209,10 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         entry.addLastBlock(cond);
         entry.addSuccessor(cond);
         cond.addPredecessors(entry);
-        cond.setMarkPhiVariables(true);
+        boolean oldMarkPhiVariables = markPhiVariables;
+        markPhiVariables = true;
+        HashMap<String, Register> oldPhiVariables = phiRegisterOfVariable;
+        phiRegisterOfVariable = new HashMap<>();
         List<Quadruple> exprs = p.expr_.accept(new RegisterExprVisitor(), cond);
 
 
@@ -230,8 +238,6 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         cond.addSuccessor(body);
         body.addPredecessors(cond);
 
-        body.pastePhiVariables(cond);
-        body.setMarkPhiVariables(true);
         body.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(body.getIdentifier()))));
         p.stmt_.accept(this, body);
         body.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(cond.getIdentifier()))));
@@ -239,14 +245,15 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         HashSet<String> variableNames = new HashSet<>(body.getRedefinedVariables());
         variableNames.addAll(cond.getRedefinedVariables());
         variableNames.addAll(cond.getUsedVariables());
-        variableNames.addAll(body.getUsedVariables());
+        variableNames.addAll(body.getUsedVariables()); // todo while w while!! -> prawdopodobnie dodac phivariables jakos albo cos?
         List<Quadruple> phi1 = cond.getPhiVariables(new ArrayList<>(variableNames), entry, body.getLastBlock());
+        markPhiVariables = oldMarkPhiVariables;
+        phiRegisterOfVariable = oldPhiVariables;
         body.addLastBlock(bend);
         body.addSuccessor(cond);
         cond.addPredecessors(body);
         cond.addQuadruplesAtTheBeginning(phi1);
         cond.addQuadruplesAtTheBeginning(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(cond.getIdentifier()))));
-
         bend.resetLastUseOfVariables(condScope);
         bend.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(bend.getIdentifier()))));
         return null;
