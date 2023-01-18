@@ -31,7 +31,7 @@ public class Utils {
 
     public static String getLLVMType(Type actual) {
         if (actual instanceof Array) {
-            return "todo yo mama";
+            return "todo";
         } else if (actual instanceof Bool) {
             return "i1";
         } else if (actual instanceof latte.Absyn.Int) {

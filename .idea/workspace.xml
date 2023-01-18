@@ -5,23 +5,11 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="Refactor">
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="Refactor, and multiple levels of phi variables.">
       <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/test22.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/PhiManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test1.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test1.lat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test1.output" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test1.output" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/Function.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/Function.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/Global.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/Global.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/Scope.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/Scope.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/DeclVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/DeclVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/ProgramVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/ProgramVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Block.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/ProgramChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/ProgramChecker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/utils/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/GoodMyTestsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/GoodMyTestsTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -414,14 +402,7 @@
       <workItem from="1673661380438" duration="2084000" />
       <workItem from="1673827042172" duration="25973000" />
       <workItem from="1673924916149" duration="18345000" />
-      <workItem from="1673993417056" duration="19367000" />
-    </task>
-    <task id="LOCAL-00043" summary="building from zero :)">
-      <created>1670087530205</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1670087530205</updated>
+      <workItem from="1673993417056" duration="20099000" />
     </task>
     <task id="LOCAL-00044" summary="building from zero :)">
       <created>1670087642219</created>
@@ -759,7 +740,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674007392483</updated>
     </task>
-    <option name="localTasksCounter" value="92" />
+    <task id="LOCAL-00092" summary="Refactor, and multiple levels of phi variables.">
+      <created>1674017756540</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1674017756540</updated>
+    </task>
+    <option name="localTasksCounter" value="93" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -825,8 +813,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="25" />
-    <MESSAGE value="30/50" />
     <MESSAGE value="32" />
     <MESSAGE value="33" />
     <MESSAGE value="template dziala - mozliwe ze lepiej by bylo z gets" />
@@ -850,7 +836,9 @@
     <MESSAGE value="Drobne usprawnienie definicji w while" />
     <MESSAGE value="Phi register if phi is also phi inside of while." />
     <MESSAGE value="Refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor" />
+    <MESSAGE value="Fix phi variables." />
+    <MESSAGE value="Refactor, and multiple levels of phi variables." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor, and multiple levels of phi variables." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

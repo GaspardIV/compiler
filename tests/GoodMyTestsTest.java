@@ -26,6 +26,9 @@ class GoodMyTestsTest extends CompilerInputOutputErrTest {
     @Test void test1() {
         testUtils.standardTestInputOutput("lattests/good/my_tests/test1.lat", "lattests/good/my_tests/test1.output", "lattests/good/my_tests/test1.err", 0);
     }
+    @Test void test11() {
+        testUtils.standardTestInputOutput("lattests/good/my_tests/test11.lat", "lattests/good/my_tests/test11.output", "lattests/good/my_tests/test11.err", 0);
+    }
 
 
     @Test void test2() {
