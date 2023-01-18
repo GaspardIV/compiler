@@ -6,13 +6,11 @@ import latte.backend.program.global.Function;
 import latte.backend.quadruple.Block;
 import latte.backend.program.global.Scope;
 import latte.backend.program.global.Variable;
+import latte.backend.quadruple.PhiManager;
 import latte.backend.quadruple.Quadruple;
 import latte.backend.quadruple.Register;
 
 import java.util.*;
-
-import static latte.backend.quadruple.Block.markPhiVariables;
-import static latte.backend.quadruple.Block.phiRegisterOfVariable;
 
 public class StatementVisitor implements Stmt.Visitor<Block, Block> {
     @Override
@@ -43,16 +41,14 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
 
     @Override
     public Block visit(Ass p, Block block) {
-        List<Quadruple> res = new ArrayList<>();
         List<Quadruple> left = p.expr_1.accept(new RegisterExprVisitor(), block);
         List<Quadruple> right = new RegisterExprVisitor().generateExprCode(p.expr_2, block);
-        res.addAll(right);
+        List<Quadruple> res = new ArrayList<>(right);
         Register leftLastRegister = left.get(left.size() - 1).result;
         Variable variable = leftLastRegister.getVariable();
         Register rightLastRegister = right.get(right.size() - 1).result;
         rightLastRegister.setVariable(variable);
         block.getScope().setLastVariableRegister(variable, rightLastRegister);
-        block.setLastRegisterOfVariable(variable, rightLastRegister);
         block.addQuadruples(res);
         return null;
     }
@@ -203,22 +199,18 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         Scope scope = block.getScope();
         Function function = scope.getCurrentFunction();
         Block entry = block;
-        Scope condScope = new Scope("while.cond", scope);
-        Block cond = new Block(function.nextBlockName(), condScope, "while.cond");
-        Block body = new Block(function.nextBlockName(), new Scope("while.body", condScope), "while.body");
-        Block bend = new Block(function.nextBlockName(), condScope, "while.end");
+        Block cond = new Block(function.nextBlockName(), scope, "while.cond");
+        Block body = new Block(function.nextBlockName(), new Scope("while.body", scope), "while.body");
+        Block bend = new Block(function.nextBlockName(), scope, "while.end");
 
 
         entry.addLastBlock(cond);
         entry.addSuccessor(cond);
         cond.addPredecessors(entry);
-        boolean oldMarkPhiVariables = markPhiVariables;
-        markPhiVariables = true;
-        HashMap<String, Register> oldPhiVariables = phiRegisterOfVariable;
-        phiRegisterOfVariable = new HashMap<>();
+
+        PhiManager.getInstance().pushScope(body.getScope());
+
         List<Quadruple> exprs = p.expr_.accept(new RegisterExprVisitor(), cond);
-
-
         Register lastRegister = exprs.get(exprs.size() - 1).getRegister();
         if (lastRegister.isConst()) {
             if (lastRegister.getConstValue().getBool()) {
@@ -245,19 +237,14 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         p.stmt_.accept(this, body);
         body.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(cond.getIdentifier()))));
 
-        HashSet<String> variableNames = new HashSet<>(body.getRedefinedVariables());
-//        variableNames.addAll(cond.getRedefinedVariables());
-        variableNames.addAll(cond.getUsedVariables());
-//        variableNames.addAll(body.getUsedVariables()); // todo while w while!! -> prawdopodobnie dodac phivariables jakos albo cos?
-        List<Quadruple> phi1 = cond.getPhiVariables(new ArrayList<>(variableNames), entry, body.getLastBlock());
-        markPhiVariables = oldMarkPhiVariables;
-        phiRegisterOfVariable = oldPhiVariables;
+        List<Quadruple> phi1 = cond.getPhiVariables(entry, body.getLastBlock());
+        PhiManager.getInstance().popScope();
         body.addLastBlock(bend);
         body.addSuccessor(cond);
         cond.addPredecessors(body);
         cond.addQuadruplesAtTheBeginning(phi1);
         cond.addQuadruplesAtTheBeginning(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(cond.getIdentifier()))));
-        bend.resetLastUseOfVariables(condScope);
+        bend.resetLastUseOfVariables(scope);
         bend.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(bend.getIdentifier()))));
         return null;
     }

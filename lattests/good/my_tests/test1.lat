@@ -78,10 +78,27 @@ printInt(a);
         printInt(b);
 //        printString("a = b");
 }
+
+void funkcja6() {
+// nasted while
+    printString("========");
+    int i = 0, j = 0;
+    while (i < 5) {
+        while (j < 5) {
+            printInt(j);
+            printInt(i);
+            j++;
+        }
+        printInt(i);
+        printInt(j);
+        i++;
+    }
+}
 int main() {
-    //funkcja2();
+    funkcja2();
     funkcja3(0);
     funkcja4();
     funkcja5();
+    funkcja6();
   return 0;
 }

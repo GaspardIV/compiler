@@ -17,7 +17,7 @@ public class Global extends Scope {
         classes = new HashMap<>();
     }
 
-    public int usePrintInt = 0, usePrintString = 0, useError = 0, useConcat = 0, useReadInt = 0, useReadString = 0, useCompareString = 0;
+    public boolean usePrintInt = false, usePrintString = false, useError = false, useConcat = false, useReadInt = false, useReadString = false, useCompareString = false;
 
     private static Global instance = null;
     final Map<String, String> stringGlobals;
@@ -38,6 +38,26 @@ public class Global extends Scope {
         return getInstance();
     }
 
+    public void markIfRuntimeFunction(String name) {
+        switch (name) {
+            case "printInt":
+                usePrintInt = true;
+                break;
+            case "printString":
+                usePrintString = true;
+                break;
+            case "error":
+                useError = true;
+                break;
+            case "readInt":
+                useReadInt = true;
+                break;
+            case "readString":
+                useReadString = true;
+                break;
+        }
+    }
+
 
     @Override
     public String toString() {
@@ -50,9 +70,7 @@ public class Global extends Scope {
         }
         StringBuilder globalStrings = new StringBuilder();
         this.stringGlobals.forEach((name, value) -> globalStrings.append(globalStringToString(name, value)));
-
         return globalStrings.toString() + stringBuilder;
-//        return stringBuilder.toString();
     }
 
     private String globalStringToString(String k, String v) {

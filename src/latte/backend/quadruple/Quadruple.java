@@ -127,7 +127,7 @@ public class Quadruple {
             public String toString() {
                 if (op instanceof Plus) {
                     if (register1.type instanceof Str) {
-                        Global.getInstance().useConcat = 1;
+                        Global.getInstance().useConcat = true;
                         return "call i8* @._concat(i8* " + register1 + ", i8* " + register2.toString() + ")";
                     }
                     return "add " + register1.getLLVMType() + " " + register1.toString() + ", " + register2.toString();
@@ -326,7 +326,7 @@ public class Quadruple {
 
             @Override
             public String toString() {
-                Global.getInstance().useCompareString = 1;
+                Global.getInstance().useCompareString = true;
                 return "call i32 @._strcmp(i8* " + register1 + ", i8* " + register2.toString() + ")";
             }
         }

@@ -11,7 +11,7 @@ public class Scope {
     String contextName;
     Map<String, Variable> variables;
     Map<Variable, Deque<Register>> memoryLocations;
-    public HashMap<Variable, Register> lastRegisterOfVariable;
+    public HashMap<Variable, Register> flatLastVariableRegister;
 
     private final Type type;
 
@@ -33,7 +33,7 @@ public class Scope {
         this.parent = parent;
         this.type = type;
         this.memoryLocations = new HashMap<>();
-        lastRegisterOfVariable = new HashMap<>();
+        flatLastVariableRegister = new HashMap<>();
     }
 
     public String getName() {
@@ -74,7 +74,7 @@ public class Scope {
         }
     }
 
-    public Deque<Register> getMemoryLocation(Variable variable) {
+    private Deque<Register> getMemoryLocation(Variable variable) {
         if (memoryLocations.containsKey(variable)) {
             return memoryLocations.get(variable);
         } else if (parent != null) {
@@ -98,7 +98,7 @@ public class Scope {
     public Register getNewVariableRegister(Variable variable) {
         Deque<Register> registerList = getMemoryLocation(variable);
         Register register = new Register(getCurrentFunction().getNewIdentUseNumber(variable.getName()), variable.getType());
-        lastRegisterOfVariable.put(variable, register);
+        flatLastVariableRegister.put(variable, register);
         registerList.add(register);
         return register;
     }
@@ -106,36 +106,32 @@ public class Scope {
     public void setLastVariableRegister(Variable variable, Register register) {
         Deque<Register> registerList = getMemoryLocation(variable);
         registerList.add(register);
-        lastRegisterOfVariable.put(variable, register);
+        flatLastVariableRegister.put(variable, register);
     }
 
-    public Register getLastRegisterOfVariable(Variable variable) {
-        if (lastRegisterOfVariable.containsKey(variable)) {
-            return lastRegisterOfVariable.get(variable);
+    public Register getLastRegisterOfVariableInCurrentScope(Variable variable) {
+        if (flatLastVariableRegister.containsKey(variable)) {
+            return flatLastVariableRegister.get(variable);
         } else if (parent != null) {
-            return parent.getLastRegisterOfVariable(variable);
+            return parent.getLastRegisterOfVariableInCurrentScope(variable);
         } else {
             return null;
         }
     }
 
     public Set<String> getRedefinedVariables() {
-        return lastRegisterOfVariable.keySet().stream().map(Variable::getName).collect(Collectors.toSet());
-    }
-
-    public boolean hasPhiRegisterOfVariable(String ident_) {
-        return variables.containsKey(ident_);
+        return flatLastVariableRegister.keySet().stream().map(Variable::getName).collect(Collectors.toSet());
     }
 
     public void resetLastUseOfVariables(Scope condScope) {
-        this.lastRegisterOfVariable = condScope.lastRegisterOfVariable;
-        for (Map.Entry<Variable, Register> entry : condScope.lastRegisterOfVariable.entrySet()) {
+        this.flatLastVariableRegister = condScope.flatLastVariableRegister;
+        for (Map.Entry<Variable, Register> entry : condScope.flatLastVariableRegister.entrySet()) {
             this.setLastVariableRegister(entry.getKey(), entry.getValue());
         }
     }
 
-    public void setLastRegisterOfVariable(Variable variable, Register rightLastRegister) {
-        lastRegisterOfVariable.put(variable, rightLastRegister);
+    public boolean hasVariable(Variable variable) {
+        return variables.containsKey(variable.getName());
     }
 }
 

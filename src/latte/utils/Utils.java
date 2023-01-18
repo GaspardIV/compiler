@@ -68,7 +68,7 @@ public class Utils {
         output.append("; ====================================================\n");
         output.append("; ====================================================\n\n");
 
-        if (global.usePrintInt == 1) {
+        if (global.usePrintInt) {
             output.append("@._dnl = internal constant [4 x i8] c\"%d\\0A\\00\"\n" +
                     "declare i32 @printf(i8*, ...)\n" +
                     "define void @printInt(i32 %x) {\n" +
@@ -78,7 +78,7 @@ public class Utils {
                     "}\n");
             output.append("\n");
         }
-        if (global.usePrintString == 1) {
+        if (global.usePrintString) {
             output.append("declare i32 @puts(i8*)\n" +
                     "define void @printString(i8* %s) {\n" +
                     "entry:  call i32 @puts(i8* %s)\n" +
@@ -86,18 +86,21 @@ public class Utils {
                     "}\n");
             output.append("\n");
         }
-        if (global.useError == 1) {
-            output.append("declare void @exit(i32)\n" +
+        if (global.useError) {
+            output.append("@._runtime_error = internal constant [15 x i8] c\"runtime error\\0A\\00\"\n" +
+                    "declare void @exit(i32)\n" +
                     "define void @error() {\n" +
-                    "entry:  call void @exit(i32 1)\n" +
+                    "entry:  %t0 = getelementptr [15 x i8], [15 x i8]* @._runtime_error, i32 0, i32 0\n" +
+                    "call void @printString(i8* %t0)\n\n" +
+                    "call void @exit(i32 1)\n" +
                     "\tret void\n" +
                     "}\n");
             output.append("\n");
         }
-        if (global.useConcat == 1 || global.useReadString == 1) {
+        if (global.useConcat || global.useReadString) {
             output.append("declare i8* @malloc(i32)\n");
         }
-        if (global.useConcat == 1) {
+        if (global.useConcat) {
             output.append("\n" +
                     "declare i8* @strcat(i8*, i8*)\n" +
                     "declare i8* @strcpy(i8*, i8*)\n" +
@@ -114,7 +117,7 @@ public class Utils {
                     "}\n");
             output.append("\n");
         }
-        if (global.useReadInt == 1) {
+        if (global.useReadInt) {
 
             output.append("@._dnl2 = internal constant [4 x i8] c\"%d\\0A\\00\"\n" +
                     "declare i32 @scanf(i8*, ...)\n" +
@@ -128,7 +131,7 @@ public class Utils {
             output.append("\n");
         }
 
-        if (global.useReadString == 1) {
+        if (global.useReadString) {
             output.append("\n" +
                     "declare i8* @gets(i8*)\n" +
                     "define i8* @readString() {\n" +
@@ -140,7 +143,7 @@ public class Utils {
             output.append("\n");
         }
 
-        if (global.useCompareString == 1) {
+        if (global.useCompareString) {
 
             output.append("declare i32 @strcmp(i8*, i8*)\n" +
                     "define i32 @._strcmp(i8* %str1, i8* %str2) {\n" +

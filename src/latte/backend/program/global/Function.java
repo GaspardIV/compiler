@@ -54,31 +54,12 @@ public class Function extends Scope {
             isUsed = true;
         }
     }
-    private void markIfRuntimeFunction(String name) {
-        switch (name) {
-            case "printInt":
-                Global.getInstance().usePrintInt = 1;
-                break;
-            case "printString":
-                Global.getInstance().usePrintString = 1;
-                break;
-            case "error":
-                Global.getInstance().useError = 1;
-                break;
-            case "readInt":
-                Global.getInstance().useReadInt = 1;
-                break;
-            case "readString":
-                Global.getInstance().useReadString = 1;
-                break;
-        }
-    }
 
     public void convertToQuadruples() {
         Block firstBlock = new Block(this.nextBlockName(), this, "entry");
         this.firstBlock = firstBlock;
         for (Variable variable : arguments) {
-            firstBlock.getScope().setLastVariableRegister(variable, this.getNewVariableRegister(variable));
+            this.getNewVariableRegister(variable);
         }
         quadruples.add(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(firstBlock.getIdentifier())));
         for (latte.Absyn.Stmt stmt : statements) {
@@ -98,7 +79,6 @@ public class Function extends Scope {
 
     @Override
     public String toString() {
-
         String body = quadruples.stream().map(Quadruple::toString).filter(s -> !s.isEmpty()).collect(Collectors.joining("\n"));
         String argsStr = arguments.stream().map((Variable v) -> (Utils.getLLVMType(v.getType()) + " %" + v.contextName)).collect(Collectors.joining(", "));
         if (isUsed) {
@@ -120,7 +100,7 @@ public class Function extends Scope {
     }
 
     public void markAsUsed() {
-        markIfRuntimeFunction(this.contextName);
+        Global.getInstance().markIfRuntimeFunction(this.contextName);
         this.isUsed = true;
     }
 

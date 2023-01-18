@@ -1,14 +1,13 @@
 package latte.backend.programvisitors;
 
 import latte.Absyn.*;
+import latte.Absyn.Void;
 import latte.backend.program.global.Function;
 import latte.backend.program.global.Global;
 import latte.backend.program.global.Scope;
 import latte.backend.program.global.Variable;
+import latte.backend.quadruple.*;
 import latte.backend.quadruple.Block;
-import latte.backend.quadruple.ConstValue;
-import latte.backend.quadruple.Quadruple;
-import latte.backend.quadruple.Register;
 import latte.errors.SemanticError;
 import latte.utils.Utils;
 
@@ -108,12 +107,8 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block>
         ArrayList<Quadruple> quadruples = new ArrayList<>();
         Variable variable = block.getVariable(p.ident_);
         Scope scope = block.getScope();
+        PhiManager.getInstance().addPhiRegisterIfNeeded(variable);
         Register last = scope.getLastVariableRegister(variable);
-        if (Block.markPhiVariables && !block.hasPhiRegisterOfVariable(p.ident_)) {
-            Register phiRegister = scope.getNewVariableRegister(variable);
-            Block.phiRegisterOfVariable.put(p.ident_, phiRegister);
-            last = phiRegister;
-        }
         last.setVariable(variable);
         quadruples.add(new Quadruple(last));
         return quadruples;
@@ -148,6 +143,29 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block>
         }
         Quadruple.LLVMOperation.CALL quadruple = new Quadruple.LLVMOperation.CALL(function.getType(), function.getName(), registers);
         quadruples.add(new Quadruple(new Register(block.getRegisterNumber(TMP), function.getType()), quadruple));
+        quadruples.addAll(handleCallErrorFunction(block, function));
+        return quadruples;
+    }
+
+    private ArrayList<Quadruple> handleCallErrorFunction(Block block, Function function) {
+        ArrayList<Quadruple> quadruples = new ArrayList<>();
+        if (function.getName().equals("error")) {
+            Global.getInstance().usePrintString = true;
+            Type functionType = block.getScope().getCurrentFunction().getType();
+            if (functionType.equals(new Void())) {
+                quadruples.add(new Quadruple(null, new Quadruple.LLVMOperation.RET(null)));
+            } else if (functionType.equals(new Int())) {
+                Register register = new Register(block.getRegisterNumber(TMP), functionType, new ConstValue(0));
+                quadruples.add(new Quadruple(null, new Quadruple.LLVMOperation.RET(register)));
+            } else if (functionType.equals(new Bool())) {
+                Register register = new Register(block.getRegisterNumber(TMP), functionType, new ConstValue(false));
+                quadruples.add(new Quadruple(null, new Quadruple.LLVMOperation.RET(register)));
+            } else {
+                Quadruple quadruple1 = new Quadruple(new Register(block.getRegisterNumber(TMP), new Str()), new Quadruple.LLVMOperation.GETELEMENTPTRSTR(15, "@._runtime_error", 0, 0));
+                quadruples.add(quadruple1);
+                quadruples.add(new Quadruple(null, new Quadruple.LLVMOperation.RET(quadruple1.getRegister())));
+            }
+        }
         return quadruples;
     }
 
