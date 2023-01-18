@@ -6,6 +6,7 @@ import latte.Absyn.Void;
 import latte.backend.quadruple.Block;
 import latte.backend.programvisitors.StatementVisitor;
 import latte.backend.quadruple.Quadruple;
+import latte.backend.programvisitors.PostProcessor;
 import latte.utils.Utils;
 
 import java.text.MessageFormat;
@@ -61,7 +62,7 @@ public class Function extends Scope {
         for (Variable variable : arguments) {
             this.getNewVariableRegister(variable);
         }
-        quadruples.add(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(firstBlock.getIdentifier())));
+        firstBlock.addQuadruple(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(firstBlock)));
         for (latte.Absyn.Stmt stmt : statements) {
             stmt.accept(new StatementVisitor(), getLastBlock());
         }
@@ -72,9 +73,9 @@ public class Function extends Scope {
                 firstBlock.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.RET())));
             }
         }
-        firstBlock.removeDeadCode();
-
-        this.quadruples.addAll(firstBlock.getQuadruplesFromAllBlocks());
+        PostProcessor postProcessor = new PostProcessor(firstBlock);
+        postProcessor.process();
+        this.quadruples = postProcessor.getQuadruples();
     }
 
     @Override

@@ -15,6 +15,7 @@ public class CompilerInputOutputErrTest {
 
     @BeforeEach
     void setUp() {
+        System.setProperty("run_bytecode", "true");
         System.setOut(new PrintStream(outputStreamCaptor));
         System.setErr(new PrintStream(errStreamCaptor));
         String overwrite = System.getenv("overwrite");

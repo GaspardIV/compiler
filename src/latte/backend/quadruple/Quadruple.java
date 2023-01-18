@@ -219,45 +219,48 @@ public class Quadruple {
         }
 
         public static class GOTO extends LLVMOperation {
-            private final String label;
+            public final Block block;
 
-            public GOTO(String label) {
-                this.label = label;
+            public GOTO(Block block) {
+                this.block = block;
             }
 
             @Override
             public String toString() {
-                return "\tbr label %" + label;
+                if (block == null) {
+                    return "";
+                }
+                return "\tbr label %" + block.getIdentifier();
             }
         }
 
         public static class IF extends LLVMOperation {
             private final Register register;
-            private final String label;
-            private final String label2;
+            public final Block block1;
+            public final Block block2;
 
-            public IF(Register register, String label, String labal2) {
+            public IF(Register register, Block label, Block labal2) {
                 this.register = register;
-                this.label = label;
-                this.label2 = labal2;
+                this.block1 = label;
+                this.block2 = labal2;
             }
 
             @Override
             public String toString() {
-                return "\tbr i1 " + register.toString() + ", label %" + label + ", label %" + label2;
+                return "\tbr i1 " + register.toString() + ", label %" + block1.getIdentifier() + ", label %" + block2.getIdentifier();
             }
         }
 
         public static class LABEL extends LLVMOperation {
-            private final String label;
+            public final Block label;
 
-            public LABEL(String label) {
+            public LABEL(Block label) {
                 this.label = label;
             }
 
             @Override
             public String toString() {
-                return label + ":";
+                return label.getIdentifier() + ":";
             }
         }
 
@@ -282,21 +285,35 @@ public class Quadruple {
         }
 
         public static class PHI extends LLVMOperation {
-            private final Block btrue;
+            public Block block2;
             private final Register register;
-            private final Block entry;
+
+            public Block block1;
             private final Register oldsRegister;
 
-            public PHI(Register oldsRegister, Block entry, Register register, Block btrue) {
+            public PHI(Register oldsRegister, Block entry, Register register, Block block2) {
                 this.oldsRegister = oldsRegister;
-                this.entry = entry;
+                this.block1 = entry;
                 this.register = register;
-                this.btrue = btrue;
+                this.block2 = block2;
             }
 
             @Override
             public String toString() {
-                return "phi " + register.getLLVMType() + " [" + oldsRegister.toString() + ", %" + entry.getIdentifier() + "], [" + register + ", %" + btrue.getIdentifier() + "]";
+                StringBuilder sb = new StringBuilder();
+                if (block1 != null || block2 != null) {
+                    sb.append("phi " + register.getLLVMType());
+                }
+                if (block1 != null) {
+                    sb.append(" [" + oldsRegister.toString() + ", %" + block1.getIdentifier() + "]");
+                }
+                if (block1 != null && block2 != null) {
+                    sb.append(",");
+                }
+                if (block2 != null) {
+                    sb.append(" [" + register + ", %" + block2.getIdentifier() + "]");
+                }
+                return sb.toString();
             }
         }
 

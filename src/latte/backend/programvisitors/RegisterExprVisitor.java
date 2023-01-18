@@ -31,15 +31,15 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block>
             resultBlock.addQuadruplesToLastBlock(quadruples);
             resultBlock.addLastBlock(btrue);
 
-            btrue.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(btrue.getIdentifier()))));
-            btrue.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(bend.getIdentifier()))));
+            btrue.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(btrue))));
+            btrue.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(bend))));
             btrue.addLastBlock(bfalse);
 
-            bfalse.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(bfalse.getIdentifier()))));
-            bfalse.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(bend.getIdentifier()))));
+            bfalse.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(bfalse))));
+            bfalse.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(bend))));
             bfalse.addLastBlock(bend);
 
-            bend.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(bend.getIdentifier()))));
+            bend.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(bend))));
             Quadruple phi = new Quadruple(new Register(block.getRegisterNumber(TMP), new Bool()), new Quadruple.LLVMOperation.BOOL_PHI(btrue.getIdentifier(), bfalse.getIdentifier()));
             bend.addQuadruplesToLastBlock(Collections.singletonList(phi));
             return resultBlock.getQuadruplesFromAllBlocks();

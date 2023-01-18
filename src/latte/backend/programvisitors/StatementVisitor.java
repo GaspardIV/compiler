@@ -113,22 +113,16 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         quadruples.addAll(p.expr_.accept(new JumpingCodeGenerator(btrue, bend), block));
         entry.addQuadruplesToLastBlock(quadruples);
         entry.addLastBlock(btrue);
-        entry.addSuccessor(btrue);
-        entry.addSuccessor(bend);
-        btrue.addPredecessors(entry);
 
-        btrue.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(btrue.getIdentifier()))));
+        btrue.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(btrue))));
         p.stmt_.accept(this, btrue);
-        btrue.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(bend.getIdentifier()))));
+        btrue.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(bend))));
         Block lastBlockOfTrue = btrue.getLastBlock();
         btrue.addLastBlock(bend);
-        btrue.addSuccessor(bend);
-        bend.addPredecessors(btrue);
-        bend.addPredecessors(entry);
 
-        bend.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(bend.getIdentifier()))));
+        bend.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(bend))));
         Set<String> variableNames = btrue.getRedefinedVariables();
-        bend.addQuadruplesToLastBlock(entry.createPhiVariables(variableNames, entry, lastBlockOfTrue));
+        bend.addQuadruplesToLastBlock(entry.createConditionPhiVariables(variableNames, entry, lastBlockOfTrue));
         return null;
     }
 
@@ -163,31 +157,23 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
 
         entry.addQuadruplesToLastBlock(quadruples);
         entry.addLastBlock(btrue);
-        entry.addSuccessor(btrue);
-        entry.addSuccessor(bfalse);
-        btrue.addPredecessors(entry);
-        bfalse.addPredecessors(entry);
 
-        btrue.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(btrue.getIdentifier()))));
+        btrue.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(btrue))));
         p.stmt_1.accept(this, btrue);
         Block lasBlockOfTrue = btrue.getLastBlock();
-        btrue.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(bend.getIdentifier()))));
+        btrue.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(bend))));
         btrue.addLastBlock(bfalse);
-        btrue.addSuccessor(bend);
-        bend.addPredecessors(btrue);
 
-        bfalse.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(bfalse.getIdentifier()))));
+        bfalse.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(bfalse))));
         p.stmt_2.accept(this, bfalse);
-        bfalse.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(bend.getIdentifier()))));
+        bfalse.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(bend))));
         Block lastBlockOfFalse = bfalse.getLastBlock();
         bfalse.addLastBlock(bend);
-        bend.addPredecessors(bfalse);
-        bfalse.addSuccessor(bend);
 
-        bend.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(bend.getIdentifier()))));
+        bend.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(bend))));
         Set<String> variableNames = bfalse.getRedefinedVariables();
         variableNames.addAll(btrue.getRedefinedVariables());
-        List<Quadruple> phi1 = entry.createPhiVariables(variableNames, lasBlockOfTrue, lastBlockOfFalse);
+        List<Quadruple> phi1 = entry.createConditionPhiVariables(variableNames, lasBlockOfTrue, lastBlockOfFalse);
 
         bend.addQuadruplesToLastBlock(phi1);
 
@@ -204,9 +190,6 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         Block bend = new Block(function.nextBlockName(), scope, "while.end");
 
 
-        entry.addLastBlock(cond);
-        entry.addSuccessor(cond);
-        cond.addPredecessors(entry);
 
         PhiManager.getInstance().pushScope(body.getScope());
 
@@ -214,38 +197,31 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         Register lastRegister = exprs.get(exprs.size() - 1).getRegister();
         if (lastRegister.isConst()) {
             if (lastRegister.getConstValue().getBool()) {
-                entry.addQuadruple(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(body.getIdentifier())));
-                cond.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(body.getIdentifier()))));
-                p.stmt_.accept(this, cond);
-                cond.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(body.getIdentifier()))));
+                entry.addLastBlock(body);
+                entry.addQuadruple(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(body)));
+                body.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(body))));
+                p.stmt_.accept(this, block);
+                body.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(body))));
             }
             return null;
         }
 
-
-        entry.addQuadruple(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(cond.getIdentifier())));
-
+        entry.addQuadruple(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(cond)));
+        entry.addLastBlock(cond);
         exprs = p.expr_.accept(new JumpingCodeGenerator(body, bend), block);
         cond.addQuadruplesToLastBlock(exprs);
         cond.addLastBlock(body);
-        bend.addPredecessors(cond);
-        cond.addSuccessor(bend);
-        cond.addSuccessor(body);
-        body.addPredecessors(cond);
-
-        body.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(body.getIdentifier()))));
+        body.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(body))));
         p.stmt_.accept(this, body);
-        body.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(cond.getIdentifier()))));
+        body.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(cond))));
 
-        List<Quadruple> phi1 = cond.getPhiVariables(entry, body.getLastBlock());
+        List<Quadruple> phi1 = cond.createLoopPhiVariables(entry, body.getLastBlock());
         PhiManager.getInstance().popScope();
         body.addLastBlock(bend);
-        body.addSuccessor(cond);
-        cond.addPredecessors(body);
         cond.addQuadruplesAtTheBeginning(phi1);
-        cond.addQuadruplesAtTheBeginning(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(cond.getIdentifier()))));
+        cond.addQuadruplesAtTheBeginning(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(cond))));
         bend.resetLastUseOfVariables(scope);
-        bend.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(bend.getIdentifier()))));
+        bend.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(bend))));
         return null;
     }
 

@@ -23,21 +23,21 @@ public class JumpingCodeGenerator extends RegisterExprVisitor {
         List<Quadruple> quadruples = new ArrayList<>();
         quadruples = p.accept(new RegisterExprVisitor(), block);
         Register tmp = quadruples.get(quadruples.size() - 1).getRegister();
-        quadruples.add(new Quadruple(null, new Quadruple.LLVMOperation.IF(tmp, jumpBlockTrue.getIdentifier(), jumpBlockFalse.getIdentifier())));
+        quadruples.add(new Quadruple(null, new Quadruple.LLVMOperation.IF(tmp, jumpBlockTrue, jumpBlockFalse)));
         return quadruples;
     }
 
     @Override
     public List<Quadruple> visit(ELitTrue p, Block block) {
         List<Quadruple> res = new ArrayList<>();
-        res.add(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(jumpBlockTrue.getIdentifier())));
+        res.add(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(jumpBlockTrue)));
         return res;
     }
 
     @Override
     public List<Quadruple> visit(ELitFalse p, Block block) {
         List<Quadruple> res = new ArrayList<>();
-        res.add(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(jumpBlockFalse.getIdentifier())));
+        res.add(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(jumpBlockFalse)));
         return res;
     }
 
@@ -45,7 +45,7 @@ public class JumpingCodeGenerator extends RegisterExprVisitor {
     public List<Quadruple> visit(EApp p, Block block) {
         List<Quadruple> quadruples = new ArrayList<>(p.accept(new RegisterExprVisitor(), block));
         Register tmp = quadruples.get(quadruples.size() - 1).getRegister();
-        quadruples.add(new Quadruple(null, new Quadruple.LLVMOperation.IF(tmp, jumpBlockTrue.getIdentifier(), jumpBlockFalse.getIdentifier())));
+        quadruples.add(new Quadruple(null, new Quadruple.LLVMOperation.IF(tmp, jumpBlockTrue, jumpBlockFalse)));
         return quadruples;
     }
 
@@ -68,7 +68,7 @@ public class JumpingCodeGenerator extends RegisterExprVisitor {
         Block blockMiddle = new Block(condBlock.getScope().getCurrentFunction().nextBlockName(), condBlock.getScope(), "and");
         List<Quadruple> left = p.expr_1.accept(new JumpingCodeGenerator(blockMiddle, jumpBlockFalse), condBlock);
         res.addAll(left);
-        res.add(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(blockMiddle.getIdentifier())));
+        res.add(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(blockMiddle)));
         List<Quadruple> right = p.expr_2.accept(new JumpingCodeGenerator(jumpBlockTrue, jumpBlockFalse), condBlock);
         res.addAll(right);
         return res;
@@ -80,7 +80,7 @@ public class JumpingCodeGenerator extends RegisterExprVisitor {
         Block blockMiddle = new Block(condBlock.getScope().getCurrentFunction().nextBlockName(), condBlock.getScope(), "or");
         List<Quadruple> left = p.expr_1.accept(new JumpingCodeGenerator(jumpBlockTrue, blockMiddle), condBlock);
         res.addAll(left);
-        res.add(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(blockMiddle.getIdentifier())));
+        res.add(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(blockMiddle)));
         List<Quadruple> right = p.expr_2.accept(new JumpingCodeGenerator(jumpBlockTrue, jumpBlockFalse), condBlock);
         res.addAll(right);
         return res;
@@ -91,7 +91,7 @@ public class JumpingCodeGenerator extends RegisterExprVisitor {
         List<Quadruple> quadruples = new ArrayList<>();
         quadruples = p.accept(new RegisterExprVisitor(), block);
         Register tmp = quadruples.get(quadruples.size() - 1).getRegister();
-        quadruples.add(new Quadruple(null, new Quadruple.LLVMOperation.IF(tmp, jumpBlockTrue.getIdentifier(), jumpBlockFalse.getIdentifier())));
+        quadruples.add(new Quadruple(null, new Quadruple.LLVMOperation.IF(tmp, jumpBlockTrue, jumpBlockFalse)));
         return quadruples;
     }
 

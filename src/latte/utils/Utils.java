@@ -175,14 +175,15 @@ public class Utils {
         String command = "llvm-as -o " + outputFileName + " " + llFileName;
         execSystemCommand(command, false);
 
-////            todo remove lines under !!!!!
-//        if (new File(inputFileName).exists()) {
-//            String lliCommand = "lli " + outputFileName + " < " + inputFileName;
-//            execSystemCommand(lliCommand, true);
-//        } else {
-//            String lliCommand = "lli " + outputFileName ;
-//            execSystemCommand(lliCommand, true);
-//        }
+        if (System.getProperty("run_bytecode") != null) {
+            if (new File(inputFileName).exists()) {
+                String lliCommand = "lli " + outputFileName + " < " + inputFileName;
+                execSystemCommand(lliCommand, true);
+            } else {
+                String lliCommand = "lli " + outputFileName;
+                execSystemCommand(lliCommand, true);
+            }
+        }
     }
 
     private static void execSystemCommand(String command, boolean printOutput) {
