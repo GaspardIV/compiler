@@ -52,7 +52,7 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         Register rightLastRegister = right.get(right.size() - 1).result;
         rightLastRegister.setVariable(variable);
         block.getScope().setLastVariableRegister(variable, rightLastRegister);
-        block.setLastRegisterOfVariable(variable.getName(), rightLastRegister);
+        block.setLastRegisterOfVariable(variable, rightLastRegister);
         block.addQuadruples(res);
         return null;
     }
@@ -124,6 +124,7 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         btrue.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(btrue.getIdentifier()))));
         p.stmt_.accept(this, btrue);
         btrue.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(bend.getIdentifier()))));
+        Block lastBlockOfTrue = btrue.getLastBlock();
         btrue.addLastBlock(bend);
         btrue.addSuccessor(bend);
         bend.addPredecessors(btrue);
@@ -131,7 +132,7 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
 
         bend.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(bend.getIdentifier()))));
         Set<String> variableNames = btrue.getRedefinedVariables();
-        bend.addQuadruplesToLastBlock(entry.createPhiVariables(variableNames, entry, btrue));
+        bend.addQuadruplesToLastBlock(entry.createPhiVariables(variableNames, entry, lastBlockOfTrue));
         return null;
     }
 
@@ -173,6 +174,7 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
 
         btrue.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(btrue.getIdentifier()))));
         p.stmt_1.accept(this, btrue);
+        Block lasBlockOfTrue = btrue.getLastBlock();
         btrue.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(bend.getIdentifier()))));
         btrue.addLastBlock(bfalse);
         btrue.addSuccessor(bend);
@@ -181,6 +183,7 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         bfalse.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(bfalse.getIdentifier()))));
         p.stmt_2.accept(this, bfalse);
         bfalse.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(bend.getIdentifier()))));
+        Block lastBlockOfFalse = bfalse.getLastBlock();
         bfalse.addLastBlock(bend);
         bend.addPredecessors(bfalse);
         bfalse.addSuccessor(bend);
@@ -188,7 +191,7 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         bend.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(bend.getIdentifier()))));
         Set<String> variableNames = bfalse.getRedefinedVariables();
         variableNames.addAll(btrue.getRedefinedVariables());
-        List<Quadruple> phi1 = entry.createPhiVariables(variableNames, btrue, bfalse);
+        List<Quadruple> phi1 = entry.createPhiVariables(variableNames, lasBlockOfTrue, lastBlockOfFalse);
 
         bend.addQuadruplesToLastBlock(phi1);
 
@@ -243,9 +246,9 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         body.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(cond.getIdentifier()))));
 
         HashSet<String> variableNames = new HashSet<>(body.getRedefinedVariables());
-        variableNames.addAll(cond.getRedefinedVariables());
+//        variableNames.addAll(cond.getRedefinedVariables());
         variableNames.addAll(cond.getUsedVariables());
-        variableNames.addAll(body.getUsedVariables()); // todo while w while!! -> prawdopodobnie dodac phivariables jakos albo cos?
+//        variableNames.addAll(body.getUsedVariables()); // todo while w while!! -> prawdopodobnie dodac phivariables jakos albo cos?
         List<Quadruple> phi1 = cond.getPhiVariables(new ArrayList<>(variableNames), entry, body.getLastBlock());
         markPhiVariables = oldMarkPhiVariables;
         phiRegisterOfVariable = oldPhiVariables;

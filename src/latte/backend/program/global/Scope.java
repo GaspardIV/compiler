@@ -134,8 +134,8 @@ public class Scope {
         }
     }
 
-    public void setLastRegisterOfVariable(String name, Register rightLastRegister) {
-        lastRegisterOfVariable.put(getVariable(name), rightLastRegister);
+    public void setLastRegisterOfVariable(Variable variable, Register rightLastRegister) {
+        lastRegisterOfVariable.put(variable, rightLastRegister);
     }
 }
 

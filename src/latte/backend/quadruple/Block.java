@@ -116,14 +116,14 @@ public class Block {
             if (phiRegister == null) {
                 continue;
             }
-            Register register = newblock.getScope().getLastRegisterOfVariable(scope.getVariable(variableName));
-            Register oldsRegister = oldblock.getScope().getLastRegisterOfVariable(scope.getVariable(variableName));
+            Variable variable = scope.getVariable(variableName);
+            Register register = newblock.getScope().getLastRegisterOfVariable(variable);
+            Register oldsRegister = oldblock.getScope().getLastRegisterOfVariable(variable);
 
+            scope.setLastRegisterOfVariable(variable, phiRegister);
+            scope.setLastVariableRegister(variable, phiRegister);
+            phiRegister.setVariable(variable);
 
-            if (scope.lastRegisterOfVariable.get(scope.getVariable(variableName)) == null) {
-                scope.setLastRegisterOfVariable(variableName, phiRegister);
-                scope.setLastVariableRegister(scope.getVariable(variableName), phiRegister);
-            }
             phiVariables.add(new Quadruple(phiRegister, new Quadruple.LLVMOperation.PHI(oldsRegister, oldblock, register, newblock)));
         }
         return phiVariables;
@@ -211,8 +211,8 @@ public class Block {
         scope.resetLastUseOfVariables(condScope);
     }
 
-    public void setLastRegisterOfVariable(String name, Register rightLastRegister) {
-        scope.setLastRegisterOfVariable(name, rightLastRegister);
+    public void setLastRegisterOfVariable(Variable variable, Register rightLastRegister) {
+        scope.setLastRegisterOfVariable(variable, rightLastRegister);
     }
 
     public void setIdentifier(Block identifier) {

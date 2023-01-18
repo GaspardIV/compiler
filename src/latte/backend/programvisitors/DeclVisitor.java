@@ -33,7 +33,7 @@ public class DeclVisitor implements Item.Visitor<List<Quadruple>, Block> {
         block.getScope().addVariable(variable);
         rightLastRegister.setVariable(variable);
         block.getScope().setLastVariableRegister(variable, rightLastRegister);
-        block.setLastRegisterOfVariable(variable.getName(), rightLastRegister);
+        block.setLastRegisterOfVariable(variable, rightLastRegister);
         block.addQuadruples(res);
         return null;
     }
