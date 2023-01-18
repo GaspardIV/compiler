@@ -123,6 +123,7 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         bend.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(bend))));
         Set<String> variableNames = btrue.getRedefinedVariables();
         bend.addQuadruplesToLastBlock(entry.createConditionPhiVariables(variableNames, entry, lastBlockOfTrue));
+        scope.resetLastRegisterOfVariables(btrue.getRedefinedVariables());
         return null;
     }
 
@@ -160,9 +161,10 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
 
         btrue.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(btrue))));
         p.stmt_1.accept(this, btrue);
-        Block lasBlockOfTrue = btrue.getLastBlock();
         btrue.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(bend))));
+        Block lasBlockOfTrue = btrue.getLastBlock();
         btrue.addLastBlock(bfalse);
+        scope.resetLastRegisterOfVariables(btrue.getRedefinedVariables());
 
         bfalse.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(bfalse))));
         p.stmt_2.accept(this, bfalse);
@@ -174,9 +176,8 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         Set<String> variableNames = bfalse.getRedefinedVariables();
         variableNames.addAll(btrue.getRedefinedVariables());
         List<Quadruple> phi1 = entry.createConditionPhiVariables(variableNames, lasBlockOfTrue, lastBlockOfFalse);
-
         bend.addQuadruplesToLastBlock(phi1);
-
+        scope.resetLastRegisterOfVariables(bfalse.getRedefinedVariables());
         return null;
     }
 
@@ -192,16 +193,18 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
 
 
         PhiManager.getInstance().pushScope(body.getScope());
-
         List<Quadruple> exprs = p.expr_.accept(new RegisterExprVisitor(), cond);
         Register lastRegister = exprs.get(exprs.size() - 1).getRegister();
+
         if (lastRegister.isConst()) {
             if (lastRegister.getConstValue().getBool()) {
                 entry.addLastBlock(body);
                 entry.addQuadruple(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(body)));
-                body.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(body))));
                 p.stmt_.accept(this, block);
                 body.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(body))));
+                List<Quadruple> phi1 = body.createLoopPhiVariables(entry, body.getLastBlock());
+                body.addQuadruplesAtTheBeginning(phi1);
+                body.addQuadruplesAtTheBeginning(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(body))));
             }
             return null;
         }
@@ -220,7 +223,7 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         body.addLastBlock(bend);
         cond.addQuadruplesAtTheBeginning(phi1);
         cond.addQuadruplesAtTheBeginning(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(cond))));
-        bend.resetLastUseOfVariables(scope);
+        scope.resetLastRegisterOfVariables(body.getRedefinedVariables());
         bend.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(bend))));
         return null;
     }

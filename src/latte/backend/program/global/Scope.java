@@ -123,10 +123,12 @@ public class Scope {
         return flatLastVariableRegister.keySet().stream().map(Variable::getName).collect(Collectors.toSet());
     }
 
-    public void resetLastUseOfVariables(Scope condScope) {
-        this.flatLastVariableRegister = condScope.flatLastVariableRegister;
-        for (Map.Entry<Variable, Register> entry : condScope.flatLastVariableRegister.entrySet()) {
-            this.setLastVariableRegister(entry.getKey(), entry.getValue());
+    public void resetLastRegisterOfVariables(Set<String> redefinedVariables) {
+        for (String variable : redefinedVariables) {
+            Variable var = getVariable(variable);
+            if (var != null) {
+                setLastVariableRegister(var, getLastRegisterOfVariableInCurrentScope(var));
+            }
         }
     }
 

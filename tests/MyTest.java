@@ -262,4 +262,8 @@ public class MyTest extends CompilerInputOutputErrTest {
     @Test void testCore038() {
         testUtils.standardTestInputOutput("lattests/good/my_tests/good/constexprInWhile.lat", "lattests/good/my_tests/good/constexprInWhile.output", "lattests/good/my_tests/good/constexprInWhile.err", 0);
     }
+
+    @Test void testCore039() {
+        testUtils.standardTestInputOutput("lattests/good/my_tests/good/xd.lat", "lattests/good/my_tests/good/xd.output", "lattests/good/my_tests/good/xd.err", 0);
+    }
 }

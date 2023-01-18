@@ -5,11 +5,15 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="Refactor, and multiple levels of phi variables.">
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/test22.ll" afterDir="false" />
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="Refactor PostProcessor">
+      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/xd.lat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/xd.output" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/utils/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/GoodMyTestsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/GoodMyTestsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/Scope.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/Scope.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Block.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/PhiManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/PhiManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/MyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/MyTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,32 +137,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path&quot;: &quot;/Users/kacperkonecki/IdeaProjects/codingame/compiler/third_party&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/kacperkonecki/IdeaProjects/codingame/compiler/lattests/good/my_tests&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path": "/Users/kacperkonecki/IdeaProjects/codingame/compiler/third_party",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "extract.method.default.visibility": "private",
+    "last_opened_file_path": "/Users/kacperkonecki/IdeaProjects/codingame/compiler/lattests/good/my_tests/good",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;ChangesTree.GroupingKeys&quot;: [
+  "keyToStringList": {
+    "ChangesTree.GroupingKeys": [
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="latte.frontend.visitors" />
@@ -168,11 +172,11 @@
       <recent name="latte.backend.program.global.function" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lattests/good/my_tests/good" />
       <recent name="$PROJECT_DIR$/lattests/good/my_tests" />
       <recent name="$PROJECT_DIR$/src/latte/backend" />
       <recent name="$PROJECT_DIR$/tests" />
       <recent name="$PROJECT_DIR$/lattests/mytests" />
-      <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/lattests/good/my_tests" />
@@ -196,7 +200,7 @@
       <recent name="bad" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GoodClassicTest and 2 more">
+  <component name="RunManager" selected="JUnit.ALLESGOOD">
     <configuration name="Test core002.lat" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="latte.Compiler" />
       <module name="compiler" />
@@ -239,6 +243,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ALLESGOOD" type="JUnit" factoryName="JUnit" temporary="true">
+      <module name="compiler" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="pattern" />
+      <patterns>
+        <pattern testClass="GoodClassicTest" />
+        <pattern testClass="GoodBasicTest" />
+        <pattern testClass="GoodMyTestsTest" />
+        <pattern testClass="MyTest" />
+      </patterns>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="All in compiler" type="JUnit" factoryName="JUnit">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
@@ -249,64 +268,65 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GoodBasicTest and 1 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="compiler" />
-      <option name="TEST_OBJECT" value="pattern" />
-      <patterns>
-        <pattern testClass="GoodBasicTest" />
-        <pattern testClass="GoodClassicTest" />
-      </patterns>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GoodClassicTest and 2 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="compiler" />
-      <option name="TEST_OBJECT" value="pattern" />
-      <patterns>
-        <pattern testClass="GoodClassicTest" />
-        <pattern testClass="GoodBasicTest" />
-        <pattern testClass="GoodMyTestsTest" />
-      </patterns>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GoodMyTestsTest.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GoodBasicTest.testEmpty_While" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GoodMyTestsTest" />
-      <option name="METHOD_NAME" value="test1" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GoodMyTestsTest.test6" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="compiler" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GoodMyTestsTest" />
-      <option name="METHOD_NAME" value="test6" />
+      <option name="MAIN_CLASS_NAME" value="GoodBasicTest" />
+      <option name="METHOD_NAME" value="testEmpty_While" />
       <option name="TEST_OBJECT" value="method" />
       <patterns>
         <pattern testClass="GoodClassicTest" />
         <pattern testClass="GoodBasicTest" />
         <pattern testClass="GoodMyTestsTest" />
+        <pattern testClass="MyTest" />
       </patterns>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GoodMyTestsTest.testTest_Return_In_If_And_In_Error" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GoodClassicTest.testCore002" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GoodMyTestsTest" />
-      <option name="METHOD_NAME" value="testTest_Return_In_If_And_In_Error" />
+      <option name="MAIN_CLASS_NAME" value="GoodClassicTest" />
+      <option name="METHOD_NAME" value="testCore002" />
       <option name="TEST_OBJECT" value="method" />
       <patterns>
         <pattern testClass="GoodClassicTest" />
         <pattern testClass="GoodBasicTest" />
         <pattern testClass="GoodMyTestsTest" />
+        <pattern testClass="MyTest" />
+      </patterns>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="compiler" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MyTest" />
+      <option name="METHOD_NAME" value="testCore039" />
+      <option name="TEST_OBJECT" value="class" />
+      <patterns>
+        <pattern testClass="GoodClassicTest" />
+        <pattern testClass="GoodBasicTest" />
+        <pattern testClass="GoodMyTestsTest" />
+        <pattern testClass="MyTest" />
+      </patterns>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyTest.testCore039" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="compiler" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MyTest" />
+      <option name="METHOD_NAME" value="testCore039" />
+      <option name="TEST_OBJECT" value="method" />
+      <patterns>
+        <pattern testClass="GoodClassicTest" />
+        <pattern testClass="GoodBasicTest" />
+        <pattern testClass="GoodMyTestsTest" />
+        <pattern testClass="MyTest" />
       </patterns>
       <method v="2">
         <option name="Make" enabled="true" />
@@ -332,20 +352,20 @@
       <item itemvalue="Application.Test mytest" />
       <item itemvalue="Application.Test" />
       <item itemvalue="JUnit.All in compiler" />
-      <item itemvalue="JUnit.GoodMyTestsTest.testTest_Return_In_If_And_In_Error" />
-      <item itemvalue="JUnit.GoodMyTestsTest.test6" />
-      <item itemvalue="JUnit.GoodClassicTest and 2 more" />
-      <item itemvalue="JUnit.GoodMyTestsTest.test1" />
-      <item itemvalue="JUnit.GoodBasicTest and 1 more" />
+      <item itemvalue="JUnit.GoodBasicTest.testEmpty_While" />
+      <item itemvalue="JUnit.GoodClassicTest.testCore002" />
+      <item itemvalue="JUnit.MyTest.testCore039" />
+      <item itemvalue="JUnit.MyTest" />
+      <item itemvalue="JUnit.ALLESGOOD" />
       <item itemvalue="Shell Script.Unnamed" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.GoodClassicTest and 2 more" />
-        <item itemvalue="JUnit.GoodMyTestsTest.testTest_Return_In_If_And_In_Error" />
-        <item itemvalue="JUnit.GoodMyTestsTest.test1" />
-        <item itemvalue="JUnit.GoodMyTestsTest.test6" />
-        <item itemvalue="JUnit.GoodBasicTest and 1 more" />
+        <item itemvalue="JUnit.ALLESGOOD" />
+        <item itemvalue="JUnit.GoodClassicTest.testCore002" />
+        <item itemvalue="JUnit.MyTest.testCore039" />
+        <item itemvalue="JUnit.MyTest" />
+        <item itemvalue="JUnit.GoodBasicTest.testEmpty_While" />
       </list>
     </recent_temporary>
   </component>
@@ -403,13 +423,6 @@
       <workItem from="1673827042172" duration="25973000" />
       <workItem from="1673924916149" duration="18345000" />
       <workItem from="1673993417056" duration="20099000" />
-    </task>
-    <task id="LOCAL-00044" summary="building from zero :)">
-      <created>1670087642219</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1670087642219</updated>
     </task>
     <task id="LOCAL-00045" summary="building from zero :)">
       <created>1670095831529</created>
@@ -747,7 +760,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674017756540</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="Refactor PostProcessor">
+      <created>1674072461182</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1674072461182</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -813,7 +833,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="32" />
     <MESSAGE value="33" />
     <MESSAGE value="template dziala - mozliwe ze lepiej by bylo z gets" />
     <MESSAGE value="teoretycznie template z getline, ale zaraz zamieniam na gets z powrotem, a najlepiej chyba do pliku .c, dac funkcje" />
@@ -838,7 +857,8 @@
     <MESSAGE value="Refactor" />
     <MESSAGE value="Fix phi variables." />
     <MESSAGE value="Refactor, and multiple levels of phi variables." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor, and multiple levels of phi variables." />
+    <MESSAGE value="Refactor PostProcessor" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor PostProcessor" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -868,15 +888,15 @@
           <line>45</line>
           <option name="timeStamp" value="34" />
         </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/latte/backend/program/global/Scope.java</url>
-          <line>125</line>
-          <option name="timeStamp" value="59" />
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java</url>
+          <line>165</line>
+          <option name="timeStamp" value="93" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/latte/backend/quadruple/Block.java</url>
-          <line>104</line>
-          <option name="timeStamp" value="79" />
+          <url>file://$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java</url>
+          <line>205</line>
+          <option name="timeStamp" value="94" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />
@@ -890,6 +910,15 @@
           <properties class="java.lang.StackOverflowError" package="java.lang" />
           <option name="timeStamp" value="55" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/tests/MyTest.java</url>
+          <line>114</line>
+          <properties class="MyTest" method="testCore001">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="80" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>

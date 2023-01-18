@@ -69,6 +69,7 @@ public class Block {
         List<Quadruple> phiVariables = new ArrayList<>();
         for (String variableName : phiVariablesNames) {
             Variable variable = scope.getVariable(variableName);
+            if (variable == null) continue;
             Register register1 = block1.getScope().getLastRegisterOfVariableInCurrentScope(variable);
             Register register2 = block2.getScope().getLastRegisterOfVariableInCurrentScope(variable);
             Register newRegister = scope.getNewVariableRegister(variable);
@@ -121,10 +122,6 @@ public class Block {
 
     public void setScope(Scope scope) {
         this.scope = scope;
-    }
-
-    public void resetLastUseOfVariables(Scope condScope) {
-        scope.resetLastUseOfVariables(condScope);
     }
 
     public void setIdentifier(Block identifier) {
