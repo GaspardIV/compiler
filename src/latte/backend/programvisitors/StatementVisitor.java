@@ -42,10 +42,10 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
     @Override
     public Block visit(Ass p, Block block) {
         List<Quadruple> left = p.expr_1.accept(new RegisterExprVisitor(), block);
-        List<Quadruple> right = new RegisterExprVisitor().generateExprCode(p.expr_2, block);
-        List<Quadruple> res = new ArrayList<>(right);
         Register leftLastRegister = left.get(left.size() - 1).result;
         Variable variable = leftLastRegister.getVariable();
+        List<Quadruple> right = new RegisterExprVisitor().generateExprCode(p.expr_2, block);
+        List<Quadruple> res = new ArrayList<>(right);
         Register rightLastRegister = right.get(right.size() - 1).result;
         rightLastRegister.setVariable(variable);
         block.getScope().setLastVariableRegister(variable, rightLastRegister);
