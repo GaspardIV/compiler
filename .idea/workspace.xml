@@ -8,9 +8,8 @@
     <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="Dodanie resetu zmiennych na wszelki wypadek i test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/xd.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/xd.lat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/DeclVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/DeclVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Register.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/xd.output" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/xd.output" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/MyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/MyTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +42,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="af06dc41b9b470b782332f4fdd0fbf6433cdd937" />
+        <entry key="$PROJECT_DIR$" value="0a094f9b7d1bfd89ee547cf93dfd233af6cdaed2" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -197,7 +196,7 @@
       <recent name="bad" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MyTest.testCore039">
+  <component name="RunManager" selected="JUnit.ALLESGOOD">
     <configuration name="Test core002.lat" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="latte.Compiler" />
       <module name="compiler" />
@@ -328,8 +327,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MyTest.testCore039" />
         <item itemvalue="JUnit.ALLESGOOD" />
+        <item itemvalue="JUnit.MyTest.testCore039" />
         <item itemvalue="Makefile Target.all" />
         <item itemvalue="Makefile Target.zip" />
         <item itemvalue="Makefile Target.clean" />
@@ -897,7 +896,7 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/tests/MyTest.java</url>
-          <line>114</line>
+          <line>115</line>
           <properties class="MyTest" method="testCore001">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />

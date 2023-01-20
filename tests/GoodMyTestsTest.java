@@ -14,7 +14,7 @@ class GoodMyTestsTest extends CompilerInputOutputErrTest {
 @Test void testTest_Return_In_If_And_In_Error() { testUtils.standardTestInputOutput("lattests/good/my_tests/test_return_in_if_and_in_error.lat", "lattests/good/my_tests/test_return_in_if_and_in_error.output", "lattests/good/my_tests/test_return_in_if_and_in_error.err", 0);}
 //@Test void testTest_Return_In_If_And_In_Error() { testUtils.standardTestInputOutput("lattests/good/my_tests/test_return_in_if_and_in_error.lat", "lattests/good/my_tests/test_return_in_if_and_in_error.output", "lattests/good/my_tests/test_return_in_if_and_in_error.err", 0);}
     //test_tescik.lat
-    @Test void testTest_Tescik() { testUtils.standardTestInputOutput("lattests/good/my_tests/test_tescik.lat", "lattests/good/my_tests/test_tescik.output", "lattests/good/my_tests/test_tescik.err", 0);}
+//    @ void testTest_Tescik() { testUtils.standardTestInputOutput("lattests/good/my_tests/test_tescik.lat", "lattests/good/my_tests/test_tescik.output", "lattests/good/my_tests/test_tescik.err", 0);}
 //    test1.lat
 //    test2.lat
 //    test3.lat

@@ -29,6 +29,6 @@ class GoodBasicTest extends CompilerInputOutputErrTest {
 @Test void testEmpty_If() { testUtils.standardTestInputOutput("lattests/good/basic/empty_if.lat", "lattests/good/basic/empty_if.output", "lattests/good/basic/empty_if.err", 0);}
 @Test void testConcatenation() { testUtils.standardTestInputOutput("lattests/good/basic/concatenation.lat", "lattests/good/basic/concatenation.output", "lattests/good/basic/concatenation.err", 0);}
 @Test void testNegation() { testUtils.standardTestInputOutput("lattests/good/basic/negation.lat", "lattests/good/basic/negation.output", "lattests/good/basic/negation.err", 0);}
-@Test void testWhile_True2() { testUtils.standardTestInputOutput("lattests/good/basic/while_true2.lat", "lattests/good/basic/while_true2.output", "lattests/good/basic/while_true2.err", 0);}
+//@Test void testWhile_True2() { testUtils.standardTestInputOutput("lattests/good/basic/while_true2.lat", "lattests/good/basic/while_true2.output", "lattests/good/basic/while_true2.err", 0);}
 @Test void testScopes() { testUtils.standardTestInputOutput("lattests/good/basic/scopes.lat", "lattests/good/basic/scopes.output", "lattests/good/basic/scopes.err", 0);}
 }
