@@ -13,6 +13,7 @@ public class Block {
     private Scope scope;
 
     private String name;
+
     public Block(String contextName, Scope scope) {
         this(contextName, scope, "null");
     }
@@ -65,14 +66,15 @@ public class Block {
         }
     }
 
-    public List<Quadruple> createConditionPhiVariables(Set<String> phiVariablesNames, Block block1, Block block2) {
+    public List<Quadruple> createConditionPhiVariables(Set<String> redefinedVariables, Block block1, Block block2) {
         List<Quadruple> phiVariables = new ArrayList<>();
-        for (String variableName : phiVariablesNames) {
+        for (String variableName : redefinedVariables) {
             Variable variable = scope.getVariable(variableName);
             if (variable == null) continue;
-            Register register1 = block1.getScope().getLastRegisterOfVariableInCurrentScope(variable);
-            Register register2 = block2.getScope().getLastRegisterOfVariableInCurrentScope(variable);
+            Register register1 = block1.getScope().getLastRegisterOfVariableRedefinitionInCurrentScope(variable);
+            Register register2 = block2.getScope().getLastRegisterOfVariableRedefinitionInCurrentScope(variable);
             Register newRegister = scope.getNewVariableRegister(variable);
+            PhiManager.getInstance().markVariableAsRedefined(scope, variable);
             newRegister.setVariable(variable);
             phiVariables.add(new Quadruple(newRegister, new Quadruple.LLVMOperation.PHI(register1, block1, register2, block2)));
         }
@@ -81,17 +83,17 @@ public class Block {
 
     public List<Quadruple> createLoopPhiVariables(Block block1, Block block2) {
         List<Quadruple> phiVariables = new ArrayList<>();
-        for (Map.Entry<Variable, Register> variableRegisterEntry : PhiManager.getInstance().getTopPhiVariables()) {
+        Collection<Map.Entry<Variable, Register>> phiVariablesRegisters = PhiManager.getInstance().getTopPhiVariables();
+        PhiManager.getInstance().popScope();
+        for (Map.Entry<Variable, Register> variableRegisterEntry : phiVariablesRegisters) {
             Variable variable = variableRegisterEntry.getKey();
             Register phiRegister = variableRegisterEntry.getValue();
-
-            Register register1 = block1.getScope().getLastRegisterOfVariableInCurrentScope(variable);
-            Register register2 = block2.getScope().getLastRegisterOfVariableInCurrentScope(variable);
-
+            Register register1 = block1.getScope().getLastRegisterOfVariableRedefinitionInCurrentScope(variable);
+            Register register2 = block2.getScope().getLastRegisterOfVariableRedefinitionInCurrentScope(variable);
             scope.setLastVariableRegister(variable, phiRegister);
             phiRegister.setVariable(variable);
-
             phiVariables.add(new Quadruple(phiRegister, new Quadruple.LLVMOperation.PHI(register1, block1, register2, block2)));
+            PhiManager.getInstance().markVariableAsRedefined(scope, variable);
         }
         return phiVariables;
     }

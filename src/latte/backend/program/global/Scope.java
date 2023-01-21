@@ -11,7 +11,7 @@ public class Scope {
     String contextName;
     Map<String, Variable> variables;
     Map<Variable, Deque<Register>> memoryLocations;
-    public HashMap<Variable, Register> flatLastVariableRegister;
+    public HashMap<Variable, Register> flatLastVariableRedefinitionRegister;
 
     private final Type type;
 
@@ -33,7 +33,7 @@ public class Scope {
         this.parent = parent;
         this.type = type;
         this.memoryLocations = new HashMap<>();
-        flatLastVariableRegister = new HashMap<>();
+        flatLastVariableRedefinitionRegister = new HashMap<>();
     }
 
     public String getName() {
@@ -98,7 +98,7 @@ public class Scope {
     public Register getNewVariableRegister(Variable variable) {
         Deque<Register> registerList = getMemoryLocation(variable);
         Register register = new Register(getCurrentFunction().getNewIdentUseNumber(variable.getName()), variable.getType());
-        flatLastVariableRegister.put(variable, register);
+        flatLastVariableRedefinitionRegister.put(variable, register);
         registerList.add(register);
         return register;
     }
@@ -106,28 +106,28 @@ public class Scope {
     public void setLastVariableRegister(Variable variable, Register register) {
         Deque<Register> registerList = getMemoryLocation(variable);
         registerList.add(register);
-        flatLastVariableRegister.put(variable, register);
+        flatLastVariableRedefinitionRegister.put(variable, register);
     }
 
-    public Register getLastRegisterOfVariableInCurrentScope(Variable variable) {
-        if (flatLastVariableRegister.containsKey(variable)) {
-            return flatLastVariableRegister.get(variable);
+    public Register getLastRegisterOfVariableRedefinitionInCurrentScope(Variable variable) {
+        if (flatLastVariableRedefinitionRegister.containsKey(variable)) {
+            return flatLastVariableRedefinitionRegister.get(variable);
         } else if (parent != null) {
-            return parent.getLastRegisterOfVariableInCurrentScope(variable);
+            return parent.getLastRegisterOfVariableRedefinitionInCurrentScope(variable);
         } else {
             return null;
         }
     }
 
     public Set<String> getRedefinedVariables() {
-        return flatLastVariableRegister.keySet().stream().map(Variable::getName).collect(Collectors.toSet());
+        return flatLastVariableRedefinitionRegister.keySet().stream().map(Variable::getName).collect(Collectors.toSet());
     }
 
     public void resetLastRegisterOfVariables(Set<String> redefinedVariables) {
         for (String variable : redefinedVariables) {
             Variable var = getVariable(variable);
             if (var != null) {
-                setLastVariableRegister(var, getLastRegisterOfVariableInCurrentScope(var));
+                setLastVariableRegister(var, getLastRegisterOfVariableRedefinitionInCurrentScope(var));
             }
         }
     }

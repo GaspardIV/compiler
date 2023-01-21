@@ -1,0 +1,25 @@
+int funkcja (int x, int n) {
+  int i=0;
+  int m=0;
+  int t;
+  while (m<n) {
+    t=x;
+    if (m<t) m=t;
+    t=x;
+    if (m<t) m=t;
+    x++;
+    i++;
+  }
+
+  return m;
+}
+
+int main () {
+  int x=0;
+
+  x=x+funkcja(4,20);
+
+  printInt(x);
+
+  return 0;
+}
