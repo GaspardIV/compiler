@@ -5,11 +5,26 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="Dodanie resetu zmiennych na wszelki wypadek i test">
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="Remove not needed phi variable">
+      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/1.lat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/1.llcode" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/1.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/2.lat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/2.llcode" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/2.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/3.lat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/3.llcode" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/3.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/MyTest420.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zmiany.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/xd.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/xd.lat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/xd.output" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/xd.output" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/MyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/MyTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/Scope.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/Scope.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Block.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/PhiManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/PhiManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Register.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/TestUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/TestUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +73,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$USER_HOME$/.ideaLibSources/system-lambda-1.2.1-sources.jar!/com/github/stefanbirkner/systemlambda/SystemLambda.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="jar://$PROJECT_DIR$/third_party/java-cup-11b-runtime.jar!/META-INF/MANIFEST.MF" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/zmiany.md" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -133,32 +149,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path&quot;: &quot;/Users/kacperkonecki/IdeaProjects/codingame/compiler/third_party&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/kacperkonecki/IdeaProjects/codingame/compiler/lattests/good/my_tests/good&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path": "/Users/kacperkonecki/IdeaProjects/codingame/compiler/third_party",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "extract.method.default.visibility": "private",
+    "last_opened_file_path": "/Users/kacperkonecki/IdeaProjects/codingame/compiler/lattests/good/my_tests/my_test2",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;ChangesTree.GroupingKeys&quot;: [
+  "keyToStringList": {
+    "ChangesTree.GroupingKeys": [
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="latte.frontend.visitors" />
@@ -168,11 +184,11 @@
       <recent name="latte.backend.program.global.function" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lattests/good/my_tests/my_test2" />
       <recent name="$PROJECT_DIR$/lattests/good/my_tests/good" />
       <recent name="$PROJECT_DIR$/lattests/good/my_tests" />
       <recent name="$PROJECT_DIR$/src/latte/backend" />
       <recent name="$PROJECT_DIR$/tests" />
-      <recent name="$PROJECT_DIR$/lattests/mytests" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/lattests/good/my_tests" />
@@ -191,8 +207,8 @@
       <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="latte.backend.quadruple" />
       <recent name="" />
+      <recent name="latte.backend.quadruple" />
       <recent name="bad" />
     </key>
   </component>
@@ -245,6 +261,7 @@
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="pattern" />
       <patterns>
+        <pattern testClass="MyTest420" />
         <pattern testClass="GoodClassicTest" />
         <pattern testClass="GoodBasicTest" />
         <pattern testClass="GoodMyTestsTest" />
@@ -260,6 +277,25 @@
       <option name="MAIN_CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyTest420" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="compiler" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MyTest420" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyTest420.test_420" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="compiler" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MyTest420" />
+      <option name="METHOD_NAME" value="test_420" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -286,18 +322,6 @@
       </makefile>
       <method v="2" />
     </configuration>
-    <configuration name="clean" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
-      <makefile filename="$PROJECT_DIR$/Makefile" target="clean" workingDirectory="" arguments="">
-        <envs />
-      </makefile>
-      <method v="2" />
-    </configuration>
-    <configuration name="zip" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
-      <makefile filename="$PROJECT_DIR$/Makefile" target="zip" workingDirectory="" arguments="">
-        <envs />
-      </makefile>
-      <method v="2" />
-    </configuration>
     <configuration name="Unnamed" type="ShConfigurationType" nameIsGenerated="true">
       <option name="SCRIPT_TEXT" value="" />
       <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
@@ -318,20 +342,20 @@
       <item itemvalue="Application.Test mytest" />
       <item itemvalue="Application.Test" />
       <item itemvalue="JUnit.All in compiler" />
+      <item itemvalue="JUnit.MyTest420" />
+      <item itemvalue="JUnit.MyTest420.test_420" />
       <item itemvalue="JUnit.MyTest.testCore039" />
       <item itemvalue="JUnit.ALLESGOOD" />
       <item itemvalue="Makefile Target.all" />
-      <item itemvalue="Makefile Target.clean" />
-      <item itemvalue="Makefile Target.zip" />
       <item itemvalue="Shell Script.Unnamed" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.ALLESGOOD" />
+        <item itemvalue="JUnit.MyTest420" />
+        <item itemvalue="JUnit.MyTest420.test_420" />
         <item itemvalue="JUnit.MyTest.testCore039" />
         <item itemvalue="Makefile Target.all" />
-        <item itemvalue="Makefile Target.zip" />
-        <item itemvalue="Makefile Target.clean" />
       </list>
     </recent_temporary>
   </component>
@@ -392,13 +416,8 @@
       <workItem from="1674080908455" duration="173000" />
       <workItem from="1674113835324" duration="1397000" />
       <workItem from="1674160558966" duration="10027000" />
-    </task>
-    <task id="LOCAL-00046" summary="lekki refactor">
-      <created>1670166001982</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1670166001982</updated>
+      <workItem from="1674202517911" duration="11177000" />
+      <workItem from="1674247550816" duration="18137000" />
     </task>
     <task id="LOCAL-00047" summary="zip">
       <created>1670168114785</created>
@@ -736,7 +755,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674079438963</updated>
     </task>
-    <option name="localTasksCounter" value="95" />
+    <task id="LOCAL-00095" summary="Ignore tests">
+      <created>1674202157429</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1674202157430</updated>
+    </task>
+    <option name="localTasksCounter" value="96" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -802,8 +828,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="template dziala - mozliwe ze lepiej by bylo z gets" />
-    <MESSAGE value="teoretycznie template z getline, ale zaraz zamieniam na gets z powrotem, a najlepiej chyba do pliku .c, dac funkcje" />
     <MESSAGE value="34/50" />
     <MESSAGE value="35/50 - testowanie z inputem" />
     <MESSAGE value="choice i generowanie pliku" />
@@ -827,7 +851,9 @@
     <MESSAGE value="Refactor, and multiple levels of phi variables." />
     <MESSAGE value="Refactor PostProcessor" />
     <MESSAGE value="Dodanie resetu zmiennych na wszelki wypadek." />
-    <option name="LAST_COMMIT_MESSAGE" value="Dodanie resetu zmiennych na wszelki wypadek." />
+    <MESSAGE value="Ignore tests" />
+    <MESSAGE value="Remove not needed phi variable" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove not needed phi variable" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -854,33 +880,13 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/tests/TestUtils.java</url>
-          <line>45</line>
+          <line>43</line>
           <option name="timeStamp" value="34" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java</url>
-          <line>165</line>
-          <option name="timeStamp" value="93" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java</url>
-          <line>205</line>
-          <option name="timeStamp" value="94" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/latte/backend/quadruple/Block.java</url>
-          <line>84</line>
-          <option name="timeStamp" value="95" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java</url>
-          <line>43</line>
-          <option name="timeStamp" value="98" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java</url>
-          <line>106</line>
-          <option name="timeStamp" value="101" />
+          <url>file://$PROJECT_DIR$/tests/TestUtils.java</url>
+          <line>89</line>
+          <option name="timeStamp" value="99" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />

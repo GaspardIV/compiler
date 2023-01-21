@@ -48,6 +48,7 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         List<Quadruple> res = new ArrayList<>(right);
         Register rightLastRegister = right.get(right.size() - 1).result;
         rightLastRegister.setVariable(variable);
+        PhiManager.getInstance().markVariableAsRedefined(block.getScope(), variable);
         block.getScope().setLastVariableRegister(variable, rightLastRegister);
         block.addQuadruples(res);
         return null;
@@ -217,9 +218,8 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         body.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(body))));
         p.stmt_.accept(this, body);
         body.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(cond))));
-
         List<Quadruple> phi1 = cond.createLoopPhiVariables(entry, body.getLastBlock());
-        PhiManager.getInstance().popScope();
+
         body.addLastBlock(bend);
         cond.addQuadruplesAtTheBeginning(phi1);
         cond.addQuadruplesAtTheBeginning(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(cond))));

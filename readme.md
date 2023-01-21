@@ -1,5 +1,7 @@
 Oddaje kompilator llvm. Bede jeszcze oddawal rozszerzenie kompilatora.
 
+4 + 8 + 2 - 2 - 1 = 11
+
 Co zrobilem z optymalizacji:
 - usuwanie martwego kodu (np. if (false) { ... }, kod po returnie, nieużywane zmienne)
 - zwijanie stalych (3 + 5)

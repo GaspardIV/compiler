@@ -1,0 +1,14 @@
+int f(int n) {
+ int u=0, v=1, i=2, t;
+ while(i<n) {
+    t=u+v;  u=v; v=t;
+    i=i+1;
+ }
+ return v;
+}
+
+int main() {
+	printInt(f(20));
+	printInt(f(21));
+	return 0;
+}

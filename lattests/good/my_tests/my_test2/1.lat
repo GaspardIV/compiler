@@ -1,0 +1,25 @@
+// constant folding propagation
+int func(int b) {
+	int t1 = 7;
+	int t2 = t1 -1;
+	int t3 = t2 * t2;
+	int a = b + t3;
+	// a = b + 36
+	return a;
+
+}
+int func2(int b) {
+	int t1, t2, t3, a;
+	t1 = 7;
+	t2 = t1 -1;
+	t3 = t2 * t2;
+	a = b + t3;
+	// a = b + 36
+	return a;
+
+}
+int main() {
+	printInt(func(20));
+	printInt(func2(21));
+	return 0;
+}

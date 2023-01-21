@@ -9,6 +9,8 @@ public class Register  {
     public Type type;
     private ConstValue constValue = null;
     private Variable variable = null;
+    private Register overriddenBy = null;
+
     public Register(String name_, Type type_) {
         name = name_;
         type = type_;
@@ -33,6 +35,9 @@ public class Register  {
     }
     @Override
     public String toString() {
+        if (overriddenBy != null) {
+            return overriddenBy.toString();
+        }
         if (constValue != null) {
             return constValue.toString();
         }
@@ -49,5 +54,9 @@ public class Register  {
 
     public void setVariable(Variable variable) {
         this.variable = variable;
+    }
+
+    public void setOverride(Register register) {
+        this.overriddenBy = register;
     }
 }
