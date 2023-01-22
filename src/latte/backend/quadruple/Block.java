@@ -13,6 +13,10 @@ public class Block {
     private Scope scope;
 
     private final String name;
+    private HashMap<Quadruple, HashSet<Register>> liveOut;
+    private HashMap<Quadruple, HashSet<Register>> liveIn;
+    private HashSet<Register> blockLiveIn;
+    private HashSet<Register> blockLiveOut;
 
     public Block(String contextName, Scope scope) {
         this(contextName, scope, "null");
@@ -140,5 +144,74 @@ public class Block {
 
     public void setNextBlock(Block newBlock) {
         this.nextBlock = newBlock;
+    }
+
+    public Collection<Register> getDefinedRegisters() {
+        Set<Register> definedRegisters = new HashSet<>();
+        for (Quadruple quadruple : statements) {
+            definedRegisters.add(quadruple.getDefinedRegister());
+        }
+        return definedRegisters;
+    }
+
+    public Collection<Register> getUsedRegisters() {
+        Set<Register> usedRegisters = new HashSet<>();
+        for (Quadruple quadruple : statements) {
+            usedRegisters.addAll(quadruple.getUsedRegisters());
+        }
+        return usedRegisters;
+    }
+
+    public void setLocalLiveIn(HashMap<Quadruple, HashSet<Register>> liveIn) {
+        this.liveIn = liveIn;
+    }
+
+    public void setLocalLiveOut(HashMap<Quadruple, HashSet<Register>> liveOut) {
+        this.liveOut = liveOut;
+    }
+
+//    public void updateLocalsLiveInLiveOutWithGlobals(HashSet<Register> in, HashSet<Register> out) {
+//        System.out.println("Updating locals live in live out with globals");
+//        System.out.println("=========================================");
+//        System.out.println("Block: " + this.getIdentifier());
+//        System.out.println("Block Live in: " + in);
+//        for (Quadruple quadruple : statements) {
+//            if (!quadruple.toString().equals("")) {
+//                System.out.println("in: " + liveIn.get(quadruple));
+//                System.out.println("Quadruple: " + quadruple);
+//                System.out.println("out: " + liveOut.get(quadruple));
+//            }
+//        }
+//        System.out.println("Block Live out: " + out);
+//        System.out.println("Block: " + this.getIdentifier());
+//        System.out.println("=========================================");
+//        for (Quadruple quadruple : statements) {
+//            HashSet<Register> liveIn = this.liveIn.get(quadruple);
+//            HashSet<Register> liveOut = this.liveOut.get(quadruple);
+//            liveIn.addAll(in);
+//            liveOut.addAll(in);
+//        }
+////        if (!in.equals(this.liveIn.get(statements.get(0)))) {
+////            System.out.println("ERROR");
+////            System.out.println("Block: " + this.identifier);
+////            System.out.println("Out: " + in);
+////            System.out.println("Last: " + this.liveOut.get(statements.get(0)));
+////        }
+////        if (!out.equals(this.liveOut.get(statements.get(statements.size() - 1)))) {
+////            System.out.println("ERROR");
+////            System.out.println("Block: " + this.identifier);
+////            System.out.println("Out: " + out);
+////            System.out.println("Last: " + this.liveOut.get(statements.get(statements.size() - 1)));
+////        }
+//////        assert ();
+//    }
+
+    public void setGlobalsInOut(HashSet<Register> in, HashSet<Register> out) {
+        this.blockLiveIn = in;
+        this.blockLiveOut = out;
+    }
+
+    public HashSet<Register> getGlobalsOut() {
+        return blockLiveOut;
     }
 }

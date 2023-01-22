@@ -1,0 +1,6 @@
+int main() {
+    if ((40 + 2) <= (10 * 2 * 2 + 3) && (true == !false && (1 == 0 || 0 < 1))) {
+        return 0;
+    }
+    return 1;
+}

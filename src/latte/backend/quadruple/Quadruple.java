@@ -6,7 +6,8 @@ import latte.backend.program.global.Function;
 import latte.backend.program.global.Global;
 import latte.utils.Utils;
 
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Quadruple {
     public Register result;
@@ -39,7 +40,37 @@ public class Quadruple {
         return result;
     }
 
-    public static class LLVMOperation {
+
+    public Register getDefinedRegister() {
+        if (result == null || result.isConst()) {
+            return null;
+        } else {
+            if (op == null) {
+                return null;
+            }
+            return result;
+        }
+    }
+
+    public Collection<Register> getUsedRegisters() {
+        if (op == null) {
+            return new ArrayList<>();
+        }
+        return op.getUsedRegisters().stream().filter(r -> !r.isConst()).collect(Collectors.toList());
+    }
+
+    public boolean hasSideEffects() {
+        if (op == null) {
+            return false;
+        }
+        return op.hasSideEffects();
+    }
+
+    public abstract static class LLVMOperation {
+
+        public abstract Collection<Register> getUsedRegisters();
+
+        public abstract boolean hasSideEffects();
 
         public static class CALL extends LLVMOperation {
             private final Type type;
@@ -62,6 +93,16 @@ public class Quadruple {
                 }
                 return "call " + Utils.getLLVMType(type) + " @" + Function.nameFromLabel(name) + "(" + argsString + ")";
             }
+
+            @Override
+            public Collection<Register> getUsedRegisters() {
+                return args;
+            }
+
+            @Override
+            public boolean hasSideEffects() {
+                return true;
+            }
         }
 
         public static class NEG extends LLVMOperation {
@@ -74,6 +115,16 @@ public class Quadruple {
             public String toString() {
                 return "sub i32 0, " + register.toString();
             }
+
+            @Override
+            public Collection<Register> getUsedRegisters() {
+                return Collections.singleton(register);
+            }
+
+            @Override
+            public boolean hasSideEffects() {
+                return false;
+            }
         }
 
         public static class NOT extends LLVMOperation {
@@ -85,6 +136,16 @@ public class Quadruple {
 
             public String toString() {
                 return "xor i1 1, " + register.toString();
+            }
+
+            @Override
+            public Collection<Register> getUsedRegisters() {
+                return Collections.singleton(register);
+            }
+
+            @Override
+            public boolean hasSideEffects() {
+                return false;
             }
         }
 
@@ -111,6 +172,16 @@ public class Quadruple {
                     throw new RuntimeException("Unknown MulOp");
                 }
             }
+
+            @Override
+            public Collection<Register> getUsedRegisters() {
+                return Arrays.asList(register1, register2);
+            }
+
+            @Override
+            public boolean hasSideEffects() {
+                return false;
+            }
         }
 
         public static class ADD extends LLVMOperation {
@@ -136,6 +207,15 @@ public class Quadruple {
                 }
             }
 
+            @Override
+            public Collection<Register> getUsedRegisters() {
+                return Arrays.asList(register1, register2);
+            }
+
+            @Override
+            public boolean hasSideEffects() {
+                return false;
+            }
         }
 
         public static class REL extends LLVMOperation {
@@ -165,6 +245,16 @@ public class Quadruple {
                 }
                 return null;
             }
+
+            @Override
+            public Collection<Register> getUsedRegisters() {
+                return Arrays.asList(register1, register2);
+            }
+
+            @Override
+            public boolean hasSideEffects() {
+                return false;
+            }
         }
 
         public static class AND extends LLVMOperation {
@@ -179,6 +269,16 @@ public class Quadruple {
             public String toString() {
                 return "and i1 " + register1.toString() + ", " + register2.toString();
             }
+
+            @Override
+            public Collection<Register> getUsedRegisters() {
+                return Arrays.asList(register1, register2);
+            }
+
+            @Override
+            public boolean hasSideEffects() {
+                return false;
+            }
         }
 
         public static class OR extends LLVMOperation {
@@ -192,6 +292,16 @@ public class Quadruple {
 
             public String toString() {
                 return "or i1 " + register1.toString() + ", " + register2.toString();
+            }
+
+            @Override
+            public Collection<Register> getUsedRegisters() {
+                return Arrays.asList(register1, register2);
+            }
+
+            @Override
+            public boolean hasSideEffects() {
+                return false;
             }
         }
 
@@ -216,6 +326,16 @@ public class Quadruple {
                 String type1 = Utils.getLLVMType(type).replace("*", "");
                 return "getelementptr [" + length + " x " + type1 + "], [" + length + " x " + type1 + "]* " + ident + ", i32 " + i + ", i32 " + j;
             }
+
+            @Override
+            public Collection<Register> getUsedRegisters() {
+                return Collections.emptyList(); // todo if uzywane do czegos tinnego niz string
+            }
+
+            @Override
+            public boolean hasSideEffects() {
+                return false;
+            }
         }
 
         public static class GOTO extends LLVMOperation {
@@ -231,6 +351,16 @@ public class Quadruple {
                     return "";
                 }
                 return "\tbr label %" + block.getIdentifier();
+            }
+
+            @Override
+            public Collection<Register> getUsedRegisters() {
+                return Collections.emptyList();
+            }
+
+            @Override
+            public boolean hasSideEffects() {
+                return true;
             }
         }
 
@@ -249,6 +379,16 @@ public class Quadruple {
             public String toString() {
                 return "\tbr i1 " + register.toString() + ", label %" + block1.getIdentifier() + ", label %" + block2.getIdentifier();
             }
+
+            @Override
+            public Collection<Register> getUsedRegisters() {
+                return Collections.singletonList(register);
+            }
+
+            @Override
+            public boolean hasSideEffects() {
+                return true;
+            }
         }
 
         public static class LABEL extends LLVMOperation {
@@ -261,6 +401,16 @@ public class Quadruple {
             @Override
             public String toString() {
                 return label.getIdentifier() + ":";
+            }
+
+            @Override
+            public Collection<Register> getUsedRegisters() {
+                return Collections.emptyList();
+            }
+
+            @Override
+            public boolean hasSideEffects() {
+                return true;
             }
         }
 
@@ -281,6 +431,19 @@ public class Quadruple {
                     return "\tret void";
                 }
                 return "\tret " + register.getLLVMType() + " " + register;
+            }
+
+            @Override
+            public Collection<Register> getUsedRegisters() {
+                if (register == null) {
+                    return Collections.emptyList();
+                }
+                return Collections.singletonList(register);
+            }
+
+            @Override
+            public boolean hasSideEffects() {
+                return true;
             }
         }
 
@@ -303,6 +466,16 @@ public class Quadruple {
                 return "phi " + register1.getLLVMType() + " [" + register1.toString() + ", %" + block1.getIdentifier() + "], [" + register2.toString() + ", %" + block2.getIdentifier() + "]";
 
             }
+
+            @Override
+            public Collection<Register> getUsedRegisters() {
+                return Arrays.asList(register1, register2);
+            }
+
+            @Override
+            public boolean hasSideEffects() {
+                return false;
+            }
         }
 
         public static class BOOL_PHI extends PHI {
@@ -314,6 +487,11 @@ public class Quadruple {
             @Override
             public String toString() {
                 return "phi i1 [true, %" + block1.getIdentifier() + "], [false, %" + block2.getIdentifier() + "]";
+            }
+
+            @Override
+            public Collection<Register> getUsedRegisters() {
+                return Collections.emptyList();
             }
         }
 
@@ -330,6 +508,16 @@ public class Quadruple {
             public String toString() {
                 Global.getInstance().useCompareString = true;
                 return "call i32 @._strcmp(i8* " + register1 + ", i8* " + register2.toString() + ")";
+            }
+
+            @Override
+            public Collection<Register> getUsedRegisters() {
+                return Arrays.asList(register1, register2);
+            }
+
+            @Override
+            public boolean hasSideEffects() {
+                return false;
             }
         }
     }

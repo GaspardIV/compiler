@@ -2,6 +2,7 @@ package latte.backend.programvisitors;
 
 import latte.backend.quadruple.Block;
 import latte.backend.quadruple.Quadruple;
+import latte.backend.quadruple.Register;
 
 import java.util.*;
 
@@ -69,8 +70,8 @@ public class PostProcessor {
     }
 
     private void addEdge(Block currentBlock, Block successor) {
-            successors.get(currentBlock).add(successor);
-            predecessors.get(successor).add(currentBlock);
+        successors.get(currentBlock).add(successor);
+        predecessors.get(successor).add(currentBlock);
     }
 
     public void removeJumpsToNonExistentBlocks() {
@@ -104,8 +105,8 @@ public class PostProcessor {
     }
 
     private void removeEdge(Block block, Block destination) {
-            successors.get(block).remove(destination);
-            predecessors.get(destination).remove(block);
+        successors.get(block).remove(destination);
+        predecessors.get(destination).remove(block);
     }
 
     private Set<Block> getExistingBlocks(List<Quadruple> all) {
@@ -117,6 +118,7 @@ public class PostProcessor {
         }
         return existingBlocks;
     }
+
     public void removePhiFromNonPredecessorsBlocks() {
         List<Quadruple> all = firstBlock.getQuadruplesFromAllBlocks();
         Set<Block> existingBlocks2 = getExistingBlocks(all);
@@ -147,6 +149,114 @@ public class PostProcessor {
         removeEmptyBlocks(firstBlock);
         removePhiFromNonPredecessorsBlocks();
         removeEmptyBlocks(firstBlock);
+//        gcse();
+        deadVariablesElimination();
+        // gcse (reduce phi after each pass) - all uses has to be dominated by definition!!!!
+        // copy propagation
+//         dead code elimination
+
+        // moving code out of loops??
+        // sstrength reduction - zastapineie mnozenie dodawaniem
+        // induction variable elimination
+    }
+
+    private Set<Block> getAllBlocks() {
+        Set<Block> allBlocks = new HashSet<>();
+        ;
+        Block block = firstBlock;
+        Deque<Block> stack = new ArrayDeque<>();
+        stack.add(block);
+        while (!stack.isEmpty()) {
+            block = stack.pop();
+            if (allBlocks.contains(block)) {
+                continue;
+            }
+            allBlocks.add(block);
+            stack.addAll(successors.get(block));
+        }
+        return allBlocks;
+    }
+
+    private void deadVariablesElimination() {
+        Set<Block> allBlocks = getAllBlocks();
+        calculateGlobalLiveInLiveOut(allBlocks, successors);
+        for (Block block : allBlocks) {
+            calculateLocalLiveInLiveOut(block);
+        }
+    }
+
+    public void calculateGlobalLiveInLiveOut(Collection<Block> allBlocks,
+                                             HashMap<Block, HashSet<Block>> successors) {
+        HashMap<Block, HashSet<Register>> in = new HashMap<>();
+        HashMap<Block, HashSet<Register>> out = new HashMap<>();
+        HashMap<Block, HashSet<Register>> in0 = new HashMap<>();
+        HashMap<Block, HashSet<Register>> out0 = new HashMap<>();
+
+        for (Block block : allBlocks) {
+            in.put(block, new HashSet<>());
+            out.put(block, new HashSet<>());
+        }
+
+        boolean changed = true;
+        while (changed) {
+            changed = false;
+            for (Block block : allBlocks) {
+                in0.put(block, new HashSet<>(in.get(block)));
+                out0.put(block, new HashSet<>(out.get(block)));
+
+                HashSet<Register> blockKillVariables = new HashSet<>(block.getDefinedRegisters());
+                HashSet<Register> blockUseVariables = new HashSet<>(block.getUsedRegisters());
+
+                HashSet<Register> blockInVariables = new HashSet<>(blockUseVariables);
+                blockInVariables.addAll(out.get(block));
+                blockInVariables.removeAll(blockKillVariables);
+
+                in.put(block, blockInVariables);
+                HashSet<Register> blockOutVariables = new HashSet<>();
+                for (Block successor : successors.get(block)) {
+                    blockOutVariables.addAll(in.get(successor));
+                }
+                out.put(block, blockOutVariables);
+
+                if (!in0.get(block).equals(in.get(block)) || !out0.get(block).equals(out.get(block))) {
+                    changed = true;
+                }
+            }
+        }
+
+        for (Block block : allBlocks) {
+            block.setGlobalsInOut(in.get(block), out.get(block));
+        }
+    }
+
+
+    private void calculateLocalLiveInLiveOut(Block block) {
+        HashSet<Register> lives = new HashSet<>(block.getGlobalsOut());
+
+        for (int i = block.getQuadruples().size() - 1; i >= 0; i--) {
+            Quadruple quadruple = block.getQuadruples().get(i);
+            if (quadruple.hasSideEffects() || lives.contains(quadruple.getRegister())) {
+                lives.remove(quadruple.getDefinedRegister());
+                lives.addAll(quadruple.getUsedRegisters());
+            } else {
+                quadruple.op = null;
+            }
+        }
+//        Quadruple last = block.getQuadruples().get(block.getQuadruples().size() - 1);
+//        liveOut.put(last, new HashSet<>());
+//        block.setLocalLiveIn(liveIn);
+//        block.setLocalLiveOut(liveOut);
+    }
+
+    private void gcse() {
+        // a variable is alive at a given point if its current value can be used (i.e. there exists a path to the use)
+        // a definition reaches given point in code if no path between them contains definition of the same variable
+
+
+        // zywotnosc wyrazen - istnieje sciezka do uzycia
+        List<Quadruple> all = firstBlock.getQuadruplesFromAllBlocks();
+        Map<Quadruple, Set<Block>> definitions = new HashMap<>();
+        Map<Quadruple, Set<Block>> uses = new HashMap<>();
     }
 
     private void removeEmptyBlocks(Block current) {

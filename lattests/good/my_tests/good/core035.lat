@@ -1,0 +1,12 @@
+int main() {
+    int n = 100;
+    int i = 0;
+
+    while (i < n) {
+        int x = i % 32;
+        printInt(x);
+        i++;
+    }
+
+    return 0;
+}

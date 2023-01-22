@@ -1,0 +1,23 @@
+int foo(int one, int two, int three, int four, int five, int six, int seven, int eight, int nine) {
+    return one + two + three + four + five + six + seven + eight + nine;
+}
+
+int main() {
+    int first = 42;
+    int second = 17;
+    int third = -1;
+    int fourth = first + second; // 59
+    int fifth = fourth + first;  // 101
+    int sixth = fifth;           // 101
+    int seventh = sixth + fifth; // 202
+    int eighth = 1000000;
+    int ninth = -eighth;
+
+    // 42+17-1+52+101+101+202+1000000-1000000 = 521
+    int x = first + second + third + fourth + fifth + sixth + seventh + eighth + ninth;
+    printInt(x);
+    int y = foo(first, second, third, fourth, fifth, sixth, seventh, eighth, ninth);
+    printInt(y);
+
+    return 0;
+}

@@ -1,0 +1,11 @@
+int funkcja (int x) {
+    int z = 5 * 19;
+    int y = x * 2 + 10 /(2 - x) * z;
+    return 1;
+}
+
+int main() {
+  int a = 5;
+  printInt(funkcja(a));
+  return 0;
+}

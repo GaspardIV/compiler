@@ -1,0 +1,20 @@
+int funkcja (int x, int h) {
+    int z = 5 * 19;
+    int c = 0;
+    while (h > 0) {
+        c = c + x;
+        h--;
+    }
+    int g = c *35;
+    int bb = h + 78;
+
+    int y = x * 2 + 10 /(2 - x) * z;
+
+    return 1;
+}
+
+int main() {
+  int a = 5;
+  printInt(funkcja(a, 20));
+  return 0;
+}

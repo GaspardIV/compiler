@@ -1,0 +1,7 @@
+int main() {
+    int abc = 0;
+    int def = 1;
+    while ((40 + 2) <= (10 * 2 * 2 + 3) && (true == !false && (1 == 0 || abc < def))) {
+        return 0;
+    }
+}

@@ -1,0 +1,41 @@
+int foo(int a, int b) {
+    int c = a + b; // 42 + 17 = 59
+    int d = c + b; // 59 + 17 = 76
+    int e = a + d; // 42 + 76 = 118
+
+    printInt(e);
+
+    return e;
+}
+
+boolean bar() {
+    return true;
+}
+
+boolean baz() {
+    return false;
+}
+
+int main() {
+    int spec = foo(42, 17);
+    
+    if (bar()) {
+        printInt(spec);
+    }
+
+    if (bar()) {
+        printInt(spec + 1000);
+    }
+    else {
+        printInt(spec + 2000);
+    }
+
+    if (baz()) {
+        printInt(spec + 3000);
+    }
+    else {
+        printInt(spec + 4000);
+    }
+
+    return 0;
+}
