@@ -5,6 +5,7 @@ import latte.backend.quadruple.Quadruple;
 import latte.backend.quadruple.Register;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class PostProcessor {
     Block firstBlock;
@@ -205,16 +206,19 @@ public class PostProcessor {
                 out0.put(block, new HashSet<>(out.get(block)));
 
                 HashSet<Register> blockKillVariables = new HashSet<>(block.getDefinedRegisters());
-//                HashSet<Register> blockUseVariables = new HashSet<>(block.getUsedRegisters());
-                HashSet<Register> blockUseVariables = new HashSet<>();
-                for (Register register : block.getUsedRegisters()) {
-                    if (register instanceof Quadruple.LivingRegister) {
-                        blockUseVariables.add(((Quadruple.LivingRegister) register).getRegister());
-                    } else {
-                        blockUseVariables.add(register);
-                    }
-
-                }
+                HashSet<Register> blockUseVariables = new HashSet<>(block.getUsedRegisters());
+//                HashSet<Register> blockUseVariables = new HashSet<>();
+//                for (Register register : block.getUsedRegisters()) {
+//                    if (register instanceof Quadruple.LivingRegister) {
+//                        Register register1 = ((Quadruple.LivingRegister) register).getRegister();
+////                        if (register1 instanceof Quadruple.Register) {
+//                            blockUseVariables.add(register1);
+////                        }
+//                    } else {
+//                        blockUseVariables.add(register);
+//                    }
+//
+//                }
 
                 HashSet<Register> blockInVariables = new HashSet<>(blockUseVariables);
                 blockInVariables.addAll(out.get(block));
@@ -223,7 +227,19 @@ public class PostProcessor {
                 in.put(block, blockInVariables);
                 HashSet<Register> blockOutVariables = new HashSet<>();
                 for (Block successor : successors.get(block)) {
-                    blockOutVariables.addAll(in.get(successor));
+                    for (Register register : in.get(successor)) {
+                        if (register instanceof Quadruple.LivingRegister) {
+                            Quadruple.LivingRegister livingRegister = (Quadruple.LivingRegister) register;
+//                            Register register1 = livingRegister.getRegister();
+                            if (livingRegister.getPhiBlock() == block) {
+                                blockOutVariables.add(register);
+                            }
+                        } else {
+                            blockOutVariables.add(register);
+                        }
+
+                    }
+//                    blockOutVariables.addAll(in.get(successor));
                 }
                 out.put(block, blockOutVariables);
 
@@ -234,7 +250,27 @@ public class PostProcessor {
         }
 
         for (Block block : allBlocks) {
-            block.setGlobalsInOut(in.get(block), out.get(block));
+            HashSet<Register> liveIn = new HashSet<>();
+            for (Register i : in.get(block)) {
+                if (i instanceof Quadruple.LivingRegister) {
+                    Quadruple.LivingRegister livingRegister = (Quadruple.LivingRegister) i;
+                    liveIn.add(livingRegister.getRegister());
+                } else {
+                    liveIn.add(i);
+                }
+            }
+
+            HashSet<Register> liveOut = new HashSet<>();
+            for (Register o : out.get(block)) {
+                if (o instanceof Quadruple.LivingRegister) {
+                    Quadruple.LivingRegister livingRegister = (Quadruple.LivingRegister) o;
+                    liveOut.add(livingRegister.getRegister());
+                } else {
+                    liveOut.add(o);
+                }
+            }
+
+            block.setGlobalsInOut(liveIn, liveOut);
         }
     }
 
@@ -326,6 +362,7 @@ public class PostProcessor {
     }
 
     public List<Quadruple> getQuadruples() {
-        return firstBlock.getQuadruplesWithLivingComments();
+        return firstBlock.getQuadruplesFromAllBlocks();
+//        return firstBlock.getQuadruplesWithLivingComments();
     }
 }

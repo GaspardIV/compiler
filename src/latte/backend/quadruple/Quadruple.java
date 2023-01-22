@@ -28,6 +28,19 @@ public class Quadruple {
             this.register = register;
             this.phiBlock = phiBlock;
         }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            LivingRegister that = (LivingRegister) o;
+            return Objects.equals(register, that.register) && Objects.equals(phiBlock, that.phiBlock);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(register, phiBlock);
+        }
     }
 
     public Register result;

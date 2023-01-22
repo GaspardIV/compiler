@@ -6,115 +6,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="livness 0">
-      <change afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Comment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/basic/add.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/add.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/basic/bool_operations.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/bool_operations.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/basic/bool_overoptymization.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/bool_overoptymization.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/basic/compare.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/compare.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/basic/concatenation.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/concatenation.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/basic/empty_if.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/empty_if.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/basic/empty_instructions.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/empty_instructions.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/basic/empty_while.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/empty_while.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/basic/escaped_string.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/escaped_string.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/basic/fibonacci.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/fibonacci.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/basic/fine_ident.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/fine_ident.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/basic/mod.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/mod.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/basic/negation.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/negation.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/basic/print_complicated_string.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/print_complicated_string.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/basic/print_int.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/print_int.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/basic/print_string.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/print_string.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/basic/scopes.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/scopes.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/basic/void_return.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/void_return.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/basic/while_true.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/while_true.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core001.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core001.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core002.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core002.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core003.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core003.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core004.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core004.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core005.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core005.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core006.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core006.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core007.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core007.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core008.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core008.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core009.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core009.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core010.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core010.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core011.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core011.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core012.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core012.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core013.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core013.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core014.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core014.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core015.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core015.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core016.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core016.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core017.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core017.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core018.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core018.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core019.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core019.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core020.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core020.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core021.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core021.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core022.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core022.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core023.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core023.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core024.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core024.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core025.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core025.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core026.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core026.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core027.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core027.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core028.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core028.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core031.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core031.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core032.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core032.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/constexprInIf.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/constexprInIf.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/constexprInWhile.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/constexprInWhile.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core001.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core001.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core002.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core002.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core003.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core003.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core004.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core004.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core005.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core005.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core006.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core006.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core007.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core007.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core008.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core008.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core009.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core009.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core010.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core010.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core011.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core011.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core012.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core012.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core013.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core013.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core014.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core014.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core015.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core015.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core016.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core016.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core017.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core017.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core018.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core018.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core019.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core019.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core020.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core020.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core021.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core021.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core022.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core022.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core023.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core023.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core024.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core024.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core025.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core025.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core026.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core026.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core027.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core027.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core028.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core028.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core031.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core031.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core032.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core032.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core033.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core033.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core034.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core034.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core035.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core035.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/xd.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/xd.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/1.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/1.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/2.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/2.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/3.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/3.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/4.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/4.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/5.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/5.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/6.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/6.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test1.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test1.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test11.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test11.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test2.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test2.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test22.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test22.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test223.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test223.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test3.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test3.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test4.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test4.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test5.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test5.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test6.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test6.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test7.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test7.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test_return_in_if_and_in_else.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test_return_in_if_and_in_else.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test_return_in_if_and_in_error.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test_return_in_if_and_in_error.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/PostProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/PostProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Block.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Register.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -239,32 +135,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path": "/Users/kacperkonecki/IdeaProjects/codingame/compiler/third_party",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "extract.method.default.visibility": "private",
-    "last_opened_file_path": "/Users/kacperkonecki/IdeaProjects/codingame/compiler/lattests/good/my_tests/my_test2",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path&quot;: &quot;/Users/kacperkonecki/IdeaProjects/codingame/compiler/third_party&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/kacperkonecki/IdeaProjects/codingame/compiler/lattests/good/my_tests/my_test2&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
   },
-  "keyToStringList": {
-    "ChangesTree.GroupingKeys": [
+  &quot;keyToStringList&quot;: {
+    &quot;ChangesTree.GroupingKeys&quot;: [
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="latte.backend.quadruple" />
@@ -388,15 +284,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MyTest420" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="compiler" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MyTest420" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="MyTest420.test_02" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
@@ -431,6 +318,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MyTest420.test_07" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="compiler" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MyTest420" />
+      <option name="METHOD_NAME" value="test_07" />
+      <option name="TEST_OBJECT" value="method" />
+      <patterns>
+        <pattern testClass="MyTest420" />
+        <pattern testClass="GoodClassicTest" />
+        <pattern testClass="GoodBasicTest" />
+        <pattern testClass="GoodMyTestsTest" />
+        <pattern testClass="MyTest" />
+      </patterns>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Unnamed" type="ShConfigurationType" nameIsGenerated="true">
       <option name="SCRIPT_TEXT" value="" />
       <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
@@ -451,20 +355,20 @@
       <item itemvalue="Application.Test mytest" />
       <item itemvalue="Application.Test" />
       <item itemvalue="JUnit.All in compiler" />
+      <item itemvalue="JUnit.MyTest420.test_07" />
       <item itemvalue="JUnit.GoodBasicTest.testBool_Overoptymization" />
       <item itemvalue="JUnit.MyTest420.test_02" />
       <item itemvalue="JUnit.MyTest420.test_06" />
-      <item itemvalue="JUnit.MyTest420" />
       <item itemvalue="JUnit.ALLESGOOD" />
       <item itemvalue="Shell Script.Unnamed" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.ALLESGOOD" />
+        <item itemvalue="JUnit.MyTest420.test_07" />
         <item itemvalue="JUnit.MyTest420.test_06" />
         <item itemvalue="JUnit.MyTest420.test_02" />
         <item itemvalue="JUnit.GoodBasicTest.testBool_Overoptymization" />
-        <item itemvalue="JUnit.MyTest420" />
       </list>
     </recent_temporary>
   </component>
@@ -996,6 +900,11 @@
           <url>file://$PROJECT_DIR$/tests/TestUtils.java</url>
           <line>89</line>
           <option name="timeStamp" value="99" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/latte/backend/programvisitors/PostProcessor.java</url>
+          <line>204</line>
+          <option name="timeStamp" value="108" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />
