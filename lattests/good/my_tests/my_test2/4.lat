@@ -1,0 +1,50 @@
+int funkcja (int x) {
+  int i=x;
+  int j=x;
+  if (i<x) {
+    int k;
+    k = i;
+    printInt(k);
+  }
+  int a;
+  a = j;
+  int b;
+  b = a;
+  int c = x;
+
+  int d = j;
+  int e = d;
+  int f = e;
+    int g = f;
+    int h = g;
+    int k = j;
+    printInt(h);
+    printInt(x);
+    printInt(j);
+    printInt(a);
+    printInt(b);
+    printInt(c);
+    printInt(d);
+    printInt(e);
+    printInt(f);
+    printInt(g);
+    printInt(h);
+    printInt(x);
+    printInt(j);
+    printInt(k);
+    printInt(i);
+  return i;
+}
+
+int main () {
+  int x=77;
+
+  int z = funkcja(x);
+  int y = z;
+  printInt(x);
+  printInt(y);
+  printInt(z);
+  x = z;
+  printInt(x);
+  return 0;
+}

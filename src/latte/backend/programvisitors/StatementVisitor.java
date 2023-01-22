@@ -101,9 +101,13 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         Register lastRegister = expr.get(expr.size() - 1).result;
         if (lastRegister.isConst()) {
             if (lastRegister.getConstValue().getBool()) {
-                btrue.setIdentifier(block);
+                entry.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(btrue))));
+                entry.addLastBlock(btrue);
+                btrue.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(btrue))));
                 p.stmt_.accept(this, btrue);
-                block.addQuadruples(btrue.getQuadruplesFromAllBlocks());
+                btrue.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(bend))));
+                btrue.addLastBlock(bend);
+                bend.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(bend))));
                 return null;
             } else {
                 return null;
@@ -144,14 +148,22 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         Register lastRegister = expr.get(expr.size() - 1).getRegister();
         if (lastRegister.isConst()) {
             if (lastRegister.getConstValue().getBool()) {
-                btrue.setIdentifier(block);
+                entry.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(btrue))));
+                entry.addLastBlock(btrue);
+                btrue.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(btrue))));
                 p.stmt_1.accept(this, btrue);
-                block.addQuadruples(btrue.getQuadruplesFromAllBlocks());
+                btrue.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(bend))));
+                btrue.addLastBlock(bend);
+                bend.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(bend))));
                 return null;
             } else {
-                bfalse.setIdentifier(block);
+                entry.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(bfalse))));
+                entry.addLastBlock(bfalse);
+                bfalse.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(bfalse))));
                 p.stmt_2.accept(this, bfalse);
-                block.addQuadruples(bfalse.getQuadruplesFromAllBlocks());
+                bfalse.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(bend))));
+                bfalse.addLastBlock(bend);
+                bend.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(bend))));
                 return null;
             }
         }

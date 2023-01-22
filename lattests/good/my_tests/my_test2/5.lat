@@ -1,0 +1,11 @@
+int funkcja (int x) {
+  int b = 10;
+  if (x == 0) return 1;
+  return x * funkcja(x - 1);
+}
+
+int main() {
+  int a = 5;
+  printInt(funkcja(a));
+  return 0;
+}

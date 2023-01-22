@@ -6,13 +6,13 @@ import latte.backend.program.global.Variable;
 import java.util.*;
 
 public class Block {
-    private String identifier;
+    private final String identifier;
     List<Quadruple> statements;
 
     Block nextBlock;
     private Scope scope;
 
-    private String name;
+    private final String name;
 
     public Block(String contextName, Scope scope) {
         this(contextName, scope, "null");
@@ -126,11 +126,6 @@ public class Block {
         this.scope = scope;
     }
 
-    public void setIdentifier(Block identifier) {
-        this.name = identifier.name;
-        this.identifier = identifier.identifier;
-    }
-
     public List<Quadruple> getQuadruples() {
         return statements;
     }
@@ -141,5 +136,9 @@ public class Block {
 
     public void setQuadruples(List<Quadruple> newStatements) {
         this.statements = newStatements;
+    }
+
+    public void setNextBlock(Block newBlock) {
+        this.nextBlock = newBlock;
     }
 }

@@ -4,20 +4,18 @@ Oddaje kompilator llvm. Bede jeszcze oddawal rozszerzenie kompilatora.
 
 Co zrobilem z optymalizacji:
 - usuwanie martwego kodu (np. if (false) { ... }, kod po returnie, nieużywane zmienne)
-- zwijanie stalych (3 + 5)
+- usuwanie martwego kodu (zmienne ktore nie sa zywe)
+- zwijanie stalych (3 + 5) (5<3)
 - propagacja stalych
-- czesciowa propagacja kopii
-- ssa postac kodu
+- propagacja kopii
+- postac ssa
 
 Czego nie zrobilem a chcialbym w nastepnej wersji
+- jezeli blok ma tylko jednego successora i nie beirze udzialuw phi? to mozna zmergowac bloki
 - lcse
 - gcse (?)
 - klasy
 - tablice
-- usuwanie zbednych phi - bardzo brzydko teraz to wyglada 
-- bezpieczne readstring (?) - uzywam niebezpiecznej funkcji gets()
-- mozna jeszcze poprawic kod skaczacy
-- duzo jeszcze mozna poprawic
 
 
 Kompliacja kompilatora za pomoca polecenia: `make`

@@ -7,7 +7,6 @@ import java.util.*;
 
 public class PostProcessor {
     Block firstBlock;
-    HashSet<Block> existingBlocks = new HashSet<>();
     HashMap<Block, HashSet<Block>> successors = new HashMap<>();
     HashMap<Block, HashSet<Block>> predecessors = new HashMap<>();
     HashMap<Block, Boolean> wasReturn = new HashMap<>();
@@ -20,7 +19,6 @@ public class PostProcessor {
     private void initIfNotYet(Block block) {
         successors.putIfAbsent(block, new HashSet<>());
         predecessors.putIfAbsent(block, new HashSet<>());
-        existingBlocks.add(block);
         wasReturn.putIfAbsent(block, false);
     }
 
@@ -29,6 +27,7 @@ public class PostProcessor {
         if (currentBlock == null) return;
         Block nextBlock = currentBlock;
         while (nextBlock != null) {
+            splitIfBlockContainsOtherBlocks(nextBlock);
             initIfNotYet(nextBlock);
             nextBlock = nextBlock.nextBlock();
         }
@@ -49,11 +48,29 @@ public class PostProcessor {
         }
     }
 
+    private void splitIfBlockContainsOtherBlocks(Block currentBlock) {
+        List<Quadruple> all = currentBlock.getQuadruples();
+        List<Quadruple> res = new ArrayList<>();
+        Block nextOfLastBlock = currentBlock.nextBlock();
+        for (Quadruple quadruple : all) {
+            if (quadruple.op instanceof Quadruple.LLVMOperation.LABEL) {
+                currentBlock.setQuadruples(res);
+                res = new ArrayList<>();
+                Block newBlock = ((Quadruple.LLVMOperation.LABEL) quadruple.op).label;
+                if (currentBlock != newBlock) {
+                    currentBlock.setNextBlock(newBlock);
+                }
+                currentBlock = newBlock;
+            }
+            res.add(quadruple);
+        }
+        currentBlock.setQuadruples(res);
+        currentBlock.setNextBlock(nextOfLastBlock);
+    }
+
     private void addEdge(Block currentBlock, Block successor) {
-        if (existingBlocks.contains(successor) && existingBlocks.contains(currentBlock)) {
             successors.get(currentBlock).add(successor);
             predecessors.get(successor).add(currentBlock);
-        }
     }
 
     public void removeJumpsToNonExistentBlocks() {
@@ -87,10 +104,8 @@ public class PostProcessor {
     }
 
     private void removeEdge(Block block, Block destination) {
-        if (existingBlocks.contains(block) && existingBlocks.contains(destination)) {
             successors.get(block).remove(destination);
             predecessors.get(destination).remove(block);
-        }
     }
 
     private Set<Block> getExistingBlocks(List<Quadruple> all) {
@@ -112,17 +127,20 @@ public class PostProcessor {
                 block = ((Quadruple.LLVMOperation.LABEL) quadruple.op).label;
             } else if (quadruple.op instanceof Quadruple.LLVMOperation.PHI) {
                 Quadruple.LLVMOperation.PHI phiOp = (Quadruple.LLVMOperation.PHI) quadruple.op;
-                if (existingBlocks.contains(block) && existingBlocks.contains(phiOp.block1) && (!predecessors.get(block).contains(phiOp.block1) || !existingBlocks.contains(phiOp.block1))) {
-                    phiOp.block1 = null;
+                if ((!predecessors.get(block).contains(phiOp.block1) || !existingBlocks2.contains(phiOp.block1))) {
+                    quadruple.getRegister().setOverride(phiOp.register2);
+                    quadruple.op = null;
                 }
-                if (existingBlocks.contains(block) && existingBlocks.contains(phiOp.block2) && (!predecessors.get(block).contains(phiOp.block2) || !existingBlocks2.contains(phiOp.block2))) {
-                    phiOp.block2 = null;
+                if ((!predecessors.get(block).contains(phiOp.block2) || !existingBlocks2.contains(phiOp.block2))) {
+                    quadruple.getRegister().setOverride(phiOp.register1);
+                    quadruple.op = null;
                 }
             }
         }
     }
 
     public void process() {
+        removeEmptyBlocks(firstBlock);
         removeAfterReturn();
         removeEmptyBlocks(firstBlock);
         removeJumpsToNonExistentBlocks();

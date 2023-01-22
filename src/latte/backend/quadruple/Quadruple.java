@@ -286,49 +286,34 @@ public class Quadruple {
 
         public static class PHI extends LLVMOperation {
             public Block block2;
-            private final Register register;
+            public final Register register1;
 
             public Block block1;
-            private final Register oldsRegister;
+            public final Register register2;
 
             public PHI(Register oldsRegister, Block entry, Register register, Block block2) {
-                this.oldsRegister = oldsRegister;
+                this.register1 = oldsRegister;
                 this.block1 = entry;
-                this.register = register;
+                this.register2 = register;
                 this.block2 = block2;
             }
 
             @Override
             public String toString() {
-                StringBuilder sb = new StringBuilder();
-                if (block1 != null || block2 != null) {
-                    sb.append("phi " + register.getLLVMType());
-                }
-                if (block1 != null) {
-                    sb.append(" [" + oldsRegister.toString() + ", %" + block1.getIdentifier() + "]");
-                }
-                if (block1 != null && block2 != null) {
-                    sb.append(",");
-                }
-                if (block2 != null) {
-                    sb.append(" [" + register + ", %" + block2.getIdentifier() + "]");
-                }
-                return sb.toString();
+                return "phi " + register1.getLLVMType() + " [" + register1.toString() + ", %" + block1.getIdentifier() + "], [" + register2.toString() + ", %" + block2.getIdentifier() + "]";
+
             }
         }
 
-        public static class BOOL_PHI extends LLVMOperation {
-            private final String btrue;
-            private final String bfalse;
+        public static class BOOL_PHI extends PHI {
 
-            public BOOL_PHI(String identifier, String identifier1) {
-                this.btrue = identifier;
-                this.bfalse = identifier1;
+            public BOOL_PHI(Block identifier, Block identifier1) {
+                super(null, identifier, null, identifier1);
             }
 
             @Override
             public String toString() {
-                return "phi i1 [true, %" + btrue + "], [false, %" + bfalse + "]";
+                return "phi i1 [true, %" + block1.getIdentifier() + "], [false, %" + block2.getIdentifier() + "]";
             }
         }
 

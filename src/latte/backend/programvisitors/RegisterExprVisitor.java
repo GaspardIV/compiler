@@ -40,7 +40,7 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block>
             bfalse.addLastBlock(bend);
 
             bend.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(bend))));
-            Quadruple phi = new Quadruple(new Register(block.getRegisterNumber(TMP), new Bool()), new Quadruple.LLVMOperation.BOOL_PHI(btrue.getIdentifier(), bfalse.getIdentifier()));
+            Quadruple phi = new Quadruple(new Register(block.getRegisterNumber(TMP), new Bool()), new Quadruple.LLVMOperation.BOOL_PHI(btrue, bfalse));
             bend.addQuadruplesToLastBlock(Collections.singletonList(phi));
             return resultBlock.getQuadruplesFromAllBlocks();
         } else {
