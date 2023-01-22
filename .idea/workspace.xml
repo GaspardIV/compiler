@@ -5,608 +5,116 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="Prepare PostProcessor">
-      <change afterPath="$PROJECT_DIR$/lattests/good/arrays/array_length.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/arrays/array_new.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/arrays/array_read.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/arrays/array_read.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/arrays/array_string.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/arrays/heapsort.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/basic/add.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/basic/add.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/basic/bool_operations.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/basic/bool_operations.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/basic/bool_overoptymization.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/basic/bool_overoptymization.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/basic/compare.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/basic/compare.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/basic/concatenation.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/basic/concatenation.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/basic/empty_if.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/basic/empty_if.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/basic/empty_instructions.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/basic/empty_instructions.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/basic/empty_while.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/basic/empty_while.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/basic/escaped_string.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/basic/escaped_string.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/basic/fibonacci.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/basic/fibonacci.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/basic/fine_ident.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/basic/fine_ident.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/basic/mod.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/basic/mod.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/basic/negation.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/basic/negation.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/basic/print_complicated_string.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/basic/print_complicated_string.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/basic/print_int.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/basic/print_int.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/basic/print_string.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/basic/print_string.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/basic/scopes.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/basic/scopes.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/basic/void_return.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/basic/void_return.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/basic/while_true.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/basic/while_true.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core001.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core001.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core002.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core002.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core003.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core003.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core004.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core004.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core005.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core005.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core006.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core006.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core007.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core007.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core008.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core008.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core009.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core009.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core010.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core010.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core011.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core011.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core012.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core012.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core013.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core013.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core014.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core014.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core015.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core015.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core016.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core016.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core017.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core017.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core018.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core018.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core019.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core019.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core020.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core020.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core021.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core021.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core022.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core022.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core023.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core023.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core024.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core024.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core025.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core025.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core026.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core026.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core027.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core027.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core028.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core028.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core031.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core031.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core032.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classic/core032.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/extensions/arrays1/array001.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/extensions/arrays1/array002.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/extensions/objects1/counter.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/extensions/objects1/linked.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/extensions/objects1/points.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/extensions/objects1/queue.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/extensions/objects2/shapes.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/extensions/struct/list.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/gr5/bfs.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/gr5/calculator.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/gr5/heapsort2.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/gr5/lista2Kierunkowa.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/gr5/mergeSort.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/hardcore/big_string.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/hardcore/big_string.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/hardcore/tail_call_optymization.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/hardcore/tail_call_optymization.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/constexprInIf.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/constexprInIf.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/constexprInIf.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/constexprInIf.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/constexprInIf.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/constexprInWhile.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/constexprInWhile.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/constexprInWhile.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/constexprInWhile.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/constexprInWhile.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core001.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core001.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core001.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core001.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core001.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core002.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core002.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core002.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core002.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core002.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core003.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core003.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core003.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core003.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core003.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core004.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core004.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core004.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core004.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core004.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core005.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core005.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core005.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core005.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core005.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core006.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core006.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core006.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core006.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core006.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core007.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core007.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core007.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core007.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core007.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core008.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core008.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core008.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core008.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core008.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core009.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core009.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core009.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core009.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core009.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core010.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core010.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core010.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core010.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core010.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core011.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core011.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core011.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core011.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core011.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core012.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core012.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core012.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core012.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core012.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core013.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core013.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core013.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core013.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core013.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core014.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core014.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core014.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core014.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core014.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core015.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core015.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core015.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core015.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core015.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core016.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core016.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core016.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core016.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core016.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core017.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core017.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core017.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core017.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core017.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core018.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core018.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core018.input" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core018.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core018.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core018.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core019.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core019.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core019.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core019.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core019.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core020.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core020.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core020.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core020.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core020.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core021.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core021.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core021.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core021.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core021.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core022.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core022.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core022.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core022.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core022.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core023.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core023.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core023.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core023.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core023.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core024.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core024.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core024.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core024.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core024.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core025.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core025.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core025.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core025.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core025.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core026.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core026.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core026.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core026.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core026.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core027.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core027.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core027.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core027.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core027.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core028.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core028.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core028.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core028.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core028.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core030.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core031.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core031.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core031.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core031.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core031.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core032.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core032.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core032.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core032.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core032.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core033.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core033.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core033.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core033.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core033.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core034.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core034.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core034.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core034.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core034.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core035.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core035.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core035.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core035.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core035.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/xd.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/xd.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/xd.input" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/xd.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/1.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/1.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/2.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/2.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/3.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/3.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/4.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/4.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/4.llcode" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/4.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/5.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/5.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/5.llcode" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/5.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/6.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/6.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/6.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/6.llcode" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/6.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/7.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/test1.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/test1.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/test11.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/test11.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/test11.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/test11.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/test11.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/test2.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/test2.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/test22.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/test22.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/test223.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/test223.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/test3.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/test3.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/test4.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/test4.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/test5.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/test5.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/test6.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/test6.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/test7.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/test7.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/test_return_in_if_and_in_else.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/test_return_in_if_and_in_else.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/test_return_in_if_and_in_error.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/test_return_in_if_and_in_error.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/array_length_attribute.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_array_array.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_array_null.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_bool_bool.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_class_class.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_class_class_up.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_class_null.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_int_int.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_string_string.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_arr_elem_array.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_arr_elem_null.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_fcall_array.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_fcall_null.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_mcall_array.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_mcall_null.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_new_class_array.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_new_class_null.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_of_field_array.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_of_field_null.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_bool_arr_elem_bool.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_bool_fcall_bool.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_bool_mcall_bool.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_bool_new_class_bool.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_bool_of_field_bool.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_arr_elem_class.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_arr_elem_class_up.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_arr_elem_null.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_fcall_class.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_fcall_class_up.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_fcall_null.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_mcall_class.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_mcall_class_up.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_mcall_null.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_new_class_class.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_new_class_class_up.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_new_class_null.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_of_field_class.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_of_field_class_up.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_of_field_null.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_int_arr_elem_int.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_int_fcall_int.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_int_mcall_int.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_int_new_class_int.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_int_of_field_int.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_string_arr_elem_string.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_string_fcall_string.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_string_mcall_string.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_string_new_class_string.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_string_of_field_string.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_var_array_array.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_var_array_null.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_var_bool_bool.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_var_bool_bool.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_var_class_class.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_var_class_class_up.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_var_class_null.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_var_int_int.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_var_int_int.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_var_string_string.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_var_string_string.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/bool_negation.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/bool_negation.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/braid.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/braid.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/casting.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/class_overriding_method.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/class_overriding_method.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/common_expressions.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/dead_code_cyclic_unreachable_component.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/dead_code_cyclic_unreachable_component.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/decl_init_use_var_from_the_same_decl.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/decl_init_use_var_from_the_same_decl.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/decr_arr_elem_int.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/decr_arr_elem_int.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/decr_field_int_arr_elem.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/decr_field_int_fcall.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/decr_field_int_mcall.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/decr_field_int_new_class.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/decr_field_int_of_field.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/decr_var_int.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/decr_var_int.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/error.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/for_int_over_array.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/for_int_over_array.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/for_iter_base_class_over_derived_class.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/for_iter_shadowing.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/func_call_arg_array.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/func_call_arg_bool.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/func_call_arg_bool.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/func_call_arg_class.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/func_call_arg_conversion_class_to_class_up.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/func_call_arg_conversion_null_to_array.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/func_call_arg_conversion_null_to_class.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/func_call_arg_int.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/func_call_arg_int.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/func_call_arg_string.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/func_call_arg_string.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/func_call_builtin_function.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/func_call_other_method.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/if_cond_bool.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/if_cond_bool.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/if_else_cond_bool.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/if_else_cond_bool.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/if_else_shadowing.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/if_else_shadowing.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/if_shadowing.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/if_shadowing.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/incr_arr_elem_int.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/incr_field_int_arr_elem.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/incr_field_int_fcall.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/incr_field_int_mcall.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/incr_field_int_new_class.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/incr_field_int_of_field.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/incr_var_int.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/incr_var_int.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/int_negation.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/int_negation.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/laziness_binop_or_and_binop_and.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/method_and_field_access_on_derived_class.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/method_call_arg_array.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/method_call_arg_bool.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/method_call_arg_class.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/method_call_arg_conversion_class_to_class_up.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/method_call_arg_conversion_null_to_array.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/method_call_arg_conversion_null_to_class.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/method_call_arg_int.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/method_call_arg_string.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/method_call_should_own_obj.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/method_shadows_builtin_function.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/method_shadows_builtin_function.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/method_shadows_global_function.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/method_shadows_global_function.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/new_array.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/new_array_length.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/new_array_subscript.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/new_class_field_and_method.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/null_cast_to_class.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/null_cast_to_class_array.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/null_cast_to_int_array.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/param_passing_func_array.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/param_passing_func_bool.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/param_passing_func_bool.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/param_passing_func_class.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/param_passing_func_class_derived.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/param_passing_func_int.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/param_passing_func_int.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/param_passing_func_str.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/param_passing_func_str.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/param_passing_method_array.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/param_passing_method_bool.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/param_passing_method_class.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/param_passing_method_class_derived.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/param_passing_method_int.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/param_passing_method_str.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/read_string.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/read_string.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/read_string_empty_file.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/read_string_empty_file.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/read_string_newline_before_eof.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/read_string_newline_before_eof.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/read_string_no_newline_before_eof.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/read_string_no_newline_before_eof.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/self.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/tricky_for_loop.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/tricky_string_copy.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/tricky_string_copy.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/unary_ops.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/unary_ops.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/var_decl_init.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/var_decl_no_init.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/var_namespace_vs_function_namespace.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/var_namespace_vs_function_namespace.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/variable_binds_to_argument.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/variable_binds_to_argument.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/variable_binds_to_field.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/variable_binds_to_field.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/variable_binds_to_inherited_field.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/variable_binds_to_inherited_field.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/virtual_methods.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/void_return.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/void_return.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/while_body_decl.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/while_cond_bool.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/while_cond_bool.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/array_negative_subscript.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/array_subscript_null_array.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/bin_op_and_left_side_always_false.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/bin_op_and_left_side_always_false.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/bin_op_and_left_side_always_true_right_side_always_false.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/bin_op_and_left_side_always_true_right_side_always_false.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/bin_op_and_unknown_right_side_always_false.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/bin_op_and_unknown_right_side_always_false.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/bin_op_or_left_side_always_false_right_side_always_true.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/bin_op_or_left_side_always_false_right_side_always_true.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/bin_op_or_left_side_always_true.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/bin_op_or_left_side_always_true.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/bin_op_or_unknown_right_side_always_true.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/bin_op_or_unknown_right_side_always_true.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/binop_and_left_side_false.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/binop_and_left_side_false.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/binop_and_right_side_false.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/binop_and_right_side_false.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/binop_and_right_side_true.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/binop_and_right_side_true.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/binop_or_left_side_true.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/binop_or_left_side_true.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/binop_or_right_side_false.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/binop_or_right_side_false.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/binop_or_right_side_true.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/binop_or_right_side_true.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_after_error.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_after_error.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_after_if_else.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_after_if_else_nested.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_after_if_false.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_after_if_true.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_after_return.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_after_void_return.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_after_while_true.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_if_false.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_if_true.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_if_true.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_in_for_after_error.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_in_for_after_return.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_in_for_after_void_return.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_in_for_after_while_true.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_in_while_after_error.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_in_while_after_return.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_in_while_after_void_return.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_while_cond_always_false.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_while_cond_always_false.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/for_runs_at_most_once_because_error.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/for_runs_at_most_once_because_return.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/for_runs_at_most_once_because_void_return.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/for_runs_at_most_once_because_void_return.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/for_runs_at_most_once_because_while_true.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/method_call_on_null_class.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/new_array_negative_size.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/null_array_length.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/null_class_field.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/while_runs_at_most_once_because_error.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/while_runs_at_most_once_because_error.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/while_runs_at_most_once_because_return.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/while_runs_at_most_once_because_return.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/while_runs_at_most_once_because_void_return.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/while_runs_at_most_once_because_while_true.bc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/while_runs_at_most_once_because_while_true.ll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/virtual/polymorphism.ll" afterDir="false" />
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="livness 0">
+      <change afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Comment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/basic/add.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/add.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/basic/bool_operations.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/bool_operations.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/basic/bool_overoptymization.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/bool_overoptymization.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/basic/compare.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/compare.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/basic/concatenation.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/concatenation.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/basic/empty_if.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/empty_if.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/basic/empty_instructions.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/empty_instructions.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/basic/empty_while.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/empty_while.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/basic/escaped_string.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/escaped_string.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/basic/fibonacci.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/fibonacci.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/basic/fine_ident.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/fine_ident.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/basic/mod.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/mod.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/basic/negation.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/negation.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/basic/print_complicated_string.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/print_complicated_string.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/basic/print_int.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/print_int.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/basic/print_string.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/print_string.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/basic/scopes.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/scopes.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/basic/void_return.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/void_return.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/basic/while_true.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/while_true.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core001.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core001.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core002.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core002.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core003.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core003.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core004.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core004.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core005.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core005.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core006.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core006.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core007.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core007.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core008.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core008.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core009.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core009.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core010.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core010.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core011.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core011.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core012.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core012.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core013.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core013.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core014.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core014.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core015.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core015.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core016.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core016.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core017.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core017.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core018.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core018.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core019.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core019.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core020.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core020.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core021.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core021.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core022.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core022.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core023.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core023.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core024.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core024.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core025.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core025.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core026.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core026.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core027.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core027.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core028.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core028.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core031.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core031.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core032.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core032.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/constexprInIf.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/constexprInIf.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/constexprInWhile.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/constexprInWhile.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core001.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core001.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core002.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core002.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core003.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core003.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core004.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core004.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core005.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core005.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core006.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core006.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core007.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core007.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core008.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core008.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core009.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core009.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core010.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core010.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core011.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core011.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core012.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core012.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core013.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core013.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core014.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core014.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core015.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core015.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core016.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core016.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core017.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core017.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core018.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core018.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core019.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core019.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core020.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core020.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core021.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core021.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core022.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core022.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core023.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core023.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core024.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core024.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core025.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core025.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core026.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core026.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core027.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core027.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core028.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core028.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core031.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core031.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core032.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core032.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core033.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core033.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core034.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core034.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core035.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core035.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/xd.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/xd.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/1.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/1.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/2.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/2.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/3.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/3.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/4.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/4.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/5.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/5.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/6.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/6.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test1.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test1.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test11.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test11.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test2.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test2.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test22.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test22.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test223.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test223.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test3.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test3.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test4.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test4.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test5.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test5.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test6.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test6.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test7.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test7.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test_return_in_if_and_in_else.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test_return_in_if_and_in_else.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test_return_in_if_and_in_error.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test_return_in_if_and_in_error.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/PostProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/PostProcessor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Block.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Register.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -639,7 +147,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="0a094f9b7d1bfd89ee547cf93dfd233af6cdaed2" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -759,9 +267,9 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="latte.backend.quadruple" />
       <recent name="latte.frontend.visitors" />
       <recent name="latte.backend.programvisitors" />
-      <recent name="latte.backend.quadruple" />
       <recent name="latte.frontend.visitors.programvisitors" />
       <recent name="latte.backend.program.global.function" />
     </key>
@@ -1018,14 +526,7 @@
       <workItem from="1674113835324" duration="1397000" />
       <workItem from="1674160558966" duration="10027000" />
       <workItem from="1674202517911" duration="11177000" />
-      <workItem from="1674247550816" duration="50951000" />
-    </task>
-    <task id="LOCAL-00050" summary="mmakefile right bnfc">
-      <created>1670542941496</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1670542941496</updated>
+      <workItem from="1674247550816" duration="54934000" />
     </task>
     <task id="LOCAL-00051" summary="zaczety backend">
       <created>1670576306249</created>
@@ -1363,7 +864,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674347708259</updated>
     </task>
-    <option name="localTasksCounter" value="99" />
+    <task id="LOCAL-00099" summary="livness 0">
+      <created>1674387845463</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1674387845463</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1429,7 +937,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="35/50 - testowanie z inputem" />
     <MESSAGE value="choice i generowanie pliku" />
     <MESSAGE value="choice i generowanie pliku  36" />
     <MESSAGE value="cos nie do konca tak" />
@@ -1454,7 +961,8 @@
     <MESSAGE value="Ignore tests" />
     <MESSAGE value="Remove not needed phi variable" />
     <MESSAGE value="Prepare PostProcessor" />
-    <option name="LAST_COMMIT_MESSAGE" value="Prepare PostProcessor" />
+    <MESSAGE value="livness 0" />
+    <option name="LAST_COMMIT_MESSAGE" value="livness 0" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -10,6 +10,26 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class Quadruple {
+    public static class LivingRegister extends Register {
+        public Register getRegister() {
+            return register;
+        }
+
+        Register register;
+
+        public Block getPhiBlock() {
+            return phiBlock;
+        }
+
+        Block phiBlock;
+
+        public LivingRegister(Register register, Block phiBlock) {
+            super();
+            this.register = register;
+            this.phiBlock = phiBlock;
+        }
+    }
+
     public Register result;
     public LLVMOperation op;
 
@@ -56,7 +76,7 @@ public class Quadruple {
         if (op == null) {
             return new ArrayList<>();
         }
-        return op.getUsedRegisters().stream().filter(r -> !r.isConst()).collect(Collectors.toList());
+        return op.getUsedRegisters().stream().filter(r -> (!r.isConst() || r instanceof LivingRegister)).collect(Collectors.toList());
     }
 
     public boolean hasSideEffects() {
@@ -469,7 +489,9 @@ public class Quadruple {
 
             @Override
             public Collection<Register> getUsedRegisters() {
-                return Arrays.asList(register1, register2);
+//                return Collections.emptyList();
+                return Arrays.asList(new LivingRegister(register1, block1), new LivingRegister(register2, block2));
+//                return Arrays.asList(register1, register2);
             }
 
             @Override

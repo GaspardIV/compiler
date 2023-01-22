@@ -16,6 +16,10 @@ public class Register  {
         type = type_;
     }
 
+    public Register() {
+        return;
+    }
+
     // Constructor for empty registers holding const value
     //
     public Register(String name_, Type type_, ConstValue constValue) {

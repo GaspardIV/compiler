@@ -54,6 +54,27 @@ public class Block {
         return quadruples;
     }
 
+    public List<Quadruple> getQuadruplesWithLivingComments() {
+        List<Quadruple> quadruples = new ArrayList<>();
+        for (Quadruple quadruple : statements) {
+            if (liveIn.containsKey(quadruple)) {
+                HashSet<Register> liveRegisters = liveIn.get(quadruple);
+                if (quadruple.toString() != "") {
+                    String comment = "Live registers: ";
+                    for (Register register : liveRegisters) {
+                        comment += register.toString() + " ";
+                    }
+                    quadruples.add(new Comment(comment));
+                }
+            }
+            quadruples.add(quadruple);
+        }
+        if (nextBlock != null) {
+            quadruples.addAll(nextBlock.getQuadruplesWithLivingComments());
+        }
+        return quadruples;
+    }
+
     public Block getLastBlock() {
         if (nextBlock != null) {
             return nextBlock.getLastBlock();

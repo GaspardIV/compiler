@@ -205,7 +205,16 @@ public class PostProcessor {
                 out0.put(block, new HashSet<>(out.get(block)));
 
                 HashSet<Register> blockKillVariables = new HashSet<>(block.getDefinedRegisters());
-                HashSet<Register> blockUseVariables = new HashSet<>(block.getUsedRegisters());
+//                HashSet<Register> blockUseVariables = new HashSet<>(block.getUsedRegisters());
+                HashSet<Register> blockUseVariables = new HashSet<>();
+                for (Register register : block.getUsedRegisters()) {
+                    if (register instanceof Quadruple.LivingRegister) {
+                        blockUseVariables.add(((Quadruple.LivingRegister) register).getRegister());
+                    } else {
+                        blockUseVariables.add(register);
+                    }
+
+                }
 
                 HashSet<Register> blockInVariables = new HashSet<>(blockUseVariables);
                 blockInVariables.addAll(out.get(block));
@@ -233,6 +242,8 @@ public class PostProcessor {
     private void calculateLocalLiveInLiveOut(Block block) {
         HashSet<Register> lives = new HashSet<>(block.getGlobalsOut());
 
+        HashMap<Quadruple, HashSet<Register>> liveIn = new HashMap<>();
+
         for (int i = block.getQuadruples().size() - 1; i >= 0; i--) {
             Quadruple quadruple = block.getQuadruples().get(i);
             if (quadruple.hasSideEffects() || lives.contains(quadruple.getRegister())) {
@@ -241,10 +252,12 @@ public class PostProcessor {
             } else {
                 quadruple.op = null;
             }
+            liveIn.put(quadruple, new HashSet<>(lives));
+
         }
 //        Quadruple last = block.getQuadruples().get(block.getQuadruples().size() - 1);
 //        liveOut.put(last, new HashSet<>());
-//        block.setLocalLiveIn(liveIn);
+        block.setLocalLiveIn(liveIn);
 //        block.setLocalLiveOut(liveOut);
     }
 
@@ -313,6 +326,6 @@ public class PostProcessor {
     }
 
     public List<Quadruple> getQuadruples() {
-        return firstBlock.getQuadruplesFromAllBlocks();
+        return firstBlock.getQuadruplesWithLivingComments();
     }
 }
