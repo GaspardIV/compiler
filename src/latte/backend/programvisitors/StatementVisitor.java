@@ -41,16 +41,27 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
 
     @Override
     public Block visit(Ass p, Block block) {
-        List<Quadruple> left = p.expr_1.accept(new RegisterExprVisitor(), block);
-        Register leftLastRegister = left.get(left.size() - 1).result;
-        Variable variable = leftLastRegister.getVariable();
-        List<Quadruple> right = new RegisterExprVisitor().generateExprCode(p.expr_2, block);
-        List<Quadruple> res = new ArrayList<>(right);
-        Register rightLastRegister = right.get(right.size() - 1).result;
-        rightLastRegister.setVariable(variable);
-        PhiManager.getInstance().markVariableAsRedefined(block.getScope(), variable);
-        block.getScope().setLastVariableRegister(variable, rightLastRegister);
-        block.addQuadruples(res);
+        RegisterExprVisitor registerExprVisitor = new RegisterExprVisitor();
+        if (p.expr_1 instanceof EField) {
+            registerExprVisitor.loadField = false;
+            List<Quadruple> left = p.expr_1.accept(registerExprVisitor, block);
+            List<Quadruple> right = new RegisterExprVisitor().generateExprCode(p.expr_2, block);
+            List<Quadruple> res = new ArrayList<>(left);
+            res.addAll(right);
+            res.add(new Quadruple(null, new Quadruple.LLVMOperation.STORE(right.get(right.size() - 1).result, left.get(left.size() - 1).result)));
+            block.addQuadruples(res);
+        } else {
+            List<Quadruple> left = p.expr_1.accept(registerExprVisitor, block);
+            Register leftLastRegister = left.get(left.size() - 1).result;
+            Variable variable = leftLastRegister.getVariable();
+            List<Quadruple> right = new RegisterExprVisitor().generateExprCode(p.expr_2, block);
+            List<Quadruple> res = new ArrayList<>(right);
+            Register rightLastRegister = right.get(right.size() - 1).result;
+            rightLastRegister.setVariable(variable);
+            PhiManager.getInstance().markVariableAsRedefined(block.getScope(), variable);
+            block.getScope().setLastVariableRegister(variable, rightLastRegister);
+            block.addQuadruples(res);
+        }
         return null;
     }
 

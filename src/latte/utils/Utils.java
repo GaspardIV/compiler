@@ -98,7 +98,7 @@ public class Utils {
                     "}\n");
             output.append("\n");
         }
-        if (global.useConcat || global.useReadString) {
+        if (global.useConcat || global.useReadString || global.useMalloc) {
             output.append("declare i8* @malloc(i32)\n");
         }
         if (global.useConcat) {
@@ -258,17 +258,24 @@ public class Utils {
         }
     }
 
-    public static String defaultValue(Type type_) {
+    public static Expr defaultValue(Type type) {
+        Expr defaultValue = type.equals(new Int()) ? new ELitInt(0) : type.equals(new Bool()) ? new ELitFalse() : (type instanceof Class) ? new ENull(((Class) type).ident_) : new EString("");
+        return defaultValue;
+    }
+
+    public static int getLLVMTypeSize(Type type_) {
         if (type_ instanceof Int) {
-            return "0";
+            return 4;
         } else if (type_ instanceof Bool) {
-            return "false";
-        } else if (type_ instanceof Str) {
-            return "\"\"";
+            return 1;
         } else if (type_ instanceof Class) {
-            return "null";
+            return 8;
+        } else if (type_ instanceof Array) {
+            return 8;
+        } else if (type_ instanceof Str) {
+            return 8;
         } else {
-            return "";
+            return 0;
         }
     }
 }

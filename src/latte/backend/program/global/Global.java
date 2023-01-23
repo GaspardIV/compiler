@@ -1,5 +1,6 @@
 package latte.backend.program.global;
 
+import latte.Internal.ClField;
 import latte.Internal.LatteClass;
 import latte.backend.program.global.classes.LLVMClass;
 import latte.utils.Utils;
@@ -9,6 +10,7 @@ import java.util.Map;
 
 public class Global extends Scope {
 
+    public boolean useMalloc = false;
     private Map<String, LatteClass> classDefs;
 
     public Global(String contextName, Scope parent) {
@@ -40,6 +42,14 @@ public class Global extends Scope {
     public static Global reset() {
         instance = null;
         return getInstance();
+    }
+
+    public static int getClassSize(String ident_) {
+        int sum = 0;
+        for (ClField field : getInstance().classDefs.get(ident_).getFields()) {
+            sum += Utils.getLLVMTypeSize(field.type_);
+        }
+        return sum;
     }
 
     public void markIfRuntimeFunction(String name) {

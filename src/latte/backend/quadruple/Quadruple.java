@@ -556,14 +556,18 @@ public class Quadruple {
         }
 
         public static class ALLOCA extends LLVMOperation {
-            private final Type type;
-            public ALLOCA(Type type) {
-                this.type = type;
+            private final int size;
+
+
+            public ALLOCA(int size) {
+                Global.getInstance().useMalloc = true;
+                this.size = size;
             }
 
             @Override
             public String toString() {
-                return "alloca " + Utils.getLLVMType(type).replace("*", "");
+//                return "alloca " + Utils.getLLVMType(type).replace("*", "");
+                return "call i8* @malloc(i32 " + size*7 + ")";
             }
 
             @Override
@@ -577,28 +581,6 @@ public class Quadruple {
             }
         }
 
-        public static class NULL extends LLVMOperation {
-            private final Class type;
-
-            public NULL(Class type) {
-                this.type = type;
-            }
-
-            @Override
-            public String toString() {
-                return "bitcast i32* null to "+Utils.getLLVMType(type);
-            }
-
-            @Override
-            public Collection<Register> getUsedRegisters() {
-                return Collections.emptyList();
-            }
-
-            @Override
-            public boolean hasSideEffects() {
-                return true;
-            }
-        }
 
         public static class CALL_CONSTRUCTOR extends LLVMOperation {
             private final Register register;
@@ -611,7 +593,7 @@ public class Quadruple {
 
             @Override
             public String toString() {
-                return "call void @"+ LLVMClassConstructor.construtorName(type.ident_) + "(" + Utils.getLLVMType(type) + " " + register + ")";
+                return "call void @" + LLVMClassConstructor.construtorName(type.ident_) + "(" + Utils.getLLVMType(type) + " " + register + ")";
             }
 
             @Override
@@ -627,19 +609,18 @@ public class Quadruple {
 
         public static class GET_FIELD extends LLVMOperation {
             private final Register register;
-            private final Type classType;
             private final int index;
 
 
-            public GET_FIELD(Register register, Type classType, int index) {
+            public GET_FIELD(Register register, int index) {
                 this.register = register;
-                this.classType = classType;
                 this.index = index;
             }
 
             @Override
             public String toString() {
-                return "getelementptr inbounds " + Utils.getLLVMType(classType).replace("*", "") + ", " + Utils.getLLVMType(classType) + " " + register + ", i32 0, i32 " + index;
+                String withoutStar = register.getLLVMType().replace("*", "");
+                return "getelementptr " + withoutStar + ", " + withoutStar + "* " + register + ", i32 0, i32 " + index;
             }
 
             @Override
@@ -662,7 +643,81 @@ public class Quadruple {
 
             @Override
             public String toString() {
-                return "load " + register.getLLVMType() + ", " + register.getLLVMType()  + "* " + register;
+                return "load " + register.getLLVMType() + ", " + register.getLLVMType() + "* " + register;
+            }
+
+            @Override
+            public Collection<Register> getUsedRegisters() {
+                return Collections.singletonList(register);
+            }
+
+            @Override
+            public boolean hasSideEffects() {
+                return true;
+            }
+        }
+
+        public static class STORE extends LLVMOperation {
+            private final Register register1;
+            private final Register register2;
+
+            public STORE(Register register1, Register register2) {
+                this.register1 = register1;
+                this.register2 = register2;
+            }
+
+            @Override
+            public String toString() {
+                String withoutStar = register1.getLLVMType();
+                return "\tstore " + withoutStar + " " + register1 + ", " + withoutStar + "* " + register2;
+            }
+
+            @Override
+            public Collection<Register> getUsedRegisters() {
+                return Arrays.asList(register1, register2);
+            }
+
+            @Override
+            public boolean hasSideEffects() {
+                return true;
+            }
+        }
+
+        public static class NULL extends LLVMOperation {
+            private final Class type;
+
+            public NULL(Class type) {
+                this.type = type;
+            }
+
+            @Override
+            public String toString() {
+                return "bitcast i32* null to " + Utils.getLLVMType(type);
+            }
+
+            @Override
+            public Collection<Register> getUsedRegisters() {
+                return Collections.emptyList();
+            }
+
+            @Override
+            public boolean hasSideEffects() {
+                return false;
+            }
+        }
+
+        public static class BITCAST extends LLVMOperation {
+            private final Register register;
+            private final Class type;
+
+            public BITCAST(Register register, Class type) {
+                this.register = register;
+                this.type = type;
+            }
+
+            @Override
+            public String toString() {
+                return "bitcast " + register.getLLVMType() + " " + register + " to " + Utils.getLLVMType(type);
             }
 
             @Override

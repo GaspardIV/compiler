@@ -1,23 +1,21 @@
 class Foo {
-    int GetLength()
-    {
-        return length;
-    }
+    Foo next;
+    int label;
+}
 
-    void SetLength(int value)
-    {
-        length = value;
-    }
-
-    int length;
+Foo main2() {
+   Foo foo2 = new Foo;
+   foo2.label = 2;
+   foo2.next = new Foo;
+   foo2.next.label = 3;
+   printInt(foo2.label);
+    printInt(foo2.next.label);
+   return foo2;
 }
 
 int main() {
-    Foo foo;
-    if (foo == (Foo)null) {
-        foo = new Foo;
-        int x = foo.length;
-        printInt(x);
-    }
+    Foo foo = main2();
+    printInt(foo.label);
+    printInt(foo.next.label);
     return 0;
 }

@@ -113,7 +113,11 @@ public class Block {
     }
 
     public String getRegisterNumber(String tmp) {
-        return scope.getCurrentFunction().getNewIdentUseNumber(tmp);
+        if (scope.getCurrentFunction() != null) {
+            return scope.getCurrentFunction().getNewIdentUseNumber(tmp);
+        } else {
+            return tmp;
+        }
     }
 
     public void addQuadruple(Quadruple quadruple) {

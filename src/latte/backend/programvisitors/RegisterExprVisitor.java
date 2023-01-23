@@ -92,10 +92,16 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block>
     public List<Quadruple> visit(ENew p, Block block) {
         List<Quadruple> result = new ArrayList<>();
         Class type = new Class(p.ident_);
-        Register register = new Register(block.getRegisterNumber(TMP), type);
-        result.add(new Quadruple(register, new Quadruple.LLVMOperation.ALLOCA(type)));
-        result.add(new Quadruple(new Register(block.getRegisterNumber(TMP), new Void()), new Quadruple.LLVMOperation.CALL_CONSTRUCTOR(register, type)));
-        result.add(new Quadruple(register, null));
+        int classSize = Global.getClassSize(p.ident_);
+//        "%Size = getelementptr %T* null, i32 1\n" +
+//                "%SizeI = ptrtoint %T* %Size to i32\n" +
+
+        Register register = new Register(block.getRegisterNumber(TMP), new Str());
+        result.add(new Quadruple(register, new Quadruple.LLVMOperation.ALLOCA(classSize)));
+        Register register2 = new Register(block.getRegisterNumber(TMP), type);
+        result.add(new Quadruple(register2, new Quadruple.LLVMOperation.BITCAST(register, type)));
+        result.add(new Quadruple(new Register(block.getRegisterNumber(TMP), new Void()), new Quadruple.LLVMOperation.CALL_CONSTRUCTOR(register2, type)));
+        result.add(new Quadruple(register2, null));
         return result;
     }
 
@@ -111,7 +117,7 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block>
 
         List<Quadruple> result = new ArrayList<>();
         RegisterExprVisitor visitor = new RegisterExprVisitor();
-        visitor.loadField = false;
+        visitor.loadField = true;
         List<Quadruple> quadruples = p.expr_.accept(visitor, block);
         result.addAll(quadruples);
         Quadruple last = quadruples.get(quadruples.size() - 1);
@@ -119,7 +125,7 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block>
         int idx = Global.getInstance().getLLVMClass(type.ident_).getFieldIndex(p.ident_);
         Type fieldType = Global.getInstance().getLLVMClass(type.ident_).getFieldType(p.ident_);
         Register register = new Register(block.getRegisterNumber(TMP), fieldType);
-        result.add(new Quadruple(register, new Quadruple.LLVMOperation.GET_FIELD(last.getRegister(), type, idx)));
+        result.add(new Quadruple(register, new Quadruple.LLVMOperation.GET_FIELD(last.getRegister(), idx)));
         if (loadField) {
             result.add(new Quadruple(new Register(block.getRegisterNumber(TMP), fieldType), new Quadruple.LLVMOperation.LOAD(register)));
         }

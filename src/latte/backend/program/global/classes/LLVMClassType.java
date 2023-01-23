@@ -29,4 +29,8 @@ public class LLVMClassType {
         sb.append("}\n");
         return sb.toString();
     }
+
+    public int getSize() {
+        return fields.size();
+    }
 }

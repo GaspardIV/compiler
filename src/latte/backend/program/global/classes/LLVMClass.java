@@ -52,5 +52,9 @@ public class LLVMClass extends Scope {
         }
         throw new RuntimeException("Field " + ident_ + " not found in class " + this.getName());
     }
+
+    public int getSize() {
+        return classType.getSize();
+    }
 }
 
