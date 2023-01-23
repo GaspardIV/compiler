@@ -1,20 +1,20 @@
 package latte.backend.programvisitors;
 
-import latte.Absyn.*;
 import latte.Absyn.Class;
 import latte.Absyn.Void;
-import latte.Internal.ClField;
+import latte.Absyn.*;
 import latte.backend.program.global.Function;
 import latte.backend.program.global.Global;
 import latte.backend.program.global.Scope;
 import latte.backend.program.global.Variable;
-import latte.backend.quadruple.*;
 import latte.backend.quadruple.Block;
+import latte.backend.quadruple.*;
 import latte.errors.SemanticError;
-import latte.frontend.visitors.ExprChecker;
 import latte.utils.Utils;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block> {
     protected static final String TMP = "tmp.";
@@ -104,11 +104,9 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block>
 
     @Override
     public List<Quadruple> visit(EMethod p, Block block) {
-        List<Quadruple> result = new ArrayList<>();
         RegisterExprVisitor visitor = new RegisterExprVisitor();
         visitor.loadField = true;
         List<Quadruple> quadruples = p.expr_.accept(visitor, block);
-        result.addAll(quadruples);
         Quadruple last = quadruples.get(quadruples.size() - 1);
         Class type = (Class) last.getRegister().type;
         Function function = Global.getMethod(type.ident_, p.ident_);
