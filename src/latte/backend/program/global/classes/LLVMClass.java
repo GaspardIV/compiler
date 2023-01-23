@@ -1,10 +1,14 @@
 package latte.backend.program.global.classes;
 
-import latte.Absyn.Type;
+import latte.Absyn.*;
+import latte.Absyn.Class;
 import latte.Internal.ClField;
 import latte.Internal.LatteClass;
+import latte.backend.program.global.Function;
 import latte.backend.program.global.Scope;
+import latte.backend.program.global.Variable;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -14,6 +18,7 @@ public class LLVMClass extends Scope {
     private final List<ClField> fields;
     private LLVMClassType classType;
     private LLVMClassConstructor constructor;
+    private HashMap<String, LLVMClassMethod> methods;
 
     public LLVMClass(String contextName, Scope parent, LatteClass latteClass) {
         super(contextName, parent);
@@ -29,11 +34,26 @@ public class LLVMClass extends Scope {
         }
         throw new RuntimeException("Field " + name + " not found in class " + this.getName());
     }
+
     public void convertToLLVM() {
         this.classType = new LLVMClassType(this.getName(), frontendClass.getFields());
         this.constructor = new LLVMClassConstructor(this.getName(), frontendClass.getFields());
-//        this.methods = new HashMap<>();
-//        createLLVMClass();
+        this.methods = new HashMap<>();
+        for (ClMethod method : frontendClass.getMethods()) {
+            List<Variable> variables = new ArrayList<>();
+            variables.add(new Variable("self", new Class(getName()), this));
+            for (Arg ar : method.listarg_) {
+                Ar arg = (Ar) ar;
+                variables.add(new Variable(arg.ident_, arg.type_, this));
+            }
+            LLVMClassMethod llvmMethod = new LLVMClassMethod(classMethodLabel(getName(), method.ident_), method.type_, variables, ((Blk) method.block_).liststmt_, this);
+            methods.put(method.ident_, llvmMethod);
+        }
+
+
+        for (ClMethod method : frontendClass.getMethods()) {
+            methods.get(method.ident_).convertToQuadruples();
+        }
     }
 
     @Override
@@ -41,6 +61,9 @@ public class LLVMClass extends Scope {
         StringBuilder sb = new StringBuilder();
         sb.append(classType);
         sb.append(constructor);
+        for (LLVMClassMethod method : methods.values()) {
+            sb.append(method);
+        }
         return sb.toString();
     }
 
@@ -55,6 +78,14 @@ public class LLVMClass extends Scope {
 
     public int getSize() {
         return classType.getSize();
+    }
+
+    public static String classMethodLabel(String className, String methodName) {
+        return className + "." + methodName;
+    }
+
+    public Function getMethod(String method) {
+        return methods.get(method);
     }
 }
 

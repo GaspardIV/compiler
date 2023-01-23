@@ -93,9 +93,6 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block>
         List<Quadruple> result = new ArrayList<>();
         Class type = new Class(p.ident_);
         int classSize = Global.getClassSize(p.ident_);
-//        "%Size = getelementptr %T* null, i32 1\n" +
-//                "%SizeI = ptrtoint %T* %Size to i32\n" +
-
         Register register = new Register(block.getRegisterNumber(TMP), new Str());
         result.add(new Quadruple(register, new Quadruple.LLVMOperation.ALLOCA(classSize)));
         Register register2 = new Register(block.getRegisterNumber(TMP), type);
@@ -107,14 +104,53 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block>
 
     @Override
     public List<Quadruple> visit(EMethod p, Block block) {
-        // todo
-        return null;
+        List<Quadruple> result = new ArrayList<>();
+        RegisterExprVisitor visitor = new RegisterExprVisitor();
+        visitor.loadField = true;
+        List<Quadruple> quadruples = p.expr_.accept(visitor, block);
+        result.addAll(quadruples);
+        Quadruple last = quadruples.get(quadruples.size() - 1);
+        Class type = (Class) last.getRegister().type;
+        Function function = Global.getMethod(type.ident_, p.ident_);
+        function.markAsUsed();
+        List<Register> registers = new ArrayList<>();
+        registers.add(last.getRegister());
+        for (int i = 0; i < p.listexpr_.size(); i++) {
+            List<Quadruple> exprQuadruples = new RegisterExprVisitor().generateExprCode(p.listexpr_.get(i), block);
+            quadruples.addAll(exprQuadruples);
+            registers.add(exprQuadruples.get(exprQuadruples.size() - 1).getRegister());
+        }
+        Quadruple.LLVMOperation.CALL quadruple = new Quadruple.LLVMOperation.CALL(function.getType(), function.getName(), registers);
+        quadruples.add(new Quadruple(new Register(block.getRegisterNumber(TMP), function.getType()), quadruple));
+        return quadruples;
+//        List<Quadruple> result = new ArrayList<>();
+                        //        List<Quadruple> args = new ArrayList<>();
+                        //        for (Expr expr : p.listexpr_) {
+                        //            args.addAll(generateExprCode(expr, block));
+                        //        }
+                        //        result.addAll(args);
+                        //        Register register = new Register(block.getRegisterNumber(TMP), new Class(p.ident_));
+                        //        result.add(new Quadruple(register, new Quadruple.LLVMOperation.CALL_METHOD(p.ident_, p.ident_1, args.stream().map(Quadruple::getRegister).toArray(Register[]::new))));
+                        //        result.add(new Quadruple(register, null));
+                        //        return result;
+//
+//        Function function = Global.getInstance().getFunction(p.ident_);
+//        function.markAsUsed();
+//        List<Quadruple> quadruples = new ArrayList<>();
+//        List<Register> registers = new ArrayList<>();
+//        for (int i = 0; i < p.listexpr_.size(); i++) {
+//            List<Quadruple> exprQuadruples = new RegisterExprVisitor().generateExprCode(p.listexpr_.get(i), block);
+//            quadruples.addAll(exprQuadruples);
+//            registers.add(exprQuadruples.get(exprQuadruples.size() - 1).getRegister());
+//        }
+//        Quadruple.LLVMOperation.CALL quadruple = new Quadruple.LLVMOperation.CALL(function.getType(), function.getName(), registers);
+//        quadruples.add(new Quadruple(new Register(block.getRegisterNumber(TMP), function.getType()), quadruple));
+//        quadruples.addAll(handleCallErrorFunction(block, function));
+//        return quadruples;
     }
 
     @Override
     public List<Quadruple> visit(EField p, Block block) {
-
-
         List<Quadruple> result = new ArrayList<>();
         RegisterExprVisitor visitor = new RegisterExprVisitor();
         visitor.loadField = true;
@@ -134,13 +170,17 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block>
 
     @Override
     public List<Quadruple> visit(EVar p, Block block) {
-        ArrayList<Quadruple> quadruples = new ArrayList<>();
+        List<Quadruple> quadruples = new ArrayList<>();
         Variable variable = block.getVariable(p.ident_);
-        Scope scope = block.getScope();
-        PhiManager.getInstance().addPhiRegisterIfNeeded(variable);
-        Register last = scope.getLastVariableRegister(variable);
-        last.setVariable(variable);
-        quadruples.add(new Quadruple(last));
+        if (variable == null) {
+            quadruples = new EField(new EVar("self"), p.ident_).accept(this, block);
+        } else {
+            Scope scope = block.getScope();
+            PhiManager.getInstance().addPhiRegisterIfNeeded(variable);
+            Register last = scope.getLastVariableRegister(variable);
+            last.setVariable(variable);
+            quadruples.add(new Quadruple(last));
+        }
         return quadruples;
     }
 

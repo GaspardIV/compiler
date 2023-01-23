@@ -52,6 +52,10 @@ public class Global extends Scope {
         return sum;
     }
 
+    public static Function getMethod(String classs, String method) {
+        return getInstance().classes.get(classs).getMethod(method);
+    }
+
     public void markIfRuntimeFunction(String name) {
         switch (name) {
             case "printInt":

@@ -107,4 +107,15 @@ public class LatteClass {
         return null;
     }
 
+    public List<ClMethod> getMethods() {
+        List<ClMethod> methods = new ArrayList<>();
+        ListClMember listClMember = ((ClBlk) classDef.clblock_).listclmember_;
+        for (int i = 0; i < listClMember.size(); i++) {
+            if (listClMember.get(i).getClass() == ClMethod.class) {
+                ClMethod method = (ClMethod) listClMember.get(i);
+                methods.add(method);
+            }
+        }
+        return methods;
+    }
 }

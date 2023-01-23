@@ -42,7 +42,7 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
     @Override
     public Block visit(Ass p, Block block) {
         RegisterExprVisitor registerExprVisitor = new RegisterExprVisitor();
-        if (p.expr_1 instanceof EField) {
+        if (p.expr_1 instanceof EField || (p.expr_1 instanceof EVar && block.getScope().getVariable(((EVar) p.expr_1).ident_) == null )) {
             registerExprVisitor.loadField = false;
             List<Quadruple> left = p.expr_1.accept(registerExprVisitor, block);
             List<Quadruple> right = new RegisterExprVisitor().generateExprCode(p.expr_2, block);
