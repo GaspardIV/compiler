@@ -107,8 +107,6 @@ funkcja3.2_if.end:
 }
 
 define void @funkcja4() { 
-funkcja4_entry:
-	br label %funkcja4.1_if.true
 funkcja4.1_if.true:
 	br label %funkcja4.3_while.cond
 funkcja4.3_while.cond:
@@ -140,8 +138,6 @@ funkcja4.2_if.end:
 }
 
 define void @funkcja5() { 
-funkcja5_entry:
-	br label %funkcja5.1_if.true
 funkcja5.1_if.true:
 	br label %funkcja5.3_while.cond
 funkcja5.3_while.cond:

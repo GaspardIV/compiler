@@ -149,7 +149,11 @@ public class PostProcessor {
         removeDeadBlocks(firstBlock);
         globalCommonSubexpressionElimination();
         deadVariablesElimination();
+
         removeEmptyBlocks();
+//        removeJumpsToNonExistentBlocks();
+//        removePhiFromNonPredecessorsBlocks();
+//        removeDeadBlocks(firstBlock);
         // maybe strength reduction - zastapineie mnozenie dodawaniem - induction variable elimination // moving code out of loops??
     }
 
@@ -165,7 +169,12 @@ public class PostProcessor {
                 }
             }
         }
-//        for (
+        for (Block block : blocks) {
+            if (block.isEmpty() && !phiBlocks.contains(block)) {
+                Block next = block.clear();
+                if (next != null) block.override(next);
+            }
+        }
     }
 
     private List<Block> getAllBlocks() {
@@ -188,14 +197,14 @@ public class PostProcessor {
 
     private void deadVariablesElimination() {
         List<Block> allBlocks = getAllBlocks();
-        calculateGlobalLiveInLiveOut(allBlocks, successors);
+        HashMap<Block, HashSet<Register>> globalsOut = calculateGlobalBlocksLivelinessOut(allBlocks, successors);
         for (Block block : allBlocks) {
-            removeDeadVariables(block);
+            removeDeadVariables(block, globalsOut.get(block));
         }
     }
 
-    private void calculateGlobalLiveInLiveOut(Collection<Block> allBlocks,
-                                              HashMap<Block, HashSet<Block>> successors) {
+    private HashMap<Block, HashSet<Register>> calculateGlobalBlocksLivelinessOut(Collection<Block> allBlocks,
+                                                                                 HashMap<Block, HashSet<Block>> successors) {
         HashMap<Block, HashSet<Register>> in = new HashMap<>();
         HashMap<Block, HashSet<Register>> out = new HashMap<>();
         HashMap<Block, HashSet<Register>> in0 = new HashMap<>();
@@ -232,15 +241,11 @@ public class PostProcessor {
                 }
             }
         }
-
-        for (Block block : allBlocks) {
-            block.setGlobalsInOut(in.get(block), out.get(block));
-        }
+        return out;
     }
 
 
-    private void removeDeadVariables(Block block) {
-        HashSet<Register> lives = new HashSet<>(block.getGlobalsOut());
+    private void removeDeadVariables(Block block, HashSet<Register> lives) {
         for (int i = block.getQuadruples().size() - 1; i >= 0; i--) {
             Quadruple quadruple = block.getQuadruples().get(i);
             if (quadruple.hasSideEffects() || lives.contains(quadruple.getRegister())) {
@@ -252,11 +257,11 @@ public class PostProcessor {
         }
     }
 
-    class Pair {
+    static class GCSEPair {
         public Block block;
         public Quadruple quadruple;
 
-        public Pair(Block block, Quadruple quadruple) {
+        public GCSEPair(Block block, Quadruple quadruple) {
             this.block = block;
             this.quadruple = quadruple;
         }
@@ -264,7 +269,7 @@ public class PostProcessor {
 
         @Override
         public String toString() {
-            return "Pair{" +
+            return "GCSEPair{" +
                     "block=" + block +
                     ", quadruple=" + quadruple +
                     '}';
@@ -274,7 +279,7 @@ public class PostProcessor {
         public boolean equals(Object o) {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
-            Pair pair = (Pair) o;
+            GCSEPair pair = (GCSEPair) o;
             return Objects.equals(pair.toString(), toString());
         }
 
@@ -286,7 +291,7 @@ public class PostProcessor {
 
     private void globalCommonSubexpressionElimination() {
         HashMap<Block, HashSet<Block>> dom = computeDominates(); // node d in DOM(n) iff d dominates n
-        HashMap<Quadruple.LLVMOperation, Set<Pair>> definitions = new HashMap<>();
+        HashMap<Quadruple.LLVMOperation, Set<GCSEPair>> definitions = new HashMap<>();
         boolean changed = true;
         while (changed) {
             changed = false;
@@ -297,12 +302,12 @@ public class PostProcessor {
                     }
                     if (!definitions.containsKey(quadruple.op)) {
                         definitions.put(quadruple.op, new HashSet<>());
-                        definitions.get(quadruple.op).add(new Pair(block, quadruple));
+                        definitions.get(quadruple.op).add(new GCSEPair(block, quadruple));
                     } else {
-                        Set<Pair> blocks = definitions.get(quadruple.op);
-                        Set<Pair> toRemove = new HashSet<>();
+                        Set<GCSEPair> blocks = definitions.get(quadruple.op);
+                        Set<GCSEPair> toRemove = new HashSet<>();
                         boolean found = false;
-                        for (Pair pair : blocks) {
+                        for (GCSEPair pair : blocks) {
                             if (quadruple == pair.quadruple) {
                                 found = true;
                             } else if (dom.get(block).contains(pair.block)) {
@@ -315,14 +320,14 @@ public class PostProcessor {
                                 pair.quadruple.getRegister().setOverride(quadruple.getRegister());
                                 pair.quadruple.op = null;
                                 toRemove.add(pair);
-                                definitions.get(quadruple.op).add(new Pair(block, quadruple));
+                                definitions.get(quadruple.op).add(new GCSEPair(block, quadruple));
                                 changed = true;
                                 found = true;
                                 break;
                             }
                         }
                         if (!found && quadruple.op != null) {
-                            definitions.get(quadruple.op).add(new Pair(block, quadruple));
+                            definitions.get(quadruple.op).add(new GCSEPair(block, quadruple));
                         }
                         blocks.removeAll(toRemove);
                     }

@@ -5,18 +5,40 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="Prepare PostProcessor">
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/10.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/11.lat" afterDir="false" />
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="remove empty blocks">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/basic/bool_overoptymization.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/bool_overoptymization.bc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/basic/bool_overoptymization.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/bool_overoptymization.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/basic/compare.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/compare.bc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/basic/compare.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/compare.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/2.llcode" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/2.llcode" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/3.llcode" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/3.llcode" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/basic/while_true.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/while_true.bc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/basic/while_true.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/while_true.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core004.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core004.bc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core004.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core004.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core005.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core005.bc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core005.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core005.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core017.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core017.bc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core017.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core017.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core021.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core021.bc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core021.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core021.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/constexprInIf.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/constexprInIf.bc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/constexprInIf.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/constexprInIf.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/constexprInWhile.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/constexprInWhile.bc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/constexprInWhile.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/constexprInWhile.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core004.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core004.bc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core004.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core004.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core005.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core005.bc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core005.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core005.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core017.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core017.bc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core017.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core017.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core021.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core021.bc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core021.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core021.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/xd.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/xd.bc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/xd.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/xd.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test1.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test1.bc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test1.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test1.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/PostProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/PostProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Register.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Block.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -438,13 +460,6 @@
       <workItem from="1674202517911" duration="11177000" />
       <workItem from="1674247550816" duration="50951000" />
     </task>
-    <task id="LOCAL-00050" summary="mmakefile right bnfc">
-      <created>1670542941496</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1670542941496</updated>
-    </task>
     <task id="LOCAL-00051" summary="zaczety backend">
       <created>1670576306249</created>
       <option name="number" value="00051" />
@@ -781,7 +796,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674347708259</updated>
     </task>
-    <option name="localTasksCounter" value="99" />
+    <task id="LOCAL-00099" summary="gcse">
+      <created>1674439684599</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1674439684599</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -847,8 +869,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="35/50 - testowanie z inputem" />
-    <MESSAGE value="choice i generowanie pliku" />
     <MESSAGE value="choice i generowanie pliku  36" />
     <MESSAGE value="cos nie do konca tak" />
     <MESSAGE value="cos nie do konca tak ale lepiej while" />
@@ -872,7 +892,9 @@
     <MESSAGE value="Ignore tests" />
     <MESSAGE value="Remove not needed phi variable" />
     <MESSAGE value="Prepare PostProcessor" />
-    <option name="LAST_COMMIT_MESSAGE" value="Prepare PostProcessor" />
+    <MESSAGE value="gcse" />
+    <MESSAGE value="remove empty blocks" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove empty blocks" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
