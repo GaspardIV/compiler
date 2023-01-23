@@ -66,11 +66,41 @@ public class Quadruple {
         return op.hasSideEffects();
     }
 
+    public boolean isDefinition() {
+        if (op == null) {
+            return false;
+        }
+        return op.isDefinition();
+    }
+
     public abstract static class LLVMOperation {
 
         public abstract Collection<Register> getUsedRegisters();
 
         public abstract boolean hasSideEffects();
+
+        public boolean isDefinition() {
+            return !hasSideEffects();
+        }
+
+        public abstract String toString();
+
+        @Override
+        public int hashCode() {
+            return toString().hashCode();
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            if (obj == null) {
+                return false;
+            }
+            if (obj instanceof LLVMOperation) {
+                return toString().equals(obj.toString());
+            } else {
+                return false;
+            }
+        }
 
         public static class CALL extends LLVMOperation {
             private final Type type;

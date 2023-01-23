@@ -1,0 +1,41 @@
+int funkcja (int x, int y, int z) {
+    int a = x + y;
+    int b = x + y;
+    int c = a + z;
+    int d = b + z;
+
+    int e = 0;
+    int i = 0;
+    while (i < 5) {
+        e = e + function1(x, y);
+        i++;
+        int x = b + z;
+        printInt(x);
+    }
+
+    int f = function2(c, d);
+
+    printInt(e);
+    printInt(f);
+    return 0;
+}
+
+int function1(int x, int y) {
+    return x * y;
+}
+
+int function2(int c, int d) {
+    int g = c + d;
+    int h = c + d;
+    return g + h;
+}
+
+int main() {
+
+  int x = 5;
+  int y = 10;
+  int z = 15;
+
+  printInt(funkcja(x, y, z));
+  return 0;
+}

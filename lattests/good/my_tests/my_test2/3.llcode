@@ -13,7 +13,6 @@ funkcja_entry:
 funkcja.1_while.cond:
 	%i = phi i32 [0, %funkcja_entry], [%tmp..12, %funkcja.7_if.end]
 	%m = phi i32 [0, %funkcja_entry], [%m.2, %funkcja.7_if.end]
-	%t = phi i32 [0, %funkcja_entry], [%x.1, %funkcja.7_if.end]
 	%x.1 = phi i32 [%x, %funkcja_entry], [%tmp..10, %funkcja.7_if.end]
 	%tmp..4 = icmp slt i32 %m, %n
 	br i1 %tmp..4, label %funkcja.2_while.body, label %funkcja.3_while.end

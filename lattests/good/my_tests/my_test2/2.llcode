@@ -4,7 +4,6 @@ f_entry:
 	br label %f.1_while.cond
 f.1_while.cond:
 	%i = phi i32 [2, %f_entry], [%tmp..8, %f.2_while.body]
-	%t = phi i32 [0, %f_entry], [%tmp..6, %f.2_while.body]
 	%u = phi i32 [0, %f_entry], [%v, %f.2_while.body]
 	%v = phi i32 [1, %f_entry], [%tmp..6, %f.2_while.body]
 	%tmp..5 = icmp slt i32 %i, %n

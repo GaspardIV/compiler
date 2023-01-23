@@ -1,6 +1,11 @@
 Oddaje kompilator llvm. Bede jeszcze oddawal rozszerzenie kompilatora.
 
-4 + 8 + 2 - 2 - 1 = 11
++ frontend 4
++ backend 7 (8 + 2 - 2 - 1 = 11)
++ 9 quizy
++ 5.8 projekt 1
++ -35
++ = -9.2
 
 Co zrobilem z optymalizacji:
 - usuwanie martwego kodu (np. if (false) { ... }, kod po returnie, nieużywane zmienne)
@@ -9,13 +14,9 @@ Co zrobilem z optymalizacji:
 - propagacja stalych
 - propagacja kopii
 - postac ssa
-
-Czego nie zrobilem a chcialbym w nastepnej wersji
-- jezeli blok ma tylko jednego successora i nie beirze udzialuw phi? to mozna zmergowac bloki
-- lcse
-- gcse (?)
-- klasy
-- tablice
+- gcse
+- klasy:
+- wyciaganie metod
 
 
 Kompliacja kompilatora za pomoca polecenia: `make`

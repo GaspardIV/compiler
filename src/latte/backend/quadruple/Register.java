@@ -4,7 +4,7 @@ import latte.Absyn.Type;
 import latte.backend.program.global.Variable;
 import latte.utils.Utils;
 
-public class Register  {
+public class Register {
     public String name;
     public Type type;
     private ConstValue constValue = null;
@@ -33,6 +33,7 @@ public class Register  {
     public boolean isConst() {
         return constValue != null;
     }
+
     @Override
     public String toString() {
         if (overriddenBy != null) {
@@ -58,5 +59,19 @@ public class Register  {
 
     public void setOverride(Register register) {
         this.overriddenBy = register;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Register me = this;
+        Register register = ((Register) o);
+        return me.toString().equals(register.toString());
+    }
+
+    @Override
+    public int hashCode() {
+        return toString().hashCode();
     }
 }

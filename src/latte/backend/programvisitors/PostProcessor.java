@@ -142,51 +142,60 @@ public class PostProcessor {
     }
 
     public void process() {
-        removeEmptyBlocks(firstBlock);
         removeAfterReturn();
-        removeEmptyBlocks(firstBlock);
+        removeDeadBlocks(firstBlock);
         removeJumpsToNonExistentBlocks();
-        removeEmptyBlocks(firstBlock);
         removePhiFromNonPredecessorsBlocks();
-        removeEmptyBlocks(firstBlock);
-//        gcse();
+        removeDeadBlocks(firstBlock);
+        globalCommonSubexpressionElimination();
         deadVariablesElimination();
-        // gcse (reduce phi after each pass) - all uses has to be dominated by definition!!!!
-        // copy propagation
-//         dead code elimination
-
-        // moving code out of loops??
-        // sstrength reduction - zastapineie mnozenie dodawaniem
-        // induction variable elimination
+        removeEmptyBlocks();
+        // maybe strength reduction - zastapineie mnozenie dodawaniem - induction variable elimination // moving code out of loops??
     }
 
-    private Set<Block> getAllBlocks() {
-        Set<Block> allBlocks = new HashSet<>();
-        ;
+    private void removeEmptyBlocks() {
+        List<Block> blocks = getAllBlocks();
+        Set<Block> phiBlocks = new HashSet<>();
+        for (Block block : blocks) {
+            for (Quadruple quadruple : block.getQuadruples()) {
+                if (quadruple.op instanceof Quadruple.LLVMOperation.PHI) {
+                    phiBlocks.add(block);
+                    phiBlocks.add(((Quadruple.LLVMOperation.PHI) quadruple.op).block1);
+                    phiBlocks.add(((Quadruple.LLVMOperation.PHI) quadruple.op).block2);
+                }
+            }
+        }
+//        for (
+    }
+
+    private List<Block> getAllBlocks() {
+        List<Block> allBlocks = new ArrayList<>();
+        HashSet<Block> visited = new HashSet<>();
         Block block = firstBlock;
         Deque<Block> stack = new ArrayDeque<>();
         stack.add(block);
         while (!stack.isEmpty()) {
             block = stack.pop();
-            if (allBlocks.contains(block)) {
+            if (visited.contains(block)) {
                 continue;
             }
             allBlocks.add(block);
+            visited.add(block);
             stack.addAll(successors.get(block));
         }
         return allBlocks;
     }
 
     private void deadVariablesElimination() {
-        Set<Block> allBlocks = getAllBlocks();
+        List<Block> allBlocks = getAllBlocks();
         calculateGlobalLiveInLiveOut(allBlocks, successors);
         for (Block block : allBlocks) {
-            calculateLocalLiveInLiveOut(block);
+            removeDeadVariables(block);
         }
     }
 
-    public void calculateGlobalLiveInLiveOut(Collection<Block> allBlocks,
-                                             HashMap<Block, HashSet<Block>> successors) {
+    private void calculateGlobalLiveInLiveOut(Collection<Block> allBlocks,
+                                              HashMap<Block, HashSet<Block>> successors) {
         HashMap<Block, HashSet<Register>> in = new HashMap<>();
         HashMap<Block, HashSet<Register>> out = new HashMap<>();
         HashMap<Block, HashSet<Register>> in0 = new HashMap<>();
@@ -230,9 +239,8 @@ public class PostProcessor {
     }
 
 
-    private void calculateLocalLiveInLiveOut(Block block) {
+    private void removeDeadVariables(Block block) {
         HashSet<Register> lives = new HashSet<>(block.getGlobalsOut());
-
         for (int i = block.getQuadruples().size() - 1; i >= 0; i--) {
             Quadruple quadruple = block.getQuadruples().get(i);
             if (quadruple.hasSideEffects() || lives.contains(quadruple.getRegister())) {
@@ -242,24 +250,133 @@ public class PostProcessor {
                 quadruple.op = null;
             }
         }
-//        Quadruple last = block.getQuadruples().get(block.getQuadruples().size() - 1);
-//        liveOut.put(last, new HashSet<>());
-//        block.setLocalLiveIn(liveIn);
-//        block.setLocalLiveOut(liveOut);
     }
 
-    private void gcse() {
-        // a variable is alive at a given point if its current value can be used (i.e. there exists a path to the use)
-        // a definition reaches given point in code if no path between them contains definition of the same variable
+    class Pair {
+        public Block block;
+        public Quadruple quadruple;
+
+        public Pair(Block block, Quadruple quadruple) {
+            this.block = block;
+            this.quadruple = quadruple;
+        }
 
 
-        // zywotnosc wyrazen - istnieje sciezka do uzycia
-        List<Quadruple> all = firstBlock.getQuadruplesFromAllBlocks();
-        Map<Quadruple, Set<Block>> definitions = new HashMap<>();
-        Map<Quadruple, Set<Block>> uses = new HashMap<>();
+        @Override
+        public String toString() {
+            return "Pair{" +
+                    "block=" + block +
+                    ", quadruple=" + quadruple +
+                    '}';
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Pair pair = (Pair) o;
+            return Objects.equals(pair.toString(), toString());
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(toString());
+        }
     }
 
-    private void removeEmptyBlocks(Block current) {
+    private void globalCommonSubexpressionElimination() {
+        HashMap<Block, HashSet<Block>> dom = computeDominates(); // node d in DOM(n) iff d dominates n
+        HashMap<Quadruple.LLVMOperation, Set<Pair>> definitions = new HashMap<>();
+        boolean changed = true;
+        while (changed) {
+            changed = false;
+            for (Block block : getAllBlocks()) {
+                for (Quadruple quadruple : block.getQuadruples()) {
+                    if (!quadruple.isDefinition()) {
+                        continue;
+                    }
+                    if (!definitions.containsKey(quadruple.op)) {
+                        definitions.put(quadruple.op, new HashSet<>());
+                        definitions.get(quadruple.op).add(new Pair(block, quadruple));
+                    } else {
+                        Set<Pair> blocks = definitions.get(quadruple.op);
+                        Set<Pair> toRemove = new HashSet<>();
+                        boolean found = false;
+                        for (Pair pair : blocks) {
+                            if (quadruple == pair.quadruple) {
+                                found = true;
+                            } else if (dom.get(block).contains(pair.block)) {
+                                quadruple.getRegister().setOverride(pair.quadruple.getRegister());
+                                quadruple.op = null;
+                                changed = true;
+                                found = true;
+                                break;
+                            } else if (dom.get(pair.block).contains(block)) {
+                                pair.quadruple.getRegister().setOverride(quadruple.getRegister());
+                                pair.quadruple.op = null;
+                                toRemove.add(pair);
+                                definitions.get(quadruple.op).add(new Pair(block, quadruple));
+                                changed = true;
+                                found = true;
+                                break;
+                            }
+                        }
+                        if (!found && quadruple.op != null) {
+                            definitions.get(quadruple.op).add(new Pair(block, quadruple));
+                        }
+                        blocks.removeAll(toRemove);
+                    }
+                }
+            }
+        }
+    }
+
+    private HashMap<Block, HashSet<Block>> computeDominates() {
+        HashMap<Block, HashSet<Block>> nodeDominatedBy = new HashMap<>();
+        HashMap<Block, HashSet<Block>> nodeDominatedBy0 = new HashMap<>();
+
+        for (Block block : getAllBlocks()) {
+            nodeDominatedBy.put(block, new HashSet<>());
+            nodeDominatedBy0.put(block, new HashSet<>());
+        }
+        nodeDominatedBy.get(firstBlock).add(firstBlock);
+        for (Block block : getAllBlocks()) {
+            if (block == firstBlock) {
+                continue;
+            }
+            nodeDominatedBy.get(block).addAll(getAllBlocks());
+        }
+
+        boolean changed = true;
+        while (changed) {
+            changed = false;
+            for (Block block : getAllBlocks()) {
+                if (block == firstBlock) {
+                    continue;
+                }
+                nodeDominatedBy0.put(block, new HashSet<>(nodeDominatedBy.get(block)));
+                nodeDominatedBy.get(block).clear();
+                nodeDominatedBy.get(block).add(block);
+                HashSet<Block> intersection = new HashSet<>();
+                for (Block predecessor : predecessors.get(block)) {
+                    if (intersection.isEmpty()) {
+                        intersection.addAll(nodeDominatedBy.get(predecessor));
+                    } else {
+                        intersection.retainAll(nodeDominatedBy.get(predecessor));
+                    }
+                }
+                nodeDominatedBy.get(block).addAll(intersection);
+
+                if (!nodeDominatedBy0.get(block).equals(nodeDominatedBy.get(block))) {
+                    changed = true;
+                }
+            }
+        }
+
+        return nodeDominatedBy;
+    }
+
+    private void removeDeadBlocks(Block current) {
         if (current == null) return;
         if (current.getQuadruples().size() == 0 ||
                 (((current.getQuadruples().size() == 1 && current.getQuadruples().get(0).op instanceof Quadruple.LLVMOperation.LABEL)
@@ -274,7 +391,7 @@ public class PostProcessor {
             predecessors.get(current).clear();
             current.setQuadruples(new ArrayList<>());
         }
-        removeEmptyBlocks(current.nextBlock());
+        removeDeadBlocks(current.nextBlock());
     }
 
     private void removeAfterReturn() {

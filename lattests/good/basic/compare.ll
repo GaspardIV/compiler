@@ -9,8 +9,7 @@ main.1_if.true:
 main.2_if.end:
 	br label %main.3_if.true
 main.3_if.true:
-	%tmp..8 = getelementptr [2 x i8], [2 x i8]* @.str.str0, i32 0, i32 0
-	call void @printString(i8* %tmp..8)
+	call void @printString(i8* %tmp..3)
 	br label %main.4_if.end
 main.4_if.end:
 	br label %main.9_if.true
@@ -21,8 +20,7 @@ main.9_if.true:
 main.10_if.end:
 	br label %main.11_if.true
 main.11_if.true:
-	%tmp..24 = getelementptr [2 x i8], [2 x i8]* @.str.str1, i32 0, i32 0
-	call void @printString(i8* %tmp..24)
+	call void @printString(i8* %tmp..19)
 	br label %main.12_if.end
 main.12_if.end:
 	ret i32 0
