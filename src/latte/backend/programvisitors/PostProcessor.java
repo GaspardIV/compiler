@@ -149,32 +149,49 @@ public class PostProcessor {
         removeDeadBlocks(firstBlock);
         globalCommonSubexpressionElimination();
         deadVariablesElimination();
-
         removeEmptyBlocks();
-//        removeJumpsToNonExistentBlocks();
-//        removePhiFromNonPredecessorsBlocks();
-//        removeDeadBlocks(firstBlock);
         // maybe strength reduction - zastapineie mnozenie dodawaniem - induction variable elimination // moving code out of loops??
     }
 
     private void removeEmptyBlocks() {
         List<Block> blocks = getAllBlocks();
-        Set<Block> phiBlocks = new HashSet<>();
-        for (Block block : blocks) {
-            for (Quadruple quadruple : block.getQuadruples()) {
-                if (quadruple.op instanceof Quadruple.LLVMOperation.PHI) {
-                    phiBlocks.add(block);
-                    phiBlocks.add(((Quadruple.LLVMOperation.PHI) quadruple.op).block1);
-                    phiBlocks.add(((Quadruple.LLVMOperation.PHI) quadruple.op).block2);
+        boolean changed = true;
+        while (changed) {
+            changed = false;
+            Set<Block> phiBlocks = new HashSet<>();
+            for (Block block : blocks) {
+                for (Quadruple quadruple : block.getQuadruples()) {
+                    if (quadruple.op instanceof Quadruple.LLVMOperation.PHI) {
+                        phiBlocks.add(block);
+                        Block block1 = ((Quadruple.LLVMOperation.PHI) quadruple.op).block1;
+                        Block block2 = ((Quadruple.LLVMOperation.PHI) quadruple.op).block2;
+
+                        phiBlocks.add(block1);
+                        phiBlocks.add(block2);
+                    } else if (quadruple.op instanceof Quadruple.LLVMOperation.IF) {
+                        Block block1 = ((Quadruple.LLVMOperation.IF) quadruple.op).block1;
+                        Block block2 = ((Quadruple.LLVMOperation.IF) quadruple.op).block2;
+                        if (block1.getIdentifier().equals(block2.getIdentifier())) {
+                            quadruple.op = new Quadruple.LLVMOperation.GOTO(block1);
+                            changed = true;
+                        }
+                    }
+                }
+            }
+            for (Block block : blocks) {
+                if (block.isEmpty() && !phiBlocks.contains(block)) {
+                    Block next = block.clear();
+                    if (next != null) {
+                        block.override(next);
+                        changed = true;
+                    }
                 }
             }
         }
-        for (Block block : blocks) {
-            if (block.isEmpty() && !phiBlocks.contains(block)) {
-                Block next = block.clear();
-                if (next != null) block.override(next);
-            }
-        }
+        // todo there is also a possibility to remove
+        //        	br label %main.3_expr.end
+        //      main.3_expr.end:
+        //	        ret i32 0
     }
 
     private List<Block> getAllBlocks() {

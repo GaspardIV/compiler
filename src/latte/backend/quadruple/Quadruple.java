@@ -407,6 +407,9 @@ public class Quadruple {
 
             @Override
             public String toString() {
+                if (block1.getIdentifier().equals(block2.getIdentifier())) {
+                    return "\tbr label %" + block1.getIdentifier();
+                }
                 return "\tbr i1 " + register.toString() + ", label %" + block1.getIdentifier() + ", label %" + block2.getIdentifier();
             }
 
@@ -494,7 +497,6 @@ public class Quadruple {
             @Override
             public String toString() {
                 return "phi " + register1.getLLVMType() + " [" + register1.toString() + ", %" + block1.getIdentifier() + "], [" + register2.toString() + ", %" + block2.getIdentifier() + "]";
-
             }
 
             @Override

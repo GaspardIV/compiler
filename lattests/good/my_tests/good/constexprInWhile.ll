@@ -1,7 +1,5 @@
 
 define i32 @main() { 
-main.5_and:
-	br i1 false, label %main.2_while.body, label %main.2_while.body
 main.2_while.body:
 	ret i32 0
 }
