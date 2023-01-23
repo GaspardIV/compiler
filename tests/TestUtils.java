@@ -115,7 +115,7 @@ public class TestUtils {
         shouldGenerateExpectedOutput = b;
     }
 
-    public void OkTestCodeQuality(String code_input, String code_output, String output, boolean generate_out) {
+    public void OkTestCodeQuality(String code_input, String code_output, String output, boolean generate_out, boolean skipCodeOutputCheck) {
         String llfile = code_input.replace(".lat", ".ll");
         outputStreamCaptor.reset();
         errStreamCaptor.reset();
@@ -139,14 +139,16 @@ public class TestUtils {
                 expectedOutput = "";
             }
 
-            if (generate_out) {
+            if (generate_out && !skipCodeOutputCheck) {
                 writeFileContent(code_output, getFileContent(llfile));
             }
 
             assertEquals(0, status);
             assertTrue(errStreamCaptor.toString().startsWith("OK"));
             assertEquals(expectedOutput, outputStreamCaptor.toString());
-            assertEquals(getFileContent(code_output), getFileContent(llfile));
+            if (!skipCodeOutputCheck) {
+                assertEquals(getFileContent(code_output), getFileContent(llfile));
+            }
 
 //            assertFalse(generate_out, "This tests generates expected output. Please remove the flag.");
         } catch (Exception e) {

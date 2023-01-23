@@ -15,7 +15,7 @@ public class LatteClass {
         classDef = p;
     }
 
-    public void initInheristance(Environment avaibleClasses)  {
+    public void initInheristance(Environment avaibleClasses) {
         if (this.inheritanceInitialized) {
             return;
         }
@@ -48,7 +48,7 @@ public class LatteClass {
     }
 
     public ClMethod getMethod(String ident_) {
-        ListClMember listClMember = ((ClBlk)classDef.clblock_).listclmember_;
+        ListClMember listClMember = ((ClBlk) classDef.clblock_).listclmember_;
         for (int i = 0; i < listClMember.size(); i++) {
             if (listClMember.get(i).getClass() == ClMethod.class) {
                 ClMethod method = (ClMethod) listClMember.get(i);
@@ -60,8 +60,28 @@ public class LatteClass {
         return null;
     }
 
+    public List<ClField> getFields() {
+        List<ClField> fields = new ArrayList<>();
+        ListClMember listClMember = ((ClBlk) classDef.clblock_).listclmember_;
+        for (int i = 0; i < listClMember.size(); i++) {
+            if (listClMember.get(i).getClass() == ClField.class) {
+                ClField field = (ClField) listClMember.get(i);
+                fields.add(field);
+            }
+            if (listClMember.get(i).getClass() == ClFields.class) {
+                ClFields field = (ClFields) listClMember.get(i);
+                for (int j = 0; j < field.listclfielditem_.size(); j++) {
+                    ClFieldItemNoInit fieldItem = (ClFieldItemNoInit) field.listclfielditem_.get(j);
+                    ClField clField = new ClField(field.type_, fieldItem.ident_);
+                    fields.add(clField);
+                }
+            }
+        }
+        return fields;
+    }
+
     public ClField getField(String ident_) {
-        ListClMember listClMember = ((ClBlk)classDef.clblock_).listclmember_;
+        ListClMember listClMember = ((ClBlk) classDef.clblock_).listclmember_;
 
         for (int i = 0; i < listClMember.size(); i++) {
             if (listClMember.get(i).getClass() == ClField.class) {

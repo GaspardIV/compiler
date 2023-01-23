@@ -1,11 +1,15 @@
 package latte.backend.program.global;
 
+import latte.Internal.LatteClass;
+import latte.backend.program.global.classes.LLVMClass;
 import latte.utils.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class Global extends Scope {
+
+    private Map<String, LatteClass> classDefs;
 
     public Global(String contextName, Scope parent) {
         super(contextName, parent);
@@ -23,7 +27,7 @@ public class Global extends Scope {
     final Map<String, String> stringGlobals;
 
     final Map<String, Function> functions;
-    final Map<String, Classs> classes;
+    final Map<String, LLVMClass> classes;
 
 
     public static Global getInstance() {
@@ -62,6 +66,11 @@ public class Global extends Scope {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
+        for (LLVMClass LLVMClass : classes.values()) {
+            stringBuilder.append(" ; --- Class ").append(LLVMClass.getName()).append(" ---\n");
+            stringBuilder.append(LLVMClass.toString());
+
+        }
         for (String name : this.functions.keySet()) {
             Function function = this.functions.get(name);
             if (function.hasParent()) {
@@ -79,6 +88,9 @@ public class Global extends Scope {
     }
 
     public void convertToQuadruples() {
+        for (LLVMClass LLVMClass : classes.values()) {
+            LLVMClass.convertToLLVM();
+        }
         for (String name : this.functions.keySet()) {
             Function function = this.functions.get(name);
             if (function.hasParent()) {
@@ -111,7 +123,16 @@ public class Global extends Scope {
         functions.put(function.getName(), function);
     }
 
-    public void add(Classs classs) {
-        classes.put(classs.getName(), classs);
+    public void add(LLVMClass LLVMClass) {
+        classes.put(LLVMClass.getName(), LLVMClass);
+    }
+
+    public void setClassDefs(Map<String, LatteClass> classDefs) {
+        this.classDefs = classDefs;
+        for (String name : classDefs.keySet()) {
+            LatteClass latteClass = classDefs.get(name);
+            LLVMClass LLVMClass = new LLVMClass(name, this, latteClass);
+            add(LLVMClass);
+        }
     }
 }

@@ -172,4 +172,9 @@ public class Block {
         this.identifier = next.identifier;
         this.name = next.name;
     }
+
+    @Override
+    public String toString() {
+        return getIdentifier();
+    }
 }

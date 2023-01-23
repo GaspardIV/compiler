@@ -68,4 +68,8 @@ public class Context {
     public Boolean wasReturn() {
         return wasReturn;
     }
+
+    public Map<String, LatteClass> getClassDefs() {
+        return classdefs;
+    }
 }

@@ -2,13 +2,15 @@ package latte.backend.program;
 
 import latte.Absyn.Void;
 import latte.Absyn.*;
-import latte.backend.program.global.Classs;
+import latte.Internal.LatteClass;
+import latte.backend.program.global.classes.LLVMClass;
 import latte.backend.program.global.Function;
 import latte.backend.program.global.Global;
 import latte.backend.program.global.Variable;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Program {
@@ -27,8 +29,8 @@ public class Program {
         return global;
     }
 
-    public void addClass(Classs classs) {
-        global.add(classs);
+    public void addClass(LLVMClass LLVMClass) {
+        global.add(LLVMClass);
     }
 
     public Program() {
@@ -43,5 +45,9 @@ public class Program {
     @Override
     public String toString() {
         return global.toString();
+    }
+
+    public void setClassDefs(Map<String, LatteClass> classDefs) {
+        global.setClassDefs(classDefs);
     }
 }

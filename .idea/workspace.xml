@@ -4,15 +4,65 @@
     <option name="ANALYZE_TEST_SOURCES" value="false" />
     <option name="SCOPE_TYPE" value="3" />
   </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="remove empty blocks">
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="block tostr">
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/0.lat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/1.lat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/10.lat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/10.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/11.lat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/11.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/12.lat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/12.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/13.lat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/14.lat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/15.lat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/2.lat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/2.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/3.lat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/3.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/4.lat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/4.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/5.lat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/5.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/6.lat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/6.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/7.lat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/7.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/8.lat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/8.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/9.lat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/9.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/expected_output/10.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/expected_output/11.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/expected_output/12.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/expected_output/2.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/expected_output/3.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/expected_output/4.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/expected_output/5.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/expected_output/6.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/expected_output/7.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/expected_output/8.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/expected_output/9.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClassType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Classes420.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/basic/bool_overoptymization.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/bool_overoptymization.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/basic/bool_overoptymization.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/bool_overoptymization.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/constexprInWhile.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/constexprInWhile.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/constexprInWhile.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/constexprInWhile.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/PostProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/PostProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/Internal/LatteClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Internal/LatteClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/Program.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/Classs.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/Global.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/Global.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Block.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/frontend/environment/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/environment/Context.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/frontend/environment/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/environment/Environment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/ProgramChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/ProgramChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/utils/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/MyTest420.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/MyTest420.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/TestUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/TestUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,13 +200,13 @@
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/kacperkonecki/IdeaProjects/codingame/compiler/lattests/good/my_tests/my_test2&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/kacperkonecki/IdeaProjects/codingame/compiler/lattests/good/classes&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;ChangesTree.GroupingKeys&quot;: [
@@ -172,11 +222,11 @@
       <recent name="latte.backend.program.global.function" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lattests/good/classes" />
+      <recent name="$PROJECT_DIR$/lattests/good/classes/expected_output" />
       <recent name="$PROJECT_DIR$/lattests/good/my_tests/my_test2" />
       <recent name="$PROJECT_DIR$/lattests/good/my_tests/good" />
       <recent name="$PROJECT_DIR$/lattests/good/my_tests" />
-      <recent name="$PROJECT_DIR$/src/latte/backend" />
-      <recent name="$PROJECT_DIR$/tests" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/lattests/good/my_tests" />
@@ -249,6 +299,7 @@
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="pattern" />
       <patterns>
+        <pattern testClass="Classes420" />
         <pattern testClass="MyTest420" />
         <pattern testClass="GoodClassicTest" />
         <pattern testClass="GoodBasicTest" />
@@ -269,6 +320,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Classes420.test_00" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="compiler" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Classes420" />
+      <option name="METHOD_NAME" value="test_00" />
+      <option name="TEST_OBJECT" value="method" />
+      <patterns>
+        <pattern testClass="Classes420" />
+        <pattern testClass="MyTest420" />
+        <pattern testClass="GoodClassicTest" />
+        <pattern testClass="GoodBasicTest" />
+        <pattern testClass="GoodMyTestsTest" />
+        <pattern testClass="MyTest" />
+      </patterns>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="GoodBasicTest.testBool_Overoptymization" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
@@ -276,40 +345,7 @@
       <option name="METHOD_NAME" value="testBool_Overoptymization" />
       <option name="TEST_OBJECT" value="method" />
       <patterns>
-        <pattern testClass="MyTest420" />
-        <pattern testClass="GoodClassicTest" />
-        <pattern testClass="GoodBasicTest" />
-        <pattern testClass="GoodMyTestsTest" />
-        <pattern testClass="MyTest" />
-      </patterns>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MyTest420.test_02" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="compiler" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MyTest420" />
-      <option name="METHOD_NAME" value="test_02" />
-      <option name="TEST_OBJECT" value="method" />
-      <patterns>
-        <pattern testClass="MyTest420" />
-        <pattern testClass="GoodClassicTest" />
-        <pattern testClass="GoodBasicTest" />
-        <pattern testClass="GoodMyTestsTest" />
-        <pattern testClass="MyTest" />
-      </patterns>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MyTest420.test_06" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="compiler" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MyTest420" />
-      <option name="METHOD_NAME" value="test_06" />
-      <option name="TEST_OBJECT" value="method" />
-      <patterns>
+        <pattern testClass="Classes420" />
         <pattern testClass="MyTest420" />
         <pattern testClass="GoodClassicTest" />
         <pattern testClass="GoodBasicTest" />
@@ -337,6 +373,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="rename" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="compiler" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lattests/good/classes" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lattests/good/classes/rename.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Unnamed" type="ShConfigurationType" nameIsGenerated="true">
       <option name="SCRIPT_TEXT" value="" />
       <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
@@ -357,20 +415,20 @@
       <item itemvalue="Application.Test mytest" />
       <item itemvalue="Application.Test" />
       <item itemvalue="JUnit.All in compiler" />
-      <item itemvalue="JUnit.MyTest420.test_11" />
+      <item itemvalue="JUnit.Classes420.test_00" />
       <item itemvalue="JUnit.GoodBasicTest.testBool_Overoptymization" />
-      <item itemvalue="JUnit.MyTest420.test_02" />
-      <item itemvalue="JUnit.MyTest420.test_06" />
+      <item itemvalue="JUnit.MyTest420.test_11" />
       <item itemvalue="JUnit.ALLESGOOD" />
+      <item itemvalue="Python.rename" />
       <item itemvalue="Shell Script.Unnamed" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.ALLESGOOD" />
-        <item itemvalue="JUnit.MyTest420.test_11" />
-        <item itemvalue="JUnit.MyTest420.test_06" />
-        <item itemvalue="JUnit.MyTest420.test_02" />
+        <item itemvalue="JUnit.Classes420.test_00" />
         <item itemvalue="JUnit.GoodBasicTest.testBool_Overoptymization" />
+        <item itemvalue="Python.rename" />
+        <item itemvalue="JUnit.MyTest420.test_11" />
       </list>
     </recent_temporary>
   </component>
@@ -433,13 +491,7 @@
       <workItem from="1674160558966" duration="10027000" />
       <workItem from="1674202517911" duration="11177000" />
       <workItem from="1674247550816" duration="50951000" />
-    </task>
-    <task id="LOCAL-00052" summary="Block">
-      <created>1670806965260</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1670806965260</updated>
+      <workItem from="1674447006102" duration="6559000" />
     </task>
     <task id="LOCAL-00053" summary="JAKIESMIERNEPROBY">
       <created>1670905105704</created>
@@ -777,7 +829,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674442004050</updated>
     </task>
-    <option name="localTasksCounter" value="101" />
+    <task id="LOCAL-00101" summary="remove empty blocks">
+      <created>1674443630093</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1674443630093</updated>
+    </task>
+    <option name="localTasksCounter" value="102" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -959,6 +1018,7 @@
     <SUITE FILE_PATH="coverage/compiler$GoodVirtualTest_testPolymorphism.ic" NAME="GoodVirtualTest.testPolymorphism Coverage Results" MODIFIED="1669852159081" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/compiler$GoodVarqoxgoodTest_testAssign_Field_Class_Of_Field_Null.ic" NAME="GoodVarqoxgoodTest.testAssign_Field_Class_Of_Field_Null Coverage Results" MODIFIED="1669865189431" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/compiler$BadTestsSemanticTest.ic" NAME="BadTestsSemanticTest Coverage Results" MODIFIED="1669912501281" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/compiler$rename.coverage" NAME="rename Coverage Results" MODIFIED="1674445982622" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lattests/good/classes" />
     <SUITE FILE_PATH="coverage/compiler$TestsIDontWantToPassTest_testSemanticVariableWithVoidType.ic" NAME="TestsIDontWantToPassTest.testSemanticVariableWithVoidType Coverage Results" MODIFIED="1669914776662" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/compiler$BadVarqoxTests_testclass_field_with_nonexistent_class_type.ic" NAME="BadVarqoxTests.testclass_field_with_nonexistent_class_type Coverage Results" MODIFIED="1670028869451" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/compiler$BadVarqoxTests_testbin_op_eq_void_void.ic" NAME="BadVarqoxTests.testbin_op_eq_void_void Coverage Results" MODIFIED="1669841331386" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

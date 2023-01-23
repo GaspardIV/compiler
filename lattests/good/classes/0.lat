@@ -1,0 +1,17 @@
+class Foo {
+    int GetLength()
+    {
+        return length;
+    }
+
+    void SetLength(int value)
+    {
+        length = value;
+    }
+
+    int length;
+}
+
+int main() {
+    return 0;
+}

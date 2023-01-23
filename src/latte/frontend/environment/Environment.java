@@ -203,4 +203,14 @@ public class Environment {
             checkArrayType(typeArray.type_, line_num);
         }
     }
+
+    public Map<String, LatteClass> getClassDefs() {
+        Map<String, LatteClass> classDefs = new HashMap<>();
+        for (Iterator<Context> i = contexts.descendingIterator(); i.hasNext(); ) {
+            Context context = i.next();
+            Map<String, LatteClass> a = context.getClassDefs();
+            classDefs.putAll(a);
+        }
+        return classDefs;
+    }
 }
