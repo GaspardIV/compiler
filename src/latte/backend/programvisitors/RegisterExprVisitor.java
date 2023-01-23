@@ -3,6 +3,7 @@ package latte.backend.programvisitors;
 import latte.Absyn.*;
 import latte.Absyn.Class;
 import latte.Absyn.Void;
+import latte.Internal.ClField;
 import latte.backend.program.global.Function;
 import latte.backend.program.global.Global;
 import latte.backend.program.global.Scope;
@@ -10,12 +11,15 @@ import latte.backend.program.global.Variable;
 import latte.backend.quadruple.*;
 import latte.backend.quadruple.Block;
 import latte.errors.SemanticError;
+import latte.frontend.visitors.ExprChecker;
 import latte.utils.Utils;
 
 import java.util.*;
 
 public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block> {
     protected static final String TMP = "tmp.";
+
+    public boolean loadField = true;
 
     public List<Quadruple> generateExprCode(Expr expr, Block block) {
         if (expr instanceof EOr || expr instanceof EAnd) {
@@ -91,6 +95,7 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block>
         Register register = new Register(block.getRegisterNumber(TMP), type);
         result.add(new Quadruple(register, new Quadruple.LLVMOperation.ALLOCA(type)));
         result.add(new Quadruple(new Register(block.getRegisterNumber(TMP), new Void()), new Quadruple.LLVMOperation.CALL_CONSTRUCTOR(register, type)));
+        result.add(new Quadruple(register, null));
         return result;
     }
 
@@ -102,8 +107,23 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block>
 
     @Override
     public List<Quadruple> visit(EField p, Block block) {
-        // todo
-        return null;
+
+
+        List<Quadruple> result = new ArrayList<>();
+        RegisterExprVisitor visitor = new RegisterExprVisitor();
+        visitor.loadField = false;
+        List<Quadruple> quadruples = p.expr_.accept(visitor, block);
+        result.addAll(quadruples);
+        Quadruple last = quadruples.get(quadruples.size() - 1);
+        Class type = (Class) last.getRegister().type;
+        int idx = Global.getInstance().getLLVMClass(type.ident_).getFieldIndex(p.ident_);
+        Type fieldType = Global.getInstance().getLLVMClass(type.ident_).getFieldType(p.ident_);
+        Register register = new Register(block.getRegisterNumber(TMP), fieldType);
+        result.add(new Quadruple(register, new Quadruple.LLVMOperation.GET_FIELD(last.getRegister(), type, idx)));
+        if (loadField) {
+            result.add(new Quadruple(new Register(block.getRegisterNumber(TMP), fieldType), new Quadruple.LLVMOperation.LOAD(register)));
+        }
+        return result;
     }
 
     @Override
@@ -286,9 +306,9 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block>
             } else if (leftRegister.type instanceof Str) {
                 quadruples.add(new Quadruple(new Register(block.getRegisterNumber(TMP), new Int()), new Quadruple.LLVMOperation.CMP(left.get(left.size() - 1).getRegister(), right.get(right.size() - 1).getRegister())));
                 if (p.relop_ instanceof EQU) {
-                    quadruples.add(new Quadruple(new Register(block.getRegisterNumber(TMP), new Bool()), new Quadruple.LLVMOperation.REL(p.relop_, quadruples.get(quadruples.size()-1).getRegister(), new Register(block.getRegisterNumber(TMP), new Bool(), new ConstValue(0)))));
+                    quadruples.add(new Quadruple(new Register(block.getRegisterNumber(TMP), new Bool()), new Quadruple.LLVMOperation.REL(p.relop_, quadruples.get(quadruples.size() - 1).getRegister(), new Register(block.getRegisterNumber(TMP), new Bool(), new ConstValue(0)))));
                 } else if (p.relop_ instanceof NE) {
-                    quadruples.add(new Quadruple(new Register(block.getRegisterNumber(TMP), new Bool()), new Quadruple.LLVMOperation.REL(p.relop_,  quadruples.get(quadruples.size()-1).getRegister(), new Register(block.getRegisterNumber(TMP), new Bool(), new ConstValue(0)))));
+                    quadruples.add(new Quadruple(new Register(block.getRegisterNumber(TMP), new Bool()), new Quadruple.LLVMOperation.REL(p.relop_, quadruples.get(quadruples.size() - 1).getRegister(), new Register(block.getRegisterNumber(TMP), new Bool(), new ConstValue(0)))));
                 }
             } else {
                 quadruples.add(new Quadruple(new Register(block.getRegisterNumber(TMP), new Bool()), new Quadruple.LLVMOperation.REL(p.relop_, left.get(left.size() - 1).getRegister(), right.get(right.size() - 1).getRegister())));

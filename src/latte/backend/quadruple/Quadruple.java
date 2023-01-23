@@ -624,5 +624,56 @@ public class Quadruple {
                 return true;
             }
         }
+
+        public static class GET_FIELD extends LLVMOperation {
+            private final Register register;
+            private final Type classType;
+            private final int index;
+
+
+            public GET_FIELD(Register register, Type classType, int index) {
+                this.register = register;
+                this.classType = classType;
+                this.index = index;
+            }
+
+            @Override
+            public String toString() {
+                return "getelementptr inbounds " + Utils.getLLVMType(classType).replace("*", "") + ", " + Utils.getLLVMType(classType) + " " + register + ", i32 0, i32 " + index;
+            }
+
+            @Override
+            public Collection<Register> getUsedRegisters() {
+                return Collections.singletonList(register);
+            }
+
+            @Override
+            public boolean hasSideEffects() {
+                return true;
+            }
+        }
+
+        public static class LOAD extends LLVMOperation {
+            private final Register register;
+
+            public LOAD(Register register) {
+                this.register = register;
+            }
+
+            @Override
+            public String toString() {
+                return "load " + register.getLLVMType() + ", " + register.getLLVMType()  + "* " + register;
+            }
+
+            @Override
+            public Collection<Register> getUsedRegisters() {
+                return Collections.singletonList(register);
+            }
+
+            @Override
+            public boolean hasSideEffects() {
+                return true;
+            }
+        }
     }
 }

@@ -247,6 +247,7 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
 
     @Override
     public Block visit(SExp p, Block block) {
+        if (p.expr_ instanceof EField) return null;
         block.addQuadruples(new RegisterExprVisitor().generateExprCode(p.expr_, block));
         return null;
     }

@@ -16,7 +16,8 @@ int main() {
     Foo foo;
     if (foo == (Foo)null) {
         foo = new Foo;
-        // printInt(foo.GetLength());
+        int x = foo.length;
+        printInt(x);
     }
     return 0;
 }

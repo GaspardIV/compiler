@@ -135,4 +135,8 @@ public class Global extends Scope {
             add(LLVMClass);
         }
     }
+
+    public LLVMClass getLLVMClass(String name) {
+        return classes.get(name);
+    }
 }
