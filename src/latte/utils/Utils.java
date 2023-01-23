@@ -1,6 +1,7 @@
 package latte.utils;
 
 import latte.Absyn.*;
+import latte.Absyn.Class;
 import latte.Internal.Null;
 import latte.backend.program.global.Global;
 
@@ -21,7 +22,7 @@ public class Utils {
         } else if (actual instanceof latte.Absyn.Void) {
             return "Void";
         } else if (actual instanceof latte.Absyn.Class) {
-            return "%"+((latte.Absyn.Class) actual).ident_;
+            return ((latte.Absyn.Class) actual).ident_;
         } else if (actual instanceof Null) {
             return "Null";
         }
@@ -41,7 +42,7 @@ public class Utils {
         } else if (actual instanceof latte.Absyn.Void) {
             return "void";
         } else if (actual instanceof latte.Absyn.Class) {
-            return ((latte.Absyn.Class) actual).ident_;
+            return "%"+((latte.Absyn.Class) actual).ident_;
         } else if (actual instanceof Null) {
             return "null";
         }
@@ -252,6 +253,20 @@ public class Utils {
             return "/";
         } else if (mulop_ instanceof Mod) {
             return "%";
+        } else {
+            return "";
+        }
+    }
+
+    public static String defaultValue(Type type_) {
+        if (type_ instanceof Int) {
+            return "0";
+        } else if (type_ instanceof Bool) {
+            return "false";
+        } else if (type_ instanceof Str) {
+            return "\"\"";
+        } else if (type_ instanceof Class) {
+            return "null";
         } else {
             return "";
         }

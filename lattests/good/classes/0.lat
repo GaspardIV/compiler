@@ -13,5 +13,10 @@ class Foo {
 }
 
 int main() {
+    Foo foo;
+    // if (foo == null) {
+        // foo = new Foo();
+        // printInt(foo.GetLength());
+    // }
     return 0;
 }

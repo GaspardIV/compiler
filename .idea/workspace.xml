@@ -8,61 +8,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="block tostr">
-      <change afterPath="$PROJECT_DIR$/lattests/good/classes/0.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classes/1.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classes/10.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classes/10.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classes/11.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classes/11.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classes/12.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classes/12.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classes/13.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classes/14.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classes/15.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classes/2.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classes/2.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classes/3.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classes/3.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classes/4.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classes/4.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classes/5.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classes/5.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classes/6.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classes/6.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classes/7.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classes/7.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classes/8.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classes/8.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classes/9.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classes/9.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classes/expected_output/10.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classes/expected_output/11.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classes/expected_output/12.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classes/expected_output/2.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classes/expected_output/3.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classes/expected_output/4.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classes/expected_output/5.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classes/expected_output/6.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classes/expected_output/7.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classes/expected_output/8.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/classes/expected_output/9.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClassType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Classes420.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.iml" afterDir="false" />
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="Klasy construktor">
+      <change afterPath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClassConstructor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClassMethod.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Internal/LatteClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Internal/LatteClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/Program.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/Classs.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/Global.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/Global.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Block.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/frontend/environment/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/environment/Context.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/frontend/environment/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/environment/Environment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/ProgramChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/ProgramChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classes/0.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/0.lat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/braid.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/braid.bc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/braid.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/braid.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/class_overriding_method.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/class_overriding_method.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/dead_code_cyclic_unreachable_component.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/dead_code_cyclic_unreachable_component.bc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/dead_code_cyclic_unreachable_component.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/dead_code_cyclic_unreachable_component.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/error.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/error.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/if_else_shadowing.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/if_else_shadowing.bc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/if_else_shadowing.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/if_else_shadowing.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/if_shadowing.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/if_shadowing.bc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/if_shadowing.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/if_shadowing.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/method_shadows_builtin_function.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/method_shadows_builtin_function.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/method_shadows_global_function.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/method_shadows_global_function.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/param_passing_func_str.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/param_passing_func_str.bc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/param_passing_func_str.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/param_passing_func_str.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/tricky_string_copy.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/tricky_string_copy.bc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/tricky_string_copy.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/tricky_string_copy.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/unary_ops.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/unary_ops.bc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/unary_ops.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/unary_ops.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/var_namespace_vs_function_namespace.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/var_namespace_vs_function_namespace.bc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/var_namespace_vs_function_namespace.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/var_namespace_vs_function_namespace.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/variable_binds_to_field.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/variable_binds_to_field.bc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/variable_binds_to_field.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/variable_binds_to_field.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/variable_binds_to_inherited_field.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/variable_binds_to_inherited_field.bc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/variable_binds_to_inherited_field.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/variable_binds_to_inherited_field.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/utils/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/MyTest420.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/MyTest420.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/TestUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/TestUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,11 +191,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="latte.backend.program.global.classes" />
       <recent name="latte.frontend.visitors" />
       <recent name="latte.backend.programvisitors" />
       <recent name="latte.backend.quadruple" />
       <recent name="latte.frontend.visitors.programvisitors" />
-      <recent name="latte.backend.program.global.function" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/lattests/good/classes" />
@@ -491,14 +467,7 @@
       <workItem from="1674160558966" duration="10027000" />
       <workItem from="1674202517911" duration="11177000" />
       <workItem from="1674247550816" duration="50951000" />
-      <workItem from="1674447006102" duration="6559000" />
-    </task>
-    <task id="LOCAL-00053" summary="JAKIESMIERNEPROBY">
-      <created>1670905105704</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1670905105705</updated>
+      <workItem from="1674447006102" duration="10027000" />
     </task>
     <task id="LOCAL-00054" summary="lecimy dalej">
       <created>1670984998137</created>
@@ -836,7 +805,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674443630093</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL-00102" summary="Klasy poczatek">
+      <created>1674453626728</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1674453626728</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -902,8 +878,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="choice i generowanie pliku  36" />
-    <MESSAGE value="cos nie do konca tak" />
     <MESSAGE value="cos nie do konca tak ale lepiej while" />
     <MESSAGE value="41/50 dziala while" />
     <MESSAGE value="41/50 refactor" />
@@ -927,7 +901,9 @@
     <MESSAGE value="Prepare PostProcessor" />
     <MESSAGE value="gcse" />
     <MESSAGE value="remove empty blocks" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove empty blocks" />
+    <MESSAGE value="Klasy poczatek" />
+    <MESSAGE value="Klasy construktor" />
+    <option name="LAST_COMMIT_MESSAGE" value="Klasy construktor" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

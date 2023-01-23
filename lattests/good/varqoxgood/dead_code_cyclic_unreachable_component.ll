@@ -1,16 +1,15 @@
 
 define i32 @main() { 
-main_entry:
+main.1_if.true:
 	br label %main.4_while.cond
 main.4_while.cond:
-	%x = phi i32 [0, %main_entry], [%x, %main.5_while.body]
-	%c = phi i32 [42, %main_entry], [%tmp..7, %main.5_while.body]
-	%tmp..5 = icmp slt i32 %x, %c
-	br i1 %tmp..5, label %main.5_while.body, label %main.6_while.end
+	%c = phi i32 [42, %main.1_if.true], [%tmp..7, %main.5_while.body]
+	%tmp..5 = icmp slt i32 0, %c
+	br i1 %tmp..5, label %main.5_while.body, label %main.3_if.end
 main.5_while.body:
 	%tmp..7 = sub i32 %c, 1
 	br label %main.4_while.cond
-main.6_while.end:
+main.3_if.end:
 	call void @printInt(i32 %c)
 	ret i32 0
 }

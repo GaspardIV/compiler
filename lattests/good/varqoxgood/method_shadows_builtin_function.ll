@@ -1,3 +1,8 @@
+ ; --- Class X ---
+%X = type { 
+}
+define void @X.constructor(%X* %this) {
+}
 
 define i32 @main() { 
 main_entry:

@@ -5,15 +5,19 @@ foo_entry:
 	br i1 %tmp..3, label %foo.1_if.true, label %foo.2_if.end
 foo.1_if.true:
 	call void @error()
-	br label %foo.2_if.end
+	ret i32 0
 foo.2_if.end:
 	ret i32 0
 }
 
 define i32 @main() { 
-main_entry:
+main.1_if.true:
 	%tmp..5 = call i32 @foo(i32 44)
+	br label %main.6_if.true
+main.6_if.true:
 	%tmp..12 = call i32 @foo(i32 44)
+	br label %main.8_if.end
+main.8_if.end:
 	ret i32 0
 }
 
@@ -22,9 +26,19 @@ main_entry:
 ; ====================================================
 ; ====================================================
 
+declare i32 @puts(i8*)
+define void @printString(i8* %s) {
+entry:  call i32 @puts(i8* %s)
+	ret void
+}
+
+@._runtime_error = internal constant [15 x i8] c"runtime error\0A\00"
 declare void @exit(i32)
 define void @error() {
-entry:  call void @exit(i32 1)
+entry:  %t0 = getelementptr [15 x i8], [15 x i8]* @._runtime_error, i32 0, i32 0
+call void @printString(i8* %t0)
+
+call void @exit(i32 1)
 	ret void
 }
 
