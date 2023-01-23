@@ -42,7 +42,7 @@ public class Utils {
         } else if (actual instanceof latte.Absyn.Void) {
             return "void";
         } else if (actual instanceof latte.Absyn.Class) {
-            return "%"+((latte.Absyn.Class) actual).ident_;
+            return "%"+((latte.Absyn.Class) actual).ident_+"*";
         } else if (actual instanceof Null) {
             return "null";
         }

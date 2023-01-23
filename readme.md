@@ -8,15 +8,17 @@ Oddaje kompilator llvm. Bede jeszcze oddawal rozszerzenie kompilatora.
 + = -9.2
 
 Co zrobilem z optymalizacji:
-- usuwanie martwego kodu (np. if (false) { ... }, kod po returnie, nieużywane zmienne)
-- usuwanie martwego kodu (zmienne ktore nie sa zywe)
 - zwijanie stalych (3 + 5) (5<3)
 - propagacja stalych
 - propagacja kopii
 - postac ssa
+- usuwanie martwego kodu
+- usuwanie pustych blokow
 - gcse
 - klasy:
-- wyciaganie metod
+  - struktury
+  - dziedzieczenie
+  - wirualne metody
 
 
 Kompliacja kompilatora za pomoca polecenia: `make`

@@ -1,6 +1,7 @@
 package latte.backend.programvisitors;
 
 import latte.Absyn.*;
+import latte.Absyn.Class;
 import latte.backend.program.global.Variable;
 import latte.backend.quadruple.Block;
 import latte.backend.quadruple.Quadruple;
@@ -18,7 +19,7 @@ public class DeclVisitor implements Item.Visitor<List<Quadruple>, Block> {
 
     @Override
     public List<Quadruple> visit(NoInit p, Block block) {
-        Expr defaultValue = type.equals(new Int()) ?  new ELitInt(0) : type.equals(new Bool()) ? new ELitFalse() : new EString("");
+        Expr defaultValue = type.equals(new Int()) ? new ELitInt(0) : type.equals(new Bool()) ? new ELitFalse() : (type instanceof Class) ? new ENull(((Class) type).ident_) : new EString("");
         return new Init(p.ident_, defaultValue).accept(this, block);
 
     }

@@ -1,9 +1,11 @@
 package latte.backend.quadruple;
 
 import latte.Absyn.*;
+import latte.Absyn.Class;
 import latte.Absyn.Void;
 import latte.backend.program.global.Function;
 import latte.backend.program.global.Global;
+import latte.backend.program.global.classes.LLVMClassConstructor;
 import latte.utils.Utils;
 
 import java.util.*;
@@ -550,6 +552,76 @@ public class Quadruple {
             @Override
             public boolean hasSideEffects() {
                 return false;
+            }
+        }
+
+        public static class ALLOCA extends LLVMOperation {
+            private final Type type;
+            public ALLOCA(Type type) {
+                this.type = type;
+            }
+
+            @Override
+            public String toString() {
+                return "alloca " + Utils.getLLVMType(type).replace("*", "");
+            }
+
+            @Override
+            public Collection<Register> getUsedRegisters() {
+                return Collections.emptyList();
+            }
+
+            @Override
+            public boolean hasSideEffects() {
+                return true;
+            }
+        }
+
+        public static class NULL extends LLVMOperation {
+            private final Class type;
+
+            public NULL(Class type) {
+                this.type = type;
+            }
+
+            @Override
+            public String toString() {
+                return "bitcast i32* null to "+Utils.getLLVMType(type);
+            }
+
+            @Override
+            public Collection<Register> getUsedRegisters() {
+                return Collections.emptyList();
+            }
+
+            @Override
+            public boolean hasSideEffects() {
+                return true;
+            }
+        }
+
+        public static class CALL_CONSTRUCTOR extends LLVMOperation {
+            private final Register register;
+            private final Class type;
+
+            public CALL_CONSTRUCTOR(Register register, Class type) {
+                this.register = register;
+                this.type = type;
+            }
+
+            @Override
+            public String toString() {
+                return "call void @"+ LLVMClassConstructor.construtorName(type.ident_) + "(" + Utils.getLLVMType(type) + " " + register + ")";
+            }
+
+            @Override
+            public Collection<Register> getUsedRegisters() {
+                return Collections.singletonList(register);
+            }
+
+            @Override
+            public boolean hasSideEffects() {
+                return true;
             }
         }
     }
