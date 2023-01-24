@@ -8,19 +8,62 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="getfield">
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="Fix simple classes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classes/0.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/0.lat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classes/11.output" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/11.output" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/Global.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/Global.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClassConstructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClassConstructor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClassType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClassType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Block.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/utils/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/basic/bool_overoptymization.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/bool_overoptymization.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classes/3.output" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/3.output" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classes/6.output" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/6.output" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/extensions/objects2/shapes.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/extensions/objects2/shapes.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/gr5/bfs.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/gr5/bfs.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/gr5/calculator.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/gr5/calculator.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/gr5/lista2Kierunkowa.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/gr5/lista2Kierunkowa.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/gr5/mergeSort.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/gr5/mergeSort.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_bool_new_class_bool.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_bool_new_class_bool.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_bool_of_field_bool.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_bool_of_field_bool.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_new_class_class.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_new_class_class.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_new_class_class_up.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_new_class_class_up.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_new_class_null.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_new_class_null.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_of_field_class.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_of_field_class.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_of_field_class_up.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_of_field_class_up.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_of_field_null.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_of_field_null.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_int_new_class_int.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_int_new_class_int.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_int_of_field_int.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_int_of_field_int.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_string_new_class_string.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_string_new_class_string.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_string_of_field_string.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_string_of_field_string.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_var_class_class.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_var_class_class.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_var_class_class_up.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_var_class_class_up.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_var_class_null.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_var_class_null.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/class_overriding_method.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/class_overriding_method.bc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/class_overriding_method.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/class_overriding_method.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/common_expressions.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/common_expressions.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/decr_field_int_new_class.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/decr_field_int_new_class.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/decr_field_int_of_field.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/decr_field_int_of_field.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/func_call_arg_class.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/func_call_arg_class.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/func_call_arg_conversion_class_to_class_up.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/func_call_arg_conversion_class_to_class_up.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/func_call_builtin_function.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/func_call_builtin_function.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/incr_field_int_new_class.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/incr_field_int_new_class.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/incr_field_int_of_field.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/incr_field_int_of_field.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/laziness_binop_or_and_binop_and.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/laziness_binop_or_and_binop_and.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/method_and_field_access_on_derived_class.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/method_and_field_access_on_derived_class.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/method_call_arg_bool.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/method_call_arg_bool.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/method_call_arg_class.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/method_call_arg_class.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/method_call_arg_conversion_class_to_class_up.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/method_call_arg_conversion_class_to_class_up.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/method_call_arg_int.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/method_call_arg_int.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/method_call_arg_string.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/method_call_arg_string.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/method_call_should_own_obj.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/method_call_should_own_obj.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/method_shadows_builtin_function.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/method_shadows_builtin_function.bc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/method_shadows_builtin_function.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/method_shadows_builtin_function.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/method_shadows_global_function.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/method_shadows_global_function.bc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/method_shadows_global_function.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/method_shadows_global_function.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/new_class_field_and_method.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/new_class_field_and_method.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/null_cast_to_class.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/null_cast_to_class.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/param_passing_method_bool.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/param_passing_method_bool.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/param_passing_method_int.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/param_passing_method_int.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/param_passing_method_str.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/param_passing_method_str.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/virtual_methods.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/virtual_methods.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/while_body_decl.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/while_body_decl.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/virtual/polymorphism.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/virtual/polymorphism.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/Preprocessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/Preprocessor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -278,12 +321,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Classes420.test_00" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Classes420" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="Classes420" />
-      <option name="METHOD_NAME" value="test_00" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="METHOD_NAME" value="test_03" />
+      <option name="TEST_OBJECT" value="class" />
       <patterns>
         <pattern testClass="Classes420" />
         <pattern testClass="MyTest420" />
@@ -296,19 +339,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Classes420.test_11" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GoodBasicTest,testBool_Overoptymization and 2 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="Classes420" />
-      <option name="METHOD_NAME" value="test_11" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="pattern" />
       <patterns>
+        <pattern testClass="GoodBasicTest,testBool_Overoptymization" />
+        <pattern testClass="Classes420,test_15" />
         <pattern testClass="Classes420" />
-        <pattern testClass="MyTest420" />
-        <pattern testClass="GoodClassicTest" />
-        <pattern testClass="GoodBasicTest" />
-        <pattern testClass="GoodMyTestsTest" />
-        <pattern testClass="MyTest" />
       </patterns>
       <method v="2">
         <option name="Make" enabled="true" />
@@ -332,11 +371,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GoodVarqoxgoodTest.testDead_Code_Cyclic_Unreachable_Component" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GoodVirtualTest.testPolymorphism" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GoodVarqoxgoodTest" />
-      <option name="METHOD_NAME" value="testDead_Code_Cyclic_Unreachable_Component" />
+      <option name="MAIN_CLASS_NAME" value="GoodVirtualTest" />
+      <option name="METHOD_NAME" value="testPolymorphism" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -362,20 +401,20 @@
       <item itemvalue="Application.Test mytest" />
       <item itemvalue="Application.Test" />
       <item itemvalue="JUnit.All in compiler" />
-      <item itemvalue="JUnit.Classes420.test_00" />
-      <item itemvalue="JUnit.Classes420.test_11" />
+      <item itemvalue="JUnit.Classes420" />
+      <item itemvalue="JUnit.GoodBasicTest,testBool_Overoptymization and 2 more" />
       <item itemvalue="JUnit.GoodBasicTest.testBool_Overoptymization" />
-      <item itemvalue="JUnit.GoodVarqoxgoodTest.testDead_Code_Cyclic_Unreachable_Component" />
+      <item itemvalue="JUnit.GoodVirtualTest.testPolymorphism" />
       <item itemvalue="JUnit.ALLESGOOD" />
       <item itemvalue="Shell Script.Unnamed" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.ALLESGOOD" />
-        <item itemvalue="JUnit.Classes420.test_00" />
-        <item itemvalue="JUnit.Classes420.test_11" />
-        <item itemvalue="JUnit.GoodVarqoxgoodTest.testDead_Code_Cyclic_Unreachable_Component" />
         <item itemvalue="JUnit.GoodBasicTest.testBool_Overoptymization" />
+        <item itemvalue="JUnit.GoodVirtualTest.testPolymorphism" />
+        <item itemvalue="JUnit.GoodBasicTest,testBool_Overoptymization and 2 more" />
+        <item itemvalue="JUnit.Classes420" />
       </list>
     </recent_temporary>
   </component>
@@ -438,42 +477,8 @@
       <workItem from="1674160558966" duration="10027000" />
       <workItem from="1674202517911" duration="11177000" />
       <workItem from="1674247550816" duration="50951000" />
-      <workItem from="1674447006102" duration="37724000" />
-    </task>
-    <task id="LOCAL-00057" summary="string">
-      <created>1671564618332</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1671564618332</updated>
-    </task>
-    <task id="LOCAL-00058" summary="sporo zmian zwijanie stalych">
-      <created>1671586315893</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1671586315893</updated>
-    </task>
-    <task id="LOCAL-00059" summary="zaczyna sie uruchamiac">
-      <created>1671599885632</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1671599885633</updated>
-    </task>
-    <task id="LOCAL-00060" summary=" 10/50">
-      <created>1671602183205</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1671602183206</updated>
-    </task>
-    <task id="LOCAL-00061" summary="teraz mozna zaczac dopiero sie bawic (no moze refakttor?)">
-      <created>1671602714945</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1671602714946</updated>
+      <workItem from="1674447006102" duration="45865000" />
+      <workItem from="1674517353941" duration="12590000" />
     </task>
     <task id="LOCAL-00062" summary="17/50">
       <created>1671625197517</created>
@@ -783,7 +788,42 @@
       <option name="project" value="LOCAL" />
       <updated>1674468973815</updated>
     </task>
-    <option name="localTasksCounter" value="106" />
+    <task id="LOCAL-00106" summary="struktury">
+      <created>1674485108779</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1674485108779</updated>
+    </task>
+    <task id="LOCAL-00107" summary="klasy dzialaja troche :)">
+      <created>1674488648837</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1674488648837</updated>
+    </task>
+    <task id="LOCAL-00108" summary="18:00 nie wysyałam">
+      <created>1674493213473</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1674493213473</updated>
+    </task>
+    <task id="LOCAL-00109" summary="Fix simple classes">
+      <created>1674525600693</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1674525600694</updated>
+    </task>
+    <task id="LOCAL-00110" summary="Fix simple classes">
+      <created>1674525622821</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1674525622821</updated>
+    </task>
+    <option name="localTasksCounter" value="111" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -849,10 +889,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="41/50 dziala while" />
-    <MESSAGE value="41/50 refactor" />
-    <MESSAGE value="43/50 ladniejszy kod" />
-    <MESSAGE value="45 xd" />
     <MESSAGE value="49/50 ..." />
     <MESSAGE value="str cmp" />
     <MESSAGE value="dziala na studnets" />
@@ -874,7 +910,11 @@
     <MESSAGE value="Klasy poczatek" />
     <MESSAGE value="Klasy construktor" />
     <MESSAGE value="getfield" />
-    <option name="LAST_COMMIT_MESSAGE" value="getfield" />
+    <MESSAGE value="struktury" />
+    <MESSAGE value="klasy dzialaja troche :)" />
+    <MESSAGE value="18:00 nie wysyałam" />
+    <MESSAGE value="Fix simple classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix simple classes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -903,11 +943,6 @@
           <url>file://$PROJECT_DIR$/tests/TestUtils.java</url>
           <line>43</line>
           <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/tests/TestUtils.java</url>
-          <line>89</line>
-          <option name="timeStamp" value="99" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />

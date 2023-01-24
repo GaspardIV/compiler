@@ -55,6 +55,14 @@ public class Preprocessor implements TopDef.Visitor<Null, Boolean>, Block.Visito
                     p.liststmt_.set(i, new While(whileStmt.expr_, new BStmt(new Blk(listStmt))));
                 }
             }
+            if (p.liststmt_.get(i) instanceof For) {
+                For forStmt = (For) p.liststmt_.get(i);
+                if (!(forStmt.stmt_ instanceof BStmt)) {
+                    ListStmt listStmt = new ListStmt();
+                    listStmt.add(forStmt.stmt_);
+                    p.liststmt_.set(i, new For(forStmt.arg_, forStmt.expr_, new BStmt(new Blk(listStmt))));
+                }
+            }
             p.liststmt_.get(i).accept(this, true);
 
         }
@@ -136,7 +144,7 @@ public class Preprocessor implements TopDef.Visitor<Null, Boolean>, Block.Visito
 
     @Override
     public Null visit(For p, Boolean replaceBlockWithIf) {
-        p.stmt_.accept(this, null);
+        p.stmt_.accept(this, false);
         return null;
     }
 
