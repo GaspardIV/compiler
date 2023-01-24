@@ -84,8 +84,7 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block>
 
     @Override
     public List<Quadruple> visit(ENil p, Block block) {
-        throw new RuntimeException("won't be implemented - todo remove ENil");
-//        return Collections.singletonList(new Quadruple(new Register(block.getRegisterNumber(TMP), new Null())));
+        throw new RuntimeException("should never happen");
     }
 
     @Override
@@ -325,7 +324,7 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block>
     public List<Quadruple> visit(ERel p, Block block) {
         List<Quadruple> quadruples = new ArrayList<>();
         List<Quadruple> left = p.expr_1.accept(this, block);
-        List<Quadruple> right = p.expr_2.accept(this, block);
+        List<Quadruple> right = Utils.nilExprReplace(p.expr_2, left.get(left.size()-1).getRegister().type).accept(this, block);
         quadruples.addAll(left);
         quadruples.addAll(right);
         Register leftRegister = left.get(left.size() - 1).getRegister();

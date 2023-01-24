@@ -3,14 +3,18 @@ package latte.backend.programvisitors;
 import latte.Absyn.*;
 import latte.Internal.InternalBlock;
 import latte.backend.program.global.Function;
-import latte.backend.quadruple.Block;
 import latte.backend.program.global.Scope;
 import latte.backend.program.global.Variable;
+import latte.backend.quadruple.Block;
 import latte.backend.quadruple.PhiManager;
 import latte.backend.quadruple.Quadruple;
 import latte.backend.quadruple.Register;
+import latte.utils.Utils;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Set;
 
 public class StatementVisitor implements Stmt.Visitor<Block, Block> {
     @Override
@@ -45,7 +49,8 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         if (p.expr_1 instanceof EField || (p.expr_1 instanceof EVar && block.getScope().getVariable(((EVar) p.expr_1).ident_) == null )) {
             registerExprVisitor.loadField = false;
             List<Quadruple> left = p.expr_1.accept(registerExprVisitor, block);
-            List<Quadruple> right = new RegisterExprVisitor().generateExprCode(p.expr_2, block);
+            Expr nonNilRightExpr = Utils.nilExprReplace(p.expr_2, left.get(left.size() - 1).getRegister().type);
+            List<Quadruple> right = new RegisterExprVisitor().generateExprCode(nonNilRightExpr, block);
             List<Quadruple> res = new ArrayList<>(left);
             res.addAll(right);
             res.add(new Quadruple(null, new Quadruple.LLVMOperation.STORE(right.get(right.size() - 1).result, left.get(left.size() - 1).result)));
@@ -54,7 +59,8 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
             List<Quadruple> left = p.expr_1.accept(registerExprVisitor, block);
             Register leftLastRegister = left.get(left.size() - 1).result;
             Variable variable = leftLastRegister.getVariable();
-            List<Quadruple> right = new RegisterExprVisitor().generateExprCode(p.expr_2, block);
+            Expr nonNilRightExpr = Utils.nilExprReplace(p.expr_2, variable.getType());
+            List<Quadruple> right = new RegisterExprVisitor().generateExprCode(nonNilRightExpr, block);
             List<Quadruple> res = new ArrayList<>(right);
             Register rightLastRegister = right.get(right.size() - 1).result;
             rightLastRegister.setVariable(variable);

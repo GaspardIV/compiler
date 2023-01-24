@@ -24,10 +24,10 @@ public class Utils {
         } else if (actual instanceof latte.Absyn.Class) {
             return ((latte.Absyn.Class) actual).ident_;
         } else if (actual instanceof Null) {
-            return "Null";
+            return "null";
+        } else {
+            return "null";
         }
-
-        throw new RuntimeException("not implemented ????");
     }
 
     public static String getLLVMType(Type actual) {
@@ -45,9 +45,9 @@ public class Utils {
             return "%"+((latte.Absyn.Class) actual).ident_+"*";
         } else if (actual instanceof Null) {
             return "null";
+        } else {
+            return "null";
         }
-
-        throw new RuntimeException("not implemented ????");
     }
 
     public static void writeToFile(String output, String fileName) {
@@ -259,8 +259,7 @@ public class Utils {
     }
 
     public static Expr defaultValue(Type type) {
-        Expr defaultValue = type.equals(new Int()) ? new ELitInt(0) : type.equals(new Bool()) ? new ELitFalse() : (type instanceof Class) ? new ENull(((Class) type).ident_) : new EString("");
-        return defaultValue;
+        return type.equals(new Int()) ? new ELitInt(0) : type.equals(new Bool()) ? new ELitFalse() : (type instanceof Class) ? new ENull(((Class) type).ident_) : new EString("");
     }
 
     public static int getLLVMTypeSize(Type type_) {
@@ -277,5 +276,14 @@ public class Utils {
         } else {
             return 0;
         }
+    }
+
+    public static Expr nilExprReplace(Expr expr,Type type) {
+        if (expr instanceof ENil) {
+            if (type instanceof Class) {
+                return new ENull(((Class) type).ident_);
+            }
+        }
+        return expr;
     }
 }

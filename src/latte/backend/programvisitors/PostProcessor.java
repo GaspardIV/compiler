@@ -180,11 +180,7 @@ public class PostProcessor {
             }
             for (Block block : blocks) {
                 if (block.isEmpty() && !phiBlocks.contains(block)) {
-                    Block next = block.clear();
-                    if (next != null) {
-                        block.override(next);
-                        changed = true;
-                    }
+                    changed = changed || block.overrideIfPossible(firstBlock, predecessors);
                 }
             }
         }

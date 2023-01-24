@@ -11,19 +11,32 @@ import latte.backend.program.global.Variable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class LLVMClass extends Scope {
 
-    private final LatteClass frontendClass;
     private final List<ClField> fields;
-    private LLVMClassType classType;
-    private LLVMClassConstructor constructor;
-    private HashMap<String, LLVMClassMethod> methods;
+    private final LLVMClassType classType;
+    private final LLVMClassConstructor constructor;
+    private final HashMap<String, LLVMClassMethod> methods;
 
     public LLVMClass(String contextName, Scope parent, LatteClass latteClass) {
         super(contextName, parent);
-        this.frontendClass = latteClass;
-        this.fields = frontendClass.getFields();
+        this.fields = latteClass.getFields();
+        this.classType = new LLVMClassType(this.getName(), latteClass.getFields());
+        this.constructor = new LLVMClassConstructor(this.getName(), latteClass.getFields());
+        this.methods = new HashMap<>();
+        for (ClMethod method : latteClass.getMethods()) {
+            List<Variable> variables = new ArrayList<>();
+            variables.add(new Variable("self", new Class(getName()), this));
+            for (Arg ar : method.listarg_) {
+                Ar arg = (Ar) ar;
+                variables.add(new Variable(arg.ident_, arg.type_, this));
+            }
+            LLVMClassMethod llvmMethod = new LLVMClassMethod(classMethodLabel(getName(), method.ident_), method.type_, variables, ((Blk) method.block_).liststmt_, this);
+            methods.put(method.ident_, llvmMethod);
+        }
+
     }
 
     public int getFieldIndex(String name) {
@@ -36,23 +49,8 @@ public class LLVMClass extends Scope {
     }
 
     public void convertToLLVM() {
-        this.classType = new LLVMClassType(this.getName(), frontendClass.getFields());
-        this.constructor = new LLVMClassConstructor(this.getName(), frontendClass.getFields());
-        this.methods = new HashMap<>();
-        for (ClMethod method : frontendClass.getMethods()) {
-            List<Variable> variables = new ArrayList<>();
-            variables.add(new Variable("self", new Class(getName()), this));
-            for (Arg ar : method.listarg_) {
-                Ar arg = (Ar) ar;
-                variables.add(new Variable(arg.ident_, arg.type_, this));
-            }
-            LLVMClassMethod llvmMethod = new LLVMClassMethod(classMethodLabel(getName(), method.ident_), method.type_, variables, ((Blk) method.block_).liststmt_, this);
-            methods.put(method.ident_, llvmMethod);
-        }
-
-
-        for (ClMethod method : frontendClass.getMethods()) {
-            methods.get(method.ident_).convertToQuadruples();
+        for (Map.Entry<String, LLVMClassMethod> method : this.methods.entrySet()) {
+            methods.get(method.getKey()).convertToQuadruples();
         }
     }
 

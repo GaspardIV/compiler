@@ -164,12 +164,20 @@ public class Block {
         return statements.stream().allMatch(q -> q.toString().equals("") || q.op instanceof Quadruple.LLVMOperation.GOTO || q.op instanceof Quadruple.LLVMOperation.LABEL);
     }
 
-    public Block clear() {
+    public boolean overrideIfPossible(Block firstBlock, HashMap<Block, HashSet<Block>> predecessors) {
+        boolean isFirstBlock = this == firstBlock;
         Block next = statements.stream().filter(q -> q.op instanceof Quadruple.LLVMOperation.GOTO).map(q -> ((Quadruple.LLVMOperation.GOTO) q.op).block).findFirst().orElse(null);
         if (next != null) {
-            statements.clear();
+            if (isFirstBlock && predecessors.get(next).size() > 1) {
+                //        Entry block to function must not have predecessors
+                return false;
+            }else {
+                statements.clear();
+                this.override(next);
+                return true;
+            }
         }
-        return next;
+        return false;
     }
 
     public void override(Block next) {

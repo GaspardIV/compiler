@@ -630,7 +630,7 @@ public class Quadruple {
 
             @Override
             public boolean hasSideEffects() {
-                return true;
+                return false;
             }
         }
 
