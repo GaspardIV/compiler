@@ -19,6 +19,15 @@ public class JumpingCodeGenerator extends RegisterExprVisitor {
     }
 
     @Override
+    public List<Quadruple> visit(EArrayElemR p, Block block) {
+        List<Quadruple> quadruples = new ArrayList<>();
+        quadruples = p.accept(new RegisterExprVisitor(), block);
+        Register tmp = quadruples.get(quadruples.size() - 1).getRegister();
+        quadruples.add(new Quadruple(null, new Quadruple.LLVMOperation.IF(tmp, jumpBlockTrue, jumpBlockFalse)));
+        return quadruples;
+    }
+
+    @Override
     public List<Quadruple> visit(EVar p, Block block) {
         List<Quadruple> quadruples = new ArrayList<>();
         quadruples = p.accept(new RegisterExprVisitor(), block);

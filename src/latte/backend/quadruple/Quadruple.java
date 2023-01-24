@@ -187,6 +187,15 @@ public class Quadruple {
             public Register register1;
             public Register register2;
 
+            int m2;
+
+            public MUL(MulOp mulop_, Register register1, int m2) {
+                this.op = mulop_;
+                this.register1 = register1;
+                this.register2 = null;
+                this.m2 = m2;
+            }
+
             public MUL(MulOp mulop_, Register register1, Register register2) {
                 this.op = mulop_;
                 this.register1 = register1;
@@ -195,7 +204,7 @@ public class Quadruple {
 
             public String toString() {
                 if (op instanceof Times) {
-                    return "mul i32 " + register1.toString() + ", " + register2.toString();
+                    return "mul i32 " + register1.toString() + ", " + (register2 == null ? Integer.toString(m2) : register2.toString());
                 } else if (op instanceof Div) {
                     return "sdiv i32 " + register1.toString() + ", " + register2.toString();
                 } else if (op instanceof Mod) {
@@ -207,7 +216,11 @@ public class Quadruple {
 
             @Override
             public Collection<Register> getUsedRegisters() {
-                return Arrays.asList(register1, register2);
+                if (register2 == null) {
+                    return Collections.singleton(register1);
+                } else {
+                    return Arrays.asList(register1, register2);
+                }
             }
 
             @Override
@@ -217,9 +230,17 @@ public class Quadruple {
         }
 
         public static class ADD extends LLVMOperation {
+            private int m2 = 0;
             public AddOp op;
             public Register register1;
             public Register register2;
+
+            public ADD(AddOp addop_, Register register1, int m2) {
+                this.op = addop_;
+                this.register1 = register1;
+                this.register2 = null;
+                this.m2 = m2;
+            }
 
             public ADD(AddOp addop_, Register register1, Register register2) {
                 this.op = addop_;
@@ -228,20 +249,25 @@ public class Quadruple {
             }
 
             public String toString() {
+                String r2 = register2 == null ? Integer.toString(m2) : register2.toString();
                 if (op instanceof Plus) {
                     if (register1.type instanceof Str) {
                         Global.getInstance().useConcat = true;
-                        return "call i8* @._concat(i8* " + register1 + ", i8* " + register2.toString() + ")";
+                        return "call i8* @._concat(i8* " + register1 + ", i8* " + r2 + ")";
                     }
-                    return "add " + register1.getLLVMType() + " " + register1.toString() + ", " + register2.toString();
+                    return "add " + register1.getLLVMType() + " " + register1.toString() + ", " + r2;
                 } else {
-                    return "sub " + register1.getLLVMType() + " " + register1.toString() + ", " + register2.toString();
+                    return "sub " + register1.getLLVMType() + " " + register1.toString() + ", " + r2;
                 }
             }
 
             @Override
             public Collection<Register> getUsedRegisters() {
-                return Arrays.asList(register1, register2);
+                if (register2 == null) {
+                    return Collections.singleton(register1);
+                } else {
+                    return Arrays.asList(register1, register2);
+                }
             }
 
             @Override
@@ -355,7 +381,7 @@ public class Quadruple {
 
             @Override
             public String toString() {
-                String type1 = Utils.getLLVMType(type).replace("*", "");
+                String type1 = Utils.getLLVMType(type).replaceFirst("\\*", "");
                 return "getelementptr [" + length + " x " + type1 + "], [" + length + " x " + type1 + "]* " + ident + ", i32 " + i + ", i32 " + j;
             }
 
@@ -556,18 +582,18 @@ public class Quadruple {
         }
 
         public static class ALLOCA extends LLVMOperation {
-            private final int size;
+            private final int sizeInBytes;
 
 
             public ALLOCA(int size) {
                 Global.getInstance().useMalloc = true;
-                this.size = size;
+                this.sizeInBytes = size;
             }
 
             @Override
             public String toString() {
 //                return "alloca " + Utils.getLLVMType(type).replace("*", "");
-                return "call i8* @malloc(i32 " + size*7 + ")";
+                return "call i8* @malloc(i32 " + sizeInBytes * 8 + ")";
             }
 
             @Override
@@ -609,18 +635,34 @@ public class Quadruple {
 
         public static class GET_FIELD extends LLVMOperation {
             private final Register register;
+            private final Register register2;
             private final int index;
 
+
+            public GET_FIELD(Register register, Register index) {
+                this.register = register;
+                this.register2 = index;
+                this.index = -1;
+            }
 
             public GET_FIELD(Register register, int index) {
                 this.register = register;
                 this.index = index;
+                this.register2 = null;
             }
 
             @Override
             public String toString() {
-                String withoutStar = register.getLLVMType().replace("*", "");
-                return "getelementptr " + withoutStar + ", " + withoutStar + "* " + register + ", i32 0, i32 " + index;
+                String withoutStar = register.getLLVMType().replaceFirst("\\*", "");
+                if (this.register2 != null) {
+                    // todo zamiast 50 instructji getelementptr mzna dodac wiecej przecinkow
+//                    w przypadku [][][][][][]
+                    return "getelementptr " + withoutStar + ", " + withoutStar + "* " + register + ", i32 " + register2;
+                } else {
+                    // todo zamiast 50 instructji getelementptr mzna dodac wiecej przecinkow
+//                    w przypadu aaa.bbb.ccc
+                    return "getelementptr " + withoutStar + ", " + withoutStar + "* " + register + ", i32 0, i32 " + index;
+                }
             }
 
             @Override
@@ -669,6 +711,7 @@ public class Quadruple {
             @Override
             public String toString() {
                 String withoutStar = register1.getLLVMType();
+
                 return "\tstore " + withoutStar + " " + register1 + ", " + withoutStar + "* " + register2;
             }
 
@@ -684,9 +727,9 @@ public class Quadruple {
         }
 
         public static class NULL extends LLVMOperation {
-            private final Class type;
+            private final Type type;
 
-            public NULL(Class type) {
+            public NULL(Type type) {
                 this.type = type;
             }
 
@@ -708,16 +751,24 @@ public class Quadruple {
 
         public static class BITCAST extends LLVMOperation {
             private final Register register;
-            private final Class type;
+            private final Type type;
+            private final Type from;
 
-            public BITCAST(Register register, Class type) {
+            public BITCAST(Register register, Type from, Type type) {
                 this.register = register;
+                this.from = from;
+                this.type = type;
+            }
+
+            public BITCAST(Register register, Type type) {
+                this.register = register;
+                this.from = register.type;
                 this.type = type;
             }
 
             @Override
             public String toString() {
-                return "bitcast " + register.getLLVMType() + " " + register + " to " + Utils.getLLVMType(type);
+                return "bitcast " + Utils.getLLVMType(from) + " " + register + " to " + Utils.getLLVMType(type);
             }
 
             @Override
@@ -730,5 +781,56 @@ public class Quadruple {
                 return true;
             }
         }
+
+        public static class CALLOC extends LLVMOperation {
+            private final Register size;
+
+            public CALLOC(Register register) {
+                this.size = register;
+                Global.getInstance().useCalloc = true;
+            }
+
+            @Override
+            public String toString() {
+                return "call i8* @calloc(i32 1, i32 " + size + ")";
+            }
+
+            @Override
+            public Collection<Register> getUsedRegisters() {
+                return Collections.singletonList(size);
+            }
+
+            @Override
+            public boolean hasSideEffects() {
+                return true;
+            }
+        }
+
+        public static class GETELEMENTPTR extends LLVMOperation {
+            private final Register register;
+            private final int index;
+
+            public GETELEMENTPTR(Register register, int index) {
+                this.register = register;
+                this.index = index;
+            }
+
+            @Override
+            public Collection<Register> getUsedRegisters() {
+                return Collections.singletonList(register);
+            }
+
+            @Override
+            public boolean hasSideEffects() {
+                return false;
+            }
+
+            @Override
+            public String toString() {
+                String withoutStar = register.getLLVMType().replaceFirst("\\*", "");
+                return "getelementptr " + withoutStar + ", " + withoutStar + "* " + register + ", i32 " + index;
+            }
+        }
     }
 }
+

@@ -8,16 +8,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="Fix simple classes">
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="for preparation xd">
+      <change afterPath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMArrayClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/basic/bool_overoptymization.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/bool_overoptymization.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/arrays/array_new.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/arrays/array_new.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/arrays/array_read.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/arrays/array_read.bc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/arrays/array_read.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/arrays/array_read.lat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/arrays/array_read.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/arrays/array_read.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/arrays/array_string.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/arrays/array_string.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/basic/concatenation.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/concatenation.bc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/basic/concatenation.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/concatenation.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/classes/3.output" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/3.output" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/classes/6.output" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/6.output" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core001.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core001.bc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core001.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core001.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core012.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core012.bc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core012.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core012.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core018.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core018.bc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core018.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core018.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/extensions/objects2/shapes.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/extensions/objects2/shapes.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/gr5/bfs.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/gr5/bfs.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/gr5/calculator.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/gr5/calculator.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/gr5/lista2Kierunkowa.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/gr5/lista2Kierunkowa.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/gr5/mergeSort.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/gr5/mergeSort.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core001.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core001.bc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core001.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core001.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core012.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core012.bc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core012.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core012.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core018.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core018.bc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core018.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core018.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_bool_new_class_bool.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_bool_new_class_bool.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_bool_of_field_bool.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_bool_of_field_bool.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_new_class_class.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_new_class_class.ll" afterDir="false" />
@@ -63,7 +82,13 @@
       <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/virtual_methods.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/virtual_methods.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/while_body_decl.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/while_body_decl.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/virtual/polymorphism.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/virtual/polymorphism.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/Preprocessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/Preprocessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/Global.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/Global.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/JumpingCodeGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/JumpingCodeGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/utils/Utils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,32 +213,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path&quot;: &quot;/Users/kacperkonecki/IdeaProjects/codingame/compiler/third_party&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/kacperkonecki/IdeaProjects/codingame/compiler/lattests/good/classes&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path": "/Users/kacperkonecki/IdeaProjects/codingame/compiler/third_party",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "extract.method.default.visibility": "private",
+    "last.edited.regexp": "",
+    "last_opened_file_path": "/Users/kacperkonecki/IdeaProjects/codingame/compiler/lattests/good/classes",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "configurable.group.appearance"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;ChangesTree.GroupingKeys&quot;: [
+  "keyToStringList": {
+    "ChangesTree.GroupingKeys": [
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="latte.backend.program.global.classes" />
@@ -321,34 +347,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Classes420" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GoodArraysTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="Classes420" />
-      <option name="METHOD_NAME" value="test_03" />
+      <option name="MAIN_CLASS_NAME" value="GoodArraysTest" />
       <option name="TEST_OBJECT" value="class" />
-      <patterns>
-        <pattern testClass="Classes420" />
-        <pattern testClass="MyTest420" />
-        <pattern testClass="GoodClassicTest" />
-        <pattern testClass="GoodBasicTest" />
-        <pattern testClass="GoodMyTestsTest" />
-        <pattern testClass="MyTest" />
-      </patterns>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GoodBasicTest,testBool_Overoptymization and 2 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GoodArraysTest.testArray_New" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
-      <option name="MAIN_CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="pattern" />
-      <patterns>
-        <pattern testClass="GoodBasicTest,testBool_Overoptymization" />
-        <pattern testClass="Classes420,test_15" />
-        <pattern testClass="Classes420" />
-      </patterns>
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GoodArraysTest" />
+      <option name="METHOD_NAME" value="testArray_New" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -371,12 +384,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GoodVirtualTest.testPolymorphism" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GoodExtensionsArrays1Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GoodVirtualTest" />
-      <option name="METHOD_NAME" value="testPolymorphism" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="GoodExtensionsArrays1Test" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -401,20 +413,20 @@
       <item itemvalue="Application.Test mytest" />
       <item itemvalue="Application.Test" />
       <item itemvalue="JUnit.All in compiler" />
-      <item itemvalue="JUnit.Classes420" />
-      <item itemvalue="JUnit.GoodBasicTest,testBool_Overoptymization and 2 more" />
+      <item itemvalue="JUnit.GoodArraysTest" />
+      <item itemvalue="JUnit.GoodArraysTest.testArray_New" />
       <item itemvalue="JUnit.GoodBasicTest.testBool_Overoptymization" />
-      <item itemvalue="JUnit.GoodVirtualTest.testPolymorphism" />
+      <item itemvalue="JUnit.GoodExtensionsArrays1Test" />
       <item itemvalue="JUnit.ALLESGOOD" />
       <item itemvalue="Shell Script.Unnamed" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.ALLESGOOD" />
+        <item itemvalue="JUnit.GoodArraysTest" />
+        <item itemvalue="JUnit.GoodExtensionsArrays1Test" />
+        <item itemvalue="JUnit.GoodArraysTest.testArray_New" />
         <item itemvalue="JUnit.GoodBasicTest.testBool_Overoptymization" />
-        <item itemvalue="JUnit.GoodVirtualTest.testPolymorphism" />
-        <item itemvalue="JUnit.GoodBasicTest,testBool_Overoptymization and 2 more" />
-        <item itemvalue="JUnit.Classes420" />
       </list>
     </recent_temporary>
   </component>
@@ -478,14 +490,7 @@
       <workItem from="1674202517911" duration="11177000" />
       <workItem from="1674247550816" duration="50951000" />
       <workItem from="1674447006102" duration="45865000" />
-      <workItem from="1674517353941" duration="12590000" />
-    </task>
-    <task id="LOCAL-00062" summary="17/50">
-      <created>1671625197517</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1671625197517</updated>
+      <workItem from="1674517353941" duration="38367000" />
     </task>
     <task id="LOCAL-00063" summary="17/50">
       <created>1671634814513</created>
@@ -823,7 +828,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674525622821</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="for preparation xd">
+      <created>1674530179415</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1674530179415</updated>
+    </task>
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -889,7 +901,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="49/50 ..." />
     <MESSAGE value="str cmp" />
     <MESSAGE value="dziala na studnets" />
     <MESSAGE value="gramatyka - tymczasowy fix." />
@@ -914,7 +925,8 @@
     <MESSAGE value="klasy dzialaja troche :)" />
     <MESSAGE value="18:00 nie wysyałam" />
     <MESSAGE value="Fix simple classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix simple classes" />
+    <MESSAGE value="for preparation xd" />
+    <option name="LAST_COMMIT_MESSAGE" value="for preparation xd" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -943,6 +955,11 @@
           <url>file://$PROJECT_DIR$/tests/TestUtils.java</url>
           <line>43</line>
           <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java</url>
+          <line>60</line>
+          <option name="timeStamp" value="116" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />

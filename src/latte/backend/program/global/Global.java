@@ -1,5 +1,6 @@
 package latte.backend.program.global;
 
+import latte.Absyn.Type;
 import latte.Internal.ClField;
 import latte.Internal.LatteClass;
 import latte.backend.program.global.classes.LLVMClass;
@@ -11,6 +12,7 @@ import java.util.Map;
 public class Global extends Scope {
 
     public boolean useMalloc = false;
+    public boolean useCalloc = false;
     private Map<String, LatteClass> classDefs;
 
     public Global(String contextName, Scope parent) {
@@ -54,6 +56,10 @@ public class Global extends Scope {
 
     public static Function getMethod(String classs, String method) {
         return getInstance().classes.get(classs).getMethod(method);
+    }
+
+    public static int getTypeSize(Type type_) {
+        return Utils.getLLVMTypeSize(type_);
     }
 
     public void markIfRuntimeFunction(String name) {

@@ -24,7 +24,7 @@ public class Utils {
         } else if (actual instanceof latte.Absyn.Class) {
             return ((latte.Absyn.Class) actual).ident_;
         } else if (actual instanceof Null) {
-            return "null";
+            return "Null";
         } else {
             return "null";
         }
@@ -32,7 +32,7 @@ public class Utils {
 
     public static String getLLVMType(Type actual) {
         if (actual instanceof Array) {
-            return "todo";
+            return getLLVMType(((Array) actual).type_) + "*";
         } else if (actual instanceof Bool) {
             return "i1";
         } else if (actual instanceof latte.Absyn.Int) {
@@ -97,6 +97,9 @@ public class Utils {
                     "\tret void\n" +
                     "}\n");
             output.append("\n");
+        }
+        if (global.useConcat || global.useReadString || global.useCalloc) {
+            output.append("declare i8* @calloc(i32, i32)\n");
         }
         if (global.useConcat || global.useReadString || global.useMalloc) {
             output.append("declare i8* @malloc(i32)\n");

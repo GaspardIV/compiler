@@ -1,5 +1,22 @@
 Oddaje kompilator llvm. Bede jeszcze oddawal rozszerzenie kompilatora.
 
+TODO:
+ - mozna usunac final z kazdego pola w ABSYN
+ - tablice
+ - vtable
+ - ustawienie obiektow odpowiednio w pamieci - najpierw najwyzszego rodzica, potem dziedziczace dzieci
+ - wirtualne metody sa usuwane, przez to ze nie sa uzywane?
+ - zobaczyc na czym polega odsmiecanie pamieci - moze proste trzymanie ilosci referencji do obiektu - mallokowanie wszystkiego.
+ - moze sprobwoac optymalizacje petli
+
+Function pointers are expressed almost like in C and C++:
+         int (*Function)(char *buffer);
+Becomes: @Function = global i32(i8*)* null
+
+%p = getelementptr %T, %T* null, i32 1
+%s = ptrtoint %T* %p to i32
+
+
 + frontend 4
 + backend 7 (8 + 2 - 2 - 1 = 11)
 + 9 quizy

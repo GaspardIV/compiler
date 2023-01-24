@@ -55,8 +55,25 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block>
 
     @Override
     public List<Quadruple> visit(ENewArray p, Block block) {
-        // todo
-        return null;
+        int size = Global.getTypeSize(p.type_);
+        int i32Size = Global.getTypeSize(new Int());
+        List<Quadruple> result = new ArrayList<>(p.expr_.accept(this, block));
+        Register sizeReg = result.get(result.size() - 1).result;
+        Register sizeReg2 = new Register(block.getRegisterNumber(TMP), new Int());
+        result.add(new Quadruple(sizeReg2, new Quadruple.LLVMOperation.MUL(new Times(), sizeReg, size)));
+        Register bytesToAlloc = new Register(block.getRegisterNumber(TMP), new Int());
+        result.add(new Quadruple(bytesToAlloc, new Quadruple.LLVMOperation.ADD(new Plus(), sizeReg2, i32Size)));
+        Register negativePtr = new Register(block.getRegisterNumber(TMP), new Str());
+        result.add(new Quadruple(negativePtr, new Quadruple.LLVMOperation.CALLOC(bytesToAlloc)));
+        Register sizePtr = new Register(block.getRegisterNumber(TMP), new Int());
+        result.add(new Quadruple(sizePtr, new Quadruple.LLVMOperation.BITCAST(negativePtr, negativePtr.type, new Array(new Int()))));
+        result.add(new Quadruple(null, new Quadruple.LLVMOperation.STORE(sizeReg, sizePtr)));
+        Register castPointer = new Register(block.getRegisterNumber(TMP), new Str());
+        result.add(new Quadruple(castPointer, new Quadruple.LLVMOperation.GETELEMENTPTR(negativePtr, 1)));
+        Register arrayPointer = new Register(block.getRegisterNumber(TMP), new Array(p.type_));
+        result.add(new Quadruple(arrayPointer, new Quadruple.LLVMOperation.BITCAST(castPointer, castPointer.type, new Array(p.type_))));
+
+        return result;
     }
 
 //    @Override
@@ -67,14 +84,25 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block>
 
     @Override
     public List<Quadruple> visit(EArrayElemR p, Block block) {
-        // todo
-        return null;
+        List<Quadruple> result = new ArrayList<>();
+        RegisterExprVisitor visitor = new RegisterExprVisitor();
+        visitor.loadField = true;
+        List<Quadruple> quadruples = p.expr_.accept(visitor, block);
+        result.addAll(quadruples);
+        Quadruple last = quadruples.get(quadruples.size() - 1);
+        Variable variable  = block.getVariable(p.ident_);
+        Array type = (Array) variable.getType();
+        Register register = new Register(block.getRegisterNumber(TMP), type.type_);
+        result.add(new Quadruple(register, new Quadruple.LLVMOperation.GET_FIELD(block.getScope().getLastVariableRegister(variable), last.result)));
+        if (loadField) {
+            result.add(new Quadruple(new Register(block.getRegisterNumber(TMP), type.type_), new Quadruple.LLVMOperation.LOAD(register)));
+        }
+        return result;
     }
 
     @Override
     public List<Quadruple> visit(ENullArr p, Block block) {
-        // todo
-        return null;
+        return Collections.singletonList(new Quadruple(new Register(block.getRegisterNumber(TMP), new Array(p.type_)), new Quadruple.LLVMOperation.NULL(new Array(p.type_))));
     }
 
     @Override
@@ -95,7 +123,7 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block>
         Register register = new Register(block.getRegisterNumber(TMP), new Str());
         result.add(new Quadruple(register, new Quadruple.LLVMOperation.ALLOCA(classSize)));
         Register register2 = new Register(block.getRegisterNumber(TMP), type);
-        result.add(new Quadruple(register2, new Quadruple.LLVMOperation.BITCAST(register, type)));
+        result.add(new Quadruple(register2, new Quadruple.LLVMOperation.BITCAST(register, register.type, type)));
         result.add(new Quadruple(new Register(block.getRegisterNumber(TMP), new Void()), new Quadruple.LLVMOperation.CALL_CONSTRUCTOR(register2, type)));
         result.add(new Quadruple(register2, null));
         return result;
@@ -120,30 +148,6 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block>
         Quadruple.LLVMOperation.CALL quadruple = new Quadruple.LLVMOperation.CALL(function.getType(), function.getName(), registers);
         quadruples.add(new Quadruple(new Register(block.getRegisterNumber(TMP), function.getType()), quadruple));
         return quadruples;
-//        List<Quadruple> result = new ArrayList<>();
-                        //        List<Quadruple> args = new ArrayList<>();
-                        //        for (Expr expr : p.listexpr_) {
-                        //            args.addAll(generateExprCode(expr, block));
-                        //        }
-                        //        result.addAll(args);
-                        //        Register register = new Register(block.getRegisterNumber(TMP), new Class(p.ident_));
-                        //        result.add(new Quadruple(register, new Quadruple.LLVMOperation.CALL_METHOD(p.ident_, p.ident_1, args.stream().map(Quadruple::getRegister).toArray(Register[]::new))));
-                        //        result.add(new Quadruple(register, null));
-                        //        return result;
-//
-//        Function function = Global.getInstance().getFunction(p.ident_);
-//        function.markAsUsed();
-//        List<Quadruple> quadruples = new ArrayList<>();
-//        List<Register> registers = new ArrayList<>();
-//        for (int i = 0; i < p.listexpr_.size(); i++) {
-//            List<Quadruple> exprQuadruples = new RegisterExprVisitor().generateExprCode(p.listexpr_.get(i), block);
-//            quadruples.addAll(exprQuadruples);
-//            registers.add(exprQuadruples.get(exprQuadruples.size() - 1).getRegister());
-//        }
-//        Quadruple.LLVMOperation.CALL quadruple = new Quadruple.LLVMOperation.CALL(function.getType(), function.getName(), registers);
-//        quadruples.add(new Quadruple(new Register(block.getRegisterNumber(TMP), function.getType()), quadruple));
-//        quadruples.addAll(handleCallErrorFunction(block, function));
-//        return quadruples;
     }
 
     @Override
@@ -154,6 +158,10 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block>
         List<Quadruple> quadruples = p.expr_.accept(visitor, block);
         result.addAll(quadruples);
         Quadruple last = quadruples.get(quadruples.size() - 1);
+        if (last.result.type instanceof Array) {
+            System.out.println("array");
+            throw new RuntimeException("should happen");
+        }
         Class type = (Class) last.getRegister().type;
         int idx = Global.getInstance().getLLVMClass(type.ident_).getFieldIndex(p.ident_);
         Type fieldType = Global.getInstance().getLLVMClass(type.ident_).getFieldType(p.ident_);
