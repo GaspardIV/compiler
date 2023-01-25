@@ -98,7 +98,7 @@ public class Utils {
                     "}\n");
             output.append("\n");
         }
-        if (global.useConcat || global.useReadString || global.useCalloc) {
+        if (global.useCalloc) {
             output.append("declare i8* @calloc(i32, i32)\n");
         }
         if (global.useConcat || global.useReadString || global.useMalloc) {

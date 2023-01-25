@@ -69,7 +69,7 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block>
         result.add(new Quadruple(sizePtr, new Quadruple.LLVMOperation.BITCAST(negativePtr, negativePtr.type, new Array(new Int()))));
         result.add(new Quadruple(null, new Quadruple.LLVMOperation.STORE(sizeReg, sizePtr)));
         Register castPointer = new Register(block.getRegisterNumber(TMP), new Str());
-        result.add(new Quadruple(castPointer, new Quadruple.LLVMOperation.GETELEMENTPTR(negativePtr, 1)));
+        result.add(new Quadruple(castPointer, new Quadruple.LLVMOperation.GETELEMENTPTR(negativePtr, i32Size)));
         Register arrayPointer = new Register(block.getRegisterNumber(TMP), new Array(p.type_));
         result.add(new Quadruple(arrayPointer, new Quadruple.LLVMOperation.BITCAST(castPointer, castPointer.type, new Array(p.type_))));
 
@@ -159,16 +159,25 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block>
         result.addAll(quadruples);
         Quadruple last = quadruples.get(quadruples.size() - 1);
         if (last.result.type instanceof Array) {
-            System.out.println("array");
-            throw new RuntimeException("should happen");
-        }
-        Class type = (Class) last.getRegister().type;
-        int idx = Global.getInstance().getLLVMClass(type.ident_).getFieldIndex(p.ident_);
-        Type fieldType = Global.getInstance().getLLVMClass(type.ident_).getFieldType(p.ident_);
-        Register register = new Register(block.getRegisterNumber(TMP), fieldType);
-        result.add(new Quadruple(register, new Quadruple.LLVMOperation.GET_FIELD(last.getRegister(), idx)));
-        if (loadField) {
-            result.add(new Quadruple(new Register(block.getRegisterNumber(TMP), fieldType), new Quadruple.LLVMOperation.LOAD(register)));
+            Register negativePtr = new Register(block.getRegisterNumber(TMP), new Str());
+            Register arrayPointer = last.result;
+            int i32Size = Global.getTypeSize(new Int());
+            Register castPointer = new Register(block.getRegisterNumber(TMP), new Str());
+            result.add(new Quadruple(castPointer, new Quadruple.LLVMOperation.BITCAST(arrayPointer, arrayPointer.type, new Str())));
+            result.add(new Quadruple(negativePtr, new Quadruple.LLVMOperation.GETELEMENTPTR(castPointer, -i32Size)));
+            Register sizePtr = new Register(block.getRegisterNumber(TMP), new Int());
+            result.add(new Quadruple(sizePtr, new Quadruple.LLVMOperation.BITCAST(negativePtr, negativePtr.type, new Array(new Int()))));
+            Register resultReg = new Register(block.getRegisterNumber(TMP), new Int());
+            result.add(new Quadruple(resultReg, new Quadruple.LLVMOperation.LOAD(sizePtr)));
+        } else {
+            Class type = (Class) last.getRegister().type;
+            int idx = Global.getInstance().getLLVMClass(type.ident_).getFieldIndex(p.ident_);
+            Type fieldType = Global.getInstance().getLLVMClass(type.ident_).getFieldType(p.ident_);
+            Register register = new Register(block.getRegisterNumber(TMP), fieldType);
+            result.add(new Quadruple(register, new Quadruple.LLVMOperation.GET_FIELD(last.getRegister(), idx)));
+            if (loadField) {
+                result.add(new Quadruple(new Register(block.getRegisterNumber(TMP), fieldType), new Quadruple.LLVMOperation.LOAD(register)));
+            }
         }
         return result;
     }

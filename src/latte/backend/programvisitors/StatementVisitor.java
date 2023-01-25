@@ -5,16 +5,11 @@ import latte.Internal.InternalBlock;
 import latte.backend.program.global.Function;
 import latte.backend.program.global.Scope;
 import latte.backend.program.global.Variable;
+import latte.backend.quadruple.*;
 import latte.backend.quadruple.Block;
-import latte.backend.quadruple.PhiManager;
-import latte.backend.quadruple.Quadruple;
-import latte.backend.quadruple.Register;
 import latte.utils.Utils;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class StatementVisitor implements Stmt.Visitor<Block, Block> {
     @Override
@@ -111,6 +106,7 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         Block entry = block;
 
         Block btrue = new Block(function.nextBlockName(), new Scope("if.true", scope), "if.true");
+        Block bfalse = new Block(function.nextBlockName(), scope, "if.false");
         Block bend = new Block(function.nextBlockName(), scope, "if.end");
 
         List<Quadruple> expr = p.expr_.accept(new RegisterExprVisitor(), block);
@@ -132,7 +128,7 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         }
 
 
-        quadruples.addAll(p.expr_.accept(new JumpingCodeGenerator(btrue, bend), block));
+        quadruples.addAll(p.expr_.accept(new JumpingCodeGenerator(btrue, bfalse), block));
         entry.addQuadruplesToLastBlock(quadruples);
         entry.addLastBlock(btrue);
 
@@ -140,11 +136,16 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         p.stmt_.accept(this, btrue);
         btrue.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(bend))));
         Block lastBlockOfTrue = btrue.getLastBlock();
-        btrue.addLastBlock(bend);
+        btrue.addLastBlock(bfalse);
+
+        bfalse.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(bfalse))));
+        bfalse.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(bend))));
+        Block lastBlockOfFalse = bfalse.getLastBlock();
+        bfalse.addLastBlock(bend);
 
         bend.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(bend))));
         Set<String> variableNames = btrue.getRedefinedVariables();
-        bend.addQuadruplesToLastBlock(entry.createConditionPhiVariables(variableNames, entry, lastBlockOfTrue));
+        bend.addQuadruplesToLastBlock(entry.createConditionPhiVariables(variableNames, lastBlockOfTrue, lastBlockOfFalse));
         scope.resetLastRegisterOfVariables(btrue.getRedefinedVariables());
         return null;
     }
@@ -259,6 +260,50 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
 
     @Override
     public Block visit(For p, Block block) {
+//        throw new RuntimeException("replaced in preprocessor");
+        Scope scope = block.getScope();
+        Function function = scope.getCurrentFunction();
+        Block entry = block;
+        Block cond = new Block(function.nextBlockName(), scope, "for.cond");
+        Block body = new Block(function.nextBlockName(), new Scope("for.body", scope), "for.body");
+        Block bend = new Block(function.nextBlockName(), scope, "for.end");
+
+        List<Quadruple> listVar = p.expr_.accept(new RegisterExprVisitor(), entry);
+        Register listVarReg = listVar.get(listVar.size() - 1).getRegister();
+        List<Quadruple> exprs = new EField(p.expr_, "length").accept(new RegisterExprVisitor(), entry);
+        entry.addQuadruples(listVar);
+        entry.addQuadruplesToLastBlock(exprs);
+        ListItem item = new ListItem();
+        String iteratorName = block.getRegisterNumber("i.d.x.");
+        item.add(new Init(iteratorName, new ELitInt(0)));
+        new Decl(new Int(), item).accept(this, entry);
+        Register length = exprs.get(exprs.size() - 1).getRegister();
+        entry.addQuadruple(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(cond)));
+        entry.addLastBlock(cond);
+        PhiManager.getInstance().pushScope(body.getScope());
+        List<Quadruple> getVar = new EVar(iteratorName).accept(new RegisterExprVisitor(), body);
+        List<Quadruple> getVar2 = new EVar(iteratorName).accept(new RegisterExprVisitor(), body);
+        cond.addQuadruples(getVar);
+        Register itres = cond.getQuadruples().get(0).result;
+//        cond.addQuadruple(new Quadruple(itres, new Quadruple.LLVMOperation.PHI(new Register("", new Int(), new ConstValue(0)),entry, new Register(iteratorName), body)));
+        Register result = new Register(block.getRegisterNumber("ifres."), new Bool());
+        cond.addQuadruple(new Quadruple(result, new Quadruple.LLVMOperation.REL(new LTH(), itres, length)));
+        cond.addQuadruple(new Quadruple(null, new Quadruple.LLVMOperation.IF(result, body, bend)));
+        cond.addLastBlock(body);
+        body.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(body))));
+        Ar arg = (Ar) p.arg_;
+        item.clear();
+        item.add(new Init(arg.ident_, new EArrayElemR(listVarReg.getVariable().getName()/* TODO p.exprs*/, new EVar(iteratorName))));
+        new Decl(arg.type_, item).accept(this, body.getLastBlock());
+        p.stmt_.accept(this, body.getLastBlock());
+        new Incr(new EVar(iteratorName)).accept(this, body.getLastBlock());
+        body.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(cond))));
+        List<Quadruple> phi1 = cond.createLoopPhiVariables(entry, body.getLastBlock());
+        body.addLastBlock(bend);
+        cond.addQuadruplesAtTheBeginning(phi1);
+        cond.addQuadruplesAtTheBeginning(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(cond))));
+        scope.resetLastRegisterOfVariables(body.getRedefinedVariables());
+        bend.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(bend))));
         return null;
     }
 
