@@ -667,7 +667,11 @@ public class Quadruple {
 
             @Override
             public Collection<Register> getUsedRegisters() {
-                return Collections.singletonList(register);
+                if (register2 == null) {
+                    return Collections.singletonList(register);
+                } else {
+                    return Arrays.asList(register, register2);
+                }
             }
 
             @Override

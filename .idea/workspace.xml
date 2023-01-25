@@ -8,7 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="array, bez length">
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="array, for, bez length poprawnione if {} bez else phi">
       <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/12.lat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/arrays/array_length.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/arrays/array_length.ll" afterDir="false" />
@@ -30,9 +30,13 @@
       <change beforePath="$PROJECT_DIR$/lattests/good/classic/core004.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core004.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/classic/core024.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core024.bc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/classic/core024.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core024.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/extensions/arrays1/array001.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/extensions/arrays1/array001.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/extensions/arrays1/array002.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/extensions/arrays1/array002.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/extensions/objects2/shapes.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/extensions/objects2/shapes.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/extensions/struct/list.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/extensions/struct/list.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/gr5/bfs.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/gr5/bfs.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/gr5/calculator.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/gr5/calculator.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/gr5/heapsort2.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/gr5/heapsort2.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/gr5/lista2Kierunkowa.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/gr5/lista2Kierunkowa.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/gr5/mergeSort.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/gr5/mergeSort.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core001.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core001.bc" afterDir="false" />
@@ -98,9 +102,7 @@
       <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/virtual_methods.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/virtual_methods.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/while_body_decl.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/while_body_decl.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/virtual/polymorphism.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/virtual/polymorphism.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/utils/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -289,7 +291,7 @@
       <recent name="bad" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GoodArraysTest">
+  <component name="RunManager" selected="JUnit.GoodBasicTest.testBool_Overoptymization">
     <configuration name="Test core002.lat" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="latte.Compiler" />
       <module name="compiler" />
@@ -332,23 +334,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ALLESGOOD" type="JUnit" factoryName="JUnit" temporary="true">
-      <module name="compiler" />
-      <option name="MAIN_CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="pattern" />
-      <patterns>
-        <pattern testClass="Classes420" />
-        <pattern testClass="MyTest420" />
-        <pattern testClass="GoodClassicTest" />
-        <pattern testClass="GoodBasicTest" />
-        <pattern testClass="GoodMyTestsTest" />
-        <pattern testClass="MyTest" />
-      </patterns>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="All in compiler" type="JUnit" factoryName="JUnit">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
@@ -359,30 +344,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GoodArraysTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GoodBasicTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GoodArraysTest" />
+      <option name="MAIN_CLASS_NAME" value="GoodBasicTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GoodArraysTest.testArray_New" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GoodBasicTest.testBool_Overoptymization" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GoodArraysTest" />
-      <option name="METHOD_NAME" value="testArray_New" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GoodArraysTest.testHeapsort" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="compiler" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GoodArraysTest" />
-      <option name="METHOD_NAME" value="testHeapsort" />
+      <option name="MAIN_CLASS_NAME" value="GoodBasicTest" />
+      <option name="METHOD_NAME" value="testBool_Overoptymization" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -392,6 +367,24 @@
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="GoodExtensionsArrays1Test" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GoodExtensionsObjects1Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="compiler" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GoodExtensionsObjects1Test" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GoodExtensionsObjects2Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="compiler" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GoodExtensionsObjects2Test" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -417,20 +410,20 @@
       <item itemvalue="Application.Test mytest" />
       <item itemvalue="Application.Test" />
       <item itemvalue="JUnit.All in compiler" />
-      <item itemvalue="JUnit.GoodArraysTest.testHeapsort" />
-      <item itemvalue="JUnit.GoodArraysTest" />
-      <item itemvalue="JUnit.GoodArraysTest.testArray_New" />
+      <item itemvalue="JUnit.GoodBasicTest" />
+      <item itemvalue="JUnit.GoodExtensionsObjects1Test" />
+      <item itemvalue="JUnit.GoodExtensionsObjects2Test" />
+      <item itemvalue="JUnit.GoodBasicTest.testBool_Overoptymization" />
       <item itemvalue="JUnit.GoodExtensionsArrays1Test" />
-      <item itemvalue="JUnit.ALLESGOOD" />
       <item itemvalue="Shell Script.Unnamed" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.GoodArraysTest" />
-        <item itemvalue="JUnit.ALLESGOOD" />
-        <item itemvalue="JUnit.GoodArraysTest.testHeapsort" />
+        <item itemvalue="JUnit.GoodBasicTest.testBool_Overoptymization" />
+        <item itemvalue="JUnit.GoodBasicTest" />
+        <item itemvalue="JUnit.GoodExtensionsObjects2Test" />
+        <item itemvalue="JUnit.GoodExtensionsObjects1Test" />
         <item itemvalue="JUnit.GoodExtensionsArrays1Test" />
-        <item itemvalue="JUnit.GoodArraysTest.testArray_New" />
       </list>
     </recent_temporary>
   </component>
@@ -496,14 +489,7 @@
       <workItem from="1674447006102" duration="45865000" />
       <workItem from="1674517353941" duration="38745000" />
       <workItem from="1674558351061" duration="6000" />
-      <workItem from="1674630158675" duration="18479000" />
-    </task>
-    <task id="LOCAL-00064" summary="18/50 - bloki do przebudowania">
-      <created>1671843721025</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1671843721026</updated>
+      <workItem from="1674630158675" duration="21132000" />
     </task>
     <task id="LOCAL-00065" summary="19/50">
       <created>1671852958340</created>
@@ -841,7 +827,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674556982446</updated>
     </task>
-    <option name="localTasksCounter" value="113" />
+    <task id="LOCAL-00113" summary="array, for, bez length poprawnione if {} bez else phi">
+      <created>1674650044216</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1674650044216</updated>
+    </task>
+    <option name="localTasksCounter" value="114" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -907,7 +900,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="dziala na studnets" />
     <MESSAGE value="gramatyka - tymczasowy fix." />
     <MESSAGE value="ok oddaje" />
     <MESSAGE value="Uzywalem zlej funkcji.." />
@@ -932,7 +924,8 @@
     <MESSAGE value="Fix simple classes" />
     <MESSAGE value="for preparation xd" />
     <MESSAGE value="array, bez length" />
-    <option name="LAST_COMMIT_MESSAGE" value="array, bez length" />
+    <MESSAGE value="array, for, bez length poprawnione if {} bez else phi" />
+    <option name="LAST_COMMIT_MESSAGE" value="array, for, bez length poprawnione if {} bez else phi" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
