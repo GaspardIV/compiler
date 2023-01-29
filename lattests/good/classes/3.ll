@@ -9,15 +9,15 @@
 ]
 
 %Node = type { 
-	void (...)**,
-	i1; visited 
-,
-	i32; value 
-,
-	%List*; neighbours 
-}
+	void (...)**; vtable
+	,i1; visited 
+	,i32; value 
+	,%List*; neighbours 
+	}
 define void @Node.constructor(%Node* %this) {
-	%this.vtable = bitcast [6 x void (...)*]* @Node.vtable to void (...)**
+	%this.class.vtable = bitcast [6 x void (...)*]* @Node.vtable to void (...)**
+	%this.vtable = getelementptr %Node, %Node* %this, i32 0, i32 0
+	store void (...)** %this.class.vtable, void (...)*** %this.vtable
 	%visited = getelementptr %Node, %Node* %this, i32 0, i32 1
 	store i1 false, i1* %visited
 	%value = getelementptr %Node, %Node* %this, i32 0, i32 2
@@ -103,13 +103,14 @@ Node.markAsVisited_entry:
 ]
 
 %List = type { 
-	void (...)**,
-	%Node*; head 
-,
-	%List*; tail 
-}
+	void (...)**; vtable
+	,%Node*; head 
+	,%List*; tail 
+	}
 define void @List.constructor(%List* %this) {
-	%this.vtable = bitcast [4 x void (...)*]* @List.vtable to void (...)**
+	%this.class.vtable = bitcast [4 x void (...)*]* @List.vtable to void (...)**
+	%this.vtable = getelementptr %List, %List* %this, i32 0, i32 0
+	store void (...)** %this.class.vtable, void (...)*** %this.vtable
 	%head = getelementptr %List, %List* %this, i32 0, i32 1
 	%headtmp = bitcast i32* null to %Node*
 	store %Node* %headtmp, %Node** %head
@@ -159,13 +160,14 @@ List.cons_entry:
 ]
 
 %Queue = type { 
-	void (...)**,
-	%List*; first 
-,
-	%List*; last 
-}
+	void (...)**; vtable
+	,%List*; first 
+	,%List*; last 
+	}
 define void @Queue.constructor(%Queue* %this) {
-	%this.vtable = bitcast [3 x void (...)*]* @Queue.vtable to void (...)**
+	%this.class.vtable = bitcast [3 x void (...)*]* @Queue.vtable to void (...)**
+	%this.vtable = getelementptr %Queue, %Queue* %this, i32 0, i32 0
+	store void (...)** %this.class.vtable, void (...)*** %this.vtable
 	%first = getelementptr %Queue, %Queue* %this, i32 0, i32 1
 	%firsttmp = bitcast i32* null to %List*
 	store %List* %firsttmp, %List** %first

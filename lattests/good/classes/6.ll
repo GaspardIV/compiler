@@ -3,15 +3,15 @@
 ]
 
 %Lista = type { 
-	void (...)**,
-	%Lista*; poprzedni 
-,
-	%Lista*; nastepny 
-,
-	i32; wartosc 
-}
+	void (...)**; vtable
+	,%Lista*; poprzedni 
+	,%Lista*; nastepny 
+	,i32; wartosc 
+	}
 define void @Lista.constructor(%Lista* %this) {
-	%this.vtable = bitcast [0 x void (...)*]* @Lista.vtable to void (...)**
+	%this.class.vtable = bitcast [0 x void (...)*]* @Lista.vtable to void (...)**
+	%this.vtable = getelementptr %Lista, %Lista* %this, i32 0, i32 0
+	store void (...)** %this.class.vtable, void (...)*** %this.vtable
 	%poprzedni = getelementptr %Lista, %Lista* %this, i32 0, i32 1
 	%poprzednitmp = bitcast i32* null to %Lista*
 	store %Lista* %poprzednitmp, %Lista** %poprzedni

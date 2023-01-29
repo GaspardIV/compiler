@@ -5,13 +5,14 @@
 ]
 
 %Operator = type { 
-	void (...)**,
-	%Node*; left 
-,
-	%Node*; right 
-}
+	void (...)**; vtable
+	,%Node*; left 
+	,%Node*; right 
+	}
 define void @Operator.constructor(%Operator* %this) {
-	%this.vtable = bitcast [2 x void (...)*]* @Operator.vtable to void (...)**
+	%this.class.vtable = bitcast [2 x void (...)*]* @Operator.vtable to void (...)**
+	%this.vtable = getelementptr %Operator, %Operator* %this, i32 0, i32 0
+	store void (...)** %this.class.vtable, void (...)*** %this.vtable
 	%left = getelementptr %Operator, %Operator* %this, i32 0, i32 1
 	%lefttmp = bitcast i32* null to %Node*
 	store %Node* %lefttmp, %Node** %left
@@ -44,11 +45,13 @@ Operator.operator_entry:
 ]
 
 %Liczba = type { 
-	void (...)**,
-	i32; v 
-}
+	void (...)**; vtable
+	,i32; v 
+	}
 define void @Liczba.constructor(%Liczba* %this) {
-	%this.vtable = bitcast [1 x void (...)*]* @Liczba.vtable to void (...)**
+	%this.class.vtable = bitcast [1 x void (...)*]* @Liczba.vtable to void (...)**
+	%this.vtable = getelementptr %Liczba, %Liczba* %this, i32 0, i32 0
+	store void (...)** %this.class.vtable, void (...)*** %this.vtable
 	%v = getelementptr %Liczba, %Liczba* %this, i32 0, i32 1
 	store i32 0, i32* %v
 	ret void
@@ -66,9 +69,12 @@ Liczba.value_entry:
 ]
 
 %Node = type { 
-	void (...)**}
+	void (...)**; vtable
+	}
 define void @Node.constructor(%Node* %this) {
-	%this.vtable = bitcast [1 x void (...)*]* @Node.vtable to void (...)**
+	%this.class.vtable = bitcast [1 x void (...)*]* @Node.vtable to void (...)**
+	%this.vtable = getelementptr %Node, %Node* %this, i32 0, i32 0
+	store void (...)** %this.class.vtable, void (...)*** %this.vtable
 	ret void
 }
 
@@ -84,13 +90,14 @@ Node.value_entry:
 ]
 
 %Razy = type { 
-	void (...)**,
-	%Node*; left 
-,
-	%Node*; right 
-}
+	void (...)**; vtable
+	,%Node*; left 
+	,%Node*; right 
+	}
 define void @Razy.constructor(%Razy* %this) {
-	%this.vtable = bitcast [2 x void (...)*]* @Razy.vtable to void (...)**
+	%this.class.vtable = bitcast [2 x void (...)*]* @Razy.vtable to void (...)**
+	%this.vtable = getelementptr %Razy, %Razy* %this, i32 0, i32 0
+	store void (...)** %this.class.vtable, void (...)*** %this.vtable
 	%left = getelementptr %Razy, %Razy* %this, i32 0, i32 1
 	%lefttmp = bitcast i32* null to %Node*
 	store %Node* %lefttmp, %Node** %left
@@ -112,13 +119,14 @@ Razy.operator_entry:
 ]
 
 %Plus = type { 
-	void (...)**,
-	%Node*; left 
-,
-	%Node*; right 
-}
+	void (...)**; vtable
+	,%Node*; left 
+	,%Node*; right 
+	}
 define void @Plus.constructor(%Plus* %this) {
-	%this.vtable = bitcast [2 x void (...)*]* @Plus.vtable to void (...)**
+	%this.class.vtable = bitcast [2 x void (...)*]* @Plus.vtable to void (...)**
+	%this.vtable = getelementptr %Plus, %Plus* %this, i32 0, i32 0
+	store void (...)** %this.class.vtable, void (...)*** %this.vtable
 	%left = getelementptr %Plus, %Plus* %this, i32 0, i32 1
 	%lefttmp = bitcast i32* null to %Node*
 	store %Node* %lefttmp, %Node** %left
@@ -140,13 +148,14 @@ Plus.operator_entry:
 ]
 
 %Podziel = type { 
-	void (...)**,
-	%Node*; left 
-,
-	%Node*; right 
-}
+	void (...)**; vtable
+	,%Node*; left 
+	,%Node*; right 
+	}
 define void @Podziel.constructor(%Podziel* %this) {
-	%this.vtable = bitcast [2 x void (...)*]* @Podziel.vtable to void (...)**
+	%this.class.vtable = bitcast [2 x void (...)*]* @Podziel.vtable to void (...)**
+	%this.vtable = getelementptr %Podziel, %Podziel* %this, i32 0, i32 0
+	store void (...)** %this.class.vtable, void (...)*** %this.vtable
 	%left = getelementptr %Podziel, %Podziel* %this, i32 0, i32 1
 	%lefttmp = bitcast i32* null to %Node*
 	store %Node* %lefttmp, %Node** %left
@@ -168,13 +177,14 @@ Podziel.operator_entry:
 ]
 
 %Minus = type { 
-	void (...)**,
-	%Node*; left 
-,
-	%Node*; right 
-}
+	void (...)**; vtable
+	,%Node*; left 
+	,%Node*; right 
+	}
 define void @Minus.constructor(%Minus* %this) {
-	%this.vtable = bitcast [2 x void (...)*]* @Minus.vtable to void (...)**
+	%this.class.vtable = bitcast [2 x void (...)*]* @Minus.vtable to void (...)**
+	%this.vtable = getelementptr %Minus, %Minus* %this, i32 0, i32 0
+	store void (...)** %this.class.vtable, void (...)*** %this.vtable
 	%left = getelementptr %Minus, %Minus* %this, i32 0, i32 1
 	%lefttmp = bitcast i32* null to %Node*
 	store %Node* %lefttmp, %Node** %left

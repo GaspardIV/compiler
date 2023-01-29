@@ -4,9 +4,12 @@
 ]
 
 %A = type { 
-	void (...)**}
+	void (...)**; vtable
+	}
 define void @A.constructor(%A* %this) {
-	%this.vtable = bitcast [1 x void (...)*]* @A.vtable to void (...)**
+	%this.class.vtable = bitcast [1 x void (...)*]* @A.vtable to void (...)**
+	%this.vtable = getelementptr %A, %A* %this, i32 0, i32 0
+	store void (...)** %this.class.vtable, void (...)*** %this.vtable
 	ret void
 }
 
@@ -22,9 +25,12 @@ A.print_entry:
 ]
 
 %B = type { 
-	void (...)**}
+	void (...)**; vtable
+	}
 define void @B.constructor(%B* %this) {
-	%this.vtable = bitcast [1 x void (...)*]* @B.vtable to void (...)**
+	%this.class.vtable = bitcast [1 x void (...)*]* @B.vtable to void (...)**
+	%this.vtable = getelementptr %B, %B* %this, i32 0, i32 0
+	store void (...)** %this.class.vtable, void (...)*** %this.vtable
 	ret void
 }
 
@@ -40,9 +46,12 @@ B.print_entry:
 ]
 
 %C = type { 
-	void (...)**}
+	void (...)**; vtable
+	}
 define void @C.constructor(%C* %this) {
-	%this.vtable = bitcast [1 x void (...)*]* @C.vtable to void (...)**
+	%this.class.vtable = bitcast [1 x void (...)*]* @C.vtable to void (...)**
+	%this.vtable = getelementptr %C, %C* %this, i32 0, i32 0
+	store void (...)** %this.class.vtable, void (...)*** %this.vtable
 	ret void
 }
 
@@ -58,9 +67,12 @@ C.print_entry:
 ]
 
 %D = type { 
-	void (...)**}
+	void (...)**; vtable
+	}
 define void @D.constructor(%D* %this) {
-	%this.vtable = bitcast [1 x void (...)*]* @D.vtable to void (...)**
+	%this.class.vtable = bitcast [1 x void (...)*]* @D.vtable to void (...)**
+	%this.vtable = getelementptr %D, %D* %this, i32 0, i32 0
+	store void (...)** %this.class.vtable, void (...)*** %this.vtable
 	ret void
 }
 

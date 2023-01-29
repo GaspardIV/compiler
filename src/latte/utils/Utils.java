@@ -4,6 +4,7 @@ import latte.Absyn.*;
 import latte.Absyn.Class;
 import latte.Internal.Null;
 import latte.backend.program.global.Global;
+import latte.backend.program.global.classes.VTableType;
 
 import java.io.*;
 import java.util.regex.Pattern;
@@ -45,6 +46,8 @@ public class Utils {
             return "%"+((latte.Absyn.Class) actual).ident_+"*";
         } else if (actual instanceof Null) {
             return "null";
+        } else  if (actual instanceof VTableType) {
+            return "void (...)**";
         } else {
             return "null";
         }

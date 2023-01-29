@@ -5,9 +5,12 @@
 ]
 
 %Circle = type { 
-	void (...)**}
+	void (...)**; vtable
+	}
 define void @Circle.constructor(%Circle* %this) {
-	%this.vtable = bitcast [2 x void (...)*]* @Circle.vtable to void (...)**
+	%this.class.vtable = bitcast [2 x void (...)*]* @Circle.vtable to void (...)**
+	%this.vtable = getelementptr %Circle, %Circle* %this, i32 0, i32 0
+	store void (...)** %this.class.vtable, void (...)*** %this.vtable
 	ret void
 }
 
@@ -24,9 +27,12 @@ Circle.tellAgain_entry:
 ]
 
 %Shape = type { 
-	void (...)**}
+	void (...)**; vtable
+	}
 define void @Shape.constructor(%Shape* %this) {
-	%this.vtable = bitcast [2 x void (...)*]* @Shape.vtable to void (...)**
+	%this.class.vtable = bitcast [2 x void (...)*]* @Shape.vtable to void (...)**
+	%this.vtable = getelementptr %Shape, %Shape* %this, i32 0, i32 0
+	store void (...)** %this.class.vtable, void (...)*** %this.vtable
 	ret void
 }
 
@@ -52,13 +58,14 @@ Shape.tell_entry:
 ]
 
 %Node = type { 
-	void (...)**,
-	%Shape*; elem 
-,
-	%Node*; next 
-}
+	void (...)**; vtable
+	,%Shape*; elem 
+	,%Node*; next 
+	}
 define void @Node.constructor(%Node* %this) {
-	%this.vtable = bitcast [4 x void (...)*]* @Node.vtable to void (...)**
+	%this.class.vtable = bitcast [4 x void (...)*]* @Node.vtable to void (...)**
+	%this.vtable = getelementptr %Node, %Node* %this, i32 0, i32 0
+	store void (...)** %this.class.vtable, void (...)*** %this.vtable
 	%elem = getelementptr %Node, %Node* %this, i32 0, i32 1
 	%elemtmp = bitcast i32* null to %Shape*
 	store %Shape* %elemtmp, %Shape** %elem
@@ -102,9 +109,12 @@ Node.getNext_entry:
 ]
 
 %Rectangle = type { 
-	void (...)**}
+	void (...)**; vtable
+	}
 define void @Rectangle.constructor(%Rectangle* %this) {
-	%this.vtable = bitcast [2 x void (...)*]* @Rectangle.vtable to void (...)**
+	%this.class.vtable = bitcast [2 x void (...)*]* @Rectangle.vtable to void (...)**
+	%this.vtable = getelementptr %Rectangle, %Rectangle* %this, i32 0, i32 0
+	store void (...)** %this.class.vtable, void (...)*** %this.vtable
 	ret void
 }
 
@@ -121,9 +131,12 @@ Rectangle.tellAgain_entry:
 ]
 
 %Square = type { 
-	void (...)**}
+	void (...)**; vtable
+	}
 define void @Square.constructor(%Square* %this) {
-	%this.vtable = bitcast [2 x void (...)*]* @Square.vtable to void (...)**
+	%this.class.vtable = bitcast [2 x void (...)*]* @Square.vtable to void (...)**
+	%this.vtable = getelementptr %Square, %Square* %this, i32 0, i32 0
+	store void (...)** %this.class.vtable, void (...)*** %this.vtable
 	ret void
 }
 
@@ -142,11 +155,13 @@ Square.tellAgain_entry:
 ]
 
 %Stack = type { 
-	void (...)**,
-	%Node*; head 
-}
+	void (...)**; vtable
+	,%Node*; head 
+	}
 define void @Stack.constructor(%Stack* %this) {
-	%this.vtable = bitcast [4 x void (...)*]* @Stack.vtable to void (...)**
+	%this.class.vtable = bitcast [4 x void (...)*]* @Stack.vtable to void (...)**
+	%this.vtable = getelementptr %Stack, %Stack* %this, i32 0, i32 0
+	store void (...)** %this.class.vtable, void (...)*** %this.vtable
 	%head = getelementptr %Stack, %Stack* %this, i32 0, i32 1
 	%headtmp = bitcast i32* null to %Node*
 	store %Node* %headtmp, %Node** %head

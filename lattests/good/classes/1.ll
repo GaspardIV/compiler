@@ -3,13 +3,14 @@
 ]
 
 %list = type { 
-	void (...)**,
-	i32; elem 
-,
-	%list*; next 
-}
+	void (...)**; vtable
+	,i32; elem 
+	,%list*; next 
+	}
 define void @list.constructor(%list* %this) {
-	%this.vtable = bitcast [0 x void (...)*]* @list.vtable to void (...)**
+	%this.class.vtable = bitcast [0 x void (...)*]* @list.vtable to void (...)**
+	%this.vtable = getelementptr %list, %list* %this, i32 0, i32 0
+	store void (...)** %this.class.vtable, void (...)*** %this.vtable
 	%elem = getelementptr %list, %list* %this, i32 0, i32 1
 	store i32 0, i32* %elem
 	%next = getelementptr %list, %list* %this, i32 0, i32 2

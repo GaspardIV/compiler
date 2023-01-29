@@ -8,13 +8,14 @@
 ]
 
 %IntQueue = type { 
-	void (...)**,
-	%Node*; front 
-,
-	%Node*; rear 
-}
+	void (...)**; vtable
+	,%Node*; front 
+	,%Node*; rear 
+	}
 define void @IntQueue.constructor(%IntQueue* %this) {
-	%this.vtable = bitcast [5 x void (...)*]* @IntQueue.vtable to void (...)**
+	%this.class.vtable = bitcast [5 x void (...)*]* @IntQueue.vtable to void (...)**
+	%this.vtable = getelementptr %IntQueue, %IntQueue* %this, i32 0, i32 0
+	store void (...)** %this.class.vtable, void (...)*** %this.vtable
 	%front = getelementptr %IntQueue, %IntQueue* %this, i32 0, i32 1
 	%fronttmp = bitcast i32* null to %Node*
 	store %Node* %fronttmp, %Node** %front
@@ -100,13 +101,14 @@ IntQueue.first_entry:
 ]
 
 %Node = type { 
-	void (...)**,
-	i32; elem 
-,
-	%Node*; next 
-}
+	void (...)**; vtable
+	,i32; elem 
+	,%Node*; next 
+	}
 define void @Node.constructor(%Node* %this) {
-	%this.vtable = bitcast [4 x void (...)*]* @Node.vtable to void (...)**
+	%this.class.vtable = bitcast [4 x void (...)*]* @Node.vtable to void (...)**
+	%this.vtable = getelementptr %Node, %Node* %this, i32 0, i32 0
+	store void (...)** %this.class.vtable, void (...)*** %this.vtable
 	%elem = getelementptr %Node, %Node* %this, i32 0, i32 1
 	store i32 0, i32* %elem
 	%next = getelementptr %Node, %Node* %this, i32 0, i32 2

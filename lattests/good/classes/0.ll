@@ -3,13 +3,14 @@
 ]
 
 %Foo = type { 
-	void (...)**,
-	%Foo*; next 
-,
-	i32; label 
-}
+	void (...)**; vtable
+	,%Foo*; next 
+	,i32; label 
+	}
 define void @Foo.constructor(%Foo* %this) {
-	%this.vtable = bitcast [0 x void (...)*]* @Foo.vtable to void (...)**
+	%this.class.vtable = bitcast [0 x void (...)*]* @Foo.vtable to void (...)**
+	%this.vtable = getelementptr %Foo, %Foo* %this, i32 0, i32 0
+	store void (...)** %this.class.vtable, void (...)*** %this.vtable
 	%next = getelementptr %Foo, %Foo* %this, i32 0, i32 1
 	%nexttmp = bitcast i32* null to %Foo*
 	store %Foo* %nexttmp, %Foo** %next

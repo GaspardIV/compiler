@@ -5,11 +5,13 @@
 ]
 
 %Counter = type { 
-	void (...)**,
-	i32; val 
-}
+	void (...)**; vtable
+	,i32; val 
+	}
 define void @Counter.constructor(%Counter* %this) {
-	%this.vtable = bitcast [2 x void (...)*]* @Counter.vtable to void (...)**
+	%this.class.vtable = bitcast [2 x void (...)*]* @Counter.vtable to void (...)**
+	%this.vtable = getelementptr %Counter, %Counter* %this, i32 0, i32 0
+	store void (...)** %this.class.vtable, void (...)*** %this.vtable
 	%val = getelementptr %Counter, %Counter* %this, i32 0, i32 1
 	store i32 0, i32* %val
 	ret void
