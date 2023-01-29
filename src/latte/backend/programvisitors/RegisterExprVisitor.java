@@ -7,6 +7,7 @@ import latte.backend.program.global.Function;
 import latte.backend.program.global.Global;
 import latte.backend.program.global.Scope;
 import latte.backend.program.global.Variable;
+import latte.backend.program.global.classes.MethodPointerPointer;
 import latte.backend.quadruple.Block;
 import latte.backend.quadruple.*;
 import latte.errors.SemanticError;
@@ -154,7 +155,9 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block>
         Quadruple last = quadruples.get(quadruples.size() - 1);
         Class type = (Class) last.getRegister().type;
         Function function = Global.getMethod(type.ident_, p.ident_);
-        function.markAsUsed();
+
+        quadruples.addAll(this.getMethod(block, last.result, p.ident_));
+        Register methodPointer = quadruples.get(quadruples.size() - 1).result;
         List<Register> registers = new ArrayList<>();
         registers.add(last.getRegister());
         for (int i = 0; i < p.listexpr_.size(); i++) {
@@ -162,9 +165,28 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block>
             quadruples.addAll(exprQuadruples);
             registers.add(exprQuadruples.get(exprQuadruples.size() - 1).getRegister());
         }
-        Quadruple.LLVMOperation.CALL quadruple = new Quadruple.LLVMOperation.CALL(function.getType(), function.getName(), registers);
+
+        Quadruple.LLVMOperation.CALLPointer quadruple = new Quadruple.LLVMOperation.CALLPointer(function.getType(), methodPointer, registers);
         quadruples.add(new Quadruple(new Register(block.getRegisterNumber(TMP), function.getType()), quadruple));
         return quadruples;
+    }
+
+    private List<Quadruple> getMethod(Block block, Register aClassObject, String methodName) {
+        List<Quadruple> result = new ArrayList<>();
+        Class aClass = (Class) aClassObject.type;
+        Register vtablePointer = new Register(block.getRegisterNumber(TMP), new MethodPointerPointer());
+        result.add(new Quadruple(vtablePointer, new Quadruple.LLVMOperation.GET_FIELD(aClassObject, 0)));
+        Register loadVtablePointer = new Register(block.getRegisterNumber(TMP), new MethodPointerPointer());
+        result.add(new Quadruple(loadVtablePointer, new Quadruple.LLVMOperation.LOAD(vtablePointer)));
+        Register methodPointer = new Register(block.getRegisterNumber(TMP), new MethodPointerPointer());
+        result.add(new Quadruple(methodPointer, new Quadruple.LLVMOperation.GET_FIELD(loadVtablePointer, 0, Global.getMethodIndex(aClass.ident_, methodName))));
+        MethodPointerType methodPointerType = Global.getMethodPointerType(aClass.ident_, methodName);
+
+        Register castedMethodPointer = new Register(block.getRegisterNumber(TMP), methodPointerType);
+        result.add(new Quadruple(castedMethodPointer, new Quadruple.LLVMOperation.BITCAST(methodPointer, methodPointer.type, methodPointerType.toPointer())));
+        Register loadedMethod = new Register(block.getRegisterNumber(TMP), methodPointerType);
+        result.add(new Quadruple(loadedMethod, new Quadruple.LLVMOperation.LOAD(castedMethodPointer)));
+        return result;
     }
 
     @Override

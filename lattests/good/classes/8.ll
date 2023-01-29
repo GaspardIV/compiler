@@ -172,8 +172,13 @@ define void @Stack.pop(%Stack* %self) {
 Stack.pop_entry:
 	%tmp. = getelementptr %Stack, %Stack* %self, i32 0, i32 1
 	%tmp..2 = load %Node*, %Node** %tmp.
-	%tmp..3 = call %Node* @Node.getNext(%Node* %tmp..2)
-	store %Node* %tmp..3, %Node** %tmp.
+	%tmp..3 = getelementptr %Node, %Node* %tmp..2, i32 0, i32 0
+	%tmp..4 = load void (...)**, void (...)*** %tmp..3
+	%tmp..5 = getelementptr void (...)*, void (...)** %tmp..4, i32 3
+	%tmp..6 = bitcast void (...)** %tmp..5 to %Node* (%Node*)**
+	%tmp..7 = load %Node* (%Node*)*, %Node* (%Node*)** %tmp..6
+	%tmp..8 = call %Node* %tmp..7(%Node* %tmp..2)
+	store %Node* %tmp..8, %Node** %tmp.
 	ret void
 }
 
@@ -181,8 +186,13 @@ define %Shape* @Stack.top(%Stack* %self) {
 Stack.top_entry:
 	%tmp. = getelementptr %Stack, %Stack* %self, i32 0, i32 1
 	%tmp..1 = load %Node*, %Node** %tmp.
-	%tmp..2 = call %Shape* @Node.getElem(%Node* %tmp..1)
-	ret %Shape* %tmp..2
+	%tmp..2 = getelementptr %Node, %Node* %tmp..1, i32 0, i32 0
+	%tmp..3 = load void (...)**, void (...)*** %tmp..2
+	%tmp..4 = getelementptr void (...)*, void (...)** %tmp..3, i32 2
+	%tmp..5 = bitcast void (...)** %tmp..4 to %Shape* (%Node*)**
+	%tmp..6 = load %Shape* (%Node*)*, %Shape* (%Node*)** %tmp..5
+	%tmp..7 = call %Shape* %tmp..6(%Node* %tmp..1)
+	ret %Shape* %tmp..7
 }
 
 define i1 @Stack.isEmpty(%Stack* %self) { 
@@ -199,11 +209,20 @@ Stack.push_entry:
 	%tmp. = call i8* @malloc(i32 128)
 	%tmp..1 = bitcast i8* %tmp. to %Node*
 	call void @Node.constructor(%Node* %tmp..1)
-	call void @Node.setElem(%Node* %tmp..1, %Shape* %c)
-	%tmp..4 = getelementptr %Stack, %Stack* %self, i32 0, i32 1
-	%tmp..5 = load %Node*, %Node** %tmp..4
-	call void @Node.setNext(%Node* %tmp..1, %Node* %tmp..5)
-	store %Node* %tmp..1, %Node** %tmp..4
+	%tmp..3 = getelementptr %Node, %Node* %tmp..1, i32 0, i32 0
+	%tmp..4 = load void (...)**, void (...)*** %tmp..3
+	%tmp..5 = getelementptr void (...)*, void (...)** %tmp..4, i32 0
+	%tmp..6 = bitcast void (...)** %tmp..5 to void (%Node*, %Shape*)**
+	%tmp..7 = load void (%Node*, %Shape*)*, void (%Node*, %Shape*)** %tmp..6
+	call void %tmp..7(%Node* %tmp..1, %Shape* %c)
+	%tmp..10 = load void (...)**, void (...)*** %tmp..3
+	%tmp..11 = getelementptr void (...)*, void (...)** %tmp..10, i32 1
+	%tmp..12 = bitcast void (...)** %tmp..11 to void (%Node*, %Node*)**
+	%tmp..13 = load void (%Node*, %Node*)*, void (%Node*, %Node*)** %tmp..12
+	%tmp..14 = getelementptr %Stack, %Stack* %self, i32 0, i32 1
+	%tmp..15 = load %Node*, %Node** %tmp..14
+	call void %tmp..13(%Node* %tmp..1, %Node* %tmp..15)
+	store %Node* %tmp..1, %Node** %tmp..14
 	ret void
 }
 
@@ -215,28 +234,66 @@ main_entry:
 	%tmp..3 = call i8* @malloc(i32 0)
 	%tmp..4 = bitcast i8* %tmp..3 to %Shape*
 	call void @Shape.constructor(%Shape* %tmp..4)
-	call void @Stack.push(%Stack* %tmp..1, %Shape* %tmp..4)
-	%tmp..7 = call i8* @malloc(i32 0)
-	%tmp..8 = bitcast i8* %tmp..7 to %Rectangle*
-	call void @Rectangle.constructor(%Rectangle* %tmp..8)
-	call void @Stack.push(%Stack* %tmp..1, %Rectangle* %tmp..8)
-	%tmp..11 = call i8* @malloc(i32 0)
-	%tmp..12 = bitcast i8* %tmp..11 to %Square*
-	call void @Square.constructor(%Square* %tmp..12)
-	call void @Stack.push(%Stack* %tmp..1, %Square* %tmp..12)
-	%tmp..15 = call i8* @malloc(i32 0)
-	%tmp..16 = bitcast i8* %tmp..15 to %Circle*
-	call void @Circle.constructor(%Circle* %tmp..16)
-	call void @Stack.push(%Stack* %tmp..1, %Circle* %tmp..16)
+	%tmp..6 = getelementptr %Stack, %Stack* %tmp..1, i32 0, i32 0
+	%tmp..7 = load void (...)**, void (...)*** %tmp..6
+	%tmp..8 = getelementptr void (...)*, void (...)** %tmp..7, i32 0
+	%tmp..9 = bitcast void (...)** %tmp..8 to void (%Stack*, %Shape*)**
+	%tmp..10 = load void (%Stack*, %Shape*)*, void (%Stack*, %Shape*)** %tmp..9
+	call void %tmp..10(%Stack* %tmp..1, %Shape* %tmp..4)
+	%tmp..12 = call i8* @malloc(i32 0)
+	%tmp..13 = bitcast i8* %tmp..12 to %Rectangle*
+	call void @Rectangle.constructor(%Rectangle* %tmp..13)
+	%tmp..16 = load void (...)**, void (...)*** %tmp..6
+	%tmp..17 = getelementptr void (...)*, void (...)** %tmp..16, i32 0
+	%tmp..18 = bitcast void (...)** %tmp..17 to void (%Stack*, %Shape*)**
+	%tmp..19 = load void (%Stack*, %Shape*)*, void (%Stack*, %Shape*)** %tmp..18
+	call void %tmp..19(%Stack* %tmp..1, %Rectangle* %tmp..13)
+	%tmp..21 = call i8* @malloc(i32 0)
+	%tmp..22 = bitcast i8* %tmp..21 to %Square*
+	call void @Square.constructor(%Square* %tmp..22)
+	%tmp..25 = load void (...)**, void (...)*** %tmp..6
+	%tmp..26 = getelementptr void (...)*, void (...)** %tmp..25, i32 0
+	%tmp..27 = bitcast void (...)** %tmp..26 to void (%Stack*, %Shape*)**
+	%tmp..28 = load void (%Stack*, %Shape*)*, void (%Stack*, %Shape*)** %tmp..27
+	call void %tmp..28(%Stack* %tmp..1, %Square* %tmp..22)
+	%tmp..30 = call i8* @malloc(i32 0)
+	%tmp..31 = bitcast i8* %tmp..30 to %Circle*
+	call void @Circle.constructor(%Circle* %tmp..31)
+	%tmp..34 = load void (...)**, void (...)*** %tmp..6
+	%tmp..35 = getelementptr void (...)*, void (...)** %tmp..34, i32 0
+	%tmp..36 = bitcast void (...)** %tmp..35 to void (%Stack*, %Shape*)**
+	%tmp..37 = load void (%Stack*, %Shape*)*, void (%Stack*, %Shape*)** %tmp..36
+	call void %tmp..37(%Stack* %tmp..1, %Circle* %tmp..31)
 	br label %main.1_while.cond
 main.1_while.cond:
-	%tmp..21 = call i1 @Stack.isEmpty(%Stack* %tmp..1)
-	br i1 %tmp..21, label %main.3_while.end, label %main.2_while.body
+	%tmp..47 = load void (...)**, void (...)*** %tmp..6
+	%tmp..48 = getelementptr void (...)*, void (...)** %tmp..47, i32 1
+	%tmp..49 = bitcast void (...)** %tmp..48 to i1 (%Stack*)**
+	%tmp..50 = load i1 (%Stack*)*, i1 (%Stack*)** %tmp..49
+	%tmp..51 = call i1 %tmp..50(%Stack* %tmp..1)
+	br i1 %tmp..51, label %main.3_while.end, label %main.2_while.body
 main.2_while.body:
-	%tmp..22 = call %Shape* @Stack.top(%Stack* %tmp..1)
-	call void @Shape.tell(%Shape* %tmp..22)
-	call void @Shape.tellAgain(%Shape* %tmp..22)
-	call void @Stack.pop(%Stack* %tmp..1)
+	%tmp..53 = load void (...)**, void (...)*** %tmp..6
+	%tmp..54 = getelementptr void (...)*, void (...)** %tmp..53, i32 2
+	%tmp..55 = bitcast void (...)** %tmp..54 to %Shape* (%Stack*)**
+	%tmp..56 = load %Shape* (%Stack*)*, %Shape* (%Stack*)** %tmp..55
+	%tmp..57 = call %Shape* %tmp..56(%Stack* %tmp..1)
+	%tmp..58 = getelementptr %Shape, %Shape* %tmp..57, i32 0, i32 0
+	%tmp..59 = load void (...)**, void (...)*** %tmp..58
+	%tmp..60 = getelementptr void (...)*, void (...)** %tmp..59, i32 0
+	%tmp..61 = bitcast void (...)** %tmp..60 to void (%Shape*)**
+	%tmp..62 = load void (%Shape*)*, void (%Shape*)** %tmp..61
+	call void %tmp..62(%Shape* %tmp..57)
+	%tmp..65 = load void (...)**, void (...)*** %tmp..58
+	%tmp..66 = getelementptr void (...)*, void (...)** %tmp..65, i32 1
+	%tmp..67 = bitcast void (...)** %tmp..66 to void (%Shape*)**
+	%tmp..68 = load void (%Shape*)*, void (%Shape*)** %tmp..67
+	call void %tmp..68(%Shape* %tmp..57)
+	%tmp..71 = load void (...)**, void (...)*** %tmp..6
+	%tmp..72 = getelementptr void (...)*, void (...)** %tmp..71, i32 3
+	%tmp..73 = bitcast void (...)** %tmp..72 to void (%Stack*)**
+	%tmp..74 = load void (%Stack*)*, void (%Stack*)** %tmp..73
+	call void %tmp..74(%Stack* %tmp..1)
 	br label %main.1_while.cond
 main.3_while.end:
 	ret i32 0

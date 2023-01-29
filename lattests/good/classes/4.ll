@@ -24,14 +24,29 @@ define void @Operator.constructor(%Operator* %this) {
 
 define i32 @Operator.value(%Operator* %self) { 
 Operator.value_entry:
-	%tmp. = getelementptr %Operator, %Operator* %self, i32 0, i32 1
-	%tmp..1 = load %Node*, %Node** %tmp.
-	%tmp..2 = call i32 @Node.value(%Node* %tmp..1)
-	%tmp..3 = getelementptr %Operator, %Operator* %self, i32 0, i32 2
-	%tmp..4 = load %Node*, %Node** %tmp..3
-	%tmp..5 = call i32 @Node.value(%Node* %tmp..4)
-	%tmp..6 = call i32 @Operator.operator(%Operator* %self, i32 %tmp..2, i32 %tmp..5)
-	ret i32 %tmp..6
+	%tmp. = getelementptr %Operator, %Operator* %self, i32 0, i32 0
+	%tmp..1 = load void (...)**, void (...)*** %tmp.
+	%tmp..2 = getelementptr void (...)*, void (...)** %tmp..1, i32 1
+	%tmp..3 = bitcast void (...)** %tmp..2 to i32 (%Operator*, i32, i32)**
+	%tmp..4 = load i32 (%Operator*, i32, i32)*, i32 (%Operator*, i32, i32)** %tmp..3
+	%tmp..5 = getelementptr %Operator, %Operator* %self, i32 0, i32 1
+	%tmp..6 = load %Node*, %Node** %tmp..5
+	%tmp..7 = getelementptr %Node, %Node* %tmp..6, i32 0, i32 0
+	%tmp..8 = load void (...)**, void (...)*** %tmp..7
+	%tmp..9 = getelementptr void (...)*, void (...)** %tmp..8, i32 0
+	%tmp..10 = bitcast void (...)** %tmp..9 to i32 (%Node*)**
+	%tmp..11 = load i32 (%Node*)*, i32 (%Node*)** %tmp..10
+	%tmp..12 = call i32 %tmp..11(%Node* %tmp..6)
+	%tmp..13 = getelementptr %Operator, %Operator* %self, i32 0, i32 2
+	%tmp..14 = load %Node*, %Node** %tmp..13
+	%tmp..15 = getelementptr %Node, %Node* %tmp..14, i32 0, i32 0
+	%tmp..16 = load void (...)**, void (...)*** %tmp..15
+	%tmp..17 = getelementptr void (...)*, void (...)** %tmp..16, i32 0
+	%tmp..18 = bitcast void (...)** %tmp..17 to i32 (%Node*)**
+	%tmp..19 = load i32 (%Node*)*, i32 (%Node*)** %tmp..18
+	%tmp..20 = call i32 %tmp..19(%Node* %tmp..14)
+	%tmp..21 = call i32 %tmp..4(%Operator* %self, i32 %tmp..12, i32 %tmp..20)
+	ret i32 %tmp..21
 }
 
 define i32 @Operator.operator(%Operator* %self, i32 %n1, i32 %n2) { 
@@ -245,8 +260,13 @@ main_entry:
 	%tmp..11 = call %Node* @podziel(%Node* %tmp..8, %Node* %tmp..10)
 	%tmp..12 = call %Node* @razy(%Node* %tmp..6, %Node* %tmp..11)
 	%tmp..13 = call %Node* @plus(%Node* %tmp..4, %Node* %tmp..12)
-	%tmp..14 = call i32 @Node.value(%Node* %tmp..13)
-	call void @printInt(i32 %tmp..14)
+	%tmp..14 = getelementptr %Node, %Node* %tmp..13, i32 0, i32 0
+	%tmp..15 = load void (...)**, void (...)*** %tmp..14
+	%tmp..16 = getelementptr void (...)*, void (...)** %tmp..15, i32 0
+	%tmp..17 = bitcast void (...)** %tmp..16 to i32 (%Node*)**
+	%tmp..18 = load i32 (%Node*)*, i32 (%Node*)** %tmp..17
+	%tmp..19 = call i32 %tmp..18(%Node* %tmp..13)
+	call void @printInt(i32 %tmp..19)
 	ret i32 0
 }
 

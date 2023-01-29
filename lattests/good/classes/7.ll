@@ -93,72 +93,97 @@ main_entry:
 	%tmp. = call i8* @malloc(i32 0)
 	%tmp..1 = bitcast i8* %tmp. to %B*
 	call void @B.constructor(%B* %tmp..1)
-	call void @B.print(%B* %tmp..1)
-	%tmp..4 = call %B* @fun()
-	call void @B.print(%B* %tmp..4)
-	%tmp..6 = call i8* @malloc(i32 0)
-	%tmp..7 = bitcast i8* %tmp..6 to %B*
-	call void @B.constructor(%B* %tmp..7)
-	call void @B.print(%B* %tmp..7)
-	%tmp..10 = call i8* @malloc(i32 0)
-	%tmp..11 = bitcast i8* %tmp..10 to %C*
-	call void @C.constructor(%C* %tmp..11)
-	%tmp..13 = call %A* @fun2(%C* %tmp..11)
-	call void @A.print(%A* %tmp..13)
-	%tmp..17 = mul i32 3, 8
-	%tmp..18 = add i32 %tmp..17, 4
-	%tmp..19 = call i8* @calloc(i32 1, i32 %tmp..18)
-	%tmp..20 = bitcast i8* %tmp..19 to i32*
-	store i32 3, i32* %tmp..20
-	%tmp..21 = getelementptr i8, i8* %tmp..19, i32 4
-	%tmp..22 = bitcast i8* %tmp..21 to %C**
-	%tmp..24 = getelementptr %C*, %C** %tmp..22, i32 0
+	%tmp..3 = getelementptr %B, %B* %tmp..1, i32 0, i32 0
+	%tmp..4 = load void (...)**, void (...)*** %tmp..3
+	%tmp..5 = getelementptr void (...)*, void (...)** %tmp..4, i32 0
+	%tmp..6 = bitcast void (...)** %tmp..5 to void (%B*)**
+	%tmp..7 = load void (%B*)*, void (%B*)** %tmp..6
+	call void %tmp..7(%B* %tmp..1)
+	%tmp..9 = call %B* @fun()
+	%tmp..10 = getelementptr %B, %B* %tmp..9, i32 0, i32 0
+	%tmp..11 = load void (...)**, void (...)*** %tmp..10
+	%tmp..12 = getelementptr void (...)*, void (...)** %tmp..11, i32 0
+	%tmp..13 = bitcast void (...)** %tmp..12 to void (%B*)**
+	%tmp..14 = load void (%B*)*, void (%B*)** %tmp..13
+	call void %tmp..14(%B* %tmp..9)
+	%tmp..16 = call i8* @malloc(i32 0)
+	%tmp..17 = bitcast i8* %tmp..16 to %B*
+	call void @B.constructor(%B* %tmp..17)
+	%tmp..19 = getelementptr %B, %B* %tmp..17, i32 0, i32 0
+	%tmp..20 = load void (...)**, void (...)*** %tmp..19
+	%tmp..21 = getelementptr void (...)*, void (...)** %tmp..20, i32 0
+	%tmp..22 = bitcast void (...)** %tmp..21 to void (%B*)**
+	%tmp..23 = load void (%B*)*, void (%B*)** %tmp..22
+	call void %tmp..23(%B* %tmp..17)
 	%tmp..25 = call i8* @malloc(i32 0)
 	%tmp..26 = bitcast i8* %tmp..25 to %C*
 	call void @C.constructor(%C* %tmp..26)
-	store %C* %tmp..26, %C** %tmp..24
-	%tmp..29 = getelementptr %C*, %C** %tmp..22, i32 1
-	%tmp..30 = call i8* @malloc(i32 0)
-	%tmp..31 = bitcast i8* %tmp..30 to %D*
-	call void @D.constructor(%D* %tmp..31)
-	store %D* %tmp..31, %D** %tmp..29
-	%tmp..34 = getelementptr %C*, %C** %tmp..22, i32 2
-	%tmp..35 = call i8* @malloc(i32 0)
-	%tmp..36 = bitcast i8* %tmp..35 to %D*
-	call void @D.constructor(%D* %tmp..36)
-	store %D* %tmp..36, %D** %tmp..34
-	%tmp..39 = bitcast %C** %tmp..22 to i8*
-	%tmp..38 = getelementptr i8, i8* %tmp..39, i32 -4
-	%tmp..40 = bitcast i8* %tmp..38 to i32*
-	%tmp..41 = load i32, i32* %tmp..40
+	%tmp..28 = call %A* @fun2(%C* %tmp..26)
+	%tmp..29 = getelementptr %A, %A* %tmp..28, i32 0, i32 0
+	%tmp..30 = load void (...)**, void (...)*** %tmp..29
+	%tmp..31 = getelementptr void (...)*, void (...)** %tmp..30, i32 0
+	%tmp..32 = bitcast void (...)** %tmp..31 to void (%A*)**
+	%tmp..33 = load void (%A*)*, void (%A*)** %tmp..32
+	call void %tmp..33(%A* %tmp..28)
+	%tmp..37 = mul i32 3, 8
+	%tmp..38 = add i32 %tmp..37, 4
+	%tmp..39 = call i8* @calloc(i32 1, i32 %tmp..38)
+	%tmp..40 = bitcast i8* %tmp..39 to i32*
+	store i32 3, i32* %tmp..40
+	%tmp..41 = getelementptr i8, i8* %tmp..39, i32 4
+	%tmp..42 = bitcast i8* %tmp..41 to %C**
+	%tmp..44 = getelementptr %C*, %C** %tmp..42, i32 0
+	%tmp..45 = call i8* @malloc(i32 0)
+	%tmp..46 = bitcast i8* %tmp..45 to %C*
+	call void @C.constructor(%C* %tmp..46)
+	store %C* %tmp..46, %C** %tmp..44
+	%tmp..49 = getelementptr %C*, %C** %tmp..42, i32 1
+	%tmp..50 = call i8* @malloc(i32 0)
+	%tmp..51 = bitcast i8* %tmp..50 to %D*
+	call void @D.constructor(%D* %tmp..51)
+	store %D* %tmp..51, %D** %tmp..49
+	%tmp..54 = getelementptr %C*, %C** %tmp..42, i32 2
+	%tmp..55 = call i8* @malloc(i32 0)
+	%tmp..56 = bitcast i8* %tmp..55 to %D*
+	call void @D.constructor(%D* %tmp..56)
+	store %D* %tmp..56, %D** %tmp..54
+	%tmp..59 = bitcast %C** %tmp..42 to i8*
+	%tmp..58 = getelementptr i8, i8* %tmp..59, i32 -4
+	%tmp..60 = bitcast i8* %tmp..58 to i32*
+	%tmp..61 = load i32, i32* %tmp..60
 	br label %main.1_for.cond
 main.1_for.cond:
-	%i.d.x..1 = phi i32 [0, %main_entry], [%tmp..46, %main.2_for.body]
-	%ifres. = icmp slt i32 %i.d.x..1, %tmp..41
+	%i.d.x..1 = phi i32 [0, %main_entry], [%tmp..66, %main.2_for.body]
+	%ifres. = icmp slt i32 %i.d.x..1, %tmp..61
 	br i1 %ifres., label %main.2_for.body, label %main.3_for.end
 main.2_for.body:
-	%tmp..43 = getelementptr %C*, %C** %tmp..22, i32 %i.d.x..1
-	%tmp..44 = load %C*, %C** %tmp..43
-	%tmp..46 = add i32 %i.d.x..1, 1
-	%tmp..47 = call %A* @fun2(%C* %tmp..44)
-	call void @A.print(%A* %tmp..47)
+	%tmp..63 = getelementptr %C*, %C** %tmp..42, i32 %i.d.x..1
+	%tmp..64 = load %C*, %C** %tmp..63
+	%tmp..66 = add i32 %i.d.x..1, 1
+	%tmp..67 = call %A* @fun2(%C* %tmp..64)
+	%tmp..68 = getelementptr %A, %A* %tmp..67, i32 0, i32 0
+	%tmp..69 = load void (...)**, void (...)*** %tmp..68
+	%tmp..70 = getelementptr void (...)*, void (...)** %tmp..69, i32 0
+	%tmp..71 = bitcast void (...)** %tmp..70 to void (%A*)**
+	%tmp..72 = load void (%A*)*, void (%A*)** %tmp..71
+	call void %tmp..72(%A* %tmp..67)
 	br label %main.1_for.cond
 main.3_for.end:
-	%tmp..49 = call i8* @malloc(i32 0)
-	%tmp..50 = bitcast i8* %tmp..49 to %B*
-	call void @B.constructor(%B* %tmp..50)
-	%tmp..53 = icmp eq %B* %tmp..50, %tmp..50
-	br i1 %tmp..53, label %main.4_if.true, label %main.6_if.end
+	%tmp..74 = call i8* @malloc(i32 0)
+	%tmp..75 = bitcast i8* %tmp..74 to %B*
+	call void @B.constructor(%B* %tmp..75)
+	%tmp..78 = icmp eq %B* %tmp..75, %tmp..75
+	br i1 %tmp..78, label %main.4_if.true, label %main.6_if.end
 main.4_if.true:
-	%tmp..54 = getelementptr [4 x i8], [4 x i8]* @.str.str5, i32 0, i32 0
-	call void @printString(i8* %tmp..54)
+	%tmp..79 = getelementptr [4 x i8], [4 x i8]* @.str.str5, i32 0, i32 0
+	call void @printString(i8* %tmp..79)
 	br label %main.6_if.end
 main.6_if.end:
-	%tmp..57 = icmp ne %B* %tmp..50, %tmp..50
-	br i1 %tmp..57, label %main.7_if.true, label %main.9_if.end
+	%tmp..82 = icmp ne %B* %tmp..75, %tmp..75
+	br i1 %tmp..82, label %main.7_if.true, label %main.9_if.end
 main.7_if.true:
-	%tmp..58 = getelementptr [4 x i8], [4 x i8]* @.str.str6, i32 0, i32 0
-	call void @printString(i8* %tmp..58)
+	%tmp..83 = getelementptr [4 x i8], [4 x i8]* @.str.str6, i32 0, i32 0
+	call void @printString(i8* %tmp..83)
 	br label %main.9_if.end
 main.9_if.end:
 	ret i32 0

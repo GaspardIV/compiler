@@ -20,7 +20,7 @@ public class LLVMClassMethod extends Function {
 
     }
 
-    private String getLLVMType() {
+    public String getLLVMType() {
         return getLLVMReturnType() + " (" +
                 getLLVMArgumentsType() +
                 ")";

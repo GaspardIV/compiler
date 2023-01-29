@@ -28,9 +28,9 @@ public class LLVMClassConstructor {
         StringBuilder sb = new StringBuilder();
         sb.append("define void @").append(construtorName(name)).append("(%").append(name).append("* %this) {\n");
         sb.append("\t").append("%this.class.vtable = ").append("bitcast [").append(vtableSize).append(" x void (...)*]* @").append(LLVMClassVTable.vTableName(name)).append(" to void (...)**\n");
-        Register vtable = new Register("this.vtable", new VTableType());
+        Register vtable = new Register("this.vtable", new MethodPointerPointer());
         sb.append(new Quadruple(vtable, new Quadruple.LLVMOperation.GET_FIELD(new Register("this", new Class(name)), 0))).append("\n");
-        sb.append(new Quadruple(null, new Quadruple.LLVMOperation.STORE(new Register("this.class.vtable", new VTableType()), vtable))).append("\n");
+        sb.append(new Quadruple(null, new Quadruple.LLVMOperation.STORE(new Register("this.class.vtable", new MethodPointerPointer()), vtable))).append("\n");
         int index = 1;
         for (ClField field : fields) {
             sb.append(new Quadruple(new Register(field.ident_, field.type_), new Quadruple.LLVMOperation.GET_FIELD(new Register("this", new Class(name)), index))).append("\n");

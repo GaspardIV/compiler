@@ -7,6 +7,7 @@ import latte.Internal.LatteClass;
 import latte.backend.program.global.Function;
 import latte.backend.program.global.Scope;
 import latte.backend.program.global.Variable;
+import latte.backend.programvisitors.MethodPointerType;
 import latte.utils.Utils;
 
 import java.util.ArrayList;
@@ -115,6 +116,14 @@ public class LLVMClass extends Scope {
 
     public Function getMethod(String method) {
         return methods.get(method);
+    }
+
+    public int getMethodIndex(String methodName) {
+        return classVTable.getMethodIndex(methodName);
+    }
+
+    public MethodPointerType getMethodType(String methodName) {
+        return classVTable.getMethodType(methodName);
     }
 }
 

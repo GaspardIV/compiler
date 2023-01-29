@@ -104,6 +104,41 @@ public class Quadruple {
             }
         }
 
+        public static class CALLPointer extends LLVMOperation {
+            private final Type type;
+            public Register functionPointer;
+            public List<Register> args;
+
+            public CALLPointer(Type type, Register functionPointer, List<Register> registers) {
+                this.args = registers;
+                this.functionPointer = functionPointer;
+                this.type = type;
+            }
+
+            public String toString() {
+                StringBuilder argsString = new StringBuilder();
+                for (int i = 0; i < args.size(); i++) {
+                    argsString.append(args.get(i).getLLVMType()).append(" ").append(args.get(i).toString());
+                    if (i != args.size() - 1) {
+                        argsString.append(", ");
+                    }
+                }
+                return "call " + Utils.getLLVMType(type) + " " + functionPointer + "(" + argsString + ")";
+            }
+
+            @Override
+            public Collection<Register> getUsedRegisters() {
+                List<Register> registers = new ArrayList<>();
+                registers.add(functionPointer);
+                registers.addAll(args);
+                return registers;
+            }
+
+            @Override
+            public boolean hasSideEffects() {
+                return true;
+            }
+        }
         public static class CALL extends LLVMOperation {
             private final Type type;
             public String name;
@@ -637,6 +672,7 @@ public class Quadruple {
             private final Register register;
             private final Register register2;
             private final int index;
+            private int level = 1;
 
 
             public GET_FIELD(Register register, Register index) {
@@ -651,6 +687,13 @@ public class Quadruple {
                 this.register2 = null;
             }
 
+            public GET_FIELD(Register register, int level,  int index) {
+                this.register = register;
+                this.index = index;
+                this.register2 = null;
+                this.level = level;
+            }
+
             @Override
             public String toString() {
                 String withoutStar = register.getLLVMType().replaceFirst("\\*", "");
@@ -661,7 +704,11 @@ public class Quadruple {
                 } else {
                     // todo zamiast 50 instructji getelementptr mzna dodac wiecej przecinkow
 //                    w przypadu aaa.bbb.ccc
-                    return "getelementptr " + withoutStar + ", " + withoutStar + "* " + register + ", i32 0, i32 " + index;
+                    if (level == 0) {
+                        return "getelementptr " + withoutStar + ", " + withoutStar + "* " + register + ", i32 " + index;
+                    } else {
+                        return "getelementptr " + withoutStar + ", " + withoutStar + "* " + register + ", i32 0, i32 " + index;
+                    }
                 }
             }
 
@@ -682,14 +729,20 @@ public class Quadruple {
 
         public static class LOAD extends LLVMOperation {
             private final Register register;
+            private final Type type;
 
             public LOAD(Register register) {
                 this.register = register;
+                this.type = register.type;
+            }
+            public LOAD(Register register, Type type) {
+                this.register = register;
+                this.type = type;
             }
 
             @Override
             public String toString() {
-                return "load " + register.getLLVMType() + ", " + register.getLLVMType() + "* " + register;
+                return "load " + Utils.getLLVMType(type) + ", " + Utils.getLLVMType(type) + "* " + register;
             }
 
             @Override

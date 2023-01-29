@@ -4,7 +4,8 @@ import latte.Absyn.*;
 import latte.Absyn.Class;
 import latte.Internal.Null;
 import latte.backend.program.global.Global;
-import latte.backend.program.global.classes.VTableType;
+import latte.backend.program.global.classes.MethodPointerPointer;
+import latte.backend.programvisitors.MethodPointerType;
 
 import java.io.*;
 import java.util.regex.Pattern;
@@ -46,8 +47,18 @@ public class Utils {
             return "%"+((latte.Absyn.Class) actual).ident_+"*";
         } else if (actual instanceof Null) {
             return "null";
-        } else  if (actual instanceof VTableType) {
-            return "void (...)**";
+        } else  if (actual instanceof MethodPointerPointer) {
+            if (((MethodPointerPointer) actual).llvmType == null) {
+                return "void (...)**";
+            } else {
+                return ((MethodPointerPointer) actual).llvmType + "**";
+            }
+        } else if (actual instanceof MethodPointerType) {
+            if (((MethodPointerType) actual).llvmType != null) {
+                return ((MethodPointerType) actual).llvmType + "*";
+            } else {
+                return "void (...)*";
+            }
         } else {
             return "null";
         }

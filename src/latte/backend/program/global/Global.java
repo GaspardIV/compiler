@@ -3,6 +3,7 @@ package latte.backend.program.global;
 import latte.Absyn.Type;
 import latte.Internal.LatteClass;
 import latte.backend.program.global.classes.LLVMClass;
+import latte.backend.programvisitors.MethodPointerType;
 import latte.utils.Utils;
 
 import java.util.HashMap;
@@ -54,6 +55,14 @@ public class Global extends Scope {
 
     public static int getTypeSize(Type type_) {
         return Utils.getLLVMTypeSize(type_);
+    }
+
+    public static int getMethodIndex(String ident_, String methodName) {
+        return getInstance().classes.get(ident_).getMethodIndex(methodName);
+    }
+
+    public static MethodPointerType getMethodPointerType(String ident_, String methodName) {
+        return getInstance().classes.get(ident_).getMethodType(methodName);
     }
 
     public void markIfRuntimeFunction(String name) {

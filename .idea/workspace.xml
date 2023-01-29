@@ -8,17 +8,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="vtable start">
-      <change afterPath="$PROJECT_DIR$/src/latte/backend/program/global/classes/VTableType.java" afterDir="false" />
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="vtable constructor">
+      <change afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/MethodType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classes/0.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/0.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classes/0.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/0.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classes/1.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/1.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classes/1.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/1.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classes/10.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/10.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classes/10.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/10.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classes/11.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/11.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classes/11.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/11.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/classes/12.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/12.bc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/classes/12.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/12.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/classes/13.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/13.bc" afterDir="false" />
@@ -26,17 +18,19 @@
       <change beforePath="$PROJECT_DIR$/lattests/good/classes/15.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/15.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/classes/2.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/2.bc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/classes/2.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/2.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classes/3.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/3.bc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/classes/3.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/3.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/classes/4.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/4.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classes/6.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/6.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classes/6.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/6.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/classes/7.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/7.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/classes/8.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/8.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classes/9.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/9.bc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/classes/9.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/9.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/Global.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/Global.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClassConstructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClassConstructor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClassType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClassType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClassMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClassMethod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClassVTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClassVTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/classes/VTableType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/classes/MethodPointerPointer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/utils/Utils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -191,9 +185,9 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="latte.backend.programvisitors" />
       <recent name="latte.backend.program.global.classes" />
       <recent name="latte.frontend.visitors" />
-      <recent name="latte.backend.programvisitors" />
       <recent name="latte.backend.quadruple" />
       <recent name="latte.frontend.visitors.programvisitors" />
     </key>
@@ -574,14 +568,7 @@
       <workItem from="1674822363317" duration="1110000" />
       <workItem from="1674904311086" duration="3234000" />
       <workItem from="1674909211526" duration="5600000" />
-      <workItem from="1674975608978" duration="40554000" />
-    </task>
-    <task id="LOCAL-00068" summary="25">
-      <created>1672032972235</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1672032972235</updated>
+      <workItem from="1674975608978" duration="46834000" />
     </task>
     <task id="LOCAL-00069" summary="30/50">
       <created>1672371410646</created>
@@ -919,7 +906,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675025271427</updated>
     </task>
-    <option name="localTasksCounter" value="117" />
+    <task id="LOCAL-00117" summary="vtable constructor">
+      <created>1675026517172</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1675026517172</updated>
+    </task>
+    <option name="localTasksCounter" value="118" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -985,7 +979,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Drobne usprawnienie definicji w while" />
     <MESSAGE value="Phi register if phi is also phi inside of while." />
     <MESSAGE value="Refactor" />
     <MESSAGE value="Fix phi variables." />
@@ -1010,7 +1003,8 @@
     <MESSAGE value="getelelmentptr" />
     <MESSAGE value="array" />
     <MESSAGE value="vtable start" />
-    <option name="LAST_COMMIT_MESSAGE" value="vtable start" />
+    <MESSAGE value="vtable constructor" />
+    <option name="LAST_COMMIT_MESSAGE" value="vtable constructor" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1052,7 +1046,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java</url>
-          <line>360</line>
+          <line>382</line>
           <option name="timeStamp" value="128" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
