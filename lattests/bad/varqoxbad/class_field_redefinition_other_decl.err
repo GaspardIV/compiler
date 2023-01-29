@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 5 :
-     Field 'abc' already declared in this scope.
+     Variable 'abc' already declared in this scope.

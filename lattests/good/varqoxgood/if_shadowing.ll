@@ -2,22 +2,22 @@
 define i32 @foo(i32 %x) { 
 foo_entry:
 	%tmp..3 = icmp ne i32 %x, 44
-	br i1 %tmp..3, label %foo.1_if.true, label %foo.2_if.end
+	br i1 %tmp..3, label %foo.1_if.true, label %foo.3_if.end
 foo.1_if.true:
 	call void @error()
 	ret i32 0
-foo.2_if.end:
+foo.3_if.end:
 	ret i32 0
 }
 
 define i32 @main() { 
 main.1_if.true:
 	%tmp..5 = call i32 @foo(i32 44)
-	br label %main.5_if.true
-main.5_if.true:
+	br label %main.7_if.true
+main.7_if.true:
 	%tmp..12 = call i32 @foo(i32 44)
-	br label %main.6_if.end
-main.6_if.end:
+	br label %main.9_if.end
+main.9_if.end:
 	ret i32 0
 }
 

@@ -1,48 +1,54 @@
-@dnl = internal constant [4 x i8] c"%d\0A\00"
-@d   = internal constant [3 x i8] c"%d\00"
-@runtime_error = internal constant [15 x i8] c"runtime error\0A\00"
+ ; --- Class Counter ---
+%Counter = type { 
+	i32; val 
+}
+define void @Counter.constructor(%Counter* %this) {
+	%val = getelementptr %Counter, %Counter* %this, i32 0, i32 0
+	store i32 0, i32* %val
+	ret void
+}
 
+define void @Counter.incr(%Counter* %self) { 
+Counter.incr_entry:
+	%tmp..2 = getelementptr %Counter, %Counter* %self, i32 0, i32 0
+	%tmp..4 = load i32, i32* %tmp..2
+	%tmp..6 = add i32 %tmp..4, 1
+	store i32 %tmp..6, i32* %tmp..2
+	%tmp..1 = load i32, i32* %tmp..2
+	ret void
+}
+
+define i32 @Counter.value(%Counter* %self) { 
+Counter.value_entry:
+	%tmp. = getelementptr %Counter, %Counter* %self, i32 0, i32 0
+	%tmp..1 = load i32, i32* %tmp.
+	ret i32 %tmp..1
+}
+
+define i32 @main() { 
+main_entry:
+	%tmp..1 = call i8* @malloc(i32 32)
+	%tmp..2 = bitcast i8* %tmp..1 to %Counter*
+	call void @Counter.constructor(%Counter* %tmp..2)
+	call void @Counter.incr(%Counter* %tmp..2)
+	call void @Counter.incr(%Counter* %tmp..2)
+	call void @Counter.incr(%Counter* %tmp..2)
+	%tmp..7 = call i32 @Counter.value(%Counter* %tmp..2)
+	call void @printInt(i32 %tmp..7)
+	ret i32 0
+}
+
+
+; ====================================================
+; ====================================================
+; ====================================================
+
+@._dnl = internal constant [4 x i8] c"%d\0A\00"
 declare i32 @printf(i8*, ...)
-declare i32 @scanf(i8*, ...)
-declare i8* @readline(i8*)
-declare i32 @puts(i8*)
-declare void @exit(i32)
-
 define void @printInt(i32 %x) {
-       %t0 = getelementptr [4 x i8], [4 x i8]* @dnl, i32 0, i32 0
+       %t0 = getelementptr [4 x i8], [4 x i8]* @._dnl, i32 0, i32 0
        call i32 (i8*, ...) @printf(i8* %t0, i32 %x)
        ret void
 }
 
-
-define void @printString(i8* %s) {
-entry:  call i32 @puts(i8* %s)
-	ret void
-}
-
-define i32 @readInt() {
-entry:	%res = alloca i32
-        %t1 = getelementptr [3 x i8], [3 x i8]* @d, i32 0, i32 0
-	call i32 (i8*, ...) @scanf(i8* %t1, i32* %res)
-	%t2 = load i32, i32* %res
-	ret i32 %t2
-}
-
-define i8* @readString() {
-entry:	%t1 = alloca i8
-    %t2 = call i8* @readline(i8* %t1)
-    ret i8* %t2
-}
-
-
-define void @error() {
-    %t0 = getelementptr [15 x i8], [15 x i8]* @runtime_error, i32 0, i32 0
-    call void @printString(i8* %t0)
-    call void @exit(i32 1)
-    ret void
-}
-
-
-define i32 @main() { 
-[]
-}
+declare i8* @malloc(i32)

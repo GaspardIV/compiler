@@ -236,4 +236,10 @@ public class SemanticError extends RuntimeException {
             super(line_num, "Variable '" + ident_ + "' already declared in this scope.");
         }
     }
+
+    public static class NewOnNonClass extends SemanticError {
+        public NewOnNonClass(int line_num) {
+            super(line_num, "New on non-class.");
+        }
+    }
 }

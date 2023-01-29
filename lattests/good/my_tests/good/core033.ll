@@ -22,33 +22,33 @@ define i32 @main() {
 main_entry:
 	%tmp..2 = call i32 @foo(i32 42, i32 17)
 	%tmp..4 = call i1 @bar()
-	br i1 %tmp..4, label %main.1_if.true, label %main.2_if.end
+	br i1 %tmp..4, label %main.1_if.true, label %main.3_if.end
 main.1_if.true:
 	call void @printInt(i32 %tmp..2)
-	br label %main.2_if.end
-main.2_if.end:
+	br label %main.3_if.end
+main.3_if.end:
 	%tmp..7 = call i1 @bar()
-	br i1 %tmp..7, label %main.3_if.true, label %main.4_if.false
-main.3_if.true:
+	br i1 %tmp..7, label %main.4_if.true, label %main.5_if.false
+main.4_if.true:
 	%tmp..9 = add i32 %tmp..2, 1000
 	call void @printInt(i32 %tmp..9)
-	br label %main.5_if.end
-main.4_if.false:
+	br label %main.6_if.end
+main.5_if.false:
 	%tmp..12 = add i32 %tmp..2, 2000
 	call void @printInt(i32 %tmp..12)
-	br label %main.5_if.end
-main.5_if.end:
+	br label %main.6_if.end
+main.6_if.end:
 	%tmp..15 = call i1 @baz()
-	br i1 %tmp..15, label %main.6_if.true, label %main.7_if.false
-main.6_if.true:
+	br i1 %tmp..15, label %main.7_if.true, label %main.8_if.false
+main.7_if.true:
 	%tmp..17 = add i32 %tmp..2, 3000
 	call void @printInt(i32 %tmp..17)
-	br label %main.8_if.end
-main.7_if.false:
+	br label %main.9_if.end
+main.8_if.false:
 	%tmp..20 = add i32 %tmp..2, 4000
 	call void @printInt(i32 %tmp..20)
-	br label %main.8_if.end
-main.8_if.end:
+	br label %main.9_if.end
+main.9_if.end:
 	ret i32 0
 }
 

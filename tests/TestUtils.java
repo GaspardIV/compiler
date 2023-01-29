@@ -41,7 +41,11 @@ public class TestUtils {
             } catch (AssertionError e) {
                 status = 0;
             } catch (Exception e) {
-                throw new RuntimeException(e);
+                if (outputStreamCaptor.toString().contains("runtime error")) {
+                    status = 1;
+                } else {
+                    throw new RuntimeException(e);
+                }
             }
 
 

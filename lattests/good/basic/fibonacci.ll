@@ -2,22 +2,22 @@
 define i32 @fibonacci(i32 %n) { 
 fibonacci_entry:
 	%tmp..3 = icmp sle i32 %n, 1
-	br i1 %tmp..3, label %fibonacci.1_if.true, label %fibonacci.2_if.end
+	br i1 %tmp..3, label %fibonacci.1_if.true, label %fibonacci.3_if.end
 fibonacci.1_if.true:
 	ret i32 %n
-fibonacci.2_if.end:
-	br label %fibonacci.3_while.cond
-fibonacci.3_while.cond:
-	%fib_a = phi i32 [0, %fibonacci.2_if.end], [%fib_b, %fibonacci.4_while.body]
-	%fib_b = phi i32 [1, %fibonacci.2_if.end], [%tmp..10, %fibonacci.4_while.body]
-	%i = phi i32 [2, %fibonacci.2_if.end], [%tmp..12, %fibonacci.4_while.body]
+fibonacci.3_if.end:
+	br label %fibonacci.4_while.cond
+fibonacci.4_while.cond:
+	%fib_a = phi i32 [0, %fibonacci.3_if.end], [%fib_b, %fibonacci.5_while.body]
+	%fib_b = phi i32 [1, %fibonacci.3_if.end], [%tmp..10, %fibonacci.5_while.body]
+	%i = phi i32 [2, %fibonacci.3_if.end], [%tmp..12, %fibonacci.5_while.body]
 	%tmp..9 = icmp sle i32 %i, %n
-	br i1 %tmp..9, label %fibonacci.4_while.body, label %fibonacci.5_while.end
-fibonacci.4_while.body:
+	br i1 %tmp..9, label %fibonacci.5_while.body, label %fibonacci.6_while.end
+fibonacci.5_while.body:
 	%tmp..10 = add i32 %fib_b, %fib_a
 	%tmp..12 = add i32 %i, 1
-	br label %fibonacci.3_while.cond
-fibonacci.5_while.end:
+	br label %fibonacci.4_while.cond
+fibonacci.6_while.end:
 	ret i32 %fib_b
 }
 

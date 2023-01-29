@@ -1,15 +1,14 @@
 @.str.str0 = private unnamed_addr constant [2 x i8] c"x\00", align 1
 define i32 @main() { 
-main_entry:
-	br label %main.1_while.cond
+main.1_while.cond:
+	%tmp..5 = call i8* @readString()
+	%tmp..6 = getelementptr [2 x i8], [2 x i8]* @.str.str0, i32 0, i32 0
+	%tmp..7 = call i32 @._strcmp(i8* %tmp..5, i8* %tmp..6)
+	%tmp..8 = icmp eq i32 %tmp..7, 0
+	br i1 %tmp..8, label %main.2_while.body, label %main.3_while.end
 main.2_while.body:
 	call void @printInt(i32 142)
 	ret i32 0
-main.1_while.cond:
-	%tmp..3 = call i8* @readString()
-	%tmp..4 = getelementptr [2 x i8], [2 x i8]* @.str.str0, i32 0, i32 0
-	%tmp..5 = icmp eq i8* %tmp..3, %tmp..4
-	br i1 %tmp..5, label %main.2_while.body, label %main.3_while.end
 main.3_while.end:
 	ret i32 0
 }
@@ -35,5 +34,11 @@ entry:
     %t1 = call i8* @malloc(i32 4096)
     %t2 = call i8* @gets(i8* %t1)
     ret i8* %t1
+}
+
+declare i32 @strcmp(i8*, i8*)
+define i32 @._strcmp(i8* %str1, i8* %str2) {
+       %t0 = call i32 @strcmp(i8* %str1, i8* %str2)
+       ret i32 %t0
 }
 

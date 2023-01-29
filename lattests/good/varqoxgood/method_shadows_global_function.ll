@@ -2,6 +2,7 @@
 %X = type { 
 }
 define void @X.constructor(%X* %this) {
+	ret void
 }
 
 define i32 @main() { 

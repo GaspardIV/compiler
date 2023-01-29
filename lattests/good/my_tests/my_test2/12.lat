@@ -1,0 +1,26 @@
+int funkcja (int x, int y, int z) {
+    int a = x + y;
+    int b = x + y;
+    int c = a + z;
+    int d = b + z;
+    int e = c + d;
+    if (x > 0 && y > 0 && z > 0 && e > 0) {
+        return 1;
+    } else {
+        return 0;
+    }
+
+    printInt(c);
+    printInt(d);
+    return 0;
+}
+
+int main() {
+
+      int x = 5;
+      int y = 10;
+      int z = 15;
+
+  printInt(funkcja(x, y, z));
+  return 0;
+}

@@ -89,17 +89,17 @@ separator  Type "," ;
 
 ENewArray.  Expr6 ::= "new" Type "[" Expr "]" ;
 
--- EArrayElem. Expr7 ::= Expr6 "[" Expr "]";
+EArrayElem. Expr7 ::= Expr6 "[" Expr "]";
 
 EArrayElemR. Expr7 ::= Ident "[" Expr "]";
 
-ENullArr.      Expr6 ::= "(" Type "[]" ")" "null" ;
+ENullArr.   Expr6 ::= "(" Type "[]" ")" "null" ;
 
 ENull.      Expr6 ::= "(" Ident ")" "null" ;
 
 ENil.       Expr6 ::= "null" ;
 
-ENew.       Expr6 ::= "new" Ident ;
+ENew.       Expr6 ::= "new" Type ;
 
 EMethod.    Expr6 ::= Expr6 "." Ident "(" [Expr] ")" ;
 

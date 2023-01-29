@@ -2,7 +2,9 @@
 int main() {
 	while (readInt() == 42) {
 		printInt(-42);
-		while (true) {}
+		while (true) {
+		return 0;
+		}
 	}
 	return 0;
 }

@@ -2,8 +2,8 @@
 define i32 @main() { 
 main.1_if.true:
 	call void @printInt(i32 42)
-	br label %main.2_if.end
-main.2_if.end:
+	br label %main.3_if.end
+main.3_if.end:
 	ret i32 0
 }
 

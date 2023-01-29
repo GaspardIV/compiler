@@ -76,11 +76,27 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block>
         return result;
     }
 
-//    @Override
-//    public List<Quadruple> visit(EArrayElem p, Block block) {
-//        // todo
-//        return null;
-//    }
+    @Override
+    public List<Quadruple> visit(EArrayElem p, Block block) {
+        List<Quadruple> result = new ArrayList<>();
+        RegisterExprVisitor visitor = new RegisterExprVisitor();
+        visitor.loadField = true;
+        List<Quadruple> quadruples = p.expr_1.accept(visitor, block);
+        List<Quadruple> quadruples2 = p.expr_2.accept(visitor, block);
+        result.addAll(quadruples);
+        result.addAll(quadruples2);
+        Quadruple last = quadruples2.get(quadruples2.size() - 1);
+        Quadruple variable  = quadruples.get(quadruples.size() - 1);
+//        Variable variable  = quadruples.get(quadruples.size() - 1).result.getVariable();
+//        Array type = (Array) variable.getType();
+        Array type = (Array) variable.result.type;
+        Register register = new Register(block.getRegisterNumber(TMP), type.type_);
+        result.add(new Quadruple(register, new Quadruple.LLVMOperation.GET_FIELD(variable.result, last.result)));
+        if (loadField) {
+            result.add(new Quadruple(new Register(block.getRegisterNumber(TMP), type.type_), new Quadruple.LLVMOperation.LOAD(register)));
+        }
+        return result;
+    }
 
     @Override
     public List<Quadruple> visit(EArrayElemR p, Block block) {
@@ -117,9 +133,10 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block>
 
     @Override
     public List<Quadruple> visit(ENew p, Block block) {
+        String className = ((Class)p.type_).ident_;
         List<Quadruple> result = new ArrayList<>();
-        Class type = new Class(p.ident_);
-        int classSize = Global.getClassSize(p.ident_);
+        Class type = new Class(className);
+        int classSize = Global.getClassSize(className);
         Register register = new Register(block.getRegisterNumber(TMP), new Str());
         result.add(new Quadruple(register, new Quadruple.LLVMOperation.ALLOCA(classSize)));
         Register register2 = new Register(block.getRegisterNumber(TMP), type);

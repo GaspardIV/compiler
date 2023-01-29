@@ -11,24 +11,28 @@ define i32 @funkcja(i32 %x, i32 %n) {
 funkcja_entry:
 	br label %funkcja.1_while.cond
 funkcja.1_while.cond:
-	%i = phi i32 [0, %funkcja_entry], [%tmp..12, %funkcja.7_if.end]
-	%m = phi i32 [0, %funkcja_entry], [%m.2, %funkcja.7_if.end]
-	%x.1 = phi i32 [%x, %funkcja_entry], [%tmp..10, %funkcja.7_if.end]
+	%i = phi i32 [0, %funkcja_entry], [%tmp..12, %funkcja.9_if.end]
+	%m = phi i32 [0, %funkcja_entry], [%m.2, %funkcja.9_if.end]
+	%x.1 = phi i32 [%x, %funkcja_entry], [%tmp..10, %funkcja.9_if.end]
 	%tmp..4 = icmp slt i32 %i, %n
 	br i1 %tmp..4, label %funkcja.2_while.body, label %funkcja.3_while.end
 funkcja.2_while.body:
 	%tmp..6 = icmp slt i32 %m, %x.1
-	br i1 %tmp..6, label %funkcja.4_if.true, label %funkcja.5_if.end
+	br i1 %tmp..6, label %funkcja.4_if.true, label %funkcja.5_if.false
 funkcja.4_if.true:
-	br label %funkcja.5_if.end
-funkcja.5_if.end:
-	%m.1 = phi i32 [%m, %funkcja.2_while.body], [%x.1, %funkcja.4_if.true]
+	br label %funkcja.6_if.end
+funkcja.5_if.false:
+	br label %funkcja.6_if.end
+funkcja.6_if.end:
+	%m.1 = phi i32 [%x.1, %funkcja.4_if.true], [%m, %funkcja.5_if.false]
 	%tmp..8 = icmp slt i32 %m.1, %x.1
-	br i1 %tmp..8, label %funkcja.6_if.true, label %funkcja.7_if.end
-funkcja.6_if.true:
-	br label %funkcja.7_if.end
-funkcja.7_if.end:
-	%m.2 = phi i32 [%m.1, %funkcja.5_if.end], [%x.1, %funkcja.6_if.true]
+	br i1 %tmp..8, label %funkcja.7_if.true, label %funkcja.8_if.false
+funkcja.7_if.true:
+	br label %funkcja.9_if.end
+funkcja.8_if.false:
+	br label %funkcja.9_if.end
+funkcja.9_if.end:
+	%m.2 = phi i32 [%x.1, %funkcja.7_if.true], [%m.1, %funkcja.8_if.false]
 	%tmp..10 = add i32 %x.1, 1
 	%tmp..12 = add i32 %i, 1
 	br label %funkcja.1_while.cond

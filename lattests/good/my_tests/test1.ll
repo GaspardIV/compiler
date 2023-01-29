@@ -43,46 +43,50 @@ define void @funkcja2() {
 funkcja2_entry:
 	br label %funkcja2.1_while.cond
 funkcja2.1_while.cond:
-	%a = phi i32 [0, %funkcja2_entry], [%a.1, %funkcja2.5_if.end]
-	%b = phi i32 [10, %funkcja2_entry], [%b.3, %funkcja2.5_if.end]
-	%i = phi i32 [0, %funkcja2_entry], [%tmp..9, %funkcja2.5_if.end]
-	%j = phi i32 [0, %funkcja2_entry], [%j.2, %funkcja2.5_if.end]
+	%a = phi i32 [0, %funkcja2_entry], [%a.1, %funkcja2.6_if.end]
+	%b = phi i32 [10, %funkcja2_entry], [%b.3, %funkcja2.6_if.end]
+	%i = phi i32 [0, %funkcja2_entry], [%tmp..9, %funkcja2.6_if.end]
+	%j = phi i32 [0, %funkcja2_entry], [%j.2, %funkcja2.6_if.end]
 	%tmp..7 = icmp slt i32 %i, 5
 	br i1 %tmp..7, label %funkcja2.2_while.body, label %funkcja2.3_while.end
 funkcja2.2_while.body:
 	%tmp..9 = add i32 %i, 1
 	%tmp..15 = srem i32 %tmp..9, 2
 	%tmp..17 = icmp eq i32 %tmp..15, 0
-	br i1 %tmp..17, label %funkcja2.4_if.true, label %funkcja2.5_if.end
+	br i1 %tmp..17, label %funkcja2.4_if.true, label %funkcja2.5_if.false
 funkcja2.4_if.true:
 	%tmp..19 = add i32 %a, 1
-	br label %funkcja2.6_while.cond
-funkcja2.6_while.cond:
-	%b.1 = phi i32 [%b, %funkcja2.4_if.true], [%b.2, %funkcja2.10_if.end]
-	%j.1 = phi i32 [%j, %funkcja2.4_if.true], [%tmp..25, %funkcja2.10_if.end]
+	br label %funkcja2.7_while.cond
+funkcja2.7_while.cond:
+	%b.1 = phi i32 [%b, %funkcja2.4_if.true], [%b.2, %funkcja2.12_if.end]
+	%j.1 = phi i32 [%j, %funkcja2.4_if.true], [%tmp..25, %funkcja2.12_if.end]
 	%tmp..23 = icmp slt i32 %j.1, 5
-	br i1 %tmp..23, label %funkcja2.7_while.body, label %funkcja2.8_while.end
-funkcja2.7_while.body:
+	br i1 %tmp..23, label %funkcja2.8_while.body, label %funkcja2.9_while.end
+funkcja2.8_while.body:
 	%tmp..25 = add i32 %j.1, 1
 	%tmp..29 = icmp slt i32 %tmp..25, 5
-	br i1 %tmp..29, label %funkcja2.9_if.true, label %funkcja2.10_if.end
-funkcja2.9_if.true:
+	br i1 %tmp..29, label %funkcja2.10_if.true, label %funkcja2.11_if.false
+funkcja2.10_if.true:
 	%tmp..31 = sub i32 %b.1, 1
 	call void @printInt(i32 %tmp..25)
 	call void @printInt(i32 %tmp..31)
-	br label %funkcja2.10_if.end
-funkcja2.10_if.end:
-	%b.2 = phi i32 [%b.1, %funkcja2.7_while.body], [%tmp..31, %funkcja2.9_if.true]
+	br label %funkcja2.12_if.end
+funkcja2.11_if.false:
+	br label %funkcja2.12_if.end
+funkcja2.12_if.end:
+	%b.2 = phi i32 [%tmp..31, %funkcja2.10_if.true], [%b.1, %funkcja2.11_if.false]
 	call void @printInt(i32 %b.2)
-	br label %funkcja2.6_while.cond
-funkcja2.8_while.end:
+	br label %funkcja2.7_while.cond
+funkcja2.9_while.end:
 	call void @printInt(i32 %tmp..19)
 	call void @printInt(i32 %b.1)
-	br label %funkcja2.5_if.end
-funkcja2.5_if.end:
-	%a.1 = phi i32 [%a, %funkcja2.2_while.body], [%tmp..19, %funkcja2.8_while.end]
-	%b.3 = phi i32 [%b, %funkcja2.2_while.body], [%b.1, %funkcja2.8_while.end]
-	%j.2 = phi i32 [%j, %funkcja2.2_while.body], [%j.1, %funkcja2.8_while.end]
+	br label %funkcja2.6_if.end
+funkcja2.5_if.false:
+	br label %funkcja2.6_if.end
+funkcja2.6_if.end:
+	%a.1 = phi i32 [%tmp..19, %funkcja2.9_while.end], [%a, %funkcja2.5_if.false]
+	%b.3 = phi i32 [%b.1, %funkcja2.9_while.end], [%b, %funkcja2.5_if.false]
+	%j.2 = phi i32 [%j.1, %funkcja2.9_while.end], [%j, %funkcja2.5_if.false]
 	br label %funkcja2.1_while.cond
 funkcja2.3_while.end:
 	call void @printInt(i32 %a)
@@ -95,43 +99,47 @@ funkcja3_entry:
 	%tmp..1 = add i32 %j, 1
 	%tmp..8 = srem i32 %tmp..1, 2
 	%tmp..10 = icmp ne i32 %tmp..8, 0
-	br i1 %tmp..10, label %funkcja3.1_if.true, label %funkcja3.2_if.end
+	br i1 %tmp..10, label %funkcja3.1_if.true, label %funkcja3.2_if.false
 funkcja3.1_if.true:
 	call void @printInt(i32 %tmp..1)
 	call void @printInt(i32 9)
-	br label %funkcja3.2_if.end
-funkcja3.2_if.end:
-	%b = phi i32 [10, %funkcja3_entry], [9, %funkcja3.1_if.true]
+	br label %funkcja3.3_if.end
+funkcja3.2_if.false:
+	br label %funkcja3.3_if.end
+funkcja3.3_if.end:
+	%b = phi i32 [9, %funkcja3.1_if.true], [10, %funkcja3.2_if.false]
 	call void @printInt(i32 %b)
 	ret void
 }
 
 define void @funkcja4() { 
 funkcja4.1_if.true:
-	br label %funkcja4.3_while.cond
-funkcja4.3_while.cond:
-	%b = phi i32 [10, %funkcja4.1_if.true], [%b.1, %funkcja4.7_if.end]
-	%j = phi i32 [0, %funkcja4.1_if.true], [%tmp..15, %funkcja4.7_if.end]
+	br label %funkcja4.4_while.cond
+funkcja4.4_while.cond:
+	%b = phi i32 [10, %funkcja4.1_if.true], [%b.1, %funkcja4.9_if.end]
+	%j = phi i32 [0, %funkcja4.1_if.true], [%tmp..15, %funkcja4.9_if.end]
 	%tmp..13 = icmp slt i32 %j, 5
-	br i1 %tmp..13, label %funkcja4.4_while.body, label %funkcja4.5_while.end
-funkcja4.4_while.body:
+	br i1 %tmp..13, label %funkcja4.5_while.body, label %funkcja4.6_while.end
+funkcja4.5_while.body:
 	%tmp..15 = add i32 %j, 1
 	%tmp..19 = icmp slt i32 %tmp..15, 5
-	br i1 %tmp..19, label %funkcja4.6_if.true, label %funkcja4.7_if.end
-funkcja4.6_if.true:
+	br i1 %tmp..19, label %funkcja4.7_if.true, label %funkcja4.8_if.false
+funkcja4.7_if.true:
 	%tmp..21 = sub i32 %b, 1
 	call void @printInt(i32 %tmp..15)
 	call void @printInt(i32 %tmp..21)
-	br label %funkcja4.7_if.end
-funkcja4.7_if.end:
-	%b.1 = phi i32 [%b, %funkcja4.4_while.body], [%tmp..21, %funkcja4.6_if.true]
+	br label %funkcja4.9_if.end
+funkcja4.8_if.false:
+	br label %funkcja4.9_if.end
+funkcja4.9_if.end:
+	%b.1 = phi i32 [%tmp..21, %funkcja4.7_if.true], [%b, %funkcja4.8_if.false]
 	call void @printInt(i32 %b.1)
-	br label %funkcja4.3_while.cond
-funkcja4.5_while.end:
+	br label %funkcja4.4_while.cond
+funkcja4.6_while.end:
 	call void @printInt(i32 1)
 	call void @printInt(i32 %b)
-	br label %funkcja4.2_if.end
-funkcja4.2_if.end:
+	br label %funkcja4.3_if.end
+funkcja4.3_if.end:
 	call void @printInt(i32 1)
 	call void @printInt(i32 %b)
 	ret void
@@ -139,31 +147,33 @@ funkcja4.2_if.end:
 
 define void @funkcja5() { 
 funkcja5.1_if.true:
-	br label %funkcja5.3_while.cond
-funkcja5.3_while.cond:
-	%b = phi i32 [10, %funkcja5.1_if.true], [%b.1, %funkcja5.7_if.end]
-	%j = phi i32 [0, %funkcja5.1_if.true], [%tmp..19, %funkcja5.7_if.end]
+	br label %funkcja5.4_while.cond
+funkcja5.4_while.cond:
+	%b = phi i32 [10, %funkcja5.1_if.true], [%b.1, %funkcja5.9_if.end]
+	%j = phi i32 [0, %funkcja5.1_if.true], [%tmp..19, %funkcja5.9_if.end]
 	%tmp..15 = srem i32 %j, 2
 	%tmp..17 = icmp ne i32 %tmp..15, 0
-	br i1 %tmp..17, label %funkcja5.4_while.body, label %funkcja5.5_while.end
-funkcja5.4_while.body:
+	br i1 %tmp..17, label %funkcja5.5_while.body, label %funkcja5.6_while.end
+funkcja5.5_while.body:
 	%tmp..19 = add i32 %j, 1
 	%tmp..23 = icmp slt i32 %tmp..19, 5
-	br i1 %tmp..23, label %funkcja5.6_if.true, label %funkcja5.7_if.end
-funkcja5.6_if.true:
+	br i1 %tmp..23, label %funkcja5.7_if.true, label %funkcja5.8_if.false
+funkcja5.7_if.true:
 	%tmp..25 = sub i32 %b, 1
 	call void @printInt(i32 %tmp..19)
 	call void @printInt(i32 %tmp..25)
-	br label %funkcja5.7_if.end
-funkcja5.7_if.end:
-	%b.1 = phi i32 [%b, %funkcja5.4_while.body], [%tmp..25, %funkcja5.6_if.true]
+	br label %funkcja5.9_if.end
+funkcja5.8_if.false:
+	br label %funkcja5.9_if.end
+funkcja5.9_if.end:
+	%b.1 = phi i32 [%tmp..25, %funkcja5.7_if.true], [%b, %funkcja5.8_if.false]
 	call void @printInt(i32 %b.1)
-	br label %funkcja5.3_while.cond
-funkcja5.5_while.end:
+	br label %funkcja5.4_while.cond
+funkcja5.6_while.end:
 	call void @printInt(i32 1)
 	call void @printInt(i32 %b)
-	br label %funkcja5.2_if.end
-funkcja5.2_if.end:
+	br label %funkcja5.3_if.end
+funkcja5.3_if.end:
 	call void @printInt(i32 1)
 	call void @printInt(i32 %b)
 	ret void

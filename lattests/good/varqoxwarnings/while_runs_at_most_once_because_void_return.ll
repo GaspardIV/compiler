@@ -1,59 +1,50 @@
-@dnl = internal constant [4 x i8] c"%d\0A\00"
-@d   = internal constant [3 x i8] c"%d\00"
-@runtime_error = internal constant [15 x i8] c"runtime error\0A\00"
+@.str.str0 = private unnamed_addr constant [2 x i8] c"x\00", align 1
+define void @test() { 
+test.1_while.cond:
+	%tmp..5 = call i8* @readString()
+	%tmp..6 = getelementptr [2 x i8], [2 x i8]* @.str.str0, i32 0, i32 0
+	%tmp..7 = call i32 @._strcmp(i8* %tmp..5, i8* %tmp..6)
+	%tmp..8 = icmp eq i32 %tmp..7, 0
+	br i1 %tmp..8, label %test.2_while.body, label %test.3_while.end
+test.2_while.body:
+	call void @printInt(i32 142)
+	ret void
+test.3_while.end:
+	ret void
+}
 
+define i32 @main() { 
+main_entry:
+	call void @test()
+	ret i32 0
+}
+
+
+; ====================================================
+; ====================================================
+; ====================================================
+
+@._dnl = internal constant [4 x i8] c"%d\0A\00"
 declare i32 @printf(i8*, ...)
-declare i32 @scanf(i8*, ...)
-declare i8* @readline(i8*)
-declare i32 @puts(i8*)
-declare void @exit(i32)
-
 define void @printInt(i32 %x) {
-       %t0 = getelementptr [4 x i8], [4 x i8]* @dnl, i32 0, i32 0
+       %t0 = getelementptr [4 x i8], [4 x i8]* @._dnl, i32 0, i32 0
        call i32 (i8*, ...) @printf(i8* %t0, i32 %x)
        ret void
 }
 
+declare i8* @malloc(i32)
 
-define void @printString(i8* %s) {
-entry:  call i32 @puts(i8* %s)
-	ret void
-}
-
-define i32 @readInt() {
-entry:	%res = alloca i32
-        %t1 = getelementptr [3 x i8], [3 x i8]* @d, i32 0, i32 0
-	call i32 (i8*, ...) @scanf(i8* %t1, i32* %res)
-	%t2 = load i32, i32* %res
-	ret i32 %t2
-}
-
+declare i8* @gets(i8*)
 define i8* @readString() {
-entry:	%t1 = alloca i8
-    %t2 = call i8* @readline(i8* %t1)
-    ret i8* %t2
+entry:
+    %t1 = call i8* @malloc(i32 4096)
+    %t2 = call i8* @gets(i8* %t1)
+    ret i8* %t1
 }
 
-
-define void @error() {
-    %t0 = getelementptr [15 x i8], [15 x i8]* @runtime_error, i32 0, i32 0
-    call void @printString(i8* %t0)
-    call void @exit(i32 1)
-    ret void
+declare i32 @strcmp(i8*, i8*)
+define i32 @._strcmp(i8* %str1, i8* %str2) {
+       %t0 = call i32 @strcmp(i8* %str1, i8* %str2)
+       ret i32 %t0
 }
 
-
-define void @test() { 
-entry: 
- ; while
-}
-
-define i32 @main() { 
-entry: 
-call void @test()
-br label %block1
-
-block1: 
- ; 0
-ret i32 0
-}

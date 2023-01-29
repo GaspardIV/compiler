@@ -55,19 +55,19 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
             } catch (ClassCastException e) {
                 throw new SemanticError.FieldCalledOnNonClass(p.line_num);
             }
-        } else if (/*p.expr_1 instanceof EArrayElem || */p.expr_1 instanceof EArrayElemR) {
-//            if (p.expr_1 instanceof EArrayElem) {
-//                EArrayElem eArrayElem = (EArrayElem) p.expr_1;
-//                Type iType = eArrayElem.expr_2.accept(new ExprChecker(), arg);
-//                if (!iType.equals(new Int())) {
-//                    throw new SemanticError.ArrayIndexHasToBeInteger(p.line_num);
-//                }
-//                Type arrayType = eArrayElem.expr_1.accept(new ExprChecker(), arg);
-//                Array arrayType1 = (Array) arrayType;
-//                if (!arg.areTypesEqualRegardingInheritance(exprType, arrayType1.type_)) {
-//                    throw new SemanticError.AssingingWrongType(p.line_num, arrayType1.type_, exprType);
-//                }
-//            } else {
+        } else if (p.expr_1 instanceof EArrayElem || p.expr_1 instanceof EArrayElemR) {
+            if (p.expr_1 instanceof EArrayElem) {
+                EArrayElem eArrayElem = (EArrayElem) p.expr_1;
+                Type iType = eArrayElem.expr_2.accept(new ExprChecker(), arg);
+                if (!iType.equals(new Int())) {
+                    throw new SemanticError.ArrayIndexHasToBeInteger(p.line_num);
+                }
+                Type arrayType = eArrayElem.expr_1.accept(new ExprChecker(), arg);
+                Array arrayType1 = (Array) arrayType;
+                if (!arg.areTypesEqualRegardingInheritance(exprType, arrayType1.type_)) {
+                    throw new SemanticError.AssingingWrongType(p.line_num, arrayType1.type_, exprType);
+                }
+            } else {
                 EArrayElemR eArrayElemR = (EArrayElemR) p.expr_1;
                 Type iType = eArrayElemR.expr_.accept(new ExprChecker(), arg);
                 if (!iType.equals(new Int())) {
@@ -77,7 +77,7 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
                 if (!arg.areTypesEqualRegardingInheritance(exprType, arrayType.type_)) {
                     throw new SemanticError.AssingingWrongType(p.line_num, arrayType.type_, exprType);
                 }
-//            }
+            }
             return null;
         } else {
             throw new SemanticError.AssignmentToNonLValue(p.line_num);
@@ -87,7 +87,7 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
 
     public Void visit(latte.Absyn.Incr p, Environment arg) {
         Type exprType = p.expr_.accept(new ExprChecker(), arg);
-        if (!(p.expr_ instanceof EVar) && !(p.expr_ instanceof EField) /*&& !(p.expr_ instanceof EArrayElem)*/ && !(p.expr_ instanceof EArrayElemR)) {
+        if (!(p.expr_ instanceof EVar) && !(p.expr_ instanceof EField) && !(p.expr_ instanceof EArrayElem) && !(p.expr_ instanceof EArrayElemR)) {
             throw new SemanticError.IncrementingNonLValue(p.line_num);
 
         }
@@ -99,7 +99,7 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
 
     public Void visit(latte.Absyn.Decr p, Environment arg) {
         Type exprType = p.expr_.accept(new ExprChecker(), arg);
-        if (!(p.expr_ instanceof EVar) && !(p.expr_ instanceof EField) /*&& !(p.expr_ instanceof EArrayElem)*/ && !(p.expr_ instanceof EArrayElemR)) {
+        if (!(p.expr_ instanceof EVar) && !(p.expr_ instanceof EField) && !(p.expr_ instanceof EArrayElem) && !(p.expr_ instanceof EArrayElemR)) {
             throw new SemanticError.DecrementingNonLValue(p.line_num);
         }
         if (!exprType.equals(new Int())) {
@@ -176,7 +176,13 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
         if (!exprType.equals(new Bool())) {
             throw new SemanticError.CondHasToBeBoolean(p.line_num);
         }
-        acceptStmtAddBlockIfNeeded(p.stmt_, arg, new StmtChecker());
+        if (!(p.expr_ instanceof ELitTrue)) {
+            Boolean wasReturnBefore = arg.wasReturn();
+            acceptStmtAddBlockIfNeeded(p.stmt_, arg, new StmtChecker());
+            arg.setWasReturn(wasReturnBefore);
+        } else {
+            acceptStmtAddBlockIfNeeded(p.stmt_, arg, new StmtChecker());
+        }
         return null;
     }
 

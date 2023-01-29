@@ -2,6 +2,7 @@ package latte.backend.program.global;
 
 import latte.Absyn.Type;
 import latte.backend.quadruple.Register;
+import latte.errors.SemanticError;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -67,7 +68,7 @@ public class Scope {
 
     public void addVariable(Variable variable) {
         if (variables.containsKey(variable.getName())) {
-            throw new RuntimeException("Variable " + variable.getName() + " already exists in scope " + contextName); // should never happen
+            throw new SemanticError.VariableAlreadyDeclaredInCurrentContext(-1, variable.getName());
         } else {
             variables.put(variable.getName(), variable);
             this.memoryLocations.put(variable, new ArrayDeque<>());

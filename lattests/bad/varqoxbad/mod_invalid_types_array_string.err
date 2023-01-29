@@ -1,4 +1,4 @@
 ERROR
 
 Semantic error at line 3 :
-     Operator '*' cannot be applied to types 'Array' and 'String'.
+     Operator '%' cannot be applied to types 'Array' and 'String'.

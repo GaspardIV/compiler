@@ -1,5 +1,23 @@
 Oddaje kompilator llvm. Bede jeszcze oddawal rozszerzenie kompilatora.
 
+2 shift/reduce sie biora z:
+
+ENullArr.      Expr6 ::= "(" Type "[]" ")" "null" ;
+
+ENull.      Expr6 ::= "(" Ident ")" "null" ;
+
+ENil.       Expr6 ::= "null" ;
+
+
+2 z :
+EArrayElemR. Expr7 ::= Ident "[" Expr "]";
+
+
+1 z :
+ENewArray.  Expr6 ::= "new" Type "[" Expr "]" ;
+
+ENew.       Expr6 ::= "new" Type ;
+
 TODO:
  - mozna usunac final z kazdego pola w ABSYN
  - tablice

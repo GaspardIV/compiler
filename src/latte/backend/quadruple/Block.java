@@ -4,6 +4,8 @@ import latte.backend.program.global.Scope;
 import latte.backend.program.global.Variable;
 
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Block {
     private String identifier;
@@ -161,7 +163,9 @@ public class Block {
     }
 
     public boolean isEmpty() {
-        return statements.stream().allMatch(q -> q.toString().equals("") || q.op instanceof Quadruple.LLVMOperation.GOTO || q.op instanceof Quadruple.LLVMOperation.LABEL);
+         Stream<Quadruple> x = statements.stream().filter(quadruple -> !quadruple.toString().equals("") && !(quadruple.op instanceof Quadruple.LLVMOperation.LABEL));
+         List<Quadruple> y = x.collect(Collectors.toList());
+        return y.size()== 1 && y.get(0).op instanceof Quadruple.LLVMOperation.GOTO;
     }
 
     public boolean overrideIfPossible(Block firstBlock, HashMap<Block, HashSet<Block>> predecessors) {
