@@ -34,9 +34,10 @@ public class Function extends Scope {
 
 
     List<Quadruple> quadruples = new ArrayList<>();
-    List<Variable> arguments;
-    private boolean isUsed = false;
 
+    List<Variable> arguments;
+
+    private boolean isUsed = false;
     public Block getLastBlock() {
         return firstBlock.getLastBlock();
     }
@@ -96,13 +97,17 @@ public class Function extends Scope {
             return label;
         }
     }
+
     public static boolean isLibraryFunction(String name) {
         return name.equals("printf") || name.equals("scanf") || name.equals("strcat") || name.equals("strcpy") || name.equals("malloc") || name.equals("strlen") || name.equals("puts") || name.equals("gets") || name.equals("exit") || name.equals("strcmp");
     }
-
     public void markAsUsed() {
         Global.getInstance().markIfRuntimeFunction(this.contextName);
         this.isUsed = true;
+    }
+
+    public List<Variable> getArguments() {
+        return arguments;
     }
 
     public String nextBlockName() {

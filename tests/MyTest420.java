@@ -8,9 +8,9 @@ public class MyTest420 extends CompilerInputOutputErrTest {
         if (testUtils.fileExists(code_input)) {
             System.out.println(i);
             if (!testUtils.fileExists(code_output)) {
-                testUtils.OkTestCodeQuality(code_input, code_output, output, true, true);
+                testUtils.OkTestCodeQuality(code_input, code_output, output, true, false);
             } else {
-                testUtils.OkTestCodeQuality(code_input, code_output, output, false, true);
+                testUtils.OkTestCodeQuality(code_input, code_output, output, false, false);
             }
         }
     }

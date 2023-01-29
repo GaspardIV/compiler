@@ -8,391 +8,86 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="getelelmentptr">
-      <change afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/12.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/bin_op_and_unknown_right_side_always_false.input" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/bin_op_or_unknown_right_side_always_true.input" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/for_runs_at_most_once_because_error.input" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/for_runs_at_most_once_because_return.input" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/for_runs_at_most_once_because_void_return.input" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/while_runs_at_most_once_because_error.input" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/while_runs_at_most_once_because_return.input" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/while_runs_at_most_once_because_void_return.input" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/while_runs_at_most_once_because_while_true.input" afterDir="false" />
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="array">
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/0.bc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/0.ll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/0.llcode" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/0.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/1.bc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/1.ll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/1.llcode" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/1.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/10.bc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/10.ll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/10.llcode" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/11.bc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/11.ll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/11.llcode" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/12.bc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/12.ll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/12.llcode" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/13.bc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/13.ll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/13.llcode" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/13.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/14.bc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/14.ll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/14.llcode" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/14.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/15.ll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/16.bc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/16.lat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/16.ll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/16.llcode" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/16.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/2.bc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/2.ll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/2.llcode" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/3.bc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/3.ll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/3.llcode" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/4.ll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/5.bc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/5.ll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/5.llcode" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/6.bc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/6.ll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/6.llcode" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/7.ll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/8.ll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/9.bc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/9.ll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/classes/9.llcode" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClassVTable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Latte.cf" beforeDir="false" afterPath="$PROJECT_DIR$/Latte.cf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/classic/bad003.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/classic/bad003.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/classic/bad007.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/classic/bad007.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/my_tests/test.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/my_tests/test.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/semantic/string_sub.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/semantic/string_sub.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/bin_op_and_invalid_laziness.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/bin_op_and_invalid_laziness.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/bin_op_or_invalid_laziness.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/bin_op_or_invalid_laziness.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefines_base_class_field.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefines_base_class_field.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefinition.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefinition.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefinition_other_decl.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefinition_other_decl.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefinition_single_decl.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefinition_single_decl.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_by_zero.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_by_zero.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_array_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_array_array.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_array_bool.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_array_bool.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_array_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_array_class.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_array_int.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_array_int.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_array_null.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_array_null.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_array_string.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_array_string.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_array_void.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_array_void.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_bool_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_bool_array.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_bool_bool.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_bool_bool.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_bool_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_bool_class.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_bool_int.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_bool_int.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_bool_null.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_bool_null.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_bool_string.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_bool_string.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_bool_void.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_bool_void.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_class_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_class_array.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_class_bool.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_class_bool.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_class_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_class_class.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_class_int.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_class_int.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_class_null.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_class_null.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_class_string.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_class_string.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_class_void.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_class_void.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_int_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_int_array.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_int_bool.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_int_bool.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_int_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_int_class.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_int_null.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_int_null.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_int_string.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_int_string.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_int_void.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_int_void.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_null_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_null_array.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_null_bool.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_null_bool.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_null_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_null_class.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_null_int.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_null_int.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_null_null.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_null_null.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_null_string.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_null_string.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_null_void.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_null_void.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_string_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_string_array.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_string_bool.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_string_bool.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_string_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_string_class.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_string_null.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_string_null.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_string_string.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_string_string.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_string_void.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_string_void.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_void_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_void_array.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_void_bool.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_void_bool.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_void_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_void_class.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_void_int.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_void_int.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_void_null.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_void_null.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_void_string.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_void_string.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_void_void.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/div_invalid_types_void_void.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/field_shadowing.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/field_shadowing.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/func_args_same_name.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/func_args_same_name.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/method_args_same_name.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/method_args_same_name.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/missing_return_after_while_with_return.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/missing_return_after_while_with_return.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_by_zero.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_by_zero.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_array_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_array_array.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_array_bool.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_array_bool.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_array_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_array_class.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_array_int.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_array_int.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_array_null.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_array_null.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_array_string.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_array_string.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_array_void.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_array_void.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_bool_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_bool_array.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_bool_bool.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_bool_bool.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_bool_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_bool_class.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_bool_int.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_bool_int.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_bool_null.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_bool_null.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_bool_string.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_bool_string.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_bool_void.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_bool_void.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_class_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_class_array.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_class_bool.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_class_bool.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_class_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_class_class.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_class_int.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_class_int.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_class_null.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_class_null.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_class_string.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_class_string.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_class_void.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_class_void.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_int_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_int_array.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_int_bool.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_int_bool.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_int_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_int_class.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_int_null.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_int_null.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_int_string.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_int_string.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_int_void.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_int_void.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_null_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_null_array.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_null_bool.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_null_bool.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_null_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_null_class.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_null_int.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_null_int.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_null_null.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_null_null.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_null_string.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_null_string.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_null_void.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_null_void.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_string_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_string_array.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_string_bool.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_string_bool.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_string_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_string_class.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_string_null.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_string_null.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_string_string.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_string_string.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_string_void.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_string_void.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_void_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_void_array.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_void_bool.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_void_bool.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_void_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_void_class.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_void_int.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_void_int.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_void_null.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_void_null.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_void_string.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_void_string.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_void_void.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/mod_invalid_types_void_void.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_array_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_array_array.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_array_bool.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_array_bool.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_array_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_array_class.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_array_int.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_array_int.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_array_null.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_array_null.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_array_string.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_array_string.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_array_void.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_array_void.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_bool_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_bool_array.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_bool_bool.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_bool_bool.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_bool_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_bool_class.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_bool_int.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_bool_int.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_bool_null.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_bool_null.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_bool_string.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_bool_string.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_bool_void.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_bool_void.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_class_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_class_array.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_class_bool.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_class_bool.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_class_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_class_class.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_class_int.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_class_int.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_class_null.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_class_null.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_class_string.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_class_string.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_class_void.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_class_void.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_int_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_int_array.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_int_bool.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_int_bool.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_int_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_int_class.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_int_null.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_int_null.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_int_string.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_int_string.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_int_void.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_int_void.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_null_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_null_array.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_null_bool.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_null_bool.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_null_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_null_class.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_null_int.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_null_int.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_null_null.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_null_null.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_null_string.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_null_string.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_null_void.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_null_void.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_string_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_string_array.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_string_bool.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_string_bool.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_string_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_string_class.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_string_int.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_string_int.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_string_null.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_string_null.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_string_string.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_string_string.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_string_void.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_string_void.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_void_array.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_void_array.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_void_bool.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_void_bool.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_void_class.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_void_class.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_void_int.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_void_int.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_void_null.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_void_null.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_void_string.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_void_string.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_void_void.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/sub_invalid_types_void_void.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/var_decl_init_shadows_other_decl.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/var_decl_init_shadows_other_decl.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/var_decl_init_shadows_same_decl.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/var_decl_init_shadows_same_decl.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/var_decl_noinit_shadows_other_decl.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/var_decl_noinit_shadows_other_decl.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/var_decl_noinit_shadows_same_decl.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/var_decl_noinit_shadows_same_decl.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/arrays/array_length.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/arrays/array_length.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/arrays/array_new.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/arrays/array_new.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/arrays/array_read.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/arrays/array_read.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/arrays/array_read.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/arrays/array_read.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/arrays/array_string.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/arrays/array_string.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/arrays/heapsort.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/arrays/heapsort.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/basic/compare.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/compare.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/basic/compare.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/compare.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/basic/fibonacci.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/fibonacci.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/basic/fibonacci.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/basic/fibonacci.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classes/3.output" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/3.output" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classes/6.output" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/6.output" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core001.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core001.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core001.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core001.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core004.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core004.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core004.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core004.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core024.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core024.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classic/core024.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classic/core024.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/extensions/arrays1/array001.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/extensions/arrays1/array001.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/extensions/arrays1/array002.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/extensions/arrays1/array002.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/extensions/objects1/counter.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/extensions/objects1/counter.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/extensions/objects1/linked.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/extensions/objects1/linked.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/extensions/objects1/points.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/extensions/objects1/points.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/extensions/objects1/queue.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/extensions/objects1/queue.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/extensions/objects2/shapes.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/extensions/objects2/shapes.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/extensions/struct/list.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/extensions/struct/list.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/gr5/bfs.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/gr5/bfs.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/gr5/calculator.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/gr5/calculator.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/gr5/heapsort2.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/gr5/heapsort2.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/gr5/lista2Kierunkowa.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/gr5/lista2Kierunkowa.lat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/gr5/lista2Kierunkowa.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/gr5/lista2Kierunkowa.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/gr5/mergeSort.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/gr5/mergeSort.lat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/gr5/mergeSort.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/gr5/mergeSort.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/hardcore/big_string.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/hardcore/big_string.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/hardcore/big_string.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/hardcore/big_string.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/hardcore/tail_call_optymization.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/hardcore/tail_call_optymization.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/hardcore/tail_call_optymization.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/hardcore/tail_call_optymization.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core001.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core001.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core001.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core001.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core004.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core004.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core004.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core004.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core024.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core024.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core024.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core024.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core033.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core033.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/good/core033.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/good/core033.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/3.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/3.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/3.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/3.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/4.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/4.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/4.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/4.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/5.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/5.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/5.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/my_test2/5.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test1.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test1.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test1.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test1.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test6.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test6.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test6.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/my_tests/test6.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/array_length_attribute.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/array_length_attribute.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_array_array.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_array_array.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_bool_bool.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_bool_bool.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_class_class.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_class_class.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_class_class_up.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_class_class_up.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_class_null.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_class_null.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_int_int.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_int_int.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_string_string.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_string_string.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_arr_elem_array.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_arr_elem_array.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_new_class_array.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_new_class_array.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_of_field_array.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_of_field_array.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_bool_arr_elem_bool.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_bool_arr_elem_bool.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_bool_new_class_bool.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_bool_new_class_bool.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_bool_of_field_bool.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_bool_of_field_bool.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_arr_elem_class.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_arr_elem_class.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_arr_elem_class_up.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_arr_elem_class_up.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_arr_elem_null.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_arr_elem_null.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_new_class_class.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_new_class_class.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_new_class_class_up.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_new_class_class_up.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_new_class_null.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_new_class_null.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_of_field_class.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_of_field_class.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_of_field_class_up.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_of_field_class_up.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_of_field_null.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_class_of_field_null.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_int_arr_elem_int.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_int_arr_elem_int.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_int_new_class_int.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_int_new_class_int.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_int_of_field_int.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_int_of_field_int.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_string_arr_elem_string.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_string_arr_elem_string.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_string_new_class_string.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_string_new_class_string.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_string_of_field_string.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_string_of_field_string.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_var_array_array.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_var_array_array.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_var_class_class.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_var_class_class.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_var_class_class_up.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_var_class_class_up.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_var_class_null.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_var_class_null.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/class_overriding_method.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/class_overriding_method.bc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/class_overriding_method.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/class_overriding_method.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/common_expressions.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/common_expressions.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/decr_arr_elem_int.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/decr_arr_elem_int.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/decr_arr_elem_int.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/decr_arr_elem_int.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/decr_field_int_arr_elem.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/decr_field_int_arr_elem.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/decr_field_int_new_class.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/decr_field_int_new_class.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/decr_field_int_of_field.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/decr_field_int_of_field.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/for_int_over_array.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/for_int_over_array.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/for_int_over_array.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/for_int_over_array.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/for_iter_base_class_over_derived_class.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/for_iter_base_class_over_derived_class.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/for_iter_shadowing.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/for_iter_shadowing.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/func_call_arg_array.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/func_call_arg_array.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/func_call_arg_class.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/func_call_arg_class.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/func_call_arg_conversion_class_to_class_up.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/func_call_arg_conversion_class_to_class_up.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/func_call_builtin_function.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/func_call_builtin_function.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/if_else_shadowing.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/if_else_shadowing.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/if_else_shadowing.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/if_else_shadowing.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/if_shadowing.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/if_shadowing.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/if_shadowing.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/if_shadowing.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/incr_arr_elem_int.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/incr_arr_elem_int.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/incr_field_int_arr_elem.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/incr_field_int_arr_elem.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/incr_field_int_new_class.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/incr_field_int_new_class.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/incr_field_int_of_field.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/incr_field_int_of_field.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/laziness_binop_or_and_binop_and.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/laziness_binop_or_and_binop_and.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/method_and_field_access_on_derived_class.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/method_and_field_access_on_derived_class.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/method_call_arg_array.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/method_call_arg_array.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/method_call_arg_bool.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/method_call_arg_bool.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/method_call_arg_class.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/method_call_arg_class.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/method_call_arg_conversion_class_to_class_up.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/method_call_arg_conversion_class_to_class_up.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/method_call_arg_int.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/method_call_arg_int.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/method_call_arg_string.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/method_call_arg_string.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/method_call_should_own_obj.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/method_call_should_own_obj.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/method_shadows_builtin_function.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/method_shadows_builtin_function.bc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/method_shadows_builtin_function.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/method_shadows_builtin_function.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/method_shadows_global_function.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/method_shadows_global_function.bc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/method_shadows_global_function.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/method_shadows_global_function.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/new_array.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/new_array.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/new_array_length.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/new_array_length.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/new_array_subscript.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/new_array_subscript.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/new_class_field_and_method.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/new_class_field_and_method.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/null_cast_to_class.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/null_cast_to_class.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/param_passing_method_bool.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/param_passing_method_bool.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/param_passing_method_int.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/param_passing_method_int.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/param_passing_method_str.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/param_passing_method_str.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/tricky_string_copy.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/tricky_string_copy.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/tricky_string_copy.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/tricky_string_copy.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/unary_ops.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/unary_ops.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/unary_ops.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/unary_ops.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/var_namespace_vs_function_namespace.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/var_namespace_vs_function_namespace.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/var_namespace_vs_function_namespace.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/var_namespace_vs_function_namespace.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/variable_binds_to_field.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/variable_binds_to_field.bc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/variable_binds_to_field.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/variable_binds_to_field.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/variable_binds_to_inherited_field.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/variable_binds_to_inherited_field.bc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/variable_binds_to_inherited_field.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/variable_binds_to_inherited_field.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/virtual_methods.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/virtual_methods.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/while_body_decl.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/while_body_decl.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/array_negative_subscript.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/array_negative_subscript.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/array_subscript_null_array.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/array_subscript_null_array.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/bin_op_and_left_side_always_true_right_side_always_false.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/bin_op_and_left_side_always_true_right_side_always_false.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/bin_op_and_left_side_always_true_right_side_always_false.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/bin_op_and_left_side_always_true_right_side_always_false.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/bin_op_and_unknown_right_side_always_false.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/bin_op_and_unknown_right_side_always_false.bc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/bin_op_and_unknown_right_side_always_false.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/bin_op_and_unknown_right_side_always_false.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/bin_op_or_left_side_always_false_right_side_always_true.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/bin_op_or_left_side_always_false_right_side_always_true.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/bin_op_or_left_side_always_false_right_side_always_true.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/bin_op_or_left_side_always_false_right_side_always_true.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/bin_op_or_unknown_right_side_always_true.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/bin_op_or_unknown_right_side_always_true.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/bin_op_or_unknown_right_side_always_true.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/bin_op_or_unknown_right_side_always_true.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/binop_and_left_side_false.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/binop_and_left_side_false.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/binop_and_left_side_false.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/binop_and_left_side_false.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/binop_and_right_side_false.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/binop_and_right_side_false.bc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/binop_and_right_side_false.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/binop_and_right_side_false.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/binop_and_right_side_true.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/binop_and_right_side_true.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/binop_and_right_side_true.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/binop_and_right_side_true.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/binop_or_left_side_true.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/binop_or_left_side_true.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/binop_or_left_side_true.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/binop_or_left_side_true.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/binop_or_right_side_false.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/binop_or_right_side_false.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/binop_or_right_side_false.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/binop_or_right_side_false.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/binop_or_right_side_true.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/binop_or_right_side_true.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/binop_or_right_side_true.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/binop_or_right_side_true.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_after_error.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_after_error.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_after_error.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_after_error.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_after_if_else.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_after_if_else.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_after_if_else_nested.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_after_if_else_nested.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_after_if_false.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_after_if_false.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_after_if_true.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_after_if_true.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_after_return.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_after_return.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_after_void_return.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_after_void_return.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_after_while_true.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_after_while_true.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_if_false.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_if_false.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_if_true.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_if_true.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_if_true.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_if_true.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_in_for_after_error.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_in_for_after_error.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_in_for_after_return.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_in_for_after_return.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_in_for_after_void_return.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_in_for_after_void_return.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_in_for_after_while_true.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_in_for_after_while_true.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_in_while_after_error.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_in_while_after_error.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_in_while_after_return.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_in_while_after_return.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_in_while_after_void_return.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_in_while_after_void_return.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_while_cond_always_false.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_while_cond_always_false.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_while_cond_always_false.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/dead_code_while_cond_always_false.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/for_runs_at_most_once_because_error.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/for_runs_at_most_once_because_error.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/for_runs_at_most_once_because_return.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/for_runs_at_most_once_because_return.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/for_runs_at_most_once_because_void_return.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/for_runs_at_most_once_because_void_return.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/for_runs_at_most_once_because_void_return.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/for_runs_at_most_once_because_void_return.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/for_runs_at_most_once_because_while_true.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/for_runs_at_most_once_because_while_true.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/new_array_negative_size.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/new_array_negative_size.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/null_array_length.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/null_array_length.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/null_class_field.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/null_class_field.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/while_runs_at_most_once_because_error.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/while_runs_at_most_once_because_error.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/while_runs_at_most_once_because_error.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/while_runs_at_most_once_because_error.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/while_runs_at_most_once_because_return.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/while_runs_at_most_once_because_return.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/while_runs_at_most_once_because_return.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/while_runs_at_most_once_because_return.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/while_runs_at_most_once_because_void_return.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/while_runs_at_most_once_because_void_return.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/while_runs_at_most_once_because_while_true.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/while_runs_at_most_once_because_while_true.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/while_runs_at_most_once_because_while_true.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/while_runs_at_most_once_because_while_true.lat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxwarnings/while_runs_at_most_once_because_while_true.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxwarnings/while_runs_at_most_once_because_while_true.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/virtual/polymorphism.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/virtual/polymorphism.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/Scope.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/Scope.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Block.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/errors/SemanticError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/errors/SemanticError.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/StmtChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/StmtChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/TestUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/TestUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/Internal/LatteClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Internal/LatteClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/Function.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/Function.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/Global.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/Global.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClassConstructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClassConstructor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClassMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClassMethod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClassType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClassType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/frontend/SematicAnalyst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/SematicAnalyst.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/MyTest420.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/MyTest420.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -531,7 +226,7 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "extract.method.default.visibility": "private",
     "last.edited.regexp": "",
-    "last_opened_file_path": "/Users/kacperkonecki/IdeaProjects/codingame/compiler/lattests/good/varqoxwarnings",
+    "last_opened_file_path": "/Users/kacperkonecki/IdeaProjects/codingame/compiler/lattests/good/classes",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
@@ -553,9 +248,9 @@
       <recent name="latte.frontend.visitors.programvisitors" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lattests/good/classes" />
       <recent name="$PROJECT_DIR$/lattests/good/varqoxwarnings" />
       <recent name="$PROJECT_DIR$/lattests/good/my_tests/my_test2" />
-      <recent name="$PROJECT_DIR$/lattests/good/classes" />
       <recent name="$PROJECT_DIR$/lattests/good/classes/expected_output" />
       <recent name="$PROJECT_DIR$/lattests/good/my_tests/good" />
     </key>
@@ -581,7 +276,7 @@
       <recent name="bad" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ALLESGOOD">
+  <component name="RunManager" selected="JUnit.Classes420">
     <configuration name="Test core002.lat" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="latte.Compiler" />
       <module name="compiler" />
@@ -702,12 +397,58 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GoodArraysTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Classes420" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GoodArraysTest" />
+      <option name="MAIN_CLASS_NAME" value="Classes420" />
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
+      <patterns>
+        <pattern testClass="GoodGr5Test" />
+        <pattern testClass="GoodVarqoxgoodTest" />
+        <pattern testClass="GoodMyTestsTest" />
+        <pattern testClass="GoodBasicTest" />
+        <pattern testClass="GoodExtensionsArrays1Test" />
+        <pattern testClass="GoodExtensionsObjects1Test" />
+        <pattern testClass="GoodVirtualTest" />
+        <pattern testClass="GoodHardcoreTest" />
+        <pattern testClass="GoodVarqoxwarningsTest" />
+        <pattern testClass="Classes420" />
+        <pattern testClass="GoodArraysTest" />
+        <pattern testClass="GoodClassicTest" />
+        <pattern testClass="MyTest420" />
+        <pattern testClass="MyTest" />
+        <pattern testClass="GoodExtensionsStructTest" />
+        <pattern testClass="GoodExtensionsObjects2Test" />
+      </patterns>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Classes420.test_16" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="compiler" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Classes420" />
+      <option name="METHOD_NAME" value="test_16" />
+      <option name="TEST_OBJECT" value="method" />
+      <patterns>
+        <pattern testClass="GoodGr5Test" />
+        <pattern testClass="GoodVarqoxgoodTest" />
+        <pattern testClass="GoodMyTestsTest" />
+        <pattern testClass="GoodBasicTest" />
+        <pattern testClass="GoodExtensionsArrays1Test" />
+        <pattern testClass="GoodExtensionsObjects1Test" />
+        <pattern testClass="GoodVirtualTest" />
+        <pattern testClass="GoodHardcoreTest" />
+        <pattern testClass="GoodVarqoxwarningsTest" />
+        <pattern testClass="Classes420" />
+        <pattern testClass="GoodArraysTest" />
+        <pattern testClass="GoodClassicTest" />
+        <pattern testClass="MyTest420" />
+        <pattern testClass="MyTest" />
+        <pattern testClass="GoodExtensionsStructTest" />
+        <pattern testClass="GoodExtensionsObjects2Test" />
+      </patterns>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -736,16 +477,6 @@
         <pattern testClass="GoodExtensionsStructTest" />
         <pattern testClass="GoodExtensionsObjects2Test" />
       </patterns>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GoodVarqoxgoodTest.testFor_Iter_Shadowing" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="compiler" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GoodVarqoxgoodTest" />
-      <option name="METHOD_NAME" value="testFor_Iter_Shadowing" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -810,20 +541,20 @@
       <item itemvalue="JUnit.ALLESGOOD" />
       <item itemvalue="JUnit.ALLESGOOD NOT VARKOQ" />
       <item itemvalue="JUnit.All in compiler" />
+      <item itemvalue="JUnit.Classes420" />
+      <item itemvalue="JUnit.Classes420.test_16" />
       <item itemvalue="JUnit.GoodHardcoreTest.testTail_Call_Optymization" />
-      <item itemvalue="JUnit.GoodVarqoxgoodTest.testFor_Iter_Shadowing" />
       <item itemvalue="JUnit.GoodVarqoxwarningsTest.testFor_Runs_At_Most_Once_Because_Void_Return" />
-      <item itemvalue="JUnit.GoodArraysTest" />
       <item itemvalue="JUnit.MyTest420" />
       <item itemvalue="Shell Script.Unnamed" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.Classes420" />
+        <item itemvalue="JUnit.MyTest420" />
+        <item itemvalue="JUnit.Classes420.test_16" />
         <item itemvalue="JUnit.GoodHardcoreTest.testTail_Call_Optymization" />
         <item itemvalue="JUnit.GoodVarqoxwarningsTest.testFor_Runs_At_Most_Once_Because_Void_Return" />
-        <item itemvalue="JUnit.GoodVarqoxgoodTest.testFor_Iter_Shadowing" />
-        <item itemvalue="JUnit.MyTest420" />
-        <item itemvalue="JUnit.GoodArraysTest" />
       </list>
     </recent_temporary>
   </component>
@@ -893,14 +624,7 @@
       <workItem from="1674822363317" duration="1110000" />
       <workItem from="1674904311086" duration="3234000" />
       <workItem from="1674909211526" duration="5600000" />
-      <workItem from="1674975608978" duration="16286000" />
-    </task>
-    <task id="LOCAL-00066" summary="tak sobie if">
-      <created>1671862238074</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1671862238074</updated>
+      <workItem from="1674975608978" duration="39022000" />
     </task>
     <task id="LOCAL-00067" summary="21/50 pierwsze ify zaczynaja wyciongac rogi">
       <created>1672027723605</created>
@@ -1238,7 +962,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674685685599</updated>
     </task>
-    <option name="localTasksCounter" value="115" />
+    <task id="LOCAL-00115" summary="array">
+      <created>1674995250619</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1674995250620</updated>
+    </task>
+    <option name="localTasksCounter" value="116" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1304,7 +1035,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ok oddaje" />
     <MESSAGE value="Uzywalem zlej funkcji.." />
     <MESSAGE value="Drobne usprawnienie definicji w while" />
     <MESSAGE value="Phi register if phi is also phi inside of while." />
@@ -1329,7 +1059,8 @@
     <MESSAGE value="array, bez length" />
     <MESSAGE value="array, for, bez length poprawnione if {} bez else phi" />
     <MESSAGE value="getelelmentptr" />
-    <option name="LAST_COMMIT_MESSAGE" value="getelelmentptr" />
+    <MESSAGE value="array" />
+    <option name="LAST_COMMIT_MESSAGE" value="array" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1368,6 +1099,11 @@
           <url>file://$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java</url>
           <line>282</line>
           <option name="timeStamp" value="126" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java</url>
+          <line>360</line>
+          <option name="timeStamp" value="128" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />
@@ -1419,6 +1155,7 @@
     <SUITE FILE_PATH="coverage/compiler$BadTestsMyTests.ic" NAME="BadTestsMyTests Coverage Results" MODIFIED="1668394555823" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/compiler$GoodTestsMyTests_testMyTestsTestReturnInIfAndInError.ic" NAME="GoodTestsMyTests.testMyTestsTestReturnInIfAndInError Coverage Results" MODIFIED="1668395845151" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/compiler$GoodMyTestsTest.ic" NAME="GoodMyTestsTest Coverage Results" MODIFIED="1670036739432" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/compiler$Classes420_test_16.ic" NAME="Classes420.test_16 Coverage Results" MODIFIED="1675010660510" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/compiler$GoodGr5Test_testLista2Kierunkowa.ic" NAME="GoodGr5Test.testLista2Kierunkowa Coverage Results" MODIFIED="1669865773531" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/compiler$GoodBasicTest_and_1_more.ic" NAME="GoodBasicTest and 1 more Coverage Results" MODIFIED="1670980833888" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/compiler$All_in_compiler.ic" NAME="All in compiler Coverage Results" MODIFIED="1669853478055" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

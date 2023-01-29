@@ -27,7 +27,7 @@ define void @Y.constructor(%Y* %this) {
 define void @Y.foo(%Y* %self) { 
 Y.foo_entry:
 	%tmp. = getelementptr %Y, %Y* %self, i32 0, i32 0
-	store i32 42, i32* %tmp.
+	store i32 142, i32* %tmp.
 	ret void
 }
 

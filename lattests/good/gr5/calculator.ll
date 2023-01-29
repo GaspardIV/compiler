@@ -12,6 +12,24 @@ define void @Operator.constructor(%Operator* %this) {
 	store %Node* %righttmp, %Node** %right
 	ret void
 }
+
+define i32 @Operator.value(%Operator* %self) { 
+Operator.value_entry:
+	%tmp. = getelementptr %Operator, %Operator* %self, i32 0, i32 0
+	%tmp..1 = load %Node*, %Node** %tmp.
+	%tmp..2 = call i32 @Node.value(%Node* %tmp..1)
+	%tmp..3 = getelementptr %Operator, %Operator* %self, i32 0, i32 1
+	%tmp..4 = load %Node*, %Node** %tmp..3
+	%tmp..5 = call i32 @Node.value(%Node* %tmp..4)
+	%tmp..6 = call i32 @Operator.operator(%Operator* %self, i32 %tmp..2, i32 %tmp..5)
+	ret i32 %tmp..6
+}
+
+define i32 @Operator.operator(%Operator* %self, i32 %n1, i32 %n2) { 
+Operator.operator_entry:
+	call void @error()
+	ret i32 0
+}
  ; --- Class Liczba ---
 %Liczba = type { 
 	i32; v 
@@ -20,6 +38,13 @@ define void @Liczba.constructor(%Liczba* %this) {
 	%v = getelementptr %Liczba, %Liczba* %this, i32 0, i32 0
 	store i32 0, i32* %v
 	ret void
+}
+
+define i32 @Liczba.value(%Liczba* %self) { 
+Liczba.value_entry:
+	%tmp. = getelementptr %Liczba, %Liczba* %self, i32 0, i32 0
+	%tmp..1 = load i32, i32* %tmp.
+	ret i32 %tmp..1
 }
  ; --- Class Node ---
 %Node = type { 
@@ -47,6 +72,24 @@ define void @Razy.constructor(%Razy* %this) {
 	store %Node* %righttmp, %Node** %right
 	ret void
 }
+
+define i32 @Razy.value(%Razy* %self) { 
+Razy.value_entry:
+	%tmp. = getelementptr %Razy, %Razy* %self, i32 0, i32 0
+	%tmp..1 = load %Node*, %Node** %tmp.
+	%tmp..2 = call i32 @Node.value(%Node* %tmp..1)
+	%tmp..3 = getelementptr %Razy, %Razy* %self, i32 0, i32 1
+	%tmp..4 = load %Node*, %Node** %tmp..3
+	%tmp..5 = call i32 @Node.value(%Node* %tmp..4)
+	%tmp..6 = call i32 @Razy.operator(%Razy* %self, i32 %tmp..2, i32 %tmp..5)
+	ret i32 %tmp..6
+}
+
+define i32 @Razy.operator(%Razy* %self, i32 %a, i32 %b) { 
+Razy.operator_entry:
+	%tmp. = mul i32 %a, %b
+	ret i32 %tmp.
+}
  ; --- Class Plus ---
 %Plus = type { 
 	%Node*, ; left 
@@ -60,6 +103,24 @@ define void @Plus.constructor(%Plus* %this) {
 	%righttmp = bitcast i32* null to %Node*
 	store %Node* %righttmp, %Node** %right
 	ret void
+}
+
+define i32 @Plus.value(%Plus* %self) { 
+Plus.value_entry:
+	%tmp. = getelementptr %Plus, %Plus* %self, i32 0, i32 0
+	%tmp..1 = load %Node*, %Node** %tmp.
+	%tmp..2 = call i32 @Node.value(%Node* %tmp..1)
+	%tmp..3 = getelementptr %Plus, %Plus* %self, i32 0, i32 1
+	%tmp..4 = load %Node*, %Node** %tmp..3
+	%tmp..5 = call i32 @Node.value(%Node* %tmp..4)
+	%tmp..6 = call i32 @Plus.operator(%Plus* %self, i32 %tmp..2, i32 %tmp..5)
+	ret i32 %tmp..6
+}
+
+define i32 @Plus.operator(%Plus* %self, i32 %a, i32 %b) { 
+Plus.operator_entry:
+	%tmp. = add i32 %a, %b
+	ret i32 %tmp.
 }
  ; --- Class Podziel ---
 %Podziel = type { 
@@ -75,6 +136,24 @@ define void @Podziel.constructor(%Podziel* %this) {
 	store %Node* %righttmp, %Node** %right
 	ret void
 }
+
+define i32 @Podziel.value(%Podziel* %self) { 
+Podziel.value_entry:
+	%tmp. = getelementptr %Podziel, %Podziel* %self, i32 0, i32 0
+	%tmp..1 = load %Node*, %Node** %tmp.
+	%tmp..2 = call i32 @Node.value(%Node* %tmp..1)
+	%tmp..3 = getelementptr %Podziel, %Podziel* %self, i32 0, i32 1
+	%tmp..4 = load %Node*, %Node** %tmp..3
+	%tmp..5 = call i32 @Node.value(%Node* %tmp..4)
+	%tmp..6 = call i32 @Podziel.operator(%Podziel* %self, i32 %tmp..2, i32 %tmp..5)
+	ret i32 %tmp..6
+}
+
+define i32 @Podziel.operator(%Podziel* %self, i32 %a, i32 %b) { 
+Podziel.operator_entry:
+	%tmp. = sdiv i32 %a, %b
+	ret i32 %tmp.
+}
  ; --- Class Minus ---
 %Minus = type { 
 	%Node*, ; left 
@@ -88,6 +167,24 @@ define void @Minus.constructor(%Minus* %this) {
 	%righttmp = bitcast i32* null to %Node*
 	store %Node* %righttmp, %Node** %right
 	ret void
+}
+
+define i32 @Minus.value(%Minus* %self) { 
+Minus.value_entry:
+	%tmp. = getelementptr %Minus, %Minus* %self, i32 0, i32 0
+	%tmp..1 = load %Node*, %Node** %tmp.
+	%tmp..2 = call i32 @Node.value(%Node* %tmp..1)
+	%tmp..3 = getelementptr %Minus, %Minus* %self, i32 0, i32 1
+	%tmp..4 = load %Node*, %Node** %tmp..3
+	%tmp..5 = call i32 @Node.value(%Node* %tmp..4)
+	%tmp..6 = call i32 @Minus.operator(%Minus* %self, i32 %tmp..2, i32 %tmp..5)
+	ret i32 %tmp..6
+}
+
+define i32 @Minus.operator(%Minus* %self, i32 %a, i32 %b) { 
+Minus.operator_entry:
+	%tmp. = sub i32 %a, %b
+	ret i32 %tmp.
 }
 
 define %Node* @minus(%Node* %n1, %Node* %n2) { 

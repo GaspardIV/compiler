@@ -1,0 +1,68 @@
+class Shape {
+  void tell () {
+    printString("I'm a shape");
+  }
+
+  void tellAgain() {
+     printString("I'm just a shape");
+  }
+}
+
+class Rectangle extends Shape {
+  int a, b;
+  void tellAgain() {
+    printString("I'm really a rectangle");
+  }
+}
+
+class Circle extends Shape {
+    int r;
+  void tellAgain() {
+    printString("I'm really a circle11`1");
+  }
+}
+
+class Square extends Rectangle {
+  // int a;
+  int color;
+  void tellAgain() {
+    printString("I'm really a square");
+  }
+}
+
+class  A {
+    int a;
+    int b;
+
+    public int getA() {
+        return a;
+    }
+}
+
+class B extends A {
+    int a;
+    int b;
+
+    public int getA() {
+        return a;
+    }
+}
+
+int main() {
+//  Stack stk = new Stack;
+  Shape s = new Shape;
+//  stk.push(s);
+  s = new Rectangle;
+//  stk.push(s);
+  s = new Square;
+//  stk.push(s);
+  s = new Circle;
+//  stk.push(s);
+  //while (!stk.isEmpty()) {
+//    s = stk.top();
+    s.tell();
+    s.tellAgain();
+//    stk.pop();
+//  }
+  return 0;
+}

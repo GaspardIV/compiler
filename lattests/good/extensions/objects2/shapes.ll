@@ -1,7 +1,21 @@
-@.str.str0 = private unnamed_addr constant [17 x i8] c"I'm just a shape\00", align 1@.str.str1 = private unnamed_addr constant [12 x i8] c"I'm a shape\00", align 1 ; --- Class Circle ---
+@.str.str4 = private unnamed_addr constant [20 x i8] c"I'm really a square\00", align 1@.str.str0 = private unnamed_addr constant [20 x i8] c"I'm really a circle\00", align 1@.str.str2 = private unnamed_addr constant [17 x i8] c"I'm just a shape\00", align 1@.str.str3 = private unnamed_addr constant [23 x i8] c"I'm really a rectangle\00", align 1@.str.str1 = private unnamed_addr constant [12 x i8] c"I'm a shape\00", align 1 ; --- Class Circle ---
 %Circle = type { 
 }
 define void @Circle.constructor(%Circle* %this) {
+	ret void
+}
+
+define void @Circle.tellAgain(%Circle* %self) { 
+Circle.tellAgain_entry:
+	%tmp. = getelementptr [20 x i8], [20 x i8]* @.str.str0, i32 0, i32 0
+	call void @printString(i8* %tmp.)
+	ret void
+}
+
+define void @Circle.tell(%Circle* %self) { 
+Circle.tell_entry:
+	%tmp. = getelementptr [12 x i8], [12 x i8]* @.str.str1, i32 0, i32 0
+	call void @printString(i8* %tmp.)
 	ret void
 }
  ; --- Class Shape ---
@@ -13,7 +27,7 @@ define void @Shape.constructor(%Shape* %this) {
 
 define void @Shape.tellAgain(%Shape* %self) { 
 Shape.tellAgain_entry:
-	%tmp. = getelementptr [17 x i8], [17 x i8]* @.str.str0, i32 0, i32 0
+	%tmp. = getelementptr [17 x i8], [17 x i8]* @.str.str2, i32 0, i32 0
 	call void @printString(i8* %tmp.)
 	ret void
 }
@@ -72,10 +86,38 @@ Node.getNext_entry:
 define void @Rectangle.constructor(%Rectangle* %this) {
 	ret void
 }
+
+define void @Rectangle.tellAgain(%Rectangle* %self) { 
+Rectangle.tellAgain_entry:
+	%tmp. = getelementptr [23 x i8], [23 x i8]* @.str.str3, i32 0, i32 0
+	call void @printString(i8* %tmp.)
+	ret void
+}
+
+define void @Rectangle.tell(%Rectangle* %self) { 
+Rectangle.tell_entry:
+	%tmp. = getelementptr [12 x i8], [12 x i8]* @.str.str1, i32 0, i32 0
+	call void @printString(i8* %tmp.)
+	ret void
+}
  ; --- Class Square ---
 %Square = type { 
 }
 define void @Square.constructor(%Square* %this) {
+	ret void
+}
+
+define void @Square.tellAgain(%Square* %self) { 
+Square.tellAgain_entry:
+	%tmp. = getelementptr [20 x i8], [20 x i8]* @.str.str4, i32 0, i32 0
+	call void @printString(i8* %tmp.)
+	ret void
+}
+
+define void @Square.tell(%Square* %self) { 
+Square.tell_entry:
+	%tmp. = getelementptr [12 x i8], [12 x i8]* @.str.str1, i32 0, i32 0
+	call void @printString(i8* %tmp.)
 	ret void
 }
  ; --- Class Stack ---

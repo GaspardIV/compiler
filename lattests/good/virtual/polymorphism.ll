@@ -1,4 +1,4 @@
-@.str.str1 = private unnamed_addr constant [1 x i8] c"\00", align 1@.str.str0 = private unnamed_addr constant [2 x i8] c"A\00", align 1@.str.str3 = private unnamed_addr constant [4 x i8] c"nie\00", align 1@.str.str2 = private unnamed_addr constant [4 x i8] c"tak\00", align 1 ; --- Class A ---
+@.str.str4 = private unnamed_addr constant [1 x i8] c"\00", align 1@.str.str0 = private unnamed_addr constant [2 x i8] c"A\00", align 1@.str.str1 = private unnamed_addr constant [2 x i8] c"B\00", align 1@.str.str2 = private unnamed_addr constant [2 x i8] c"C\00", align 1@.str.str3 = private unnamed_addr constant [2 x i8] c"D\00", align 1@.str.str6 = private unnamed_addr constant [4 x i8] c"nie\00", align 1@.str.str5 = private unnamed_addr constant [4 x i8] c"tak\00", align 1 ; --- Class A ---
 %A = type { 
 }
 define void @A.constructor(%A* %this) {
@@ -20,7 +20,7 @@ define void @B.constructor(%B* %this) {
 
 define void @B.print(%B* %self) { 
 B.print_entry:
-	%tmp. = getelementptr [2 x i8], [2 x i8]* @.str.str0, i32 0, i32 0
+	%tmp. = getelementptr [2 x i8], [2 x i8]* @.str.str1, i32 0, i32 0
 	call void @printString(i8* %tmp.)
 	ret void
 }
@@ -30,10 +30,24 @@ B.print_entry:
 define void @C.constructor(%C* %this) {
 	ret void
 }
+
+define void @C.print(%C* %self) { 
+C.print_entry:
+	%tmp. = getelementptr [2 x i8], [2 x i8]* @.str.str2, i32 0, i32 0
+	call void @printString(i8* %tmp.)
+	ret void
+}
  ; --- Class D ---
 %D = type { 
 }
 define void @D.constructor(%D* %this) {
+	ret void
+}
+
+define void @D.print(%D* %self) { 
+D.print_entry:
+	%tmp. = getelementptr [2 x i8], [2 x i8]* @.str.str3, i32 0, i32 0
+	call void @printString(i8* %tmp.)
 	ret void
 }
 
@@ -104,14 +118,14 @@ main.3_for.end:
 	%tmp..53 = icmp eq %B* %tmp..50, %tmp..50
 	br i1 %tmp..53, label %main.4_if.true, label %main.6_if.end
 main.4_if.true:
-	%tmp..54 = getelementptr [4 x i8], [4 x i8]* @.str.str2, i32 0, i32 0
+	%tmp..54 = getelementptr [4 x i8], [4 x i8]* @.str.str5, i32 0, i32 0
 	call void @printString(i8* %tmp..54)
 	br label %main.6_if.end
 main.6_if.end:
 	%tmp..57 = icmp ne %B* %tmp..50, %tmp..50
 	br i1 %tmp..57, label %main.7_if.true, label %main.9_if.end
 main.7_if.true:
-	%tmp..58 = getelementptr [4 x i8], [4 x i8]* @.str.str3, i32 0, i32 0
+	%tmp..58 = getelementptr [4 x i8], [4 x i8]* @.str.str6, i32 0, i32 0
 	call void @printString(i8* %tmp..58)
 	br label %main.9_if.end
 main.9_if.end:

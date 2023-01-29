@@ -14,10 +14,12 @@ import java.util.List;
 public class LLVMClassConstructor {
     private final String name;
     private final List<ClField> fields;
+    private final int vtableSize;
 
-    public LLVMClassConstructor(String name, List<ClField> fields) {
+    public LLVMClassConstructor(String name, List<ClField> fields, int vtableSize) {
         this.name = name;
         this.fields = fields;
+        this.vtableSize = vtableSize;
 
     }
 
@@ -25,11 +27,12 @@ public class LLVMClassConstructor {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("define void @").append(construtorName(name)).append("(%").append(name).append("* %this) {\n");
-        int index = 0;
+        sb.append("\t").append("%this.vtable = ").append("bitcast [").append(vtableSize).append(" x void (...)*]* @").append(LLVMClassVTable.vTableName(name)).append(" to void (...)**\n");
+        int index = 1;
         for (ClField field : fields) {
             sb.append(new Quadruple(new Register(field.ident_, field.type_), new Quadruple.LLVMOperation.GET_FIELD(new Register("this", new Class(name)), index))).append("\n");
             List<Quadruple> quadruples = Utils.defaultValue(field.type_).accept(new RegisterExprVisitor(), new Block("init", Global.getInstance()));
-            if (quadruples.get(0).result.type instanceof Class || quadruples.get(0).result.type instanceof latte.Absyn.Str) {
+            if (quadruples.get(0).result.type instanceof Class || quadruples.get(0).result.type instanceof latte.Absyn.Str) { // todo pewnie dodac obsluge arrayow
                 quadruples.get(0).result.name = field.ident_+"tmp";
                 sb.append(quadruples.get(0)).append("\n");
             }

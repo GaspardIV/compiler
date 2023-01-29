@@ -1,0 +1,66 @@
+ ; --- Class Foo ---
+%Foo = type { 
+	%Foo*, ; next 
+	i32; label 
+}
+define void @Foo.constructor(%Foo* %this) {
+	%next = getelementptr %Foo, %Foo* %this, i32 0, i32 0
+	%nexttmp = bitcast i32* null to %Foo*
+	store %Foo* %nexttmp, %Foo** %next
+	%label = getelementptr %Foo, %Foo* %this, i32 0, i32 1
+	store i32 0, i32* %label
+	ret void
+}
+
+define %Foo* @main2() { 
+main2_entry:
+	%tmp. = call i8* @malloc(i32 96)
+	%tmp..1 = bitcast i8* %tmp. to %Foo*
+	call void @Foo.constructor(%Foo* %tmp..1)
+	%tmp..3 = getelementptr %Foo, %Foo* %tmp..1, i32 0, i32 1
+	store i32 2, i32* %tmp..3
+	%tmp..5 = getelementptr %Foo, %Foo* %tmp..1, i32 0, i32 0
+	%tmp..6 = call i8* @malloc(i32 96)
+	%tmp..7 = bitcast i8* %tmp..6 to %Foo*
+	call void @Foo.constructor(%Foo* %tmp..7)
+	store %Foo* %tmp..7, %Foo** %tmp..5
+	%tmp..10 = load %Foo*, %Foo** %tmp..5
+	%tmp..11 = getelementptr %Foo, %Foo* %tmp..10, i32 0, i32 1
+	store i32 3, i32* %tmp..11
+	%tmp..14 = load i32, i32* %tmp..3
+	call void @printInt(i32 %tmp..14)
+	%tmp..17 = load %Foo*, %Foo** %tmp..5
+	%tmp..18 = getelementptr %Foo, %Foo* %tmp..17, i32 0, i32 1
+	%tmp..19 = load i32, i32* %tmp..18
+	call void @printInt(i32 %tmp..19)
+	ret %Foo* %tmp..1
+}
+
+define i32 @main() { 
+main_entry:
+	%tmp. = call %Foo* @main2()
+	%tmp..1 = getelementptr %Foo, %Foo* %tmp., i32 0, i32 1
+	%tmp..2 = load i32, i32* %tmp..1
+	call void @printInt(i32 %tmp..2)
+	%tmp..4 = getelementptr %Foo, %Foo* %tmp., i32 0, i32 0
+	%tmp..5 = load %Foo*, %Foo** %tmp..4
+	%tmp..6 = getelementptr %Foo, %Foo* %tmp..5, i32 0, i32 1
+	%tmp..7 = load i32, i32* %tmp..6
+	call void @printInt(i32 %tmp..7)
+	ret i32 0
+}
+
+
+; ====================================================
+; ====================================================
+; ====================================================
+
+@._dnl = internal constant [4 x i8] c"%d\0A\00"
+declare i32 @printf(i8*, ...)
+define void @printInt(i32 %x) {
+       %t0 = getelementptr [4 x i8], [4 x i8]* @._dnl, i32 0, i32 0
+       call i32 (i8*, ...) @printf(i8* %t0, i32 %x)
+       ret void
+}
+
+declare i8* @malloc(i32)
