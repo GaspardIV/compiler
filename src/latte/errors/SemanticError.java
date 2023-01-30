@@ -233,13 +233,19 @@ public class SemanticError extends RuntimeException {
 
     public static class VariableAlreadyDeclaredInCurrentContext extends SemanticError {
         public VariableAlreadyDeclaredInCurrentContext(int line_num, String ident_) {
-            super(line_num, "Variable '" + ident_ + "' already declared in this scope.");
+            super(line_num, "'" + ident_ + "' already declared in this scope.");
         }
     }
 
     public static class NewOnNonClass extends SemanticError {
         public NewOnNonClass(int line_num) {
             super(line_num, "New on non-class.");
+        }
+    }
+
+    public static class OverriddenMethodSignatureDoesNotMatchWitchBase extends SemanticError {
+        public OverriddenMethodSignatureDoesNotMatchWitchBase(int line_num, String ident_) {
+            super(line_num, "Overridden method '" + ident_ + "' signature does not match with base.");
         }
     }
 }

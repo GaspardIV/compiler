@@ -1,2 +1,4 @@
-OK
+ERROR
 
+Semantic error at line -1 :
+     'x' already declared in this scope.

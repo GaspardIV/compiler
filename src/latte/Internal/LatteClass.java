@@ -51,13 +51,67 @@ public class LatteClass {
             this.classesTopDownOrderedList.addAll(superClass.classesTopDownOrderedList);
             this.classToFields.putAll(superClass.classToFields);
             this.classToMethods.putAll(superClass.classToMethods);
-            ((ClBlk) classDef.clblock_).listclmember_.addAll(((ClBlk) superClass.classDef.clblock_).listclmember_);
+
+            this.addFrontendMembers(superClass);
         }
         this.classesTopDownOrderedList.add(classDef.ident_1);
         this.classToFields.put(classDef.ident_1, this.flatMembers.stream().filter(x -> x instanceof ClField).map(x -> (ClField) x).collect(Collectors.toList()));
         this.classToFields.get(classDef.ident_1).addAll(this.flatMembers.stream().filter(x -> x instanceof ClFields).map(x -> (ClFields) x).flatMap(x -> x.listclfielditem_.stream().map(f -> new ClField(x.type_, ((ClFieldItemNoInit) f).ident_))).collect(Collectors.toList()));
         this.classToMethods.put(classDef.ident_1, this.flatMembers.stream().filter(x -> x instanceof ClMethod).map(x -> (ClMethod) x).collect(Collectors.toList()));
         this.inheritanceInitialized = true;
+    }
+
+    private void addFrontendMembers(LatteClass superClass) {
+        ListClMember currentList = ((ClBlk) classDef.clblock_).listclmember_;
+        ListClMember newClMembers = new ListClMember();
+
+        for (ClMember member : ((ClBlk) superClass.classDef.clblock_).listclmember_) {
+            Set<String> currentFieldIdents = new HashSet<>();
+            currentFieldIdents.addAll(currentList.stream().filter(x -> x instanceof ClField).map(x -> ((ClField) x).ident_).collect(Collectors.toSet()));
+            currentFieldIdents.addAll(currentList.stream().filter(x -> x instanceof ClFields).map(x -> (ClFields) x).flatMap(x -> x.listclfielditem_.stream().map(f -> ((ClFieldItemNoInit) f).ident_)).collect(Collectors.toSet()));
+
+            if (member instanceof ClFields) {
+//                ClFields clFields = (ClFields) member;
+//                for (ClFieldItem fieldItem :  (clFields).listclfielditem_) {
+//                    ClFieldItemNoInit clField = (ClFieldItemNoInit) fieldItem;
+//                    if (!currentFieldIdents.contains(clField.ident_)) {
+//                        ClField clField1 = new ClField(clFields.type_, clField.ident_);;
+//                        clField1.line_num = clFields.line_num;
+//                        clField1.col_num = clFields.col_num;
+//                        clField1.offset = clFields.offset;
+//                        newClMembers.add(clField1);
+//                    }
+//                }
+            } else if (member instanceof ClField) {
+//                ClField clField = (ClField) member;
+//                if (!currentFieldIdents.contains(clField.ident_)) {
+//                    newClMembers.add(clField);
+//                }
+            } else if (member instanceof ClMethod) {
+                ClMethod clMethod = (ClMethod) member;
+                ClMethod old = (ClMethod) currentList.stream().filter(x -> x instanceof ClMethod).filter(x -> ((ClMethod) x).ident_.equals(clMethod.ident_)).findFirst().orElse(null);
+                if (old == null) {
+                    newClMembers.add(clMethod);
+                } else {
+                    if (!clMethod.type_.equals(old.type_)) {
+                        throw new SemanticError.OverriddenMethodSignatureDoesNotMatchWitchBase(clMethod.line_num, clMethod.ident_);
+                    }
+                    if (old.listarg_.size() != clMethod.listarg_.size()) {
+                        throw new SemanticError.OverriddenMethodSignatureDoesNotMatchWitchBase(clMethod.line_num, clMethod.ident_);
+                    }
+                    for (int i = 0; i < old.listarg_.size(); i++) {
+                        if (!((Ar) (old.listarg_.get(i))).type_.equals(((Ar) (clMethod.listarg_.get(i))).type_)) {
+                            throw new SemanticError.OverriddenMethodSignatureDoesNotMatchWitchBase(clMethod.line_num, clMethod.ident_);
+                        }
+                    }
+
+                }
+
+            }
+
+        }
+//        currentList.addAll(newClMembers);
+        currentList.addAll(((ClBlk) superClass.classDef.clblock_).listclmember_);
     }
 
     public boolean doesExtends(LatteClass latteClass) {
