@@ -3,6 +3,7 @@ package latte.backend.programvisitors;
 import latte.Absyn.Class;
 import latte.Absyn.Void;
 import latte.Absyn.*;
+import latte.Internal.Null;
 import latte.backend.program.global.Function;
 import latte.backend.program.global.Global;
 import latte.backend.program.global.Scope;
@@ -18,7 +19,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block> {
-    protected static final String TMP = "tmp.";
+    public static final String TMP = "tmp.";
 
     public boolean loadField = true;
 
@@ -152,16 +153,26 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block>
         RegisterExprVisitor visitor = new RegisterExprVisitor();
         visitor.loadField = true;
         List<Quadruple> quadruples = p.expr_.accept(visitor, block);
-        Quadruple last = quadruples.get(quadruples.size() - 1);
-        Class type = (Class) last.getRegister().type;
+        Quadruple classObject = quadruples.get(quadruples.size() - 1);
+        Class type = (Class) classObject.getRegister().type;
         Function function = Global.getMethod(type.ident_, p.ident_);
 
-        quadruples.addAll(this.getMethod(block, last.result, p.ident_));
+        quadruples.addAll(this.getMethod(block, classObject.result, p.ident_));
         Register methodPointer = quadruples.get(quadruples.size() - 1).result;
+        List<Quadruple> castQuadruples = Utils.castObjectToSuperClassIfNeeded(classObject.result, function.getArguments().get(0).getType(), block);
+        if (!castQuadruples.isEmpty()) {
+            quadruples.addAll(castQuadruples);
+            classObject = quadruples.get(quadruples.size() - 1);
+        }
         List<Register> registers = new ArrayList<>();
-        registers.add(last.getRegister());
+        registers.add(classObject.getRegister());
         for (int i = 0; i < p.listexpr_.size(); i++) {
             List<Quadruple> exprQuadruples = new RegisterExprVisitor().generateExprCode(p.listexpr_.get(i), block);
+            Register exprLast = exprQuadruples.get(exprQuadruples.size() - 1).getRegister();
+            castQuadruples = Utils.castObjectToSuperClassIfNeeded(exprLast, function.getArguments().get(i+1).getType(), block);
+            if (!castQuadruples.isEmpty()) {
+                exprQuadruples.addAll(castQuadruples);
+            }
             quadruples.addAll(exprQuadruples);
             registers.add(exprQuadruples.get(exprQuadruples.size() - 1).getRegister());
         }
@@ -260,7 +271,13 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block>
         List<Quadruple> quadruples = new ArrayList<>();
         List<Register> registers = new ArrayList<>();
         for (int i = 0; i < p.listexpr_.size(); i++) {
+
             List<Quadruple> exprQuadruples = new RegisterExprVisitor().generateExprCode(p.listexpr_.get(i), block);
+            Register exprLast = exprQuadruples.get(exprQuadruples.size() - 1).getRegister();
+            List<Quadruple> castQuadruples = Utils.castObjectToSuperClassIfNeeded(exprLast, function.getArguments().get(i).getType(), block);
+            if (!castQuadruples.isEmpty()) {
+                exprQuadruples.addAll(castQuadruples);
+            }
             quadruples.addAll(exprQuadruples);
             registers.add(exprQuadruples.get(exprQuadruples.size() - 1).getRegister());
         }

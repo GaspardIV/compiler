@@ -48,7 +48,13 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
             List<Quadruple> right = new RegisterExprVisitor().generateExprCode(nonNilRightExpr, block);
             List<Quadruple> res = new ArrayList<>(left);
             res.addAll(right);
-            res.add(new Quadruple(null, new Quadruple.LLVMOperation.STORE(right.get(right.size() - 1).result, left.get(left.size() - 1).result)));
+            Register rightLast = right.get(right.size() - 1).getRegister();
+            List<Quadruple> castQuadruples = Utils.castObjectToSuperClassIfNeeded(rightLast, left.get(left.size() -1).result.type, block);
+            if (!castQuadruples.isEmpty()) {
+                res.addAll(castQuadruples);
+                rightLast = castQuadruples.get(castQuadruples.size() -1).result;
+            }
+            res.add(new Quadruple(null, new Quadruple.LLVMOperation.STORE(rightLast, left.get(left.size() - 1).result)));
             block.addQuadruples(res);
         } else {
             List<Quadruple> left = p.expr_1.accept(registerExprVisitor, block);
@@ -56,8 +62,15 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
             Variable variable = leftLastRegister.getVariable();
             Expr nonNilRightExpr = Utils.nilExprReplace(p.expr_2, variable.getType());
             List<Quadruple> right = new RegisterExprVisitor().generateExprCode(nonNilRightExpr, block);
-            List<Quadruple> res = new ArrayList<>(right);
             Register rightLastRegister = right.get(right.size() - 1).result;
+
+            List<Quadruple> castQuadruples = Utils.castObjectToSuperClassIfNeeded(rightLastRegister, left.get(left.size() -1).result.type, block);
+            if (!castQuadruples.isEmpty()) {
+                right.addAll(castQuadruples);
+                rightLastRegister = right.get(right.size() - 1).result;
+            }
+
+            List<Quadruple> res = new ArrayList<>(right);
             rightLastRegister.setVariable(variable);
             PhiManager.getInstance().markVariableAsRedefined(block.getScope(), variable);
             block.getScope().setLastVariableRegister(variable, rightLastRegister);
@@ -86,7 +99,13 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
     public Block visit(Ret p, Block block) {
         List<Quadruple> expr = new RegisterExprVisitor().generateExprCode(p.expr_, block);
         List<Quadruple> quadruples = new ArrayList<>(expr);
-        quadruples.add(new Quadruple(null, new Quadruple.LLVMOperation.RET(quadruples.get(quadruples.size() - 1).getRegister())));
+
+        Register last = quadruples.get(quadruples.size() -1).result;
+        List<Quadruple> castQuadruples = Utils.castObjectToSuperClassIfNeeded(last, block.getScope().getCurrentFunction().getType(), block);
+        quadruples.addAll(castQuadruples);
+        last = quadruples.get(quadruples.size() -1).result;
+
+        quadruples.add(new Quadruple(null, new Quadruple.LLVMOperation.RET(last)));
         block.addQuadruples(quadruples);
         return null;
     }

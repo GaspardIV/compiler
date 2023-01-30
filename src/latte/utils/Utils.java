@@ -6,11 +6,29 @@ import latte.Internal.Null;
 import latte.backend.program.global.Global;
 import latte.backend.program.global.classes.MethodPointerPointer;
 import latte.backend.programvisitors.MethodPointerType;
+import latte.backend.quadruple.Block;
+import latte.backend.quadruple.Quadruple;
+import latte.backend.quadruple.Register;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Pattern;
 
+import static latte.backend.programvisitors.RegisterExprVisitor.TMP;
+
 public class Utils {
+
+    public static List<Quadruple> castObjectToSuperClassIfNeeded(Register object, Type destinationClass, Block block) {
+        List<Quadruple> res = new ArrayList<>();
+        // todo cast null
+        if (object.type instanceof Class && destinationClass instanceof Class || object.type instanceof Null) {
+            if (!Utils.getLLVMType(object.type).equals(Utils.getLLVMType(destinationClass))) {
+                res.add(new Quadruple(new Register(block.getRegisterNumber(TMP), destinationClass), new Quadruple.LLVMOperation.BITCAST(object, object.type, destinationClass)));
+            }
+        }
+        return res;
+    }
 
     public static String toString(Type actual) {
         if (actual instanceof Array) {
