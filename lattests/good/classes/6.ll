@@ -84,7 +84,7 @@ define %Lista* @mergeSort(%Lista* %start, i32 %pocz, i32 %kon1Za) {
 mergeSort_entry:
 	%tmp..5 = sub i32 %kon1Za, %pocz
 	%tmp..7 = icmp sgt i32 %tmp..5, 1
-	br i1 %tmp..7, label %mergeSort.1_if.true, label %mergeSort.2_if.false
+	br i1 %tmp..7, label %mergeSort.1_if.true, label %mergeSort.3_if.end
 mergeSort.1_if.true:
 	%tmp..10 = sdiv i32 %tmp..5, 2
 	%tmp..11 = add i32 %tmp..10, %pocz
@@ -94,8 +94,6 @@ mergeSort.1_if.true:
 	%tmp..15 = sub i32 %kon1Za, %tmp..11
 	%tmp..16 = call %Lista* @scalaj(%Lista* %tmp..12, i32 %tmp..14, %Lista* %tmp..13, i32 %tmp..15)
 	ret %Lista* %tmp..16
-mergeSort.2_if.false:
-	br label %mergeSort.3_if.end
 mergeSort.3_if.end:
 	%tmp..17 = call i8* @malloc(i32 160)
 	%tmp..18 = bitcast i8* %tmp..17 to %Lista*
@@ -159,12 +157,10 @@ scalaj.3_while.end:
 
 define %Lista* @generujTablicoListeDoSortowaniaMerge13co7Malejaco(i32 %dlugoscListy, i1 %pisz) { 
 generujTablicoListeDoSortowaniaMerge13co7Malejaco_entry:
-	br i1 %pisz, label %generujTablicoListeDoSortowaniaMerge13co7Malejaco.1_if.true, label %generujTablicoListeDoSortowaniaMerge13co7Malejaco.2_if.false
+	br i1 %pisz, label %generujTablicoListeDoSortowaniaMerge13co7Malejaco.1_if.true, label %generujTablicoListeDoSortowaniaMerge13co7Malejaco.3_if.end
 generujTablicoListeDoSortowaniaMerge13co7Malejaco.1_if.true:
 	%tmp. = getelementptr [28 x i8], [28 x i8]* @.str.str1, i32 0, i32 0
 	call void @printString(i8* %tmp.)
-	br label %generujTablicoListeDoSortowaniaMerge13co7Malejaco.3_if.end
-generujTablicoListeDoSortowaniaMerge13co7Malejaco.2_if.false:
 	br label %generujTablicoListeDoSortowaniaMerge13co7Malejaco.3_if.end
 generujTablicoListeDoSortowaniaMerge13co7Malejaco.3_if.end:
 	%tmp..2 = call i8* @malloc(i32 160)
@@ -173,12 +169,10 @@ generujTablicoListeDoSortowaniaMerge13co7Malejaco.3_if.end:
 	%tmp..5 = bitcast i32* null to %Lista*
 	%tmp..8 = getelementptr %Lista, %Lista* %tmp..3, i32 0, i32 3
 	store i32 0, i32* %tmp..8
-	br i1 %pisz, label %generujTablicoListeDoSortowaniaMerge13co7Malejaco.4_if.true, label %generujTablicoListeDoSortowaniaMerge13co7Malejaco.5_if.false
+	br i1 %pisz, label %generujTablicoListeDoSortowaniaMerge13co7Malejaco.4_if.true, label %generujTablicoListeDoSortowaniaMerge13co7Malejaco.6_if.end
 generujTablicoListeDoSortowaniaMerge13co7Malejaco.4_if.true:
 	%tmp..11 = load i32, i32* %tmp..8
 	call void @printInt(i32 %tmp..11)
-	br label %generujTablicoListeDoSortowaniaMerge13co7Malejaco.6_if.end
-generujTablicoListeDoSortowaniaMerge13co7Malejaco.5_if.false:
 	br label %generujTablicoListeDoSortowaniaMerge13co7Malejaco.6_if.end
 generujTablicoListeDoSortowaniaMerge13co7Malejaco.6_if.end:
 	br label %generujTablicoListeDoSortowaniaMerge13co7Malejaco.7_while.cond
@@ -213,13 +207,11 @@ generujTablicoListeDoSortowaniaMerge13co7Malejaco.11_if.false:
 generujTablicoListeDoSortowaniaMerge13co7Malejaco.12_if.end:
 	%tmp..38 = getelementptr %Lista, %Lista* %tmp..22, i32 0, i32 1
 	store %Lista* %a, %Lista** %tmp..38
-	br i1 %pisz, label %generujTablicoListeDoSortowaniaMerge13co7Malejaco.13_if.true, label %generujTablicoListeDoSortowaniaMerge13co7Malejaco.14_if.false
+	br i1 %pisz, label %generujTablicoListeDoSortowaniaMerge13co7Malejaco.13_if.true, label %generujTablicoListeDoSortowaniaMerge13co7Malejaco.15_if.end
 generujTablicoListeDoSortowaniaMerge13co7Malejaco.13_if.true:
 	%tmp..39 = getelementptr %Lista, %Lista* %tmp..22, i32 0, i32 3
 	%tmp..40 = load i32, i32* %tmp..39
 	call void @printInt(i32 %tmp..40)
-	br label %generujTablicoListeDoSortowaniaMerge13co7Malejaco.15_if.end
-generujTablicoListeDoSortowaniaMerge13co7Malejaco.14_if.false:
 	br label %generujTablicoListeDoSortowaniaMerge13co7Malejaco.15_if.end
 generujTablicoListeDoSortowaniaMerge13co7Malejaco.15_if.end:
 	%tmp..43 = add i32 %wsk, 1
@@ -227,27 +219,21 @@ generujTablicoListeDoSortowaniaMerge13co7Malejaco.15_if.end:
 generujTablicoListeDoSortowaniaMerge13co7Malejaco.9_while.end:
 	%tmp..44 = getelementptr %Lista, %Lista* %a, i32 0, i32 2
 	store %Lista* %tmp..5, %Lista** %tmp..44
-	br i1 %pisz, label %generujTablicoListeDoSortowaniaMerge13co7Malejaco.16_if.true, label %generujTablicoListeDoSortowaniaMerge13co7Malejaco.17_if.false
+	br i1 %pisz, label %generujTablicoListeDoSortowaniaMerge13co7Malejaco.16_if.true, label %generujTablicoListeDoSortowaniaMerge13co7Malejaco.18_if.end
 generujTablicoListeDoSortowaniaMerge13co7Malejaco.16_if.true:
 	%tmp..46 = getelementptr [48 x i8], [48 x i8]* @.str.str2, i32 0, i32 0
 	call void @printString(i8* %tmp..46)
 	br label %generujTablicoListeDoSortowaniaMerge13co7Malejaco.18_if.end
-generujTablicoListeDoSortowaniaMerge13co7Malejaco.17_if.false:
-	br label %generujTablicoListeDoSortowaniaMerge13co7Malejaco.18_if.end
 generujTablicoListeDoSortowaniaMerge13co7Malejaco.18_if.end:
-	br i1 %pisz, label %generujTablicoListeDoSortowaniaMerge13co7Malejaco.19_if.true, label %generujTablicoListeDoSortowaniaMerge13co7Malejaco.20_if.false
+	br i1 %pisz, label %generujTablicoListeDoSortowaniaMerge13co7Malejaco.19_if.true, label %generujTablicoListeDoSortowaniaMerge13co7Malejaco.21_if.end
 generujTablicoListeDoSortowaniaMerge13co7Malejaco.19_if.true:
 	call void @printInt(i32 %dlugoscListy)
 	br label %generujTablicoListeDoSortowaniaMerge13co7Malejaco.21_if.end
-generujTablicoListeDoSortowaniaMerge13co7Malejaco.20_if.false:
-	br label %generujTablicoListeDoSortowaniaMerge13co7Malejaco.21_if.end
 generujTablicoListeDoSortowaniaMerge13co7Malejaco.21_if.end:
-	br i1 %pisz, label %generujTablicoListeDoSortowaniaMerge13co7Malejaco.22_if.true, label %generujTablicoListeDoSortowaniaMerge13co7Malejaco.23_if.false
+	br i1 %pisz, label %generujTablicoListeDoSortowaniaMerge13co7Malejaco.22_if.true, label %generujTablicoListeDoSortowaniaMerge13co7Malejaco.24_if.end
 generujTablicoListeDoSortowaniaMerge13co7Malejaco.22_if.true:
 	%tmp..49 = getelementptr [11 x i8], [11 x i8]* @.str.str3, i32 0, i32 0
 	call void @printString(i8* %tmp..49)
-	br label %generujTablicoListeDoSortowaniaMerge13co7Malejaco.24_if.end
-generujTablicoListeDoSortowaniaMerge13co7Malejaco.23_if.false:
 	br label %generujTablicoListeDoSortowaniaMerge13co7Malejaco.24_if.end
 generujTablicoListeDoSortowaniaMerge13co7Malejaco.24_if.end:
 	ret %Lista* %tmp..3

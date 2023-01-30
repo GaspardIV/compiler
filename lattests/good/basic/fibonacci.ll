@@ -2,11 +2,9 @@
 define i32 @fibonacci(i32 %n) { 
 fibonacci_entry:
 	%tmp..3 = icmp sle i32 %n, 1
-	br i1 %tmp..3, label %fibonacci.1_if.true, label %fibonacci.2_if.false
+	br i1 %tmp..3, label %fibonacci.1_if.true, label %fibonacci.3_if.end
 fibonacci.1_if.true:
 	ret i32 %n
-fibonacci.2_if.false:
-	br label %fibonacci.3_if.end
 fibonacci.3_if.end:
 	br label %fibonacci.4_while.cond
 fibonacci.4_while.cond:

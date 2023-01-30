@@ -31,12 +31,10 @@ test.2_for.body:
 	br label %test.1_for.cond
 test.3_for.end:
 	%tmp..29 = icmp ne i32 %y, 3
-	br i1 %tmp..29, label %test.4_if.true, label %test.5_if.false
+	br i1 %tmp..29, label %test.4_if.true, label %test.6_if.end
 test.4_if.true:
 	call void @error()
 	ret void
-test.5_if.false:
-	br label %test.6_if.end
 test.6_if.end:
 	ret void
 }

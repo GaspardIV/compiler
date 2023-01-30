@@ -69,12 +69,10 @@ Y.test_entry:
 Y.test.4_or:
 	%tmp..20 = load i32, i32* %tmp.
 	%tmp..22 = icmp ne i32 %tmp..20, 142
-	br i1 %tmp..22, label %Y.test.1_if.true, label %Y.test.2_if.false
+	br i1 %tmp..22, label %Y.test.1_if.true, label %Y.test.3_if.end
 Y.test.1_if.true:
 	call void @error()
 	ret void
-Y.test.2_if.false:
-	br label %Y.test.3_if.end
 Y.test.3_if.end:
 	%tmp..43 = getelementptr %Y, %Y* %self, i32 0, i32 0
 	%tmp..44 = load void (...)**, void (...)*** %tmp..43
@@ -93,12 +91,10 @@ Y.test.8_or:
 	%tmp..57 = bitcast %Y* %self to %X*
 	%tmp..58 = call i32 %tmp..56(%X* %tmp..57)
 	%tmp..60 = icmp ne i32 %tmp..58, 142
-	br i1 %tmp..60, label %Y.test.5_if.true, label %Y.test.6_if.false
+	br i1 %tmp..60, label %Y.test.5_if.true, label %Y.test.7_if.end
 Y.test.5_if.true:
 	call void @error()
 	ret void
-Y.test.6_if.false:
-	br label %Y.test.7_if.end
 Y.test.7_if.end:
 	%tmp..77 = load i8*, i8** %tmp..2
 	%tmp..79 = load i8*, i8** %tmp..2
@@ -109,12 +105,10 @@ Y.test.12_or:
 	%tmp..84 = load i8*, i8** %tmp..2
 	%tmp..86 = call i32 @._strcmp(i8* %tmp..84, i8* %tmp..3)
 	%tmp..87 = icmp ne i32 %tmp..86, 0
-	br i1 %tmp..87, label %Y.test.9_if.true, label %Y.test.10_if.false
+	br i1 %tmp..87, label %Y.test.9_if.true, label %Y.test.11_if.end
 Y.test.9_if.true:
 	call void @error()
 	ret void
-Y.test.10_if.false:
-	br label %Y.test.11_if.end
 Y.test.11_if.end:
 	%tmp..112 = load void (...)**, void (...)*** %tmp..43
 	%tmp..113 = getelementptr void (...)*, void (...)** %tmp..112, i32 1
@@ -132,41 +126,33 @@ Y.test.16_or:
 	%tmp..126 = call i8* %tmp..125(%Y* %self)
 	%tmp..128 = call i32 @._strcmp(i8* %tmp..126, i8* %tmp..3)
 	%tmp..129 = icmp ne i32 %tmp..128, 0
-	br i1 %tmp..129, label %Y.test.13_if.true, label %Y.test.14_if.false
+	br i1 %tmp..129, label %Y.test.13_if.true, label %Y.test.15_if.end
 Y.test.13_if.true:
 	call void @error()
 	ret void
-Y.test.14_if.false:
-	br label %Y.test.15_if.end
 Y.test.15_if.end:
 	%tmp..133 = icmp ne %Y* %self, %self
-	br i1 %tmp..133, label %Y.test.17_if.true, label %Y.test.18_if.false
+	br i1 %tmp..133, label %Y.test.17_if.true, label %Y.test.19_if.end
 Y.test.17_if.true:
 	call void @error()
 	ret void
-Y.test.18_if.false:
-	br label %Y.test.19_if.end
 Y.test.19_if.end:
 	%tmp..141 = load i32, i32* %tmp.
 	%tmp..143 = load i32, i32* %tmp.
 	%tmp..144 = icmp ne i32 %tmp..141, %tmp..143
-	br i1 %tmp..144, label %Y.test.20_if.true, label %Y.test.21_if.false
+	br i1 %tmp..144, label %Y.test.20_if.true, label %Y.test.22_if.end
 Y.test.20_if.true:
 	call void @error()
 	ret void
-Y.test.21_if.false:
-	br label %Y.test.22_if.end
 Y.test.22_if.end:
 	%tmp..154 = load i8*, i8** %tmp..2
 	%tmp..156 = load i8*, i8** %tmp..2
 	%tmp..157 = call i32 @._strcmp(i8* %tmp..154, i8* %tmp..156)
 	%tmp..158 = icmp ne i32 %tmp..157, 0
-	br i1 %tmp..158, label %Y.test.23_if.true, label %Y.test.24_if.false
+	br i1 %tmp..158, label %Y.test.23_if.true, label %Y.test.25_if.end
 Y.test.23_if.true:
 	call void @error()
 	ret void
-Y.test.24_if.false:
-	br label %Y.test.25_if.end
 Y.test.25_if.end:
 	ret void
 }

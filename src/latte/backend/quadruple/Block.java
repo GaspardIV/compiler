@@ -13,6 +13,7 @@ public class Block {
     Block nextBlock;
     private Scope scope;
     private String name;
+    private Block overridenBy = null;
 
     public Block(String contextName, Scope scope) {
         this(contextName, scope, "null");
@@ -27,7 +28,7 @@ public class Block {
     }
 
     public String getIdentifier() {
-        return this.name + "_" + identifier;
+        return getOverriden().name + "_" + getOverriden().identifier;
     }
 
     public void addQuadruples(List<Quadruple> quadruples) {
@@ -163,21 +164,27 @@ public class Block {
     }
 
     public boolean isEmpty() {
-         Stream<Quadruple> x = statements.stream().filter(quadruple -> !quadruple.toString().equals("") && !(quadruple.op instanceof Quadruple.LLVMOperation.LABEL));
+        Block block = getOverriden();
+         Stream<Quadruple> x = block.statements.stream().filter(quadruple -> !quadruple.toString().equals("") && !(quadruple.op instanceof Quadruple.LLVMOperation.LABEL));
          List<Quadruple> y = x.collect(Collectors.toList());
         return y.size()== 1 && y.get(0).op instanceof Quadruple.LLVMOperation.GOTO;
     }
 
+    public Block getOverriden() {
+        if (this.overridenBy == null) return this;
+        else return overridenBy.getOverriden();
+    }
+
     public boolean overrideIfPossible(Block firstBlock, HashMap<Block, HashSet<Block>> predecessors) {
-        boolean isFirstBlock = this == firstBlock;
-        Block next = statements.stream().filter(q -> q.op instanceof Quadruple.LLVMOperation.GOTO).map(q -> ((Quadruple.LLVMOperation.GOTO) q.op).block).findFirst().orElse(null);
+        boolean isFirstBlock = this.getOverriden() == firstBlock;
+        Block next = getOverriden().statements.stream().filter(q -> q.op instanceof Quadruple.LLVMOperation.GOTO).map(q -> ((Quadruple.LLVMOperation.GOTO) q.op).block).findFirst().orElse(null);
         if (next != null) {
             if (isFirstBlock && predecessors.get(next).size() > 1) {
                 //        Entry block to function must not have predecessors
                 return false;
             }else {
-                statements.clear();
-                this.override(next);
+                getOverriden().statements.clear();
+                getOverriden().override(next);
                 return true;
             }
         }
@@ -185,12 +192,13 @@ public class Block {
     }
 
     public void override(Block next) {
-        this.identifier = next.identifier;
-        this.name = next.name;
+        getOverriden().overridenBy = next;
+//        this.identifier = next.identifier;
+//        this.name = next.name;
     }
 
     @Override
     public String toString() {
-        return getIdentifier();
+        return getOverriden().getIdentifier();
     }
 }

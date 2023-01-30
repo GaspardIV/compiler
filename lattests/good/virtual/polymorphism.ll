@@ -182,21 +182,17 @@ main.3_for.end:
 	%tmp..79 = bitcast i8* %tmp..78 to %B*
 	call void @B.constructor(%B* %tmp..79)
 	%tmp..82 = icmp eq %B* %tmp..79, %tmp..79
-	br i1 %tmp..82, label %main.4_if.true, label %main.5_if.false
+	br i1 %tmp..82, label %main.4_if.true, label %main.6_if.end
 main.4_if.true:
 	%tmp..83 = getelementptr [4 x i8], [4 x i8]* @.str.str4, i32 0, i32 0
 	call void @printString(i8* %tmp..83)
 	br label %main.6_if.end
-main.5_if.false:
-	br label %main.6_if.end
 main.6_if.end:
 	%tmp..86 = icmp ne %B* %tmp..79, %tmp..79
-	br i1 %tmp..86, label %main.7_if.true, label %main.8_if.false
+	br i1 %tmp..86, label %main.7_if.true, label %main.9_if.end
 main.7_if.true:
 	%tmp..87 = getelementptr [4 x i8], [4 x i8]* @.str.str5, i32 0, i32 0
 	call void @printString(i8* %tmp..87)
-	br label %main.9_if.end
-main.8_if.false:
 	br label %main.9_if.end
 main.9_if.end:
 	ret i32 0

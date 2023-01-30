@@ -9,11 +9,9 @@ main_entry:
 define i32 @funkcja(i32 %x) { 
 funkcja_entry:
 	%tmp..4 = icmp eq i32 %x, 0
-	br i1 %tmp..4, label %funkcja.1_if.true, label %funkcja.2_if.false
+	br i1 %tmp..4, label %funkcja.1_if.true, label %funkcja.3_if.end
 funkcja.1_if.true:
 	ret i32 1
-funkcja.2_if.false:
-	br label %funkcja.3_if.end
 funkcja.3_if.end:
 	%tmp..7 = sub i32 %x, 1
 	%tmp..8 = call i32 @funkcja(i32 %tmp..7)

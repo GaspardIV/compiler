@@ -12,11 +12,9 @@ main_entry:
 define i32 @funkcja(i32 %x) { 
 funkcja_entry:
 	%tmp..1 = icmp slt i32 %x, %x
-	br i1 %tmp..1, label %funkcja.1_if.true, label %funkcja.2_if.false
+	br i1 %tmp..1, label %funkcja.1_if.true, label %funkcja.3_if.end
 funkcja.1_if.true:
 	call void @printInt(i32 %x)
-	br label %funkcja.3_if.end
-funkcja.2_if.false:
 	br label %funkcja.3_if.end
 funkcja.3_if.end:
 	call void @printInt(i32 %x)

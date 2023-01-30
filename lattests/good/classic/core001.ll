@@ -15,18 +15,14 @@ rfac.2_if.false:
 define i32 @ifac2f(i32 %l, i32 %h) { 
 ifac2f_entry:
 	%tmp..1 = icmp eq i32 %l, %h
-	br i1 %tmp..1, label %ifac2f.1_if.true, label %ifac2f.2_if.false
+	br i1 %tmp..1, label %ifac2f.1_if.true, label %ifac2f.3_if.end
 ifac2f.1_if.true:
 	ret i32 %l
-ifac2f.2_if.false:
-	br label %ifac2f.3_if.end
 ifac2f.3_if.end:
 	%tmp..3 = icmp sgt i32 %l, %h
-	br i1 %tmp..3, label %ifac2f.4_if.true, label %ifac2f.5_if.false
+	br i1 %tmp..3, label %ifac2f.4_if.true, label %ifac2f.6_if.end
 ifac2f.4_if.true:
 	ret i32 1
-ifac2f.5_if.false:
-	br label %ifac2f.6_if.end
 ifac2f.6_if.end:
 	%tmp..6 = add i32 %l, %h
 	%tmp..8 = sdiv i32 %tmp..6, 2

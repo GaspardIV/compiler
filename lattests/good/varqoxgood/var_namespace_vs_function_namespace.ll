@@ -9,12 +9,10 @@ main_entry:
 	%tmp..5 = call i32 @foo()
 	%tmp..6 = add i32 %tmp..5, 3
 	%tmp..8 = icmp ne i32 %tmp..6, 45
-	br i1 %tmp..8, label %main.1_if.true, label %main.2_if.false
+	br i1 %tmp..8, label %main.1_if.true, label %main.3_if.end
 main.1_if.true:
 	call void @error()
 	ret i32 0
-main.2_if.false:
-	br label %main.3_if.end
 main.3_if.end:
 	ret i32 0
 }

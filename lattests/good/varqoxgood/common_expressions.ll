@@ -216,12 +216,10 @@ test3_entry:
 
 define void @assert(i1 %b) { 
 assert_entry:
-	br i1 %b, label %assert.2_if.false, label %assert.1_if.true
+	br i1 %b, label %assert.3_if.end, label %assert.1_if.true
 assert.1_if.true:
 	call void @error()
 	ret void
-assert.2_if.false:
-	br label %assert.3_if.end
 assert.3_if.end:
 	ret void
 }

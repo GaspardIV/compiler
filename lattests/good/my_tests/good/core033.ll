@@ -22,11 +22,9 @@ define i32 @main() {
 main_entry:
 	%tmp..2 = call i32 @foo(i32 42, i32 17)
 	%tmp..4 = call i1 @bar()
-	br i1 %tmp..4, label %main.1_if.true, label %main.2_if.false
+	br i1 %tmp..4, label %main.1_if.true, label %main.3_if.end
 main.1_if.true:
 	call void @printInt(i32 %tmp..2)
-	br label %main.3_if.end
-main.2_if.false:
 	br label %main.3_if.end
 main.3_if.end:
 	%tmp..7 = call i1 @bar()

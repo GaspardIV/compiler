@@ -1,7 +1,5 @@
 
 define i32 @main() { 
-main_entry:
-	br label %main.1_if.true
 main.1_if.true:
 	ret i32 0
 }

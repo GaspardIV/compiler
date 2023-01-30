@@ -44,13 +44,9 @@ main.2_while.body:
 main.3_while.end:
 	%tmp..17 = load i32, i32* %tmp..7
 	%tmp..19 = icmp ne i32 %tmp..17, 10
-	br i1 %tmp..19, label %main.4_if.true, label %main.5_if.false
+	br i1 %tmp..19, label %main.4_if.true, label %main.7_while.cond
 main.4_if.true:
 	ret i32 0
-main.5_if.false:
-	br label %main.6_if.end
-main.6_if.end:
-	br label %main.7_while.cond
 main.7_while.cond:
 	%tmp..26 = load i32, i32* %tmp..7
 	%tmp..28 = icmp slt i32 %tmp..26, 20
@@ -63,11 +59,9 @@ main.8_while.body:
 main.9_while.end:
 	%tmp..39 = load i32, i32* %tmp..7
 	%tmp..41 = icmp ne i32 %tmp..39, 24
-	br i1 %tmp..41, label %main.10_if.true, label %main.11_if.false
+	br i1 %tmp..41, label %main.10_if.true, label %main.12_if.end
 main.10_if.true:
 	ret i32 0
-main.11_if.false:
-	br label %main.12_if.end
 main.12_if.end:
 	ret i32 0
 }

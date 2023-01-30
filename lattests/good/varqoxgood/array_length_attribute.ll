@@ -13,12 +13,10 @@ main_entry:
 	%tmp..22 = bitcast i8* %tmp..20 to i32*
 	%tmp..23 = load i32, i32* %tmp..22
 	%tmp..25 = icmp ne i32 %tmp..23, 4
-	br i1 %tmp..25, label %main.1_if.true, label %main.2_if.false
+	br i1 %tmp..25, label %main.1_if.true, label %main.3_if.end
 main.1_if.true:
 	call void @error()
 	ret i32 0
-main.2_if.false:
-	br label %main.3_if.end
 main.3_if.end:
 	ret i32 0
 }

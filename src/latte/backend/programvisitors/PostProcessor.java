@@ -149,7 +149,7 @@ public class PostProcessor {
         removeDeadBlocks(firstBlock);
         globalCommonSubexpressionElimination();
         deadVariablesElimination();
-//        removeEmptyBlocks();
+        removeEmptyBlocks();
         // maybe strength reduction - zastapineie mnozenie dodawaniem - induction variable elimination // moving code out of loops??
     }
 
@@ -160,34 +160,30 @@ public class PostProcessor {
             changed = false;
             Set<Block> phiBlocks = new HashSet<>();
             for (Block block : blocks) {
-                for (Quadruple quadruple : block.getQuadruples()) {
+                for (Quadruple quadruple : block.getOverriden().getQuadruples()) {
                     if (quadruple.op instanceof Quadruple.LLVMOperation.PHI) {
-                        phiBlocks.add(block);
-                        Block block1 = ((Quadruple.LLVMOperation.PHI) quadruple.op).block1;
-                        Block block2 = ((Quadruple.LLVMOperation.PHI) quadruple.op).block2;
+                        phiBlocks.add(block.getOverriden());
+                        Block block1 = ((Quadruple.LLVMOperation.PHI) quadruple.op).block1.getOverriden();
+                        Block block2 = ((Quadruple.LLVMOperation.PHI) quadruple.op).block2.getOverriden();
 
-                        phiBlocks.add(block1);
-                        phiBlocks.add(block2);
+                        phiBlocks.add(block1.getOverriden());
+                        phiBlocks.add(block2.getOverriden());
                     } else if (quadruple.op instanceof Quadruple.LLVMOperation.IF) {
-                        Block block1 = ((Quadruple.LLVMOperation.IF) quadruple.op).block1;
-                        Block block2 = ((Quadruple.LLVMOperation.IF) quadruple.op).block2;
+                        Block block1 = ((Quadruple.LLVMOperation.IF) quadruple.op).block1.getOverriden();
+                        Block block2 = ((Quadruple.LLVMOperation.IF) quadruple.op).block2.getOverriden();
                         if (block1.getIdentifier().equals(block2.getIdentifier())) {
-                            quadruple.op = new Quadruple.LLVMOperation.GOTO(block1);
+                            quadruple.op = new Quadruple.LLVMOperation.GOTO(block1.getOverriden());
                             changed = true;
                         }
                     }
                 }
             }
             for (Block block : blocks) {
-                if (block.isEmpty() && !phiBlocks.contains(block)) {
-                    changed = changed || block.overrideIfPossible(firstBlock, predecessors);
+                if (block.getOverriden().isEmpty() && !phiBlocks.contains(block.getOverriden())) {
+                    changed = block.getOverriden().overrideIfPossible(firstBlock.getOverriden(), predecessors) || changed;
                 }
             }
         }
-        // todo there is also a possibility to remove
-        //        	br label %main.3_expr.end
-        //      main.3_expr.end:
-        //	        ret i32 0
     }
 
     private List<Block> getAllBlocks() {

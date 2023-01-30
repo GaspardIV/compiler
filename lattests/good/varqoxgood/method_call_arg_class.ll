@@ -25,12 +25,10 @@ define void @G.foo(%G* %self, %X* %x) {
 G.foo_entry:
 	%tmp..2 = bitcast i32* null to %X*
 	%tmp..3 = icmp eq %X* %x, %tmp..2
-	br i1 %tmp..3, label %G.foo.1_if.true, label %G.foo.2_if.false
+	br i1 %tmp..3, label %G.foo.1_if.true, label %G.foo.3_if.end
 G.foo.1_if.true:
 	call void @error()
 	ret void
-G.foo.2_if.false:
-	br label %G.foo.3_if.end
 G.foo.3_if.end:
 	ret void
 }

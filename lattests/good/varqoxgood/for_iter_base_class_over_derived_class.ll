@@ -95,26 +95,18 @@ main.4_if.true:
 	%tmp..42 = getelementptr %X, %X* %tmp..25, i32 0, i32 1
 	%tmp..43 = load i32, i32* %tmp..42
 	%tmp..45 = icmp ne i32 %tmp..43, 42
-	br i1 %tmp..45, label %main.7_if.true, label %main.8_if.false
+	br i1 %tmp..45, label %main.7_if.true, label %main.6_if.end
 main.7_if.true:
 	call void @error()
 	ret i32 0
-main.8_if.false:
-	br label %main.9_if.end
-main.9_if.end:
-	br label %main.6_if.end
 main.5_if.false:
 	%tmp..52 = getelementptr %X, %X* %tmp..25, i32 0, i32 1
 	%tmp..53 = load i32, i32* %tmp..52
 	%tmp..55 = icmp ne i32 %tmp..53, 142
-	br i1 %tmp..55, label %main.10_if.true, label %main.11_if.false
+	br i1 %tmp..55, label %main.10_if.true, label %main.6_if.end
 main.10_if.true:
 	call void @error()
 	ret i32 0
-main.11_if.false:
-	br label %main.12_if.end
-main.12_if.end:
-	br label %main.6_if.end
 main.6_if.end:
 	%tmp..59 = add i32 %iter, 1
 	br label %main.1_for.cond
@@ -153,12 +145,10 @@ main.14_for.body:
 	%tmp..91 = getelementptr %Y, %Y* %tmp..78, i32 0, i32 1
 	%tmp..92 = load i32, i32* %tmp..91
 	%tmp..94 = icmp ne i32 %tmp..92, 142
-	br i1 %tmp..94, label %main.16_if.true, label %main.17_if.false
+	br i1 %tmp..94, label %main.16_if.true, label %main.18_if.end
 main.16_if.true:
 	call void @error()
 	ret i32 0
-main.17_if.false:
-	br label %main.18_if.end
 main.18_if.end:
 	br label %main.13_for.cond
 main.15_for.end:

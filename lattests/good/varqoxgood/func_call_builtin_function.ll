@@ -24,12 +24,10 @@ X.foo_entry:
 	call void @printInt(i32 %tmp..4)
 	call void @printString(i8* %tmp..5)
 	%tmp..11 = icmp eq i32 %tmp..4, 0
-	br i1 %tmp..11, label %X.foo.1_if.true, label %X.foo.2_if.false
+	br i1 %tmp..11, label %X.foo.1_if.true, label %X.foo.3_if.end
 X.foo.1_if.true:
 	call void @error()
 	ret void
-X.foo.2_if.false:
-	br label %X.foo.3_if.end
 X.foo.3_if.end:
 	ret void
 }
@@ -44,12 +42,10 @@ main_entry:
 	call void @printInt(i32 %tmp..4)
 	call void @printString(i8* %tmp..5)
 	%tmp..11 = icmp eq i32 %tmp..4, 0
-	br i1 %tmp..11, label %main.1_if.true, label %main.2_if.false
+	br i1 %tmp..11, label %main.1_if.true, label %main.3_if.end
 main.1_if.true:
 	call void @error()
 	ret i32 0
-main.2_if.false:
-	br label %main.3_if.end
 main.3_if.end:
 	%tmp..14 = call i8* @malloc(i32 0)
 	%tmp..15 = bitcast i8* %tmp..14 to %X*
