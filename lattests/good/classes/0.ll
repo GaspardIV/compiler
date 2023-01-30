@@ -7,6 +7,7 @@
 	,%Foo*; next 
 	,i32; label 
 	}
+ ; --- Class Foo methods ---
 define void @Foo.constructor(%Foo* %this) {
 	%this.class.vtable = bitcast [0 x void (...)*]* @Foo.vtable to void (...)**
 	%this.vtable = getelementptr %Foo, %Foo* %this, i32 0, i32 0

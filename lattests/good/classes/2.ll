@@ -11,6 +11,19 @@
 	,i32; elem 
 	,%Node*; next 
 	}
+ ; --- Class Stack ---
+@Stack.vtable = global [4 x void (...)*] [
+	void (...)* bitcast (void (%Stack*, i32)* @Stack.push to void (...)*) , ; push 
+	void (...)* bitcast (i1 (%Stack*)* @Stack.isEmpty to void (...)*) , ; isEmpty 
+	void (...)* bitcast (i32 (%Stack*)* @Stack.top to void (...)*) , ; top 
+	void (...)* bitcast (void (%Stack*)* @Stack.pop to void (...)*) ; pop 
+]
+
+%Stack = type { 
+	void (...)**; vtable
+	,%Node*; head 
+	}
+ ; --- Class Node methods ---
 define void @Node.constructor(%Node* %this) {
 	%this.class.vtable = bitcast [4 x void (...)*]* @Node.vtable to void (...)**
 	%this.vtable = getelementptr %Node, %Node* %this, i32 0, i32 0
@@ -50,18 +63,7 @@ Node.getNext_entry:
 	%tmp..1 = load %Node*, %Node** %tmp.
 	ret %Node* %tmp..1
 }
- ; --- Class Stack ---
-@Stack.vtable = global [4 x void (...)*] [
-	void (...)* bitcast (void (%Stack*, i32)* @Stack.push to void (...)*) , ; push 
-	void (...)* bitcast (i1 (%Stack*)* @Stack.isEmpty to void (...)*) , ; isEmpty 
-	void (...)* bitcast (i32 (%Stack*)* @Stack.top to void (...)*) , ; top 
-	void (...)* bitcast (void (%Stack*)* @Stack.pop to void (...)*) ; pop 
-]
-
-%Stack = type { 
-	void (...)**; vtable
-	,%Node*; head 
-	}
+ ; --- Class Stack methods ---
 define void @Stack.constructor(%Stack* %this) {
 	%this.class.vtable = bitcast [4 x void (...)*]* @Stack.vtable to void (...)**
 	%this.vtable = getelementptr %Stack, %Stack* %this, i32 0, i32 0

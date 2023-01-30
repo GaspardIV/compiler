@@ -8,6 +8,7 @@
 	,%Lista*; nastepny 
 	,i32; wartosc 
 	}
+ ; --- Class Lista methods ---
 define void @Lista.constructor(%Lista* %this) {
 	%this.class.vtable = bitcast [0 x void (...)*]* @Lista.vtable to void (...)**
 	%this.vtable = getelementptr %Lista, %Lista* %this, i32 0, i32 0

@@ -84,15 +84,12 @@ public class LLVMClass extends Scope {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(classVTable);
-        sb.append(classType);
         sb.append(constructor);
         for (LLVMClassMethod method : methods.values()) {
             sb.append(method);
         }
         return sb.toString();
     }
-
     public Type getFieldType(String ident_) {
         for (ClField field : fields) {
             if (field.ident_.equals(ident_)) {
@@ -115,7 +112,7 @@ public class LLVMClass extends Scope {
     }
 
     public Function getMethod(String method) {
-        return methods.get(method);
+        return classVTable.getMethod(method);
     }
 
     public int getMethodIndex(String methodName) {
@@ -124,6 +121,14 @@ public class LLVMClass extends Scope {
 
     public MethodPointerType getMethodType(String methodName) {
         return classVTable.getMethodType(methodName);
+    }
+
+    public LLVMClassVTable getClassVTable() {
+        return classVTable;
+    }
+
+    public LLVMClassType getClassType() {
+        return classType;
     }
 }
 

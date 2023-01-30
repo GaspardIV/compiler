@@ -6,6 +6,31 @@
 %A = type { 
 	void (...)**; vtable
 	}
+ ; --- Class B ---
+@B.vtable = global [1 x void (...)*] [
+	void (...)* bitcast (void (%B*)* @B.print to void (...)*) ; print 
+]
+
+%B = type { 
+	void (...)**; vtable
+	}
+ ; --- Class C ---
+@C.vtable = global [1 x void (...)*] [
+	void (...)* bitcast (void (%C*)* @C.print to void (...)*) ; print 
+]
+
+%C = type { 
+	void (...)**; vtable
+	}
+ ; --- Class D ---
+@D.vtable = global [1 x void (...)*] [
+	void (...)* bitcast (void (%D*)* @D.print to void (...)*) ; print 
+]
+
+%D = type { 
+	void (...)**; vtable
+	}
+ ; --- Class A methods ---
 define void @A.constructor(%A* %this) {
 	%this.class.vtable = bitcast [1 x void (...)*]* @A.vtable to void (...)**
 	%this.vtable = getelementptr %A, %A* %this, i32 0, i32 0
@@ -19,14 +44,7 @@ A.print_entry:
 	call void @printString(i8* %tmp.)
 	ret void
 }
- ; --- Class B ---
-@B.vtable = global [1 x void (...)*] [
-	void (...)* bitcast (void (%B*)* @B.print to void (...)*) ; print 
-]
-
-%B = type { 
-	void (...)**; vtable
-	}
+ ; --- Class B methods ---
 define void @B.constructor(%B* %this) {
 	%this.class.vtable = bitcast [1 x void (...)*]* @B.vtable to void (...)**
 	%this.vtable = getelementptr %B, %B* %this, i32 0, i32 0
@@ -40,14 +58,7 @@ B.print_entry:
 	call void @printString(i8* %tmp.)
 	ret void
 }
- ; --- Class C ---
-@C.vtable = global [1 x void (...)*] [
-	void (...)* bitcast (void (%C*)* @C.print to void (...)*) ; print 
-]
-
-%C = type { 
-	void (...)**; vtable
-	}
+ ; --- Class C methods ---
 define void @C.constructor(%C* %this) {
 	%this.class.vtable = bitcast [1 x void (...)*]* @C.vtable to void (...)**
 	%this.vtable = getelementptr %C, %C* %this, i32 0, i32 0
@@ -61,14 +72,7 @@ C.print_entry:
 	call void @printString(i8* %tmp.)
 	ret void
 }
- ; --- Class D ---
-@D.vtable = global [1 x void (...)*] [
-	void (...)* bitcast (void (%D*)* @D.print to void (...)*) ; print 
-]
-
-%D = type { 
-	void (...)**; vtable
-	}
+ ; --- Class D methods ---
 define void @D.constructor(%D* %this) {
 	%this.class.vtable = bitcast [1 x void (...)*]* @D.vtable to void (...)**
 	%this.vtable = getelementptr %D, %D* %this, i32 0, i32 0

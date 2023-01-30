@@ -12,6 +12,20 @@
 	,%Node*; front 
 	,%Node*; rear 
 	}
+ ; --- Class Node ---
+@Node.vtable = global [4 x void (...)*] [
+	void (...)* bitcast (void (%Node*, i32)* @Node.setElem to void (...)*) , ; setElem 
+	void (...)* bitcast (void (%Node*, %Node*)* @Node.setNext to void (...)*) , ; setNext 
+	void (...)* bitcast (i32 (%Node*)* @Node.getElem to void (...)*) , ; getElem 
+	void (...)* bitcast (%Node* (%Node*)* @Node.getNext to void (...)*) ; getNext 
+]
+
+%Node = type { 
+	void (...)**; vtable
+	,i32; elem 
+	,%Node*; next 
+	}
+ ; --- Class IntQueue methods ---
 define void @IntQueue.constructor(%IntQueue* %this) {
 	%this.class.vtable = bitcast [5 x void (...)*]* @IntQueue.vtable to void (...)**
 	%this.vtable = getelementptr %IntQueue, %IntQueue* %this, i32 0, i32 0
@@ -122,19 +136,7 @@ IntQueue.first_entry:
 	%tmp..7 = call i32 %tmp..6(%Node* %tmp..1)
 	ret i32 %tmp..7
 }
- ; --- Class Node ---
-@Node.vtable = global [4 x void (...)*] [
-	void (...)* bitcast (void (%Node*, i32)* @Node.setElem to void (...)*) , ; setElem 
-	void (...)* bitcast (void (%Node*, %Node*)* @Node.setNext to void (...)*) , ; setNext 
-	void (...)* bitcast (i32 (%Node*)* @Node.getElem to void (...)*) , ; getElem 
-	void (...)* bitcast (%Node* (%Node*)* @Node.getNext to void (...)*) ; getNext 
-]
-
-%Node = type { 
-	void (...)**; vtable
-	,i32; elem 
-	,%Node*; next 
-	}
+ ; --- Class Node methods ---
 define void @Node.constructor(%Node* %this) {
 	%this.class.vtable = bitcast [4 x void (...)*]* @Node.vtable to void (...)**
 	%this.vtable = getelementptr %Node, %Node* %this, i32 0, i32 0

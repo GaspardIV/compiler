@@ -7,6 +7,59 @@
 %Circle = type { 
 	void (...)**; vtable
 	}
+ ; --- Class Shape ---
+@Shape.vtable = global [2 x void (...)*] [
+	void (...)* bitcast (void (%Shape*)* @Shape.tell to void (...)*) , ; tell 
+	void (...)* bitcast (void (%Shape*)* @Shape.tellAgain to void (...)*) ; tellAgain 
+]
+
+%Shape = type { 
+	void (...)**; vtable
+	}
+ ; --- Class Node ---
+@Node.vtable = global [4 x void (...)*] [
+	void (...)* bitcast (void (%Node*, %Shape*)* @Node.setElem to void (...)*) , ; setElem 
+	void (...)* bitcast (void (%Node*, %Node*)* @Node.setNext to void (...)*) , ; setNext 
+	void (...)* bitcast (%Shape* (%Node*)* @Node.getElem to void (...)*) , ; getElem 
+	void (...)* bitcast (%Node* (%Node*)* @Node.getNext to void (...)*) ; getNext 
+]
+
+%Node = type { 
+	void (...)**; vtable
+	,%Shape*; elem 
+	,%Node*; next 
+	}
+ ; --- Class Rectangle ---
+@Rectangle.vtable = global [2 x void (...)*] [
+	void (...)* bitcast (void (%Shape*)* @Shape.tell to void (...)*) , ; tell 
+	void (...)* bitcast (void (%Rectangle*)* @Rectangle.tellAgain to void (...)*) ; tellAgain 
+]
+
+%Rectangle = type { 
+	void (...)**; vtable
+	}
+ ; --- Class Square ---
+@Square.vtable = global [2 x void (...)*] [
+	void (...)* bitcast (void (%Shape*)* @Shape.tell to void (...)*) , ; tell 
+	void (...)* bitcast (void (%Square*)* @Square.tellAgain to void (...)*) ; tellAgain 
+]
+
+%Square = type { 
+	void (...)**; vtable
+	}
+ ; --- Class Stack ---
+@Stack.vtable = global [4 x void (...)*] [
+	void (...)* bitcast (void (%Stack*, %Shape*)* @Stack.push to void (...)*) , ; push 
+	void (...)* bitcast (i1 (%Stack*)* @Stack.isEmpty to void (...)*) , ; isEmpty 
+	void (...)* bitcast (%Shape* (%Stack*)* @Stack.top to void (...)*) , ; top 
+	void (...)* bitcast (void (%Stack*)* @Stack.pop to void (...)*) ; pop 
+]
+
+%Stack = type { 
+	void (...)**; vtable
+	,%Node*; head 
+	}
+ ; --- Class Circle methods ---
 define void @Circle.constructor(%Circle* %this) {
 	%this.class.vtable = bitcast [2 x void (...)*]* @Circle.vtable to void (...)**
 	%this.vtable = getelementptr %Circle, %Circle* %this, i32 0, i32 0
@@ -20,15 +73,7 @@ Circle.tellAgain_entry:
 	call void @printString(i8* %tmp.)
 	ret void
 }
- ; --- Class Shape ---
-@Shape.vtable = global [2 x void (...)*] [
-	void (...)* bitcast (void (%Shape*)* @Shape.tell to void (...)*) , ; tell 
-	void (...)* bitcast (void (%Shape*)* @Shape.tellAgain to void (...)*) ; tellAgain 
-]
-
-%Shape = type { 
-	void (...)**; vtable
-	}
+ ; --- Class Shape methods ---
 define void @Shape.constructor(%Shape* %this) {
 	%this.class.vtable = bitcast [2 x void (...)*]* @Shape.vtable to void (...)**
 	%this.vtable = getelementptr %Shape, %Shape* %this, i32 0, i32 0
@@ -49,19 +94,7 @@ Shape.tell_entry:
 	call void @printString(i8* %tmp.)
 	ret void
 }
- ; --- Class Node ---
-@Node.vtable = global [4 x void (...)*] [
-	void (...)* bitcast (void (%Node*, %Shape*)* @Node.setElem to void (...)*) , ; setElem 
-	void (...)* bitcast (void (%Node*, %Node*)* @Node.setNext to void (...)*) , ; setNext 
-	void (...)* bitcast (%Shape* (%Node*)* @Node.getElem to void (...)*) , ; getElem 
-	void (...)* bitcast (%Node* (%Node*)* @Node.getNext to void (...)*) ; getNext 
-]
-
-%Node = type { 
-	void (...)**; vtable
-	,%Shape*; elem 
-	,%Node*; next 
-	}
+ ; --- Class Node methods ---
 define void @Node.constructor(%Node* %this) {
 	%this.class.vtable = bitcast [4 x void (...)*]* @Node.vtable to void (...)**
 	%this.vtable = getelementptr %Node, %Node* %this, i32 0, i32 0
@@ -102,15 +135,7 @@ Node.getNext_entry:
 	%tmp..1 = load %Node*, %Node** %tmp.
 	ret %Node* %tmp..1
 }
- ; --- Class Rectangle ---
-@Rectangle.vtable = global [2 x void (...)*] [
-	void (...)* bitcast (void (%Shape*)* @Shape.tell to void (...)*) , ; tell 
-	void (...)* bitcast (void (%Rectangle*)* @Rectangle.tellAgain to void (...)*) ; tellAgain 
-]
-
-%Rectangle = type { 
-	void (...)**; vtable
-	}
+ ; --- Class Rectangle methods ---
 define void @Rectangle.constructor(%Rectangle* %this) {
 	%this.class.vtable = bitcast [2 x void (...)*]* @Rectangle.vtable to void (...)**
 	%this.vtable = getelementptr %Rectangle, %Rectangle* %this, i32 0, i32 0
@@ -124,15 +149,7 @@ Rectangle.tellAgain_entry:
 	call void @printString(i8* %tmp.)
 	ret void
 }
- ; --- Class Square ---
-@Square.vtable = global [2 x void (...)*] [
-	void (...)* bitcast (void (%Shape*)* @Shape.tell to void (...)*) , ; tell 
-	void (...)* bitcast (void (%Square*)* @Square.tellAgain to void (...)*) ; tellAgain 
-]
-
-%Square = type { 
-	void (...)**; vtable
-	}
+ ; --- Class Square methods ---
 define void @Square.constructor(%Square* %this) {
 	%this.class.vtable = bitcast [2 x void (...)*]* @Square.vtable to void (...)**
 	%this.vtable = getelementptr %Square, %Square* %this, i32 0, i32 0
@@ -146,18 +163,7 @@ Square.tellAgain_entry:
 	call void @printString(i8* %tmp.)
 	ret void
 }
- ; --- Class Stack ---
-@Stack.vtable = global [4 x void (...)*] [
-	void (...)* bitcast (void (%Stack*, %Shape*)* @Stack.push to void (...)*) , ; push 
-	void (...)* bitcast (i1 (%Stack*)* @Stack.isEmpty to void (...)*) , ; isEmpty 
-	void (...)* bitcast (%Shape* (%Stack*)* @Stack.top to void (...)*) , ; top 
-	void (...)* bitcast (void (%Stack*)* @Stack.pop to void (...)*) ; pop 
-]
-
-%Stack = type { 
-	void (...)**; vtable
-	,%Node*; head 
-	}
+ ; --- Class Stack methods ---
 define void @Stack.constructor(%Stack* %this) {
 	%this.class.vtable = bitcast [4 x void (...)*]* @Stack.vtable to void (...)**
 	%this.vtable = getelementptr %Stack, %Stack* %this, i32 0, i32 0

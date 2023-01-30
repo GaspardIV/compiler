@@ -9,29 +9,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="vtable constructor">
-      <change afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/MethodType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classes/12.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/12.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classes/12.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/12.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classes/13.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/13.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classes/13.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/13.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classes/15.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/15.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classes/2.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/2.bc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classes/2.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/2.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classes/14.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/14.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classes/3.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/3.bc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/classes/3.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/3.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classes/4.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/4.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classes/7.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/7.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classes/8.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/8.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/good/classes/9.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/9.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classes/5.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/5.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/Global.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/Global.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClassConstructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClassConstructor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClassMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClassMethod.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClassVTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClassVTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/classes/VTableType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/classes/MethodPointerPointer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/utils/Utils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +49,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="0a094f9b7d1bfd89ee547cf93dfd233af6cdaed2" />
+        <entry key="$PROJECT_DIR$" value="79c149bcd39e7183ad6ff7e9002b1387b82d15e7" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -156,33 +141,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path": "/Users/kacperkonecki/IdeaProjects/codingame/compiler/third_party",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "extract.method.default.visibility": "private",
-    "last.edited.regexp": "",
-    "last_opened_file_path": "/Users/kacperkonecki/IdeaProjects/codingame/compiler/lattests/good/classes",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "configurable.group.appearance"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path&quot;: &quot;/Users/kacperkonecki/IdeaProjects/codingame/compiler/third_party&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;last.edited.regexp&quot;: &quot;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/kacperkonecki/IdeaProjects/codingame/compiler/lattests/good/classes&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;
   },
-  "keyToStringList": {
-    "ChangesTree.GroupingKeys": [
+  &quot;keyToStringList&quot;: {
+    &quot;ChangesTree.GroupingKeys&quot;: [
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="latte.backend.programvisitors" />
@@ -369,6 +354,34 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Classes420.test_05" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="compiler" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Classes420" />
+      <option name="METHOD_NAME" value="test_05" />
+      <option name="TEST_OBJECT" value="method" />
+      <patterns>
+        <pattern testClass="GoodGr5Test" />
+        <pattern testClass="GoodVarqoxgoodTest" />
+        <pattern testClass="GoodMyTestsTest" />
+        <pattern testClass="GoodBasicTest" />
+        <pattern testClass="GoodExtensionsArrays1Test" />
+        <pattern testClass="GoodExtensionsObjects1Test" />
+        <pattern testClass="GoodVirtualTest" />
+        <pattern testClass="GoodHardcoreTest" />
+        <pattern testClass="GoodVarqoxwarningsTest" />
+        <pattern testClass="Classes420" />
+        <pattern testClass="GoodArraysTest" />
+        <pattern testClass="GoodClassicTest" />
+        <pattern testClass="MyTest420" />
+        <pattern testClass="MyTest" />
+        <pattern testClass="GoodExtensionsStructTest" />
+        <pattern testClass="GoodExtensionsObjects2Test" />
+      </patterns>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Classes420.test_16" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
@@ -425,34 +438,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GoodVarqoxwarningsTest.testFor_Runs_At_Most_Once_Because_Void_Return" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="compiler" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GoodVarqoxwarningsTest" />
-      <option name="METHOD_NAME" value="testFor_Runs_At_Most_Once_Because_Void_Return" />
-      <option name="TEST_OBJECT" value="method" />
-      <patterns>
-        <pattern testClass="GoodGr5Test" />
-        <pattern testClass="GoodVarqoxgoodTest" />
-        <pattern testClass="GoodMyTestsTest" />
-        <pattern testClass="GoodBasicTest" />
-        <pattern testClass="GoodExtensionsArrays1Test" />
-        <pattern testClass="GoodExtensionsObjects1Test" />
-        <pattern testClass="GoodVirtualTest" />
-        <pattern testClass="GoodHardcoreTest" />
-        <pattern testClass="GoodVarqoxwarningsTest" />
-        <pattern testClass="Classes420" />
-        <pattern testClass="GoodArraysTest" />
-        <pattern testClass="GoodClassicTest" />
-        <pattern testClass="MyTest420" />
-        <pattern testClass="MyTest" />
-        <pattern testClass="GoodExtensionsStructTest" />
-        <pattern testClass="GoodExtensionsObjects2Test" />
-      </patterns>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="MyTest420" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
@@ -485,20 +470,20 @@
       <item itemvalue="JUnit.ALLESGOOD" />
       <item itemvalue="JUnit.ALLESGOOD NOT VARKOQ" />
       <item itemvalue="JUnit.All in compiler" />
+      <item itemvalue="JUnit.Classes420.test_05" />
       <item itemvalue="JUnit.Classes420" />
       <item itemvalue="JUnit.Classes420.test_16" />
       <item itemvalue="JUnit.GoodHardcoreTest.testTail_Call_Optymization" />
-      <item itemvalue="JUnit.GoodVarqoxwarningsTest.testFor_Runs_At_Most_Once_Because_Void_Return" />
       <item itemvalue="JUnit.MyTest420" />
       <item itemvalue="Shell Script.Unnamed" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.Classes420" />
+        <item itemvalue="JUnit.Classes420.test_05" />
         <item itemvalue="JUnit.MyTest420" />
         <item itemvalue="JUnit.Classes420.test_16" />
         <item itemvalue="JUnit.GoodHardcoreTest.testTail_Call_Optymization" />
-        <item itemvalue="JUnit.GoodVarqoxwarningsTest.testFor_Runs_At_Most_Once_Because_Void_Return" />
       </list>
     </recent_temporary>
   </component>
@@ -972,7 +957,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="test_no_extends" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -1043,11 +1040,6 @@
           <url>file://$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java</url>
           <line>282</line>
           <option name="timeStamp" value="126" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java</url>
-          <line>382</line>
-          <option name="timeStamp" value="128" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />

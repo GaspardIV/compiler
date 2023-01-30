@@ -91,8 +91,13 @@ public class Global extends Scope {
         StringBuilder stringBuilder = new StringBuilder();
         for (LLVMClass LLVMClass : classes.values()) {
             stringBuilder.append(" ; --- Class ").append(LLVMClass.getName()).append(" ---\n");
-            stringBuilder.append(LLVMClass.toString());
+            stringBuilder.append(LLVMClass.getClassVTable());
+            stringBuilder.append(LLVMClass.getClassType());
 
+        }
+        for (LLVMClass LLVMClass : classes.values()) {
+            stringBuilder.append(" ; --- Class ").append(LLVMClass.getName()).append(" methods ---\n");
+            stringBuilder.append(LLVMClass);
         }
         for (String name : this.functions.keySet()) {
             Function function = this.functions.get(name);

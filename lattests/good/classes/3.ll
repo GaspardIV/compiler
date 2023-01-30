@@ -14,6 +14,32 @@
 	,i32; value 
 	,%List*; neighbours 
 	}
+ ; --- Class List ---
+@List.vtable = global [4 x void (...)*] [
+	void (...)* bitcast (void (%List*, %Node*)* @List.makeSingleton to void (...)*) , ; makeSingleton 
+	void (...)* bitcast (%Node* (%List*)* @List.getHead to void (...)*) , ; getHead 
+	void (...)* bitcast (%List* (%List*)* @List.getTail to void (...)*) , ; getTail 
+	void (...)* bitcast (void (%List*, %Node*, %List*)* @List.cons to void (...)*) ; cons 
+]
+
+%List = type { 
+	void (...)**; vtable
+	,%Node*; head 
+	,%List*; tail 
+	}
+ ; --- Class Queue ---
+@Queue.vtable = global [3 x void (...)*] [
+	void (...)* bitcast (%Node* (%Queue*)* @Queue.get to void (...)*) , ; get 
+	void (...)* bitcast (void (%Queue*, %Node*)* @Queue.put to void (...)*) , ; put 
+	void (...)* bitcast (i1 (%Queue*)* @Queue.isEmpty to void (...)*) ; isEmpty 
+]
+
+%Queue = type { 
+	void (...)**; vtable
+	,%List*; first 
+	,%List*; last 
+	}
+ ; --- Class Node methods ---
 define void @Node.constructor(%Node* %this) {
 	%this.class.vtable = bitcast [6 x void (...)*]* @Node.vtable to void (...)**
 	%this.vtable = getelementptr %Node, %Node* %this, i32 0, i32 0
@@ -104,19 +130,7 @@ Node.markAsVisited_entry:
 	store i1 true, i1* %tmp.
 	ret void
 }
- ; --- Class List ---
-@List.vtable = global [4 x void (...)*] [
-	void (...)* bitcast (void (%List*, %Node*)* @List.makeSingleton to void (...)*) , ; makeSingleton 
-	void (...)* bitcast (%Node* (%List*)* @List.getHead to void (...)*) , ; getHead 
-	void (...)* bitcast (%List* (%List*)* @List.getTail to void (...)*) , ; getTail 
-	void (...)* bitcast (void (%List*, %Node*, %List*)* @List.cons to void (...)*) ; cons 
-]
-
-%List = type { 
-	void (...)**; vtable
-	,%Node*; head 
-	,%List*; tail 
-	}
+ ; --- Class List methods ---
 define void @List.constructor(%List* %this) {
 	%this.class.vtable = bitcast [4 x void (...)*]* @List.vtable to void (...)**
 	%this.vtable = getelementptr %List, %List* %this, i32 0, i32 0
@@ -162,18 +176,7 @@ List.cons_entry:
 	store %List* %newTail, %List** %tmp..1
 	ret void
 }
- ; --- Class Queue ---
-@Queue.vtable = global [3 x void (...)*] [
-	void (...)* bitcast (%Node* (%Queue*)* @Queue.get to void (...)*) , ; get 
-	void (...)* bitcast (void (%Queue*, %Node*)* @Queue.put to void (...)*) , ; put 
-	void (...)* bitcast (i1 (%Queue*)* @Queue.isEmpty to void (...)*) ; isEmpty 
-]
-
-%Queue = type { 
-	void (...)**; vtable
-	,%List*; first 
-	,%List*; last 
-	}
+ ; --- Class Queue methods ---
 define void @Queue.constructor(%Queue* %this) {
 	%this.class.vtable = bitcast [3 x void (...)*]* @Queue.vtable to void (...)**
 	%this.vtable = getelementptr %Queue, %Queue* %this, i32 0, i32 0

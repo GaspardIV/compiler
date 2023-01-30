@@ -9,6 +9,68 @@
 	,%Node*; left 
 	,%Node*; right 
 	}
+ ; --- Class Liczba ---
+@Liczba.vtable = global [1 x void (...)*] [
+	void (...)* bitcast (i32 (%Liczba*)* @Liczba.value to void (...)*) ; value 
+]
+
+%Liczba = type { 
+	void (...)**; vtable
+	,i32; v 
+	}
+ ; --- Class Node ---
+@Node.vtable = global [1 x void (...)*] [
+	void (...)* bitcast (i32 (%Node*)* @Node.value to void (...)*) ; value 
+]
+
+%Node = type { 
+	void (...)**; vtable
+	}
+ ; --- Class Razy ---
+@Razy.vtable = global [2 x void (...)*] [
+	void (...)* bitcast (i32 (%Operator*)* @Operator.value to void (...)*) , ; value 
+	void (...)* bitcast (i32 (%Razy*, i32, i32)* @Razy.operator to void (...)*) ; operator 
+]
+
+%Razy = type { 
+	void (...)**; vtable
+	,%Node*; left 
+	,%Node*; right 
+	}
+ ; --- Class Plus ---
+@Plus.vtable = global [2 x void (...)*] [
+	void (...)* bitcast (i32 (%Operator*)* @Operator.value to void (...)*) , ; value 
+	void (...)* bitcast (i32 (%Plus*, i32, i32)* @Plus.operator to void (...)*) ; operator 
+]
+
+%Plus = type { 
+	void (...)**; vtable
+	,%Node*; left 
+	,%Node*; right 
+	}
+ ; --- Class Podziel ---
+@Podziel.vtable = global [2 x void (...)*] [
+	void (...)* bitcast (i32 (%Operator*)* @Operator.value to void (...)*) , ; value 
+	void (...)* bitcast (i32 (%Podziel*, i32, i32)* @Podziel.operator to void (...)*) ; operator 
+]
+
+%Podziel = type { 
+	void (...)**; vtable
+	,%Node*; left 
+	,%Node*; right 
+	}
+ ; --- Class Minus ---
+@Minus.vtable = global [2 x void (...)*] [
+	void (...)* bitcast (i32 (%Operator*)* @Operator.value to void (...)*) , ; value 
+	void (...)* bitcast (i32 (%Minus*, i32, i32)* @Minus.operator to void (...)*) ; operator 
+]
+
+%Minus = type { 
+	void (...)**; vtable
+	,%Node*; left 
+	,%Node*; right 
+	}
+ ; --- Class Operator methods ---
 define void @Operator.constructor(%Operator* %this) {
 	%this.class.vtable = bitcast [2 x void (...)*]* @Operator.vtable to void (...)**
 	%this.vtable = getelementptr %Operator, %Operator* %this, i32 0, i32 0
@@ -54,15 +116,7 @@ Operator.operator_entry:
 	call void @error()
 	ret i32 0
 }
- ; --- Class Liczba ---
-@Liczba.vtable = global [1 x void (...)*] [
-	void (...)* bitcast (i32 (%Liczba*)* @Liczba.value to void (...)*) ; value 
-]
-
-%Liczba = type { 
-	void (...)**; vtable
-	,i32; v 
-	}
+ ; --- Class Liczba methods ---
 define void @Liczba.constructor(%Liczba* %this) {
 	%this.class.vtable = bitcast [1 x void (...)*]* @Liczba.vtable to void (...)**
 	%this.vtable = getelementptr %Liczba, %Liczba* %this, i32 0, i32 0
@@ -78,14 +132,7 @@ Liczba.value_entry:
 	%tmp..1 = load i32, i32* %tmp.
 	ret i32 %tmp..1
 }
- ; --- Class Node ---
-@Node.vtable = global [1 x void (...)*] [
-	void (...)* bitcast (i32 (%Node*)* @Node.value to void (...)*) ; value 
-]
-
-%Node = type { 
-	void (...)**; vtable
-	}
+ ; --- Class Node methods ---
 define void @Node.constructor(%Node* %this) {
 	%this.class.vtable = bitcast [1 x void (...)*]* @Node.vtable to void (...)**
 	%this.vtable = getelementptr %Node, %Node* %this, i32 0, i32 0
@@ -98,17 +145,7 @@ Node.value_entry:
 	call void @error()
 	ret i32 0
 }
- ; --- Class Razy ---
-@Razy.vtable = global [2 x void (...)*] [
-	void (...)* bitcast (i32 (%Operator*)* @Operator.value to void (...)*) , ; value 
-	void (...)* bitcast (i32 (%Razy*, i32, i32)* @Razy.operator to void (...)*) ; operator 
-]
-
-%Razy = type { 
-	void (...)**; vtable
-	,%Node*; left 
-	,%Node*; right 
-	}
+ ; --- Class Razy methods ---
 define void @Razy.constructor(%Razy* %this) {
 	%this.class.vtable = bitcast [2 x void (...)*]* @Razy.vtable to void (...)**
 	%this.vtable = getelementptr %Razy, %Razy* %this, i32 0, i32 0
@@ -127,17 +164,7 @@ Razy.operator_entry:
 	%tmp. = mul i32 %a, %b
 	ret i32 %tmp.
 }
- ; --- Class Plus ---
-@Plus.vtable = global [2 x void (...)*] [
-	void (...)* bitcast (i32 (%Operator*)* @Operator.value to void (...)*) , ; value 
-	void (...)* bitcast (i32 (%Plus*, i32, i32)* @Plus.operator to void (...)*) ; operator 
-]
-
-%Plus = type { 
-	void (...)**; vtable
-	,%Node*; left 
-	,%Node*; right 
-	}
+ ; --- Class Plus methods ---
 define void @Plus.constructor(%Plus* %this) {
 	%this.class.vtable = bitcast [2 x void (...)*]* @Plus.vtable to void (...)**
 	%this.vtable = getelementptr %Plus, %Plus* %this, i32 0, i32 0
@@ -156,17 +183,7 @@ Plus.operator_entry:
 	%tmp. = add i32 %a, %b
 	ret i32 %tmp.
 }
- ; --- Class Podziel ---
-@Podziel.vtable = global [2 x void (...)*] [
-	void (...)* bitcast (i32 (%Operator*)* @Operator.value to void (...)*) , ; value 
-	void (...)* bitcast (i32 (%Podziel*, i32, i32)* @Podziel.operator to void (...)*) ; operator 
-]
-
-%Podziel = type { 
-	void (...)**; vtable
-	,%Node*; left 
-	,%Node*; right 
-	}
+ ; --- Class Podziel methods ---
 define void @Podziel.constructor(%Podziel* %this) {
 	%this.class.vtable = bitcast [2 x void (...)*]* @Podziel.vtable to void (...)**
 	%this.vtable = getelementptr %Podziel, %Podziel* %this, i32 0, i32 0
@@ -185,17 +202,7 @@ Podziel.operator_entry:
 	%tmp. = sdiv i32 %a, %b
 	ret i32 %tmp.
 }
- ; --- Class Minus ---
-@Minus.vtable = global [2 x void (...)*] [
-	void (...)* bitcast (i32 (%Operator*)* @Operator.value to void (...)*) , ; value 
-	void (...)* bitcast (i32 (%Minus*, i32, i32)* @Minus.operator to void (...)*) ; operator 
-]
-
-%Minus = type { 
-	void (...)**; vtable
-	,%Node*; left 
-	,%Node*; right 
-	}
+ ; --- Class Minus methods ---
 define void @Minus.constructor(%Minus* %this) {
 	%this.class.vtable = bitcast [2 x void (...)*]* @Minus.vtable to void (...)**
 	%this.vtable = getelementptr %Minus, %Minus* %this, i32 0, i32 0

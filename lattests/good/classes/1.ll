@@ -7,6 +7,7 @@
 	,i32; elem 
 	,%list*; next 
 	}
+ ; --- Class list methods ---
 define void @list.constructor(%list* %this) {
 	%this.class.vtable = bitcast [0 x void (...)*]* @list.vtable to void (...)**
 	%this.vtable = getelementptr %list, %list* %this, i32 0, i32 0

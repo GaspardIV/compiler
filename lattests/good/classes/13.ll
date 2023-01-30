@@ -8,6 +8,7 @@
 	void (...)**; vtable
 	,i32; val 
 	}
+ ; --- Class Counter methods ---
 define void @Counter.constructor(%Counter* %this) {
 	%this.class.vtable = bitcast [2 x void (...)*]* @Counter.vtable to void (...)**
 	%this.vtable = getelementptr %Counter, %Counter* %this, i32 0, i32 0

@@ -1,5 +1,6 @@
 package latte.backend.program.global.classes;
 
+import latte.backend.program.global.Function;
 import latte.backend.programvisitors.MethodPointerType;
 
 import java.util.HashMap;
@@ -44,5 +45,9 @@ public class LLVMClassVTable {
 
     public MethodPointerType getMethodType(String methodName) {
         return new MethodPointerType(methodPointers.get(methodName).getLLVMType());
+    }
+
+    public Function getMethod(String method) {
+        return methodPointers.get(method);
     }
 }
