@@ -8,8 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="readme.md">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="readme.md i incr length">
       <change beforePath="$PROJECT_DIR$/lattests/good/classes/16.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/16.bc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/classes/16.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/16.lat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/classes/16.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/16.ll" afterDir="false" />
@@ -43,7 +42,6 @@
       <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/for_optimizations_testing.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/for_optimizations_testing.lat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/param_passing_method_class_derived.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/param_passing_method_class_derived.lat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/StmtChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/StmtChecker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -497,14 +495,7 @@
       <workItem from="1674904311086" duration="3234000" />
       <workItem from="1674909211526" duration="5600000" />
       <workItem from="1674975608978" duration="46834000" />
-      <workItem from="1675038152134" duration="34238000" />
-    </task>
-    <task id="LOCAL-00078" summary="41/50 dziala while">
-      <created>1672941887719</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1672941887720</updated>
+      <workItem from="1675038152134" duration="34857000" />
     </task>
     <task id="LOCAL-00079" summary="41/50 refactor">
       <created>1673054175858</created>
@@ -842,7 +833,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675084879891</updated>
     </task>
-    <option name="localTasksCounter" value="127" />
+    <task id="LOCAL-00127" summary="readme.md i incr length">
+      <created>1675086217518</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1675086217518</updated>
+    </task>
+    <option name="localTasksCounter" value="128" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -930,7 +928,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Prepare PostProcessor" />
     <MESSAGE value="gcse" />
     <MESSAGE value="remove empty blocks" />
     <MESSAGE value="Klasy poczatek" />
@@ -955,7 +952,8 @@
     <MESSAGE value="usuniecie nila, przygotowanie do  oddania" />
     <MESSAGE value="dodanie zmian do Makefile" />
     <MESSAGE value="readme.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="readme.md" />
+    <MESSAGE value="readme.md i incr length" />
+    <option name="LAST_COMMIT_MESSAGE" value="readme.md i incr length" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

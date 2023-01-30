@@ -5,14 +5,14 @@ Testy te bardzo mi pomogły w pozbyciu sie błędów z instrukcji phi - zwłaszc
 
 Gramatyka ma 6 konfliktow shift/reduce. 1 konflikt przyszedl z wraz z gramatyka źródłową.
 
-5 konfliktow bierze sie z nastepujacych linijek i chodzi w nich o tą kolizje ident-ident i ident-Expr6.
+5 konfliktow bierze sie z nastepujacych linijek i chodzi w nich o te kolizje ident-ident i ident-Expr6.
 - EArrayElem. Expr7 ::= Expr6 "[" Expr "]";
 - EArrayElemR. Expr7 ::= Ident "[" Expr "]";
 - ENull.      Expr6 ::= "(" Ident ")" "null";
 - EVar.      Expr6 ::= Ident ; 
 
 
-# Optymalizacje uwzgledniaja:
+# Optymalizacje uwzględniają:
 - zwijanie stalych
 - propagacja stalych
 - propagacja kopii
@@ -23,7 +23,7 @@ Gramatyka ma 6 konfliktow shift/reduce. 1 konflikt przyszedl z wraz z gramatyka 
   - if(const), while(const)
 - usuwanie pustych i niepotrzebnych blokow
   - (uznalem za potrzebne te co biorą udział w jakichs phi)
-  - daloby sie usunąć ich jeszcze więcej, ale to pracochłonne
+  - daloby sie usunąć ich jeszcze więcej, ale wolałem mieć pewność, że nie usuwam za dużo.
 - GCSE (5)
 
 # Rozszerzenia uwzgledniaja
@@ -35,20 +35,20 @@ Gramatyka ma 6 konfliktow shift/reduce. 1 konflikt przyszedl z wraz z gramatyka 
 
 Optymalizacje GCSE, usuwanie martwego kodu(zmiennych), usuwanie niepotrzebnych blokow sa realizowane na wygenerowanym juz kodzie czworkowym w klasie `PostProcessor`. 
 Propagacja kopii, stałych i zwijanie sa na etapie generacji kodu w backendzie.
-Kod realizujacy klasy w wiekszosci znajduje sie - `latte.backend.program.global.classes` i `RegisterExprVisitor`.
+Kod realizujacy klasy w wiekszosci znajduje sie w folderze `latte.backend.program.global.classes`, oraz klasie `RegisterExprVisitor`.
 Kod implementujacy tablice w calosci znajduje sie w `RegisterExprVisitor`.
 
 Gdybym mógł zrobić coś inaczej w projekcie to na pewno bym wykonał zwijanie stałych i ich propagacje, tłumaczenie niektórych wyrażeń (np. for) na etapie frontendu. 
 Było to bardzo utrudnione przez generowanie javowych klas wprost z gramatyki, gdyz posiadaly niemodyfikowalne zmienne typu final.
-Ale mimo wszystko wykonywalne - należałoby zbudować od nowa swoje drzewo AST. Przysporzyło mi to bardzo dużo problemów. 
+Ale mimo wszystko wykonywalne - należałoby zbudować od nowa swoje drzewo AST. Kurczowe trzymanie się wygenerowanej przez bnfc postaci drzewa przysporzyło mi to bardzo dużo problemów i oszpeciło kod. 
 
 W tablicy na ujemnych bajtach od wskaznika trzymam length. Tablice sa wielowymiarowe.
 
 Jestem zadowolony z GCSE i kodu realizujacego wirtualne metody - były to wyzwania dające dużo satysfakcji i zrozumienia tematu. 
 
-Nie jestem zadowolony z jakości kodu jaki oddaje - niestety czas naglił i odpuszczałem sobie refaktoryzacje. 
+Nie jestem zadowolony z jakości kodu jaki oddaje - niestety czas naglił i odpuszczałem sobie miejscami refaktoryzacje. 
 
-W petli for, iterator jest prawostronny - nie jest mozliwe cos takiego:
+W petli for, iterator jest prawostronny - nie jest możliwe zatem coś takiego:
 ```
     int [][]x;
     x = new int[][2];
@@ -103,7 +103,8 @@ sie pliki zrodlowe z podzialem na paczki:
 
 Zmienne inicjalizowane są na domyślne wartości - int -> 0, bool -> false, string -> "".
 Funkcja error jest traktowana jako poprawne wyjście z funkcji (tez takiej zwracającej coś innego niż void).
-Frontend uwzglednia rozszerzenia: tablice, klasy + dziedziczenie + wirtualne metody.
 Frontend nie pozwala na field shadowing, natomiast pisząc backend brałem pod uwage taka ewentualność.
+
 Zapozyczenia:
+
 Niektóre funkcje runtime (readInt, printInt, printString) są wzięte z pliku `runtime.ll` z katalogu `/home/students/inf/PUBLIC/MRJP/Llvm`.
