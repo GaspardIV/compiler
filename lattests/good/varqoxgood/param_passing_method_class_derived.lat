@@ -64,7 +64,7 @@ class PP {
 		i5.ss = "bmj";
 		printClass(i5);
 		i5 = new A;
-		printClass(i5);
+		printClass(i5);f
 		i5 = new B;
 		printClass(i5);
 	}

@@ -4,7 +4,11 @@ class C {
 }
 
 void tester() {
-	(new C[1])[2].fld = null;
+	//(new C[1])[2].fld = null;
+	C c = new C;
+	c.fld = new int[10];
+	;c.fld[1] = 5;
+	;printInt(c.fld[1]);
 }
 int main() {
 	return 0;

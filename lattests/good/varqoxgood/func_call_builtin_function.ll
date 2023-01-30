@@ -1,7 +1,16 @@
 @.str.str0 = private unnamed_addr constant [8 x i8] c"abc\0Axyz\00", align 1 ; --- Class X ---
+@X.vtable = global [1 x void (...)*] [
+	void (...)* bitcast (void (%X*)* @X.foo to void (...)*) ; foo 
+]
+
 %X = type { 
-}
+	void (...)**; vtable
+	}
+ ; --- Class X methods ---
 define void @X.constructor(%X* %this) {
+	%this.class.vtable = bitcast [1 x void (...)*]* @X.vtable to void (...)**
+	%this.vtable = getelementptr %X, %X* %this, i32 0, i32 0
+	store void (...)** %this.class.vtable, void (...)*** %this.vtable
 	ret void
 }
 
@@ -15,10 +24,12 @@ X.foo_entry:
 	call void @printInt(i32 %tmp..4)
 	call void @printString(i8* %tmp..5)
 	%tmp..11 = icmp eq i32 %tmp..4, 0
-	br i1 %tmp..11, label %X.foo.1_if.true, label %X.foo.3_if.end
+	br i1 %tmp..11, label %X.foo.1_if.true, label %X.foo.2_if.false
 X.foo.1_if.true:
 	call void @error()
 	ret void
+X.foo.2_if.false:
+	br label %X.foo.3_if.end
 X.foo.3_if.end:
 	ret void
 }
@@ -33,15 +44,22 @@ main_entry:
 	call void @printInt(i32 %tmp..4)
 	call void @printString(i8* %tmp..5)
 	%tmp..11 = icmp eq i32 %tmp..4, 0
-	br i1 %tmp..11, label %main.1_if.true, label %main.3_if.end
+	br i1 %tmp..11, label %main.1_if.true, label %main.2_if.false
 main.1_if.true:
 	call void @error()
 	ret i32 0
+main.2_if.false:
+	br label %main.3_if.end
 main.3_if.end:
 	%tmp..14 = call i8* @malloc(i32 0)
 	%tmp..15 = bitcast i8* %tmp..14 to %X*
 	call void @X.constructor(%X* %tmp..15)
-	call void @X.foo(%X* %tmp..15)
+	%tmp..17 = getelementptr %X, %X* %tmp..15, i32 0, i32 0
+	%tmp..18 = load void (...)**, void (...)*** %tmp..17
+	%tmp..19 = getelementptr void (...)*, void (...)** %tmp..18, i32 0
+	%tmp..20 = bitcast void (...)** %tmp..19 to void (%X*)**
+	%tmp..21 = load void (%X*)*, void (%X*)** %tmp..20
+	call void %tmp..21(%X* %tmp..15)
 	ret i32 0
 }
 

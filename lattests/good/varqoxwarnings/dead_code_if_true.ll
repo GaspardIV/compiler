@@ -1,5 +1,9 @@
 
 define i32 @main() { 
+main_entry:
+	br label %main.1_if.true
+main.1_if.true:
+	br label %main.3_if.end
 main.3_if.end:
 	ret i32 0
 }

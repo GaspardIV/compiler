@@ -267,6 +267,9 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block>
     @Override
     public List<Quadruple> visit(EApp p, Block block) {
         Function function = Global.getInstance().getFunction(p.ident_);
+        if (function == null) {
+            return new EMethod(new EVar("self"), p.ident_, p.listexpr_).accept(this, block);
+        }
         function.markAsUsed();
         List<Quadruple> quadruples = new ArrayList<>();
         List<Register> registers = new ArrayList<>();

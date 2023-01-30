@@ -158,57 +158,63 @@ main_entry:
 	%tmp..11 = getelementptr void (...)*, void (...)** %tmp..10, i32 0
 	%tmp..12 = bitcast void (...)** %tmp..11 to void (%Point2*, i32, i32)**
 	%tmp..13 = load void (%Point2*, i32, i32)*, void (%Point2*, i32, i32)** %tmp..12
-	call void %tmp..13(%Point3* %tmp..4, i32 2, i32 4)
-	%tmp..18 = load void (...)**, void (...)*** %tmp..9
-	%tmp..19 = getelementptr void (...)*, void (...)** %tmp..18, i32 3
-	%tmp..20 = bitcast void (...)** %tmp..19 to void (%Point3*, i32)**
-	%tmp..21 = load void (%Point3*, i32)*, void (%Point3*, i32)** %tmp..20
-	call void %tmp..21(%Point3* %tmp..4, i32 7)
-	%tmp..25 = load void (...)**, void (...)*** %tmp..9
-	%tmp..26 = getelementptr void (...)*, void (...)** %tmp..25, i32 0
-	%tmp..27 = bitcast void (...)** %tmp..26 to void (%Point2*, i32, i32)**
-	%tmp..28 = load void (%Point2*, i32, i32)*, void (%Point2*, i32, i32)** %tmp..27
-	call void %tmp..28(%Point3* %tmp..4, i32 3, i32 5)
-	%tmp..32 = getelementptr %Point4, %Point4* %tmp..7, i32 0, i32 0
-	%tmp..33 = load void (...)**, void (...)*** %tmp..32
-	%tmp..34 = getelementptr void (...)*, void (...)** %tmp..33, i32 0
-	%tmp..35 = bitcast void (...)** %tmp..34 to void (%Point2*, i32, i32)**
-	%tmp..36 = load void (%Point2*, i32, i32)*, void (%Point2*, i32, i32)** %tmp..35
-	call void %tmp..36(%Point4* %tmp..7, i32 1, i32 3)
-	%tmp..41 = load void (...)**, void (...)*** %tmp..32
-	%tmp..42 = getelementptr void (...)*, void (...)** %tmp..41, i32 3
-	%tmp..43 = bitcast void (...)** %tmp..42 to void (%Point3*, i32)**
-	%tmp..44 = load void (%Point3*, i32)*, void (%Point3*, i32)** %tmp..43
-	call void %tmp..44(%Point4* %tmp..7, i32 6)
-	%tmp..48 = load void (...)**, void (...)*** %tmp..32
-	%tmp..49 = getelementptr void (...)*, void (...)** %tmp..48, i32 5
-	%tmp..50 = bitcast void (...)** %tmp..49 to void (%Point4*, i32)**
-	%tmp..51 = load void (%Point4*, i32)*, void (%Point4*, i32)** %tmp..50
-	call void %tmp..51(%Point4* %tmp..7, i32 2)
-	%tmp..55 = load void (...)**, void (...)*** %tmp..9
-	%tmp..56 = getelementptr void (...)*, void (...)** %tmp..55, i32 1
-	%tmp..57 = bitcast void (...)** %tmp..56 to i32 (%Point2*)**
-	%tmp..58 = load i32 (%Point2*)*, i32 (%Point2*)** %tmp..57
-	%tmp..59 = call i32 %tmp..58(%Point3* %tmp..4)
-	call void @printInt(i32 %tmp..59)
-	%tmp..62 = load void (...)**, void (...)*** %tmp..9
-	%tmp..63 = getelementptr void (...)*, void (...)** %tmp..62, i32 2
-	%tmp..64 = bitcast void (...)** %tmp..63 to i32 (%Point2*)**
-	%tmp..65 = load i32 (%Point2*)*, i32 (%Point2*)** %tmp..64
-	%tmp..66 = call i32 %tmp..65(%Point3* %tmp..4)
-	call void @printInt(i32 %tmp..66)
-	%tmp..69 = load void (...)**, void (...)*** %tmp..9
-	%tmp..70 = getelementptr void (...)*, void (...)** %tmp..69, i32 4
-	%tmp..71 = bitcast void (...)** %tmp..70 to i32 (%Point3*)**
-	%tmp..72 = load i32 (%Point3*)*, i32 (%Point3*)** %tmp..71
-	%tmp..73 = call i32 %tmp..72(%Point3* %tmp..4)
-	call void @printInt(i32 %tmp..73)
-	%tmp..76 = load void (...)**, void (...)*** %tmp..32
-	%tmp..77 = getelementptr void (...)*, void (...)** %tmp..76, i32 6
-	%tmp..78 = bitcast void (...)** %tmp..77 to i32 (%Point4*)**
-	%tmp..79 = load i32 (%Point4*)*, i32 (%Point4*)** %tmp..78
-	%tmp..80 = call i32 %tmp..79(%Point4* %tmp..7)
-	call void @printInt(i32 %tmp..80)
+	%tmp..14 = bitcast %Point3* %tmp..4 to %Point2*
+	call void %tmp..13(%Point2* %tmp..14, i32 2, i32 4)
+	%tmp..19 = load void (...)**, void (...)*** %tmp..9
+	%tmp..20 = getelementptr void (...)*, void (...)** %tmp..19, i32 3
+	%tmp..21 = bitcast void (...)** %tmp..20 to void (%Point3*, i32)**
+	%tmp..22 = load void (%Point3*, i32)*, void (%Point3*, i32)** %tmp..21
+	call void %tmp..22(%Point3* %tmp..4, i32 7)
+	%tmp..26 = load void (...)**, void (...)*** %tmp..9
+	%tmp..27 = getelementptr void (...)*, void (...)** %tmp..26, i32 0
+	%tmp..28 = bitcast void (...)** %tmp..27 to void (%Point2*, i32, i32)**
+	%tmp..29 = load void (%Point2*, i32, i32)*, void (%Point2*, i32, i32)** %tmp..28
+	%tmp..30 = bitcast %Point3* %tmp..4 to %Point2*
+	call void %tmp..29(%Point2* %tmp..30, i32 3, i32 5)
+	%tmp..34 = getelementptr %Point4, %Point4* %tmp..7, i32 0, i32 0
+	%tmp..35 = load void (...)**, void (...)*** %tmp..34
+	%tmp..36 = getelementptr void (...)*, void (...)** %tmp..35, i32 0
+	%tmp..37 = bitcast void (...)** %tmp..36 to void (%Point2*, i32, i32)**
+	%tmp..38 = load void (%Point2*, i32, i32)*, void (%Point2*, i32, i32)** %tmp..37
+	%tmp..39 = bitcast %Point4* %tmp..7 to %Point2*
+	call void %tmp..38(%Point2* %tmp..39, i32 1, i32 3)
+	%tmp..44 = load void (...)**, void (...)*** %tmp..34
+	%tmp..45 = getelementptr void (...)*, void (...)** %tmp..44, i32 3
+	%tmp..46 = bitcast void (...)** %tmp..45 to void (%Point3*, i32)**
+	%tmp..47 = load void (%Point3*, i32)*, void (%Point3*, i32)** %tmp..46
+	%tmp..48 = bitcast %Point4* %tmp..7 to %Point3*
+	call void %tmp..47(%Point3* %tmp..48, i32 6)
+	%tmp..52 = load void (...)**, void (...)*** %tmp..34
+	%tmp..53 = getelementptr void (...)*, void (...)** %tmp..52, i32 5
+	%tmp..54 = bitcast void (...)** %tmp..53 to void (%Point4*, i32)**
+	%tmp..55 = load void (%Point4*, i32)*, void (%Point4*, i32)** %tmp..54
+	call void %tmp..55(%Point4* %tmp..7, i32 2)
+	%tmp..59 = load void (...)**, void (...)*** %tmp..9
+	%tmp..60 = getelementptr void (...)*, void (...)** %tmp..59, i32 1
+	%tmp..61 = bitcast void (...)** %tmp..60 to i32 (%Point2*)**
+	%tmp..62 = load i32 (%Point2*)*, i32 (%Point2*)** %tmp..61
+	%tmp..63 = bitcast %Point3* %tmp..4 to %Point2*
+	%tmp..64 = call i32 %tmp..62(%Point2* %tmp..63)
+	call void @printInt(i32 %tmp..64)
+	%tmp..67 = load void (...)**, void (...)*** %tmp..9
+	%tmp..68 = getelementptr void (...)*, void (...)** %tmp..67, i32 2
+	%tmp..69 = bitcast void (...)** %tmp..68 to i32 (%Point2*)**
+	%tmp..70 = load i32 (%Point2*)*, i32 (%Point2*)** %tmp..69
+	%tmp..71 = bitcast %Point3* %tmp..4 to %Point2*
+	%tmp..72 = call i32 %tmp..70(%Point2* %tmp..71)
+	call void @printInt(i32 %tmp..72)
+	%tmp..75 = load void (...)**, void (...)*** %tmp..9
+	%tmp..76 = getelementptr void (...)*, void (...)** %tmp..75, i32 4
+	%tmp..77 = bitcast void (...)** %tmp..76 to i32 (%Point3*)**
+	%tmp..78 = load i32 (%Point3*)*, i32 (%Point3*)** %tmp..77
+	%tmp..79 = call i32 %tmp..78(%Point3* %tmp..4)
+	call void @printInt(i32 %tmp..79)
+	%tmp..82 = load void (...)**, void (...)*** %tmp..34
+	%tmp..83 = getelementptr void (...)*, void (...)** %tmp..82, i32 6
+	%tmp..84 = bitcast void (...)** %tmp..83 to i32 (%Point4*)**
+	%tmp..85 = load i32 (%Point4*)*, i32 (%Point4*)** %tmp..84
+	%tmp..86 = call i32 %tmp..85(%Point4* %tmp..7)
+	call void @printInt(i32 %tmp..86)
 	ret i32 0
 }
 

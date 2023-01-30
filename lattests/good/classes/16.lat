@@ -34,7 +34,7 @@ class  A {
     int a;
     int b;
 
-    public int getA() {
+    int getA() {
         return a;
     }
 }
@@ -43,7 +43,7 @@ class B extends A {
     int a;
     int b;
 
-    public int getA() {
+    int getA() {
         return a;
     }
 }

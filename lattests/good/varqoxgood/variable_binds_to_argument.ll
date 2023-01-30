@@ -1,7 +1,7 @@
 
 define i32 @main() { 
 main_entry:
-	ret i32 42
+	ret i32 0
 }
 
 

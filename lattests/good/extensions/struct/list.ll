@@ -1,12 +1,20 @@
  ; --- Class list ---
+@list.vtable = global [0 x void (...)*] [
+]
+
 %list = type { 
-	i32, ; elem 
-	%list*; next 
-}
+	void (...)**; vtable
+	,i32; elem 
+	,%list*; next 
+	}
+ ; --- Class list methods ---
 define void @list.constructor(%list* %this) {
-	%elem = getelementptr %list, %list* %this, i32 0, i32 0
+	%this.class.vtable = bitcast [0 x void (...)*]* @list.vtable to void (...)**
+	%this.vtable = getelementptr %list, %list* %this, i32 0, i32 0
+	store void (...)** %this.class.vtable, void (...)*** %this.vtable
+	%elem = getelementptr %list, %list* %this, i32 0, i32 1
 	store i32 0, i32* %elem
-	%next = getelementptr %list, %list* %this, i32 0, i32 1
+	%next = getelementptr %list, %list* %this, i32 0, i32 2
 	%nexttmp = bitcast i32* null to %list*
 	store %list* %nexttmp, %list** %next
 	ret void
@@ -23,7 +31,7 @@ length2.1_while.cond:
 	br i1 %tmp..4, label %length2.2_while.body, label %length2.3_while.end
 length2.2_while.body:
 	%tmp..6 = add i32 %res, 1
-	%tmp..7 = getelementptr %list, %list* %xs.1, i32 0, i32 1
+	%tmp..7 = getelementptr %list, %list* %xs.1, i32 0, i32 2
 	%tmp..8 = load %list*, %list** %tmp..7
 	br label %length2.1_while.cond
 length2.3_while.end:
@@ -38,7 +46,7 @@ length_entry:
 length.1_if.true:
 	ret i32 0
 length.2_if.false:
-	%tmp..6 = getelementptr %list, %list* %xs, i32 0, i32 1
+	%tmp..6 = getelementptr %list, %list* %xs, i32 0, i32 2
 	%tmp..7 = load %list*, %list** %tmp..6
 	%tmp..8 = call i32 @length(%list* %tmp..7)
 	%tmp..9 = add i32 1, %tmp..8
@@ -75,9 +83,9 @@ cons_entry:
 	%tmp..1 = call i8* @malloc(i32 96)
 	%tmp..2 = bitcast i8* %tmp..1 to %list*
 	call void @list.constructor(%list* %tmp..2)
-	%tmp..4 = getelementptr %list, %list* %tmp..2, i32 0, i32 0
+	%tmp..4 = getelementptr %list, %list* %tmp..2, i32 0, i32 1
 	store i32 %x, i32* %tmp..4
-	%tmp..5 = getelementptr %list, %list* %tmp..2, i32 0, i32 1
+	%tmp..5 = getelementptr %list, %list* %tmp..2, i32 0, i32 2
 	store %list* %xs, %list** %tmp..5
 	ret %list* %tmp..2
 }

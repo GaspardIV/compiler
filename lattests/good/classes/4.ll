@@ -231,7 +231,8 @@ minus_entry:
 	store %Node* %n1, %Node** %tmp..3
 	%tmp..4 = getelementptr %Minus, %Minus* %tmp..1, i32 0, i32 2
 	store %Node* %n2, %Node** %tmp..4
-	ret %Minus* %tmp..1
+	%tmp..5 = bitcast %Minus* %tmp..1 to %Node*
+	ret %Node* %tmp..5
 }
 
 define %Node* @liczba(i32 %l) { 
@@ -241,7 +242,8 @@ liczba_entry:
 	call void @Liczba.constructor(%Liczba* %tmp..1)
 	%tmp..3 = getelementptr %Liczba, %Liczba* %tmp..1, i32 0, i32 1
 	store i32 %l, i32* %tmp..3
-	ret %Liczba* %tmp..1
+	%tmp..4 = bitcast %Liczba* %tmp..1 to %Node*
+	ret %Node* %tmp..4
 }
 
 define %Node* @podziel(%Node* %n1, %Node* %n2) { 
@@ -253,7 +255,8 @@ podziel_entry:
 	store %Node* %n1, %Node** %tmp..3
 	%tmp..4 = getelementptr %Podziel, %Podziel* %tmp..1, i32 0, i32 2
 	store %Node* %n2, %Node** %tmp..4
-	ret %Podziel* %tmp..1
+	%tmp..5 = bitcast %Podziel* %tmp..1 to %Node*
+	ret %Node* %tmp..5
 }
 
 define i32 @main() { 
@@ -286,7 +289,8 @@ razy_entry:
 	store %Node* %n1, %Node** %tmp..3
 	%tmp..4 = getelementptr %Razy, %Razy* %tmp..1, i32 0, i32 2
 	store %Node* %n2, %Node** %tmp..4
-	ret %Razy* %tmp..1
+	%tmp..5 = bitcast %Razy* %tmp..1 to %Node*
+	ret %Node* %tmp..5
 }
 
 define %Node* @plus(%Node* %n1, %Node* %n2) { 
@@ -298,7 +302,8 @@ plus_entry:
 	store %Node* %n1, %Node** %tmp..3
 	%tmp..4 = getelementptr %Plus, %Plus* %tmp..1, i32 0, i32 2
 	store %Node* %n2, %Node** %tmp..4
-	ret %Plus* %tmp..1
+	%tmp..5 = bitcast %Plus* %tmp..1 to %Node*
+	ret %Node* %tmp..5
 }
 
 

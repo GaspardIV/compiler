@@ -1,7 +1,15 @@
  ; --- Class X ---
+@X.vtable = global [0 x void (...)*] [
+]
+
 %X = type { 
-}
+	void (...)**; vtable
+	}
+ ; --- Class X methods ---
 define void @X.constructor(%X* %this) {
+	%this.class.vtable = bitcast [0 x void (...)*]* @X.vtable to void (...)**
+	%this.vtable = getelementptr %X, %X* %this, i32 0, i32 0
+	store void (...)** %this.class.vtable, void (...)*** %this.vtable
 	ret void
 }
 
@@ -9,10 +17,12 @@ define void @foo(%X* %x) {
 foo_entry:
 	%tmp..2 = bitcast i32* null to %X*
 	%tmp..3 = icmp eq %X* %x, %tmp..2
-	br i1 %tmp..3, label %foo.1_if.true, label %foo.3_if.end
+	br i1 %tmp..3, label %foo.1_if.true, label %foo.2_if.false
 foo.1_if.true:
 	call void @error()
 	ret void
+foo.2_if.false:
+	br label %foo.3_if.end
 foo.3_if.end:
 	ret void
 }

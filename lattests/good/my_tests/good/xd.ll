@@ -50,11 +50,13 @@ inc.19_and:
 	br i1 %tmp..41, label %inc.15_if.true, label %inc.16_if.false
 inc.15_if.true:
 	call void @printInt(i32 1)
-	br label %inc.12_if.end
+	br label %inc.17_if.end
 inc.16_if.false:
 	%tmp..44 = mul i32 %k.1, %l.2
 	%tmp..45 = mul i32 %tmp..44, %m.3
 	call void @printInt(i32 %tmp..45)
+	br label %inc.17_if.end
+inc.17_if.end:
 	br label %inc.12_if.end
 inc.12_if.end:
 	%tmp..48 = add i32 %m.3, 1

@@ -141,7 +141,7 @@ main_entry:
 main.1_while.cond:
 	%i = phi i32 [0, %main_entry], [%tmp..15, %main.2_while.body]
 	%tmp..7 = icmp slt i32 %i, 10
-	br i1 %tmp..7, label %main.2_while.body, label %main.4_while.cond
+	br i1 %tmp..7, label %main.2_while.body, label %main.3_while.end
 main.2_while.body:
 	%tmp..8 = getelementptr %Stack, %Stack* %tmp..1, i32 0, i32 0
 	%tmp..9 = load void (...)**, void (...)*** %tmp..8
@@ -151,6 +151,8 @@ main.2_while.body:
 	call void %tmp..12(%Stack* %tmp..1, i32 %i)
 	%tmp..15 = add i32 %i, 1
 	br label %main.1_while.cond
+main.3_while.end:
+	br label %main.4_while.cond
 main.4_while.cond:
 	%tmp..23 = getelementptr %Stack, %Stack* %tmp..1, i32 0, i32 0
 	%tmp..24 = load void (...)**, void (...)*** %tmp..23

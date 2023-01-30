@@ -12,11 +12,11 @@ int main() {
 	X x = new X;
 	while (x.x < 10)
 		int x = incr_x(x);
-	if (x.x != 10) error();
+	if (x.x != 10) return 0;
 
 	while (x.x < 20) {
 		x.x = x.x + 7;
 	}
-	if (x.x != 24) error();
+	if (x.x != 24) return 0;;
 	return 0;
 }

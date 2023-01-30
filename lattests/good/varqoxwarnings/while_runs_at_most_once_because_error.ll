@@ -1,5 +1,7 @@
 
 define i32 @main() { 
+main_entry:
+	br label %main.1_while.cond
 main.1_while.cond:
 	%tmp..3 = call i32 @readInt()
 	%tmp..5 = icmp eq i32 %tmp..3, 42

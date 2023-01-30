@@ -196,10 +196,12 @@ Queue.get_entry:
 	%tmp..5 = load %List*, %List** %tmp..4
 	%tmp..6 = bitcast i32* null to %List*
 	%tmp..7 = icmp eq %List* %tmp..5, %tmp..6
-	br i1 %tmp..7, label %Queue.get.1_if.true, label %Queue.get.3_if.end
+	br i1 %tmp..7, label %Queue.get.1_if.true, label %Queue.get.2_if.false
 Queue.get.1_if.true:
 	%tmp..8 = bitcast i32* null to %Node*
 	ret %Node* %tmp..8
+Queue.get.2_if.false:
+	br label %Queue.get.3_if.end
 Queue.get.3_if.end:
 	%tmp..10 = load %List*, %List** %tmp..4
 	%tmp..11 = getelementptr %List, %List* %tmp..10, i32 0, i32 1
@@ -210,10 +212,12 @@ Queue.get.3_if.end:
 	store %List* %tmp..17, %List** %tmp..4
 	%tmp..23 = load %List*, %List** %tmp..4
 	%tmp..25 = icmp eq %List* %tmp..23, %tmp..6
-	br i1 %tmp..25, label %Queue.get.4_if.true, label %Queue.get.6_if.end
+	br i1 %tmp..25, label %Queue.get.4_if.true, label %Queue.get.5_if.false
 Queue.get.4_if.true:
 	%tmp..26 = getelementptr %Queue, %Queue* %self, i32 0, i32 2
 	store %List* %tmp..6, %List** %tmp..26
+	br label %Queue.get.6_if.end
+Queue.get.5_if.false:
 	br label %Queue.get.6_if.end
 Queue.get.6_if.end:
 	ret %Node* %tmp..12
@@ -468,7 +472,7 @@ bfs.4_while.cond:
 	%neigh = phi %List* [%tmp..31, %bfs.2_while.body], [%tmp..72, %bfs.9_if.end]
 	%tmp..34 = bitcast i32* null to %List*
 	%tmp..35 = icmp ne %List* %neigh, %tmp..34
-	br i1 %tmp..35, label %bfs.5_while.body, label %bfs.1_while.cond
+	br i1 %tmp..35, label %bfs.5_while.body, label %bfs.6_while.end
 bfs.5_while.body:
 	%tmp..36 = getelementptr %List, %List* %neigh, i32 0, i32 0
 	%tmp..37 = load void (...)**, void (...)*** %tmp..36
@@ -482,7 +486,7 @@ bfs.5_while.body:
 	%tmp..52 = bitcast void (...)** %tmp..51 to i1 (%Node*)**
 	%tmp..53 = load i1 (%Node*)*, i1 (%Node*)** %tmp..52
 	%tmp..54 = call i1 %tmp..53(%Node* %tmp..41)
-	br i1 %tmp..54, label %bfs.9_if.end, label %bfs.7_if.true
+	br i1 %tmp..54, label %bfs.8_if.false, label %bfs.7_if.true
 bfs.7_if.true:
 	%tmp..56 = load void (...)**, void (...)*** %tmp..49
 	%tmp..57 = getelementptr void (...)*, void (...)** %tmp..56, i32 2
@@ -495,6 +499,8 @@ bfs.7_if.true:
 	%tmp..65 = load void (%Queue*, %Node*)*, void (%Queue*, %Node*)** %tmp..64
 	call void %tmp..65(%Queue* %q, %Node* %tmp..41)
 	br label %bfs.9_if.end
+bfs.8_if.false:
+	br label %bfs.9_if.end
 bfs.9_if.end:
 	%tmp..68 = load void (...)**, void (...)*** %tmp..36
 	%tmp..69 = getelementptr void (...)*, void (...)** %tmp..68, i32 2
@@ -502,6 +508,8 @@ bfs.9_if.end:
 	%tmp..71 = load %List* (%List*)*, %List* (%List*)** %tmp..70
 	%tmp..72 = call %List* %tmp..71(%List* %neigh)
 	br label %bfs.4_while.cond
+bfs.6_while.end:
+	br label %bfs.1_while.cond
 bfs.3_while.end:
 	ret void
 }

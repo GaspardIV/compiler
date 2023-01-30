@@ -294,7 +294,7 @@ public class Utils {
     }
 
     public static Expr defaultValue(Type type) {
-        return type.equals(new Int()) ? new ELitInt(0) : type.equals(new Bool()) ? new ELitFalse() : (type instanceof Class) ? new ENull(((Class) type).ident_) : new EString("");
+        return type.equals(new Int()) ? new ELitInt(0) : type.equals(new Bool()) ? new ELitFalse() : (type instanceof Class) ? new ENull(((Class) type).ident_) : (type instanceof Array) ? new ENullArr(((Array) type).type_) : new EString("");
     }
 
     public static int getLLVMTypeSize(Type type_) {

@@ -2,7 +2,13 @@
 define i32 @main() { 
 main_entry:
 	%tmp. = call i1 @btrue()
-	br i1 %tmp., label %main.1_expr.true, label %main.3_expr.end
+	br i1 %tmp., label %main.4_and, label %main.2_expr.false
+main.4_and:
+	br label %main.1_expr.true
+main.1_expr.true:
+	br label %main.3_expr.end
+main.2_expr.false:
+	br label %main.3_expr.end
 main.3_expr.end:
 	ret i32 0
 }

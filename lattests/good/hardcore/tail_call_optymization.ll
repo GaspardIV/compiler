@@ -9,9 +9,11 @@ main_entry:
 define i32 @sum(i32 %z, i32 %a) { 
 sum_entry:
 	%tmp..3 = icmp eq i32 %z, 0
-	br i1 %tmp..3, label %sum.1_if.true, label %sum.3_if.end
+	br i1 %tmp..3, label %sum.1_if.true, label %sum.2_if.false
 sum.1_if.true:
 	ret i32 %a
+sum.2_if.false:
+	br label %sum.3_if.end
 sum.3_if.end:
 	%tmp..9 = srem i32 %z, 2
 	%tmp..11 = icmp eq i32 %tmp..9, 1

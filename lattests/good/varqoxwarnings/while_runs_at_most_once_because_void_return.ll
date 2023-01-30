@@ -1,5 +1,7 @@
 @.str.str0 = private unnamed_addr constant [2 x i8] c"x\00", align 1
 define void @test() { 
+test_entry:
+	br label %test.1_while.cond
 test.1_while.cond:
 	%tmp..5 = call i8* @readString()
 	%tmp..6 = getelementptr [2 x i8], [2 x i8]* @.str.str0, i32 0, i32 0

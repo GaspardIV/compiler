@@ -1,9 +1,20 @@
 @.str.str0 = private unnamed_addr constant [1 x i8] c"\00", align 1@.str.str6 = private unnamed_addr constant [4 x i8] c"abc\00", align 1@.str.str4 = private unnamed_addr constant [7 x i8] c"\0Atest2\00", align 1@.str.str5 = private unnamed_addr constant [7 x i8] c"\0Atest3\00", align 1@.str.str1 = private unnamed_addr constant [7 x i8] c"\0Atest1\00", align 1@.str.str7 = private unnamed_addr constant [5 x i8] c";efg\00", align 1@.str.str2 = private unnamed_addr constant [7 x i8] c"\0Atest4\00", align 1@.str.str3 = private unnamed_addr constant [7 x i8] c"\0Atest5\00", align 1 ; --- Class C ---
+@C.vtable = global [3 x void (...)*] [
+	void (...)* bitcast (i1 (%C*)* @C.empty to void (...)*) , ; empty 
+	void (...)* bitcast (void (%C*)* @C.print to void (...)*) , ; print 
+	void (...)* bitcast (void (%C*, i8*)* @C.extend to void (...)*) ; extend 
+]
+
 %C = type { 
-	i8*; s 
-}
+	void (...)**; vtable
+	,i8*; s 
+	}
+ ; --- Class C methods ---
 define void @C.constructor(%C* %this) {
-	%s = getelementptr %C, %C* %this, i32 0, i32 0
+	%this.class.vtable = bitcast [3 x void (...)*]* @C.vtable to void (...)**
+	%this.vtable = getelementptr %C, %C* %this, i32 0, i32 0
+	store void (...)** %this.class.vtable, void (...)*** %this.vtable
+	%s = getelementptr %C, %C* %this, i32 0, i32 1
 	%stmp = getelementptr [1 x i8], [1 x i8]* @.str.str0, i32 0, i32 0
 	store i8* %stmp, i8** %s
 	ret void
@@ -11,7 +22,7 @@ define void @C.constructor(%C* %this) {
 
 define void @C.extend(%C* %self, i8* %s) { 
 C.extend_entry:
-	%tmp. = getelementptr %C, %C* %self, i32 0, i32 0
+	%tmp. = getelementptr %C, %C* %self, i32 0, i32 1
 	%tmp..2 = load i8*, i8** %tmp.
 	%tmp..3 = call i8* @._concat(i8* %tmp..2, i8* %s)
 	store i8* %tmp..3, i8** %tmp.
@@ -20,7 +31,7 @@ C.extend_entry:
 
 define void @C.print(%C* %self) { 
 C.print_entry:
-	%tmp. = getelementptr %C, %C* %self, i32 0, i32 0
+	%tmp. = getelementptr %C, %C* %self, i32 0, i32 1
 	%tmp..1 = load i8*, i8** %tmp.
 	call void @printString(i8* %tmp..1)
 	ret void
@@ -28,7 +39,7 @@ C.print_entry:
 
 define i1 @C.empty(%C* %self) { 
 C.empty_entry:
-	%tmp. = getelementptr %C, %C* %self, i32 0, i32 0
+	%tmp. = getelementptr %C, %C* %self, i32 0, i32 1
 	%tmp..1 = load i8*, i8** %tmp.
 	%tmp..2 = getelementptr [1 x i8], [1 x i8]* @.str.str0, i32 0, i32 0
 	%tmp..3 = call i32 @._strcmp(i8* %tmp..1, i8* %tmp..2)
@@ -205,10 +216,12 @@ test3_entry:
 
 define void @assert(i1 %b) { 
 assert_entry:
-	br i1 %b, label %assert.3_if.end, label %assert.1_if.true
+	br i1 %b, label %assert.2_if.false, label %assert.1_if.true
 assert.1_if.true:
 	call void @error()
 	ret void
+assert.2_if.false:
+	br label %assert.3_if.end
 assert.3_if.end:
 	ret void
 }
@@ -218,21 +231,54 @@ test6_entry:
 	%tmp. = call i8* @malloc(i32 64)
 	%tmp..1 = bitcast i8* %tmp. to %C*
 	call void @C.constructor(%C* %tmp..1)
-	%tmp..3 = call i1 @C.empty(%C* %tmp..1)
-	call void @assert(i1 %tmp..3)
-	call void @C.print(%C* %tmp..1)
-	%tmp..6 = getelementptr [4 x i8], [4 x i8]* @.str.str6, i32 0, i32 0
-	call void @C.extend(%C* %tmp..1, i8* %tmp..6)
-	%tmp..8 = call i1 @C.empty(%C* %tmp..1)
-	%tmp..9 = xor i1 1, %tmp..8
-	call void @assert(i1 %tmp..9)
-	call void @C.print(%C* %tmp..1)
-	%tmp..12 = getelementptr [5 x i8], [5 x i8]* @.str.str7, i32 0, i32 0
-	call void @C.extend(%C* %tmp..1, i8* %tmp..12)
-	%tmp..14 = call i1 @C.empty(%C* %tmp..1)
-	%tmp..15 = xor i1 1, %tmp..14
-	call void @assert(i1 %tmp..15)
-	call void @C.print(%C* %tmp..1)
+	%tmp..3 = getelementptr %C, %C* %tmp..1, i32 0, i32 0
+	%tmp..4 = load void (...)**, void (...)*** %tmp..3
+	%tmp..5 = getelementptr void (...)*, void (...)** %tmp..4, i32 0
+	%tmp..6 = bitcast void (...)** %tmp..5 to i1 (%C*)**
+	%tmp..7 = load i1 (%C*)*, i1 (%C*)** %tmp..6
+	%tmp..8 = call i1 %tmp..7(%C* %tmp..1)
+	call void @assert(i1 %tmp..8)
+	%tmp..11 = load void (...)**, void (...)*** %tmp..3
+	%tmp..12 = getelementptr void (...)*, void (...)** %tmp..11, i32 1
+	%tmp..13 = bitcast void (...)** %tmp..12 to void (%C*)**
+	%tmp..14 = load void (%C*)*, void (%C*)** %tmp..13
+	call void %tmp..14(%C* %tmp..1)
+	%tmp..17 = load void (...)**, void (...)*** %tmp..3
+	%tmp..18 = getelementptr void (...)*, void (...)** %tmp..17, i32 2
+	%tmp..19 = bitcast void (...)** %tmp..18 to void (%C*, i8*)**
+	%tmp..20 = load void (%C*, i8*)*, void (%C*, i8*)** %tmp..19
+	%tmp..21 = getelementptr [4 x i8], [4 x i8]* @.str.str6, i32 0, i32 0
+	call void %tmp..20(%C* %tmp..1, i8* %tmp..21)
+	%tmp..24 = load void (...)**, void (...)*** %tmp..3
+	%tmp..25 = getelementptr void (...)*, void (...)** %tmp..24, i32 0
+	%tmp..26 = bitcast void (...)** %tmp..25 to i1 (%C*)**
+	%tmp..27 = load i1 (%C*)*, i1 (%C*)** %tmp..26
+	%tmp..28 = call i1 %tmp..27(%C* %tmp..1)
+	%tmp..29 = xor i1 1, %tmp..28
+	call void @assert(i1 %tmp..29)
+	%tmp..32 = load void (...)**, void (...)*** %tmp..3
+	%tmp..33 = getelementptr void (...)*, void (...)** %tmp..32, i32 1
+	%tmp..34 = bitcast void (...)** %tmp..33 to void (%C*)**
+	%tmp..35 = load void (%C*)*, void (%C*)** %tmp..34
+	call void %tmp..35(%C* %tmp..1)
+	%tmp..38 = load void (...)**, void (...)*** %tmp..3
+	%tmp..39 = getelementptr void (...)*, void (...)** %tmp..38, i32 2
+	%tmp..40 = bitcast void (...)** %tmp..39 to void (%C*, i8*)**
+	%tmp..41 = load void (%C*, i8*)*, void (%C*, i8*)** %tmp..40
+	%tmp..42 = getelementptr [5 x i8], [5 x i8]* @.str.str7, i32 0, i32 0
+	call void %tmp..41(%C* %tmp..1, i8* %tmp..42)
+	%tmp..45 = load void (...)**, void (...)*** %tmp..3
+	%tmp..46 = getelementptr void (...)*, void (...)** %tmp..45, i32 0
+	%tmp..47 = bitcast void (...)** %tmp..46 to i1 (%C*)**
+	%tmp..48 = load i1 (%C*)*, i1 (%C*)** %tmp..47
+	%tmp..49 = call i1 %tmp..48(%C* %tmp..1)
+	%tmp..50 = xor i1 1, %tmp..49
+	call void @assert(i1 %tmp..50)
+	%tmp..53 = load void (...)**, void (...)*** %tmp..3
+	%tmp..54 = getelementptr void (...)*, void (...)** %tmp..53, i32 1
+	%tmp..55 = bitcast void (...)** %tmp..54 to void (%C*)**
+	%tmp..56 = load void (%C*)*, void (%C*)** %tmp..55
+	call void %tmp..56(%C* %tmp..1)
 	ret void
 }
 

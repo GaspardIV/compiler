@@ -1,48 +1,53 @@
-@dnl = internal constant [4 x i8] c"%d\0A\00"
-@d   = internal constant [3 x i8] c"%d\00"
-@runtime_error = internal constant [15 x i8] c"runtime error\0A\00"
+ ; --- Class X ---
+@X.vtable = global [2 x void (...)*] [
+	void (...)* bitcast (void (%X*)* @X.foo to void (...)*) , ; foo 
+	void (...)* bitcast (void (%X*, i32)* @X.bar to void (...)*) ; bar 
+]
 
-declare i32 @printf(i8*, ...)
-declare i32 @scanf(i8*, ...)
-declare i8* @readline(i8*)
-declare i32 @puts(i8*)
-declare void @exit(i32)
-
-define void @printInt(i32 %x) {
-       %t0 = getelementptr [4 x i8], [4 x i8]* @dnl, i32 0, i32 0
-       call i32 (i8*, ...) @printf(i8* %t0, i32 %x)
-       ret void
-}
-
-
-define void @printString(i8* %s) {
-entry:  call i32 @puts(i8* %s)
+%X = type { 
+	void (...)**; vtable
+	}
+ ; --- Class X methods ---
+define void @X.constructor(%X* %this) {
+	%this.class.vtable = bitcast [2 x void (...)*]* @X.vtable to void (...)**
+	%this.vtable = getelementptr %X, %X* %this, i32 0, i32 0
+	store void (...)** %this.class.vtable, void (...)*** %this.vtable
 	ret void
 }
 
-define i32 @readInt() {
-entry:	%res = alloca i32
-        %t1 = getelementptr [3 x i8], [3 x i8]* @d, i32 0, i32 0
-	call i32 (i8*, ...) @scanf(i8* %t1, i32* %res)
-	%t2 = load i32, i32* %res
-	ret i32 %t2
+define void @X.bar(%X* %self, i32 %x) { 
+X.bar_entry:
+	ret void
 }
 
-define i8* @readString() {
-entry:	%t1 = alloca i8
-    %t2 = call i8* @readline(i8* %t1)
-    ret i8* %t2
+define void @X.foo(%X* %self) { 
+X.foo_entry:
+	%tmp. = getelementptr %X, %X* %self, i32 0, i32 0
+	%tmp..1 = load void (...)**, void (...)*** %tmp.
+	%tmp..2 = getelementptr void (...)*, void (...)** %tmp..1, i32 1
+	%tmp..3 = bitcast void (...)** %tmp..2 to void (%X*, i32)**
+	%tmp..4 = load void (%X*, i32)*, void (%X*, i32)** %tmp..3
+	call void %tmp..4(%X* %self, i32 42)
+	ret void
 }
-
-
-define void @error() {
-    %t0 = getelementptr [15 x i8], [15 x i8]* @runtime_error, i32 0, i32 0
-    call void @printString(i8* %t0)
-    call void @exit(i32 1)
-    ret void
-}
-
 
 define i32 @main() { 
-[]
+main_entry:
+	%tmp. = call i8* @malloc(i32 0)
+	%tmp..1 = bitcast i8* %tmp. to %X*
+	call void @X.constructor(%X* %tmp..1)
+	%tmp..3 = getelementptr %X, %X* %tmp..1, i32 0, i32 0
+	%tmp..4 = load void (...)**, void (...)*** %tmp..3
+	%tmp..5 = getelementptr void (...)*, void (...)** %tmp..4, i32 0
+	%tmp..6 = bitcast void (...)** %tmp..5 to void (%X*)**
+	%tmp..7 = load void (%X*)*, void (%X*)** %tmp..6
+	call void %tmp..7(%X* %tmp..1)
+	ret i32 0
 }
+
+
+; ====================================================
+; ====================================================
+; ====================================================
+
+declare i8* @malloc(i32)

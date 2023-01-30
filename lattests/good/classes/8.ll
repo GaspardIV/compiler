@@ -249,57 +249,60 @@ main_entry:
 	%tmp..12 = call i8* @malloc(i32 0)
 	%tmp..13 = bitcast i8* %tmp..12 to %Rectangle*
 	call void @Rectangle.constructor(%Rectangle* %tmp..13)
-	%tmp..16 = load void (...)**, void (...)*** %tmp..6
-	%tmp..17 = getelementptr void (...)*, void (...)** %tmp..16, i32 0
-	%tmp..18 = bitcast void (...)** %tmp..17 to void (%Stack*, %Shape*)**
-	%tmp..19 = load void (%Stack*, %Shape*)*, void (%Stack*, %Shape*)** %tmp..18
-	call void %tmp..19(%Stack* %tmp..1, %Rectangle* %tmp..13)
-	%tmp..21 = call i8* @malloc(i32 0)
-	%tmp..22 = bitcast i8* %tmp..21 to %Square*
-	call void @Square.constructor(%Square* %tmp..22)
-	%tmp..25 = load void (...)**, void (...)*** %tmp..6
-	%tmp..26 = getelementptr void (...)*, void (...)** %tmp..25, i32 0
-	%tmp..27 = bitcast void (...)** %tmp..26 to void (%Stack*, %Shape*)**
-	%tmp..28 = load void (%Stack*, %Shape*)*, void (%Stack*, %Shape*)** %tmp..27
-	call void %tmp..28(%Stack* %tmp..1, %Square* %tmp..22)
-	%tmp..30 = call i8* @malloc(i32 0)
-	%tmp..31 = bitcast i8* %tmp..30 to %Circle*
-	call void @Circle.constructor(%Circle* %tmp..31)
-	%tmp..34 = load void (...)**, void (...)*** %tmp..6
-	%tmp..35 = getelementptr void (...)*, void (...)** %tmp..34, i32 0
-	%tmp..36 = bitcast void (...)** %tmp..35 to void (%Stack*, %Shape*)**
-	%tmp..37 = load void (%Stack*, %Shape*)*, void (%Stack*, %Shape*)** %tmp..36
-	call void %tmp..37(%Stack* %tmp..1, %Circle* %tmp..31)
+	%tmp..15 = bitcast %Rectangle* %tmp..13 to %Shape*
+	%tmp..17 = load void (...)**, void (...)*** %tmp..6
+	%tmp..18 = getelementptr void (...)*, void (...)** %tmp..17, i32 0
+	%tmp..19 = bitcast void (...)** %tmp..18 to void (%Stack*, %Shape*)**
+	%tmp..20 = load void (%Stack*, %Shape*)*, void (%Stack*, %Shape*)** %tmp..19
+	call void %tmp..20(%Stack* %tmp..1, %Shape* %tmp..15)
+	%tmp..22 = call i8* @malloc(i32 0)
+	%tmp..23 = bitcast i8* %tmp..22 to %Square*
+	call void @Square.constructor(%Square* %tmp..23)
+	%tmp..25 = bitcast %Square* %tmp..23 to %Shape*
+	%tmp..27 = load void (...)**, void (...)*** %tmp..6
+	%tmp..28 = getelementptr void (...)*, void (...)** %tmp..27, i32 0
+	%tmp..29 = bitcast void (...)** %tmp..28 to void (%Stack*, %Shape*)**
+	%tmp..30 = load void (%Stack*, %Shape*)*, void (%Stack*, %Shape*)** %tmp..29
+	call void %tmp..30(%Stack* %tmp..1, %Shape* %tmp..25)
+	%tmp..32 = call i8* @malloc(i32 0)
+	%tmp..33 = bitcast i8* %tmp..32 to %Circle*
+	call void @Circle.constructor(%Circle* %tmp..33)
+	%tmp..35 = bitcast %Circle* %tmp..33 to %Shape*
+	%tmp..37 = load void (...)**, void (...)*** %tmp..6
+	%tmp..38 = getelementptr void (...)*, void (...)** %tmp..37, i32 0
+	%tmp..39 = bitcast void (...)** %tmp..38 to void (%Stack*, %Shape*)**
+	%tmp..40 = load void (%Stack*, %Shape*)*, void (%Stack*, %Shape*)** %tmp..39
+	call void %tmp..40(%Stack* %tmp..1, %Shape* %tmp..35)
 	br label %main.1_while.cond
 main.1_while.cond:
-	%tmp..47 = load void (...)**, void (...)*** %tmp..6
-	%tmp..48 = getelementptr void (...)*, void (...)** %tmp..47, i32 1
-	%tmp..49 = bitcast void (...)** %tmp..48 to i1 (%Stack*)**
-	%tmp..50 = load i1 (%Stack*)*, i1 (%Stack*)** %tmp..49
-	%tmp..51 = call i1 %tmp..50(%Stack* %tmp..1)
-	br i1 %tmp..51, label %main.3_while.end, label %main.2_while.body
+	%tmp..50 = load void (...)**, void (...)*** %tmp..6
+	%tmp..51 = getelementptr void (...)*, void (...)** %tmp..50, i32 1
+	%tmp..52 = bitcast void (...)** %tmp..51 to i1 (%Stack*)**
+	%tmp..53 = load i1 (%Stack*)*, i1 (%Stack*)** %tmp..52
+	%tmp..54 = call i1 %tmp..53(%Stack* %tmp..1)
+	br i1 %tmp..54, label %main.3_while.end, label %main.2_while.body
 main.2_while.body:
-	%tmp..53 = load void (...)**, void (...)*** %tmp..6
-	%tmp..54 = getelementptr void (...)*, void (...)** %tmp..53, i32 2
-	%tmp..55 = bitcast void (...)** %tmp..54 to %Shape* (%Stack*)**
-	%tmp..56 = load %Shape* (%Stack*)*, %Shape* (%Stack*)** %tmp..55
-	%tmp..57 = call %Shape* %tmp..56(%Stack* %tmp..1)
-	%tmp..58 = getelementptr %Shape, %Shape* %tmp..57, i32 0, i32 0
-	%tmp..59 = load void (...)**, void (...)*** %tmp..58
-	%tmp..60 = getelementptr void (...)*, void (...)** %tmp..59, i32 0
-	%tmp..61 = bitcast void (...)** %tmp..60 to void (%Shape*)**
-	%tmp..62 = load void (%Shape*)*, void (%Shape*)** %tmp..61
-	call void %tmp..62(%Shape* %tmp..57)
-	%tmp..65 = load void (...)**, void (...)*** %tmp..58
-	%tmp..66 = getelementptr void (...)*, void (...)** %tmp..65, i32 1
-	%tmp..67 = bitcast void (...)** %tmp..66 to void (%Shape*)**
-	%tmp..68 = load void (%Shape*)*, void (%Shape*)** %tmp..67
-	call void %tmp..68(%Shape* %tmp..57)
-	%tmp..71 = load void (...)**, void (...)*** %tmp..6
-	%tmp..72 = getelementptr void (...)*, void (...)** %tmp..71, i32 3
-	%tmp..73 = bitcast void (...)** %tmp..72 to void (%Stack*)**
-	%tmp..74 = load void (%Stack*)*, void (%Stack*)** %tmp..73
-	call void %tmp..74(%Stack* %tmp..1)
+	%tmp..56 = load void (...)**, void (...)*** %tmp..6
+	%tmp..57 = getelementptr void (...)*, void (...)** %tmp..56, i32 2
+	%tmp..58 = bitcast void (...)** %tmp..57 to %Shape* (%Stack*)**
+	%tmp..59 = load %Shape* (%Stack*)*, %Shape* (%Stack*)** %tmp..58
+	%tmp..60 = call %Shape* %tmp..59(%Stack* %tmp..1)
+	%tmp..61 = getelementptr %Shape, %Shape* %tmp..60, i32 0, i32 0
+	%tmp..62 = load void (...)**, void (...)*** %tmp..61
+	%tmp..63 = getelementptr void (...)*, void (...)** %tmp..62, i32 0
+	%tmp..64 = bitcast void (...)** %tmp..63 to void (%Shape*)**
+	%tmp..65 = load void (%Shape*)*, void (%Shape*)** %tmp..64
+	call void %tmp..65(%Shape* %tmp..60)
+	%tmp..68 = load void (...)**, void (...)*** %tmp..61
+	%tmp..69 = getelementptr void (...)*, void (...)** %tmp..68, i32 1
+	%tmp..70 = bitcast void (...)** %tmp..69 to void (%Shape*)**
+	%tmp..71 = load void (%Shape*)*, void (%Shape*)** %tmp..70
+	call void %tmp..71(%Shape* %tmp..60)
+	%tmp..74 = load void (...)**, void (...)*** %tmp..6
+	%tmp..75 = getelementptr void (...)*, void (...)** %tmp..74, i32 3
+	%tmp..76 = bitcast void (...)** %tmp..75 to void (%Stack*)**
+	%tmp..77 = load void (%Stack*)*, void (%Stack*)** %tmp..76
+	call void %tmp..77(%Stack* %tmp..1)
 	br label %main.1_while.cond
 main.3_while.end:
 	ret i32 0

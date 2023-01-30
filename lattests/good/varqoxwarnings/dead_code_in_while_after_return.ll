@@ -1,5 +1,7 @@
 @.str.str0 = private unnamed_addr constant [12 x i8] c"bla bla bla\00", align 1
 define i32 @main() { 
+main_entry:
+	br label %main.2_while.body
 main.2_while.body:
 	ret i32 0
 }

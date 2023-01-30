@@ -1,4 +1,4 @@
-@.str.str0 = private unnamed_addr constant [1 x i8] c"\00", align 1
+
 define void @maxHeapify(i32* %a, i32 %p, i32 %r) { 
 maxHeapify_entry:
 	%tmp. = getelementptr i32, i32* %a, i32 %p
@@ -50,10 +50,12 @@ maxHeapify.12_if.end:
 	br label %maxHeapify.1_while.cond
 maxHeapify.3_while.end:
 	%tmp..41 = icmp sle i32 %s, %r
-	br i1 %tmp..41, label %maxHeapify.13_if.true, label %maxHeapify.15_if.end
+	br i1 %tmp..41, label %maxHeapify.13_if.true, label %maxHeapify.14_if.false
 maxHeapify.13_if.true:
 	%tmp..42 = getelementptr i32, i32* %a, i32 %s
 	store i32 %tmp..1, i32* %tmp..42
+	br label %maxHeapify.15_if.end
+maxHeapify.14_if.false:
 	br label %maxHeapify.15_if.end
 maxHeapify.15_if.end:
 	ret void
@@ -125,10 +127,12 @@ main.11_while.body:
 	%tmp..75 = getelementptr i32, i32* %tmp..8, i32 %tmp..74
 	%tmp..76 = load i32, i32* %tmp..75
 	%tmp..77 = icmp sgt i32 %tmp..72, %tmp..76
-	br i1 %tmp..77, label %main.13_if.true, label %main.15_if.end
+	br i1 %tmp..77, label %main.13_if.true, label %main.14_if.false
 main.13_if.true:
 	call void @error()
 	ret i32 0
+main.14_if.false:
+	br label %main.15_if.end
 main.15_if.end:
 	br label %main.10_while.cond
 main.12_while.end:

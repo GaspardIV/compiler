@@ -6,6 +6,8 @@ dontCallMe_entry:
 }
 
 define i32 @main() { 
+main_entry:
+	br label %main.1_if.true
 main.1_if.true:
 	call void @printBool(i1 true)
 	br label %main.3_if.end
@@ -34,7 +36,9 @@ main.10_expr.end:
 	call void @printBool(i1 %tmp..24)
 	br i1 true, label %main.15_and, label %main.13_expr.false
 main.15_and:
-	br i1 true, label %main.12_expr.true, label %main.13_expr.false
+	br i1 true, label %main.16_and, label %main.13_expr.false
+main.16_and:
+	br label %main.12_expr.true
 main.12_expr.true:
 	br label %main.14_expr.end
 main.13_expr.false:
