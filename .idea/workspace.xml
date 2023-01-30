@@ -8,7 +8,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="usuniecie nila, przygotowanie do  oddania">
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="readme.md">
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/classes/16.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/16.bc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/classes/16.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/16.lat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/classes/16.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/16.ll" afterDir="false" />
@@ -38,7 +39,7 @@
       <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/destructors.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/destructors.lat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/for_optimizations_testing.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/for_optimizations_testing.lat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/param_passing_method_class_derived.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/param_passing_method_class_derived.lat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zmiany.md" beforeDir="false" afterPath="$PROJECT_DIR$/zmiany_po_mailu.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +88,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$USER_HOME$/.ideaLibSources/system-lambda-1.2.1-sources.jar!/com/github/stefanbirkner/systemlambda/SystemLambda.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="jar://$PROJECT_DIR$/third_party/java-cup-11b-runtime.jar!/META-INF/MANIFEST.MF" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/zmiany.md" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/zmiany_po_mailu.md" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -227,7 +228,7 @@
       <recent name="bad" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ALLESGOOD">
+  <component name="RunManager" selected="Makefile Target.zip">
     <configuration name="Test core002.lat" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="latte.Compiler" />
       <module name="compiler" />
@@ -431,34 +432,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GoodVarqoxgoodTest.testParam_Passing_Method_Class_Derived" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="compiler" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GoodVarqoxgoodTest" />
-      <option name="METHOD_NAME" value="testParam_Passing_Method_Class_Derived" />
-      <option name="TEST_OBJECT" value="method" />
-      <patterns>
-        <pattern testClass="GoodGr5Test" />
-        <pattern testClass="GoodVarqoxgoodTest" />
-        <pattern testClass="GoodMyTestsTest" />
-        <pattern testClass="GoodBasicTest" />
-        <pattern testClass="GoodExtensionsArrays1Test" />
-        <pattern testClass="GoodExtensionsObjects1Test" />
-        <pattern testClass="GoodVirtualTest" />
-        <pattern testClass="GoodHardcoreTest" />
-        <pattern testClass="GoodVarqoxwarningsTest" />
-        <pattern testClass="Classes420" />
-        <pattern testClass="GoodArraysTest" />
-        <pattern testClass="GoodClassicTest" />
-        <pattern testClass="MyTest420" />
-        <pattern testClass="MyTest" />
-        <pattern testClass="GoodExtensionsStructTest" />
-        <pattern testClass="GoodExtensionsObjects2Test" />
-      </patterns>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="all" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
       <makefile filename="$PROJECT_DIR$/Makefile" target="all" workingDirectory="" arguments="">
         <envs />
@@ -467,6 +440,12 @@
     </configuration>
     <configuration name="clean" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
       <makefile filename="$PROJECT_DIR$/Makefile" target="clean" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
+    <configuration name="zip" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="zip" workingDirectory="" arguments="">
         <envs />
       </makefile>
       <method v="2" />
@@ -496,18 +475,18 @@
       <item itemvalue="JUnit.All in compiler" />
       <item itemvalue="JUnit.BadTestsInfiniteLoopTest and 60 more" />
       <item itemvalue="JUnit.GoodMyTestsTest" />
-      <item itemvalue="JUnit.GoodVarqoxgoodTest.testParam_Passing_Method_Class_Derived" />
       <item itemvalue="Makefile Target.all" />
       <item itemvalue="Makefile Target.clean" />
+      <item itemvalue="Makefile Target.zip" />
       <item itemvalue="Shell Script.Unnamed" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Makefile Target.zip" />
         <item itemvalue="JUnit.GoodMyTestsTest" />
         <item itemvalue="Makefile Target.all" />
         <item itemvalue="Makefile Target.clean" />
         <item itemvalue="JUnit.BadTestsInfiniteLoopTest and 60 more" />
-        <item itemvalue="JUnit.GoodVarqoxgoodTest.testParam_Passing_Method_Class_Derived" />
       </list>
     </recent_temporary>
   </component>
@@ -578,14 +557,7 @@
       <workItem from="1674904311086" duration="3234000" />
       <workItem from="1674909211526" duration="5600000" />
       <workItem from="1674975608978" duration="46834000" />
-      <workItem from="1675038152134" duration="23070000" />
-    </task>
-    <task id="LOCAL-00075" summary="35/50 - testowanie z inputem">
-      <created>1672466138374</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1672466138374</updated>
+      <workItem from="1675038152134" duration="23851000" />
     </task>
     <task id="LOCAL-00076" summary="choice i generowanie pliku  36">
       <created>1672620870405</created>
@@ -923,7 +895,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675074204840</updated>
     </task>
-    <option name="localTasksCounter" value="124" />
+    <task id="LOCAL-00124" summary="readme.md">
+      <created>1675074751640</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1675074751640</updated>
+    </task>
+    <option name="localTasksCounter" value="125" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1011,7 +990,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Ignore tests" />
     <MESSAGE value="Remove not needed phi variable" />
     <MESSAGE value="Prepare PostProcessor" />
     <MESSAGE value="gcse" />
@@ -1036,7 +1014,8 @@
     <MESSAGE value="PostProcessor" />
     <MESSAGE value="fix frontend" />
     <MESSAGE value="usuniecie nila, przygotowanie do  oddania" />
-    <option name="LAST_COMMIT_MESSAGE" value="usuniecie nila, przygotowanie do  oddania" />
+    <MESSAGE value="readme.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="readme.md" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

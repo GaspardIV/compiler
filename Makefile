@@ -46,4 +46,4 @@ clean :
 	rm latte_kk385785.tgz > /dev/null 2>/dev/null || true;
 
 zip : clean
-	tar -czf latte_kk385785.tgz src/ Makefile Latte.cf readme.md third_party/
+	tar -czf latte_kk385785.tgz src/ Makefile Latte.cf readme.md zmiany_po_mailu.md third_party/
