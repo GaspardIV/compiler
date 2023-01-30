@@ -1,0 +1,52 @@
+int testPhi(int x, int y, int z, int a, int b) {
+    int k = 0;
+    if (x > y) {
+        if (x > z) {
+            if (x > a) {
+                if (x > b) {
+                    printInt(x);
+                    k = x;
+                } else {
+                    printInt(b);
+                    k = b;
+                }
+            } else {
+                printInt(a);
+                k = a;
+            }
+        } else {
+            printInt(z);
+            k = z;
+        }
+    } else {
+        if (y > z) {
+            if (y > a) {
+                if (y > b) {
+                    printInt(y);
+                    k = y;
+                } else {
+                    printInt(b);
+                    k = b;
+                }
+            } else {
+                printInt(a);
+                k = a;
+            }
+        } else {
+            printInt(z);
+            k = z;
+        }
+    }
+    printInt(k);
+    return k;
+}
+
+int main() {
+int x = 5;
+int y = 7;
+int z = 3;
+int a = 1;
+int b = 2;
+printInt(testPhi(x, y, z, a, b));
+return 0;
+}

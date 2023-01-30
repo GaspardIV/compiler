@@ -1,0 +1,31 @@
+
+void funkcja() {
+    int [][]x;
+    x = new int[][2];
+
+    x[0]= new int[3];
+    x[1]= new int[3];
+    x[0][0]=1;
+    x[0][1]=2;
+    x[0][2]=3;
+    x[1][0]=4;
+    x[1][1]=5;
+    x[1][2]=6;
+    for (int[] y : x) {
+        y[0] = 10;
+        for (int z : y) {
+            z = 5;
+            printInt(z);
+        }
+    }
+
+    for (int[] y : x) {
+        for (int z : y) {
+            printInt(z);
+        }
+    }
+}
+int main() {
+  funkcja();
+  return 0;
+}

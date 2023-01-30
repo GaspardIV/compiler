@@ -8,11 +8,57 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="readme.md">
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="dodanie zmian do Makefile">
+      <change afterPath="$PROJECT_DIR$/lattests/good/testy_phi/phi1.lat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/testy_phi/phi1.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/testy_phi/phi10.lat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/testy_phi/phi10.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/testy_phi/phi2.lat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/testy_phi/phi2.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/testy_phi/phi3.lat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/testy_phi/phi3.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/testy_phi/phi4.lat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/testy_phi/phi4.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/testy_phi/phi5.lat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/testy_phi/phi5.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/testy_phi/phi6.input" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/testy_phi/phi6.lat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/testy_phi/phi6.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/testy_phi/phi7.lat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/testy_phi/phi7.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/testy_phi/phi8.lat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/testy_phi/phi8.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/testy_phi/phi9.lat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lattests/good/testy_phi/phi9.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/PhiTests420.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testy_phi/phi1.lat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testy_phi/phi1.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testy_phi/phi10.lat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testy_phi/phi10.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testy_phi/phi2.lat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testy_phi/phi2.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testy_phi/phi3.lat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testy_phi/phi3.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testy_phi/phi4.lat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testy_phi/phi4.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testy_phi/phi5.lat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testy_phi/phi5.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testy_phi/phi6.input" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testy_phi/phi6.lat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testy_phi/phi6.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testy_phi/phi7.lat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testy_phi/phi7.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testy_phi/phi8.lat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testy_phi/phi8.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testy_phi/phi9.lat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testy_phi/phi9.output" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/classes/16.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/16.bc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/classes/16.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/16.lat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/classes/16.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/16.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test1.lat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test1.output" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_array_null.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_array_null.lat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_array_null.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_array_null.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_fcall_array.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_fcall_array.lat" afterDir="false" />
@@ -39,7 +85,7 @@
       <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/destructors.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/destructors.lat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/for_optimizations_testing.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/for_optimizations_testing.lat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/param_passing_method_class_derived.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/param_passing_method_class_derived.lat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zmiany.md" beforeDir="false" afterPath="$PROJECT_DIR$/zmiany_po_mailu.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,33 +210,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path&quot;: &quot;/Users/kacperkonecki/IdeaProjects/codingame/compiler/third_party&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;last.edited.regexp&quot;: &quot;&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/kacperkonecki/IdeaProjects/codingame/compiler/lattests/good/classes&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path": "/Users/kacperkonecki/IdeaProjects/codingame/compiler/third_party",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "extract.method.default.visibility": "private",
+    "last.edited.regexp": "",
+    "last_opened_file_path": "/Users/kacperkonecki/IdeaProjects/codingame/compiler/lattests",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "configurable.group.appearance"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;ChangesTree.GroupingKeys&quot;: [
+  "keyToStringList": {
+    "ChangesTree.GroupingKeys": [
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="latte.backend.programvisitors" />
@@ -200,18 +246,18 @@
       <recent name="latte.frontend.visitors.programvisitors" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lattests" />
+      <recent name="$PROJECT_DIR$/lattests/good/testy_phi" />
       <recent name="$PROJECT_DIR$/lattests/good/classes" />
       <recent name="$PROJECT_DIR$/lattests/good/varqoxwarnings" />
       <recent name="$PROJECT_DIR$/lattests/good/my_tests/my_test2" />
-      <recent name="$PROJECT_DIR$/lattests/good/classes/expected_output" />
-      <recent name="$PROJECT_DIR$/lattests/good/my_tests/good" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lattests/good" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/lattests/good/testy_phi" />
       <recent name="$PROJECT_DIR$/lattests/good/my_tests" />
       <recent name="$PROJECT_DIR$/src/latte/Absyn" />
-      <recent name="$PROJECT_DIR$/src/latte/parser" />
-      <recent name="$PROJECT_DIR$/third_party" />
-      <recent name="$PROJECT_DIR$/bnfc/Java" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -228,7 +274,7 @@
       <recent name="bad" />
     </key>
   </component>
-  <component name="RunManager" selected="Makefile Target.zip">
+  <component name="RunManager" selected="JUnit.PhiTests420.test_01">
     <configuration name="Test core002.lat" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="latte.Compiler" />
       <module name="compiler" />
@@ -349,85 +395,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BadTestsInfiniteLoopTest and 60 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PhiTests420" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="pattern" />
-      <patterns>
-        <pattern testClass="BadTestsInfiniteLoopTest" />
-        <pattern testClass="BadTestsRuntimeTest" />
-        <pattern testClass="BadVarqoxTests" />
-        <pattern testClass="Classes420" />
-        <pattern testClass="GoodClassicTest" />
-        <pattern testClass="GoodExtensionsArrays1Test" />
-        <pattern testClass="GoodExtensionsObjects1Test" />
-        <pattern testClass="GoodGr5Test" />
-        <pattern testClass="GoodHardcoreTest" />
-        <pattern testClass="GoodMyTestsTest" />
-        <pattern testClass="GoodVarqoxgoodTest" />
-        <pattern testClass="GoodVarqoxgoodTest,testAssign_Field_Array_Fcall_Null" />
-        <pattern testClass="GoodVarqoxgoodTest,testAssign_Field_Array_Mcall_Array" />
-        <pattern testClass="GoodVarqoxgoodTest,testAssign_Field_Array_Mcall_Null" />
-        <pattern testClass="GoodVarqoxgoodTest,testAssign_Field_Array_Of_Field_Null" />
-        <pattern testClass="GoodVarqoxgoodTest,testAssign_Field_Bool_Fcall_Bool" />
-        <pattern testClass="GoodVarqoxgoodTest,testAssign_Field_Bool_Mcall_Bool" />
-        <pattern testClass="GoodVarqoxgoodTest,testAssign_Field_Class_Fcall_Class" />
-        <pattern testClass="GoodVarqoxgoodTest,testAssign_Field_Class_Fcall_Class_Up" />
-        <pattern testClass="GoodVarqoxgoodTest,testAssign_Field_Class_Fcall_Null" />
-        <pattern testClass="GoodVarqoxgoodTest,testAssign_Field_Class_Mcall_Class" />
-        <pattern testClass="GoodVarqoxgoodTest,testAssign_Field_Class_Mcall_Class_Up" />
-        <pattern testClass="GoodVarqoxgoodTest,testAssign_Field_Class_Mcall_Null" />
-        <pattern testClass="GoodVarqoxgoodTest,testAssign_Field_Int_Fcall_Int" />
-        <pattern testClass="GoodVarqoxgoodTest,testAssign_Field_Int_Mcall_Int" />
-        <pattern testClass="GoodVarqoxgoodTest,testAssign_Field_String_Mcall_String" />
-        <pattern testClass="GoodVarqoxgoodTest,testAssign_Var_Array_Null" />
-        <pattern testClass="GoodVarqoxgoodTest,testBin_Ops" />
-        <pattern testClass="GoodVarqoxgoodTest,testComptime_Negation" />
-        <pattern testClass="GoodVarqoxgoodTest,testComptime_Null" />
-        <pattern testClass="GoodVarqoxgoodTest,testComptime_String_Add" />
-        <pattern testClass="GoodVarqoxgoodTest,testDecr_Field_Int_Fcall" />
-        <pattern testClass="GoodVarqoxgoodTest,testDecr_Field_Int_Mcall" />
-        <pattern testClass="GoodVarqoxgoodTest,testDestructors" />
-        <pattern testClass="GoodVarqoxgoodTest,testError" />
-        <pattern testClass="GoodVarqoxgoodTest,testFor_Optimizations_Testing" />
-        <pattern testClass="GoodVarqoxgoodTest,testFunc_Call_Arg_Conversion_Null_To_Array" />
-        <pattern testClass="GoodVarqoxgoodTest,testFunc_Call_Arg_Conversion_Null_To_Class" />
-        <pattern testClass="GoodVarqoxgoodTest,testIncr_Field_Int_Fcall" />
-        <pattern testClass="GoodVarqoxgoodTest,testIncr_Field_Int_Mcall" />
-        <pattern testClass="GoodVarqoxgoodTest,testInt_Literal_Max" />
-        <pattern testClass="GoodVarqoxgoodTest,testMethod_Call_Arg_Conversion_Null_To_Array" />
-        <pattern testClass="GoodVarqoxgoodTest,testMethod_Call_Arg_Conversion_Null_To_Class" />
-        <pattern testClass="GoodVarqoxgoodTest,testNew_Array_Subscript" />
-        <pattern testClass="GoodVarqoxgoodTest,testNull_Cast_To_Class_Array" />
-        <pattern testClass="GoodVarqoxgoodTest,testNull_Cast_To_Int_Array" />
-        <pattern testClass="GoodVarqoxgoodTest,testParam_Passing_Func_Array" />
-        <pattern testClass="GoodVarqoxgoodTest,testParam_Passing_Func_Class" />
-        <pattern testClass="GoodVarqoxgoodTest,testParam_Passing_Func_Class_Derived" />
-        <pattern testClass="GoodVarqoxgoodTest,testParam_Passing_Method_Array" />
-        <pattern testClass="GoodVarqoxgoodTest,testParam_Passing_Method_Class" />
-        <pattern testClass="GoodVarqoxgoodTest,testParam_Passing_Method_Class_Derived" />
-        <pattern testClass="GoodVarqoxgoodTest,testReachability" />
-        <pattern testClass="GoodVarqoxgoodTest,testTricky_For_Loop" />
-        <pattern testClass="GoodVarqoxgoodTest,testVar_Decl_Init" />
-        <pattern testClass="GoodVarqoxgoodTest,testVar_Decl_No_Init" />
-        <pattern testClass="GoodVarqoxgoodTest,testVar_Self_Comparison_Eq" />
-        <pattern testClass="GoodVarqoxgoodTest,testVar_Self_Comparison_Ne" />
-        <pattern testClass="GoodVarqoxwarningsTest" />
-        <pattern testClass="MyTest" />
-        <pattern testClass="MyTest420" />
-      </patterns>
+      <option name="MAIN_CLASS_NAME" value="PhiTests420" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GoodMyTestsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PhiTests420.test_01" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GoodMyTestsTest" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="PhiTests420" />
+      <option name="METHOD_NAME" value="test_01" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -438,8 +420,8 @@
       </makefile>
       <method v="2" />
     </configuration>
-    <configuration name="clean" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
-      <makefile filename="$PROJECT_DIR$/Makefile" target="clean" workingDirectory="" arguments="">
+    <configuration name="recompile_BNFC_java" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="recompile_BNFC_java" workingDirectory="" arguments="">
         <envs />
       </makefile>
       <method v="2" />
@@ -473,20 +455,20 @@
       <item itemvalue="JUnit.ALLESGOOD" />
       <item itemvalue="JUnit.ALLESGOOD NOT VARKOQ" />
       <item itemvalue="JUnit.All in compiler" />
-      <item itemvalue="JUnit.BadTestsInfiniteLoopTest and 60 more" />
-      <item itemvalue="JUnit.GoodMyTestsTest" />
+      <item itemvalue="JUnit.PhiTests420" />
+      <item itemvalue="JUnit.PhiTests420.test_01" />
       <item itemvalue="Makefile Target.all" />
-      <item itemvalue="Makefile Target.clean" />
+      <item itemvalue="Makefile Target.recompile_BNFC_java" />
       <item itemvalue="Makefile Target.zip" />
       <item itemvalue="Shell Script.Unnamed" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Makefile Target.zip" />
-        <item itemvalue="JUnit.GoodMyTestsTest" />
+        <item itemvalue="JUnit.PhiTests420.test_01" />
+        <item itemvalue="JUnit.PhiTests420" />
         <item itemvalue="Makefile Target.all" />
-        <item itemvalue="Makefile Target.clean" />
-        <item itemvalue="JUnit.BadTestsInfiniteLoopTest and 60 more" />
+        <item itemvalue="Makefile Target.recompile_BNFC_java" />
+        <item itemvalue="Makefile Target.zip" />
       </list>
     </recent_temporary>
   </component>
@@ -557,14 +539,7 @@
       <workItem from="1674904311086" duration="3234000" />
       <workItem from="1674909211526" duration="5600000" />
       <workItem from="1674975608978" duration="46834000" />
-      <workItem from="1675038152134" duration="23851000" />
-    </task>
-    <task id="LOCAL-00076" summary="choice i generowanie pliku  36">
-      <created>1672620870405</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1672620870405</updated>
+      <workItem from="1675038152134" duration="33120000" />
     </task>
     <task id="LOCAL-00077" summary="cos nie do konca tak ale lepiej while">
       <created>1672741791012</created>
@@ -902,7 +877,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675074751640</updated>
     </task>
-    <option name="localTasksCounter" value="125" />
+    <task id="LOCAL-00125" summary="dodanie zmian do Makefile">
+      <created>1675075830680</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1675075830680</updated>
+    </task>
+    <option name="localTasksCounter" value="126" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -990,7 +972,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Remove not needed phi variable" />
     <MESSAGE value="Prepare PostProcessor" />
     <MESSAGE value="gcse" />
     <MESSAGE value="remove empty blocks" />
@@ -1015,7 +996,8 @@
     <MESSAGE value="fix frontend" />
     <MESSAGE value="usuniecie nila, przygotowanie do  oddania" />
     <MESSAGE value="readme.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="readme.md" />
+    <MESSAGE value="dodanie zmian do Makefile" />
+    <option name="LAST_COMMIT_MESSAGE" value="dodanie zmian do Makefile" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
