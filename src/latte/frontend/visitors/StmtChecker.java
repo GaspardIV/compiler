@@ -87,9 +87,18 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
 
     public Void visit(latte.Absyn.Incr p, Environment arg) {
         Type exprType = p.expr_.accept(new ExprChecker(), arg);
+
+        if (p.expr_ instanceof EField) {
+            if (((EField) p.expr_).ident_.equals("length")) {
+                Type type = ((EField) p.expr_).expr_.accept(new ExprChecker(), arg);
+                if (type instanceof Array) {
+                    throw new SemanticError.IncrementingNonLValue(p.line_num);
+                }
+            }
+        }
+
         if (!(p.expr_ instanceof EVar) && !(p.expr_ instanceof EField) && !(p.expr_ instanceof EArrayElem) && !(p.expr_ instanceof EArrayElemR)) {
             throw new SemanticError.IncrementingNonLValue(p.line_num);
-
         }
         if (!exprType.equals(new Int())) {
             throw new SemanticError.OperatorCannotBeAppliedToType(p.line_num, "++", exprType);
@@ -99,6 +108,14 @@ public class StmtChecker implements latte.Absyn.Stmt.Visitor<Void, Environment> 
 
     public Void visit(latte.Absyn.Decr p, Environment arg) {
         Type exprType = p.expr_.accept(new ExprChecker(), arg);
+        if (p.expr_ instanceof EField) {
+            if (((EField) p.expr_).ident_.equals("length")) {
+                Type type = ((EField) p.expr_).expr_.accept(new ExprChecker(), arg);
+                if (type instanceof Array) {
+                    throw new SemanticError.DecrementingNonLValue(p.line_num);
+                }
+            }
+        }
         if (!(p.expr_ instanceof EVar) && !(p.expr_ instanceof EField) && !(p.expr_ instanceof EArrayElem) && !(p.expr_ instanceof EArrayElemR)) {
             throw new SemanticError.DecrementingNonLValue(p.line_num);
         }

@@ -48,6 +48,33 @@ Jestem zadowolony z GCSE i kodu realizujacego wirtualne metody - były to wyzwan
 
 Nie jestem zadowolony z jakości kodu jaki oddaje - niestety czas naglił i odpuszczałem sobie refaktoryzacje. 
 
+W petli for, iterator jest prawostronny - nie jest mozliwe cos takiego:
+```
+    int [][]x;
+    x = new int[][2];
+    for (int[] y : x) {
+        y = new int[3];
+    }
+```
+natomiast nastepujacy kod jest w porządku:
+```
+    int [][]x;
+    x = new int[][2];
+    x[0]= new int[3];
+    x[1]= new int[3];
+    
+    x[0][0]=1; x[0][1]=2; x[0][2]=3;
+    x[1][0]=4; x[1][1]=5; x[1][2]=6;
+    
+    for (int[] y : x) {
+        y[0] = 10;
+        for (int z : y) {
+            printInt(z);
+        }
+    }
+```
+
+
 Kompliacja kompilatora za pomoca polecenia: `make`
 
 Uzycie: `./latc nazwa_pliku.lat`

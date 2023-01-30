@@ -8,57 +8,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="dodanie zmian do Makefile">
-      <change afterPath="$PROJECT_DIR$/lattests/good/testy_phi/phi1.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/testy_phi/phi1.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/testy_phi/phi10.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/testy_phi/phi10.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/testy_phi/phi2.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/testy_phi/phi2.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/testy_phi/phi3.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/testy_phi/phi3.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/testy_phi/phi4.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/testy_phi/phi4.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/testy_phi/phi5.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/testy_phi/phi5.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/testy_phi/phi6.input" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/testy_phi/phi6.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/testy_phi/phi6.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/testy_phi/phi7.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/testy_phi/phi7.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/testy_phi/phi8.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/testy_phi/phi8.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/testy_phi/phi9.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lattests/good/testy_phi/phi9.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/PhiTests420.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testy_phi/phi1.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testy_phi/phi1.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testy_phi/phi10.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testy_phi/phi10.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testy_phi/phi2.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testy_phi/phi2.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testy_phi/phi3.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testy_phi/phi3.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testy_phi/phi4.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testy_phi/phi4.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testy_phi/phi5.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testy_phi/phi5.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testy_phi/phi6.input" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testy_phi/phi6.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testy_phi/phi6.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testy_phi/phi7.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testy_phi/phi7.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testy_phi/phi8.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testy_phi/phi8.output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testy_phi/phi9.lat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testy_phi/phi9.output" afterDir="false" />
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="readme.md">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/classes/16.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/16.bc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/classes/16.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/16.lat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/classes/16.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/16.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test1.lat" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/my_tests/test1.output" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/testy_phi/phi1.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/testy_phi/phi1.lat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_array_null.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_array_null.lat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_array_null.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_array_null.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_fcall_array.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_fcall_array.lat" afterDir="false" />
@@ -86,6 +43,7 @@
       <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/for_optimizations_testing.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/for_optimizations_testing.lat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/param_passing_method_class_derived.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/param_passing_method_class_derived.lat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/StmtChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/StmtChecker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -274,7 +232,7 @@
       <recent name="bad" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PhiTests420.test_01">
+  <component name="RunManager" selected="JUnit.ALLESGOOD">
     <configuration name="Test core002.lat" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="latte.Compiler" />
       <module name="compiler" />
@@ -539,14 +497,7 @@
       <workItem from="1674904311086" duration="3234000" />
       <workItem from="1674909211526" duration="5600000" />
       <workItem from="1674975608978" duration="46834000" />
-      <workItem from="1675038152134" duration="33120000" />
-    </task>
-    <task id="LOCAL-00077" summary="cos nie do konca tak ale lepiej while">
-      <created>1672741791012</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1672741791012</updated>
+      <workItem from="1675038152134" duration="34238000" />
     </task>
     <task id="LOCAL-00078" summary="41/50 dziala while">
       <created>1672941887719</created>
@@ -884,7 +835,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675075830680</updated>
     </task>
-    <option name="localTasksCounter" value="126" />
+    <task id="LOCAL-00126" summary="readme.md">
+      <created>1675084879891</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1675084879891</updated>
+    </task>
+    <option name="localTasksCounter" value="127" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -995,9 +953,9 @@
     <MESSAGE value="PostProcessor" />
     <MESSAGE value="fix frontend" />
     <MESSAGE value="usuniecie nila, przygotowanie do  oddania" />
-    <MESSAGE value="readme.md" />
     <MESSAGE value="dodanie zmian do Makefile" />
-    <option name="LAST_COMMIT_MESSAGE" value="dodanie zmian do Makefile" />
+    <MESSAGE value="readme.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="readme.md" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
