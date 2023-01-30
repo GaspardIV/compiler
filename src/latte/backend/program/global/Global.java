@@ -3,7 +3,7 @@ package latte.backend.program.global;
 import latte.Absyn.Type;
 import latte.Internal.LatteClass;
 import latte.backend.program.global.classes.LLVMClass;
-import latte.backend.programvisitors.MethodPointerType;
+import latte.Internal.MethodPointerType;
 import latte.utils.Utils;
 
 import java.util.HashMap;

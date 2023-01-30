@@ -3,6 +3,7 @@ package latte.backend.program.global.classes;
 import latte.Absyn.Array;
 import latte.Absyn.Class;
 import latte.Internal.ClField;
+import latte.Internal.MethodPointerPointer;
 import latte.backend.program.global.Global;
 import latte.backend.programvisitors.RegisterExprVisitor;
 import latte.backend.quadruple.Block;

@@ -3,12 +3,12 @@ package latte.backend.programvisitors;
 import latte.Absyn.Class;
 import latte.Absyn.Void;
 import latte.Absyn.*;
-import latte.Internal.Null;
+import latte.Internal.MethodPointerType;
 import latte.backend.program.global.Function;
 import latte.backend.program.global.Global;
 import latte.backend.program.global.Scope;
 import latte.backend.program.global.Variable;
-import latte.backend.program.global.classes.MethodPointerPointer;
+import latte.Internal.MethodPointerPointer;
 import latte.backend.quadruple.Block;
 import latte.backend.quadruple.*;
 import latte.errors.SemanticError;
@@ -89,8 +89,6 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block>
         result.addAll(quadruples2);
         Quadruple last = quadruples2.get(quadruples2.size() - 1);
         Quadruple variable  = quadruples.get(quadruples.size() - 1);
-//        Variable variable  = quadruples.get(quadruples.size() - 1).result.getVariable();
-//        Array type = (Array) variable.getType();
         Array type = (Array) variable.result.type;
         Register register = new Register(block.getRegisterNumber(TMP), type.type_);
         result.add(new Quadruple(register, new Quadruple.LLVMOperation.GET_FIELD(variable.result, last.result)));
@@ -126,11 +124,6 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block>
     @Override
     public List<Quadruple> visit(ENull p, Block block) {
         return Collections.singletonList(new Quadruple(new Register(block.getRegisterNumber(TMP), new Class(p.ident_)), new Quadruple.LLVMOperation.NULL(new Class(p.ident_))));
-    }
-
-    @Override
-    public List<Quadruple> visit(ENil p, Block block) {
-        throw new RuntimeException("should never happen");
     }
 
     @Override
@@ -400,7 +393,7 @@ public class RegisterExprVisitor implements Expr.Visitor<List<Quadruple>, Block>
     public List<Quadruple> visit(ERel p, Block block) {
         List<Quadruple> quadruples = new ArrayList<>();
         List<Quadruple> left = p.expr_1.accept(this, block);
-        List<Quadruple> right = Utils.nilExprReplace(p.expr_2, left.get(left.size()-1).getRegister().type).accept(this, block);
+        List<Quadruple> right = p.expr_2.accept(this, block);
         quadruples.addAll(left);
         quadruples.addAll(right);
         Register leftRegister = left.get(left.size() - 1).getRegister();

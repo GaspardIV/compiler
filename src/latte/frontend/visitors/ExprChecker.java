@@ -224,11 +224,6 @@ public class ExprChecker implements latte.Absyn.Expr.Visitor<Type, Environment> 
         return new latte.Absyn.Class(p.ident_);
     }
 
-    @Override
-    public Type visit(ENil p, Environment arg) {
-        return new Null();
-    }
-
     /**
      * checks if function or method is correctly called
      */

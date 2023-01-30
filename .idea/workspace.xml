@@ -8,33 +8,54 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="PostProcessor">
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="fix frontend">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/classic/bad003.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/classic/bad003.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/classic/bad007.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/classic/bad007.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/my_tests/test.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/my_tests/test.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_different_type_of_overriding_method_01.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_different_type_of_overriding_method_01.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_different_type_of_overriding_method_02.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_different_type_of_overriding_method_02.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_different_type_of_overriding_method_03.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_different_type_of_overriding_method_03.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_different_type_of_overriding_method_04.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_different_type_of_overriding_method_04.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_different_type_of_overriding_method_05.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_different_type_of_overriding_method_05.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_different_type_of_overriding_method_06.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_different_type_of_overriding_method_06.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefines_base_class_field.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefines_base_class_field.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefinition.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefinition.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefinition_other_decl.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefinition_other_decl.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefinition_single_decl.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/class_field_redefinition_single_decl.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/field_shadowing.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/field_shadowing.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/func_args_same_name.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/func_args_same_name.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/method_args_same_name.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/method_args_same_name.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/shadowing_for_iter.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/shadowing_for_iter.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/shadowing_for_iter_block.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/shadowing_for_iter_block.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/var_decl_init_shadows_other_decl.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/var_decl_init_shadows_other_decl.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/var_decl_init_shadows_same_decl.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/var_decl_init_shadows_same_decl.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/var_decl_noinit_shadows_other_decl.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/var_decl_noinit_shadows_other_decl.err" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lattests/bad/varqoxbad/var_decl_noinit_shadows_same_decl.err" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/bad/varqoxbad/var_decl_noinit_shadows_same_decl.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Latte.cf" beforeDir="false" afterPath="$PROJECT_DIR$/Latte.cf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classes/16.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/16.bc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classes/16.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/16.lat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/classes/16.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/16.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_array_null.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_array_null.lat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_array_null.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_arr_elem_array_null.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_fcall_array.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_fcall_array.lat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_fcall_array.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_fcall_array.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_fcall_null.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_fcall_null.lat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_fcall_null.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_fcall_null.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_mcall_array.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_mcall_array.lat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_mcall_array.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_mcall_array.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_mcall_null.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_mcall_null.lat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_mcall_null.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_mcall_null.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_new_class_null.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_new_class_null.lat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_new_class_null.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_new_class_null.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_of_field_null.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_of_field_null.lat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_of_field_null.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_array_of_field_null.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_string_fcall_string.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_string_fcall_string.lat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_string_fcall_string.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_field_string_fcall_string.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_var_array_null.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_var_array_null.lat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_var_array_null.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/assign_var_array_null.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/casting.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/casting.lat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/casting.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/casting.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/comptime_negation.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/comptime_negation.lat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/decr_field_int_mcall.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/decr_field_int_mcall.lat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/decr_field_int_mcall.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/decr_field_int_mcall.ll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/destructors.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/destructors.lat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/for_optimizations_testing.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/for_optimizations_testing.lat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/param_passing_method_class_derived.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/param_passing_method_class_derived.lat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/latte/Internal/LatteClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Internal/LatteClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/errors/SemanticError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/errors/SemanticError.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/Global.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/Global.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClassConstructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClassConstructor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClassVTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClassVTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/classes/MethodPointerPointer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Internal/MethodPointerPointer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/MethodPointerType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Internal/MethodPointerType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/PostProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/PostProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Block.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/ConstValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/ConstValue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latte/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/utils/Utils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -223,7 +244,7 @@
       <recent name="bad" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ALLESBAD">
+  <component name="RunManager" selected="JUnit.ALLESGOOD">
     <configuration name="Test core002.lat" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="latte.Compiler" />
       <module name="compiler" />
@@ -344,107 +365,128 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GoodVarqoxgoodTest.testAssign_Field_Array_Arr_Elem_Null" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BadTestsInfiniteLoopTest and 60 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GoodVarqoxgoodTest" />
-      <option name="METHOD_NAME" value="testAssign_Field_Array_Arr_Elem_Null" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="pattern" />
       <patterns>
-        <pattern testClass="GoodGr5Test" />
-        <pattern testClass="GoodVarqoxgoodTest" />
-        <pattern testClass="GoodMyTestsTest" />
-        <pattern testClass="GoodBasicTest" />
+        <pattern testClass="BadTestsInfiniteLoopTest" />
+        <pattern testClass="BadTestsRuntimeTest" />
+        <pattern testClass="BadVarqoxTests" />
+        <pattern testClass="Classes420" />
+        <pattern testClass="GoodClassicTest" />
         <pattern testClass="GoodExtensionsArrays1Test" />
         <pattern testClass="GoodExtensionsObjects1Test" />
-        <pattern testClass="GoodVirtualTest" />
+        <pattern testClass="GoodGr5Test" />
         <pattern testClass="GoodHardcoreTest" />
+        <pattern testClass="GoodMyTestsTest" />
+        <pattern testClass="GoodVarqoxgoodTest" />
+        <pattern testClass="GoodVarqoxgoodTest,testAssign_Field_Array_Fcall_Null" />
+        <pattern testClass="GoodVarqoxgoodTest,testAssign_Field_Array_Mcall_Array" />
+        <pattern testClass="GoodVarqoxgoodTest,testAssign_Field_Array_Mcall_Null" />
+        <pattern testClass="GoodVarqoxgoodTest,testAssign_Field_Array_Of_Field_Null" />
+        <pattern testClass="GoodVarqoxgoodTest,testAssign_Field_Bool_Fcall_Bool" />
+        <pattern testClass="GoodVarqoxgoodTest,testAssign_Field_Bool_Mcall_Bool" />
+        <pattern testClass="GoodVarqoxgoodTest,testAssign_Field_Class_Fcall_Class" />
+        <pattern testClass="GoodVarqoxgoodTest,testAssign_Field_Class_Fcall_Class_Up" />
+        <pattern testClass="GoodVarqoxgoodTest,testAssign_Field_Class_Fcall_Null" />
+        <pattern testClass="GoodVarqoxgoodTest,testAssign_Field_Class_Mcall_Class" />
+        <pattern testClass="GoodVarqoxgoodTest,testAssign_Field_Class_Mcall_Class_Up" />
+        <pattern testClass="GoodVarqoxgoodTest,testAssign_Field_Class_Mcall_Null" />
+        <pattern testClass="GoodVarqoxgoodTest,testAssign_Field_Int_Fcall_Int" />
+        <pattern testClass="GoodVarqoxgoodTest,testAssign_Field_Int_Mcall_Int" />
+        <pattern testClass="GoodVarqoxgoodTest,testAssign_Field_String_Mcall_String" />
+        <pattern testClass="GoodVarqoxgoodTest,testAssign_Var_Array_Null" />
+        <pattern testClass="GoodVarqoxgoodTest,testBin_Ops" />
+        <pattern testClass="GoodVarqoxgoodTest,testComptime_Negation" />
+        <pattern testClass="GoodVarqoxgoodTest,testComptime_Null" />
+        <pattern testClass="GoodVarqoxgoodTest,testComptime_String_Add" />
+        <pattern testClass="GoodVarqoxgoodTest,testDecr_Field_Int_Fcall" />
+        <pattern testClass="GoodVarqoxgoodTest,testDecr_Field_Int_Mcall" />
+        <pattern testClass="GoodVarqoxgoodTest,testDestructors" />
+        <pattern testClass="GoodVarqoxgoodTest,testError" />
+        <pattern testClass="GoodVarqoxgoodTest,testFor_Optimizations_Testing" />
+        <pattern testClass="GoodVarqoxgoodTest,testFunc_Call_Arg_Conversion_Null_To_Array" />
+        <pattern testClass="GoodVarqoxgoodTest,testFunc_Call_Arg_Conversion_Null_To_Class" />
+        <pattern testClass="GoodVarqoxgoodTest,testIncr_Field_Int_Fcall" />
+        <pattern testClass="GoodVarqoxgoodTest,testIncr_Field_Int_Mcall" />
+        <pattern testClass="GoodVarqoxgoodTest,testInt_Literal_Max" />
+        <pattern testClass="GoodVarqoxgoodTest,testMethod_Call_Arg_Conversion_Null_To_Array" />
+        <pattern testClass="GoodVarqoxgoodTest,testMethod_Call_Arg_Conversion_Null_To_Class" />
+        <pattern testClass="GoodVarqoxgoodTest,testNew_Array_Subscript" />
+        <pattern testClass="GoodVarqoxgoodTest,testNull_Cast_To_Class_Array" />
+        <pattern testClass="GoodVarqoxgoodTest,testNull_Cast_To_Int_Array" />
+        <pattern testClass="GoodVarqoxgoodTest,testParam_Passing_Func_Array" />
+        <pattern testClass="GoodVarqoxgoodTest,testParam_Passing_Func_Class" />
+        <pattern testClass="GoodVarqoxgoodTest,testParam_Passing_Func_Class_Derived" />
+        <pattern testClass="GoodVarqoxgoodTest,testParam_Passing_Method_Array" />
+        <pattern testClass="GoodVarqoxgoodTest,testParam_Passing_Method_Class" />
+        <pattern testClass="GoodVarqoxgoodTest,testParam_Passing_Method_Class_Derived" />
+        <pattern testClass="GoodVarqoxgoodTest,testReachability" />
+        <pattern testClass="GoodVarqoxgoodTest,testTricky_For_Loop" />
+        <pattern testClass="GoodVarqoxgoodTest,testVar_Decl_Init" />
+        <pattern testClass="GoodVarqoxgoodTest,testVar_Decl_No_Init" />
+        <pattern testClass="GoodVarqoxgoodTest,testVar_Self_Comparison_Eq" />
+        <pattern testClass="GoodVarqoxgoodTest,testVar_Self_Comparison_Ne" />
         <pattern testClass="GoodVarqoxwarningsTest" />
-        <pattern testClass="Classes420" />
-        <pattern testClass="GoodArraysTest" />
-        <pattern testClass="GoodClassicTest" />
-        <pattern testClass="MyTest420" />
         <pattern testClass="MyTest" />
-        <pattern testClass="GoodExtensionsStructTest" />
-        <pattern testClass="GoodExtensionsObjects2Test" />
+        <pattern testClass="MyTest420" />
       </patterns>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GoodVarqoxgoodTest.testVariable_Binds_To_Field" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GoodMyTestsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GoodVarqoxgoodTest" />
-      <option name="METHOD_NAME" value="testVariable_Binds_To_Field" />
-      <option name="TEST_OBJECT" value="method" />
-      <patterns>
-        <pattern testClass="GoodGr5Test" />
-        <pattern testClass="GoodVarqoxgoodTest" />
-        <pattern testClass="GoodMyTestsTest" />
-        <pattern testClass="GoodBasicTest" />
-        <pattern testClass="GoodExtensionsArrays1Test" />
-        <pattern testClass="GoodExtensionsObjects1Test" />
-        <pattern testClass="GoodVirtualTest" />
-        <pattern testClass="GoodHardcoreTest" />
-        <pattern testClass="GoodVarqoxwarningsTest" />
-        <pattern testClass="Classes420" />
-        <pattern testClass="GoodArraysTest" />
-        <pattern testClass="GoodClassicTest" />
-        <pattern testClass="MyTest420" />
-        <pattern testClass="MyTest" />
-        <pattern testClass="GoodExtensionsStructTest" />
-        <pattern testClass="GoodExtensionsObjects2Test" />
-      </patterns>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GoodVarqoxgoodTest.testWhile_Body_Decl" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="compiler" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GoodVarqoxgoodTest" />
-      <option name="METHOD_NAME" value="testWhile_Body_Decl" />
-      <option name="TEST_OBJECT" value="method" />
-      <patterns>
-        <pattern testClass="GoodGr5Test" />
-        <pattern testClass="GoodVarqoxgoodTest" />
-        <pattern testClass="GoodMyTestsTest" />
-        <pattern testClass="GoodBasicTest" />
-        <pattern testClass="GoodExtensionsArrays1Test" />
-        <pattern testClass="GoodExtensionsObjects1Test" />
-        <pattern testClass="GoodVirtualTest" />
-        <pattern testClass="GoodHardcoreTest" />
-        <pattern testClass="GoodVarqoxwarningsTest" />
-        <pattern testClass="Classes420" />
-        <pattern testClass="GoodArraysTest" />
-        <pattern testClass="GoodClassicTest" />
-        <pattern testClass="MyTest420" />
-        <pattern testClass="MyTest" />
-        <pattern testClass="GoodExtensionsStructTest" />
-        <pattern testClass="GoodExtensionsObjects2Test" />
-      </patterns>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GoodVarqoxwarningsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="compiler" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GoodVarqoxwarningsTest" />
+      <option name="MAIN_CLASS_NAME" value="GoodMyTestsTest" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GoodVirtualTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GoodVarqoxgoodTest.testParam_Passing_Method_Class_Derived" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="compiler" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GoodVirtualTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="GoodVarqoxgoodTest" />
+      <option name="METHOD_NAME" value="testParam_Passing_Method_Class_Derived" />
+      <option name="TEST_OBJECT" value="method" />
+      <patterns>
+        <pattern testClass="GoodGr5Test" />
+        <pattern testClass="GoodVarqoxgoodTest" />
+        <pattern testClass="GoodMyTestsTest" />
+        <pattern testClass="GoodBasicTest" />
+        <pattern testClass="GoodExtensionsArrays1Test" />
+        <pattern testClass="GoodExtensionsObjects1Test" />
+        <pattern testClass="GoodVirtualTest" />
+        <pattern testClass="GoodHardcoreTest" />
+        <pattern testClass="GoodVarqoxwarningsTest" />
+        <pattern testClass="Classes420" />
+        <pattern testClass="GoodArraysTest" />
+        <pattern testClass="GoodClassicTest" />
+        <pattern testClass="MyTest420" />
+        <pattern testClass="MyTest" />
+        <pattern testClass="GoodExtensionsStructTest" />
+        <pattern testClass="GoodExtensionsObjects2Test" />
+      </patterns>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="all" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="all" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
+    <configuration name="clean" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="clean" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
     </configuration>
     <configuration name="Unnamed" type="ShConfigurationType" nameIsGenerated="true">
       <option name="SCRIPT_TEXT" value="" />
@@ -469,20 +511,20 @@
       <item itemvalue="JUnit.ALLESGOOD" />
       <item itemvalue="JUnit.ALLESGOOD NOT VARKOQ" />
       <item itemvalue="JUnit.All in compiler" />
-      <item itemvalue="JUnit.GoodVarqoxgoodTest.testAssign_Field_Array_Arr_Elem_Null" />
-      <item itemvalue="JUnit.GoodVarqoxgoodTest.testVariable_Binds_To_Field" />
-      <item itemvalue="JUnit.GoodVarqoxgoodTest.testWhile_Body_Decl" />
-      <item itemvalue="JUnit.GoodVarqoxwarningsTest" />
-      <item itemvalue="JUnit.GoodVirtualTest" />
+      <item itemvalue="JUnit.BadTestsInfiniteLoopTest and 60 more" />
+      <item itemvalue="JUnit.GoodMyTestsTest" />
+      <item itemvalue="JUnit.GoodVarqoxgoodTest.testParam_Passing_Method_Class_Derived" />
+      <item itemvalue="Makefile Target.all" />
+      <item itemvalue="Makefile Target.clean" />
       <item itemvalue="Shell Script.Unnamed" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.GoodVarqoxgoodTest.testVariable_Binds_To_Field" />
-        <item itemvalue="JUnit.GoodVarqoxwarningsTest" />
-        <item itemvalue="JUnit.GoodVarqoxgoodTest.testWhile_Body_Decl" />
-        <item itemvalue="JUnit.GoodVarqoxgoodTest.testAssign_Field_Array_Arr_Elem_Null" />
-        <item itemvalue="JUnit.GoodVirtualTest" />
+        <item itemvalue="JUnit.GoodMyTestsTest" />
+        <item itemvalue="Makefile Target.all" />
+        <item itemvalue="Makefile Target.clean" />
+        <item itemvalue="JUnit.BadTestsInfiniteLoopTest and 60 more" />
+        <item itemvalue="JUnit.GoodVarqoxgoodTest.testParam_Passing_Method_Class_Derived" />
       </list>
     </recent_temporary>
   </component>
@@ -553,14 +595,7 @@
       <workItem from="1674904311086" duration="3234000" />
       <workItem from="1674909211526" duration="5600000" />
       <workItem from="1674975608978" duration="46834000" />
-      <workItem from="1675038152134" duration="17020000" />
-    </task>
-    <task id="LOCAL-00073" summary="teoretycznie template z getline, ale zaraz zamieniam na gets z powrotem, a najlepiej chyba do pliku .c, dac funkcje">
-      <created>1672463284067</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1672463284067</updated>
+      <workItem from="1675038152134" duration="22480000" />
     </task>
     <task id="LOCAL-00074" summary="34/50">
       <created>1672464929580</created>
@@ -898,7 +933,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675063442087</updated>
     </task>
-    <option name="localTasksCounter" value="122" />
+    <task id="LOCAL-00122" summary="fix frontend">
+      <created>1675068724669</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1675068724669</updated>
+    </task>
+    <option name="localTasksCounter" value="123" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -955,6 +997,11 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="3d9f3a3e-6d06-49fe-b532-171f64b83281">
+          <value>
+            <State />
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State>
@@ -974,9 +1021,13 @@
         </entry>
       </map>
     </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="3d9f3a3e-6d06-49fe-b532-171f64b83281" value="TOOL_WINDOW" />
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Refactor PostProcessor" />
     <MESSAGE value="Dodanie resetu zmiennych na wszelki wypadek." />
     <MESSAGE value="Ignore tests" />
     <MESSAGE value="Remove not needed phi variable" />
@@ -1001,7 +1052,8 @@
     <MESSAGE value="virtual methods" />
     <MESSAGE value="jest lepiej" />
     <MESSAGE value="PostProcessor" />
-    <option name="LAST_COMMIT_MESSAGE" value="PostProcessor" />
+    <MESSAGE value="fix frontend" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix frontend" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1030,16 +1082,6 @@
           <url>file://$PROJECT_DIR$/tests/TestUtils.java</url>
           <line>46</line>
           <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java</url>
-          <line>303</line>
-          <option name="timeStamp" value="125" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java</url>
-          <line>301</line>
-          <option name="timeStamp" value="126" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />

@@ -97,8 +97,6 @@ ENullArr.   Expr6 ::= "(" Type "[]" ")" "null" ;
 
 ENull.      Expr6 ::= "(" Ident ")" "null" ;
 
-ENil.       Expr6 ::= "null" ;
-
 ENew.       Expr6 ::= "new" Type ;
 
 EMethod.    Expr6 ::= Expr6 "." Ident "(" [Expr] ")" ;

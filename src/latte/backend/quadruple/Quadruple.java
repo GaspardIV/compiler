@@ -627,7 +627,6 @@ public class Quadruple {
 
             @Override
             public String toString() {
-//                return "alloca " + Utils.getLLVMType(type).replace("*", "");
                 return "call i8* @malloc(i32 " + sizeInBytes * 8 + ")";
             }
 
@@ -698,12 +697,8 @@ public class Quadruple {
             public String toString() {
                 String withoutStar = register.getLLVMType().replaceFirst("\\*", "");
                 if (this.register2 != null) {
-                    // todo zamiast 50 instructji getelementptr mzna dodac wiecej przecinkow
-//                    w przypadku [][][][][][]
                     return "getelementptr " + withoutStar + ", " + withoutStar + "* " + register + ", i32 " + register2;
                 } else {
-                    // todo zamiast 50 instructji getelementptr mzna dodac wiecej przecinkow
-//                    w przypadu aaa.bbb.ccc
                     if (level == 0) {
                         return "getelementptr " + withoutStar + ", " + withoutStar + "* " + register + ", i32 " + index;
                     } else {
@@ -734,10 +729,6 @@ public class Quadruple {
             public LOAD(Register register) {
                 this.register = register;
                 this.type = register.type;
-            }
-            public LOAD(Register register, Type type) {
-                this.register = register;
-                this.type = type;
             }
 
             @Override
@@ -814,12 +805,6 @@ public class Quadruple {
             public BITCAST(Register register, Type from, Type type) {
                 this.register = register;
                 this.from = from;
-                this.type = type;
-            }
-
-            public BITCAST(Register register, Type type) {
-                this.register = register;
-                this.from = register.type;
                 this.type = type;
             }
 

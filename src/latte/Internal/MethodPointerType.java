@@ -1,15 +1,11 @@
-package latte.backend.programvisitors;
+package latte.Internal;
 
 import latte.Absyn.Type;
-import latte.backend.program.global.classes.MethodPointerPointer;
 
 public class MethodPointerType extends Type {
 
     public final String llvmType;
 
-    public MethodPointerType() {
-        this.llvmType = null;
-    }
     public MethodPointerType(String llvmType) {
         this.llvmType = llvmType;
     }

@@ -70,7 +70,9 @@ public class LatteClass {
             currentFieldIdents.addAll(currentList.stream().filter(x -> x instanceof ClField).map(x -> ((ClField) x).ident_).collect(Collectors.toSet()));
             currentFieldIdents.addAll(currentList.stream().filter(x -> x instanceof ClFields).map(x -> (ClFields) x).flatMap(x -> x.listclfielditem_.stream().map(f -> ((ClFieldItemNoInit) f).ident_)).collect(Collectors.toSet()));
 
+            // commented code can be used to allow field shadowing
             if (member instanceof ClFields) {
+
 //                ClFields clFields = (ClFields) member;
 //                for (ClFieldItem fieldItem :  (clFields).listclfielditem_) {
 //                    ClFieldItemNoInit clField = (ClFieldItemNoInit) fieldItem;

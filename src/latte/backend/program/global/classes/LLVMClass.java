@@ -7,7 +7,7 @@ import latte.Internal.LatteClass;
 import latte.backend.program.global.Function;
 import latte.backend.program.global.Scope;
 import latte.backend.program.global.Variable;
-import latte.backend.programvisitors.MethodPointerType;
+import latte.Internal.MethodPointerType;
 import latte.utils.Utils;
 
 import java.util.ArrayList;

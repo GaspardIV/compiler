@@ -1,7 +1,7 @@
 package latte.backend.program.global.classes;
 
 import latte.backend.program.global.Function;
-import latte.backend.programvisitors.MethodPointerType;
+import latte.Internal.MethodPointerType;
 
 import java.util.HashMap;
 import java.util.List;

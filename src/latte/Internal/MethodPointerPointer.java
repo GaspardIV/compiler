@@ -1,4 +1,4 @@
-package latte.backend.program.global.classes;
+package latte.Internal;
 
 import latte.Absyn.Type;
 

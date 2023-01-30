@@ -150,7 +150,6 @@ public class PostProcessor {
         globalCommonSubexpressionElimination();
         deadVariablesElimination();
         removeEmptyBlocks();
-        // maybe strength reduction - zastapineie mnozenie dodawaniem - induction variable elimination // moving code out of loops??
     }
 
     private void removeEmptyBlocks() {

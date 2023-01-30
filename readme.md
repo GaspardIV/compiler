@@ -1,59 +1,30 @@
-Oddaje kompilator llvm. Bede jeszcze oddawal rozszerzenie kompilatora.
-
-2 shift/reduce sie biora z:
-
-ENullArr.      Expr6 ::= "(" Type "[]" ")" "null" ;
-
-ENull.      Expr6 ::= "(" Ident ")" "null" ;
-
-ENil.       Expr6 ::= "null" ;
+Konflikty shift/reduce w gramatyce biorą się z:
+ - ENullArr.      Expr6 ::= "(" Type "[]" ")" "null" ;
+ - ENull.      Expr6 ::= "(" Ident ")" "null" ;
 
 
-2 z :
-EArrayElemR. Expr7 ::= Ident "[" Expr "]";
+ - EArrayElem. Expr7 ::= Expr6 "[" Expr "]";
+ - EArrayElemR. Expr7 ::= Ident "[" Expr "]";
+  
+
+ - ENewArray.  Expr6 ::= "new" Type "[" Expr "]" ;
+ - ENew.       Expr6 ::= "new" Type ;
 
 
-1 z :
-ENewArray.  Expr6 ::= "new" Type "[" Expr "]" ;
 
-ENew.       Expr6 ::= "new" Type ;
-
-TODO:
- - mozna usunac final z kazdego pola w ABSYN
- - tablice
- - vtable
- - ustawienie obiektow odpowiednio w pamieci - najpierw najwyzszego rodzica, potem dziedziczace dzieci
- - wirtualne metody sa usuwane, przez to ze nie sa uzywane?
- - zobaczyc na czym polega odsmiecanie pamieci - moze proste trzymanie ilosci referencji do obiektu - mallokowanie wszystkiego.
- - moze sprobwoac optymalizacje petli
-
-Function pointers are expressed almost like in C and C++:
-         int (*Function)(char *buffer);
-Becomes: @Function = global i32(i8*)* null
-
-%p = getelementptr %T, %T* null, i32 1
-%s = ptrtoint %T* %p to i32
-
-
-+ frontend 4
-+ backend 7 (8 + 2 - 2 - 1 = 11)
-+ 9 quizy
-+ 5.8 projekt 1
-+ -35
-+ = -9.2
-
-Co zrobilem z optymalizacji:
-- zwijanie stalych (3 + 5) (5<3)
+Optymalizacje uwzgledniaja:
+- zwijanie stalych
 - propagacja stalych
 - propagacja kopii
 - postac ssa
 - usuwanie martwego kodu
-- usuwanie pustych blokow
-- gcse
-- klasy:
-  - struktury
-  - dziedzieczenie
-  - wirualne metody
+- usuwanie pustych i niepotrzebnych blokow(uznalem za potrzebne te co biorą udział w jakichs phi)
+- GCSE (5)
+
+Rozszerzenia uwzgledniaja
+- obiekty z metodami wirtualnymi (8)
+- tablice (1)
+
 
 
 Kompliacja kompilatora za pomoca polecenia: `make`
@@ -80,14 +51,10 @@ sie pliki zrodlowe z podzialem na paczki:
     - `programvisitors` - implementacje visitor'ow dla Programu.
     - `quadruple` - reprezentacja instrukcji LLVM w postaci ssa.
 
-
-
 Zmienne inicjalizowane są na domyślne wartości - int -> 0, bool -> false, string -> "".
-`null` mozna przypisac do obiektu typu array lub do obiektu typu class. Rzutowanie null na te typy jest dozwolone.
-`null` nie mozna przypisac do zmiennych typu int, bool, string. Rzutowanie null na te typy jest niedozwolone.
 Funkcja error jest traktowana jako poprawne wyjście z funkcji (tez takiej zwracającej coś innego niż void).
 Frontend uwzglednia rozszerzenia: tablice, klasy + dziedziczenie + wirtualne metody.
-
-Zaporzyczenia:
+Frontend nie pozwala na field shadowing, natomiast pisząc backend brałem pod uwage taka ewentualność.
+Zapozyczenia:
 Niektóre funkcje runtime (readInt, printInt, printString) są wzięte z pliku `runtime.ll` z katalogu `/home/students/inf/PUBLIC/MRJP/Llvm`.
 ````

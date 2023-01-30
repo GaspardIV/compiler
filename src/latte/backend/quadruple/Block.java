@@ -193,8 +193,6 @@ public class Block {
 
     public void override(Block next) {
         getOverriden().overridenBy = next;
-//        this.identifier = next.identifier;
-//        this.name = next.name;
     }
 
     @Override

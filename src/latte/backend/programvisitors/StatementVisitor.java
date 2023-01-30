@@ -41,11 +41,11 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
     @Override
     public Block visit(Ass p, Block block) {
         RegisterExprVisitor registerExprVisitor = new RegisterExprVisitor();
+        // if right side result has to be stored to lside
         if (p.expr_1 instanceof EField || p.expr_1 instanceof EArrayElemR || p.expr_1 instanceof  EArrayElem || (p.expr_1 instanceof EVar && block.getScope().getVariable(((EVar) p.expr_1).ident_) == null )) {
             registerExprVisitor.loadField = false;
             List<Quadruple> left = p.expr_1.accept(registerExprVisitor, block);
-            Expr nonNilRightExpr = Utils.nilExprReplace(p.expr_2, left.get(left.size() - 1).getRegister().type);
-            List<Quadruple> right = new RegisterExprVisitor().generateExprCode(nonNilRightExpr, block);
+            List<Quadruple> right = new RegisterExprVisitor().generateExprCode(p.expr_2, block);
             List<Quadruple> res = new ArrayList<>(left);
             res.addAll(right);
             Register rightLast = right.get(right.size() - 1).getRegister();
@@ -57,11 +57,11 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
             res.add(new Quadruple(null, new Quadruple.LLVMOperation.STORE(rightLast, left.get(left.size() - 1).result)));
             block.addQuadruples(res);
         } else {
+            // else copy propagation
             List<Quadruple> left = p.expr_1.accept(registerExprVisitor, block);
             Register leftLastRegister = left.get(left.size() - 1).result;
             Variable variable = leftLastRegister.getVariable();
-            Expr nonNilRightExpr = Utils.nilExprReplace(p.expr_2, variable.getType());
-            List<Quadruple> right = new RegisterExprVisitor().generateExprCode(nonNilRightExpr, block);
+            List<Quadruple> right = new RegisterExprVisitor().generateExprCode(p.expr_2, block);
             Register rightLastRegister = right.get(right.size() - 1).result;
 
             List<Quadruple> castQuadruples = Utils.castObjectToSuperClassIfNeeded(rightLastRegister, left.get(left.size() -1).result.type, block);
@@ -279,7 +279,6 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
 
     @Override
     public Block visit(For p, Block block) {
-//        throw new RuntimeException("replaced in preprocessor");
         Scope scope = block.getScope();
         Function function = scope.getCurrentFunction();
         Block entry = block;
@@ -287,10 +286,8 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         Block body = new Block(function.nextBlockName(), new Scope("for.body", scope), "for.body");
         Block bend = new Block(function.nextBlockName(), scope, "for.end");
 
-//        List<Quadruple> listVar = p.expr_.accept(new RegisterExprVisitor(), entry);
-//        Register listVarReg = listVar.get(listVar.size() - 1).getRegister();
+        // init length and iterator, go to cond
         List<Quadruple> exprs = new EField(p.expr_, "length").accept(new RegisterExprVisitor(), entry);
-//        entry.addQuadruples(listVar);
         entry.addQuadruplesToLastBlock(exprs);
         ListItem item = new ListItem();
         String iteratorName = block.getRegisterNumber("i.d.x.");
@@ -300,14 +297,15 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         entry.addQuadruple(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(cond)));
         entry.addLastBlock(cond);
         PhiManager.getInstance().pushScope(body.getScope());
+        // cond
         List<Quadruple> getVar = new EVar(iteratorName).accept(new RegisterExprVisitor(), body);
         cond.addQuadruples(getVar);
         Register itres = cond.getQuadruples().get(0).result;
-//        cond.addQuadruple(new Quadruple(itres, new Quadruple.LLVMOperation.PHI(new Register("", new Int(), new ConstValue(0)),entry, new Register(iteratorName), body)));
         Register result = new Register(block.getRegisterNumber("ifres."), new Bool());
         cond.addQuadruple(new Quadruple(result, new Quadruple.LLVMOperation.REL(new LTH(), itres, length)));
         cond.addQuadruple(new Quadruple(null, new Quadruple.LLVMOperation.IF(result, body, bend)));
         cond.addLastBlock(body);
+        // body
         body.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.LABEL(body))));
         Ar arg = (Ar) p.arg_;
         item.clear();
@@ -315,6 +313,7 @@ public class StatementVisitor implements Stmt.Visitor<Block, Block> {
         new Decl(arg.type_, item).accept(this, body);
         new Incr(new EVar(iteratorName)).accept(this, body);
         p.stmt_.accept(this, body.getLastBlock());
+        //phi
         body.addQuadruplesToLastBlock(Collections.singletonList(new Quadruple(null, new Quadruple.LLVMOperation.GOTO(cond))));
         List<Quadruple> phi1 = cond.createLoopPhiVariables(entry, body.getLastBlock());
         body.addLastBlock(bend);

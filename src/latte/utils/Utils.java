@@ -4,8 +4,8 @@ import latte.Absyn.*;
 import latte.Absyn.Class;
 import latte.Internal.Null;
 import latte.backend.program.global.Global;
-import latte.backend.program.global.classes.MethodPointerPointer;
-import latte.backend.programvisitors.MethodPointerType;
+import latte.Internal.MethodPointerPointer;
+import latte.Internal.MethodPointerType;
 import latte.backend.quadruple.Block;
 import latte.backend.quadruple.Quadruple;
 import latte.backend.quadruple.Register;
@@ -21,7 +21,6 @@ public class Utils {
 
     public static List<Quadruple> castObjectToSuperClassIfNeeded(Register object, Type destinationClass, Block block) {
         List<Quadruple> res = new ArrayList<>();
-        // todo cast null
         if (object.type instanceof Class && destinationClass instanceof Class || object.type instanceof Null) {
             if (!Utils.getLLVMType(object.type).equals(Utils.getLLVMType(destinationClass))) {
                 res.add(new Quadruple(new Register(block.getRegisterNumber(TMP), destinationClass), new Quadruple.LLVMOperation.BITCAST(object, object.type, destinationClass)));
@@ -311,14 +310,5 @@ public class Utils {
         } else {
             return 0;
         }
-    }
-
-    public static Expr nilExprReplace(Expr expr,Type type) {
-        if (expr instanceof ENil) {
-            if (type instanceof Class) {
-                return new ENull(((Class) type).ident_);
-            }
-        }
-        return expr;
     }
 }
