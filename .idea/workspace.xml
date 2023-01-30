@@ -8,9 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="fix frontend">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Latte.cf" beforeDir="false" afterPath="$PROJECT_DIR$/Latte.cf" afterDir="false" />
+    <list default="true" id="37e743cb-3d9a-42fa-b46d-664ff286b970" name="Default Changelist" comment="usuniecie nila, przygotowanie do  oddania">
       <change beforePath="$PROJECT_DIR$/lattests/good/classes/16.bc" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/16.bc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/classes/16.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/16.lat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/classes/16.ll" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/classes/16.ll" afterDir="false" />
@@ -41,21 +39,6 @@
       <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/for_optimizations_testing.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/for_optimizations_testing.lat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lattests/good/varqoxgood/param_passing_method_class_derived.lat" beforeDir="false" afterPath="$PROJECT_DIR$/lattests/good/varqoxgood/param_passing_method_class_derived.lat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/Internal/LatteClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Internal/LatteClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/Global.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/Global.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClassConstructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClassConstructor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClassVTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/program/global/classes/LLVMClassVTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/program/global/classes/MethodPointerPointer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Internal/MethodPointerPointer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/MethodPointerType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/Internal/MethodPointerType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/PostProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/PostProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/RegisterExprVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/programvisitors/StatementVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Block.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/ConstValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/ConstValue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/backend/quadruple/Quadruple.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/frontend/visitors/ExprChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/latte/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latte/utils/Utils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -595,14 +578,7 @@
       <workItem from="1674904311086" duration="3234000" />
       <workItem from="1674909211526" duration="5600000" />
       <workItem from="1674975608978" duration="46834000" />
-      <workItem from="1675038152134" duration="22480000" />
-    </task>
-    <task id="LOCAL-00074" summary="34/50">
-      <created>1672464929580</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1672464929580</updated>
+      <workItem from="1675038152134" duration="23070000" />
     </task>
     <task id="LOCAL-00075" summary="35/50 - testowanie z inputem">
       <created>1672466138374</created>
@@ -940,7 +916,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675068724669</updated>
     </task>
-    <option name="localTasksCounter" value="123" />
+    <task id="LOCAL-00123" summary="usuniecie nila, przygotowanie do  oddania">
+      <created>1675074204840</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1675074204840</updated>
+    </task>
+    <option name="localTasksCounter" value="124" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1028,7 +1011,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Dodanie resetu zmiennych na wszelki wypadek." />
     <MESSAGE value="Ignore tests" />
     <MESSAGE value="Remove not needed phi variable" />
     <MESSAGE value="Prepare PostProcessor" />
@@ -1053,7 +1035,8 @@
     <MESSAGE value="jest lepiej" />
     <MESSAGE value="PostProcessor" />
     <MESSAGE value="fix frontend" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix frontend" />
+    <MESSAGE value="usuniecie nila, przygotowanie do  oddania" />
+    <option name="LAST_COMMIT_MESSAGE" value="usuniecie nila, przygotowanie do  oddania" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -41,14 +41,16 @@ sie pliki zrodlowe z podzialem na paczki:
   - `latte.frontend` - zawiera klase SemanticAnalyst bedaca glownym plikiem frontendu.
       - `visitors` - implementacje visitor'ow.
       - `environment` - opisuje srodowisko wykononia SemanticAnalyst'y.
-  - `parser` - Parser. Wszystkie pliki wygenerowane przez bnfc.
-  - `internal` - Typy wewnętrzne kompilatora. 
-  - `utils` - pomocnicze funkcje tostring.
+  - `latte.parser` - Parser. Wszystkie pliki wygenerowane przez bnfc.
+  - `latte.internal` - Typy wewnętrzne kompilatora. 
+  - `latte.utils` - pomocnicze funkcje tostring.
   - `latte.backend` - zawiera implementacje backendu.
     - `program` - elementy programu takie jak funkcje, zmienne, scope'y(zakres widocznosci)
-    - `IsExprBoolTypeManager` - sprawdza czy wyrazenie jest typu bool wymagajace skaczacego kodu.
-    - `Program` - reprezentacja programu w postaci ssa.
-    - `programvisitors` - implementacje visitor'ow dla Programu.
+      - `global` - definicje globalnych skladnikow programu: klasy, funkcje, scope'y
+        - `classes` - folder zawiera  klasy odpowiadajace poszczegolnym skladnikom realizacji klas: Klasa, Typ klasowy, Metoda, Konstruktor, VTable
+      - `Program` - reprezentacja programu w postaci ssa.
+    - `programvisitors` - implementacje visitor'ow dla Programu i PostProcessor'a. 
+      - `PostProcessor` - przejscie jeszcze raz wygenerowanego juz kodu czworkowego celem optymalizacji kodu
     - `quadruple` - reprezentacja instrukcji LLVM w postaci ssa.
 
 Zmienne inicjalizowane są na domyślne wartości - int -> 0, bool -> false, string -> "".
