@@ -1,110 +1,150 @@
-Oprocz plikow projektowych dolaczam `testy_phi` i `zmiany_po_mailu.md`, o ktore Pani Doktor prosiła podczas omawiania pierwszej wersji backendu.
-Testy te bardzo mi pomogły w pozbyciu sie błędów z instrukcji phi - zwłaszcza jeśli chodzi o zagnieżdżone pętle i ify.
+# Latte language compiler
 
-# Konflikty
-
-Gramatyka ma 6 konfliktow shift/reduce. 1 konflikt przyszedl z wraz z gramatyka źródłową.
-
-5 konfliktow bierze sie z nastepujacych linijek i chodzi w nich o te kolizje ident-ident i ident-Expr6.
-- EArrayElem. Expr7 ::= Expr6 "[" Expr "]";
-- EArrayElemR. Expr7 ::= Ident "[" Expr "]";
-- ENull.      Expr6 ::= "(" Ident ")" "null";
-- EVar.      Expr6 ::= Ident ; 
+Latte Compiler is a Java-based compiler that performs various extensions and optimizations on Latte language code.
 
 
-# Optymalizacje uwzględniają:
-- zwijanie stalych
-- propagacja stalych
-- propagacja kopii
-- postac ssa 
-- usuwanie martwego kodu
-  - martwe zmienne
-  - kod po returnach
-  - if(const), while(const)
-- usuwanie pustych i niepotrzebnych blokow
-  - (uznalem za potrzebne te co biorą udział w jakichs phi)
-  - daloby sie usunąć ich jeszcze więcej, ale wolałem mieć pewność, że nie usuwam za dużo.
-- GCSE (5)
+## Optimizations
+The Latte compiler includes several optimizations to improve the performance of the generated code. These optimizations include:
 
-# Rozszerzenia uwzgledniaja
- - tablice (1)
- - struktury (2)
- - obiekty (atrybuty, metody, dziedziczenie) (3)
- - metody wirtualne (3)
+ - Constant folding: Folding of constants in expressions.
+ - Constant propagation: Propagation of constant values.
+ - Copy propagation: Propagation of copied values.
+ - PHI Nodes insertion and registers usage instead of memory allocation
+ - Global strings reusage
+ - Static single assignment (SSA) form: Conversion of the program to SSA form.
+ - Dead code elimination: Removal of dead code, including dead variables and code after return statements.
+ - Removal of unreachable blocks of code.
+ - Removal of unnecessary blocks (in generated code).
+ - Local common subexpression elimination (GCSE): Elimination of common subexpressions at the local level.
+ - Global common subexpression elimination (GCSE): Elimination of common subexpressions at the global level.
+ 
+## Extensions
+The Latte compiler also includes several language extensions, including support for:
+ - Arrays
+ - Structures
+ - Objects (attributes, methods, inheritance)
+ - Virtual methods
 
 
-Optymalizacje GCSE, usuwanie martwego kodu(zmiennych), usuwanie niepotrzebnych blokow sa realizowane na wygenerowanym juz kodzie czworkowym w klasie `PostProcessor`. 
-Propagacja kopii, stałych i zwijanie sa na etapie generacji kodu w backendzie.
-Kod realizujacy klasy w wiekszosci znajduje sie w folderze `latte.backend.program.global.classes`, oraz klasie `RegisterExprVisitor`.
-Kod implementujacy tablice w calosci znajduje sie w `RegisterExprVisitor`.
+## How to Use
+To compile the compiler, run the following command: make
 
-Gdybym mógł zrobić coś inaczej w projekcie to na pewno bym wykonał zwijanie stałych i ich propagacje, tłumaczenie niektórych wyrażeń (np. for) na etapie frontendu. 
-Było to bardzo utrudnione przez generowanie javowych klas wprost z gramatyki, gdyz posiadaly niemodyfikowalne zmienne typu final.
-Ale mimo wszystko wykonywalne - należałoby zbudować od nowa swoje drzewo AST. Kurczowe trzymanie się wygenerowanej przez bnfc postaci drzewa przysporzyło mi to bardzo dużo problemów i oszpeciło kod. 
+To use the compiler, run the following command: ./latc filename.lat, where filename.lat is the name of the Latte source file that you want to compile.
 
-W tablicy na ujemnych bajtach od wskaznika trzymam length. Tablice sa wielowymiarowe.
+## Syntax
+Below some syntax examples. Full grammar can be found in /Latte.cf in BNFC format.
 
-Jestem zadowolony z GCSE i kodu realizujacego wirtualne metody - były to wyzwania dające dużo satysfakcji i zrozumienia tematu. 
+```java
+// print positive even numbers up to 10
 
-Nie jestem zadowolony z jakości kodu jaki oddaje - niestety czas naglił i odpuszczałem sobie miejscami refaktoryzacje. 
-
-W petli for, iterator jest prawostronny - nie jest możliwe zatem coś takiego:
-```
-    int [][]x;
-    x = new int[][2];
-    for (int[] y : x) {
-        y = new int[3];
-    }
-```
-natomiast nastepujacy kod jest w porządku:
-```
-    int [][]x;
-    x = new int[][2];
-    x[0]= new int[3];
-    x[1]= new int[3];
-    
-    x[0][0]=1; x[0][1]=2; x[0][2]=3;
-    x[1][0]=4; x[1][1]=5; x[1][2]=6;
-    
-    for (int[] y : x) {
-        y[0] = 10;
-        for (int z : y) {
-            printInt(z);
-        }
-    }
+int main () {
+  int i = 1 ;
+  while (i < 10){
+    if (i % 2 == 0) printInt(i) ; 
+    i++ ;
+  }
+  printInt(i) ;
+  return 0 ;
+}
 ```
 
+```java
+int[] sum (int[] a, int[] b) {
+  int[] res = new int [a.length];
+  int i = 0;
 
-Kompliacja kompilatora za pomoca polecenia: `make`
+  while (i < a.length) {
+    res[i] = a[i] + b[i];
+    i++;
+  }
+  return res;
+}
+```
 
-Uzycie: `./latc nazwa_pliku.lat`
+```java
+class Node {
+  Shape elem;
+  Node next;
 
-Struktura:
+  void setElem(Shape c) { elem = c; }
 
-W katalogu `third_party` znajduja sie paczki jar bibliotek java_cup i jlex, wykorzystywane przez parser. W katalogu `src` znajduja
-sie pliki zrodlowe z podzialem na paczki:
-- `latte` - Latte. Plik Compiler, to kompilator.
-  - `latte.Absyn` - Abstract syntax. Skladniki syntaktyczne jezyka latte. Pliki wygenerowane przez bnfc.
-  - `latte.errors` - Definicje bledow
-  - `latte.frontend` - zawiera klase SemanticAnalyst bedaca glownym plikiem frontendu.
-      - `visitors` - implementacje visitor'ow.
-      - `environment` - opisuje srodowisko wykononia SemanticAnalyst'y.
-  - `latte.parser` - Parser. Wszystkie pliki wygenerowane przez bnfc.
-  - `latte.internal` - Typy wewnętrzne kompilatora. 
-  - `latte.utils` - pomocnicze funkcje tostring.
-  - `latte.backend` - zawiera implementacje backendu.
-    - `program` - elementy programu takie jak funkcje, zmienne, scope'y(zakres widocznosci)
-      - `global` - definicje globalnych skladnikow programu: klasy, funkcje, scope'y
-        - `classes` - folder zawiera  klasy odpowiadajace poszczegolnym skladnikom realizacji klas: Klasa, Typ klasowy, Metoda, Konstruktor, VTable
-      - `Program` - reprezentacja programu w postaci ssa.
-    - `programvisitors` - implementacje visitor'ow dla Programu i PostProcessor'a. 
-      - `PostProcessor` - przejscie jeszcze raz wygenerowanego juz kodu czworkowego celem optymalizacji kodu
-    - `quadruple` - reprezentacja instrukcji LLVM w postaci ssa.
+  void setNext(Node n) { next = n; }
 
-Zmienne inicjalizowane są na domyślne wartości - int -> 0, bool -> false, string -> "".
-Funkcja error jest traktowana jako poprawne wyjście z funkcji (tez takiej zwracającej coś innego niż void).
-Frontend nie pozwala na field shadowing, natomiast pisząc backend brałem pod uwage taka ewentualność.
+  Shape getElem() { return elem; }
 
-Zapozyczenia:
+  Node getNext() { return next; }
+}
 
-Niektóre funkcje runtime (readInt, printInt, printString) są wzięte z pliku `runtime.ll` z katalogu `/home/students/inf/PUBLIC/MRJP/Llvm`.
+class Stack {
+  Node head;
+
+  void push(Shape c) {
+    Node newHead = new Node;
+    newHead.setElem(c);
+    newHead.setNext(head);
+    head = newHead;
+  }
+
+  boolean isEmpty() {
+    return head==(Node)null;
+  }
+
+  Shape top() {
+    return head.getElem();
+  }
+
+  void pop() {
+    head = head.getNext();
+  }
+}
+
+class Shape {
+  void tell () {
+    printString("I'm a shape");
+  }
+
+  void tellAgain() {
+     printString("I'm just a shape");
+  }
+}
+
+class Rectangle extends Shape {
+  void tellAgain() {
+    printString("I'm really a rectangle");
+  }
+}
+
+class Circle extends Shape {
+  void tellAgain() {
+    printString("I'm really a circle");
+  }
+}
+
+class Square extends Rectangle {
+  void tellAgain() {
+    printString("I'm really a square");
+  }
+}
+
+int main() {
+  Stack stk = new Stack;
+  Shape s = new Shape;
+  stk.push(s);
+  s = new Rectangle;
+  stk.push(s);
+  s = new Square;
+  stk.push(s);
+  s = new Circle;
+  stk.push(s);
+  while (!stk.isEmpty()) {
+    s = stk.top();
+    s.tell();
+    s.tellAgain();
+    stk.pop();
+  }
+  return 0;
+}
+```
+
+
+
