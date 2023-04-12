@@ -32,7 +32,7 @@ To compile the compiler, run the following command: make
 To use the compiler, run the following command: ./latc filename.lat, where filename.lat is the name of the Latte source file that you want to compile.
 
 ## Syntax
-Below some syntax examples. Full grammar can be found in /Latte.cf in BNFC format.
+Below some syntax examples. Full grammar can be found in ./Latte.cf in BNFC format. More examples can be found in `lattests/good`. `lattests/bad` contains programs that are not correct and are rejected by the compiler.
 
 ```java
 // print positive even numbers up to 10
